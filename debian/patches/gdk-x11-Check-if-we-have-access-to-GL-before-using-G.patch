@@ -1,0 +1,58 @@
+From 1fb5f0aed9976437d8c9c82071efe9a447d73de1 Mon Sep 17 00:00:00 2001
+From: Emmanuele Bassi <ebassi@gnome.org>
+Date: Fri, 20 Jan 2017 18:07:01 +0000
+Subject: [PATCH] gdk/x11: Check if we have access to GL before using GLX API
+
+If the platform does not have access to libGL then any call to GL and
+GLX API through libepoxy will fail with an assertion. Until such time
+that libepoxy exposes API for us to use, we can simply dlopen libGL
+ourselves and do a symbol check.
+
+[smcv: fix typo]
+
+Bug: https://bugzilla.gnome.org/show_bug.cgi?id=775279
+Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=847366
+---
+ gdk/x11/gdkglcontext-x11.c | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+
+diff --git a/gdk/x11/gdkglcontext-x11.c b/gdk/x11/gdkglcontext-x11.c
+index 0819f89648..d8ddf0fe19 100644
+--- a/gdk/x11/gdkglcontext-x11.c
++++ b/gdk/x11/gdkglcontext-x11.c
+@@ -854,6 +854,32 @@ gdk_x11_screen_init_gl (GdkScreen *screen)
+   if (_gdk_gl_flags & GDK_GL_DISABLE)
+     return FALSE;
+ 
++  /* This is an ad hoc check that bypasses libepoxy to check if libGL.so is
++   * unavailable, and disables GL support if that's the case
++   *
++   * Ideally, libepoxy should do this for us, but that would require adding
++   * new API, and we'd need a fallback anyway.
++   */
++  {
++    Bool (* fp_glXQueryExtension) (Display *dpy, int *err_base, int *ev_base);
++    GModule *module = g_module_open ("libGL.so.1", 0);
++
++    if (module == NULL)
++      {
++        GDK_NOTE (OPENGL, g_message ("No libGL.so found"));
++        return FALSE;
++      }
++
++    if (!g_module_symbol (module, "glXQueryExtension", (gpointer *) &fp_glXQueryExtension))
++      {
++        GDK_NOTE (OPENGL, g_message ("No glXQueryExtension symbol found"));
++        g_module_close (module);
++        return FALSE;
++      }
++
++    g_module_close (module);
++  }
++
+   dpy = gdk_x11_display_get_xdisplay (display);
+ 
+   if (!glXQueryExtension (dpy, &error_base, &event_base))
+-- 
+2.11.0
+
