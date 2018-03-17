@@ -1,0 +1,39 @@
+diff --git a/gtk/gtkfilechooserwidget.c b/gtk/gtkfilechooserwidget.c
+index 45e4724..fcda5b6 100644
+--- a/gtk/gtkfilechooserwidget.c
++++ b/gtk/gtkfilechooserwidget.c
+@@ -5583,6 +5583,34 @@ gtk_file_chooser_widget_update_current_folder (GtkFileChooser  *chooser,
+ 
+   operation_mode_set (impl, OPERATION_MODE_BROWSE);
+ 
++  gchar *uri = g_file_get_uri (file);
++  gchar *home_uri = g_strdup_printf ("file://%s", g_get_home_dir ());
++  gchar *media_uri = g_strdup_printf ("file:///media/%s", g_get_user_name ());
++  const gchar *trash_uri = "trash:///";
++  const gchar *network_uri = "network:///";
++
++  if (!g_str_has_prefix (uri, home_uri) &&
++      !g_str_has_prefix (uri, media_uri) &&
++      !g_str_has_prefix (uri, trash_uri) &&
++      !g_str_has_prefix (uri, network_uri))
++    {
++      g_set_error_literal (error,
++                           G_IO_ERROR,
++                           G_IO_ERROR_PERMISSION_DENIED,
++                           _("You do not have access to the specified folder."));
++
++      g_free (uri);
++      g_free (home_uri);
++      g_free (media_uri);
++      g_object_unref (file);
++      profile_end ("end - access denied", NULL);
++      return FALSE;
++    }
++
++  g_free (uri);
++  g_free (home_uri);
++  g_free (media_uri);
++
+   if (priv->local_only && !_gtk_file_has_native_path (file))
+     {
+       g_set_error_literal (error,
