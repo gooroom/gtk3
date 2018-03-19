@@ -1,5 +1,5 @@
 diff --git a/gtk/gtkplacessidebar.c b/gtk/gtkplacessidebar.c
-index b8d5985..7e45a92 100644
+index b8d5985..8ab06f0 100644
 --- a/gtk/gtkplacessidebar.c
 +++ b/gtk/gtkplacessidebar.c
 @@ -907,7 +907,7 @@ update_places (GtkPlacesSidebar *sidebar)
@@ -138,3 +138,33 @@ index b8d5985..7e45a92 100644
  
    /* network */
    if (!sidebar->local_only)
+@@ -1361,7 +1361,8 @@ update_places (GtkPlacesSidebar *sidebar)
+ 
+   gtk_widget_show_all (GTK_WIDGET (sidebar));
+   /* We want this hidden by default, but need to do it after the show_all call */
+-  gtk_sidebar_row_hide (GTK_SIDEBAR_ROW (sidebar->new_bookmark_row), TRUE);
++  if (sidebar->new_bookmark_row != NULL)
++    gtk_sidebar_row_hide (GTK_SIDEBAR_ROW (sidebar->new_bookmark_row), TRUE);
+ 
+   /* restore original selection */
+   if (original_uri)
+@@ -1515,7 +1516,8 @@ start_drop_feedback (GtkPlacesSidebar *sidebar,
+ {
+   if (sidebar->drag_data_info != DND_GTK_SIDEBAR_ROW)
+     {
+-      gtk_sidebar_row_reveal (GTK_SIDEBAR_ROW (sidebar->new_bookmark_row));
++      if (sidebar->new_bookmark_row != NULL)
++        gtk_sidebar_row_reveal (GTK_SIDEBAR_ROW (sidebar->new_bookmark_row));
+       /* If the state is permanent, don't change it. The application controls it. */
+       if (sidebar->drop_state != DROP_STATE_NEW_BOOKMARK_ARMED_PERMANENT)
+         sidebar->drop_state = DROP_STATE_NEW_BOOKMARK_ARMED;
+@@ -1993,7 +1995,8 @@ drag_leave_callback (GtkWidget      *widget,
+   if (sidebar->drop_state != DROP_STATE_NEW_BOOKMARK_ARMED_PERMANENT)
+     {
+       update_possible_drop_targets (sidebar, FALSE, context);
+-      gtk_sidebar_row_hide (GTK_SIDEBAR_ROW (sidebar->new_bookmark_row), FALSE);
++      if (sidebar->new_bookmark_row != NULL)
++        gtk_sidebar_row_hide (GTK_SIDEBAR_ROW (sidebar->new_bookmark_row), FALSE);
+       sidebar->drop_state = DROP_STATE_NORMAL;
+     }
+ 
