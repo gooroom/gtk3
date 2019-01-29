@@ -1,0 +1,34 @@
+diff --git a/gtk/gtkplacesview.c b/gtk/gtkplacesview.c
+index 15d95cc..5431f6e 100644
+--- a/gtk/gtkplacesview.c
++++ b/gtk/gtkplacesview.c
+@@ -1059,8 +1059,8 @@ update_places (GtkPlacesView *view)
+   GList *volumes;
+   GList *drives;
+   GList *l;
+-  GIcon *icon;
+-  GFile *file;
++//  GIcon *icon;
++//  GFile *file;
+ 
+   priv = gtk_places_view_get_instance_private (view);
+ 
+@@ -1072,13 +1072,13 @@ update_places (GtkPlacesView *view)
+   gtk_places_view_set_loading (view, TRUE);
+ 
+   /* Add "Computer" row */
+-  file = g_file_new_for_path ("/");
+-  icon = g_themed_icon_new_with_default_fallbacks ("drive-harddisk");
++//  file = g_file_new_for_path ("/");
++//  icon = g_themed_icon_new_with_default_fallbacks ("drive-harddisk");
+ 
+-  add_file (view, file, icon, _("Computer"), "/", FALSE);
++//  add_file (view, file, icon, _("Computer"), "/", FALSE);
+ 
+-  g_clear_object (&file);
+-  g_clear_object (&icon);
++//  g_clear_object (&file);
++//  g_clear_object (&icon);
+ 
+   /* Add currently connected drives */
+   drives = g_volume_monitor_get_connected_drives (priv->volume_monitor);
