@@ -623,6 +623,54 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 }
 
 static void
+dump_atk_table_cell (AtkTableCell *table_cell,
+                     guint     depth,
+                     GString  *string)
+{
+  gint i;
+  AtkObject *obj;
+  GPtrArray *cells;
+  gint row = -1, column = -1;
+
+  g_string_append_printf (string, "%*s<AtkTableCell>\n", depth, "");
+
+  obj = atk_table_cell_get_table (table_cell);
+  if (obj)
+    g_string_append_printf (string, "%*stable: %s\n", depth, "", get_name (obj));
+
+  cells = atk_table_cell_get_column_header_cells (table_cell);
+  if (cells)
+    {
+      for (i = 0; i < cells->len; i++)
+        {
+          obj = g_ptr_array_index (cells, i);
+          if (obj)
+            g_string_append_printf (string, "%*scolumn-header[%d]: %s\n", depth, "", i, get_name (obj));
+        }
+      g_ptr_array_free (cells, TRUE);
+    }
+
+  cells = atk_table_cell_get_row_header_cells (table_cell);
+  if (cells)
+    {
+      for (i = 0; i < cells->len; i++)
+        {
+          obj = g_ptr_array_index (cells, i);
+          if (obj)
+            g_string_append_printf (string, "%*srow-header[%d]: %s\n", depth, "", i, get_name (obj));
+        }
+      g_ptr_array_free (cells, TRUE);
+    }
+
+  g_string_append_printf (string, "%*scolumn-span: %d\n", depth, "", atk_table_cell_get_column_span (table_cell));
+  g_string_append_printf (string, "%*srow-span: %d\n", depth, "", atk_table_cell_get_row_span (table_cell));
+  if (atk_table_cell_get_position (table_cell, &row, &column))
+    {
+      g_string_append_printf (string, "%*sposition: %d %d\n", depth, "", row, column);
+    }
+}
+
+static void
 dump_accessible (AtkObject     *accessible,
                  guint          depth,
                  GString       *string)
@@ -674,6 +722,9 @@ dump_accessible (AtkObject     *accessible,
 
   if (ATK_IS_TABLE (accessible))
     dump_atk_table (ATK_TABLE (accessible), depth, string);
+
+  if (ATK_IS_TABLE_CELL (accessible))
+    dump_atk_table_cell (ATK_TABLE_CELL (accessible), depth, string);
 
   for (i = 0; i < atk_object_get_n_accessible_children (accessible); i++)
     {
@@ -858,6 +909,7 @@ parse_command_line (int *argc, char ***argv)
 {
   GError *error = NULL;
   GOptionContext *context;
+  gchar *schema_dir;
 
   context = g_option_context_new ("- run GTK accessibility tests");
   g_option_context_add_main_entries (context, test_args, NULL);
@@ -870,6 +922,10 @@ parse_command_line (int *argc, char ***argv)
     }
 
   gtk_test_init (argc, argv);
+
+  schema_dir = g_test_build_filename (G_TEST_BUILT, "", NULL);
+  g_setenv ("GSETTINGS_SCHEMA_DIR", schema_dir, TRUE);
+  g_free (schema_dir);
 
   /* gtk_test_init does not call setlocale(), so do it ourselves,
    * since running in the C locale breaks some our fancy

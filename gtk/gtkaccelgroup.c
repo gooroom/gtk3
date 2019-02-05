@@ -39,8 +39,8 @@
  * @Short_description: Groups of global keyboard accelerators for an
  *     entire GtkWindow
  * @Title: Accelerator Groups
- * @See_also:gtk_window_add_accel_group(), gtk_accel_map_change_entry(),
- * gtk_item_factory_new(), gtk_label_new_with_mnemonic()
+ * @See_also: gtk_window_add_accel_group(), gtk_accel_map_change_entry(),
+ * gtk_label_new_with_mnemonic()
  *
  * A #GtkAccelGroup represents a group of keyboard accelerators,
  * typically attached to a toplevel #GtkWindow (with
@@ -1364,10 +1364,13 @@ gtk_accelerator_parse_with_keycode (const gchar     *accelerator,
 
           if (keyval && accelerator_codes != NULL)
             {
+              GdkKeymap *keymap;
               GdkKeymapKey *keys;
               gint n_keys, i, j;
 
-              if (!gdk_keymap_get_entries_for_keyval (gdk_keymap_get_default (), keyval, &keys, &n_keys))
+              keymap = gdk_keymap_get_for_display (gdk_display_get_default ());
+
+              if (!gdk_keymap_get_entries_for_keyval (keymap, keyval, &keys, &n_keys))
                 {
                   /* Not in keymap */
                   error = TRUE;

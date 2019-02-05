@@ -1,7 +1,6 @@
-From 7785c99603e754d6c20a7923450d7a19eed0cd07 Mon Sep 17 00:00:00 2001
 From: Martin Pitt <martin.pitt@ubuntu.com>
 Date: Thu, 8 Sep 2011 09:14:02 +0200
-Subject: [PATCH] Consistently treat gdkenumtypes.[hc] as source files
+Subject: Consistently treat gdkenumtypes.[hc] as source files
 
 Always generate gdk/gdkenumtypes.c in the source tree, and fix path in the
 introspection sources. With this, gdkenumtypes.c is correctly included with
@@ -14,15 +13,16 @@ in the source tree.
 
 Bug: https://bugzilla.gnome.org/show_bug.cgi?id=647729
 Bug-Ubuntu: https://launchpad.net/bugs/769256
+Forwarded: yes
 ---
- gdk/Makefile.am |   17 +++++++----------
- 1 files changed, 7 insertions(+), 10 deletions(-)
+ gdk/Makefile.am | 17 +++++++----------
+ 1 file changed, 7 insertions(+), 10 deletions(-)
 
-Index: gtk+-3.21.6/gdk/Makefile.am
-===================================================================
---- gtk+-3.21.6.orig/gdk/Makefile.am	2016-09-14 04:19:48.808467198 +0200
-+++ gtk+-3.21.6/gdk/Makefile.am	2016-09-14 04:19:48.804467138 +0200
-@@ -243,8 +243,8 @@
+diff --git a/gdk/Makefile.am b/gdk/Makefile.am
+index 9550187..21c1c50 100644
+--- a/gdk/Makefile.am
++++ b/gdk/Makefile.am
+@@ -243,8 +243,8 @@ if HAVE_INTROSPECTION
  introspection_files = 		\
  	$(filter-out gdkkeysyms-compat.h, $(gdk_h_sources))	\
  	$(gdk_c_sources)	\
@@ -33,7 +33,7 @@ Index: gtk+-3.21.6/gdk/Makefile.am
  
  Gdk-3.0.gir: libgdk-3.la Makefile
  Gdk_3_0_gir_SCANNERFLAGS = 	\
-@@ -408,7 +408,7 @@
+@@ -408,7 +408,7 @@ endif
  
  lib_LTLIBRARIES = libgdk-3.la
  
@@ -42,7 +42,7 @@ Index: gtk+-3.21.6/gdk/Makefile.am
  EXTRA_DIST += \
  	$(gdk_built_sources)	\
  	fallback-c89.c
-@@ -422,18 +422,15 @@
+@@ -422,18 +422,15 @@ BUILT_SOURCES = \
  	$(gdk_built_sources)			\
  	gdkconfig.h
  

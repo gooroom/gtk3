@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GTK+ CSS: GTK+ 3 Reference Manual</title>
+<title>GTK+ CSS Overview: GTK+ 3 Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="theming.html" title="Part IV. Theming in GTK+">
 <link rel="prev" href="theming.html" title="Part IV. Theming in GTK+">
-<link rel="next" href="chap-css-properties.html" title="GTK+ CSS">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<link rel="next" href="chap-css-properties.html" title="GTK+ CSS Properties">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -23,8 +23,8 @@
 <a name="chap-css-overview"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle">GTK+ CSS</span></h2>
-<p>GTK+ CSS — 
+<h2><span class="refentrytitle">GTK+ CSS Overview</span></h2>
+<p>GTK+ CSS Overview — 
 Overview of CSS in GTK+
 </p>
 </td>
@@ -38,7 +38,7 @@ Overview of CSS in GTK+
   </p>
 <p>
     We loosely follow the CSS
-    <a class="ulink" href="http://www.w3.org/TR/css-values/#value-defs" target="_top">value definition</a>
+    <a class="ulink" href="https://www.w3.org/TR/css-values/#value-defs" target="_top">value definition</a>
     specification in the formatting of syntax productions.
     </p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -89,19 +89,19 @@ Overview of CSS in GTK+
 11
 12
 13</pre></td>
-        <td class="listing_code"><pre class="programlisting">scale<span class="gtkdoc opt">[.</span>fine<span class="gtkdoc opt">-</span>tune<span class="gtkdoc opt">]</span>
-├── marks<span class="gtkdoc opt">.</span>top
-│   ├── mark
-┊   ┊
-│   ╰── mark
-├── trough
-│   ├── slider
-│   ├── <span class="gtkdoc opt">[</span>highlight<span class="gtkdoc opt">]</span>
-│   ╰── <span class="gtkdoc opt">[</span>fill<span class="gtkdoc opt">]</span>
-╰── marks<span class="gtkdoc opt">.</span>bottom
-    ├── mark
-    ┊
-    ╰── mark</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">scale</span><span class="symbol">[.</span><span class="normal">fine</span><span class="symbol">-</span><span class="normal">tune</span><span class="symbol">]</span>
+<span class="normal">├── marks</span><span class="symbol">.</span><span class="normal">top</span>
+<span class="normal">│   ├── mark</span>
+<span class="normal">┊   ┊</span>
+<span class="normal">│   ╰── mark</span>
+<span class="normal">├── trough</span>
+<span class="normal">│   ├── slider</span>
+<span class="normal">│   ├── </span><span class="symbol">[</span><span class="normal">highlight</span><span class="symbol">]</span>
+<span class="normal">│   ╰── </span><span class="symbol">[</span><span class="normal">fill</span><span class="symbol">]</span>
+<span class="normal">╰── marks</span><span class="symbol">.</span><span class="normal">bottom</span>
+<span class="normal">    ├── mark</span>
+<span class="normal">    ┊</span>
+<span class="normal">    ╰── mark</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -135,10 +135,10 @@ Overview of CSS in GTK+
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting">button<span class="gtkdoc opt">,</span> entry <span class="gtkdoc opt">{</span>
-  color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#ff00ea;</span>
-  font<span class="gtkdoc opt">:</span> Comic Sans <span class="number">12</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">button</span><span class="symbol">,</span><span class="normal"> entry </span><span class="cbracket">{</span>
+<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> #ff00ea</span><span class="symbol">;</span>
+<span class="normal">  font</span><span class="symbol">:</span><span class="normal"> 12px </span><span class="string">"Comic Sans"</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -157,8 +157,8 @@ Overview of CSS in GTK+
 <p>
       The syntax for @import rules is as follows:
     </p>
-<div class="literallayout"><p><code class="code">〈import rule〉 = @import [ 〈url〉 | 〈string〉] ;</code><br>
-<code class="code">〈url〉 = url( 〈string〉)</code><br>
+<div class="literallayout"><p><code class="code">〈import rule〉 = @import [ 〈url〉 | 〈string〉 ]</code><br>
+<code class="code">〈url〉 = url( 〈string〉 )</code><br>
 </p></div>
 <div class="example">
 <a name="id-1.5.2.3.6.5"></a><p class="title"><b>Example 8. An example for using the @import rule</b></p>
@@ -167,7 +167,7 @@ Overview of CSS in GTK+
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting">&#64;import <span class="function">url</span><span class="gtkdoc opt">(</span><span class="string">&quot;path/to/common.css&quot;</span><span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">@</span><span class="usertype">import</span><span class="normal"> </span><span class="function">url</span><span class="symbol">(</span><span class="string">"path/to/common.css"</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -176,7 +176,7 @@ Overview of CSS in GTK+
 </div>
 <br class="example-break"><p>
       To learn more about the @import rule, you can read the
-      <a class="ulink" href="http://www.w3.org/TR/css3-cascade/#at-import" target="_top">Cascading</a>
+      <a class="ulink" href="https://www.w3.org/TR/css3-cascade/#at-import" target="_top">Cascading</a>
       module of the CSS specification.
     </p>
 </div>
@@ -209,9 +209,9 @@ Overview of CSS in GTK+
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">window label <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#898989</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">window</span><span class="normal"> label </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #</span><span class="number">898989</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -227,9 +227,9 @@ Overview of CSS in GTK+
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">notebook <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#a939f0</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">notebook </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #a939f0</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -247,11 +247,11 @@ Overview of CSS in GTK+
 3
 4
 5</pre></td>
-        <td class="listing_code"><pre class="programlisting">combobox<span class="gtkdoc opt">,</span>
-notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</span>
-  color<span class="gtkdoc opt">:</span> &#64;fg_color<span class="gtkdoc opt">;</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#1209a2</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">combobox</span><span class="symbol">,</span>
+<span class="normal">notebook </span><span class="symbol">&gt;</span><span class="normal"> entry </span><span class="cbracket">{</span>
+<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> @fg_color</span><span class="symbol">;</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #1209a2</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -267,9 +267,9 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">box <span class="gtkdoc opt">* {</span>
-  font<span class="gtkdoc opt">:</span> Sans <span class="number">20</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">box </span><span class="symbol">*</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">  font</span><span class="symbol">:</span><span class="normal"> 20</span><span class="usertype">px</span><span class="normal"> Sans</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -285,9 +285,9 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">label<span class="gtkdoc ppc">#title-label {</span>
-  font<span class="gtkdoc opt">:</span> Sans <span class="number">15</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">label#title</span><span class="symbol">-</span><span class="normal">label </span><span class="cbracket">{</span>
+<span class="normal">  font</span><span class="symbol">:</span><span class="normal"> 15</span><span class="usertype">px</span><span class="normal"> Sans</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -303,9 +303,9 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc ppc">#main-entry {</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#f0a810</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="preproc">#main</span><span class="symbol">-</span><span class="normal">entry </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #f0a810</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -321,9 +321,9 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">.</span>entry <span class="gtkdoc opt">{</span>
-  color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#39f1f9;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">.</span><span class="normal">entry </span><span class="cbracket">{</span>
+<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> #39f1f9</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -339,9 +339,9 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">spinbutton entry <span class="gtkdoc opt">{</span>
-  color<span class="gtkdoc opt">:</span> <span class="number">900185</span><span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">spinbutton</span><span class="normal"> entry </span><span class="cbracket">{</span>
+<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> #</span><span class="number">900185</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -363,9 +363,9 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">notebook tab<span class="gtkdoc opt">:</span>first<span class="gtkdoc opt">-</span>child label <span class="gtkdoc opt">{</span>
-  color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#89d012;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">notebook</span><span class="normal"> tab</span><span class="symbol">:</span><span class="normal">first</span><span class="symbol">-</span><span class="usertype">child</span><span class="normal"> label </span><span class="cbracket">{</span>
+<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> #89d012</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -390,9 +390,9 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">button<span class="gtkdoc opt">:</span>active <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#0274d9;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">button</span><span class="symbol">:</span><span class="normal">active </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #0274d9</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -408,9 +408,9 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">button<span class="gtkdoc opt">:</span>hover <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#3085a9;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">button</span><span class="symbol">:</span><span class="normal">hover </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #3085a9</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -426,9 +426,9 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">*:</span>disabled <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#320a91;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">*:</span><span class="normal">disabled </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #320a91</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -444,9 +444,9 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">checkbutton<span class="gtkdoc opt">:</span>checked <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#56f9a0;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">checkbutton</span><span class="symbol">:</span><span class="normal">checked </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #56f9a0</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -462,9 +462,9 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">label<span class="gtkdoc opt">:</span>focus <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#b4940f;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">label</span><span class="symbol">:</span><span class="normal">focus </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #b4940f</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -480,9 +480,9 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">checkbutton<span class="gtkdoc opt">:</span>indeterminate <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#20395a;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">checkbutton</span><span class="symbol">:</span><span class="normal">indeterminate </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #20395a</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -517,138 +517,138 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
 </tr></thead>
 <tbody>
 <tr>
-<td>*</td>
+<td><span class="nowrap">*</span></td>
 <td>any node</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#universal-selector" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#universal-selector" target="_top">CSS</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>E</td>
+<td><span class="nowrap">E</span></td>
 <td>any node with name E</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#type-selectors" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#type-selectors" target="_top">CSS</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>E.class</td>
+<td><span class="nowrap">E.class</span></td>
 <td>any E node with the given style class</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#class-html" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#class-html" target="_top">CSS</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>E#id</td>
+<td><span class="nowrap">E#id</span></td>
 <td>any E node with the given ID</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#id-selectors" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#id-selectors" target="_top">CSS</a></td>
 <td>GTK+ uses the widget name as ID</td>
 </tr>
 <tr>
-<td>E:nth‑child(〈nth‑child〉)</td>
+<td><span class="nowrap">E:nth-child(〈nth-child〉)</span></td>
 <td>any E node which is the n-th child of its parent node</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#structural-pseudos" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#structural-pseudos" target="_top">CSS</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>E:nth‑last‑child(〈nth‑child〉)</td>
+<td><span class="nowrap">E:nth-last-child(〈nth-child〉)</span></td>
 <td>any E node which is the n-th child of its parent node, counting from the end</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#structural-pseudos" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#structural-pseudos" target="_top">CSS</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>E:first‑child</td>
+<td><span class="nowrap">E:first-child</span></td>
 <td>any E node which is the first child of its parent node</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#structural-pseudos" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#structural-pseudos" target="_top">CSS</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>E:last‑child</td>
+<td><span class="nowrap">E:last-child</span></td>
 <td>any E node which is the last child of its parent node</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#structural-pseudos" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#structural-pseudos" target="_top">CSS</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>E:only‑child</td>
+<td><span class="nowrap">E:only-child</span></td>
 <td>any E node which is the only child of its parent node</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#structural-pseudos" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#structural-pseudos" target="_top">CSS</a></td>
 <td>Equivalent to E:first-child:last-child</td>
 </tr>
 <tr>
-<td>E:link, E:visited</td>
+<td><span class="nowrap">E:link, E:visited</span></td>
 <td>any E node which represents a hyperlink, not yet visited (:link) or already visited (:visited)</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#link" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#link" target="_top">CSS</a></td>
 <td>Corresponds to GTK_STATE_FLAG_LINK and GTK_STATE_FLAGS_VISITED</td>
 </tr>
 <tr>
-<td>E:active, E:hover, E:focus</td>
+<td><span class="nowrap">E:active, E:hover, E:focus</span></td>
 <td>any E node which is part of a widget with the corresponding state</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#useraction-pseudos" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#useraction-pseudos" target="_top">CSS</a></td>
 <td>Corresponds to GTK_STATE_FLAG_ACTIVE, GTK_STATE_FLAG_PRELIGHT and GTK_STATE_FLAGS_FOCUSED; GTK+ also allows E:prelight and E:focused</td>
 </tr>
 <tr>
-<td>E:disabled</td>
-<td>any E node which is part of a widget with is disabled</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#UIstates" target="_top">CSS</a></td>
+<td><span class="nowrap">E:disabled</span></td>
+<td>any E node which is part of a widget which is disabled</td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#UIstates" target="_top">CSS</a></td>
 <td>Corresponds to GTK_STATE_FLAG_INSENSITIVE; GTK+ also allows E:insensitive</td>
 </tr>
 <tr>
-<td>E:checked</td>
+<td><span class="nowrap">E:checked</span></td>
 <td>any E node which is part of a widget (e.g. radio- or checkbuttons) which is checked</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#UIstates" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#UIstates" target="_top">CSS</a></td>
 <td>Corresponds to GTK_STATE_FLAG_CHECKED</td>
 </tr>
 <tr>
-<td>E:indeterminate</td>
-<td>any E node which is part of a widget (e.g. radio- or checkbuttons) which is in an inconsistent state</td>
+<td><span class="nowrap">E:indeterminate</span></td>
+<td>any E node which is part of a widget (e.g. radio- or checkbuttons) which is in an indeterminate state</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/css3-selectors/#indeterminate" target="_top">CSS3</a>,
+<a class="ulink" href="https://www.w3.org/TR/css3-selectors/#indeterminate" target="_top">CSS3</a>,
                    <a class="ulink" href="https://drafts.csswg.org/selectors/#indeterminate" target="_top">CSS4</a>
 </td>
 <td>Corresponds to GTK_STATE_FLAG_INCONSISTENT; GTK+ also allows E:inconsistent</td>
 </tr>
 <tr>
-<td>E:backdrop, E:selected</td>
+<td><span class="nowrap">E:backdrop, E:selected</span></td>
 <td>any E node which is part of a widget with the corresponding state</td>
 <td> </td>
 <td>Corresponds to GTK_STATE_FLAG_BACKDROP, GTK_STATE_FLAG_SELECTED</td>
 </tr>
 <tr>
-<td>E:not(〈selector〉)</td>
+<td><span class="nowrap">E:not(〈selector〉)</span></td>
 <td>any E node which does not match the simple selector 〈selector〉</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#negation" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#negation" target="_top">CSS</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>E:dir(ltr), E:dir(rtl)</td>
+<td><span class="nowrap">E:dir(ltr), E:dir(rtl)</span></td>
 <td>any E node that has the corresponding text direction</td>
 <td><a class="ulink" href="https://drafts.csswg.org/selectors/#the-dir-pseudo" target="_top">CSS4</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>E:drop(active)</td>
+<td><span class="nowrap">E:drop(active)</span></td>
 <td>any E node that is an active drop target for a current DND operation</td>
 <td><a class="ulink" href="https://drafts.csswg.org/selectors/#drag-pseudos" target="_top">CSS4</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>E F</td>
+<td><span class="nowrap">E F</span></td>
 <td>any F node which is a descendent of an E node</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#descendent-combinators" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#descendent-combinators" target="_top">CSS</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>E &gt; F</td>
+<td><span class="nowrap">E &gt; F</span></td>
 <td>any F node which is a child of an E node</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#child-combinators" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#child-combinators" target="_top">CSS</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>E ~ F</td>
+<td><span class="nowrap">E ~ F</span></td>
 <td>any F node which is preceded by an E node</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#general-sibling-combinators" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#general-sibling-combinators" target="_top">CSS</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>E + F</td>
+<td><span class="nowrap">E + F</span></td>
 <td>any F node which is immediately preceded by an E node</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-selectors/#adjacent-sibling-combinators" target="_top">CSS</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-selectors/#adjacent-sibling-combinators" target="_top">CSS</a></td>
 <td> </td>
 </tr>
 </tbody>
@@ -658,7 +658,7 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
 </p></div>
 <p>
       To learn more about selectors in CSS, read the
-      <a class="ulink" href="http://www.w3.org/TR/css3-selectors/" target="_top">Selectors</a>
+      <a class="ulink" href="https://www.w3.org/TR/css3-selectors/" target="_top">Selectors</a>
       module of the CSS specification.
     </p>
 </div>
@@ -670,8 +670,8 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
       values or names from a predefined list of colors.
     </p>
 <div class="literallayout"><p><code class="code">〈color〉 = currentColor | transparent | 〈color name〉 | 〈rgb color〉 | 〈rgba color〉 | 〈hex color〉 | 〈gtk color〉</code><br>
-<code class="code">〈rgb color 〉 = rgb( 〈number〉, 〈number〉, 〈number〉 ) | rgb( 〈percentage〉, 〈percentage〉, 〈percentage〉 )</code><br>
-<code class="code">〈rgba color 〉 = rgba(〈number〉, 〈number〉, 〈number〉, 〈alpha value〉) | rgba( 〈percentage〉, 〈percentage〉, 〈percentage〉, 〈alpha value〉 )</code><br>
+<code class="code">〈rgb color〉 = rgb( 〈number〉, 〈number〉, 〈number〉 ) | rgb( 〈percentage〉, 〈percentage〉, 〈percentage〉 )</code><br>
+<code class="code">〈rgba color〉 = rgba( 〈number〉, 〈number〉, 〈number〉, 〈alpha value〉 ) | rgba( 〈percentage〉, 〈percentage〉, 〈percentage〉, 〈alpha value〉 )</code><br>
 <code class="code">〈hex color〉 = #〈hex digits〉</code><br>
 <code class="code">〈alpha value〉 = 〈number〉</code>, clamped to values between 0 and 1<br>
 </p></div>
@@ -685,7 +685,7 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
     </p>
 <p>
       For a list of valid color names and for more background on colors in
-      CSS, see the <a class="ulink" href="http://www.w3.org/TR/css3-color/#svg-color" target="_top">Color</a>
+      CSS, see the <a class="ulink" href="https://www.w3.org/TR/css3-color/#svg-color" target="_top">Color</a>
       module of the CSS specification.
     </p>
 <div class="example">
@@ -700,12 +700,12 @@ notebook <span class="gtkdoc opt">&gt;</span> entry <span class="gtkdoc opt">{</
 4
 5
 6</pre></td>
-        <td class="listing_code"><pre class="programlisting">color<span class="gtkdoc opt">:</span> transparent<span class="gtkdoc opt">;</span>
-background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> red<span class="gtkdoc opt">;</span>
-border<span class="gtkdoc opt">-</span>top<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="function">rgb</span><span class="gtkdoc opt">(</span><span class="number">128</span><span class="gtkdoc opt">,</span><span class="number">57</span><span class="gtkdoc opt">,</span><span class="number">0</span><span class="gtkdoc opt">);</span>
-border<span class="gtkdoc opt">-</span>left<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="function">rgba</span><span class="gtkdoc opt">(</span><span class="number">10</span><span class="gtkdoc opt">%,</span><span class="number">20</span><span class="gtkdoc opt">%,</span><span class="number">30</span><span class="gtkdoc opt">%,</span><span class="number">0.5</span><span class="gtkdoc opt">);</span>
-border<span class="gtkdoc opt">-</span>right<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#ff00cc;</span>
-border<span class="gtkdoc opt">-</span>bottom<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#ffff0000cccc;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">color</span><span class="symbol">:</span><span class="normal"> transparent</span><span class="symbol">;</span>
+<span class="normal">background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> red</span><span class="symbol">;</span>
+<span class="normal">border</span><span class="symbol">-</span><span class="normal">top</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">rgb</span><span class="symbol">(</span><span class="number">128</span><span class="symbol">,</span><span class="number">57</span><span class="symbol">,</span><span class="number">0</span><span class="symbol">);</span>
+<span class="normal">border</span><span class="symbol">-</span><span class="normal">left</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">rgba</span><span class="symbol">(</span><span class="number">10</span><span class="symbol">%,</span><span class="number">20</span><span class="symbol">%,</span><span class="number">30</span><span class="symbol">%,</span><span class="number">0.5</span><span class="symbol">);</span>
+<span class="normal">border</span><span class="symbol">-</span><span class="normal">right</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #ff00cc</span><span class="symbol">;</span>
+<span class="normal">border</span><span class="symbol">-</span><span class="normal">bottom</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #ffff0000cccc</span><span class="symbol">;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -715,7 +715,7 @@ border<span class="gtkdoc opt">-</span>bottom<span class="gtkdoc opt">-</span>co
 <br class="example-break"><p>
       GTK+ adds several additional ways to specify colors.
     </p>
-<div class="literallayout"><p><code class="code">〈gtk color〉 = 〈symbolic color〉 | 〈color expression〉| 〈win32 color〉</code><br>
+<div class="literallayout"><p><code class="code">〈gtk color〉 = 〈symbolic color〉 | 〈color expression〉 | 〈win32 color〉</code><br>
 </p></div>
 <p>
       The first is a reference to a color defined via a @define-color rule.
@@ -740,11 +740,11 @@ border<span class="gtkdoc opt">-</span>bottom<span class="gtkdoc opt">-</span>co
 3
 4
 5</pre></td>
-        <td class="listing_code"><pre class="programlisting">&#64;define<span class="gtkdoc opt">-</span>color bg_color <span class="gtkdoc ppc">#f9a039;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">@define</span><span class="symbol">-</span><span class="usertype">color</span><span class="normal"> bg_color #f9a039</span><span class="symbol">;</span>
 
-<span class="gtkdoc opt">* {</span>
-background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> &#64;bg_color<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="symbol">*</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> @bg_color</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -765,12 +765,13 @@ background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span
       the RGB components of the 1st or 2nd color respectively. alpha() takes a
       number from 0 to 1 and applies that as the opacity of the supplied color.
     </p>
-<div class="literallayout"><p><code class="code">〈color expression〉 = lighter(〈color〉) | darker(〈color〉) | shade(〈color〉,〈number〉) | alpha(〈color〉,〈number〉) | mix(〈color〉,〈color〉,〈number〉)</code><br>
+<div class="literallayout"><p><code class="code">〈color expression〉 = lighter( 〈color〉 ) | darker( 〈color〉 ) | shade( 〈color〉, 〈number〉 ) |</code><br>
+<code class="code">                     alpha( 〈color〉, 〈number〉 ) | mix( 〈color〉, 〈color〉, 〈number〉 )</code><br>
 </p></div>
 <p>
       On Windows, GTK+ allows to refer to system colors, as follows:
     </p>
-<div class="literallayout"><p><code class="code">〈win32 color〉 = -gtk-win32-color( 〈name〉, 〈integer〉)</code><br>
+<div class="literallayout"><p><code class="code">〈win32 color〉 = -gtk-win32-color( 〈name〉, 〈integer〉 )</code><br>
 </p></div>
 </div>
 <hr>
@@ -781,17 +782,17 @@ background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span
       and borders.
     </p>
 <div class="literallayout"><p><code class="code">〈image〉 = 〈url〉 | 〈crossfade〉 | 〈alternatives〉 | 〈gradient〉 | 〈gtk image〉</code><br>
-<code class="code">〈crossfade〉 = cross-fade( 〈percentage〉, 〈image〉, 〈image〉)</code><br>
-<code class="code">〈alternatives〉 = image([ 〈image〉, ]* [ 〈image〉 | 〈color〉 ])</code><br>
+<code class="code">〈crossfade〉 = cross-fade( 〈percentage〉, 〈image〉, 〈image〉 )</code><br>
+<code class="code">〈alternatives〉 = image([ 〈image〉, ]* [ 〈image〉 | 〈color〉 ] )</code><br>
 <code class="code">〈gradient〉 = 〈linear gradient〉 | 〈radial gradient〉</code><br>
 <code class="code">〈linear gradient〉 = [ linear-gradient | repeating-linear-gradient ] (</code><br>
 <code class="code">                      [ [ 〈angle〉 | to 〈side or corner〉 ] , ]?</code><br>
 <code class="code">                      〈color stops〉 )</code><br>
-<code class="code">〈radial gradient〉 = [ radial‑gradient | repeating‑radial‑gradient ] (</code><br>
+<code class="code">〈radial gradient〉 = [ radial-gradient | repeating-radial-gradient ] (</code><br>
 <code class="code">                      [ [ 〈shape〉 || 〈size〉 ] [ at 〈position〉 ]? , | at 〈position〉, ]?</code><br>
 <code class="code">                      〈color stops〉 )</code><br>
 <code class="code">〈side or corner〉 = [ left | right ] || [ top | bottom ]</code><br>
-<code class="code">〈color stops〉 =  〈color stop〉 [ , 〈color stop〉]+</code><br>
+<code class="code">〈color stops〉 =  〈color stop〉 [ , 〈color stop〉 ]+</code><br>
 <code class="code">〈color stop〉 = 〈color〉 [ 〈percentage〉 | 〈length〉 ]?</code><br>
 <code class="code">〈shape〉 = circle | ellipse</code><br>
 <code class="code">〈size〉 = 〈extent keyword〉 | 〈length〉 | [ 〈length〉 | 〈percentage〉 ]{1,2}</code><br>
@@ -813,9 +814,9 @@ background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">button <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>image<span class="gtkdoc opt">:</span> <span class="function">url</span><span class="gtkdoc opt">(</span><span class="string">&quot;water-lily.png&quot;</span><span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">button </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">image</span><span class="symbol">:</span><span class="normal"> </span><span class="function">url</span><span class="symbol">(</span><span class="string">"water-lily.png"</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -825,7 +826,7 @@ background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span
 <br class="example-break"><p>
       A crossfade lets you specify an image as an intermediate between two
       images. Crossfades are specified in the draft of the level 4
-      <a class="ulink" href="http://www.w3.org/TR/css4-images" target="_top">Image</a>
+      <a class="ulink" href="https://www.w3.org/TR/css4-images" target="_top">Image</a>
       module of the CSS specification.
     </p>
 <p>
@@ -839,9 +840,9 @@ background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">button <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>image<span class="gtkdoc opt">:</span> cross<span class="gtkdoc opt">-</span><span class="function">fade</span><span class="gtkdoc opt">(</span><span class="number">50</span><span class="gtkdoc opt">%,</span> <span class="function">url</span><span class="gtkdoc opt">(</span><span class="string">&quot;water-lily.png&quot;</span><span class="gtkdoc opt">),</span> <span class="function">url</span><span class="gtkdoc opt">(</span><span class="string">&quot;buffalo.jpg&quot;</span><span class="gtkdoc opt">));</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">button </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">image</span><span class="symbol">:</span><span class="normal"> cross</span><span class="symbol">-</span><span class="function">fade</span><span class="symbol">(</span><span class="number">50</span><span class="symbol">%,</span><span class="normal"> </span><span class="function">url</span><span class="symbol">(</span><span class="string">"water-lily.png"</span><span class="symbol">),</span><span class="normal"> </span><span class="function">url</span><span class="symbol">(</span><span class="string">"buffalo.jpg"</span><span class="symbol">));</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -864,9 +865,9 @@ background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">button <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>image<span class="gtkdoc opt">:</span> <span class="function">image</span><span class="gtkdoc opt">(</span><span class="function">url</span><span class="gtkdoc opt">(</span><span class="string">&quot;fancy.svg&quot;</span><span class="gtkdoc opt">),</span> <span class="function">url</span><span class="gtkdoc opt">(</span><span class="string">&quot;plain.png&quot;</span><span class="gtkdoc opt">),</span> green<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">button </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">image</span><span class="symbol">:</span><span class="normal"> </span><span class="function">image</span><span class="symbol">(</span><span class="function">url</span><span class="symbol">(</span><span class="string">"fancy.svg"</span><span class="symbol">),</span><span class="normal"> </span><span class="function">url</span><span class="symbol">(</span><span class="string">"plain.png"</span><span class="symbol">),</span><span class="normal"> green</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -896,12 +897,12 @@ background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span
 4
 5
 6</pre></td>
-        <td class="listing_code"><pre class="programlisting">button <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>image<span class="gtkdoc opt">:</span> linear<span class="gtkdoc opt">-</span><span class="function">gradient</span><span class="gtkdoc opt">(</span><span class="number">45</span>deg<span class="gtkdoc opt">,</span> yellow<span class="gtkdoc opt">,</span> blue<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span>
-label <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>image<span class="gtkdoc opt">:</span> linear<span class="gtkdoc opt">-</span><span class="function">gradient</span><span class="gtkdoc opt">(</span>to top right<span class="gtkdoc opt">,</span> blue <span class="number">20</span><span class="gtkdoc opt">%,</span> <span class="gtkdoc ppc">#f0f 80%);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">button </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">image</span><span class="symbol">:</span><span class="normal"> linear</span><span class="symbol">-</span><span class="function">gradient</span><span class="symbol">(</span><span class="normal">45deg</span><span class="symbol">,</span><span class="normal"> yellow</span><span class="symbol">,</span><span class="normal"> blue</span><span class="symbol">);</span>
+<span class="cbracket">}</span>
+<span class="normal">label </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">image</span><span class="symbol">:</span><span class="normal"> linear</span><span class="symbol">-</span><span class="function">gradient</span><span class="symbol">(</span><span class="normal">to </span><span class="usertype">top</span><span class="normal"> right</span><span class="symbol">,</span><span class="normal"> blue </span><span class="number">20</span><span class="symbol">%,</span><span class="normal"> #f0f </span><span class="number">80</span><span class="symbol">%);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -926,12 +927,12 @@ label <span class="gtkdoc opt">{</span>
 4
 5
 6</pre></td>
-        <td class="listing_code"><pre class="programlisting">button <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>image<span class="gtkdoc opt">:</span> radial<span class="gtkdoc opt">-</span><span class="function">gradient</span><span class="gtkdoc opt">(</span>ellipse at center<span class="gtkdoc opt">,</span> yellow <span class="number">0</span><span class="gtkdoc opt">%,</span> green <span class="number">100</span><span class="gtkdoc opt">%);</span>
-<span class="gtkdoc opt">}</span>
-label <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>image<span class="gtkdoc opt">:</span> radial<span class="gtkdoc opt">-</span><span class="function">gradient</span><span class="gtkdoc opt">(</span>circle farthest<span class="gtkdoc opt">-</span>side at left bottom<span class="gtkdoc opt">,</span> red<span class="gtkdoc opt">,</span> yellow <span class="number">50</span>px<span class="gtkdoc opt">,</span> green<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">button </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">image</span><span class="symbol">:</span><span class="normal"> radial</span><span class="symbol">-</span><span class="function">gradient</span><span class="symbol">(</span><span class="normal">ellipse </span><span class="usertype">at</span><span class="normal"> center</span><span class="symbol">,</span><span class="normal"> yellow </span><span class="number">0</span><span class="symbol">%,</span><span class="normal"> green </span><span class="number">100</span><span class="symbol">%);</span>
+<span class="cbracket">}</span>
+<span class="normal">label </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">image</span><span class="symbol">:</span><span class="normal"> radial</span><span class="symbol">-</span><span class="function">gradient</span><span class="symbol">(</span><span class="usertype">circle</span><span class="normal"> farthest</span><span class="symbol">-</span><span class="normal">side at </span><span class="usertype">left</span><span class="normal"> bottom</span><span class="symbol">,</span><span class="normal"> red</span><span class="symbol">,</span><span class="normal"> yellow 50px</span><span class="symbol">,</span><span class="normal"> green</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -942,7 +943,7 @@ label <span class="gtkdoc opt">{</span>
       To learn more about gradients in CSS, including details of how color stops
       are placed on the gradient line and keywords for specifying radial sizes,
       you can read the
-      <a class="ulink" href="http://www.w3.org/TR/css3-images/#gradients" target="_top">Image</a>
+      <a class="ulink" href="https://www.w3.org/TR/css3-images/#gradients" target="_top">Image</a>
       module of the CSS specification.
     </p>
 <p>
@@ -993,18 +994,18 @@ label <span class="gtkdoc opt">{</span>
 10
 11
 12</pre></td>
-        <td class="listing_code"><pre class="programlisting">button <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>image<span class="gtkdoc opt">: -</span>gtk<span class="gtkdoc opt">-</span><span class="function">gradient</span> <span class="gtkdoc opt">(</span>linear<span class="gtkdoc opt">,</span>
-                                   left top<span class="gtkdoc opt">,</span> right bottom<span class="gtkdoc opt">,</span>
-                                   <span class="function">from</span><span class="gtkdoc opt">(</span>&#64;yellow<span class="gtkdoc opt">),</span> <span class="function">to</span><span class="gtkdoc opt">(</span>&#64;blue<span class="gtkdoc opt">));</span>
-<span class="gtkdoc opt">}</span>
-label <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>image<span class="gtkdoc opt">: -</span>gtk<span class="gtkdoc opt">-</span><span class="function">gradient</span> <span class="gtkdoc opt">(</span>linear<span class="gtkdoc opt">,</span>
-                                   <span class="number">0 0</span><span class="gtkdoc opt">,</span> <span class="number">0 1</span><span class="gtkdoc opt">,</span>
-                                   color<span class="gtkdoc opt">-</span><span class="function">stop</span><span class="gtkdoc opt">(</span><span class="number">0</span><span class="gtkdoc opt">,</span> &#64;yellow<span class="gtkdoc opt">),</span>
-                                   color<span class="gtkdoc opt">-</span><span class="function">stop</span><span class="gtkdoc opt">(</span><span class="number">0.2</span><span class="gtkdoc opt">,</span> &#64;blue<span class="gtkdoc opt">),</span>
-                                   color<span class="gtkdoc opt">-</span><span class="function">stop</span><span class="gtkdoc opt">(</span><span class="number">1</span><span class="gtkdoc opt">,</span> <span class="gtkdoc ppc">#0f0));</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">button </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">image</span><span class="symbol">:</span><span class="normal"> </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="function">gradient</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">linear</span><span class="symbol">,</span>
+<span class="normal">                                   </span><span class="usertype">left</span><span class="normal"> top</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">right</span><span class="normal"> bottom</span><span class="symbol">,</span>
+<span class="normal">                                   </span><span class="function">from</span><span class="symbol">(</span><span class="normal">@yellow</span><span class="symbol">),</span><span class="normal"> </span><span class="function">to</span><span class="symbol">(</span><span class="normal">@blue</span><span class="symbol">));</span>
+<span class="cbracket">}</span>
+<span class="normal">label </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">image</span><span class="symbol">:</span><span class="normal"> </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="function">gradient</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">linear</span><span class="symbol">,</span>
+<span class="normal">                                   </span><span class="number">0</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="normal"> </span><span class="number">1</span><span class="symbol">,</span>
+<span class="normal">                                   color</span><span class="symbol">-</span><span class="function">stop</span><span class="symbol">(</span><span class="number">0</span><span class="symbol">,</span><span class="normal"> @yellow</span><span class="symbol">),</span>
+<span class="normal">                                   color</span><span class="symbol">-</span><span class="function">stop</span><span class="symbol">(</span><span class="number">0.2</span><span class="symbol">,</span><span class="normal"> @blue</span><span class="symbol">),</span>
+<span class="normal">                                   color</span><span class="symbol">-</span><span class="function">stop</span><span class="symbol">(</span><span class="number">1</span><span class="symbol">,</span><span class="normal"> #0f0</span><span class="symbol">));</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1032,21 +1033,21 @@ label <span class="gtkdoc opt">{</span>
 13
 14
 15</pre></td>
-        <td class="listing_code"><pre class="programlisting">button <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>image<span class="gtkdoc opt">: -</span>gtk<span class="gtkdoc opt">-</span><span class="function">gradient</span> <span class="gtkdoc opt">(</span>radial<span class="gtkdoc opt">,</span>
-                                   center center<span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span>
-                                   center center<span class="gtkdoc opt">,</span> <span class="number">1</span><span class="gtkdoc opt">,</span>
-                                   <span class="function">from</span><span class="gtkdoc opt">(</span>&#64;yellow<span class="gtkdoc opt">),</span> <span class="function">to</span><span class="gtkdoc opt">(</span>&#64;green<span class="gtkdoc opt">));</span>
-<span class="gtkdoc opt">}</span>
-label <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>image<span class="gtkdoc opt">: -</span>gtk<span class="gtkdoc opt">-</span><span class="function">gradient</span> <span class="gtkdoc opt">(</span>radial<span class="gtkdoc opt">,</span>
-                                   <span class="number">0.4 0.4</span><span class="gtkdoc opt">,</span> <span class="number">0.1</span><span class="gtkdoc opt">,</span>
-                                   <span class="number">0.6 0.6</span><span class="gtkdoc opt">,</span> <span class="number">0.7</span><span class="gtkdoc opt">,</span>
-                                   color<span class="gtkdoc opt">-</span><span class="function">stop</span><span class="gtkdoc opt">(</span><span class="number">0</span><span class="gtkdoc opt">,</span> <span class="gtkdoc ppc">#f00),</span>
-                                   color<span class="gtkdoc opt">-</span><span class="function">stop</span><span class="gtkdoc opt">(</span><span class="number">0.1</span><span class="gtkdoc opt">,</span> $a0f<span class="gtkdoc opt">),</span>
-                                   color<span class="gtkdoc opt">-</span><span class="function">stop</span><span class="gtkdoc opt">(</span><span class="number">0.2</span><span class="gtkdoc opt">,</span> &#64;yellow<span class="gtkdoc opt">),</span>
-                                   color<span class="gtkdoc opt">-</span><span class="function">stop</span><span class="gtkdoc opt">(</span><span class="number">1</span><span class="gtkdoc opt">,</span> &#64;green<span class="gtkdoc opt">));</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">button </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">image</span><span class="symbol">:</span><span class="normal"> </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="function">gradient</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">radial</span><span class="symbol">,</span>
+<span class="normal">                                   </span><span class="usertype">center</span><span class="normal"> center</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span>
+<span class="normal">                                   </span><span class="usertype">center</span><span class="normal"> center</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">,</span>
+<span class="normal">                                   </span><span class="function">from</span><span class="symbol">(</span><span class="normal">@yellow</span><span class="symbol">),</span><span class="normal"> </span><span class="function">to</span><span class="symbol">(</span><span class="normal">@green</span><span class="symbol">));</span>
+<span class="cbracket">}</span>
+<span class="normal">label </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">image</span><span class="symbol">:</span><span class="normal"> </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="function">gradient</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">radial</span><span class="symbol">,</span>
+<span class="normal">                                   </span><span class="number">0.4</span><span class="normal"> </span><span class="number">0.4</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.1</span><span class="symbol">,</span>
+<span class="normal">                                   </span><span class="number">0.6</span><span class="normal"> </span><span class="number">0.6</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.7</span><span class="symbol">,</span>
+<span class="normal">                                   color</span><span class="symbol">-</span><span class="function">stop</span><span class="symbol">(</span><span class="number">0</span><span class="symbol">,</span><span class="normal"> #f00</span><span class="symbol">),</span>
+<span class="normal">                                   color</span><span class="symbol">-</span><span class="function">stop</span><span class="symbol">(</span><span class="number">0.1</span><span class="symbol">,</span><span class="normal"> $a0f</span><span class="symbol">),</span>
+<span class="normal">                                   color</span><span class="symbol">-</span><span class="function">stop</span><span class="symbol">(</span><span class="number">0.2</span><span class="symbol">,</span><span class="normal"> @yellow</span><span class="symbol">),</span>
+<span class="normal">                                   color</span><span class="symbol">-</span><span class="function">stop</span><span class="symbol">(</span><span class="number">1</span><span class="symbol">,</span><span class="normal"> @green</span><span class="symbol">));</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1079,14 +1080,14 @@ label <span class="gtkdoc opt">{</span>
 6
 7
 8</pre></td>
-        <td class="listing_code"><pre class="programlisting">spinner <span class="gtkdoc opt">{</span>
-  <span class="gtkdoc opt">-</span>gtk<span class="gtkdoc opt">-</span>icon<span class="gtkdoc opt">-</span>source<span class="gtkdoc opt">: -</span>gtk<span class="gtkdoc opt">-</span><span class="function">icontheme</span><span class="gtkdoc opt">(</span><span class="string">&apos;process-working-symbolic&apos;</span><span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">-</span>gtk<span class="gtkdoc opt">-</span>icon<span class="gtkdoc opt">-</span>palette<span class="gtkdoc opt">:</span> success blue<span class="gtkdoc opt">,</span> warning <span class="gtkdoc ppc">#fc3, error magenta;</span>
-<span class="gtkdoc opt">}</span>
-arrow<span class="gtkdoc opt">.</span>fancy <span class="gtkdoc opt">{</span>
-  <span class="gtkdoc opt">-</span>gtk<span class="gtkdoc opt">-</span>icon<span class="gtkdoc opt">-</span>source<span class="gtkdoc opt">: -</span>gtk<span class="gtkdoc opt">-</span><span class="function">icontheme</span><span class="gtkdoc opt">(</span><span class="string">&apos;pan-down&apos;</span><span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">-</span>gtk<span class="gtkdoc opt">-</span>icon<span class="gtkdoc opt">-</span>theme<span class="gtkdoc opt">:</span> <span class="string">&apos;Oxygen&apos;</span><span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">spinner </span><span class="cbracket">{</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="normal">icon</span><span class="symbol">-</span><span class="normal">source</span><span class="symbol">:</span><span class="normal"> </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="function">icontheme</span><span class="symbol">(</span><span class="string">'process-working-symbolic'</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="normal">icon</span><span class="symbol">-</span><span class="normal">palette</span><span class="symbol">:</span><span class="normal"> </span><span class="usertype">success</span><span class="normal"> blue</span><span class="symbol">,</span><span class="normal"> warning #fc3</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">error</span><span class="normal"> magenta</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
+<span class="normal">arrow</span><span class="symbol">.</span><span class="normal">fancy </span><span class="cbracket">{</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="normal">icon</span><span class="symbol">-</span><span class="normal">source</span><span class="symbol">:</span><span class="normal"> </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="function">icontheme</span><span class="symbol">(</span><span class="string">'pan-down'</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="normal">icon</span><span class="symbol">-</span><span class="normal">theme</span><span class="symbol">:</span><span class="normal"> </span><span class="string">'Oxygen'</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1098,7 +1099,7 @@ arrow<span class="gtkdoc opt">.</span>fancy <span class="gtkdoc opt">{</span>
       best if images can specify normal and hi-resolution variants. From
       CSS, this can be done with the -gtk-scaled syntax.
     </p>
-<div class="literallayout"><p><code class="code">〈scaled image〉 = -gtk-scaled( 〈image〉[, 〈image〉]* )</code><br>
+<div class="literallayout"><p><code class="code">〈scaled image〉 = -gtk-scaled( 〈image〉[ , 〈image〉 ]* )</code><br>
 </p></div>
 <p>
       While -gtk-scaled accepts multiple higher-resolution variants, in
@@ -1115,17 +1116,17 @@ arrow<span class="gtkdoc opt">.</span>fancy <span class="gtkdoc opt">{</span>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting">arrow <span class="gtkdoc opt">{</span>
-  <span class="gtkdoc opt">-</span>gtk<span class="gtkdoc opt">-</span>icon<span class="gtkdoc opt">-</span>source<span class="gtkdoc opt">: -</span>gtk<span class="gtkdoc opt">-</span><span class="function">scaled</span><span class="gtkdoc opt">(</span><span class="function">url</span><span class="gtkdoc opt">(</span><span class="string">&apos;my-arrow.png&apos;</span><span class="gtkdoc opt">),</span>
-                                <span class="function">url</span><span class="gtkdoc opt">(</span><span class="string">&apos;my-arrow&#64;2.png&apos;</span><span class="gtkdoc opt">));</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">arrow </span><span class="cbracket">{</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="normal">icon</span><span class="symbol">-</span><span class="normal">source</span><span class="symbol">:</span><span class="normal"> </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="function">scaled</span><span class="symbol">(</span><span class="function">url</span><span class="symbol">(</span><span class="string">'my-arrow.png'</span><span class="symbol">),</span>
+<span class="normal">                                </span><span class="function">url</span><span class="symbol">(</span><span class="string">'my-arrow@2.png'</span><span class="symbol">));</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
 </div>
 
 </div>
-<br class="example-break"><div class="literallayout"><p><code class="code">〈recolored image〉 = -gtk-recolored( 〈url〉[, 〈color palette〉] )</code><br>
+<br class="example-break"><div class="literallayout"><p><code class="code">〈recolored image〉 = -gtk-recolor( 〈url〉 [ , 〈color palette〉 ] )</code><br>
 </p></div>
 <p>
       Symbolic icons from the icon theme are recolored according to the
@@ -1145,9 +1146,9 @@ arrow<span class="gtkdoc opt">.</span>fancy <span class="gtkdoc opt">{</span>
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">arrow <span class="gtkdoc opt">{</span>
-  <span class="gtkdoc opt">-</span>gtk<span class="gtkdoc opt">-</span>icon<span class="gtkdoc opt">-</span>source<span class="gtkdoc opt">: -</span>gtk<span class="gtkdoc opt">-</span><span class="function">recolor</span><span class="gtkdoc opt">(</span><span class="function">url</span><span class="gtkdoc opt">(</span><span class="string">&apos;check.svg&apos;</span><span class="gtkdoc opt">),</span> success blue<span class="gtkdoc opt">,</span> error <span class="function">rgb</span><span class="gtkdoc opt">(</span><span class="number">255</span><span class="gtkdoc opt">,</span><span class="number">0</span><span class="gtkdoc opt">,</span><span class="number">0</span><span class="gtkdoc opt">));</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">arrow </span><span class="cbracket">{</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="normal">icon</span><span class="symbol">-</span><span class="normal">source</span><span class="symbol">:</span><span class="normal"> </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="function">recolor</span><span class="symbol">(</span><span class="function">url</span><span class="symbol">(</span><span class="string">'check.svg'</span><span class="symbol">),</span><span class="normal"> </span><span class="usertype">success</span><span class="normal"> blue</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">error</span><span class="normal"> </span><span class="function">rgb</span><span class="symbol">(</span><span class="number">255</span><span class="symbol">,</span><span class="number">0</span><span class="symbol">,</span><span class="number">0</span><span class="symbol">));</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1158,7 +1159,7 @@ arrow<span class="gtkdoc opt">.</span>fancy <span class="gtkdoc opt">{</span>
       On Windows, GTK+ allows to refer to system theme parts as images, as follows:
     </p>
 <div class="literallayout"><p><code class="code">〈win32 theme part〉 = -gtk-win32-theme-part( 〈name〉, 〈integer〉 〈integer〉</code><br>
-<code class="code">                                              [, [ over( 〈integer〉 〈integer〉 [ , 〈alpha value〉]? ) | margins( 〈integer〉{1,4} ) ] ]* )</code><br>
+<code class="code">                                              [ , [ over( 〈integer〉 〈integer〉 [ , 〈alpha value〉 ]? ) | margins( 〈integer〉{1,4} ) ] ]* )</code><br>
 </p></div>
 </div>
 <hr>
@@ -1200,7 +1201,7 @@ arrow<span class="gtkdoc opt">.</span>fancy <span class="gtkdoc opt">{</span>
     </p>
 <div class="literallayout"><p><code class="code">〈keyframe rule〉 = @keyframes 〈name〉 { 〈animation rule〉 }</code><br>
 <code class="code">〈animation rule〉 = 〈animation selector〉 { 〈declaration〉* }</code><br>
-<code class="code">〈animation selector〉 = 〈single animation selector〉 [ , 〈single animation selector  ]*</code><br>
+<code class="code">〈animation selector〉 = 〈single animation selector〉 [ , 〈single animation selector〉 ]*</code><br>
 <code class="code">〈single animation selector〉 = from | to | 〈percentage〉</code><br>
 </p></div>
 <p>
@@ -1225,16 +1226,16 @@ arrow<span class="gtkdoc opt">.</span>fancy <span class="gtkdoc opt">{</span>
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting">&#64;keyframes spin <span class="gtkdoc opt">{</span>
-  to <span class="gtkdoc opt">{ -</span>gtk<span class="gtkdoc opt">-</span>icon<span class="gtkdoc opt">-</span>transform<span class="gtkdoc opt">:</span> <span class="function">rotate</span><span class="gtkdoc opt">(</span><span class="number">1</span>turn<span class="gtkdoc opt">); }</span>
-<span class="gtkdoc opt">}</span>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">@</span><span class="usertype">keyframes</span><span class="normal"> spin </span><span class="cbracket">{</span>
+<span class="normal">  to </span><span class="cbracket">{</span><span class="normal"> </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="normal">icon</span><span class="symbol">-</span><span class="normal">transform</span><span class="symbol">:</span><span class="normal"> </span><span class="function">rotate</span><span class="symbol">(</span><span class="normal">1turn</span><span class="symbol">);</span><span class="normal"> </span><span class="cbracket">}</span>
+<span class="cbracket">}</span>
 
-spinner <span class="gtkdoc opt">{</span>
-  animation<span class="gtkdoc opt">-</span>name<span class="gtkdoc opt">:</span> spin<span class="gtkdoc opt">;</span>
-  animation<span class="gtkdoc opt">-</span>duration<span class="gtkdoc opt">:</span> <span class="number">1</span>s<span class="gtkdoc opt">;</span>
-  animation<span class="gtkdoc opt">-</span>timing<span class="gtkdoc opt">-</span>function<span class="gtkdoc opt">:</span> linear<span class="gtkdoc opt">;</span>
-  animation<span class="gtkdoc opt">-</span>iteration<span class="gtkdoc opt">-</span>count<span class="gtkdoc opt">:</span> infinite<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">spinner </span><span class="cbracket">{</span>
+<span class="normal">  animation</span><span class="symbol">-</span><span class="normal">name</span><span class="symbol">:</span><span class="normal"> spin</span><span class="symbol">;</span>
+<span class="normal">  animation</span><span class="symbol">-</span><span class="normal">duration</span><span class="symbol">:</span><span class="normal"> 1s</span><span class="symbol">;</span>
+<span class="normal">  animation</span><span class="symbol">-</span><span class="normal">timing</span><span class="symbol">-</span><span class="normal">function</span><span class="symbol">:</span><span class="normal"> linear</span><span class="symbol">;</span>
+<span class="normal">  animation</span><span class="symbol">-</span><span class="normal">iteration</span><span class="symbol">-</span><span class="normal">count</span><span class="symbol">:</span><span class="normal"> infinite</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1260,10 +1261,10 @@ spinner <span class="gtkdoc opt">{</span>
 <p>
       The syntax for @binding-set rules is as follows:
     </p>
-<div class="literallayout"><p><code class="code">〈binding set rule〉 = @binding-set 〈binding name〉{ [ [ 〈binding〉 | 〈unbinding〉] ; ]* }</code><br>
+<div class="literallayout"><p><code class="code">〈binding set rule〉 = @binding-set 〈binding name〉 { [ [ 〈binding〉 | 〈unbinding〉 ] ; ]* }</code><br>
 <code class="code">〈binding〉 = bind "〈accelerator〉" { 〈signal emission〉* }</code><br>
-<code class="code">〈signal emission〉 = "〈signal name〉" ( [ 〈argument〉[ , 〈argument〉]* ]? }</code><br>
-<code class="code">〈unbinding〉 = unbind "〈accelerator〉" ;</code><br>
+<code class="code">〈signal emission〉 = "〈signal name〉" ( [ 〈argument〉 [ , 〈argument〉 ]* ]? }</code><br>
+<code class="code">〈unbinding〉 = unbind "〈accelerator〉"</code><br>
 </p></div>
 <p>
       where 〈accelerator〉 is a string that can be parsed by gtk_accelerator_parse(),
@@ -1290,20 +1291,20 @@ spinner <span class="gtkdoc opt">{</span>
 12
 13
 14</pre></td>
-        <td class="listing_code"><pre class="programlisting">&#64;binding<span class="gtkdoc opt">-</span>set binding<span class="gtkdoc opt">-</span>set1 <span class="gtkdoc opt">{</span>
-  bind <span class="string">&quot;&lt;alt&gt;Left&quot;</span> <span class="gtkdoc opt">{</span> <span class="string">&quot;move-cursor&quot;</span> <span class="gtkdoc opt">(</span>visual<span class="gtkdoc opt">-</span>positions<span class="gtkdoc opt">, -</span><span class="number">3</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">) };</span>
-  unbind <span class="string">&quot;End&quot;</span><span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">};</span>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">@binding</span><span class="symbol">-</span><span class="usertype">set</span><span class="normal"> binding</span><span class="symbol">-</span><span class="normal">set1 </span><span class="cbracket">{</span>
+<span class="normal">  bind </span><span class="string">"&lt;alt&gt;Left"</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"move-cursor"</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">visual</span><span class="symbol">-</span><span class="normal">positions</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">-</span><span class="number">3</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">}</span><span class="symbol">;</span>
+<span class="normal">  unbind </span><span class="string">"End"</span><span class="symbol">;</span>
+<span class="cbracket">}</span><span class="symbol">;</span>
 
-&#64;binding<span class="gtkdoc opt">-</span>set binding<span class="gtkdoc opt">-</span>set2 <span class="gtkdoc opt">{</span>
-  bind <span class="string">&quot;&lt;alt&gt;Right&quot;</span> <span class="gtkdoc opt">{</span> <span class="string">&quot;move-cursor&quot;</span> <span class="gtkdoc opt">(</span>visual<span class="gtkdoc opt">-</span>positions<span class="gtkdoc opt">,</span> <span class="number">3</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">) };</span>
-  bind <span class="string">&quot;&lt;alt&gt;KP_space&quot;</span> <span class="gtkdoc opt">{</span> <span class="string">&quot;delete-from-cursor&quot;</span> <span class="gtkdoc opt">(</span>whitespace<span class="gtkdoc opt">,</span> <span class="number">1</span><span class="gtkdoc opt">)</span>
-                         <span class="string">&quot;insert-at-cursor&quot;</span> <span class="gtkdoc opt">(</span><span class="string">&quot; &quot;</span><span class="gtkdoc opt">) };</span>
-<span class="gtkdoc opt">};</span>
+<span class="normal">@binding</span><span class="symbol">-</span><span class="usertype">set</span><span class="normal"> binding</span><span class="symbol">-</span><span class="normal">set2 </span><span class="cbracket">{</span>
+<span class="normal">  bind </span><span class="string">"&lt;alt&gt;Right"</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"move-cursor"</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">visual</span><span class="symbol">-</span><span class="normal">positions</span><span class="symbol">,</span><span class="normal"> </span><span class="number">3</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">}</span><span class="symbol">;</span>
+<span class="normal">  bind </span><span class="string">"&lt;alt&gt;KP_space"</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"delete-from-cursor"</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">whitespace</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">)</span>
+<span class="normal">                         </span><span class="string">"insert-at-cursor"</span><span class="normal"> </span><span class="symbol">(</span><span class="string">" "</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">}</span><span class="symbol">;</span>
+<span class="cbracket">}</span><span class="symbol">;</span>
 
-entry <span class="gtkdoc opt">{</span>
-  <span class="gtkdoc opt">-</span>gtk<span class="gtkdoc opt">-</span>key<span class="gtkdoc opt">-</span>bindings<span class="gtkdoc opt">:</span> binding<span class="gtkdoc opt">-</span>set1<span class="gtkdoc opt">,</span> binding<span class="gtkdoc opt">-</span>set2<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">entry </span><span class="cbracket">{</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="normal">key</span><span class="symbol">-</span><span class="normal">bindings</span><span class="symbol">:</span><span class="normal"> binding</span><span class="symbol">-</span><span class="normal">set1</span><span class="symbol">,</span><span class="normal"> binding</span><span class="symbol">-</span><span class="normal">set2</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1315,6 +1316,6 @@ entry <span class="gtkdoc opt">{</span>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

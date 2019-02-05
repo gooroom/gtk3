@@ -66,6 +66,13 @@
  * never need to use most of the functions in this section directly;
  * #GtkClipboard provides a nicer interface to the same functionality.
  *
+ * If an application is expected to exchange image data and work
+ * on Windows, it is highly advised to support at least "image/bmp" target
+ * for the widest possible compatibility with third-party applications.
+ * #GtkClipboard already does that by using gtk_target_list_add_image_targets()
+ * and gtk_selection_data_set_pixbuf() or gtk_selection_data_get_pixbuf(),
+ * which is one of the reasons why it is advised to use #GtkClipboard.
+ *
  * Some of the datatypes defined this section are used in
  * the #GtkClipboard and drag-and-drop API’s as well. The
  * #GtkTargetEntry and #GtkTargetList objects represent
@@ -74,6 +81,9 @@
  * store a chunk of data along with the data type and other
  * associated information.
  */
+
+/* We are using deprecated API, here, and we know that */
+#define GDK_DISABLE_DEPRECATION_WARNINGS
 
 #include "config.h"
 
@@ -885,6 +895,10 @@ gtk_selection_clear_targets (GtkWidget *widget,
   if (GDK_IS_WAYLAND_DISPLAY (gtk_widget_get_display (widget)))
     gdk_wayland_selection_clear_targets (gtk_widget_get_display (widget), selection);
 #endif
+#ifdef GDK_WINDOWING_WIN32
+  if (GDK_IS_WIN32_DISPLAY (gtk_widget_get_display (widget)))
+    gdk_win32_selection_clear_targets (gtk_widget_get_display (widget), selection);
+#endif
 
   lists = g_object_get_data (G_OBJECT (widget), gtk_selection_handler_key);
   
@@ -935,7 +949,8 @@ gtk_selection_add_target (GtkWidget	    *widget,
     gdk_wayland_selection_add_targets (gtk_widget_get_window (widget), selection, 1, &target);
 #endif
 #ifdef GDK_WINDOWING_WIN32
-  gdk_win32_selection_add_targets (gtk_widget_get_window (widget), selection, 1, &target);
+  if (GDK_IS_WIN32_DISPLAY (gtk_widget_get_display (widget)))
+    gdk_win32_selection_add_targets (gtk_widget_get_window (widget), selection, 1, &target);
 #endif
 }
 
@@ -979,15 +994,16 @@ gtk_selection_add_targets (GtkWidget            *widget,
 #endif
 
 #ifdef GDK_WINDOWING_WIN32
-  {
-    int i;
-    GdkAtom *atoms = g_new (GdkAtom, ntargets);
+  if (GDK_IS_WIN32_DISPLAY (gtk_widget_get_display (widget)))
+    {
+      int i;
+      GdkAtom *atoms = g_new (GdkAtom, ntargets);
 
-    for (i = 0; i < ntargets; ++i)
-      atoms[i] = gdk_atom_intern (targets[i].target, FALSE);
-    gdk_win32_selection_add_targets (gtk_widget_get_window (widget), selection, ntargets, atoms);
-    g_free (atoms);
-  }
+      for (i = 0; i < ntargets; ++i)
+        atoms[i] = gdk_atom_intern (targets[i].target, FALSE);
+      gdk_win32_selection_add_targets (gtk_widget_get_window (widget), selection, ntargets, atoms);
+      g_free (atoms);
+    }
 #endif
 }
 
@@ -1120,6 +1136,15 @@ gtk_selection_convert (GtkWidget *widget,
   display = gtk_widget_get_display (widget);
   owner_window = gdk_selection_owner_get_for_display (display, selection);
   
+#ifdef GDK_WINDOWING_WIN32
+  /* Special handling for DELETE requests,
+   * make sure this goes down into GDK layer.
+   */
+  if (GDK_IS_WIN32_DISPLAY (display) &&
+      target == gdk_atom_intern_static_string ("DELETE"))
+    owner_window = NULL;
+#endif
+
   if (owner_window != NULL)
     {
       GtkWidget *owner_widget;

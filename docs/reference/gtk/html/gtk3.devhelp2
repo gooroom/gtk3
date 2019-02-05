@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<book xmlns="http://www.devhelp.net/book" title="GTK+ 3 Reference Manual" link="index.html" author="" name="gtk3" version="2" language="c" online="http://developer.gnome.org/gtk3/">
+<book xmlns="http://www.devhelp.net/book" title="GTK+ 3 Reference Manual" link="index.html" author="" name="gtk3" version="2" language="c" online="https://developer.gnome.org/gtk3/">
   <chapters>
     <sub name="GTK+ Overview" link="gtk.html">
       <sub name="Getting Started with GTK+" link="gtk-getting-started.html">
@@ -246,6 +246,9 @@
       </sub>
       <sub name="Gestures and event handling" link="Gestures.html">
         <sub name="GtkEventController" link="GtkEventController.html"/>
+        <sub name="GtkEventControllerKey" link="GtkEventControllerKey.html"/>
+        <sub name="GtkEventControllerScroll" link="GtkEventControllerScroll.html"/>
+        <sub name="GtkEventControllerMotion" link="GtkEventControllerMotion.html"/>
         <sub name="GtkGesture" link="GtkGesture.html"/>
         <sub name="GtkGestureSingle" link="GtkGestureSingle.html"/>
         <sub name="GtkGestureDrag" link="GtkGestureDrag.html"/>
@@ -255,6 +258,7 @@
         <sub name="GtkGestureSwipe" link="GtkGestureSwipe.html"/>
         <sub name="GtkGestureRotate" link="GtkGestureRotate.html"/>
         <sub name="GtkGestureZoom" link="GtkGestureZoom.html"/>
+        <sub name="GtkGestureStylus" link="GtkGestureStylus.html"/>
         <sub name="GtkPadController" link="GtkPadController.html"/>
       </sub>
       <sub name="Deprecated" link="DeprecatedObjects.html">
@@ -314,8 +318,8 @@
       <sub name="Filesystem utilities" link="gtk3-Filesystem-utilities.html"/>
     </sub>
     <sub name="Theming in GTK+" link="theming.html">
-      <sub name="GTK+ CSS" link="chap-css-overview.html"/>
-      <sub name="GTK+ CSS" link="chap-css-properties.html"/>
+      <sub name="GTK+ CSS Overview" link="chap-css-overview.html"/>
+      <sub name="GTK+ CSS Properties" link="chap-css-properties.html"/>
       <sub name="GtkStyleContext" link="GtkStyleContext.html"/>
       <sub name="GtkCssProvider" link="GtkCssProvider.html"/>
       <sub name="GtkStyleProvider" link="GtkStyleProvider.html"/>
@@ -433,6 +437,7 @@
     <sub name="Index of new symbols in 3.18" link="api-index-3-18.html"/>
     <sub name="Index of new symbols in 3.20" link="api-index-3-20.html"/>
     <sub name="Index of new symbols in 3.22" link="api-index-3-22.html"/>
+    <sub name="Index of new symbols in 3.24" link="api-index-3-24.html"/>
     <sub name="Annotation Glossary" link="annotation-glossary.html"/>
   </chapters>
   <functions>
@@ -464,6 +469,7 @@
     <keyword type="property" name="The “app-menu” property" link="GtkApplication.html#GtkApplication--app-menu"/>
     <keyword type="property" name="The “menubar” property" link="GtkApplication.html#GtkApplication--menubar"/>
     <keyword type="property" name="The “register-session” property" link="GtkApplication.html#GtkApplication--register-session"/>
+    <keyword type="property" name="The “screensaver-active” property" link="GtkApplication.html#GtkApplication--screensaver-active"/>
     <keyword type="signal" name="The “window-added” signal" link="GtkApplication.html#GtkApplication-window-added"/>
     <keyword type="signal" name="The “window-removed” signal" link="GtkApplication.html#GtkApplication-window-removed"/>
     <keyword type="function" name="gtk_application_window_new ()" link="GtkApplicationWindow.html#gtk-application-window-new" since="3.4"/>
@@ -1464,8 +1470,11 @@
     <keyword type="function" name="gtk_info_bar_get_content_area ()" link="GtkInfoBar.html#gtk-info-bar-get-content-area" since="2.18"/>
     <keyword type="function" name="gtk_info_bar_get_show_close_button ()" link="GtkInfoBar.html#gtk-info-bar-get-show-close-button" since="3.10"/>
     <keyword type="function" name="gtk_info_bar_set_show_close_button ()" link="GtkInfoBar.html#gtk-info-bar-set-show-close-button" since="3.10"/>
+    <keyword type="function" name="gtk_info_bar_get_revealed ()" link="GtkInfoBar.html#gtk-info-bar-get-revealed" since="3.22.29"/>
+    <keyword type="function" name="gtk_info_bar_set_revealed ()" link="GtkInfoBar.html#gtk-info-bar-set-revealed" since="3.22.29"/>
     <keyword type="struct" name="struct GtkInfoBar" link="GtkInfoBar.html#GtkInfoBar-struct"/>
     <keyword type="property" name="The “message-type” property" link="GtkInfoBar.html#GtkInfoBar--message-type"/>
+    <keyword type="property" name="The “revealed” property" link="GtkInfoBar.html#GtkInfoBar--revealed"/>
     <keyword type="property" name="The “show-close-button” property" link="GtkInfoBar.html#GtkInfoBar--show-close-button"/>
     <keyword type="property" name="The “action-area-border” style property" link="GtkInfoBar.html#GtkInfoBar--s-action-area-border"/>
     <keyword type="property" name="The “button-spacing” style property" link="GtkInfoBar.html#GtkInfoBar--s-button-spacing"/>
@@ -1554,7 +1563,7 @@
     <keyword type="function" name="gtk_button_new_with_label ()" link="GtkButton.html#gtk-button-new-with-label"/>
     <keyword type="function" name="gtk_button_new_with_mnemonic ()" link="GtkButton.html#gtk-button-new-with-mnemonic"/>
     <keyword type="function" name="gtk_button_new_from_icon_name ()" link="GtkButton.html#gtk-button-new-from-icon-name" since="3.10"/>
-    <keyword type="function" name="gtk_button_new_from_stock ()" link="GtkButton.html#gtk-button-new-from-stock" deprecated="3.10: Use gtk_button_new_with_label() instead."/>
+    <keyword type="function" name="gtk_button_new_from_stock ()" link="GtkButton.html#gtk-button-new-from-stock" deprecated=""/>
     <keyword type="function" name="gtk_button_pressed ()" link="GtkButton.html#gtk-button-pressed" deprecated="2.20: Use the #GtkWidget::button-press-event signal."/>
     <keyword type="function" name="gtk_button_released ()" link="GtkButton.html#gtk-button-released" deprecated="2.20: Use the #GtkWidget::button-release-event signal."/>
     <keyword type="function" name="gtk_button_clicked ()" link="GtkButton.html#gtk-button-clicked"/>
@@ -1723,6 +1732,7 @@
     <keyword type="property" name="The “menu-name” property" link="GtkModelButton.html#GtkModelButton--menu-name"/>
     <keyword type="property" name="The “role” property" link="GtkModelButton.html#GtkModelButton--role"/>
     <keyword type="property" name="The “text” property" link="GtkModelButton.html#GtkModelButton--text"/>
+    <keyword type="property" name="The “use-markup” property" link="GtkModelButton.html#GtkModelButton--use-markup"/>
     <keyword type="function" name="gtk_entry_new ()" link="GtkEntry.html#gtk-entry-new"/>
     <keyword type="function" name="gtk_entry_new_with_buffer ()" link="GtkEntry.html#gtk-entry-new-with-buffer" since="2.18"/>
     <keyword type="function" name="gtk_entry_get_buffer ()" link="GtkEntry.html#gtk-entry-get-buffer" since="2.18"/>
@@ -1811,6 +1821,7 @@
     <keyword type="property" name="The “completion” property" link="GtkEntry.html#GtkEntry--completion"/>
     <keyword type="property" name="The “cursor-position” property" link="GtkEntry.html#GtkEntry--cursor-position"/>
     <keyword type="property" name="The “editable” property" link="GtkEntry.html#GtkEntry--editable"/>
+    <keyword type="property" name="The “enable-emoji-completion” property" link="GtkEntry.html#GtkEntry--enable-emoji-completion"/>
     <keyword type="property" name="The “has-frame” property" link="GtkEntry.html#GtkEntry--has-frame"/>
     <keyword type="property" name="The “im-module” property" link="GtkEntry.html#GtkEntry--im-module"/>
     <keyword type="property" name="The “inner-border” property" link="GtkEntry.html#GtkEntry--inner-border"/>
@@ -1846,6 +1857,7 @@
     <keyword type="property" name="The “secondary-icon-tooltip-text” property" link="GtkEntry.html#GtkEntry--secondary-icon-tooltip-text"/>
     <keyword type="property" name="The “selection-bound” property" link="GtkEntry.html#GtkEntry--selection-bound"/>
     <keyword type="property" name="The “shadow-type” property" link="GtkEntry.html#GtkEntry--shadow-type"/>
+    <keyword type="property" name="The “show-emoji-icon” property" link="GtkEntry.html#GtkEntry--show-emoji-icon"/>
     <keyword type="property" name="The “tabs” property" link="GtkEntry.html#GtkEntry--tabs"/>
     <keyword type="property" name="The “text” property" link="GtkEntry.html#GtkEntry--text"/>
     <keyword type="property" name="The “text-length” property" link="GtkEntry.html#GtkEntry--text-length"/>
@@ -1865,6 +1877,7 @@
     <keyword type="signal" name="The “icon-press” signal" link="GtkEntry.html#GtkEntry-icon-press"/>
     <keyword type="signal" name="The “icon-release” signal" link="GtkEntry.html#GtkEntry-icon-release"/>
     <keyword type="signal" name="The “insert-at-cursor” signal" link="GtkEntry.html#GtkEntry-insert-at-cursor"/>
+    <keyword type="signal" name="The “insert-emoji” signal" link="GtkEntry.html#GtkEntry-insert-emoji"/>
     <keyword type="signal" name="The “move-cursor” signal" link="GtkEntry.html#GtkEntry-move-cursor"/>
     <keyword type="signal" name="The “paste-clipboard” signal" link="GtkEntry.html#GtkEntry-paste-clipboard"/>
     <keyword type="signal" name="The “populate-popup” signal" link="GtkEntry.html#GtkEntry-populate-popup"/>
@@ -2443,6 +2456,7 @@
     <keyword type="signal" name="The “delete-from-cursor” signal" link="GtkTextView.html#GtkTextView-delete-from-cursor"/>
     <keyword type="signal" name="The “extend-selection” signal" link="GtkTextView.html#GtkTextView-extend-selection"/>
     <keyword type="signal" name="The “insert-at-cursor” signal" link="GtkTextView.html#GtkTextView-insert-at-cursor"/>
+    <keyword type="signal" name="The “insert-emoji” signal" link="GtkTextView.html#GtkTextView-insert-emoji"/>
     <keyword type="signal" name="The “move-cursor” signal" link="GtkTextView.html#GtkTextView-move-cursor"/>
     <keyword type="signal" name="The “move-viewport” signal" link="GtkTextView.html#GtkTextView-move-viewport"/>
     <keyword type="signal" name="The “paste-clipboard” signal" link="GtkTextView.html#GtkTextView-paste-clipboard"/>
@@ -3349,9 +3363,9 @@
     <keyword type="function" name="gtk_menu_set_screen ()" link="GtkMenu.html#gtk-menu-set-screen" since="2.2"/>
     <keyword type="function" name="gtk_menu_reorder_child ()" link="GtkMenu.html#gtk-menu-reorder-child"/>
     <keyword type="function" name="gtk_menu_attach ()" link="GtkMenu.html#gtk-menu-attach" since="2.4"/>
-    <keyword type="function" name="gtk_menu_popup_at_rect ()" link="GtkMenu.html#gtk-menu-popup-at-rect" since="3.22" stability="Unstable"/>
-    <keyword type="function" name="gtk_menu_popup_at_widget ()" link="GtkMenu.html#gtk-menu-popup-at-widget" since="3.22" stability="Unstable"/>
-    <keyword type="function" name="gtk_menu_popup_at_pointer ()" link="GtkMenu.html#gtk-menu-popup-at-pointer" since="3.22" stability="Unstable"/>
+    <keyword type="function" name="gtk_menu_popup_at_rect ()" link="GtkMenu.html#gtk-menu-popup-at-rect" since="3.22"/>
+    <keyword type="function" name="gtk_menu_popup_at_widget ()" link="GtkMenu.html#gtk-menu-popup-at-widget" since="3.22"/>
+    <keyword type="function" name="gtk_menu_popup_at_pointer ()" link="GtkMenu.html#gtk-menu-popup-at-pointer" since="3.22"/>
     <keyword type="function" name="gtk_menu_popup_for_device ()" link="GtkMenu.html#gtk-menu-popup-for-device" deprecated="" since="3.0"/>
     <keyword type="function" name="gtk_menu_popup ()" link="GtkMenu.html#gtk-menu-popup" deprecated=""/>
     <keyword type="function" name="gtk_menu_set_accel_group ()" link="GtkMenu.html#gtk-menu-set-accel-group"/>
@@ -3903,16 +3917,24 @@
     <keyword type="function" name="gtk_font_chooser_set_filter_func ()" link="GtkFontChooser.html#gtk-font-chooser-set-filter-func" since="3.2"/>
     <keyword type="function" name="gtk_font_chooser_set_font_map ()" link="GtkFontChooser.html#gtk-font-chooser-set-font-map" since="3.18"/>
     <keyword type="function" name="gtk_font_chooser_get_font_map ()" link="GtkFontChooser.html#gtk-font-chooser-get-font-map" since="3.18"/>
+    <keyword type="function" name="gtk_font_chooser_set_level ()" link="GtkFontChooser.html#gtk-font-chooser-set-level" since="3.24"/>
+    <keyword type="function" name="gtk_font_chooser_get_level ()" link="GtkFontChooser.html#gtk-font-chooser-get-level" since="3.24"/>
+    <keyword type="function" name="gtk_font_chooser_get_font_features ()" link="GtkFontChooser.html#gtk-font-chooser-get-font-features" since="3.24"/>
+    <keyword type="function" name="gtk_font_chooser_set_language ()" link="GtkFontChooser.html#gtk-font-chooser-set-language" since="3.24"/>
+    <keyword type="function" name="gtk_font_chooser_get_language ()" link="GtkFontChooser.html#gtk-font-chooser-get-language" since="3.24"/>
     <keyword type="struct" name="GtkFontChooser" link="GtkFontChooser.html#GtkFontChooser-struct"/>
     <keyword type="property" name="The “font” property" link="GtkFontChooser.html#GtkFontChooser--font"/>
     <keyword type="property" name="The “font-desc” property" link="GtkFontChooser.html#GtkFontChooser--font-desc"/>
+    <keyword type="property" name="The “font-features” property" link="GtkFontChooser.html#GtkFontChooser--font-features"/>
+    <keyword type="property" name="The “language” property" link="GtkFontChooser.html#GtkFontChooser--language"/>
+    <keyword type="property" name="The “level” property" link="GtkFontChooser.html#GtkFontChooser--level"/>
     <keyword type="property" name="The “preview-text” property" link="GtkFontChooser.html#GtkFontChooser--preview-text"/>
     <keyword type="property" name="The “show-preview-entry” property" link="GtkFontChooser.html#GtkFontChooser--show-preview-entry"/>
     <keyword type="signal" name="The “font-activated” signal" link="GtkFontChooser.html#GtkFontChooser-font-activated"/>
     <keyword type="function" name="gtk_font_button_new ()" link="GtkFontButton.html#gtk-font-button-new" since="2.4"/>
     <keyword type="function" name="gtk_font_button_new_with_font ()" link="GtkFontButton.html#gtk-font-button-new-with-font" since="2.4"/>
-    <keyword type="function" name="gtk_font_button_set_font_name ()" link="GtkFontButton.html#gtk-font-button-set-font-name" since="2.4"/>
-    <keyword type="function" name="gtk_font_button_get_font_name ()" link="GtkFontButton.html#gtk-font-button-get-font-name" since="2.4"/>
+    <keyword type="function" name="gtk_font_button_set_font_name ()" link="GtkFontButton.html#gtk-font-button-set-font-name" deprecated="3.22: Use gtk_font_chooser_set_font() instead" since="2.4"/>
+    <keyword type="function" name="gtk_font_button_get_font_name ()" link="GtkFontButton.html#gtk-font-button-get-font-name" deprecated="3.22: Use gtk_font_chooser_get_font() instead" since="2.4"/>
     <keyword type="function" name="gtk_font_button_set_show_style ()" link="GtkFontButton.html#gtk-font-button-set-show-style" since="2.4"/>
     <keyword type="function" name="gtk_font_button_get_show_style ()" link="GtkFontButton.html#gtk-font-button-get-show-style" since="2.4"/>
     <keyword type="function" name="gtk_font_button_set_show_size ()" link="GtkFontButton.html#gtk-font-button-set-show-size" since="2.4"/>
@@ -3934,6 +3956,7 @@
     <keyword type="function" name="gtk_font_chooser_widget_new ()" link="GtkFontChooserWidget.html#gtk-font-chooser-widget-new" since="3.2"/>
     <keyword type="struct" name="struct GtkFontChooserWidget" link="GtkFontChooserWidget.html#GtkFontChooserWidget-struct"/>
     <keyword type="struct" name="struct GtkFontChooserWidgetClass" link="GtkFontChooserWidget.html#GtkFontChooserWidgetClass"/>
+    <keyword type="property" name="The “tweak-action” property" link="GtkFontChooserWidget.html#GtkFontChooserWidget--tweak-action"/>
     <keyword type="function" name="gtk_font_chooser_dialog_new ()" link="GtkFontChooserDialog.html#gtk-font-chooser-dialog-new" since="3.2"/>
     <keyword type="struct" name="struct GtkFontChooserDialog" link="GtkFontChooserDialog.html#GtkFontChooserDialog-struct"/>
     <keyword type="struct" name="struct GtkFontChooserDialogClass" link="GtkFontChooserDialog.html#GtkFontChooserDialogClass"/>
@@ -3972,6 +3995,7 @@
     <keyword type="property" name="The “show-enter-location” property" link="GtkPlacesSidebar.html#GtkPlacesSidebar--show-enter-location"/>
     <keyword type="property" name="The “show-other-locations” property" link="GtkPlacesSidebar.html#GtkPlacesSidebar--show-other-locations"/>
     <keyword type="property" name="The “show-recent” property" link="GtkPlacesSidebar.html#GtkPlacesSidebar--show-recent"/>
+    <keyword type="property" name="The “show-starred-location” property" link="GtkPlacesSidebar.html#GtkPlacesSidebar--show-starred-location"/>
     <keyword type="property" name="The “show-trash” property" link="GtkPlacesSidebar.html#GtkPlacesSidebar--show-trash"/>
     <keyword type="signal" name="The “drag-action-ask” signal" link="GtkPlacesSidebar.html#GtkPlacesSidebar-drag-action-ask"/>
     <keyword type="signal" name="The “drag-action-requested” signal" link="GtkPlacesSidebar.html#GtkPlacesSidebar-drag-action-requested"/>
@@ -3984,6 +4008,7 @@
     <keyword type="signal" name="The “show-error-message” signal" link="GtkPlacesSidebar.html#GtkPlacesSidebar-show-error-message"/>
     <keyword type="signal" name="The “show-other-locations” signal" link="GtkPlacesSidebar.html#GtkPlacesSidebar-show-other-locations"/>
     <keyword type="signal" name="The “show-other-locations-with-flags” signal" link="GtkPlacesSidebar.html#GtkPlacesSidebar-show-other-locations-with-flags"/>
+    <keyword type="signal" name="The “show-starred-location” signal" link="GtkPlacesSidebar.html#GtkPlacesSidebar-show-starred-location"/>
     <keyword type="signal" name="The “unmount” signal" link="GtkPlacesSidebar.html#GtkPlacesSidebar-unmount"/>
     <keyword type="function" name="gtk_frame_new ()" link="GtkFrame.html#gtk-frame-new"/>
     <keyword type="function" name="gtk_frame_set_label ()" link="GtkFrame.html#gtk-frame-set-label"/>
@@ -5096,9 +5121,9 @@
     <keyword type="function" name="gtk_container_get_border_width ()" link="GtkContainer.html#gtk-container-get-border-width"/>
     <keyword type="function" name="gtk_container_set_border_width ()" link="GtkContainer.html#gtk-container-set-border-width"/>
     <keyword type="function" name="gtk_container_propagate_draw ()" link="GtkContainer.html#gtk-container-propagate-draw"/>
-    <keyword type="function" name="gtk_container_get_focus_chain ()" link="GtkContainer.html#gtk-container-get-focus-chain"/>
-    <keyword type="function" name="gtk_container_set_focus_chain ()" link="GtkContainer.html#gtk-container-set-focus-chain"/>
-    <keyword type="function" name="gtk_container_unset_focus_chain ()" link="GtkContainer.html#gtk-container-unset-focus-chain"/>
+    <keyword type="function" name="gtk_container_get_focus_chain ()" link="GtkContainer.html#gtk-container-get-focus-chain" deprecated=""/>
+    <keyword type="function" name="gtk_container_set_focus_chain ()" link="GtkContainer.html#gtk-container-set-focus-chain" deprecated=""/>
+    <keyword type="function" name="gtk_container_unset_focus_chain ()" link="GtkContainer.html#gtk-container-unset-focus-chain" deprecated=""/>
     <keyword type="function" name="gtk_container_class_find_child_property ()" link="GtkContainer.html#gtk-container-class-find-child-property"/>
     <keyword type="function" name="gtk_container_class_install_child_property ()" link="GtkContainer.html#gtk-container-class-install-child-property"/>
     <keyword type="function" name="gtk_container_class_install_child_properties ()" link="GtkContainer.html#gtk-container-class-install-child-properties" since="3.18"/>
@@ -5428,6 +5453,29 @@
     <keyword type="enum" name="enum GtkPropagationPhase" link="GtkEventController.html#GtkPropagationPhase" since="3.14"/>
     <keyword type="property" name="The “propagation-phase” property" link="GtkEventController.html#GtkEventController--propagation-phase"/>
     <keyword type="property" name="The “widget” property" link="GtkEventController.html#GtkEventController--widget"/>
+    <keyword type="function" name="gtk_event_controller_key_new ()" link="GtkEventControllerKey.html#gtk-event-controller-key-new"/>
+    <keyword type="struct" name="GtkEventControllerKey" link="GtkEventControllerKey.html#GtkEventControllerKey-struct"/>
+    <keyword type="signal" name="The “focus-in” signal" link="GtkEventControllerKey.html#GtkEventControllerKey-focus-in"/>
+    <keyword type="signal" name="The “focus-out” signal" link="GtkEventControllerKey.html#GtkEventControllerKey-focus-out"/>
+    <keyword type="signal" name="The “im-update” signal" link="GtkEventControllerKey.html#GtkEventControllerKey-im-update"/>
+    <keyword type="signal" name="The “key-pressed” signal" link="GtkEventControllerKey.html#GtkEventControllerKey-key-pressed"/>
+    <keyword type="signal" name="The “key-released” signal" link="GtkEventControllerKey.html#GtkEventControllerKey-key-released"/>
+    <keyword type="signal" name="The “modifiers” signal" link="GtkEventControllerKey.html#GtkEventControllerKey-modifiers"/>
+    <keyword type="function" name="gtk_event_controller_scroll_new ()" link="GtkEventControllerScroll.html#gtk-event-controller-scroll-new" since="3.24"/>
+    <keyword type="function" name="gtk_event_controller_scroll_set_flags ()" link="GtkEventControllerScroll.html#gtk-event-controller-scroll-set-flags" since="3.24"/>
+    <keyword type="function" name="gtk_event_controller_scroll_get_flags ()" link="GtkEventControllerScroll.html#gtk-event-controller-scroll-get-flags" since="3.24"/>
+    <keyword type="struct" name="GtkEventControllerScroll" link="GtkEventControllerScroll.html#GtkEventControllerScroll-struct"/>
+    <keyword type="enum" name="enum GtkEventControllerScrollFlags" link="GtkEventControllerScroll.html#GtkEventControllerScrollFlags" since="3.24"/>
+    <keyword type="property" name="The “flags” property" link="GtkEventControllerScroll.html#GtkEventControllerScroll--flags"/>
+    <keyword type="signal" name="The “decelerate” signal" link="GtkEventControllerScroll.html#GtkEventControllerScroll-decelerate"/>
+    <keyword type="signal" name="The “scroll” signal" link="GtkEventControllerScroll.html#GtkEventControllerScroll-scroll"/>
+    <keyword type="signal" name="The “scroll-begin” signal" link="GtkEventControllerScroll.html#GtkEventControllerScroll-scroll-begin"/>
+    <keyword type="signal" name="The “scroll-end” signal" link="GtkEventControllerScroll.html#GtkEventControllerScroll-scroll-end"/>
+    <keyword type="function" name="gtk_event_controller_motion_new ()" link="GtkEventControllerMotion.html#gtk-event-controller-motion-new" since="3.24"/>
+    <keyword type="struct" name="GtkEventControllerMotion" link="GtkEventControllerMotion.html#GtkEventControllerMotion-struct"/>
+    <keyword type="signal" name="The “enter” signal" link="GtkEventControllerMotion.html#GtkEventControllerMotion-enter"/>
+    <keyword type="signal" name="The “leave” signal" link="GtkEventControllerMotion.html#GtkEventControllerMotion-leave"/>
+    <keyword type="signal" name="The “motion” signal" link="GtkEventControllerMotion.html#GtkEventControllerMotion-motion"/>
     <keyword type="function" name="gtk_gesture_get_device ()" link="GtkGesture.html#gtk-gesture-get-device" since="3.14"/>
     <keyword type="function" name="gtk_gesture_get_window ()" link="GtkGesture.html#gtk-gesture-get-window" since="3.14"/>
     <keyword type="function" name="gtk_gesture_set_window ()" link="GtkGesture.html#gtk-gesture-set-window" since="3.14"/>
@@ -5506,6 +5554,15 @@
     <keyword type="function" name="gtk_gesture_zoom_get_scale_delta ()" link="GtkGestureZoom.html#gtk-gesture-zoom-get-scale-delta" since="3.14"/>
     <keyword type="struct" name="GtkGestureZoom" link="GtkGestureZoom.html#GtkGestureZoom-struct"/>
     <keyword type="signal" name="The “scale-changed” signal" link="GtkGestureZoom.html#GtkGestureZoom-scale-changed"/>
+    <keyword type="function" name="gtk_gesture_stylus_new ()" link="GtkGestureStylus.html#gtk-gesture-stylus-new" since="3.24"/>
+    <keyword type="function" name="gtk_gesture_stylus_get_axis ()" link="GtkGestureStylus.html#gtk-gesture-stylus-get-axis" since="3.24"/>
+    <keyword type="function" name="gtk_gesture_stylus_get_axes ()" link="GtkGestureStylus.html#gtk-gesture-stylus-get-axes" since="3.24"/>
+    <keyword type="function" name="gtk_gesture_stylus_get_device_tool ()" link="GtkGestureStylus.html#gtk-gesture-stylus-get-device-tool" since="3.24"/>
+    <keyword type="struct" name="GtkGestureStylus" link="GtkGestureStylus.html#GtkGestureStylus-struct"/>
+    <keyword type="signal" name="The “down” signal" link="GtkGestureStylus.html#GtkGestureStylus-down"/>
+    <keyword type="signal" name="The “motion” signal" link="GtkGestureStylus.html#GtkGestureStylus-motion"/>
+    <keyword type="signal" name="The “proximity” signal" link="GtkGestureStylus.html#GtkGestureStylus-proximity"/>
+    <keyword type="signal" name="The “up” signal" link="GtkGestureStylus.html#GtkGestureStylus-up"/>
     <keyword type="function" name="gtk_pad_controller_new ()" link="GtkPadController.html#gtk-pad-controller-new" since="3.22"/>
     <keyword type="function" name="gtk_pad_controller_set_action_entries ()" link="GtkPadController.html#gtk-pad-controller-set-action-entries" since="3.22"/>
     <keyword type="function" name="gtk_pad_controller_set_action ()" link="GtkPadController.html#gtk-pad-controller-set-action" since="3.22"/>
@@ -5591,7 +5648,7 @@
     <keyword type="function" name="gtk_paint_shadow ()" link="GtkStyle.html#gtk-paint-shadow" deprecated="3.0: Use gtk_render_frame() instead"/>
     <keyword type="function" name="gtk_paint_shadow_gap ()" link="GtkStyle.html#gtk-paint-shadow-gap" deprecated="3.0: Use gtk_render_frame_gap() instead"/>
     <keyword type="function" name="gtk_paint_slider ()" link="GtkStyle.html#gtk-paint-slider" deprecated="3.0: Use gtk_render_slider() instead"/>
-    <keyword type="function" name="gtk_paint_spinner ()" link="GtkStyle.html#gtk-paint-spinner" deprecated="3.0: Use gtk_render_activity() instead"/>
+    <keyword type="function" name="gtk_paint_spinner ()" link="GtkStyle.html#gtk-paint-spinner" deprecated=""/>
     <keyword type="function" name="gtk_paint_tab ()" link="GtkStyle.html#gtk-paint-tab" deprecated="3.0: Use cairo instead"/>
     <keyword type="function" name="gtk_paint_vline ()" link="GtkStyle.html#gtk-paint-vline" deprecated="3.0: Use gtk_render_line() instead"/>
     <keyword type="function" name="gtk_paint_expander ()" link="GtkStyle.html#gtk-paint-expander" deprecated="3.0: Use gtk_render_expander() instead"/>
@@ -5935,111 +5992,111 @@
     <keyword type="function" name="gtk_stock_lookup ()" link="gtk3-Stock-Items.html#gtk-stock-lookup" deprecated="3.10"/>
     <keyword type="function" name="gtk_stock_set_translate_func ()" link="gtk3-Stock-Items.html#gtk-stock-set-translate-func" deprecated="3.10" since="2.8"/>
     <keyword type="struct" name="struct GtkStockItem" link="gtk3-Stock-Items.html#GtkStockItem" deprecated="3.10"/>
-    <keyword type="macro" name="GTK_STOCK_ABOUT" link="gtk3-Stock-Items.html#GTK-STOCK-ABOUT:CAPS" deprecated="3.10: Use named icon &amp;quot;help-about&amp;quot; or the label &amp;quot;_About&amp;quot;." since="2.6"/>
-    <keyword type="macro" name="GTK_STOCK_ADD" link="gtk3-Stock-Items.html#GTK-STOCK-ADD:CAPS" deprecated="3.10: Use named icon &amp;quot;list-add&amp;quot; or the label &amp;quot;_Add&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_APPLY" link="gtk3-Stock-Items.html#GTK-STOCK-APPLY:CAPS" deprecated="3.10: Do not use an icon. Use label &amp;quot;_Apply&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_BOLD" link="gtk3-Stock-Items.html#GTK-STOCK-BOLD:CAPS" deprecated="3.10: Use named icon &amp;quot;format-text-bold&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_CANCEL" link="gtk3-Stock-Items.html#GTK-STOCK-CANCEL:CAPS" deprecated="3.10: Do not use an icon. Use label &amp;quot;_Cancel&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_CAPS_LOCK_WARNING" link="gtk3-Stock-Items.html#GTK-STOCK-CAPS-LOCK-WARNING:CAPS" deprecated="3.10: Use named icon &amp;quot;dialog-warning-symbolic&amp;quot;." since="2.16"/>
-    <keyword type="macro" name="GTK_STOCK_CDROM" link="gtk3-Stock-Items.html#GTK-STOCK-CDROM:CAPS" deprecated="3.10: Use named icon &amp;quot;media-optical&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_CLEAR" link="gtk3-Stock-Items.html#GTK-STOCK-CLEAR:CAPS" deprecated="3.10: Use named icon &amp;quot;edit-clear&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_CLOSE" link="gtk3-Stock-Items.html#GTK-STOCK-CLOSE:CAPS" deprecated="3.10: Use named icon &amp;quot;window-close&amp;quot; or the label &amp;quot;_Close&amp;quot;."/>
+    <keyword type="macro" name="GTK_STOCK_ABOUT" link="gtk3-Stock-Items.html#GTK-STOCK-ABOUT:CAPS" deprecated="3.10: Use named icon &quot;help-about&quot; or the label &quot;_About&quot;." since="2.6"/>
+    <keyword type="macro" name="GTK_STOCK_ADD" link="gtk3-Stock-Items.html#GTK-STOCK-ADD:CAPS" deprecated="3.10: Use named icon &quot;list-add&quot; or the label &quot;_Add&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_APPLY" link="gtk3-Stock-Items.html#GTK-STOCK-APPLY:CAPS" deprecated="3.10: Do not use an icon. Use label &quot;_Apply&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_BOLD" link="gtk3-Stock-Items.html#GTK-STOCK-BOLD:CAPS" deprecated="3.10: Use named icon &quot;format-text-bold&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_CANCEL" link="gtk3-Stock-Items.html#GTK-STOCK-CANCEL:CAPS" deprecated="3.10: Do not use an icon. Use label &quot;_Cancel&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_CAPS_LOCK_WARNING" link="gtk3-Stock-Items.html#GTK-STOCK-CAPS-LOCK-WARNING:CAPS" deprecated="3.10: Use named icon &quot;dialog-warning-symbolic&quot;." since="2.16"/>
+    <keyword type="macro" name="GTK_STOCK_CDROM" link="gtk3-Stock-Items.html#GTK-STOCK-CDROM:CAPS" deprecated="3.10: Use named icon &quot;media-optical&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_CLEAR" link="gtk3-Stock-Items.html#GTK-STOCK-CLEAR:CAPS" deprecated="3.10: Use named icon &quot;edit-clear&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_CLOSE" link="gtk3-Stock-Items.html#GTK-STOCK-CLOSE:CAPS" deprecated="3.10: Use named icon &quot;window-close&quot; or the label &quot;_Close&quot;."/>
     <keyword type="macro" name="GTK_STOCK_COLOR_PICKER" link="gtk3-Stock-Items.html#GTK-STOCK-COLOR-PICKER:CAPS" deprecated="3.10" since="2.2"/>
     <keyword type="macro" name="GTK_STOCK_CONVERT" link="gtk3-Stock-Items.html#GTK-STOCK-CONVERT:CAPS" deprecated="3.10"/>
     <keyword type="macro" name="GTK_STOCK_CONNECT" link="gtk3-Stock-Items.html#GTK-STOCK-CONNECT:CAPS" deprecated="3.10" since="2.6"/>
-    <keyword type="macro" name="GTK_STOCK_COPY" link="gtk3-Stock-Items.html#GTK-STOCK-COPY:CAPS" deprecated="3.10: Use the named icon &amp;quot;edit-copy&amp;quot; or the label &amp;quot;_Copy&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_CUT" link="gtk3-Stock-Items.html#GTK-STOCK-CUT:CAPS" deprecated="3.10: Use the named icon &amp;quot;edit-cut&amp;quot; or the label &amp;quot;Cu_t&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_DELETE" link="gtk3-Stock-Items.html#GTK-STOCK-DELETE:CAPS" deprecated="3.10: Use the named icon &amp;quot;edit-delete&amp;quot; or the label &amp;quot;_Delete&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_DIALOG_AUTHENTICATION" link="gtk3-Stock-Items.html#GTK-STOCK-DIALOG-AUTHENTICATION:CAPS" deprecated="3.10: Use named icon &amp;quot;dialog-password&amp;quot;." since="2.4"/>
-    <keyword type="macro" name="GTK_STOCK_DIALOG_ERROR" link="gtk3-Stock-Items.html#GTK-STOCK-DIALOG-ERROR:CAPS" deprecated="3.10: Use named icon &amp;quot;dialog-error&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_DIALOG_INFO" link="gtk3-Stock-Items.html#GTK-STOCK-DIALOG-INFO:CAPS" deprecated="3.10: Use named icon &amp;quot;dialog-information&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_DIALOG_QUESTION" link="gtk3-Stock-Items.html#GTK-STOCK-DIALOG-QUESTION:CAPS" deprecated="3.10: Use named icon &amp;quot;dialog-question&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_DIALOG_WARNING" link="gtk3-Stock-Items.html#GTK-STOCK-DIALOG-WARNING:CAPS" deprecated="3.10: Use named icon &amp;quot;dialog-warning&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_DIRECTORY" link="gtk3-Stock-Items.html#GTK-STOCK-DIRECTORY:CAPS" deprecated="3.10: Use named icon &amp;quot;folder&amp;quot;." since="2.6"/>
+    <keyword type="macro" name="GTK_STOCK_COPY" link="gtk3-Stock-Items.html#GTK-STOCK-COPY:CAPS" deprecated="3.10: Use the named icon &quot;edit-copy&quot; or the label &quot;_Copy&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_CUT" link="gtk3-Stock-Items.html#GTK-STOCK-CUT:CAPS" deprecated="3.10: Use the named icon &quot;edit-cut&quot; or the label &quot;Cu_t&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_DELETE" link="gtk3-Stock-Items.html#GTK-STOCK-DELETE:CAPS" deprecated="3.10: Use the named icon &quot;edit-delete&quot; or the label &quot;_Delete&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_DIALOG_AUTHENTICATION" link="gtk3-Stock-Items.html#GTK-STOCK-DIALOG-AUTHENTICATION:CAPS" deprecated="3.10: Use named icon &quot;dialog-password&quot;." since="2.4"/>
+    <keyword type="macro" name="GTK_STOCK_DIALOG_ERROR" link="gtk3-Stock-Items.html#GTK-STOCK-DIALOG-ERROR:CAPS" deprecated="3.10: Use named icon &quot;dialog-error&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_DIALOG_INFO" link="gtk3-Stock-Items.html#GTK-STOCK-DIALOG-INFO:CAPS" deprecated="3.10: Use named icon &quot;dialog-information&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_DIALOG_QUESTION" link="gtk3-Stock-Items.html#GTK-STOCK-DIALOG-QUESTION:CAPS" deprecated="3.10: Use named icon &quot;dialog-question&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_DIALOG_WARNING" link="gtk3-Stock-Items.html#GTK-STOCK-DIALOG-WARNING:CAPS" deprecated="3.10: Use named icon &quot;dialog-warning&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_DIRECTORY" link="gtk3-Stock-Items.html#GTK-STOCK-DIRECTORY:CAPS" deprecated="3.10: Use named icon &quot;folder&quot;." since="2.6"/>
     <keyword type="macro" name="GTK_STOCK_DISCARD" link="gtk3-Stock-Items.html#GTK-STOCK-DISCARD:CAPS" deprecated="3.10" since="2.12"/>
     <keyword type="macro" name="GTK_STOCK_DISCONNECT" link="gtk3-Stock-Items.html#GTK-STOCK-DISCONNECT:CAPS" deprecated="3.10" since="2.6"/>
     <keyword type="macro" name="GTK_STOCK_DND" link="gtk3-Stock-Items.html#GTK-STOCK-DND:CAPS" deprecated="3.10"/>
     <keyword type="macro" name="GTK_STOCK_DND_MULTIPLE" link="gtk3-Stock-Items.html#GTK-STOCK-DND-MULTIPLE:CAPS" deprecated="3.10"/>
     <keyword type="macro" name="GTK_STOCK_EDIT" link="gtk3-Stock-Items.html#GTK-STOCK-EDIT:CAPS" deprecated="3.10" since="2.6"/>
-    <keyword type="macro" name="GTK_STOCK_EXECUTE" link="gtk3-Stock-Items.html#GTK-STOCK-EXECUTE:CAPS" deprecated="3.10: Use named icon &amp;quot;system-run&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_FILE" link="gtk3-Stock-Items.html#GTK-STOCK-FILE:CAPS" deprecated="3.10: Use named icon &amp;quot;text-x-generic&amp;quot;." since="2.6"/>
-    <keyword type="macro" name="GTK_STOCK_FIND" link="gtk3-Stock-Items.html#GTK-STOCK-FIND:CAPS" deprecated="3.10: Use named icon &amp;quot;edit-find&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_FIND_AND_REPLACE" link="gtk3-Stock-Items.html#GTK-STOCK-FIND-AND-REPLACE:CAPS" deprecated="3.10: Use named icon &amp;quot;edit-find-replace&amp;quot;."/>
+    <keyword type="macro" name="GTK_STOCK_EXECUTE" link="gtk3-Stock-Items.html#GTK-STOCK-EXECUTE:CAPS" deprecated="3.10: Use named icon &quot;system-run&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_FILE" link="gtk3-Stock-Items.html#GTK-STOCK-FILE:CAPS" deprecated="3.10: Use named icon &quot;text-x-generic&quot;." since="2.6"/>
+    <keyword type="macro" name="GTK_STOCK_FIND" link="gtk3-Stock-Items.html#GTK-STOCK-FIND:CAPS" deprecated="3.10: Use named icon &quot;edit-find&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_FIND_AND_REPLACE" link="gtk3-Stock-Items.html#GTK-STOCK-FIND-AND-REPLACE:CAPS" deprecated="3.10: Use named icon &quot;edit-find-replace&quot;."/>
     <keyword type="macro" name="GTK_STOCK_FLOPPY" link="gtk3-Stock-Items.html#GTK-STOCK-FLOPPY:CAPS" deprecated="3.10"/>
-    <keyword type="macro" name="GTK_STOCK_FULLSCREEN" link="gtk3-Stock-Items.html#GTK-STOCK-FULLSCREEN:CAPS" deprecated="3.10: Use named icon &amp;quot;view-fullscreen&amp;quot;." since="2.8"/>
-    <keyword type="macro" name="GTK_STOCK_GOTO_BOTTOM" link="gtk3-Stock-Items.html#GTK-STOCK-GOTO-BOTTOM:CAPS" deprecated="3.10: Use named icon &amp;quot;go-bottom&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_GOTO_FIRST" link="gtk3-Stock-Items.html#GTK-STOCK-GOTO-FIRST:CAPS" deprecated="3.10: Use named icon &amp;quot;go-first&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_GOTO_LAST" link="gtk3-Stock-Items.html#GTK-STOCK-GOTO-LAST:CAPS" deprecated="3.10: Use named icon &amp;quot;go-last&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_GOTO_TOP" link="gtk3-Stock-Items.html#GTK-STOCK-GOTO-TOP:CAPS" deprecated="3.10: Use named icon &amp;quot;go-top&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_GO_BACK" link="gtk3-Stock-Items.html#GTK-STOCK-GO-BACK:CAPS" deprecated="3.10: Use named icon &amp;quot;go-previous&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_GO_DOWN" link="gtk3-Stock-Items.html#GTK-STOCK-GO-DOWN:CAPS" deprecated="3.10: Use named icon &amp;quot;go-down&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_GO_FORWARD" link="gtk3-Stock-Items.html#GTK-STOCK-GO-FORWARD:CAPS" deprecated="3.10: Use named icon &amp;quot;go-next&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_GO_UP" link="gtk3-Stock-Items.html#GTK-STOCK-GO-UP:CAPS" deprecated="3.10: Use named icon &amp;quot;go-up&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_HARDDISK" link="gtk3-Stock-Items.html#GTK-STOCK-HARDDISK:CAPS" deprecated="3.10: Use named icon &amp;quot;drive-harddisk&amp;quot;." since="2.4"/>
-    <keyword type="macro" name="GTK_STOCK_HELP" link="gtk3-Stock-Items.html#GTK-STOCK-HELP:CAPS" deprecated="3.10: Use named icon &amp;quot;help-browser&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_HOME" link="gtk3-Stock-Items.html#GTK-STOCK-HOME:CAPS" deprecated="3.10: Use named icon &amp;quot;go-home&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_INDENT" link="gtk3-Stock-Items.html#GTK-STOCK-INDENT:CAPS" deprecated="3.10: Use named icon &amp;quot;format-indent-more&amp;quot;." since="2.4"/>
+    <keyword type="macro" name="GTK_STOCK_FULLSCREEN" link="gtk3-Stock-Items.html#GTK-STOCK-FULLSCREEN:CAPS" deprecated="3.10: Use named icon &quot;view-fullscreen&quot;." since="2.8"/>
+    <keyword type="macro" name="GTK_STOCK_GOTO_BOTTOM" link="gtk3-Stock-Items.html#GTK-STOCK-GOTO-BOTTOM:CAPS" deprecated="3.10: Use named icon &quot;go-bottom&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_GOTO_FIRST" link="gtk3-Stock-Items.html#GTK-STOCK-GOTO-FIRST:CAPS" deprecated="3.10: Use named icon &quot;go-first&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_GOTO_LAST" link="gtk3-Stock-Items.html#GTK-STOCK-GOTO-LAST:CAPS" deprecated="3.10: Use named icon &quot;go-last&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_GOTO_TOP" link="gtk3-Stock-Items.html#GTK-STOCK-GOTO-TOP:CAPS" deprecated="3.10: Use named icon &quot;go-top&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_GO_BACK" link="gtk3-Stock-Items.html#GTK-STOCK-GO-BACK:CAPS" deprecated="3.10: Use named icon &quot;go-previous&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_GO_DOWN" link="gtk3-Stock-Items.html#GTK-STOCK-GO-DOWN:CAPS" deprecated="3.10: Use named icon &quot;go-down&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_GO_FORWARD" link="gtk3-Stock-Items.html#GTK-STOCK-GO-FORWARD:CAPS" deprecated="3.10: Use named icon &quot;go-next&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_GO_UP" link="gtk3-Stock-Items.html#GTK-STOCK-GO-UP:CAPS" deprecated="3.10: Use named icon &quot;go-up&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_HARDDISK" link="gtk3-Stock-Items.html#GTK-STOCK-HARDDISK:CAPS" deprecated="3.10: Use named icon &quot;drive-harddisk&quot;." since="2.4"/>
+    <keyword type="macro" name="GTK_STOCK_HELP" link="gtk3-Stock-Items.html#GTK-STOCK-HELP:CAPS" deprecated="3.10: Use named icon &quot;help-browser&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_HOME" link="gtk3-Stock-Items.html#GTK-STOCK-HOME:CAPS" deprecated="3.10: Use named icon &quot;go-home&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_INDENT" link="gtk3-Stock-Items.html#GTK-STOCK-INDENT:CAPS" deprecated="3.10: Use named icon &quot;format-indent-more&quot;." since="2.4"/>
     <keyword type="macro" name="GTK_STOCK_INDEX" link="gtk3-Stock-Items.html#GTK-STOCK-INDEX:CAPS" deprecated="3.10"/>
-    <keyword type="macro" name="GTK_STOCK_INFO" link="gtk3-Stock-Items.html#GTK-STOCK-INFO:CAPS" deprecated="3.10: Use named icon &amp;quot;dialog-information&amp;quot;." since="2.8"/>
-    <keyword type="macro" name="GTK_STOCK_ITALIC" link="gtk3-Stock-Items.html#GTK-STOCK-ITALIC:CAPS" deprecated="3.10: Use named icon &amp;quot;format-text-italic&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_JUMP_TO" link="gtk3-Stock-Items.html#GTK-STOCK-JUMP-TO:CAPS" deprecated="3.10: Use named icon &amp;quot;go-jump&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_JUSTIFY_CENTER" link="gtk3-Stock-Items.html#GTK-STOCK-JUSTIFY-CENTER:CAPS" deprecated="3.10: Use named icon &amp;quot;format-justify-center&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_JUSTIFY_FILL" link="gtk3-Stock-Items.html#GTK-STOCK-JUSTIFY-FILL:CAPS" deprecated="3.10: Use named icon &amp;quot;format-justify-fill&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_JUSTIFY_LEFT" link="gtk3-Stock-Items.html#GTK-STOCK-JUSTIFY-LEFT:CAPS" deprecated="3.10: Use named icon &amp;quot;format-justify-left&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_JUSTIFY_RIGHT" link="gtk3-Stock-Items.html#GTK-STOCK-JUSTIFY-RIGHT:CAPS" deprecated="3.10: Use named icon &amp;quot;format-justify-right&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_LEAVE_FULLSCREEN" link="gtk3-Stock-Items.html#GTK-STOCK-LEAVE-FULLSCREEN:CAPS" deprecated="3.10: Use named icon &amp;quot;view-restore&amp;quot;." since="2.8"/>
-    <keyword type="macro" name="GTK_STOCK_MEDIA_FORWARD" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-FORWARD:CAPS" deprecated="3.10: Use named icon &amp;quot;media-seek-forward&amp;quot; or the label &amp;quot;_Forward&amp;quot;." since="2.6"/>
-    <keyword type="macro" name="GTK_STOCK_MEDIA_NEXT" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-NEXT:CAPS" deprecated="3.10: Use named icon &amp;quot;media-skip-forward&amp;quot; or the label &amp;quot;_Next&amp;quot;." since="2.6"/>
-    <keyword type="macro" name="GTK_STOCK_MEDIA_PAUSE" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-PAUSE:CAPS" deprecated="3.10: Use named icon &amp;quot;media-playback-pause&amp;quot; or the label &amp;quot;P_ause&amp;quot;." since="2.6"/>
-    <keyword type="macro" name="GTK_STOCK_MEDIA_PLAY" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-PLAY:CAPS" deprecated="3.10: Use named icon &amp;quot;media-playback-start&amp;quot; or the label &amp;quot;_Play&amp;quot;." since="2.6"/>
-    <keyword type="macro" name="GTK_STOCK_MEDIA_PREVIOUS" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-PREVIOUS:CAPS" deprecated="3.10: Use named icon &amp;quot;media-skip-backward&amp;quot; or the label &amp;quot;Pre_vious&amp;quot;." since="2.6"/>
-    <keyword type="macro" name="GTK_STOCK_MEDIA_RECORD" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-RECORD:CAPS" deprecated="3.10: Use named icon &amp;quot;media-record&amp;quot; or the label &amp;quot;_Record&amp;quot;." since="2.6"/>
-    <keyword type="macro" name="GTK_STOCK_MEDIA_REWIND" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-REWIND:CAPS" deprecated="3.10: Use named icon &amp;quot;media-seek-backward&amp;quot; or the label &amp;quot;R_ewind&amp;quot;." since="2.6"/>
-    <keyword type="macro" name="GTK_STOCK_MEDIA_STOP" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-STOP:CAPS" deprecated="3.10: Use named icon &amp;quot;media-playback-stop&amp;quot; or the label &amp;quot;_Stop&amp;quot;." since="2.6"/>
-    <keyword type="macro" name="GTK_STOCK_MISSING_IMAGE" link="gtk3-Stock-Items.html#GTK-STOCK-MISSING-IMAGE:CAPS" deprecated="3.10: Use named icon &amp;quot;image-missing&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_NETWORK" link="gtk3-Stock-Items.html#GTK-STOCK-NETWORK:CAPS" deprecated="3.10: Use named icon &amp;quot;network-workgroup&amp;quot;." since="2.4"/>
-    <keyword type="macro" name="GTK_STOCK_NEW" link="gtk3-Stock-Items.html#GTK-STOCK-NEW:CAPS" deprecated="3.10: Use named icon &amp;quot;document-new&amp;quot; or the label &amp;quot;_New&amp;quot;."/>
+    <keyword type="macro" name="GTK_STOCK_INFO" link="gtk3-Stock-Items.html#GTK-STOCK-INFO:CAPS" deprecated="3.10: Use named icon &quot;dialog-information&quot;." since="2.8"/>
+    <keyword type="macro" name="GTK_STOCK_ITALIC" link="gtk3-Stock-Items.html#GTK-STOCK-ITALIC:CAPS" deprecated="3.10: Use named icon &quot;format-text-italic&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_JUMP_TO" link="gtk3-Stock-Items.html#GTK-STOCK-JUMP-TO:CAPS" deprecated="3.10: Use named icon &quot;go-jump&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_JUSTIFY_CENTER" link="gtk3-Stock-Items.html#GTK-STOCK-JUSTIFY-CENTER:CAPS" deprecated="3.10: Use named icon &quot;format-justify-center&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_JUSTIFY_FILL" link="gtk3-Stock-Items.html#GTK-STOCK-JUSTIFY-FILL:CAPS" deprecated="3.10: Use named icon &quot;format-justify-fill&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_JUSTIFY_LEFT" link="gtk3-Stock-Items.html#GTK-STOCK-JUSTIFY-LEFT:CAPS" deprecated="3.10: Use named icon &quot;format-justify-left&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_JUSTIFY_RIGHT" link="gtk3-Stock-Items.html#GTK-STOCK-JUSTIFY-RIGHT:CAPS" deprecated="3.10: Use named icon &quot;format-justify-right&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_LEAVE_FULLSCREEN" link="gtk3-Stock-Items.html#GTK-STOCK-LEAVE-FULLSCREEN:CAPS" deprecated="3.10: Use named icon &quot;view-restore&quot;." since="2.8"/>
+    <keyword type="macro" name="GTK_STOCK_MEDIA_FORWARD" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-FORWARD:CAPS" deprecated="3.10: Use named icon &quot;media-seek-forward&quot; or the label &quot;_Forward&quot;." since="2.6"/>
+    <keyword type="macro" name="GTK_STOCK_MEDIA_NEXT" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-NEXT:CAPS" deprecated="3.10: Use named icon &quot;media-skip-forward&quot; or the label &quot;_Next&quot;." since="2.6"/>
+    <keyword type="macro" name="GTK_STOCK_MEDIA_PAUSE" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-PAUSE:CAPS" deprecated="3.10: Use named icon &quot;media-playback-pause&quot; or the label &quot;P_ause&quot;." since="2.6"/>
+    <keyword type="macro" name="GTK_STOCK_MEDIA_PLAY" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-PLAY:CAPS" deprecated="3.10: Use named icon &quot;media-playback-start&quot; or the label &quot;_Play&quot;." since="2.6"/>
+    <keyword type="macro" name="GTK_STOCK_MEDIA_PREVIOUS" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-PREVIOUS:CAPS" deprecated="3.10: Use named icon &quot;media-skip-backward&quot; or the label &quot;Pre_vious&quot;." since="2.6"/>
+    <keyword type="macro" name="GTK_STOCK_MEDIA_RECORD" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-RECORD:CAPS" deprecated="3.10: Use named icon &quot;media-record&quot; or the label &quot;_Record&quot;." since="2.6"/>
+    <keyword type="macro" name="GTK_STOCK_MEDIA_REWIND" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-REWIND:CAPS" deprecated="3.10: Use named icon &quot;media-seek-backward&quot; or the label &quot;R_ewind&quot;." since="2.6"/>
+    <keyword type="macro" name="GTK_STOCK_MEDIA_STOP" link="gtk3-Stock-Items.html#GTK-STOCK-MEDIA-STOP:CAPS" deprecated="3.10: Use named icon &quot;media-playback-stop&quot; or the label &quot;_Stop&quot;." since="2.6"/>
+    <keyword type="macro" name="GTK_STOCK_MISSING_IMAGE" link="gtk3-Stock-Items.html#GTK-STOCK-MISSING-IMAGE:CAPS" deprecated="3.10: Use named icon &quot;image-missing&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_NETWORK" link="gtk3-Stock-Items.html#GTK-STOCK-NETWORK:CAPS" deprecated="3.10: Use named icon &quot;network-workgroup&quot;." since="2.4"/>
+    <keyword type="macro" name="GTK_STOCK_NEW" link="gtk3-Stock-Items.html#GTK-STOCK-NEW:CAPS" deprecated="3.10: Use named icon &quot;document-new&quot; or the label &quot;_New&quot;."/>
     <keyword type="macro" name="GTK_STOCK_NO" link="gtk3-Stock-Items.html#GTK-STOCK-NO:CAPS" deprecated="3.10"/>
-    <keyword type="macro" name="GTK_STOCK_OK" link="gtk3-Stock-Items.html#GTK-STOCK-OK:CAPS" deprecated="3.10: Do not use an icon. Use label &amp;quot;_OK&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_OPEN" link="gtk3-Stock-Items.html#GTK-STOCK-OPEN:CAPS" deprecated="3.10: Use named icon &amp;quot;document-open&amp;quot; or the label &amp;quot;_Open&amp;quot;."/>
+    <keyword type="macro" name="GTK_STOCK_OK" link="gtk3-Stock-Items.html#GTK-STOCK-OK:CAPS" deprecated="3.10: Do not use an icon. Use label &quot;_OK&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_OPEN" link="gtk3-Stock-Items.html#GTK-STOCK-OPEN:CAPS" deprecated="3.10: Use named icon &quot;document-open&quot; or the label &quot;_Open&quot;."/>
     <keyword type="macro" name="GTK_STOCK_ORIENTATION_LANDSCAPE" link="gtk3-Stock-Items.html#GTK-STOCK-ORIENTATION-LANDSCAPE:CAPS" deprecated="3.10" since="2.10"/>
     <keyword type="macro" name="GTK_STOCK_ORIENTATION_PORTRAIT" link="gtk3-Stock-Items.html#GTK-STOCK-ORIENTATION-PORTRAIT:CAPS" deprecated="3.10" since="2.10"/>
     <keyword type="macro" name="GTK_STOCK_ORIENTATION_REVERSE_LANDSCAPE" link="gtk3-Stock-Items.html#GTK-STOCK-ORIENTATION-REVERSE-LANDSCAPE:CAPS" deprecated="3.10" since="2.10"/>
     <keyword type="macro" name="GTK_STOCK_ORIENTATION_REVERSE_PORTRAIT" link="gtk3-Stock-Items.html#GTK-STOCK-ORIENTATION-REVERSE-PORTRAIT:CAPS" deprecated="3.10" since="2.10"/>
-    <keyword type="macro" name="GTK_STOCK_PAGE_SETUP" link="gtk3-Stock-Items.html#GTK-STOCK-PAGE-SETUP:CAPS" deprecated="3.10: Use named icon &amp;quot;document-page-setup&amp;quot; or the label &amp;quot;Page Set_up&amp;quot;." since="2.14"/>
-    <keyword type="macro" name="GTK_STOCK_PASTE" link="gtk3-Stock-Items.html#GTK-STOCK-PASTE:CAPS" deprecated="3.10: Use named icon &amp;quot;edit-paste&amp;quot; or the label &amp;quot;_Paste&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_PREFERENCES" link="gtk3-Stock-Items.html#GTK-STOCK-PREFERENCES:CAPS" deprecated="3.10: Use named icon &amp;quot;preferences-system&amp;quot; or the label &amp;quot;_Preferences&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_PRINT" link="gtk3-Stock-Items.html#GTK-STOCK-PRINT:CAPS" deprecated="3.10: Use named icon &amp;quot;document-print&amp;quot; or the label &amp;quot;_Print&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_PRINT_ERROR" link="gtk3-Stock-Items.html#GTK-STOCK-PRINT-ERROR:CAPS" deprecated="3.10: Use named icon &amp;quot;printer-error&amp;quot;." since="2.14"/>
+    <keyword type="macro" name="GTK_STOCK_PAGE_SETUP" link="gtk3-Stock-Items.html#GTK-STOCK-PAGE-SETUP:CAPS" deprecated="3.10: Use named icon &quot;document-page-setup&quot; or the label &quot;Page Set_up&quot;." since="2.14"/>
+    <keyword type="macro" name="GTK_STOCK_PASTE" link="gtk3-Stock-Items.html#GTK-STOCK-PASTE:CAPS" deprecated="3.10: Use named icon &quot;edit-paste&quot; or the label &quot;_Paste&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_PREFERENCES" link="gtk3-Stock-Items.html#GTK-STOCK-PREFERENCES:CAPS" deprecated="3.10: Use named icon &quot;preferences-system&quot; or the label &quot;_Preferences&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_PRINT" link="gtk3-Stock-Items.html#GTK-STOCK-PRINT:CAPS" deprecated="3.10: Use named icon &quot;document-print&quot; or the label &quot;_Print&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_PRINT_ERROR" link="gtk3-Stock-Items.html#GTK-STOCK-PRINT-ERROR:CAPS" deprecated="3.10: Use named icon &quot;printer-error&quot;." since="2.14"/>
     <keyword type="macro" name="GTK_STOCK_PRINT_PAUSED" link="gtk3-Stock-Items.html#GTK-STOCK-PRINT-PAUSED:CAPS" deprecated="3.10" since="2.14"/>
-    <keyword type="macro" name="GTK_STOCK_PRINT_PREVIEW" link="gtk3-Stock-Items.html#GTK-STOCK-PRINT-PREVIEW:CAPS" deprecated="3.10: Use label &amp;quot;Pre_view&amp;quot;."/>
+    <keyword type="macro" name="GTK_STOCK_PRINT_PREVIEW" link="gtk3-Stock-Items.html#GTK-STOCK-PRINT-PREVIEW:CAPS" deprecated="3.10: Use label &quot;Pre_view&quot;."/>
     <keyword type="macro" name="GTK_STOCK_PRINT_REPORT" link="gtk3-Stock-Items.html#GTK-STOCK-PRINT-REPORT:CAPS" deprecated="3.10" since="2.14"/>
     <keyword type="macro" name="GTK_STOCK_PRINT_WARNING" link="gtk3-Stock-Items.html#GTK-STOCK-PRINT-WARNING:CAPS" deprecated="3.10" since="2.14"/>
-    <keyword type="macro" name="GTK_STOCK_PROPERTIES" link="gtk3-Stock-Items.html#GTK-STOCK-PROPERTIES:CAPS" deprecated="3.10: Use named icon &amp;quot;document-properties&amp;quot; or the label &amp;quot;_Properties&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_QUIT" link="gtk3-Stock-Items.html#GTK-STOCK-QUIT:CAPS" deprecated="3.10: Use named icon &amp;quot;application-exit&amp;quot; or the label &amp;quot;_Quit&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_REDO" link="gtk3-Stock-Items.html#GTK-STOCK-REDO:CAPS" deprecated="3.10: Use named icon &amp;quot;edit-redo&amp;quot; or the label &amp;quot;_Redo&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_REFRESH" link="gtk3-Stock-Items.html#GTK-STOCK-REFRESH:CAPS" deprecated="3.10: Use named icon &amp;quot;view-refresh&amp;quot; or the label &amp;quot;_Refresh&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_REMOVE" link="gtk3-Stock-Items.html#GTK-STOCK-REMOVE:CAPS" deprecated="3.10: Use named icon &amp;quot;list-remove&amp;quot; or the label &amp;quot;_Remove&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_REVERT_TO_SAVED" link="gtk3-Stock-Items.html#GTK-STOCK-REVERT-TO-SAVED:CAPS" deprecated="3.10: Use named icon &amp;quot;document-revert&amp;quot; or the label &amp;quot;_Revert&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_SAVE" link="gtk3-Stock-Items.html#GTK-STOCK-SAVE:CAPS" deprecated="3.10: Use named icon &amp;quot;document-save&amp;quot; or the label &amp;quot;_Save&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_SAVE_AS" link="gtk3-Stock-Items.html#GTK-STOCK-SAVE-AS:CAPS" deprecated="3.10: Use named icon &amp;quot;document-save-as&amp;quot; or the label &amp;quot;Save _As&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_SELECT_ALL" link="gtk3-Stock-Items.html#GTK-STOCK-SELECT-ALL:CAPS" deprecated="3.10: Use named icon &amp;quot;edit-select-all&amp;quot; or the label &amp;quot;Select _All&amp;quot;." since="2.10"/>
+    <keyword type="macro" name="GTK_STOCK_PROPERTIES" link="gtk3-Stock-Items.html#GTK-STOCK-PROPERTIES:CAPS" deprecated="3.10: Use named icon &quot;document-properties&quot; or the label &quot;_Properties&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_QUIT" link="gtk3-Stock-Items.html#GTK-STOCK-QUIT:CAPS" deprecated="3.10: Use named icon &quot;application-exit&quot; or the label &quot;_Quit&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_REDO" link="gtk3-Stock-Items.html#GTK-STOCK-REDO:CAPS" deprecated="3.10: Use named icon &quot;edit-redo&quot; or the label &quot;_Redo&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_REFRESH" link="gtk3-Stock-Items.html#GTK-STOCK-REFRESH:CAPS" deprecated="3.10: Use named icon &quot;view-refresh&quot; or the label &quot;_Refresh&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_REMOVE" link="gtk3-Stock-Items.html#GTK-STOCK-REMOVE:CAPS" deprecated="3.10: Use named icon &quot;list-remove&quot; or the label &quot;_Remove&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_REVERT_TO_SAVED" link="gtk3-Stock-Items.html#GTK-STOCK-REVERT-TO-SAVED:CAPS" deprecated="3.10: Use named icon &quot;document-revert&quot; or the label &quot;_Revert&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_SAVE" link="gtk3-Stock-Items.html#GTK-STOCK-SAVE:CAPS" deprecated="3.10: Use named icon &quot;document-save&quot; or the label &quot;_Save&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_SAVE_AS" link="gtk3-Stock-Items.html#GTK-STOCK-SAVE-AS:CAPS" deprecated="3.10: Use named icon &quot;document-save-as&quot; or the label &quot;Save _As&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_SELECT_ALL" link="gtk3-Stock-Items.html#GTK-STOCK-SELECT-ALL:CAPS" deprecated="3.10: Use named icon &quot;edit-select-all&quot; or the label &quot;Select _All&quot;." since="2.10"/>
     <keyword type="macro" name="GTK_STOCK_SELECT_COLOR" link="gtk3-Stock-Items.html#GTK-STOCK-SELECT-COLOR:CAPS" deprecated="3.10"/>
     <keyword type="macro" name="GTK_STOCK_SELECT_FONT" link="gtk3-Stock-Items.html#GTK-STOCK-SELECT-FONT:CAPS" deprecated="3.10"/>
-    <keyword type="macro" name="GTK_STOCK_SORT_ASCENDING" link="gtk3-Stock-Items.html#GTK-STOCK-SORT-ASCENDING:CAPS" deprecated="3.10: Use named icon &amp;quot;view-sort-ascending&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_SORT_DESCENDING" link="gtk3-Stock-Items.html#GTK-STOCK-SORT-DESCENDING:CAPS" deprecated="3.10: Use named icon &amp;quot;view-sort-descending&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_SPELL_CHECK" link="gtk3-Stock-Items.html#GTK-STOCK-SPELL-CHECK:CAPS" deprecated="3.10: Use named icon &amp;quot;tools-check-spelling&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_STOP" link="gtk3-Stock-Items.html#GTK-STOCK-STOP:CAPS" deprecated="3.10: Use named icon &amp;quot;process-stop&amp;quot; or the label &amp;quot;_Stop&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_STRIKETHROUGH" link="gtk3-Stock-Items.html#GTK-STOCK-STRIKETHROUGH:CAPS" deprecated="3.10: Use named icon &amp;quot;format-text-strikethrough&amp;quot; or the label &amp;quot;_Strikethrough&amp;quot;."/>
+    <keyword type="macro" name="GTK_STOCK_SORT_ASCENDING" link="gtk3-Stock-Items.html#GTK-STOCK-SORT-ASCENDING:CAPS" deprecated="3.10: Use named icon &quot;view-sort-ascending&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_SORT_DESCENDING" link="gtk3-Stock-Items.html#GTK-STOCK-SORT-DESCENDING:CAPS" deprecated="3.10: Use named icon &quot;view-sort-descending&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_SPELL_CHECK" link="gtk3-Stock-Items.html#GTK-STOCK-SPELL-CHECK:CAPS" deprecated="3.10: Use named icon &quot;tools-check-spelling&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_STOP" link="gtk3-Stock-Items.html#GTK-STOCK-STOP:CAPS" deprecated="3.10: Use named icon &quot;process-stop&quot; or the label &quot;_Stop&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_STRIKETHROUGH" link="gtk3-Stock-Items.html#GTK-STOCK-STRIKETHROUGH:CAPS" deprecated="3.10: Use named icon &quot;format-text-strikethrough&quot; or the label &quot;_Strikethrough&quot;."/>
     <keyword type="macro" name="GTK_STOCK_UNDELETE" link="gtk3-Stock-Items.html#GTK-STOCK-UNDELETE:CAPS" deprecated="3.10"/>
-    <keyword type="macro" name="GTK_STOCK_UNDERLINE" link="gtk3-Stock-Items.html#GTK-STOCK-UNDERLINE:CAPS" deprecated="3.10: Use named icon &amp;quot;format-text-underline&amp;quot; or the label &amp;quot;_Underline&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_UNDO" link="gtk3-Stock-Items.html#GTK-STOCK-UNDO:CAPS" deprecated="3.10: Use named icon &amp;quot;edit-undo&amp;quot; or the label &amp;quot;_Undo&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_UNINDENT" link="gtk3-Stock-Items.html#GTK-STOCK-UNINDENT:CAPS" deprecated="3.10: Use named icon &amp;quot;format-indent-less&amp;quot;." since="2.4"/>
+    <keyword type="macro" name="GTK_STOCK_UNDERLINE" link="gtk3-Stock-Items.html#GTK-STOCK-UNDERLINE:CAPS" deprecated="3.10: Use named icon &quot;format-text-underline&quot; or the label &quot;_Underline&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_UNDO" link="gtk3-Stock-Items.html#GTK-STOCK-UNDO:CAPS" deprecated="3.10: Use named icon &quot;edit-undo&quot; or the label &quot;_Undo&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_UNINDENT" link="gtk3-Stock-Items.html#GTK-STOCK-UNINDENT:CAPS" deprecated="3.10: Use named icon &quot;format-indent-less&quot;." since="2.4"/>
     <keyword type="macro" name="GTK_STOCK_YES" link="gtk3-Stock-Items.html#GTK-STOCK-YES:CAPS" deprecated="3.10"/>
-    <keyword type="macro" name="GTK_STOCK_ZOOM_100" link="gtk3-Stock-Items.html#GTK-STOCK-ZOOM-100:CAPS" deprecated="3.10: Use named icon &amp;quot;zoom-original&amp;quot; or the label &amp;quot;_Normal Size&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_ZOOM_FIT" link="gtk3-Stock-Items.html#GTK-STOCK-ZOOM-FIT:CAPS" deprecated="3.10: Use named icon &amp;quot;zoom-fit-best&amp;quot; or the label &amp;quot;Best _Fit&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_ZOOM_IN" link="gtk3-Stock-Items.html#GTK-STOCK-ZOOM-IN:CAPS" deprecated="3.10: Use named icon &amp;quot;zoom-in&amp;quot; or the label &amp;quot;Zoom _In&amp;quot;."/>
-    <keyword type="macro" name="GTK_STOCK_ZOOM_OUT" link="gtk3-Stock-Items.html#GTK-STOCK-ZOOM-OUT:CAPS" deprecated="3.10: Use named icon &amp;quot;zoom-out&amp;quot; or the label &amp;quot;Zoom _Out&amp;quot;."/>
+    <keyword type="macro" name="GTK_STOCK_ZOOM_100" link="gtk3-Stock-Items.html#GTK-STOCK-ZOOM-100:CAPS" deprecated="3.10: Use named icon &quot;zoom-original&quot; or the label &quot;_Normal Size&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_ZOOM_FIT" link="gtk3-Stock-Items.html#GTK-STOCK-ZOOM-FIT:CAPS" deprecated="3.10: Use named icon &quot;zoom-fit-best&quot; or the label &quot;Best _Fit&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_ZOOM_IN" link="gtk3-Stock-Items.html#GTK-STOCK-ZOOM-IN:CAPS" deprecated="3.10: Use named icon &quot;zoom-in&quot; or the label &quot;Zoom _In&quot;."/>
+    <keyword type="macro" name="GTK_STOCK_ZOOM_OUT" link="gtk3-Stock-Items.html#GTK-STOCK-ZOOM-OUT:CAPS" deprecated="3.10: Use named icon &quot;zoom-out&quot; or the label &quot;Zoom _Out&quot;."/>
     <keyword type="function" name="gtk_icon_source_copy ()" link="gtk3-Themeable-Stock-Images.html#gtk-icon-source-copy" deprecated="3.10: Use #GtkIconTheme instead."/>
     <keyword type="function" name="gtk_icon_source_free ()" link="gtk3-Themeable-Stock-Images.html#gtk-icon-source-free" deprecated="3.10: Use #GtkIconTheme instead."/>
     <keyword type="function" name="gtk_icon_factory_add ()" link="gtk3-Themeable-Stock-Images.html#gtk-icon-factory-add" deprecated="3.10: Use #GtkIconTheme instead."/>
@@ -6112,40 +6169,40 @@
     <keyword type="property" name="The “arrow-type” property" link="GtkArrow.html#GtkArrow--arrow-type"/>
     <keyword type="property" name="The “shadow-type” property" link="GtkArrow.html#GtkArrow--shadow-type"/>
     <keyword type="property" name="The “arrow-scaling” style property" link="GtkArrow.html#GtkArrow--s-arrow-scaling"/>
-    <keyword type="function" name="gtk_status_icon_new ()" link="GtkStatusIcon.html#gtk-status-icon-new" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_new_from_pixbuf ()" link="GtkStatusIcon.html#gtk-status-icon-new-from-pixbuf" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_new_from_file ()" link="GtkStatusIcon.html#gtk-status-icon-new-from-file" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_new_from_stock ()" link="GtkStatusIcon.html#gtk-status-icon-new-from-stock" deprecated="3.10: Use gtk_status_icon_new_from_icon_name() instead." since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_new_from_icon_name ()" link="GtkStatusIcon.html#gtk-status-icon-new-from-icon-name" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_new_from_gicon ()" link="GtkStatusIcon.html#gtk-status-icon-new-from-gicon" deprecated="3.14: Use notifications" since="2.14"/>
-    <keyword type="function" name="gtk_status_icon_set_from_pixbuf ()" link="GtkStatusIcon.html#gtk-status-icon-set-from-pixbuf" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_set_from_file ()" link="GtkStatusIcon.html#gtk-status-icon-set-from-file" deprecated="3.14: Use notifications" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_new ()" link="GtkStatusIcon.html#gtk-status-icon-new" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_new_from_pixbuf ()" link="GtkStatusIcon.html#gtk-status-icon-new-from-pixbuf" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_new_from_file ()" link="GtkStatusIcon.html#gtk-status-icon-new-from-file" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_new_from_stock ()" link="GtkStatusIcon.html#gtk-status-icon-new-from-stock" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_new_from_icon_name ()" link="GtkStatusIcon.html#gtk-status-icon-new-from-icon-name" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_new_from_gicon ()" link="GtkStatusIcon.html#gtk-status-icon-new-from-gicon" deprecated="" since="2.14"/>
+    <keyword type="function" name="gtk_status_icon_set_from_pixbuf ()" link="GtkStatusIcon.html#gtk-status-icon-set-from-pixbuf" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_set_from_file ()" link="GtkStatusIcon.html#gtk-status-icon-set-from-file" deprecated="" since="2.10"/>
     <keyword type="function" name="gtk_status_icon_set_from_stock ()" link="GtkStatusIcon.html#gtk-status-icon-set-from-stock" deprecated="3.10: Use gtk_status_icon_set_from_icon_name() instead." since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_set_from_icon_name ()" link="GtkStatusIcon.html#gtk-status-icon-set-from-icon-name" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_set_from_gicon ()" link="GtkStatusIcon.html#gtk-status-icon-set-from-gicon" deprecated="3.14: Use notifications" since="2.14"/>
-    <keyword type="function" name="gtk_status_icon_get_storage_type ()" link="GtkStatusIcon.html#gtk-status-icon-get-storage-type" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_get_pixbuf ()" link="GtkStatusIcon.html#gtk-status-icon-get-pixbuf" deprecated="3.14: Use notifications" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_set_from_icon_name ()" link="GtkStatusIcon.html#gtk-status-icon-set-from-icon-name" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_set_from_gicon ()" link="GtkStatusIcon.html#gtk-status-icon-set-from-gicon" deprecated="" since="2.14"/>
+    <keyword type="function" name="gtk_status_icon_get_storage_type ()" link="GtkStatusIcon.html#gtk-status-icon-get-storage-type" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_get_pixbuf ()" link="GtkStatusIcon.html#gtk-status-icon-get-pixbuf" deprecated="" since="2.10"/>
     <keyword type="function" name="gtk_status_icon_get_stock ()" link="GtkStatusIcon.html#gtk-status-icon-get-stock" deprecated="3.10: Use gtk_status_icon_get_icon_name() instead." since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_get_icon_name ()" link="GtkStatusIcon.html#gtk-status-icon-get-icon-name" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_get_gicon ()" link="GtkStatusIcon.html#gtk-status-icon-get-gicon" deprecated="3.14: Use notifications" since="2.14"/>
-    <keyword type="function" name="gtk_status_icon_get_size ()" link="GtkStatusIcon.html#gtk-status-icon-get-size" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_set_screen ()" link="GtkStatusIcon.html#gtk-status-icon-set-screen" deprecated="3.14: Use notifications" since="2.12"/>
-    <keyword type="function" name="gtk_status_icon_get_screen ()" link="GtkStatusIcon.html#gtk-status-icon-get-screen" deprecated="3.14: Use notifications" since="2.12"/>
-    <keyword type="function" name="gtk_status_icon_set_tooltip_text ()" link="GtkStatusIcon.html#gtk-status-icon-set-tooltip-text" deprecated="3.14: Use notifications" since="2.16"/>
-    <keyword type="function" name="gtk_status_icon_get_tooltip_text ()" link="GtkStatusIcon.html#gtk-status-icon-get-tooltip-text" deprecated="3.14: Use notifications" since="2.16"/>
-    <keyword type="function" name="gtk_status_icon_set_tooltip_markup ()" link="GtkStatusIcon.html#gtk-status-icon-set-tooltip-markup" deprecated="3.14: Use notifications" since="2.16"/>
-    <keyword type="function" name="gtk_status_icon_get_tooltip_markup ()" link="GtkStatusIcon.html#gtk-status-icon-get-tooltip-markup" deprecated="3.14: Use notifications" since="2.16"/>
-    <keyword type="function" name="gtk_status_icon_set_has_tooltip ()" link="GtkStatusIcon.html#gtk-status-icon-set-has-tooltip" deprecated="3.14: Use notifications" since="2.16"/>
-    <keyword type="function" name="gtk_status_icon_get_has_tooltip ()" link="GtkStatusIcon.html#gtk-status-icon-get-has-tooltip" deprecated="3.14: Use notifications" since="2.16"/>
-    <keyword type="function" name="gtk_status_icon_set_title ()" link="GtkStatusIcon.html#gtk-status-icon-set-title" deprecated="3.14: Use notifications" since="2.18"/>
-    <keyword type="function" name="gtk_status_icon_get_title ()" link="GtkStatusIcon.html#gtk-status-icon-get-title" deprecated="3.14: Use notifications" since="2.18"/>
-    <keyword type="function" name="gtk_status_icon_set_name ()" link="GtkStatusIcon.html#gtk-status-icon-set-name" deprecated="3.14: Use notifications" since="2.20"/>
-    <keyword type="function" name="gtk_status_icon_set_visible ()" link="GtkStatusIcon.html#gtk-status-icon-set-visible" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_get_visible ()" link="GtkStatusIcon.html#gtk-status-icon-get-visible" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_is_embedded ()" link="GtkStatusIcon.html#gtk-status-icon-is-embedded" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_position_menu ()" link="GtkStatusIcon.html#gtk-status-icon-position-menu" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_get_geometry ()" link="GtkStatusIcon.html#gtk-status-icon-get-geometry" deprecated="3.14: Use notifications" since="2.10"/>
-    <keyword type="function" name="gtk_status_icon_get_x11_window_id ()" link="GtkStatusIcon.html#gtk-status-icon-get-x11-window-id" deprecated="3.14: Use notifications" since="2.14"/>
+    <keyword type="function" name="gtk_status_icon_get_icon_name ()" link="GtkStatusIcon.html#gtk-status-icon-get-icon-name" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_get_gicon ()" link="GtkStatusIcon.html#gtk-status-icon-get-gicon" deprecated="" since="2.14"/>
+    <keyword type="function" name="gtk_status_icon_get_size ()" link="GtkStatusIcon.html#gtk-status-icon-get-size" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_set_screen ()" link="GtkStatusIcon.html#gtk-status-icon-set-screen" deprecated="" since="2.12"/>
+    <keyword type="function" name="gtk_status_icon_get_screen ()" link="GtkStatusIcon.html#gtk-status-icon-get-screen" deprecated="" since="2.12"/>
+    <keyword type="function" name="gtk_status_icon_set_tooltip_text ()" link="GtkStatusIcon.html#gtk-status-icon-set-tooltip-text" deprecated="" since="2.16"/>
+    <keyword type="function" name="gtk_status_icon_get_tooltip_text ()" link="GtkStatusIcon.html#gtk-status-icon-get-tooltip-text" deprecated="" since="2.16"/>
+    <keyword type="function" name="gtk_status_icon_set_tooltip_markup ()" link="GtkStatusIcon.html#gtk-status-icon-set-tooltip-markup" deprecated="" since="2.16"/>
+    <keyword type="function" name="gtk_status_icon_get_tooltip_markup ()" link="GtkStatusIcon.html#gtk-status-icon-get-tooltip-markup" deprecated="" since="2.16"/>
+    <keyword type="function" name="gtk_status_icon_set_has_tooltip ()" link="GtkStatusIcon.html#gtk-status-icon-set-has-tooltip" deprecated="" since="2.16"/>
+    <keyword type="function" name="gtk_status_icon_get_has_tooltip ()" link="GtkStatusIcon.html#gtk-status-icon-get-has-tooltip" deprecated="" since="2.16"/>
+    <keyword type="function" name="gtk_status_icon_set_title ()" link="GtkStatusIcon.html#gtk-status-icon-set-title" deprecated="" since="2.18"/>
+    <keyword type="function" name="gtk_status_icon_get_title ()" link="GtkStatusIcon.html#gtk-status-icon-get-title" deprecated="" since="2.18"/>
+    <keyword type="function" name="gtk_status_icon_set_name ()" link="GtkStatusIcon.html#gtk-status-icon-set-name" deprecated="" since="2.20"/>
+    <keyword type="function" name="gtk_status_icon_set_visible ()" link="GtkStatusIcon.html#gtk-status-icon-set-visible" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_get_visible ()" link="GtkStatusIcon.html#gtk-status-icon-get-visible" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_is_embedded ()" link="GtkStatusIcon.html#gtk-status-icon-is-embedded" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_position_menu ()" link="GtkStatusIcon.html#gtk-status-icon-position-menu" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_get_geometry ()" link="GtkStatusIcon.html#gtk-status-icon-get-geometry" deprecated="" since="2.10"/>
+    <keyword type="function" name="gtk_status_icon_get_x11_window_id ()" link="GtkStatusIcon.html#gtk-status-icon-get-x11-window-id" deprecated="" since="2.14"/>
     <keyword type="struct" name="struct GtkStatusIcon" link="GtkStatusIcon.html#GtkStatusIcon-struct"/>
     <keyword type="property" name="The “embedded” property" link="GtkStatusIcon.html#GtkStatusIcon--embedded"/>
     <keyword type="property" name="The “file” property" link="GtkStatusIcon.html#GtkStatusIcon--file"/>
@@ -6676,7 +6733,7 @@
     <keyword type="function" name="gtk_render_extension ()" link="GtkStyleContext.html#gtk-render-extension" since="3.0"/>
     <keyword type="function" name="gtk_render_focus ()" link="GtkStyleContext.html#gtk-render-focus" since="3.0"/>
     <keyword type="function" name="gtk_render_frame ()" link="GtkStyleContext.html#gtk-render-frame" since="3.0"/>
-    <keyword type="function" name="gtk_render_frame_gap ()" link="GtkStyleContext.html#gtk-render-frame-gap" since="3.0"/>
+    <keyword type="function" name="gtk_render_frame_gap ()" link="GtkStyleContext.html#gtk-render-frame-gap" deprecated="" since="3.0"/>
     <keyword type="function" name="gtk_render_handle ()" link="GtkStyleContext.html#gtk-render-handle" since="3.0"/>
     <keyword type="function" name="gtk_render_layout ()" link="GtkStyleContext.html#gtk-render-layout" since="3.0"/>
     <keyword type="function" name="gtk_render_line ()" link="GtkStyleContext.html#gtk-render-line" since="3.0"/>
@@ -6796,7 +6853,7 @@
     <keyword type="property" name="The “parent” property" link="GtkStyleContext.html#GtkStyleContext--parent"/>
     <keyword type="property" name="The “screen” property" link="GtkStyleContext.html#GtkStyleContext--screen"/>
     <keyword type="signal" name="The “changed” signal" link="GtkStyleContext.html#GtkStyleContext-changed"/>
-    <keyword type="function" name="gtk_css_provider_get_default ()" link="GtkCssProvider.html#gtk-css-provider-get-default"/>
+    <keyword type="function" name="gtk_css_provider_get_default ()" link="GtkCssProvider.html#gtk-css-provider-get-default" deprecated="3.24: Use gtk_css_provider_new() instead."/>
     <keyword type="function" name="gtk_css_provider_get_named ()" link="GtkCssProvider.html#gtk-css-provider-get-named"/>
     <keyword type="function" name="gtk_css_provider_load_from_data ()" link="GtkCssProvider.html#gtk-css-provider-load-from-data"/>
     <keyword type="function" name="gtk_css_provider_load_from_file ()" link="GtkCssProvider.html#gtk-css-provider-load-from-file"/>
@@ -7004,6 +7061,7 @@
     <keyword type="constant" name="GTK_LICENSE_LGPL_2_1_ONLY" link="GtkAboutDialog.html#GTK-LICENSE-LGPL-2-1-ONLY:CAPS"/>
     <keyword type="constant" name="GTK_LICENSE_LGPL_3_0_ONLY" link="GtkAboutDialog.html#GTK-LICENSE-LGPL-3-0-ONLY:CAPS"/>
     <keyword type="constant" name="GTK_LICENSE_AGPL_3_0" link="GtkAboutDialog.html#GTK-LICENSE-AGPL-3-0:CAPS"/>
+    <keyword type="constant" name="GTK_LICENSE_AGPL_3_0_ONLY" link="GtkAboutDialog.html#GTK-LICENSE-AGPL-3-0-ONLY:CAPS"/>
     <keyword type="constant" name="GTK_ASSISTANT_PAGE_CONTENT" link="GtkAssistant.html#GTK-ASSISTANT-PAGE-CONTENT:CAPS"/>
     <keyword type="constant" name="GTK_ASSISTANT_PAGE_INTRO" link="GtkAssistant.html#GTK-ASSISTANT-PAGE-INTRO:CAPS"/>
     <keyword type="constant" name="GTK_ASSISTANT_PAGE_CONFIRM" link="GtkAssistant.html#GTK-ASSISTANT-PAGE-CONFIRM:CAPS"/>
@@ -7082,6 +7140,8 @@
     <keyword type="constant" name="GTK_INPUT_HINT_UPPERCASE_SENTENCES" link="GtkEntry.html#GTK-INPUT-HINT-UPPERCASE-SENTENCES:CAPS"/>
     <keyword type="constant" name="GTK_INPUT_HINT_INHIBIT_OSK" link="GtkEntry.html#GTK-INPUT-HINT-INHIBIT-OSK:CAPS"/>
     <keyword type="constant" name="GTK_INPUT_HINT_VERTICAL_WRITING" link="GtkEntry.html#GTK-INPUT-HINT-VERTICAL-WRITING:CAPS"/>
+    <keyword type="constant" name="GTK_INPUT_HINT_EMOJI" link="GtkEntry.html#GTK-INPUT-HINT-EMOJI:CAPS"/>
+    <keyword type="constant" name="GTK_INPUT_HINT_NO_EMOJI" link="GtkEntry.html#GTK-INPUT-HINT-NO-EMOJI:CAPS"/>
     <keyword type="constant" name="GTK_UPDATE_ALWAYS" link="GtkSpinButton.html#GTK-UPDATE-ALWAYS:CAPS"/>
     <keyword type="constant" name="GTK_UPDATE_IF_VALID" link="GtkSpinButton.html#GTK-UPDATE-IF-VALID:CAPS"/>
     <keyword type="constant" name="GTK_SPIN_STEP_FORWARD" link="GtkSpinButton.html#GTK-SPIN-STEP-FORWARD:CAPS"/>
@@ -7101,6 +7161,7 @@
     <keyword type="constant" name="GTK_TEXT_VIEW_LAYER_ABOVE" link="GtkTextView.html#GTK-TEXT-VIEW-LAYER-ABOVE:CAPS"/>
     <keyword type="constant" name="GTK_TEXT_VIEW_LAYER_BELOW_TEXT" link="GtkTextView.html#GTK-TEXT-VIEW-LAYER-BELOW-TEXT:CAPS"/>
     <keyword type="constant" name="GTK_TEXT_VIEW_LAYER_ABOVE_TEXT" link="GtkTextView.html#GTK-TEXT-VIEW-LAYER-ABOVE-TEXT:CAPS"/>
+    <keyword type="constant" name="GTK_TEXT_WINDOW_PRIVATE" link="GtkTextView.html#GTK-TEXT-WINDOW-PRIVATE:CAPS"/>
     <keyword type="constant" name="GTK_TEXT_WINDOW_WIDGET" link="GtkTextView.html#GTK-TEXT-WINDOW-WIDGET:CAPS"/>
     <keyword type="constant" name="GTK_TEXT_WINDOW_TEXT" link="GtkTextView.html#GTK-TEXT-WINDOW-TEXT:CAPS"/>
     <keyword type="constant" name="GTK_TEXT_WINDOW_LEFT" link="GtkTextView.html#GTK-TEXT-WINDOW-LEFT:CAPS"/>
@@ -7316,6 +7377,12 @@
     <keyword type="constant" name="GTK_PHASE_CAPTURE" link="GtkEventController.html#GTK-PHASE-CAPTURE:CAPS"/>
     <keyword type="constant" name="GTK_PHASE_BUBBLE" link="GtkEventController.html#GTK-PHASE-BUBBLE:CAPS"/>
     <keyword type="constant" name="GTK_PHASE_TARGET" link="GtkEventController.html#GTK-PHASE-TARGET:CAPS"/>
+    <keyword type="constant" name="GTK_EVENT_CONTROLLER_SCROLL_NONE" link="GtkEventControllerScroll.html#GTK-EVENT-CONTROLLER-SCROLL-NONE:CAPS"/>
+    <keyword type="constant" name="GTK_EVENT_CONTROLLER_SCROLL_VERTICAL" link="GtkEventControllerScroll.html#GTK-EVENT-CONTROLLER-SCROLL-VERTICAL:CAPS"/>
+    <keyword type="constant" name="GTK_EVENT_CONTROLLER_SCROLL_HORIZONTAL" link="GtkEventControllerScroll.html#GTK-EVENT-CONTROLLER-SCROLL-HORIZONTAL:CAPS"/>
+    <keyword type="constant" name="GTK_EVENT_CONTROLLER_SCROLL_DISCRETE" link="GtkEventControllerScroll.html#GTK-EVENT-CONTROLLER-SCROLL-DISCRETE:CAPS"/>
+    <keyword type="constant" name="GTK_EVENT_CONTROLLER_SCROLL_KINETIC" link="GtkEventControllerScroll.html#GTK-EVENT-CONTROLLER-SCROLL-KINETIC:CAPS"/>
+    <keyword type="constant" name="GTK_EVENT_CONTROLLER_SCROLL_BOTH_AXES" link="GtkEventControllerScroll.html#GTK-EVENT-CONTROLLER-SCROLL-BOTH-AXES:CAPS"/>
     <keyword type="constant" name="GTK_EVENT_SEQUENCE_NONE" link="GtkGesture.html#GTK-EVENT-SEQUENCE-NONE:CAPS"/>
     <keyword type="constant" name="GTK_EVENT_SEQUENCE_CLAIMED" link="GtkGesture.html#GTK-EVENT-SEQUENCE-CLAIMED:CAPS"/>
     <keyword type="constant" name="GTK_EVENT_SEQUENCE_DENIED" link="GtkGesture.html#GTK-EVENT-SEQUENCE-DENIED:CAPS"/>
@@ -7633,6 +7700,7 @@
     <keyword type="member" name="GtkEntryClass.toggle-overwrite" link="GtkEntry.html#GtkEntryClass.toggle-overwrite"/>
     <keyword type="member" name="GtkEntryClass.get-text-area-size" link="GtkEntry.html#GtkEntryClass.get-text-area-size"/>
     <keyword type="member" name="GtkEntryClass.get-frame-size" link="GtkEntry.html#GtkEntryClass.get-frame-size"/>
+    <keyword type="member" name="GtkEntryClass.insert-emoji" link="GtkEntry.html#GtkEntryClass.insert-emoji"/>
     <keyword type="member" name="GtkTextBufferClass.insert-text" link="GtkTextBuffer.html#GtkTextBufferClass.insert-text"/>
     <keyword type="member" name="GtkTextBufferClass.insert-pixbuf" link="GtkTextBuffer.html#GtkTextBufferClass.insert-pixbuf"/>
     <keyword type="member" name="GtkTextBufferClass.insert-child-anchor" link="GtkTextBuffer.html#GtkTextBufferClass.insert-child-anchor"/>
@@ -7688,6 +7756,7 @@
     <keyword type="member" name="GtkTextViewClass.create-buffer" link="GtkTextView.html#GtkTextViewClass.create-buffer"/>
     <keyword type="member" name="GtkTextViewClass.draw-layer" link="GtkTextView.html#GtkTextViewClass.draw-layer"/>
     <keyword type="member" name="GtkTextViewClass.extend-selection" link="GtkTextView.html#GtkTextViewClass.extend-selection"/>
+    <keyword type="member" name="GtkTextViewClass.insert-emoji" link="GtkTextView.html#GtkTextViewClass.insert-emoji"/>
     <keyword type="member" name="GtkTreeIter-struct.stamp" link="GtkTreeModel.html#GtkTreeIter-struct.stamp"/>
     <keyword type="member" name="GtkTreeIter-struct.user-data" link="GtkTreeModel.html#GtkTreeIter-struct.user-data"/>
     <keyword type="member" name="GtkTreeIter-struct.user-data2" link="GtkTreeModel.html#GtkTreeIter-struct.user-data2"/>

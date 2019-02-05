@@ -41,6 +41,10 @@
  * Reducing the height will require more columns, so a larger width will
  * be requested.
  *
+ * The size request of a GtkFlowBox alone may not be what you expect; if you
+ * need to be able to shrink it along both axes and dynamically reflow its
+ * children, you may have to wrap it in a #GtkScrolledWindow to enable that.
+ *
  * The children of a GtkFlowBox can be dynamically sorted and filtered.
  *
  * Although a GtkFlowBox must have only #GtkFlowBoxChild children,
@@ -2951,7 +2955,8 @@ gtk_flow_box_drag_gesture_update (GtkGestureDrag *gesture,
       g_object_unref (priv->rubberband_node);
 
       /* Grab focus here, so Escape-to-stop-rubberband  works */
-      gtk_flow_box_update_cursor (box, priv->rubberband_first);
+      if (priv->rubberband_first)
+        gtk_flow_box_update_cursor (box, priv->rubberband_first);
       gtk_gesture_set_state (GTK_GESTURE (gesture), GTK_EVENT_SEQUENCE_CLAIMED);
     }
 
@@ -2961,7 +2966,11 @@ gtk_flow_box_drag_gesture_update (GtkGestureDrag *gesture,
                                               start_y + offset_y);
 
       if (priv->rubberband_first == NULL)
-        priv->rubberband_first = child;
+        {
+          priv->rubberband_first = child;
+          if (priv->rubberband_first)
+            gtk_flow_box_update_cursor (box, priv->rubberband_first);
+        }
       if (child != NULL)
         priv->rubberband_last = child;
 
@@ -3023,13 +3032,16 @@ gtk_flow_box_multipress_gesture_pressed (GtkGestureMultiPress *gesture,
   if (n_press != 1)
     gtk_gesture_set_state (priv->drag_gesture, GTK_EVENT_SEQUENCE_DENIED);
 
-  gtk_gesture_set_state (GTK_GESTURE (gesture), GTK_EVENT_SEQUENCE_CLAIMED);
   priv->active_child = child;
   priv->active_child_active = TRUE;
   gtk_widget_queue_draw (GTK_WIDGET (box));
 
   if (n_press == 2 && !priv->activate_on_single_click)
-    g_signal_emit (box, signals[CHILD_ACTIVATED], 0, child);
+    {
+      gtk_gesture_set_state (GTK_GESTURE (gesture),
+                             GTK_EVENT_SEQUENCE_CLAIMED);
+      g_signal_emit (box, signals[CHILD_ACTIVATED], 0, child);
+    }
 }
 
 static void
@@ -3043,6 +3055,9 @@ gtk_flow_box_multipress_gesture_released (GtkGestureMultiPress *gesture,
 
   if (priv->active_child != NULL && priv->active_child_active)
     {
+      gtk_gesture_set_state (GTK_GESTURE (gesture),
+                             GTK_EVENT_SEQUENCE_CLAIMED);
+
       if (priv->activate_on_single_click)
         gtk_flow_box_select_and_activate (box, priv->active_child);
       else
@@ -3139,7 +3154,9 @@ gtk_flow_box_drag_gesture_end (GtkGestureDrag *gesture,
       if (!priv->rubberband_extend && !priv->rubberband_modify)
         gtk_flow_box_unselect_all_internal (box);
 
-      gtk_flow_box_select_all_between (box, priv->rubberband_first, priv->rubberband_last, priv->rubberband_modify);
+      if (priv->rubberband_first && priv->rubberband_last)
+        gtk_flow_box_select_all_between (box, priv->rubberband_first, priv->rubberband_last, priv->rubberband_modify);
+
       gtk_flow_box_stop_rubberband (box);
 
       g_signal_emit (box, signals[SELECTED_CHILDREN_CHANGED], 0);

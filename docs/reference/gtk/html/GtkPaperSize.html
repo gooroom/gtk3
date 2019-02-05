@@ -8,7 +8,7 @@
 <link rel="up" href="Printing.html" title="Printing">
 <link rel="prev" href="GtkPageSetup.html" title="GtkPageSetup">
 <link rel="next" href="GtkPrinter.html" title="GtkPrinter">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -292,13 +292,13 @@
 </div>
 <div class="refsect1">
 <a name="GtkPaperSize.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-Boxed-Types.html">GBoxed</a>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/gobject-Boxed-Types.html">GBoxed</a>
     <span class="lineart">╰──</span> GtkPaperSize
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkPaperSize.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -335,7 +335,7 @@ see <a class="link" href="GtkPaperSize.html#gtk-paper-size-get-default" title="g
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>name</p></td>
-<td class="parameter_description"><p> a paper size name, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a paper size name, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr></tbody>
 </table></div>
@@ -623,7 +623,7 @@ as defined in the page setup dialog</p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-paper-size-get-paper-sizes.returns"></a><h4>Returns</h4>
-<p> a newly allocated list of newly
+<p>a newly allocated list of newly
 allocated <a class="link" href="GtkPaperSize.html" title="GtkPaperSize"><span class="type">GtkPaperSize</span></a> objects. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkPaperSize][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -1078,13 +1078,13 @@ gtk_paper_size_new_from_key_file (<em class="parameter"><code><a href="https://d
 </tr>
 <tr>
 <td class="parameter_name"><p>group_name</p></td>
-<td class="parameter_description"><p>the name ofthe group in the key file to read,
-or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to read the first group</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>the name of the group in the key file to read,
+or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to read the first group. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1121,7 +1121,7 @@ the format produced by <a class="link" href="GtkPaperSize.html#gtk-paper-size-to
 </div>
 <div class="refsect3">
 <a name="gtk-paper-size-new-from-gvariant.returns"></a><h4>Returns</h4>
-<p> a new <a class="link" href="GtkPaperSize.html" title="GtkPaperSize"><span class="type">GtkPaperSize</span></a> object. </p>
+<p>a new <a class="link" href="GtkPaperSize.html" title="GtkPaperSize"><span class="type">GtkPaperSize</span></a> object. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
@@ -1189,7 +1189,7 @@ gtk_paper_size_to_gvariant (<em class="parameter"><code><a class="link" href="Gt
 </div>
 <div class="refsect3">
 <a name="gtk-paper-size-to-gvariant.returns"></a><h4>Returns</h4>
-<p> a new, floating, <a href="https://developer.gnome.org/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>. </p>
+<p>a new, floating, <a href="https://developer.gnome.org/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
@@ -1308,6 +1308,6 @@ gtk_paper_size_to_gvariant (<em class="parameter"><code><a class="link" href="Gt
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

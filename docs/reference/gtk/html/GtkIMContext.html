@@ -8,7 +8,7 @@
 <link rel="up" href="AbstractObjects.html" title="Abstract Base Classes">
 <link rel="prev" href="GtkRange.html" title="GtkRange">
 <link rel="next" href="gtk3-GtkNativeDialog.html" title="GtkNativeDialog">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -266,7 +266,7 @@ these four functions:</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">void</span> <span class="function">im_module_init</span><span class="gtkdoc opt">(</span>GTypeModule <span class="gtkdoc opt">*</span>module<span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="type">void</span><span class="normal"> </span><span class="function">im_module_init</span><span class="symbol">(</span><span class="usertype">GTypeModule</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">module</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -282,7 +282,7 @@ registered dynamically.</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">void</span> <span class="function">im_module_exit</span><span class="gtkdoc opt">(</span><span class="gtkdoc kwb">void</span><span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="type">void</span><span class="normal"> </span><span class="function">im_module_exit</span><span class="symbol">(</span><span class="type">void</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -299,11 +299,11 @@ Here goes any cleanup code your input method might require on module unload.</p>
 3
 4
 5</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">void</span> <span class="function">im_module_list</span><span class="gtkdoc opt">(</span><span class="gtkdoc kwb">const</span> GtkIMContextInfo <span class="gtkdoc opt">***</span>contexts<span class="gtkdoc opt">,</span> <span class="gtkdoc kwb">int</span> <span class="gtkdoc opt">*</span>n_contexts<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc opt">*</span>contexts <span class="gtkdoc opt">=</span> info_list<span class="gtkdoc opt">;</span>
-  <span class="gtkdoc opt">*</span>n_contexts <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#G-N-ELEMENTS:CAPS">G_N_ELEMENTS</a></span> <span class="gtkdoc opt">(</span>info_list<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="type">void</span><span class="normal"> </span><span class="function">im_module_list</span><span class="symbol">(</span><span class="keyword">const</span><span class="normal"> </span><span class="usertype">GtkIMContextInfo</span><span class="normal"> </span><span class="symbol">***</span><span class="normal">contexts</span><span class="symbol">,</span><span class="normal"> </span><span class="type">int</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">n_contexts</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="symbol">*</span><span class="normal">contexts </span><span class="symbol">=</span><span class="normal"> info_list</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="symbol">*</span><span class="normal">n_contexts </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#G-N-ELEMENTS:CAPS">G_N_ELEMENTS</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">info_list</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -319,7 +319,7 @@ provided input method.</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkIMContext <span class="gtkdoc opt">*</span> <span class="function">im_module_create</span><span class="gtkdoc opt">(</span><span class="gtkdoc kwb">const</span> gchar <span class="gtkdoc opt">*</span>context_id<span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal"><a href="GtkIMContext.html#GtkIMContext-struct">GtkIMContext</a> </span><span class="symbol">*</span><span class="normal"> </span><span class="function">im_module_create</span><span class="symbol">(</span><span class="keyword">const</span><span class="normal"> </span><span class="usertype">gchar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">context_id</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -341,9 +341,9 @@ in order for the new input method to become available to GTK+ applications.</p>
 <a name="gtk-im-context-set-client-window"></a><h3>gtk_im_context_set_client_window ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_im_context_set_client_window (<em class="parameter"><code><a class="link" href="GtkIMContext.html" title="GtkIMContext"><span class="type">GtkIMContext</span></a> *context</code></em>,
-                                  <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>);</pre>
+                                  <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>);</pre>
 <p>Set the client window for the input context; this is the
-<a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> in which the input appears. This window is
+<a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> in which the input appears. This window is
 used in order to correctly position status windows, and may
 also be used for purposes internal to the input method.</p>
 <div class="refsect3">
@@ -362,7 +362,7 @@ also be used for purposes internal to the input method.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>window</p></td>
-<td class="parameter_description"><p>  the client window. This may be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to indicate
+<td class="parameter_description"><p>the client window. This may be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to indicate
 that the previous client window no longer exists. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -376,7 +376,7 @@ that the previous client window no longer exists. </p></td>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_im_context_get_preedit_string (<em class="parameter"><code><a class="link" href="GtkIMContext.html" title="GtkIMContext"><span class="type">GtkIMContext</span></a> *context</code></em>,
                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **str</code></em>,
-                                   <em class="parameter"><code><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="type">PangoAttrList</span></a> **attrs</code></em>,
+                                   <em class="parameter"><code><a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="type">PangoAttrList</span></a> **attrs</code></em>,
                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *cursor_pos</code></em>);</pre>
 <p>Retrieve the current preedit string for the input context,
 and a list of attributes to apply to the string.
@@ -398,20 +398,20 @@ point.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>str</p></td>
-<td class="parameter_description"><p> location to store the retrieved
+<td class="parameter_description"><p>location to store the retrieved
 string. The string retrieved must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>attrs</p></td>
-<td class="parameter_description"><p> location to store the retrieved
+<td class="parameter_description"><p>location to store the retrieved
 attribute list.  When you are done with this list, you
-must unreference it with <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Attributes.html#pango-attr-list-unref"><code class="function">pango_attr_list_unref()</code></a>. </p></td>
+must unreference it with <a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#pango-attr-list-unref"><code class="function">pango_attr_list_unref()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>cursor_pos</p></td>
-<td class="parameter_description"><p> location to store position of cursor (in characters)
+<td class="parameter_description"><p>location to store position of cursor (in characters)
 within the preedit string. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
@@ -424,7 +424,7 @@ within the preedit string. </p></td>
 <a name="gtk-im-context-filter-keypress"></a><h3>gtk_im_context_filter_keypress ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_im_context_filter_keypress (<em class="parameter"><code><a class="link" href="GtkIMContext.html" title="GtkIMContext"><span class="type">GtkIMContext</span></a> *context</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventKey"><span class="type">GdkEventKey</span></a> *event</code></em>);</pre>
+                                <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventKey"><span class="type">GdkEventKey</span></a> *event</code></em>);</pre>
 <p>Allow an input method to internally handle key press and release 
 events. If this function returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, then no further processing
 should be done for this key event.</p>
@@ -534,7 +534,7 @@ method to clear the preedit state.</p>
 <a name="gtk-im-context-set-cursor-location"></a><h3>gtk_im_context_set_cursor_location ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_im_context_set_cursor_location (<em class="parameter"><code><a class="link" href="GtkIMContext.html" title="GtkIMContext"><span class="type">GtkIMContext</span></a> *context</code></em>,
-                                    <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *area</code></em>);</pre>
+                                    <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *area</code></em>);</pre>
 <p>Notify the input method that a change in cursor 
 position has been made. The location is relative to the client
 window.</p>
@@ -680,7 +680,7 @@ methods must be prepared to function without context.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>text</p></td>
-<td class="parameter_description"><p> location to store a UTF-8 encoded
+<td class="parameter_description"><p>location to store a UTF-8 encoded
 string of text holding context around the insertion point.
 If the function returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, then you must free the result
 stored in this location with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. </p></td>
@@ -688,7 +688,7 @@ stored in this location with <a href="https://developer.gnome.org/glib/unstable/
 </tr>
 <tr>
 <td class="parameter_name"><p>cursor_index</p></td>
-<td class="parameter_description"><p> location to store byte index of the insertion
+<td class="parameter_description"><p>location to store byte index of the insertion
 cursor within <em class="parameter"><code>text</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
@@ -1234,6 +1234,6 @@ the input method surrounding context by calling the
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

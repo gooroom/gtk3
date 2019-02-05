@@ -8,7 +8,7 @@
 <link rel="up" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
 <link rel="prev" href="GtkRadioToolButton.html" title="GtkRadioToolButton">
 <link rel="next" href="GtkPopoverMenu.html" title="GtkPopoverMenu">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -219,7 +219,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *</td>
+<a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkPopover.html#GtkPopover--pointing-to" title="The “pointing-to” property">pointing-to</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -295,7 +295,7 @@ GtkPopover implements
 </div>
 <div class="refsect1">
 <a name="GtkPopover.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -317,7 +317,7 @@ to tweak its behavior.</p>
 <div class="refsect3">
 <a name="id-1.3.13.20.10.5"></a><h4>GtkPopover as menu replacement</h4>
 <p>GtkPopover is often used to replace menus. To facilitate this, it
-supports being populated from a <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a>, using
+supports being populated from a <span class="type">GMenuModel</span>, using
 <a class="link" href="GtkPopover.html#gtk-popover-new-from-model" title="gtk_popover_new_from_model ()"><code class="function">gtk_popover_new_from_model()</code></a>. In addition to all the regular menu
 model features, this function supports rendering sections in the
 model in a more compact form, as a row of icon buttons instead of
@@ -347,24 +347,24 @@ with the ”verb-icon” attribute.</p>
 16
 17
 18</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>section<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>attribute name<span class="gtkdoc opt">=</span><span class="string">&quot;display-hint&quot;</span><span class="gtkdoc opt">&gt;</span>horizontal<span class="gtkdoc opt">-</span>buttons<span class="gtkdoc opt">&lt;/</span>attribute<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>item<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>attribute name<span class="gtkdoc opt">=</span><span class="string">&quot;label&quot;</span><span class="gtkdoc opt">&gt;</span>Cut<span class="gtkdoc opt">&lt;/</span>attribute<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>attribute name<span class="gtkdoc opt">=</span><span class="string">&quot;action&quot;</span><span class="gtkdoc opt">&gt;</span>app<span class="gtkdoc opt">.</span>cut<span class="gtkdoc opt">&lt;/</span>attribute<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>attribute name<span class="gtkdoc opt">=</span><span class="string">&quot;verb-icon&quot;</span><span class="gtkdoc opt">&gt;</span>edit<span class="gtkdoc opt">-</span>cut<span class="gtkdoc opt">-</span>symbolic<span class="gtkdoc opt">&lt;/</span>attribute<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>item<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>item<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>attribute name<span class="gtkdoc opt">=</span><span class="string">&quot;label&quot;</span><span class="gtkdoc opt">&gt;</span>Copy<span class="gtkdoc opt">&lt;/</span>attribute<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>attribute name<span class="gtkdoc opt">=</span><span class="string">&quot;action&quot;</span><span class="gtkdoc opt">&gt;</span>app<span class="gtkdoc opt">.</span>copy<span class="gtkdoc opt">&lt;/</span>attribute<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>attribute name<span class="gtkdoc opt">=</span><span class="string">&quot;verb-icon&quot;</span><span class="gtkdoc opt">&gt;</span>edit<span class="gtkdoc opt">-</span>copy<span class="gtkdoc opt">-</span>symbolic<span class="gtkdoc opt">&lt;/</span>attribute<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>item<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>item<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>attribute name<span class="gtkdoc opt">=</span><span class="string">&quot;label&quot;</span><span class="gtkdoc opt">&gt;</span>Paste<span class="gtkdoc opt">&lt;/</span>attribute<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>attribute name<span class="gtkdoc opt">=</span><span class="string">&quot;action&quot;</span><span class="gtkdoc opt">&gt;</span>app<span class="gtkdoc opt">.</span>paste<span class="gtkdoc opt">&lt;/</span>attribute<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>attribute name<span class="gtkdoc opt">=</span><span class="string">&quot;verb-icon&quot;</span><span class="gtkdoc opt">&gt;</span>edit<span class="gtkdoc opt">-</span>paste<span class="gtkdoc opt">-</span>symbolic<span class="gtkdoc opt">&lt;/</span>attribute<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>item<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;/</span>section<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="normal">section</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="usertype">attribute</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"display-hint"</span><span class="symbol">&gt;</span><span class="normal">horizontal</span><span class="symbol">-</span><span class="normal">buttons</span><span class="symbol">&lt;/</span><span class="normal">attribute</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">item</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">attribute</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"label"</span><span class="symbol">&gt;</span><span class="normal">Cut</span><span class="symbol">&lt;/</span><span class="normal">attribute</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">attribute</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"action"</span><span class="symbol">&gt;</span><span class="normal">app</span><span class="symbol">.</span><span class="normal">cut</span><span class="symbol">&lt;/</span><span class="normal">attribute</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">attribute</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"verb-icon"</span><span class="symbol">&gt;</span><span class="normal">edit</span><span class="symbol">-</span><span class="normal">cut</span><span class="symbol">-</span><span class="normal">symbolic</span><span class="symbol">&lt;/</span><span class="normal">attribute</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">item</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">item</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">attribute</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"label"</span><span class="symbol">&gt;</span><span class="normal">Copy</span><span class="symbol">&lt;/</span><span class="normal">attribute</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">attribute</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"action"</span><span class="symbol">&gt;</span><span class="normal">app</span><span class="symbol">.</span><span class="normal">copy</span><span class="symbol">&lt;/</span><span class="normal">attribute</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">attribute</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"verb-icon"</span><span class="symbol">&gt;</span><span class="normal">edit</span><span class="symbol">-</span><span class="normal">copy</span><span class="symbol">-</span><span class="normal">symbolic</span><span class="symbol">&lt;/</span><span class="normal">attribute</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">item</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">item</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">attribute</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"label"</span><span class="symbol">&gt;</span><span class="normal">Paste</span><span class="symbol">&lt;/</span><span class="normal">attribute</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">attribute</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"action"</span><span class="symbol">&gt;</span><span class="normal">app</span><span class="symbol">.</span><span class="normal">paste</span><span class="symbol">&lt;/</span><span class="normal">attribute</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">attribute</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"verb-icon"</span><span class="symbol">&gt;</span><span class="normal">edit</span><span class="symbol">-</span><span class="normal">paste</span><span class="symbol">-</span><span class="normal">symbolic</span><span class="symbol">&lt;/</span><span class="normal">attribute</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">item</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;/</span><span class="normal">section</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -401,7 +401,7 @@ gtk_popover_new (<em class="parameter"><code><a class="link" href="GtkWidget.htm
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>relative_to</p></td>
-<td class="parameter_description"><p> <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> the popover is related to. </p></td>
+<td class="parameter_description"><p><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> the popover is related to. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr></tbody>
 </table></div>
@@ -417,7 +417,7 @@ gtk_popover_new (<em class="parameter"><code><a class="link" href="GtkWidget.htm
 <a name="gtk-popover-new-from-model"></a><h3>gtk_popover_new_from_model ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
 gtk_popover_new_from_model (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *relative_to</code></em>,
-                            <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> *model</code></em>);</pre>
+                            <em class="parameter"><code><span class="type">GMenuModel</span> *model</code></em>);</pre>
 <p>Creates a <a class="link" href="GtkPopover.html" title="GtkPopover"><span class="type">GtkPopover</span></a> and populates it according to
 <em class="parameter"><code>model</code></em>
 . The popover is pointed to the <em class="parameter"><code>relative_to</code></em>
@@ -439,12 +439,12 @@ on the menus attach widget or on any of its parent widgets.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>relative_to</p></td>
-<td class="parameter_description"><p> <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> the popover is related to. </p></td>
+<td class="parameter_description"><p><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> the popover is related to. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>model</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a></p></td>
+<td class="parameter_description"><p>a <span class="type">GMenuModel</span></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -461,9 +461,9 @@ on the menus attach widget or on any of its parent widgets.</p>
 <a name="gtk-popover-bind-model"></a><h3>gtk_popover_bind_model ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_popover_bind_model (<em class="parameter"><code><a class="link" href="GtkPopover.html" title="GtkPopover"><span class="type">GtkPopover</span></a> *popover</code></em>,
-                        <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> *model</code></em>,
+                        <em class="parameter"><code><span class="type">GMenuModel</span> *model</code></em>,
                         <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *action_namespace</code></em>);</pre>
-<p>Establishes a binding between a <a class="link" href="GtkPopover.html" title="GtkPopover"><span class="type">GtkPopover</span></a> and a <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a>.</p>
+<p>Establishes a binding between a <a class="link" href="GtkPopover.html" title="GtkPopover"><span class="type">GtkPopover</span></a> and a <span class="type">GMenuModel</span>.</p>
 <p>The contents of <em class="parameter"><code>popover</code></em>
  are removed and then refilled with menu items
 according to <em class="parameter"><code>model</code></em>
@@ -493,7 +493,7 @@ to attach your own action group to the widget hierarchy using
 <a class="link" href="GtkWidget.html#gtk-widget-insert-action-group" title="gtk_widget_insert_action_group ()"><code class="function">gtk_widget_insert_action_group()</code></a>.  As an example, if you created a
 group with a “quit” action and inserted it with the name “mygroup”
 then you would use the action name “mygroup.quit” in your
-<a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a>.</p>
+<span class="type">GMenuModel</span>.</p>
 <div class="refsect3">
 <a name="gtk-popover-bind-model.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -510,13 +510,13 @@ then you would use the action name “mygroup.quit” in your
 </tr>
 <tr>
 <td class="parameter_name"><p>model</p></td>
-<td class="parameter_description"><p> the <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> to bind to or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to remove
+<td class="parameter_description"><p>the <span class="type">GMenuModel</span> to bind to or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to remove
 binding. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>action_namespace</p></td>
-<td class="parameter_description"><p> the namespace for actions in <em class="parameter"><code>model</code></em>
+<td class="parameter_description"><p>the namespace for actions in <em class="parameter"><code>model</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -610,7 +610,7 @@ unless extra references are kept.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>relative_to</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -642,7 +642,7 @@ gtk_popover_get_relative_to (<em class="parameter"><code><a class="link" href="G
 </div>
 <div class="refsect3">
 <a name="gtk-popover-get-relative-to.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>. </p>
+<p>a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-12.html#api-index-3.12">3.12</a></p>
@@ -652,7 +652,7 @@ gtk_popover_get_relative_to (<em class="parameter"><code><a class="link" href="G
 <a name="gtk-popover-set-pointing-to"></a><h3>gtk_popover_set_pointing_to ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_popover_set_pointing_to (<em class="parameter"><code><a class="link" href="GtkPopover.html" title="GtkPopover"><span class="type">GtkPopover</span></a> *popover</code></em>,
-                             <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *rect</code></em>);</pre>
+                             <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *rect</code></em>);</pre>
 <p>Sets the rectangle that <em class="parameter"><code>popover</code></em>
  will point to, in the
 coordinate space of the widget <em class="parameter"><code>popover</code></em>
@@ -687,7 +687,7 @@ see <a class="link" href="GtkPopover.html#gtk-popover-set-relative-to" title="gt
 <a name="gtk-popover-get-pointing-to"></a><h3>gtk_popover_get_pointing_to ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_popover_get_pointing_to (<em class="parameter"><code><a class="link" href="GtkPopover.html" title="GtkPopover"><span class="type">GtkPopover</span></a> *popover</code></em>,
-                             <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *rect</code></em>);</pre>
+                             <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *rect</code></em>);</pre>
 <p>If a rectangle to point to has been set, this function will
 return <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> and fill in <em class="parameter"><code>rect</code></em>
  with such rectangle, otherwise
@@ -710,7 +710,7 @@ widget coordinates.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>rect</p></td>
-<td class="parameter_description"><p> location to store the rectangle. </p></td>
+<td class="parameter_description"><p>location to store the rectangle. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1007,7 +1007,7 @@ when the popover is dismissed.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>widget</p></td>
-<td class="parameter_description"><p> the new default widget, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>the new default widget, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1039,7 +1039,7 @@ the popover is shown.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-popover-get-default-widget.returns"></a><h4>Returns</h4>
-<p> the default widget,
+<p>the default widget,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is none. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1111,7 +1111,7 @@ receive input while the popover is visible).</p>
 <hr>
 <div class="refsect2">
 <a name="GtkPopover--pointing-to"></a><h3>The <code class="literal">“pointing-to”</code> property</h3>
-<pre class="programlisting">  “pointing-to”              <a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *</pre>
+<pre class="programlisting">  “pointing-to”              <a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *</pre>
 <p>Marks a specific rectangle to be pointed.</p>
 <p>Flags: Read / Write</p>
 <p class="since">Since: <a class="link" href="api-index-3-12.html#api-index-3.12">3.12</a></p>
@@ -1138,6 +1138,12 @@ receive input while the popover is visible).</p>
 <a name="GtkPopover--transitions-enabled"></a><h3>The <code class="literal">“transitions-enabled”</code> property</h3>
 <pre class="programlisting">  “transitions-enabled”      <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
 <p>Whether show/hide transitions are enabled for this popover.</p>
+<div class="warning">
+<p><code class="literal">GtkPopover:transitions-enabled</code> has been deprecated since version 3.22 and should not be used in newly-written code.</p>
+<p>You can show or hide the popover without transitions
+  using <a class="link" href="GtkWidget.html#gtk-widget-show" title="gtk_widget_show ()"><code class="function">gtk_widget_show()</code></a> and <a class="link" href="GtkWidget.html#gtk-widget-hide" title="gtk_widget_hide ()"><code class="function">gtk_widget_hide()</code></a> while <a class="link" href="GtkPopover.html#gtk-popover-popup" title="gtk_popover_popup ()"><code class="function">gtk_popover_popup()</code></a>
+  and <a class="link" href="GtkPopover.html#gtk-popover-popdown" title="gtk_popover_popdown ()"><code class="function">gtk_popover_popdown()</code></a> will use transitions.</p>
+</div>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
@@ -1150,11 +1156,29 @@ receive input while the popover is visible).</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkPopover.html" title="GtkPopover"><span class="type">GtkPopover</span></a> *popover,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>    user_data)</pre>
+<p>This signal is emitted when the popover is dismissed either through
+API or user interaction.</p>
+<div class="refsect3">
+<a name="GtkPopover-closed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
 <p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p class="since">Since: <a class="link" href="api-index-3-12.html#api-index-3.12">3.12</a></p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

@@ -50,8 +50,8 @@
  * #GtkFileChooserNative is an abstraction of a dialog box suitable
  * for use with “File/Open” or “File/Save as” commands. By default, this
  * just uses a #GtkFileChooserDialog to implement the actual dialog.
- * However, on certain platforms, such as Windows, the native platform
- * file chooser is uses instead. When the application is running in a
+ * However, on certain platforms, such as Windows and macOS, the native platform
+ * file chooser is used instead. When the application is running in a
  * sandboxed environment without direct filesystem access (such as Flatpak),
  * #GtkFileChooserNative may call the proper APIs (portals) to let the user
  * choose a file and make it available to the application.
@@ -187,11 +187,28 @@
  * * Use of custom previews by connecting to #GtkFileChooser::update-preview.
  *
  * * Any #GtkFileFilter added with a custom filter.
+ *
+ * ## macOS details ## {#gtkfilechooserdialognative-macos}
+ *
+ * On macOS the NSSavePanel and NSOpenPanel classes are used to provide native
+ * file chooser dialogs. Some features provided by #GtkFileChooserDialog are
+ * not supported:
+ *
+ * * Extra widgets added with gtk_file_chooser_set_extra_widget(), unless the
+ *   widget is an instance of GtkLabel, in which case the label text will be used
+ *   to set the NSSavePanel message instance property.
+ *
+ * * Use of custom previews by connecting to #GtkFileChooser::update-preview.
+ *
+ * * Any #GtkFileFilter added with a custom filter.
+ *
+ * * Shortcut folders.
  */
 
 enum {
   MODE_FALLBACK,
   MODE_WIN32,
+  MODE_QUARTZ,
   MODE_PORTAL,
 };
 
@@ -447,6 +464,12 @@ gtk_file_chooser_native_set_property (GObject      *object,
       gtk_file_chooser_native_set_cancel_label (self, g_value_get_string (value));
       break;
 
+    case GTK_FILE_CHOOSER_PROP_FILTER:
+      self->current_filter = g_value_get_object (value);
+      gtk_file_chooser_set_filter (GTK_FILE_CHOOSER (self->dialog), self->current_filter);
+      g_object_notify (G_OBJECT (self), "filter");
+      break;
+
     default:
       g_object_set_property (G_OBJECT (self->dialog), pspec->name, value);
       break;
@@ -469,6 +492,10 @@ gtk_file_chooser_native_get_property (GObject    *object,
 
     case PROP_CANCEL_LABEL:
       g_value_set_string (value, self->cancel_label);
+      break;
+
+    case GTK_FILE_CHOOSER_PROP_FILTER:
+      g_value_set_object (value, self->current_filter);
       break;
 
     default:
@@ -704,6 +731,7 @@ gtk_file_chooser_native_get_files (GtkFileChooser *chooser)
     {
     case MODE_PORTAL:
     case MODE_WIN32:
+    case MODE_QUARTZ:
       return g_slist_copy_deep (self->custom_files, (GCopyFunc)g_object_ref, NULL);
 
     case MODE_FALLBACK:
@@ -722,6 +750,11 @@ gtk_file_chooser_native_show (GtkNativeDialog *native)
 #ifdef GDK_WINDOWING_WIN32
   if (gtk_file_chooser_native_win32_show (self))
     self->mode = MODE_WIN32;
+#endif
+
+#ifdef GDK_WINDOWING_QUARTZ
+  if (gtk_file_chooser_native_quartz_show (self))
+    self->mode = MODE_QUARTZ;
 #endif
 
   if (self->mode == MODE_FALLBACK &&
@@ -745,6 +778,11 @@ gtk_file_chooser_native_hide (GtkNativeDialog *native)
     case MODE_WIN32:
 #ifdef GDK_WINDOWING_WIN32
       gtk_file_chooser_native_win32_hide (self);
+#endif
+      break;
+    case MODE_QUARTZ:
+#ifdef GDK_WINDOWING_QUARTZ
+      gtk_file_chooser_native_quartz_hide (self);
 #endif
       break;
     case MODE_PORTAL:

@@ -38,5 +38,6 @@ EOF
 gcc -o gtktest gtktest.c `pkg-config --cflags --libs gtk+-3.0`
 echo "build: OK"
 [ -x gtktest ]
-xvfb-run ./gtktest
+xvfb-run -a -s "-screen 0 1024x768x24" \
+./gtktest
 echo "run: OK"

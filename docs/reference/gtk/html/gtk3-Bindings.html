@@ -8,7 +8,7 @@
 <link rel="up" href="gtkbase.html" title="Part III. GTK+ Core Reference">
 <link rel="prev" href="GtkSettings.html" title="Settings">
 <link rel="next" href="gtk3-Standard-Enumerations.html" title="Standard Enumerations">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -191,10 +191,10 @@ Selectors
 in the <a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> documentation. Inside the binding set
 definition, key combinations are bound to one or more specific
 signal emissions on the target widget. Key combinations are strings
-consisting of an optional <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> name and
+consisting of an optional <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> name and
 key names
 such as those defined in <code class="literal">gdk/gdkkeysyms.h</code>
-or returned from <a href="http://developer.gnome.org/gdk3/gdk4-Keyboard-Handling.html#gdk-keyval-name"><code class="function">gdk_keyval_name()</code></a>, they have to be parsable by
+or returned from <a href="https://developer.gnome.org/gdk3/gdk3-Keyboard-Handling.html#gdk-keyval-name"><code class="function">gdk_keyval_name()</code></a>, they have to be parsable by
 <a class="link" href="gtk3-Keyboard-Accelerators.html#gtk-accelerator-parse" title="gtk_accelerator_parse ()"><code class="function">gtk_accelerator_parse()</code></a>. Specifications of signal emissions consist
 of a string identifying the signal name, and a list of signal specific
 arguments in parenthesis.</p>
@@ -216,16 +216,16 @@ used:</p>
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting">&#64;binding<span class="gtkdoc opt">-</span>set MoveCursor3
-<span class="gtkdoc opt">{</span>
-  bind <span class="string">&quot;&lt;Control&gt;Right&quot;</span> <span class="gtkdoc opt">{</span> <span class="string">&quot;move-cursor&quot;</span> <span class="gtkdoc opt">(</span>visual<span class="gtkdoc opt">-</span>positions<span class="gtkdoc opt">,</span> <span class="number">3</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">) };</span>
-  bind <span class="string">&quot;&lt;Control&gt;Left&quot;</span> <span class="gtkdoc opt">{</span> <span class="string">&quot;move-cursor&quot;</span> <span class="gtkdoc opt">(</span>visual<span class="gtkdoc opt">-</span>positions<span class="gtkdoc opt">, -</span><span class="number">3</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">) };</span>
-<span class="gtkdoc opt">}</span>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">@binding</span><span class="symbol">-</span><span class="normal">set MoveCursor3</span>
+<span class="cbracket">{</span>
+<span class="normal">  bind </span><span class="string">"&lt;Control&gt;Right"</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"move-cursor"</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">visual</span><span class="symbol">-</span><span class="normal">positions</span><span class="symbol">,</span><span class="normal"> </span><span class="number">3</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">}</span><span class="symbol">;</span>
+<span class="normal">  bind </span><span class="string">"&lt;Control&gt;Left"</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"move-cursor"</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">visual</span><span class="symbol">-</span><span class="normal">positions</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">-</span><span class="number">3</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">}</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
 
-entry
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc opt">-</span>gtk<span class="gtkdoc opt">-</span>key<span class="gtkdoc opt">-</span>bindings<span class="gtkdoc opt">:</span> MoveCursor3<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">entry</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="normal">key</span><span class="symbol">-</span><span class="normal">bindings</span><span class="symbol">:</span><span class="normal"> MoveCursor3</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -257,16 +257,16 @@ existing bindings, however.</p>
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting">&#64;binding<span class="gtkdoc opt">-</span>set MoveCursor3
-<span class="gtkdoc opt">{</span>
-  bind <span class="string">&quot;&lt;Control&gt;Right&quot;</span> <span class="gtkdoc opt">{  };</span>
-  bind <span class="string">&quot;&lt;Control&gt;Left&quot;</span> <span class="gtkdoc opt">{  };</span>
-<span class="gtkdoc opt">}</span>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">@binding</span><span class="symbol">-</span><span class="normal">set MoveCursor3</span>
+<span class="cbracket">{</span>
+<span class="normal">  bind </span><span class="string">"&lt;Control&gt;Right"</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal">  </span><span class="cbracket">}</span><span class="symbol">;</span>
+<span class="normal">  bind </span><span class="string">"&lt;Control&gt;Left"</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal">  </span><span class="cbracket">}</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
 
-entry
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc opt">-</span>gtk<span class="gtkdoc opt">-</span>key<span class="gtkdoc opt">-</span>bindings<span class="gtkdoc opt">:</span> MoveCursor3<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">entry</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="normal">key</span><span class="symbol">-</span><span class="normal">bindings</span><span class="symbol">:</span><span class="normal"> MoveCursor3</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -297,16 +297,16 @@ like this:</p>
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting">&#64;binding<span class="gtkdoc opt">-</span>set MoveCursor3
-<span class="gtkdoc opt">{</span>
-  unbind <span class="string">&quot;&lt;Control&gt;Right&quot;</span><span class="gtkdoc opt">;</span>
-  unbind <span class="string">&quot;&lt;Control&gt;Left&quot;</span><span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">@binding</span><span class="symbol">-</span><span class="normal">set MoveCursor3</span>
+<span class="cbracket">{</span>
+<span class="normal">  unbind </span><span class="string">"&lt;Control&gt;Right"</span><span class="symbol">;</span>
+<span class="normal">  unbind </span><span class="string">"&lt;Control&gt;Left"</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
 
-entry
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc opt">-</span>gtk<span class="gtkdoc opt">-</span>key<span class="gtkdoc opt">-</span>bindings<span class="gtkdoc opt">:</span> MoveCursor3<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">entry</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal">gtk</span><span class="symbol">-</span><span class="normal">key</span><span class="symbol">-</span><span class="normal">bindings</span><span class="symbol">:</span><span class="normal"> MoveCursor3</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -327,7 +327,7 @@ of the key presses, e.g. by an entry’s parent widget, is now possible.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_binding_entry_add_signall (<em class="parameter"><code><a class="link" href="gtk3-Bindings.html#GtkBindingSet" title="struct GtkBindingSet"><span class="type">GtkBindingSet</span></a> *binding_set</code></em>,
                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> keyval</code></em>,
-                               <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>,
+                               <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>,
                                <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *signal_name</code></em>,
                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *binding_args</code></em>);</pre>
 <p>Override or install a new key binding for <em class="parameter"><code>keyval</code></em>
@@ -366,7 +366,7 @@ gtk_binding_entry_add_signall (<em class="parameter"><code><a class="link" href=
 </tr>
 <tr>
 <td class="parameter_name"><p>binding_args</p></td>
-<td class="parameter_description"><p>    list of <a class="link" href="gtk3-Bindings.html#GtkBindingArg" title="struct GtkBindingArg"><span class="type">GtkBindingArg</span></a> signal arguments. </p></td>
+<td class="parameter_description"><p>list of <a class="link" href="gtk3-Bindings.html#GtkBindingArg" title="struct GtkBindingArg"><span class="type">GtkBindingArg</span></a> signal arguments. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkBindingArg]</span></td>
 </tr>
 </tbody>
@@ -398,7 +398,7 @@ a unique name which needs to be specified upon creation.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-binding-set-new.returns"></a><h4>Returns</h4>
-<p> new binding set. </p>
+<p>new binding set. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -428,7 +428,7 @@ demand by this function.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-binding-set-by-class.returns"></a><h4>Returns</h4>
-<p> the binding set corresponding to
+<p>the binding set corresponding to
 <em class="parameter"><code>object_class</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -460,7 +460,7 @@ or the type name of a class used in <a class="link" href="gtk3-Bindings.html#gtk
 </div>
 <div class="refsect3">
 <a name="gtk-binding-set-find.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> or the specified binding set. </p>
+<p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> or the specified binding set. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -470,7 +470,7 @@ or the type name of a class used in <a class="link" href="gtk3-Bindings.html#gtk
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_bindings_activate (<em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a> *object</code></em>,
                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> keyval</code></em>,
-                       <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
+                       <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
 <p>Find a key binding matching <em class="parameter"><code>keyval</code></em>
  and <em class="parameter"><code>modifiers</code></em>
  and activate the
@@ -513,7 +513,7 @@ binding on <em class="parameter"><code>object</code></em>
 <a name="gtk-bindings-activate-event"></a><h3>gtk_bindings_activate_event ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_bindings_activate_event (<em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a> *object</code></em>,
-                             <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventKey"><span class="type">GdkEventKey</span></a> *event</code></em>);</pre>
+                             <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventKey"><span class="type">GdkEventKey</span></a> *event</code></em>);</pre>
 <p>Looks up key bindings for <em class="parameter"><code>object</code></em>
  to find one matching
 <em class="parameter"><code>event</code></em>
@@ -534,7 +534,7 @@ gtk_bindings_activate_event (<em class="parameter"><code><a href="https://develo
 </tr>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventKey"><span class="type">GdkEventKey</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventKey"><span class="type">GdkEventKey</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -552,7 +552,7 @@ gtk_bindings_activate_event (<em class="parameter"><code><a href="https://develo
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_binding_set_activate (<em class="parameter"><code><a class="link" href="gtk3-Bindings.html#GtkBindingSet" title="struct GtkBindingSet"><span class="type">GtkBindingSet</span></a> *binding_set</code></em>,
                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> keyval</code></em>,
-                          <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>,
+                          <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>,
                           <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a> *object</code></em>);</pre>
 <p>Find a key binding matching <em class="parameter"><code>keyval</code></em>
  and <em class="parameter"><code>modifiers</code></em>
@@ -603,7 +603,7 @@ gtk_binding_set_activate (<em class="parameter"><code><a class="link" href="gtk3
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_binding_entry_add_signal (<em class="parameter"><code><a class="link" href="gtk3-Bindings.html#GtkBindingSet" title="struct GtkBindingSet"><span class="type">GtkBindingSet</span></a> *binding_set</code></em>,
                               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> keyval</code></em>,
-                              <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>,
+                              <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>,
                               <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *signal_name</code></em>,
                               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_args</code></em>,
                               <em class="parameter"><code>...</code></em>);</pre>
@@ -631,12 +631,22 @@ be of the given type). There must be <em class="parameter"><code>n_args</code></
 2
 3
 4
-5</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="gtk3-Bindings.html#gtk-binding-entry-add-signal">gtk_binding_entry_add_signal</a></span> <span class="gtkdoc opt">(</span>binding_set<span class="gtkdoc opt">,</span> keyval<span class="gtkdoc opt">,</span> modmask<span class="gtkdoc opt">,</span>
-                              <span class="string">&quot;move-cursor&quot;</span><span class="gtkdoc opt">,</span> <span class="number">3</span><span class="gtkdoc opt">,</span>
-                              G_TYPE_ENUM<span class="gtkdoc opt">,</span> step<span class="gtkdoc opt">,</span>
-                              G_TYPE_INT<span class="gtkdoc opt">,</span> count<span class="gtkdoc opt">,</span>
-                              G_TYPE_BOOLEAN<span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">);</span></pre></td>
+5
+6
+7
+8
+9
+10</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkBindingSet</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">binding_set</span><span class="symbol">;</span>
+<span class="usertype">GdkModifierType</span><span class="normal"> modmask </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GDK-CONTROL-MASK:CAPS">GDK_CONTROL_MASK</a></span><span class="symbol">;</span>
+<span class="type">int</span><span class="normal"> count </span><span class="symbol">=</span><span class="normal"> </span><span class="number">1</span><span class="symbol">;</span>
+<span class="function"><a href="gtk3-Bindings.html#gtk-binding-entry-add-signal">gtk_binding_entry_add_signal</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">binding_set</span><span class="symbol">,</span>
+<span class="normal">                              GDK_KEY_space</span><span class="symbol">,</span>
+<span class="normal">                              modmask</span><span class="symbol">,</span>
+<span class="normal">                              </span><span class="string">"move-cursor"</span><span class="symbol">,</span><span class="normal"> </span><span class="number">2</span><span class="symbol">,</span>
+<span class="normal">                              GTK_TYPE_MOVEMENT_STEP</span><span class="symbol">,</span><span class="normal"> <a href="gtk3-Standard-Enumerations.html#GTK-MOVEMENT-PAGES:CAPS">GTK_MOVEMENT_PAGES</a></span><span class="symbol">,</span>
+<span class="normal">                              <a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#G-TYPE-INT:CAPS">G_TYPE_INT</a></span><span class="symbol">,</span><span class="normal"> count</span><span class="symbol">,</span>
+<span class="normal">                              <a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#G-TYPE-BOOLEAN:CAPS">G_TYPE_BOOLEAN</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -710,10 +720,10 @@ one or more signals:</p>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting">bind <span class="string">&quot;key&quot;</span> <span class="gtkdoc opt">{</span>
-  <span class="string">&quot;signalname&quot;</span> <span class="gtkdoc opt">(</span>param<span class="gtkdoc opt">, ...)</span>
-  <span class="gtkdoc opt">...</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">bind </span><span class="string">"key"</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">  </span><span class="string">"signalname"</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">param</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">...)</span>
+<span class="normal">  </span><span class="symbol">...</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -726,7 +736,7 @@ one or more signals:</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting">unbind <span class="string">&quot;key&quot;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">unbind </span><span class="string">"key"</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -770,7 +780,7 @@ the expected token otherwise</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_binding_entry_skip (<em class="parameter"><code><a class="link" href="gtk3-Bindings.html#GtkBindingSet" title="struct GtkBindingSet"><span class="type">GtkBindingSet</span></a> *binding_set</code></em>,
                         <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> keyval</code></em>,
-                        <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
+                        <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
 <p>Install a binding on <em class="parameter"><code>binding_set</code></em>
  which causes key lookups
 to be aborted, to prevent bindings from lower priority sets
@@ -810,7 +820,7 @@ to be activated.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_binding_entry_remove (<em class="parameter"><code><a class="link" href="gtk3-Bindings.html#GtkBindingSet" title="struct GtkBindingSet"><span class="type">GtkBindingSet</span></a> *binding_set</code></em>,
                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> keyval</code></em>,
-                          <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
+                          <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
 <p>Remove a binding previously installed via
 <a class="link" href="gtk3-Bindings.html#gtk-binding-entry-add-signal" title="gtk_binding_entry_add_signal ()"><code class="function">gtk_binding_entry_add_signal()</code></a> on <em class="parameter"><code>binding_set</code></em>
 .</p>
@@ -996,7 +1006,7 @@ represented by a GtkBindingEntry.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> <em class="structfield"><code><a name="GtkBindingEntry.modifiers"></a>modifiers</code></em>;</p></td>
+<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> <em class="structfield"><code><a name="GtkBindingEntry.modifiers"></a>modifiers</code></em>;</p></td>
 <td class="struct_member_description"><p>key modifiers to match</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
@@ -1078,7 +1088,7 @@ emission.</p>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a class="link" href="gtk3-Bindings.html#GtkBindingArg" title="struct GtkBindingArg"><span class="type">GtkBindingArg</span></a> *<em class="structfield"><code><a name="GtkBindingSignal.args"></a>args</code></em>;</p></td>
-<td class="struct_member_description"><p> the arguments specified for the signal. </p></td>
+<td class="struct_member_description"><p>the arguments specified for the signal. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_args]</span></td>
 </tr>
 </tbody>
@@ -1123,6 +1133,6 @@ stored in <a class="link" href="gtk3-Bindings.html#GtkBindingSignal" title="stru
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

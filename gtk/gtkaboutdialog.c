@@ -90,10 +90,11 @@
  * set the title property explicitly when constructing a GtkAboutDialog,
  * as shown in the following example:
  * |[<!-- language="C" -->
+ * GdkPixbuf *example_logo = gdk_pixbuf_new_from_file ("./logo.png", NULL);
  * gtk_show_about_dialog (NULL,
  *                        "program-name", "ExampleCode",
  *                        "logo", example_logo,
- *                        "title" _("About ExampleCode"),
+ *                        "title", _("About ExampleCode"),
  *                        NULL);
  * ]|
  *
@@ -112,18 +113,19 @@ typedef struct
 static const LicenseInfo gtk_license_info [] = {
   { N_("License"), NULL },
   { N_("Custom License") , NULL },
-  { N_("GNU General Public License, version 2 or later"), "http://www.gnu.org/licenses/old-licenses/gpl-2.0.html" },
-  { N_("GNU General Public License, version 3 or later"), "http://www.gnu.org/licenses/gpl-3.0.html" },
-  { N_("GNU Lesser General Public License, version 2.1 or later"), "http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html" },
-  { N_("GNU Lesser General Public License, version 3 or later"), "http://www.gnu.org/licenses/lgpl-3.0.html" },
-  { N_("BSD 2-Clause License"), "http://opensource.org/licenses/bsd-license.php" },
-  { N_("The MIT License (MIT)"), "http://opensource.org/licenses/mit-license.php" },
-  { N_("Artistic License 2.0"), "http://opensource.org/licenses/artistic-license-2.0.php" },
-  { N_("GNU General Public License, version 2 only"), "http://www.gnu.org/licenses/old-licenses/gpl-2.0.html" },
-  { N_("GNU General Public License, version 3 only"), "http://www.gnu.org/licenses/gpl-3.0.html" },
-  { N_("GNU Lesser General Public License, version 2.1 only"), "http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html" },
-  { N_("GNU Lesser General Public License, version 3 only"), "http://www.gnu.org/licenses/lgpl-3.0.html" },
-  { N_("GNU Affero General Public License, version 3 or later"), "http://www.gnu.org/licenses/agpl-3.0.html" }
+  { N_("GNU General Public License, version 2 or later"), "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html" },
+  { N_("GNU General Public License, version 3 or later"), "https://www.gnu.org/licenses/gpl-3.0.html" },
+  { N_("GNU Lesser General Public License, version 2.1 or later"), "https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html" },
+  { N_("GNU Lesser General Public License, version 3 or later"), "https://www.gnu.org/licenses/lgpl-3.0.html" },
+  { N_("BSD 2-Clause License"), "https://opensource.org/licenses/bsd-license.php" },
+  { N_("The MIT License (MIT)"), "https://opensource.org/licenses/mit-license.php" },
+  { N_("Artistic License 2.0"), "https://opensource.org/licenses/artistic-license-2.0.php" },
+  { N_("GNU General Public License, version 2 only"), "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html" },
+  { N_("GNU General Public License, version 3 only"), "https://www.gnu.org/licenses/gpl-3.0.html" },
+  { N_("GNU Lesser General Public License, version 2.1 only"), "https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html" },
+  { N_("GNU Lesser General Public License, version 3 only"), "https://www.gnu.org/licenses/lgpl-3.0.html" },
+  { N_("GNU Affero General Public License, version 3 or later"), "https://www.gnu.org/licenses/agpl-3.0.html" },
+  { N_("GNU Affero General Public License, version 3 only"), "https://www.gnu.org/licenses/agpl-3.0.html" }
 };
 
 typedef struct
@@ -1686,8 +1688,9 @@ gtk_about_dialog_get_translator_credits (GtkAboutDialog *about)
  * Using gettext(), a simple way to achieve that is to mark the
  * string for translation:
  * |[<!-- language="C" -->
- *  gtk_about_dialog_set_translator_credits (about,
- *                                           _("translator-credits"));
+ * GtkWidget *about = gtk_about_dialog_new ();
+ * gtk_about_dialog_set_translator_credits (GTK_ABOUT_DIALOG (about),
+ *                                          _("translator-credits"));
  * ]|
  * It is a good idea to use the customary msgid “translator-credits” for this
  * purpose, since translators will already know the purpose of that msgid, and
@@ -2457,7 +2460,7 @@ gtk_about_dialog_set_license_type (GtkAboutDialog *about,
 
   g_return_if_fail (GTK_IS_ABOUT_DIALOG (about));
   g_return_if_fail (license_type >= GTK_LICENSE_UNKNOWN &&
-                    license_type <= GTK_LICENSE_LGPL_3_0_ONLY);
+                    license_type <= GTK_LICENSE_AGPL_3_0_ONLY);
 
   priv = about->priv;
 

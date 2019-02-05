@@ -8,7 +8,7 @@
 <link rel="up" href="PlugSocket.html" title="Cross-process Embedding">
 <link rel="prev" href="PlugSocket.html" title="Cross-process Embedding">
 <link rel="next" href="GtkSocket.html" title="GtkSocket">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -93,7 +93,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
+<a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkPlug.html#gtk-plug-get-socket-window" title="gtk_plug_get_socket_window ()">gtk_plug_get_socket_window</a> <span class="c_punctuation">()</span>
@@ -118,7 +118,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *</td>
+<a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkPlug.html#GtkPlug--socket-window" title="The “socket-window” property">socket-window</a></td>
 <td class="property_flags">Read</td>
 </tr>
@@ -190,7 +190,7 @@ This protocol has also been implemented in other toolkits, e.g. Qt,
 allowing the same level of integration when embedding a Qt widget
 in GTK+ or vice versa.</p>
 <p>The <a class="link" href="GtkPlug.html" title="GtkPlug"><span class="type">GtkPlug</span></a> and <a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a> widgets are only available when GTK+
-is compiled for the X11 platform and <a href="http://developer.gnome.org/gdk3/gdk4-General.html#GDK-WINDOWING-X11:CAPS"><code class="literal">GDK_WINDOWING_X11</code></a> is defined.
+is compiled for the X11 platform and <a href="https://developer.gnome.org/gdk3/gdk3-General.html#GDK-WINDOWING-X11:CAPS"><code class="literal">GDK_WINDOWING_X11</code></a> is defined.
 They can only be used on a <span class="type">GdkX11Display</span>. To use <a class="link" href="GtkPlug.html" title="GtkPlug"><span class="type">GtkPlug</span></a> and
 <a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a>, you need to include the <code class="literal">gtk/gtkx.h</code> header.</p>
 </div>
@@ -233,7 +233,7 @@ gtk_plug_construct (<em class="parameter"><code><a class="link" href="GtkPlug.ht
 <a name="gtk-plug-construct-for-display"></a><h3>gtk_plug_construct_for_display ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_plug_construct_for_display (<em class="parameter"><code><a class="link" href="GtkPlug.html" title="GtkPlug"><span class="type">GtkPlug</span></a> *plug</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a> *display</code></em>,
+                                <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a> *display</code></em>,
                                 <em class="parameter"><code><span class="type">Window</span> socket_id</code></em>);</pre>
 <p>Finish the initialization of <em class="parameter"><code>plug</code></em>
  for a given <a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a> identified by
@@ -257,7 +257,7 @@ This function will generally only be used by classes deriving from <a class="lin
 </tr>
 <tr>
 <td class="parameter_name"><p>display</p></td>
-<td class="parameter_description"><p>the <a href="http://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a> associated with <em class="parameter"><code>socket_id</code></em>
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a> associated with <em class="parameter"><code>socket_id</code></em>
 ’s
 <a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
@@ -306,7 +306,7 @@ can later be plugged into a <a class="link" href="GtkSocket.html" title="GtkSock
 <div class="refsect2">
 <a name="gtk-plug-new-for-display"></a><h3>gtk_plug_new_for_display ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
-gtk_plug_new_for_display (<em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a> *display</code></em>,
+gtk_plug_new_for_display (<em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a> *display</code></em>,
                           <em class="parameter"><code><span class="type">Window</span> socket_id</code></em>);</pre>
 <p>Create a new plug widget inside the <a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a> identified by socket_id.</p>
 <div class="refsect3">
@@ -320,7 +320,7 @@ gtk_plug_new_for_display (<em class="parameter"><code><a href="http://developer.
 <tbody>
 <tr>
 <td class="parameter_name"><p>display</p></td>
-<td class="parameter_description"><p>the <a href="http://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a> on which <em class="parameter"><code>socket_id</code></em>
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a> on which <em class="parameter"><code>socket_id</code></em>
 is displayed</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
@@ -396,7 +396,7 @@ gtk_plug_get_embedded (<em class="parameter"><code><a class="link" href="GtkPlug
 <hr>
 <div class="refsect2">
 <a name="gtk-plug-get-socket-window"></a><h3>gtk_plug_get_socket_window ()</h3>
-<pre class="programlisting"><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
 gtk_plug_get_socket_window (<em class="parameter"><code><a class="link" href="GtkPlug.html" title="GtkPlug"><span class="type">GtkPlug</span></a> *plug</code></em>);</pre>
 <p>Retrieves the socket the plug is embedded in.</p>
 <div class="refsect3">
@@ -416,7 +416,7 @@ gtk_plug_get_socket_window (<em class="parameter"><code><a class="link" href="Gt
 </div>
 <div class="refsect3">
 <a name="gtk-plug-get-socket-window.returns"></a><h4>Returns</h4>
-<p> the window of the socket, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the window of the socket, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -442,7 +442,7 @@ gtk_plug_get_socket_window (<em class="parameter"><code><a class="link" href="Gt
 <hr>
 <div class="refsect2">
 <a name="GtkPlug--socket-window"></a><h3>The <code class="literal">“socket-window”</code> property</h3>
-<pre class="programlisting">  “socket-window”            <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *</pre>
+<pre class="programlisting">  “socket-window”            <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *</pre>
 <p>The window of the socket the plug is embedded in.</p>
 <p>Flags: Read</p>
 <p class="since">Since: 2.14</p>
@@ -487,6 +487,6 @@ user_function (<a class="link" href="GtkPlug.html" title="GtkPlug"><span class="
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

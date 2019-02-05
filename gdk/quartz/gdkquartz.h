@@ -49,15 +49,24 @@ typedef enum
   GDK_OSX_SNOW_LEOPARD = 6,
   GDK_OSX_LION = 7,
   GDK_OSX_MOUNTAIN_LION = 8,
-  GDK_OSX_CURRENT = 8,
+  GDK_OSX_MAVERICKS = 9,
+  GDK_OSX_YOSEMITE = 10,
+  GDK_OSX_EL_CAPITAN = 11,
+  GDK_OSX_SIERRA = 12,
+  GDK_OSX_HIGH_SIERRA = 13,
+  GDK_OSX_MOJAVE = 14,
+  GDK_OSX_CURRENT = 14,
   GDK_OSX_NEW = 99
 } GdkOSXVersion;
 
 GDK_AVAILABLE_IN_ALL
 GdkOSXVersion gdk_quartz_osx_version (void);
 
+GDK_AVAILABLE_IN_ALL
 GdkAtom   gdk_quartz_pasteboard_type_to_atom_libgtk_only        (NSString       *type);
+GDK_AVAILABLE_IN_ALL
 NSString *gdk_quartz_target_to_pasteboard_type_libgtk_only      (const gchar    *target);
+GDK_AVAILABLE_IN_ALL
 NSString *gdk_quartz_atom_to_pasteboard_type_libgtk_only        (GdkAtom         atom);
 
 G_END_DECLS
@@ -71,6 +80,7 @@ G_END_DECLS
 #include <gdk/quartz/gdkquartzdisplaymanager.h>
 #include <gdk/quartz/gdkquartzdnd.h>
 #include <gdk/quartz/gdkquartzkeys.h>
+#include <gdk/quartz/gdkquartzmonitor.h>
 #include <gdk/quartz/gdkquartzscreen.h>
 #include <gdk/quartz/gdkquartzutils.h>
 #include <gdk/quartz/gdkquartzvisual.h>

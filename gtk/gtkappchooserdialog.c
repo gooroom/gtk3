@@ -63,8 +63,6 @@
 #include <glib/gi18n-lib.h>
 #include <gio/gio.h>
 
-#define sure_string(s) ((const char *) ((s) != NULL ? (s) : ""))
-
 struct _GtkAppChooserDialogPrivate {
   char *content_type;
   GFile *gfile;
@@ -579,6 +577,7 @@ gtk_app_chooser_dialog_finalize (GObject *object)
   GtkAppChooserDialog *self = GTK_APP_CHOOSER_DIALOG (object);
 
   g_free (self->priv->content_type);
+  g_free (self->priv->heading);
 
   G_OBJECT_CLASS (gtk_app_chooser_dialog_parent_class)->finalize (object);
 }
@@ -687,7 +686,8 @@ gtk_app_chooser_dialog_class_init (GtkAppChooserDialogClass *klass)
                                P_("Heading"),
                                P_("The text to show at the top of the dialog"),
                                NULL,
-                               G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS);
+                               G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS |
+                               G_PARAM_EXPLICIT_NOTIFY);
   g_object_class_install_property (gobject_class, PROP_HEADING, pspec);
 
   /* Bind class to template

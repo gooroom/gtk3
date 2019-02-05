@@ -1848,7 +1848,7 @@ gtk_text_buffer_delete_interactive (GtkTextBuffer *buffer,
  * and character indexes into the buffer. Contrast with
  * gtk_text_buffer_get_slice().
  *
- * Returns: an allocated UTF-8 string
+ * Returns: (transfer full): an allocated UTF-8 string
  **/
 gchar*
 gtk_text_buffer_get_text (GtkTextBuffer     *buffer,
@@ -1886,7 +1886,7 @@ gtk_text_buffer_get_text (GtkTextBuffer     *buffer,
  * text as well, so it is not a reliable indicator that a pixbuf or
  * widget is in the buffer.
  *
- * Returns: an allocated UTF-8 string
+ * Returns: (transfer full): an allocated UTF-8 string
  **/
 gchar*
 gtk_text_buffer_get_slice (GtkTextBuffer     *buffer,
@@ -3827,7 +3827,7 @@ remove_all_selection_clipboards (GtkTextBuffer *buffer)
  * @override_location: (allow-none): location to insert pasted text, or %NULL
  * @default_editable: whether the buffer is editable by default
  *
- * Pastes the contents of a clipboard. If @override_location is %NULL, the
+ * Pastes the contents of a clipboard. If @override_location is %NULL, the
  * pasted text will be inserted at the cursor position, or the buffer selection
  * will be replaced if the selection is non-empty.
  *

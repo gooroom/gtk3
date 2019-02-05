@@ -115,8 +115,10 @@ gdk_seat_default_grab (GdkSeat                *seat,
   GdkSeatDefaultPrivate *priv;
   guint32 evtime = event ? gdk_event_get_time (event) : GDK_CURRENT_TIME;
   GdkGrabStatus status = GDK_GRAB_SUCCESS;
+  gboolean was_visible;
 
   priv = gdk_seat_default_get_instance_private (GDK_SEAT_DEFAULT (seat));
+  was_visible = gdk_window_is_visible (window);
 
   if (prepare_func)
     (prepare_func) (seat, window, prepare_func_data);
@@ -132,9 +134,22 @@ gdk_seat_default_grab (GdkSeat                *seat,
 
   if (capabilities & GDK_SEAT_CAPABILITY_ALL_POINTING)
     {
+      /* ALL_POINTING spans 3 capabilities; get the mask for the ones we have */
+      GdkEventMask pointer_evmask = 0;
+
+      /* We let tablet styli take over the pointer cursor */
+      if (capabilities & (GDK_SEAT_CAPABILITY_POINTER |
+                          GDK_SEAT_CAPABILITY_TABLET_STYLUS))
+        {
+          pointer_evmask |= POINTER_EVENTS;
+        }
+
+      if (capabilities & GDK_SEAT_CAPABILITY_TOUCH)
+        pointer_evmask |= TOUCH_EVENTS;
+
       status = gdk_device_grab (priv->master_pointer, window,
                                 GDK_OWNERSHIP_NONE, owner_events,
-                                POINTER_EVENTS, cursor,
+                                pointer_evmask, cursor,
                                 evtime);
     }
 
@@ -150,9 +165,11 @@ gdk_seat_default_grab (GdkSeat                *seat,
         {
           if (capabilities & ~GDK_SEAT_CAPABILITY_KEYBOARD)
             gdk_device_ungrab (priv->master_pointer, evtime);
-          gdk_window_hide (window);
         }
     }
+
+  if (status != GDK_GRAB_SUCCESS && !was_visible)
+    gdk_window_hide (window);
 
   G_GNUC_END_IGNORE_DEPRECATIONS;
 
@@ -258,7 +275,8 @@ gdk_seat_default_get_slaves (GdkSeat             *seat,
 
 static GdkDeviceTool *
 gdk_seat_default_get_tool (GdkSeat *seat,
-                           guint64  serial)
+                           guint64  serial,
+                           guint64  hw_id)
 {
   GdkSeatDefaultPrivate *priv;
   GdkDeviceTool *tool;
@@ -273,7 +291,7 @@ gdk_seat_default_get_tool (GdkSeat *seat,
     {
       tool = g_ptr_array_index (priv->tools, i);
 
-      if (tool->serial == serial)
+      if (tool->serial == serial && tool->hw_id == hw_id)
         return tool;
     }
 
@@ -419,8 +437,7 @@ gdk_seat_default_remove_tool (GdkSeatDefault *seat,
 
   priv = gdk_seat_default_get_instance_private (seat);
 
-  if (tool != gdk_seat_get_tool (GDK_SEAT (seat),
-                                 gdk_device_tool_get_serial (tool)))
+  if (tool != gdk_seat_get_tool (GDK_SEAT (seat), tool->serial, tool->hw_id))
     return;
 
   g_signal_emit_by_name (seat, "tool-removed", tool);

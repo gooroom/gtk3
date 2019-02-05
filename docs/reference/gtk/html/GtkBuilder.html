@@ -8,7 +8,7 @@
 <link rel="up" href="Builder.html" title="Interface builder">
 <link rel="prev" href="Builder.html" title="Interface builder">
 <link rel="next" href="GtkBuildable.html" title="GtkBuildable">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -403,7 +403,7 @@ as <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 as <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>), enumerations (can be specified by their name, nick or
 integer value), flags (can be specified by their name, nick, integer
 value, optionally combined with “|”, e.g. “GTK_VISIBLE|GTK_REALIZED”)
-and colors (in a format understood by <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#gdk-rgba-parse"><code class="function">gdk_rgba_parse()</code></a>).</p>
+and colors (in a format understood by <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#gdk-rgba-parse"><code class="function">gdk_rgba_parse()</code></a>).</p>
 <p>GVariants can be specified in the format understood by <a href="https://developer.gnome.org/glib/unstable/glib-GVariant.html#g-variant-parse"><code class="function">g_variant_parse()</code></a>,
 and pixbufs can be specified as a filename of an image file to load.</p>
 <p>Objects can be referred to by their name and by default refer to
@@ -473,27 +473,27 @@ sections describing the widget-specific portions of UI definitions.</p>
 19
 20
 21</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>interface<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkDialog&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;dialog1&quot;</span><span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>child internal<span class="gtkdoc opt">-</span>child<span class="gtkdoc opt">=</span><span class="string">&quot;vbox&quot;</span><span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkBox&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;vbox1&quot;</span><span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;border-width&quot;</span><span class="gtkdoc opt">&gt;</span><span class="number">10</span><span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;</span>child internal<span class="gtkdoc opt">-</span>child<span class="gtkdoc opt">=</span><span class="string">&quot;action_area&quot;</span><span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkButtonBox&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;hbuttonbox1&quot;</span><span class="gtkdoc opt">&gt;</span>
-            <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;border-width&quot;</span><span class="gtkdoc opt">&gt;</span><span class="number">20</span><span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-            <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-              <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkButton&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;ok_button&quot;</span><span class="gtkdoc opt">&gt;</span>
-                <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;label&quot;</span><span class="gtkdoc opt">&gt;</span>gtk<span class="gtkdoc opt">-</span>ok<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-                <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;use-stock&quot;</span><span class="gtkdoc opt">&gt;</span>TRUE<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-                <span class="gtkdoc opt">&lt;</span>signal name<span class="gtkdoc opt">=</span><span class="string">&quot;clicked&quot;</span> handler<span class="gtkdoc opt">=</span><span class="string">&quot;ok_button_clicked&quot;</span><span class="gtkdoc opt">/&gt;</span>
-              <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-            <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;/</span>interface<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="normal">interface</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkDialog"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"dialog1"</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">child</span><span class="normal"> internal</span><span class="symbol">-</span><span class="normal">child</span><span class="symbol">=</span><span class="string">"vbox"</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkBox"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"vbox1"</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"border-width"</span><span class="symbol">&gt;</span><span class="number">10</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;</span><span class="usertype">child</span><span class="normal"> internal</span><span class="symbol">-</span><span class="normal">child</span><span class="symbol">=</span><span class="string">"action_area"</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkButtonBox"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"hbuttonbox1"</span><span class="symbol">&gt;</span>
+<span class="normal">            </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"border-width"</span><span class="symbol">&gt;</span><span class="number">20</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">            </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">              </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkButton"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"ok_button"</span><span class="symbol">&gt;</span>
+<span class="normal">                </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"label"</span><span class="symbol">&gt;</span><span class="normal">gtk</span><span class="symbol">-</span><span class="normal">ok</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">                </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"use-stock"</span><span class="symbol">&gt;</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">                </span><span class="symbol">&lt;</span><span class="usertype">signal</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"clicked"</span><span class="normal"> handler</span><span class="symbol">=</span><span class="string">"ok_button_clicked"</span><span class="symbol">/&gt;</span>
+<span class="normal">              </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">            </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;/</span><span class="normal">interface</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -561,7 +561,7 @@ subsequent calls will do nothing.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>connect_object</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a>, if non-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, use <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect-object"><code class="function">g_signal_connect_object()</code></a>. </p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a>, if non-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, use <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect-object"><code class="function">g_signal_connect_object()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -649,7 +649,7 @@ description, then the program will be aborted.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>resource_path</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gio/unstable/GResource.html#GResource-struct"><span class="type">GResource</span></a> resource path</p></td>
+<td class="parameter_description"><p>a <span class="type">GResource</span> resource path</p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
@@ -745,7 +745,7 @@ the global namespace.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback_symbol</p></td>
-<td class="parameter_description"><p> The callback pointer. </p></td>
+<td class="parameter_description"><p>The callback pointer. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -784,7 +784,7 @@ gtk_builder_add_callback_symbols (<em class="parameter"><code><a class="link" hr
 </tr>
 <tr>
 <td class="parameter_name"><p>first_callback_symbol</p></td>
-<td class="parameter_description"><p> The callback pointer. </p></td>
+<td class="parameter_description"><p>The callback pointer. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -834,7 +834,7 @@ using <a class="link" href="GtkBuilder.html#gtk-builder-connect-signals-full" ti
 </div>
 <div class="refsect3">
 <a name="gtk-builder-lookup-callback-symbol.returns"></a><h4>Returns</h4>
-<p> The callback symbol in <em class="parameter"><code>builder</code></em>
+<p>The callback symbol in <em class="parameter"><code>builder</code></em>
 for <em class="parameter"><code>callback_name</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
@@ -883,7 +883,7 @@ thing to do when an error is detected is to call <a href="https://developer.gnom
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -908,7 +908,7 @@ and merges it with the current contents of <em class="parameter"><code>builder</
 <p>Most users will probably want to use <a class="link" href="GtkBuilder.html#gtk-builder-new-from-resource" title="gtk_builder_new_from_resource ()"><code class="function">gtk_builder_new_from_resource()</code></a>.</p>
 <p>If an error occurs, 0 will be returned and <em class="parameter"><code>error</code></em>
  will be assigned a
-<a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> from the <a class="link" href="GtkBuilder.html#GTK-BUILDER-ERROR:CAPS" title="GTK_BUILDER_ERROR"><span class="type">GTK_BUILDER_ERROR</span></a>, <a href="https://developer.gnome.org/glib/unstable/glib-Simple-XML-Subset-Parser.html#G-MARKUP-ERROR:CAPS"><span class="type">G_MARKUP_ERROR</span></a> or <a href="https://developer.gnome.org/gio/unstable/GResource.html#G-RESOURCE-ERROR:CAPS"><span class="type">G_RESOURCE_ERROR</span></a>
+<a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> from the <a class="link" href="GtkBuilder.html#GTK-BUILDER-ERROR:CAPS" title="GTK_BUILDER_ERROR"><span class="type">GTK_BUILDER_ERROR</span></a>, <a href="https://developer.gnome.org/glib/unstable/glib-Simple-XML-Subset-Parser.html#G-MARKUP-ERROR:CAPS"><span class="type">G_MARKUP_ERROR</span></a> or <span class="type">G_RESOURCE_ERROR</span>
 domain.</p>
 <p>It’s not really reasonable to attempt to handle failures of this
 call.  The only reasonable thing to do when an error is detected is
@@ -934,7 +934,7 @@ to call <a href="https://developer.gnome.org/glib/unstable/glib-Message-Logging.
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -993,7 +993,7 @@ is nul-terminated)</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1046,12 +1046,12 @@ its child (for instance a <a class="link" href="GtkTreeView.html" title="GtkTree
 </tr>
 <tr>
 <td class="parameter_name"><p>object_ids</p></td>
-<td class="parameter_description"><p> nul-terminated array of objects to build. </p></td>
+<td class="parameter_description"><p>nul-terminated array of objects to build. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1111,12 +1111,12 @@ is nul-terminated)</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>object_ids</p></td>
-<td class="parameter_description"><p> nul-terminated array of objects to build. </p></td>
+<td class="parameter_description"><p>nul-terminated array of objects to build. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1142,7 +1142,7 @@ them with the current contents of <em class="parameter"><code>builder</code></em
 .</p>
 <p>Upon errors 0 will be returned and <em class="parameter"><code>error</code></em>
  will be assigned a
-<a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> from the <a class="link" href="GtkBuilder.html#GTK-BUILDER-ERROR:CAPS" title="GTK_BUILDER_ERROR"><span class="type">GTK_BUILDER_ERROR</span></a>, <a href="https://developer.gnome.org/glib/unstable/glib-Simple-XML-Subset-Parser.html#G-MARKUP-ERROR:CAPS"><span class="type">G_MARKUP_ERROR</span></a> or <a href="https://developer.gnome.org/gio/unstable/GResource.html#G-RESOURCE-ERROR:CAPS"><span class="type">G_RESOURCE_ERROR</span></a>
+<a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> from the <a class="link" href="GtkBuilder.html#GTK-BUILDER-ERROR:CAPS" title="GTK_BUILDER_ERROR"><span class="type">GTK_BUILDER_ERROR</span></a>, <a href="https://developer.gnome.org/glib/unstable/glib-Simple-XML-Subset-Parser.html#G-MARKUP-ERROR:CAPS"><span class="type">G_MARKUP_ERROR</span></a> or <span class="type">G_RESOURCE_ERROR</span>
 domain.</p>
 <p>If you are adding an object that depends on an object that is not
 its child (for instance a <a class="link" href="GtkTreeView.html" title="GtkTreeView"><span class="type">GtkTreeView</span></a> that depends on its
@@ -1169,12 +1169,12 @@ its child (for instance a <a class="link" href="GtkTreeView.html" title="GtkTree
 </tr>
 <tr>
 <td class="parameter_name"><p>object_ids</p></td>
-<td class="parameter_description"><p> nul-terminated array of objects to build. </p></td>
+<td class="parameter_description"><p>nul-terminated array of objects to build. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1238,7 +1238,7 @@ is nul-terminated)</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1282,7 +1282,7 @@ increment the reference count of the returned object.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-builder-get-object.returns"></a><h4>Returns</h4>
-<p> the object named <em class="parameter"><code>name</code></em>
+<p>the object named <em class="parameter"><code>name</code></em>
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
 it could not be found in the object tree. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1315,7 +1315,7 @@ objects.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-builder-get-objects.returns"></a><h4>Returns</h4>
-<p> a newly-allocated <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> containing all the objects
+<p>a newly-allocated <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> containing all the objects
 constructed by the <a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a> instance. It should be freed by
 <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GObject][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span></p>
@@ -1437,7 +1437,7 @@ require GModule to function correctly.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>func</p></td>
-<td class="parameter_description"><p> the function used to connect the signals. </p></td>
+<td class="parameter_description"><p>the function used to connect the signals. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -1475,7 +1475,7 @@ See <a class="link" href="GtkBuilder.html#GtkBuilder--translation-domain" title=
 </tr>
 <tr>
 <td class="parameter_name"><p>domain</p></td>
-<td class="parameter_description"><p> the translation domain or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>the translation domain or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1520,7 +1520,7 @@ gtk_builder_set_application (<em class="parameter"><code><a class="link" href="G
                              <em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>);</pre>
 <p>Sets the application associated with <em class="parameter"><code>builder</code></em>
 .</p>
-<p>You only need this function if there is more than one <a href="https://developer.gnome.org/gio/unstable/GApplication.html#GApplication-struct"><span class="type">GApplication</span></a>
+<p>You only need this function if there is more than one <span class="type">GApplication</span>
 in your process. <em class="parameter"><code>application</code></em>
  cannot be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
 <div class="refsect3">
@@ -1556,7 +1556,7 @@ gtk_builder_get_application (<em class="parameter"><code><a class="link" href="G
 <p>The <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> is used for creating action proxies as requested
 from XML that the builder is loading.</p>
 <p>By default, the builder uses the default application: the one from
-<a href="https://developer.gnome.org/gio/unstable/GApplication.html#g-application-get-default"><code class="function">g_application_get_default()</code></a>. If you want to use another application
+<code class="function">g_application_get_default()</code>. If you want to use another application
 for constructing proxies, use <a class="link" href="GtkBuilder.html#gtk-builder-set-application" title="gtk_builder_set_application ()"><code class="function">gtk_builder_set_application()</code></a>.</p>
 <div class="refsect3">
 <a name="gtk-builder-get-application.parameters"></a><h4>Parameters</h4>
@@ -1575,7 +1575,7 @@ for constructing proxies, use <a class="link" href="GtkBuilder.html#gtk-builder-
 </div>
 <div class="refsect3">
 <a name="gtk-builder-get-application.returns"></a><h4>Returns</h4>
-<p> the application being used by the builder,
+<p>the application being used by the builder,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1627,14 +1627,14 @@ if no type was found</p>
 gtk_builder_value_from_string (<em class="parameter"><code><a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a> *builder</code></em>,
                                <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
                                <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *string</code></em>,
-                               <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>,
+                               <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *value</code></em>,
                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>This function demarshals a value from a string. This function
 calls <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#g-value-init"><code class="function">g_value_init()</code></a> on the <em class="parameter"><code>value</code></em>
  argument, so it need not be
 initialised beforehand.</p>
 <p>This function can handle char, uchar, boolean, int, uint, long,
-ulong, enum, flags, float, double, string, <span class="type">GdkColor</span>, <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> and
+ulong, enum, flags, float, double, string, <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a>, <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> and
 <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> type values. Support for <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> type values is
 still to come.</p>
 <p>Upon errors <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> will be returned and <em class="parameter"><code>error</code></em>
@@ -1666,12 +1666,12 @@ still to come.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>value</p></td>
-<td class="parameter_description"><p> the <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> to store the result in. </p></td>
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> to store the result in. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1690,7 +1690,7 @@ still to come.</p>
 gtk_builder_value_from_string_type (<em class="parameter"><code><a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a> *builder</code></em>,
                                     <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> type</code></em>,
                                     <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *string</code></em>,
-                                    <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>,
+                                    <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *value</code></em>,
                                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Like <a class="link" href="GtkBuilder.html#gtk-builder-value-from-string" title="gtk_builder_value_from_string ()"><code class="function">gtk_builder_value_from_string()</code></a>, this function demarshals
 a value from a string, but takes a <a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> instead of <a href="https://developer.gnome.org/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a>.
@@ -1726,12 +1726,12 @@ need not be initialised beforehand.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>value</p></td>
-<td class="parameter_description"><p> the <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> to store the result in. </p></td>
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> to store the result in. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1928,6 +1928,6 @@ otherwise <a href="https://developer.gnome.org/glib/unstable/glib-I18N.html#g-dg
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

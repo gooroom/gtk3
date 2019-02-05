@@ -7,7 +7,9 @@
     <BinDir>$(SolutionDir)$(Configuration)\$(Platform)\bin</BinDir>
     <GtkDoInstallBin>
 mkdir $(CopyDir)\bin
+mkdir $(CopyDir)\share\gir-1.0
 mkdir $(CopyDir)\lib\pkgconfig
+mkdir $(CopyDir)\lib\girepository-1.0
 copy "$(BinDir)\$(GtkDllPrefix)gdk-3$(GtkDllSuffix).dll" $(CopyDir)\bin
 copy "$(BinDir)\$(GtkDllPrefix)gdk-3$(GtkDllSuffix).pdb" $(CopyDir)\bin
 copy "$(BinDir)\gdk-$(ApiVersion).lib" $(CopyDir)\lib
@@ -33,6 +35,12 @@ copy "$(BinDir)\gtk-query-settings.exe" $(CopyDir)\bin
 copy "$(BinDir)\gtk-query-settings.pdb" $(CopyDir)\bin
 copy "$(BinDir)\gtk-builder-tool.exe" $(CopyDir)\bin
 copy "$(BinDir)\gtk-builder-tool.pdb" $(CopyDir)\bin
+if exist $(BinDir)\Gdk-3.0.gir copy "$(BinDir)\Gdk-3.0.gir" $(CopyDir)\share\gir-1.0
+if exist $(BinDir)\GdkWin32-3.0.gir copy "$(BinDir)\GdkWin32-3.0.gir" $(CopyDir)\share\gir-1.0
+if exist $(BinDir)\Gtk-3.0.gir copy "$(BinDir)\Gtk-3.0.gir" $(CopyDir)\share\gir-1.0
+if exist $(BinDir)\Gdk-3.0.typelib copy "$(BinDir)\Gdk-3.0.typelib" $(CopyDir)\lib\girepository-1.0
+if exist $(BinDir)\GdkWin32-3.0.typelib copy "$(BinDir)\GdkWin32-3.0.typelib" $(CopyDir)\lib\girepository-1.0
+if exist $(BinDir)\Gtk-3.0.typelib copy "$(BinDir)\Gtk-3.0.typelib" $(CopyDir)\lib\girepository-1.0
 goto DONE_BIN
 :DO_BROADWAY_BIN
 copy "$(BinDir)\broadwayd.exe" $(CopyDir)\bin
@@ -60,6 +68,12 @@ copy .\Release\$(Platform)\bin\gtk-query-settings.exe $(CopyDir)\bin
 copy .\Release\$(Platform)\bin\gtk-query-settings.pdb $(CopyDir)\bin
 copy .\Release\$(Platform)\bin\gtk-builder-tool.exe $(CopyDir)\bin
 copy .\Release\$(Platform)\bin\gtk-builder-tool.pdb $(CopyDir)\bin
+if exist .\Release\$(Platform)\bin\Gdk-3.0.gir copy .\Release\$(Platform)\bin\Gdk-3.0.gir $(CopyDir)\share\gir-1.0
+if exist .\Release\$(Platform)\bin\GdkWin32-3.0.gir copy .\Release\$(Platform)\bin\GdkWin32-3.0.gir $(CopyDir)\share\gir-1.0
+if exist .\Release\$(Platform)\bin\Gtk-3.0.gir copy .\Release\$(Platform)\bin\Gtk-3.0.gir $(CopyDir)\share\gir-1.0
+if exist .\Release\$(Platform)\bin\Gdk-3.0.typelib copy .\Release\$(Platform)\bin\Gdk-3.0.typelib $(CopyDir)\lib\girepository-1.0
+if exist .\Release\$(Platform)\bin\GdkWin32-3.0.typelib copy .\Release\$(Platform)\bin\GdkWin32-3.0.typelib $(CopyDir)\lib\girepository-1.0
+if exist .\Release\$(Platform)\bin\Gtk-3.0.typelib copy .\Release\$(Platform)\bin\Gtk-3.0.typelib $(CopyDir)\lib\girepository-1.0
 goto DONE_BIN
 :DO_BROADWAY_DEBUG
 copy .\Debug\$(Platform)\bin\$(GtkDllPrefix)gtk-3$(GtkDllSuffix).dll $(CopyDir)\bin
@@ -82,6 +96,12 @@ copy .\Debug\$(Platform)\bin\gtk-query-settings.exe $(CopyDir)\bin
 copy .\Debug\$(Platform)\bin\gtk-query-settings.pdb $(CopyDir)\bin
 copy .\Debug\$(Platform)\bin\gtk-builder-tool.exe $(CopyDir)\bin
 copy .\Debug\$(Platform)\bin\gtk-builder-tool.pdb $(CopyDir)\bin
+if exist .\Debug\$(Platform)\bin\Gdk-3.0.gir copy .\Debug\$(Platform)\bin\Gdk-3.0.gir $(CopyDir)\share\gir-1.0
+if exist .\Debug\$(Platform)\bin\GdkWin32-3.0.gir copy .\Debug\$(Platform)\bin\GdkWin32-3.0.gir $(CopyDir)\share\gir-1.0
+if exist .\Debug\$(Platform)\bin\Gtk-3.0.gir copy .\Debug\$(Platform)\bin\Gtk-3.0.gir $(CopyDir)\share\gir-1.0
+if exist .\Debug\$(Platform)\bin\Gdk-3.0.typelib copy .\Debug\$(Platform)\bin\Gdk-3.0.typelib $(CopyDir)\lib\girepository-1.0
+if exist .\Debug\$(Platform)\bin\GdkWin32-3.0.typelib copy .\Debug\$(Platform)\bin\GdkWin32-3.0.typelib $(CopyDir)\lib\girepository-1.0
+if exist .\Debug\$(Platform)\bin\Gtk-3.0.typelib copy .\Debug\$(Platform)\bin\Gtk-3.0.typelib $(CopyDir)\lib\girepository-1.0
 :DONE_BIN
 copy ..\gdk-3.0.pc $(CopyDir)\lib\pkgconfig
 copy ..\gdk-3.0.pc $(CopyDir)\lib\pkgconfig\gdk-win32-3.0.pc
@@ -217,6 +237,9 @@ copy ..\..\..\gtk\gtkentrycompletion.h $(CopyDir)\include\gtk-3.0\gtk\gtkentryco
 copy ..\..\..\gtk\gtkenums.h $(CopyDir)\include\gtk-3.0\gtk\gtkenums.h
 copy ..\..\..\gtk\gtkeventbox.h $(CopyDir)\include\gtk-3.0\gtk\gtkeventbox.h
 copy ..\..\..\gtk\gtkeventcontroller.h $(CopyDir)\include\gtk-3.0\gtk\gtkeventcontroller.h
+copy ..\..\..\gtk\gtkeventcontrollerkey.h $(CopyDir)\include\gtk-3.0\gtk\gtkeventcontrollerkey.h
+copy ..\..\..\gtk\gtkeventcontrollermotion.h $(CopyDir)\include\gtk-3.0\gtk\gtkeventcontrollermotion.h
+copy ..\..\..\gtk\gtkeventcontrollerscroll.h $(CopyDir)\include\gtk-3.0\gtk\gtkeventcontrollerscroll.h
 copy ..\..\..\gtk\gtkexpander.h $(CopyDir)\include\gtk-3.0\gtk\gtkexpander.h
 copy ..\..\..\gtk\gtkfilechooser.h $(CopyDir)\include\gtk-3.0\gtk\gtkfilechooser.h
 copy ..\..\..\gtk\gtkfilechooserbutton.h $(CopyDir)\include\gtk-3.0\gtk\gtkfilechooserbutton.h
@@ -238,6 +261,7 @@ copy ..\..\..\gtk\gtkgesturemultipress.h $(CopyDir)\include\gtk-3.0\gtk\gtkgestu
 copy ..\..\..\gtk\gtkgesturepan.h $(CopyDir)\include\gtk-3.0\gtk\gtkgesturepan.h
 copy ..\..\..\gtk\gtkgesturerotate.h $(CopyDir)\include\gtk-3.0\gtk\gtkgesturerotate.h
 copy ..\..\..\gtk\gtkgesturesingle.h $(CopyDir)\include\gtk-3.0\gtk\gtkgesturesingle.h
+copy ..\..\..\gtk\gtkgesturestylus.h $(CopyDir)\include\gtk-3.0\gtk\gtkgesturestylus.h
 copy ..\..\..\gtk\gtkgestureswipe.h $(CopyDir)\include\gtk-3.0\gtk\gtkgestureswipe.h
 copy ..\..\..\gtk\gtkgesturezoom.h $(CopyDir)\include\gtk-3.0\gtk\gtkgesturezoom.h
 copy ..\..\..\gtk\gtkglarea.h $(CopyDir)\include\gtk-3.0\gtk\gtkglarea.h
@@ -468,9 +492,10 @@ copy ..\..\..\libgail-util\gailtextutil.h $(CopyDir)\include\gail-3.0\libgail-ut
 copy ..\..\..\libgail-util\gail-util.h $(CopyDir)\include\gail-3.0\libgail-util\gail-util.h
 for &#37;&#37;s in (16 22 24 32 48 256) do ((mkdir $(CopyDir)\share\icons\hicolor\&#37;&#37;sx&#37;&#37;s\apps) &amp; (copy /b ..\..\..\demos\gtk-demo\data\&#37;&#37;sx&#37;&#37;s\gtk3-demo.png $(CopyDir)\share\icons\hicolor\&#37;&#37;sx&#37;&#37;s\apps))
 mkdir $(CopyDir)\share\glib-2.0\schemas
-copy ..\..\..\gtk\org.gtk.Settings.FileChooser.gschema.xml $(CopyDir)\share\glib-2.0\schemas
 copy ..\..\..\gtk\org.gtk.Settings.ColorChooser.gschema.xml $(CopyDir)\share\glib-2.0\schemas
 copy ..\..\..\gtk\org.gtk.Settings.Debug.gschema.xml $(CopyDir)\share\glib-2.0\schemas
+copy ..\..\..\gtk\org.gtk.Settings.EmojiChooser.gschema.xml $(CopyDir)\share\glib-2.0\schemas
+copy ..\..\..\gtk\org.gtk.Settings.FileChooser.gschema.xml $(CopyDir)\share\glib-2.0\schemas
 copy ..\..\..\demos\gtk-demo\org.gtk.Demo.gschema.xml $(CopyDir)\share\glib-2.0\schemas
     </GtkDoInstall>
     <GtkDoInstallBroadwayHeaders>
@@ -488,8 +513,8 @@ $(GlibEtcInstallRoot)\bin\glib-compile-schemas.exe $(CopyDir)\share\glib-2.0\sch
 echo "Generating icon cache......"
 $(CopyDir)\bin\gtk-update-icon-cache.exe --ignore-theme-index --force "$(CopyDir)\share\icons\hicolor"
     </GtkPostInstall>
-    <GenerateGtkPC>$(PythonPath)\python ..\gtkpc.py --prefix=$(CopyDir) --version=$(GtkVersion) --host=i686-pc-vs$(VSVer)</GenerateGtkPC>
-    <GenerateGtkPCX64>$(PythonPathX64)\python ..\gtkpc.py --prefix=$(CopyDir) --version=$(GtkVersion) --host=x86_64-pc-vs$(VSVer)</GenerateGtkPCX64>
+    <GenerateGtkPC>$(PythonDir)\python ..\gtkpc.py --prefix=$(CopyDir) --version=$(GtkVersion) --host=i686-pc-vs$(VSVer)</GenerateGtkPC>
+    <GenerateGtkPCX64>$(PythonDir)\python ..\gtkpc.py --prefix=$(CopyDir) --version=$(GtkVersion) --host=x86_64-pc-vs$(VSVer)</GenerateGtkPCX64>
     <GtkPCFiles>..\gdk-3.0.pc;..\gtk+-3.0.pc;..\gail-3.0.pc</GtkPCFiles>
   </PropertyGroup>
   <PropertyGroup>

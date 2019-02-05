@@ -8,7 +8,7 @@
 <link rel="up" href="LayoutContainers.html" title="Layout Containers">
 <link rel="prev" href="LayoutContainers.html" title="Layout Containers">
 <link rel="next" href="GtkGrid.html" title="GtkGrid">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -31,7 +31,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="GtkBox.top_of_page"></a>GtkBox</span></h2>
-<p>GtkBox — A container box</p>
+<p>GtkBox — A container for packing widgets in a single row or column</p>
 </td>
 <td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
@@ -280,11 +280,11 @@ GtkBox implements
 </div>
 <div class="refsect1">
 <a name="GtkBox.description"></a><h2>Description</h2>
-<p>The GtkBox widget organizes child widgets into a rectangular area.</p>
-<p>The rectangular area of a GtkBox is organized into either a single row
-or a single column of child widgets depending upon the orientation.
-Thus, all children of a GtkBox are allocated one dimension in common,
-which is the height of a row, or the width of a column.</p>
+<p>The GtkBox widget arranges child widgets into a single row or column,
+depending upon the value of its <a class="link" href="gtk3-Orientable.html#GtkOrientable--orientation" title="The “orientation” property"><span class="type">“orientation”</span></a> property. Within
+the other dimension, all children are allocated the same size. Of course,
+the <a class="link" href="GtkWidget.html#GtkWidget--halign" title="The “halign” property"><span class="type">“halign”</span></a> and <a class="link" href="GtkWidget.html#GtkWidget--valign" title="The “valign” property"><span class="type">“valign”</span></a> properties can be used on
+the children to influence their allocation.</p>
 <p>GtkBox uses a notion of packing. Packing refers
 to adding widgets with reference to a particular position in a
 <a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a>. For a GtkBox, there are two reference positions: the
@@ -312,10 +312,8 @@ place in the box.</p>
 <p>Use <a class="link" href="GtkBox.html#gtk-box-set-child-packing" title="gtk_box_set_child_packing ()"><code class="function">gtk_box_set_child_packing()</code></a> to reset the expand,
 fill and padding child properties.
 Use <a class="link" href="GtkBox.html#gtk-box-query-child-packing" title="gtk_box_query_child_packing ()"><code class="function">gtk_box_query_child_packing()</code></a> to query these fields.</p>
-<p>Note that a single-row or single-column <a class="link" href="GtkGrid.html" title="GtkGrid"><span class="type">GtkGrid</span></a> provides exactly
-the same functionality as <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a>.</p>
 <div class="refsect2">
-<a name="id-1.3.7.2.10.12"></a><h3>CSS nodes</h3>
+<a name="id-1.3.7.2.10.10"></a><h3>CSS nodes</h3>
 <p>GtkBox uses a single CSS node with name box.</p>
 <p>In horizontal orientation, the nodes of the children are always arranged
 from left to right. So :first-child will always select the leftmost child,
@@ -719,25 +717,25 @@ gtk_box_query_child_packing (<em class="parameter"><code><a class="link" href="G
 </tr>
 <tr>
 <td class="parameter_name"><p>expand</p></td>
-<td class="parameter_description"><p> pointer to return location for expand child
+<td class="parameter_description"><p>pointer to return location for expand child
 property. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>fill</p></td>
-<td class="parameter_description"><p> pointer to return location for fill child
+<td class="parameter_description"><p>pointer to return location for fill child
 property. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>padding</p></td>
-<td class="parameter_description"><p> pointer to return location for padding
+<td class="parameter_description"><p>pointer to return location for padding
 child property. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>pack_type</p></td>
-<td class="parameter_description"><p> pointer to return location for pack-type
+<td class="parameter_description"><p>pointer to return location for pack-type
 child property. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
@@ -888,7 +886,7 @@ gtk_box_get_center_widget (<em class="parameter"><code><a class="link" href="Gtk
 </div>
 <div class="refsect3">
 <a name="gtk-box-get-center-widget.returns"></a><h4>Returns</h4>
-<p> the center widget
+<p>the center widget
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> in case no center widget is set. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -920,7 +918,7 @@ of space.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>widget</p></td>
-<td class="parameter_description"><p> the widget to center. </p></td>
+<td class="parameter_description"><p>the widget to center. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -991,9 +989,9 @@ of space.</p>
 <p>Note that the default value for this property is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> for GtkBox,
 but <a class="link" href="GtkHBox.html" title="GtkHBox"><span class="type">GtkHBox</span></a>, <a class="link" href="GtkVBox.html" title="GtkVBox"><span class="type">GtkVBox</span></a> and other subclasses use the old default
 of <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.</p>
-<p>Note that the <a class="link" href="GtkWidget.html#GtkWidget--halign" title="The “halign” property"><span class="type">“halign”</span></a>, <a class="link" href="GtkWidget.html#GtkWidget--valign" title="The “valign” property"><span class="type">“valign”</span></a>, <a class="link" href="GtkWidget.html#GtkWidget--hexpand" title="The “hexpand” property"><span class="type">“hexpand”</span></a>
-and <a class="link" href="GtkWidget.html#GtkWidget--vexpand" title="The “vexpand” property"><span class="type">“vexpand”</span></a> properties are the preferred way to influence
-child size allocation in containers.</p>
+<p>Note: The <a class="link" href="GtkWidget.html#GtkWidget--hexpand" title="The “hexpand” property"><span class="type">“hexpand”</span></a> or <a class="link" href="GtkWidget.html#GtkWidget--vexpand" title="The “vexpand” property"><span class="type">“vexpand”</span></a> properties are the
+preferred way to influence whether the child receives extra space, by
+setting the child’s expand property corresponding to the box’s orientation.</p>
 <p>In contrast to <a class="link" href="GtkWidget.html#GtkWidget--hexpand" title="The “hexpand” property"><span class="type">“hexpand”</span></a>, the expand child property does
 not cause the box to expand itself.</p>
 <p>Flags: Read / Write</p>
@@ -1003,10 +1001,11 @@ not cause the box to expand itself.</p>
 <div class="refsect2">
 <a name="GtkBox--c-fill"></a><h3>The <code class="literal">“fill”</code> child property</h3>
 <pre class="programlisting">  “fill”                     <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
-<p>Whether the child should receive extra space when the parent grows.</p>
-<p>Note that the <a class="link" href="GtkWidget.html#GtkWidget--halign" title="The “halign” property"><span class="type">“halign”</span></a>, <a class="link" href="GtkWidget.html#GtkWidget--valign" title="The “valign” property"><span class="type">“valign”</span></a>, <a class="link" href="GtkWidget.html#GtkWidget--hexpand" title="The “hexpand” property"><span class="type">“hexpand”</span></a>
-and <a class="link" href="GtkWidget.html#GtkWidget--vexpand" title="The “vexpand” property"><span class="type">“vexpand”</span></a> properties are the preferred way to influence
-child size allocation in containers.</p>
+<p>Whether the child should fill extra space or use it as padding.</p>
+<p>Note: The <a class="link" href="GtkWidget.html#GtkWidget--halign" title="The “halign” property"><span class="type">“halign”</span></a> or <a class="link" href="GtkWidget.html#GtkWidget--valign" title="The “valign” property"><span class="type">“valign”</span></a> properties are the
+preferred way to influence whether the child fills available space, by
+setting the child’s align property corresponding to the box’s orientation
+to <a class="link" href="GtkWidget.html#GTK-ALIGN-FILL:CAPS"><code class="literal">GTK_ALIGN_FILL</code></a> to fill, or to something else to refrain from filling.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
 </div>
@@ -1023,6 +1022,8 @@ child size allocation in containers.</p>
 <a name="GtkBox--c-padding"></a><h3>The <code class="literal">“padding”</code> child property</h3>
 <pre class="programlisting">  “padding”                  <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a></pre>
 <p>Extra space to put between the child and its neighbors, in pixels.</p>
+<p>Note: The CSS padding properties are the preferred way to add space among
+widgets, by setting the paddings corresponding to the box’s orientation.</p>
 <p>Flags: Read / Write</p>
 <p>Allowed values: &lt;= G_MAXINT</p>
 <p>Default value: 0</p>
@@ -1039,10 +1040,10 @@ child size allocation in containers.</p>
 </div>
 <div class="refsect1">
 <a name="GtkBox.see-also"></a><h2>See Also</h2>
-<p><a class="link" href="GtkFrame.html" title="GtkFrame"><span class="type">GtkFrame</span></a>, <a class="link" href="GtkGrid.html" title="GtkGrid"><span class="type">GtkGrid</span></a>, <a class="link" href="GtkLayout.html" title="GtkLayout"><span class="type">GtkLayout</span></a></p>
+<p><a class="link" href="GtkGrid.html" title="GtkGrid"><span class="type">GtkGrid</span></a></p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

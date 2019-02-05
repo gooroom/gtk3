@@ -51,11 +51,13 @@
 #include "gdkmonitorprivate.h"
 #include "gdkwin32.h"
 #include "gdkkeysyms.h"
+#include "gdkglcontext-win32.h"
 #include "gdkdevicemanager-win32.h"
 #include "gdkdeviceprivate.h"
 #include "gdkdevice-wintab.h"
 #include "gdkwin32dnd.h"
 #include "gdkdisplay-win32.h"
+#include "gdkselection-win32.h"
 #include "gdkdndprivate.h"
 
 #include <windowsx.h>
@@ -1599,8 +1601,8 @@ _gdk_win32_do_emit_configure_event (GdkWindow *window,
   impl->unscaled_height = rect.bottom - rect.top;
   window->width = (impl->unscaled_width + impl->window_scale - 1) / impl->window_scale;
   window->height = (impl->unscaled_height + impl->window_scale - 1) / impl->window_scale;
-  window->x = rect.left;
-  window->y = rect.top;
+  window->x = rect.left / impl->window_scale;
+  window->y = rect.top / impl->window_scale;
 
   _gdk_window_update_size (window);
 
@@ -1736,36 +1738,42 @@ modal_timer_proc (HWND     hwnd,
 {
   int arbitrary_limit = 10;
 
-  while (_modal_operation_in_progress &&
+  while (_modal_operation_in_progress != GDK_WIN32_MODAL_OP_NONE &&
 	 g_main_context_pending (NULL) &&
 	 arbitrary_limit--)
     g_main_context_iteration (NULL, FALSE);
 }
 
 void
-_gdk_win32_begin_modal_call (void)
+_gdk_win32_begin_modal_call (GdkWin32ModalOpKind kind)
 {
-  g_assert (!_modal_operation_in_progress);
+  GdkWin32ModalOpKind was = _modal_operation_in_progress;
+  g_assert (!(_modal_operation_in_progress & kind));
 
-  _modal_operation_in_progress = TRUE;
+  _modal_operation_in_progress |= kind;
 
-  modal_timer = SetTimer (NULL, 0, 10, modal_timer_proc);
-  if (modal_timer == 0)
-    WIN32_API_FAILED ("SetTimer");
+  if (was == GDK_WIN32_MODAL_OP_NONE)
+    {
+      modal_timer = SetTimer (NULL, 0, 10, modal_timer_proc);
+
+      if (modal_timer == 0)
+	WIN32_API_FAILED ("SetTimer");
+    }
 }
 
 void
-_gdk_win32_end_modal_call (void)
+_gdk_win32_end_modal_call (GdkWin32ModalOpKind kind)
 {
-  g_assert (_modal_operation_in_progress);
+  g_assert (_modal_operation_in_progress & kind);
 
-  _modal_operation_in_progress = FALSE;
+  _modal_operation_in_progress &= ~kind;
 
-  if (modal_timer != 0)
+  if (_modal_operation_in_progress == GDK_WIN32_MODAL_OP_NONE &&
+      modal_timer != 0)
     {
       API_CALL (KillTimer, (NULL, modal_timer));
       modal_timer = 0;
-   }
+    }
 }
 
 static VOID CALLBACK
@@ -1922,7 +1930,7 @@ ensure_stacking_on_unminimize (MSG *msg)
 		g_print (" restacking %p above %p",
 			 msg->hwnd, lowest_transient));
       SetWindowPos (msg->hwnd, lowest_transient, 0, 0, 0, 0,
-		    SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
+		    SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE | SWP_NOOWNERZORDER);
     }
 }
 
@@ -2003,7 +2011,7 @@ ensure_stacking_on_activate_app (MSG       *msg,
       impl->transient_owner != NULL)
     {
       SetWindowPos (msg->hwnd, HWND_TOP, 0, 0, 0, 0,
-		    SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
+		    SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE | SWP_NOOWNERZORDER);
       return;
     }
 
@@ -2045,7 +2053,7 @@ ensure_stacking_on_activate_app (MSG       *msg,
 		    g_print (" restacking %p above %p",
 			     msg->hwnd, rover));
 	  SetWindowPos (msg->hwnd, rover, 0, 0, 0, 0,
-			SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
+			SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE | SWP_NOOWNERZORDER);
           break;
 	}
     }
@@ -2234,6 +2242,25 @@ _gdk_win32_window_fill_min_max_info (GdkWindow  *window,
   return TRUE;
 }
 
+static void
+gdk_settings_notify (GdkWindow        *window,
+                     const char       *name,
+                     GdkSettingAction  action)
+{
+  GdkEvent *new_event;
+
+  if (!g_str_has_prefix (name, "gtk-"))
+    return;
+
+  new_event = gdk_event_new (GDK_SETTING);
+  new_event->setting.window = window;
+  new_event->setting.send_event = FALSE;
+  new_event->setting.action = action;
+  new_event->setting.name = g_strdup (name);
+
+  _gdk_win32_append_event (new_event);
+}
+
 #define GDK_ANY_BUTTON_MASK (GDK_BUTTON1_MASK | \
 			     GDK_BUTTON2_MASK | \
 			     GDK_BUTTON3_MASK | \
@@ -2279,6 +2306,10 @@ gdk_event_translate (MSG  *msg,
   gboolean return_val = FALSE;
 
   int i;
+
+  GdkWin32Selection *win32_sel = NULL;
+
+  STGMEDIUM *property_change_data;
 
   display = gdk_display_get_default ();
   window = gdk_win32_handle_table_lookup (msg->hwnd);
@@ -2444,6 +2475,7 @@ gdk_event_translate (MSG  *msg,
 			 (gulong) msg->wParam,
 			 (gpointer) msg->lParam, _gdk_input_locale_is_ime ? " (IME)" : "",
 			 _gdk_input_codepage));
+      gdk_settings_notify (window, "gtk-im-module", GDK_SETTING_ACTION_CHANGED);
       break;
 
     case WM_SYSKEYUP:
@@ -3059,13 +3091,20 @@ gdk_event_translate (MSG  *msg,
 
       event = gdk_event_new (GDK_SCROLL);
       event->scroll.window = window;
+      event->scroll.direction = GDK_SCROLL_SMOOTH;
 
       if (msg->message == WM_MOUSEWHEEL)
-	  event->scroll.direction = (((short) HIWORD (msg->wParam)) > 0) ?
-	    GDK_SCROLL_UP : GDK_SCROLL_DOWN;
+        {
+          event->scroll.delta_y = (gdouble) GET_WHEEL_DELTA_WPARAM (msg->wParam) / (gdouble) WHEEL_DELTA;
+        }
       else if (msg->message == WM_MOUSEHWHEEL)
-	  event->scroll.direction = (((short) HIWORD (msg->wParam)) > 0) ?
-	    GDK_SCROLL_RIGHT : GDK_SCROLL_LEFT;
+        {
+          event->scroll.delta_x = (gdouble) GET_WHEEL_DELTA_WPARAM (msg->wParam) / (gdouble) WHEEL_DELTA;
+        }
+      /* Positive delta scrolls up, not down,
+         see API documentation for WM_MOUSEWHEEL message.
+       */
+      event->scroll.delta_y *= -1.0;
       event->scroll.time = _gdk_win32_get_next_tick (msg->time);
       event->scroll.x = (gint16) point.x / impl->window_scale;
       event->scroll.y = (gint16) point.y / impl->window_scale;
@@ -3075,6 +3114,20 @@ gdk_event_translate (MSG  *msg,
       gdk_event_set_device (event, device_manager_win32->core_pointer);
       gdk_event_set_source_device (event, device_manager_win32->system_pointer);
       gdk_event_set_seat (event, gdk_device_get_seat (device_manager_win32->core_pointer));
+      gdk_event_set_pointer_emulated (event, FALSE);
+
+      _gdk_win32_append_event (gdk_event_copy (event));
+
+      /* Append the discrete version too */
+      if (msg->message == WM_MOUSEWHEEL)
+	event->scroll.direction = (((short) HIWORD (msg->wParam)) > 0) ?
+	  GDK_SCROLL_UP : GDK_SCROLL_DOWN;
+      else if (msg->message == WM_MOUSEHWHEEL)
+	event->scroll.direction = (((short) HIWORD (msg->wParam)) > 0) ?
+	  GDK_SCROLL_RIGHT : GDK_SCROLL_LEFT;
+      event->scroll.delta_x = 0;
+      event->scroll.delta_y = 0;
+      gdk_event_set_pointer_emulated (event, TRUE);
 
       _gdk_win32_append_event (event);
 
@@ -3139,7 +3192,8 @@ gdk_event_translate (MSG  *msg,
 
     case WM_KILLFOCUS:
       if (keyboard_grab != NULL &&
-	  !GDK_WINDOW_DESTROYED (keyboard_grab->window))
+	  !GDK_WINDOW_DESTROYED (keyboard_grab->window) &&
+	  (_modal_operation_in_progress & GDK_WIN32_MODAL_OP_DND) == 0)
 	{
 	  generate_grab_broken_event (device_manager, keyboard_grab->window, TRUE, NULL);
 	}
@@ -3236,6 +3290,9 @@ gdk_event_translate (MSG  *msg,
 	case SC_MINIMIZE:
 	case SC_RESTORE:
 	  do_show_window (window, msg->wParam == SC_MINIMIZE ? TRUE : FALSE);
+
+    if (msg->wParam == SC_RESTORE)
+      _gdk_win32_window_invalidate_egl_framebuffer (window);
 	  break;
         case SC_MAXIMIZE:
           impl = GDK_WINDOW_IMPL_WIN32 (window->impl);
@@ -3246,30 +3303,54 @@ gdk_event_translate (MSG  *msg,
       break;
 
     case WM_ENTERSIZEMOVE:
-    case WM_ENTERMENULOOP:
-      if (msg->message == WM_ENTERSIZEMOVE)
-	_modal_move_resize_window = msg->hwnd;
-
-      _gdk_win32_begin_modal_call ();
+      _modal_move_resize_window = msg->hwnd;
+      _gdk_win32_begin_modal_call (GDK_WIN32_MODAL_OP_SIZEMOVE_MASK);
       break;
 
     case WM_EXITSIZEMOVE:
-    case WM_EXITMENULOOP:
-      if (_modal_operation_in_progress)
+      if (_modal_operation_in_progress & GDK_WIN32_MODAL_OP_SIZEMOVE_MASK)
 	{
 	  _modal_move_resize_window = NULL;
-	  _gdk_win32_end_modal_call ();
+	  _gdk_win32_end_modal_call (GDK_WIN32_MODAL_OP_SIZEMOVE_MASK);
 	}
+      break;
+
+    case WM_ENTERMENULOOP:
+      _gdk_win32_begin_modal_call (GDK_WIN32_MODAL_OP_MENU);
+      break;
+
+    case WM_EXITMENULOOP:
+      if (_modal_operation_in_progress & GDK_WIN32_MODAL_OP_MENU)
+	_gdk_win32_end_modal_call (GDK_WIN32_MODAL_OP_MENU);
+      break;
+
+      break;
+
+    /*
+     * Handle WM_CANCELMODE and do nothing in response to it when DnD is
+     * active. Otherwise pass it to DefWindowProc, which will call ReleaseCapture()
+     * on our behalf.
+     * This prevents us from losing mouse capture when alt-tabbing during DnD
+     * (this includes the feature of Windows Explorer where dragging stuff over
+     * a window button in the taskbar causes that window to receive focus, i.e.
+     * keyboardless alt-tabbing).
+     */
+    case WM_CANCELMODE:
+      if (_modal_operation_in_progress & GDK_WIN32_MODAL_OP_DND)
+        {
+          return_val = TRUE;
+          *ret_valp = 0;
+        }
       break;
 
     case WM_CAPTURECHANGED:
       /* Sometimes we don't get WM_EXITSIZEMOVE, for instance when you
 	 select move/size in the menu and then click somewhere without
 	 moving/resizing. We work around this using WM_CAPTURECHANGED. */
-      if (_modal_operation_in_progress)
+      if (_modal_operation_in_progress & GDK_WIN32_MODAL_OP_SIZEMOVE_MASK)
 	{
 	  _modal_move_resize_window = NULL;
-	  _gdk_win32_end_modal_call ();
+	  _gdk_win32_end_modal_call (GDK_WIN32_MODAL_OP_SIZEMOVE_MASK);
 	}
 
       impl = GDK_WINDOW_IMPL_WIN32 (window->impl);
@@ -3300,6 +3381,8 @@ gdk_event_translate (MSG  *msg,
           if (impl->maximizing)
             {
               MINMAXINFO our_mmi;
+
+              _gdk_win32_window_invalidate_egl_framebuffer (window);
 
               if (_gdk_win32_window_fill_min_max_info (window, &our_mmi))
                 {
@@ -3425,7 +3508,7 @@ gdk_event_translate (MSG  *msg,
 	}
 
       /* Call modal timer immediate so that we repaint faster after a resize. */
-      if (_modal_operation_in_progress)
+      if (_modal_operation_in_progress & GDK_WIN32_MODAL_OP_SIZEMOVE_MASK)
 	modal_timer_proc (0,0,0,0);
 
       /* Claim as handled, so that WM_SIZE and WM_MOVE are avoided */
@@ -3721,7 +3804,9 @@ gdk_event_translate (MSG  *msg,
       break;
 
     case WM_DESTROYCLIPBOARD:
-      if (!_ignore_destroy_clipboard)
+      win32_sel = _gdk_win32_selection_get ();
+
+      if (!win32_sel->ignore_destroy_clipboard)
 	{
 	  event = gdk_event_new (GDK_SELECTION_CLEAR);
 	  event->selection.window = window;
@@ -3739,12 +3824,29 @@ gdk_event_translate (MSG  *msg,
     case WM_RENDERFORMAT:
       GDK_NOTE (EVENTS, g_print (" %s", _gdk_win32_cf_to_string (msg->wParam)));
 
-      if (!(target = g_hash_table_lookup (_format_atom_table, GINT_TO_POINTER (msg->wParam))))
-	{
-	  GDK_NOTE (EVENTS, g_print (" (target not found)"));
-	  return_val = TRUE;
-	  break;
-	}
+      *ret_valp = 0;
+      return_val = TRUE;
+
+      win32_sel = _gdk_win32_selection_get ();
+
+      for (target = NULL, i = 0;
+           i < win32_sel->clipboard_selection_targets->len;
+           i++)
+        {
+          GdkSelTargetFormat target_format = g_array_index (win32_sel->clipboard_selection_targets, GdkSelTargetFormat, i);
+
+          if (target_format.format == msg->wParam)
+            {
+              target = target_format.target;
+              win32_sel->property_change_transmute = target_format.transmute;
+            }
+        }
+
+      if (target == NULL)
+        {
+          GDK_NOTE (EVENTS, g_print (" (target not found)"));
+          break;
+        }
 
       /* We need to render to clipboard immediately, don't call
        * _gdk_win32_append_event()
@@ -3754,45 +3856,62 @@ gdk_event_translate (MSG  *msg,
       event->selection.send_event = FALSE;
       event->selection.selection = GDK_SELECTION_CLIPBOARD;
       event->selection.target = target;
-      event->selection.property = _gdk_selection;
+      event->selection.property = _gdk_win32_selection_atom (GDK_WIN32_ATOM_INDEX_GDK_SELECTION);
       event->selection.requestor = gdk_win32_handle_table_lookup (msg->hwnd);
       event->selection.time = msg->time;
+      property_change_data = g_new0 (STGMEDIUM, 1);
+      win32_sel->property_change_data = property_change_data;
+      win32_sel->property_change_format = msg->wParam;
+      win32_sel->property_change_target_atom = target;
 
       fixup_event (event);
       GDK_NOTE (EVENTS, g_print (" (calling _gdk_event_emit)"));
       GDK_NOTE (EVENTS, _gdk_win32_print_event (event));
       _gdk_event_emit (event);
       gdk_event_free (event);
+      win32_sel->property_change_format = 0;
 
       /* Now the clipboard owner should have rendered */
-      if (!_delayed_rendering_data)
+      if (!property_change_data->hGlobal)
         {
           GDK_NOTE (EVENTS, g_print (" (no _delayed_rendering_data?)"));
         }
       else
         {
-          if (msg->wParam == CF_DIB)
-            {
-              _delayed_rendering_data =
-                _gdk_win32_selection_convert_to_dib (_delayed_rendering_data,
-                                                     target);
-              if (!_delayed_rendering_data)
-                {
-                  g_warning ("Cannot convert to DIB from delayed rendered image");
-                  break;
-                }
-            }
-
           /* The requestor is holding the clipboard, no
            * OpenClipboard() is required/possible
            */
           GDK_NOTE (DND,
                     g_print (" SetClipboardData(%s,%p)",
                              _gdk_win32_cf_to_string (msg->wParam),
-                             _delayed_rendering_data));
+                             property_change_data->hGlobal));
 
-          API_CALL (SetClipboardData, (msg->wParam, _delayed_rendering_data));
-          _delayed_rendering_data = NULL;
+          API_CALL (SetClipboardData, (msg->wParam, property_change_data->hGlobal));
+        }
+
+        g_clear_pointer (&property_change_data, g_free);
+        *ret_valp = 0;
+        return_val = TRUE;
+      break;
+
+    case WM_RENDERALLFORMATS:
+      *ret_valp = 0;
+      return_val = TRUE;
+
+      win32_sel = _gdk_win32_selection_get ();
+
+      if (API_CALL (OpenClipboard, (msg->hwnd)))
+        {
+          for (target = NULL, i = 0;
+               i < win32_sel->clipboard_selection_targets->len;
+               i++)
+            {
+              GdkSelTargetFormat target_format = g_array_index (win32_sel->clipboard_selection_targets, GdkSelTargetFormat, i);
+              if (target_format.format != 0)
+                SendMessage (msg->hwnd, WM_RENDERFORMAT, target_format.format, 0);
+            }
+
+          API_CALL (CloseClipboard, ());
         }
       break;
 
@@ -3962,16 +4081,18 @@ gdk_event_dispatch (GSource     *source,
 
   if (event)
     {
+      GdkWin32Selection *sel_win32 = _gdk_win32_selection_get ();
+
       _gdk_event_emit (event);
 
       gdk_event_free (event);
 
       /* Do drag & drop if it is still pending */
-      if (_dnd_source_state == GDK_WIN32_DND_PENDING)
+      if (sel_win32->dnd_source_state == GDK_WIN32_DND_PENDING)
         {
-          _dnd_source_state = GDK_WIN32_DND_DRAGGING;
+          sel_win32->dnd_source_state = GDK_WIN32_DND_DRAGGING;
           _gdk_win32_dnd_do_dragdrop ();
-          _dnd_source_state = GDK_WIN32_DND_NONE;
+          sel_win32->dnd_source_state = GDK_WIN32_DND_NONE;
         }
     }
 

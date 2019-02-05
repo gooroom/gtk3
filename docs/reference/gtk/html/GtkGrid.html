@@ -8,7 +8,7 @@
 <link rel="up" href="LayoutContainers.html" title="Layout Containers">
 <link rel="prev" href="GtkBox.html" title="GtkBox">
 <link rel="next" href="GtkRevealer.html" title="GtkRevealer">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -319,23 +319,21 @@ GtkGrid implements
 </div>
 <div class="refsect1">
 <a name="GtkGrid.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkGrid.description"></a><h2>Description</h2>
 <p>GtkGrid is a container which arranges its child widgets in
-rows and columns. It is a very similar to <a class="link" href="GtkTable.html" title="GtkTable"><span class="type">GtkTable</span></a> and <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a>,
-but it consistently uses <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>’s <a class="link" href="GtkWidget.html#GtkWidget--margin" title="The “margin” property"><span class="type">“margin”</span></a> and <a class="link" href="GtkWidget.html#GtkWidget--expand" title="The “expand” property"><span class="type">“expand”</span></a>
-properties instead of custom child properties, and it fully supports
-<a class="link" href="GtkWidget.html#geometry-management" title="Height-for-width Geometry Management">height-for-width geometry management</a>.</p>
+rows and columns, with arbitrary positions and horizontal/vertical spans.</p>
 <p>Children are added using <a class="link" href="GtkGrid.html#gtk-grid-attach" title="gtk_grid_attach ()"><code class="function">gtk_grid_attach()</code></a>. They can span multiple
 rows or columns. It is also possible to add a child next to an
 existing child, using <a class="link" href="GtkGrid.html#gtk-grid-attach-next-to" title="gtk_grid_attach_next_to ()"><code class="function">gtk_grid_attach_next_to()</code></a>. The behaviour of
 GtkGrid when several children occupy the same grid cell is undefined.</p>
 <p>GtkGrid can be used like a <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> by just using <a class="link" href="GtkContainer.html#gtk-container-add" title="gtk_container_add ()"><code class="function">gtk_container_add()</code></a>,
 which will place children next to each other in the direction determined
-by the <a class="link" href="gtk3-Orientable.html#GtkOrientable--orientation" title="The “orientation” property"><span class="type">“orientation”</span></a> property.</p>
+by the <a class="link" href="gtk3-Orientable.html#GtkOrientable--orientation" title="The “orientation” property"><span class="type">“orientation”</span></a> property. However, if all you want is a
+single row or column, then <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> is the preferred widget.</p>
 <div class="refsect2">
 <a name="id-1.3.7.3.10.5"></a><h3>CSS nodes</h3>
 <p>GtkGrid uses a single CSS node with name grid.</p>
@@ -464,7 +462,7 @@ at the end indicated by <em class="parameter"><code>side</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>sibling</p></td>
-<td class="parameter_description"><p> the child of <em class="parameter"><code>grid</code></em>
+<td class="parameter_description"><p>the child of <em class="parameter"><code>grid</code></em>
 that <em class="parameter"><code>child</code></em>
 will be placed
 next to, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to place <em class="parameter"><code>child</code></em>
@@ -535,7 +533,7 @@ cell whose upper left corner is at <em class="parameter"><code>left</code></em>
 </div>
 <div class="refsect3">
 <a name="gtk-grid-get-child-at.returns"></a><h4>Returns</h4>
-<p> the child at the given position, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the child at the given position, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-2.html#api-index-3.2">3.2</a></p>
@@ -1214,10 +1212,10 @@ grid, in case that row is assigned more space than is requested.</p>
 </div>
 <div class="refsect1">
 <a name="GtkGrid.see-also"></a><h2>See Also</h2>
-<p><a class="link" href="GtkTable.html" title="GtkTable"><span class="type">GtkTable</span></a>, <a class="link" href="GtkHBox.html" title="GtkHBox"><span class="type">GtkHBox</span></a>, <a class="link" href="GtkVBox.html" title="GtkVBox"><span class="type">GtkVBox</span></a></p>
+<p><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a></p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

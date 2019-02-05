@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Drag-and-Drop.html" title="Drag And Drop">
 <link rel="next" href="gdk3-Threads.html" title="Threads">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -259,7 +259,7 @@ a list of UTF-8 strings.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>text</p></td>
-<td class="parameter_description"><p> the text to convert. </p></td>
+<td class="parameter_description"><p>the text to convert. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=length]</span></td>
 </tr>
 <tr>
@@ -270,7 +270,7 @@ a list of UTF-8 strings.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>list</p></td>
-<td class="parameter_description"><p> location to store the list
+<td class="parameter_description"><p>location to store the list
 of strings or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. The list should be freed with
 <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
@@ -310,7 +310,7 @@ is not specified; it may be as pseudo-escape sequences
 </div>
 <div class="refsect3">
 <a name="gdk-utf8-to-string-target.returns"></a><h4>Returns</h4>
-<p> the newly-allocated string, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
+<p>the newly-allocated string, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
 conversion failed. (It should not fail for any properly
 formed UTF-8 string unless system limits like memory or
 file descriptors are exceeded.). </p>
@@ -351,7 +351,7 @@ existance of an atom is as expensive as creating it.</p></td>
 </div>
 <div class="refsect3">
 <a name="gdk-atom-intern.returns"></a><h4>Returns</h4>
-<p> the atom corresponding to <em class="parameter"><code>atom_name</code></em>
+<p>the atom corresponding to <em class="parameter"><code>atom_name</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -387,7 +387,7 @@ GTK+ theme engines).</p>
 </div>
 <div class="refsect3">
 <a name="gdk-atom-intern-static-string.returns"></a><h4>Returns</h4>
-<p> the atom corresponding to <em class="parameter"><code>atom_name</code></em>
+<p>the atom corresponding to <em class="parameter"><code>atom_name</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -501,13 +501,13 @@ data.</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>actual_property_type</p></td>
-<td class="parameter_description"><p> location to store the
+<td class="parameter_description"><p>location to store the
 actual type of the property. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>actual_format</p></td>
-<td class="parameter_description"><p> location to store the actual return format of the
+<td class="parameter_description"><p>location to store the actual return format of the
 data; either 8, 16 or 32 bits. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
@@ -524,7 +524,7 @@ elements should be be calculated via
 </tr>
 <tr>
 <td class="parameter_name"><p>data</p></td>
-<td class="parameter_description"><p> location
+<td class="parameter_description"><p>location
 to store a pointer to the data. The retrieved data should be
 freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when you are finished using it. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=actual_length][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></td>
@@ -701,6 +701,6 @@ using <a class="link" href="gdk3-Properties-and-Atoms.html#gdk-property-change" 
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

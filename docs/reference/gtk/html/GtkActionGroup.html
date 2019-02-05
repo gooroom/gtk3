@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="GtkUIManager.html" title="GtkUIManager">
 <link rel="next" href="GtkAction.html" title="GtkAction">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -391,16 +391,16 @@ it doesn’t allow you to specify a signal.</p>
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkActionGroup&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;actiongroup&quot;</span><span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkAction&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;About&quot;</span><span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;name&quot;</span><span class="gtkdoc opt">&gt;</span>About<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;stock_id&quot;</span><span class="gtkdoc opt">&gt;</span>gtk<span class="gtkdoc opt">-</span>about<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>signal handler<span class="gtkdoc opt">=</span><span class="string">&quot;about_activate&quot;</span> name<span class="gtkdoc opt">=</span><span class="string">&quot;activate&quot;</span><span class="gtkdoc opt">/&gt;</span>
-      <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>accelerator key<span class="gtkdoc opt">=</span><span class="string">&quot;F1&quot;</span> modifiers<span class="gtkdoc opt">=</span><span class="string">&quot;GDK_CONTROL_MASK | GDK_SHIFT_MASK&quot;</span><span class="gtkdoc opt">/&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkActionGroup"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"actiongroup"</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkAction"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"About"</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"name"</span><span class="symbol">&gt;</span><span class="normal">About</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"stock_id"</span><span class="symbol">&gt;</span><span class="normal">gtk</span><span class="symbol">-</span><span class="normal">about</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">signal</span><span class="normal"> handler</span><span class="symbol">=</span><span class="string">"about_activate"</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"activate"</span><span class="symbol">/&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">accelerator</span><span class="normal"> key</span><span class="symbol">=</span><span class="string">"F1"</span><span class="normal"> modifiers</span><span class="symbol">=</span><span class="string">"GDK_CONTROL_MASK | GDK_SHIFT_MASK"</span><span class="symbol">/&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -621,7 +621,7 @@ gtk_action_group_get_accel_group (<em class="parameter"><code><a class="link" hr
 </div>
 <div class="refsect3">
 <a name="gtk-action-group-get-accel-group.returns"></a><h4>Returns</h4>
-<p> the accelerator group associated with this action
+<p>the accelerator group associated with this action
 group or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is none. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -651,7 +651,7 @@ gtk_action_group_set_accel_group (<em class="parameter"><code><a class="link" hr
 </tr>
 <tr>
 <td class="parameter_name"><p>accel_group</p></td>
-<td class="parameter_description"><p> a <a class="link" href="gtk3-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> to set or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="gtk3-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> to set or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -691,7 +691,7 @@ gtk_action_group_get_action (<em class="parameter"><code><a class="link" href="G
 </div>
 <div class="refsect3">
 <a name="gtk-action-group-get-action.returns"></a><h4>Returns</h4>
-<p> the action, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no action by that name exists. </p>
+<p>the action, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no action by that name exists. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.4</p>
@@ -720,7 +720,7 @@ gtk_action_group_list_actions (<em class="parameter"><code><a class="link" href=
 </div>
 <div class="refsect3">
 <a name="gtk-action-group-list-actions.returns"></a><h4>Returns</h4>
-<p> an allocated list of the action objects in the action group. </p>
+<p>an allocated list of the action objects in the action group. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkAction][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.4</p>
@@ -797,7 +797,7 @@ with the stock_id of the action. </p>
 </tr>
 <tr>
 <td class="parameter_name"><p>accelerator</p></td>
-<td class="parameter_description"><p> the accelerator for the action, in
+<td class="parameter_description"><p>the accelerator for the action, in
 the format understood by <a class="link" href="gtk3-Keyboard-Accelerators.html#gtk-accelerator-parse" title="gtk_accelerator_parse ()"><code class="function">gtk_accelerator_parse()</code></a>, or "" for no accelerator, or
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the stock accelerator. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
@@ -869,7 +869,7 @@ and their accel paths are set to <code class="literal">&lt;Actions&gt;/group-nam
 </tr>
 <tr>
 <td class="parameter_name"><p>entries</p></td>
-<td class="parameter_description"><p> an array of action descriptions. </p></td>
+<td class="parameter_description"><p>an array of action descriptions. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_entries]</span></td>
 </tr>
 <tr>
@@ -917,7 +917,7 @@ callback for <em class="parameter"><code>user_data</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>entries</p></td>
-<td class="parameter_description"><p> an array of action descriptions. </p></td>
+<td class="parameter_description"><p>an array of action descriptions. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_entries]</span></td>
 </tr>
 <tr>
@@ -932,7 +932,7 @@ callback for <em class="parameter"><code>user_data</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>destroy</p></td>
-<td class="parameter_description"><p> destroy notification callback for <em class="parameter"><code>user_data</code></em>
+<td class="parameter_description"><p>destroy notification callback for <em class="parameter"><code>user_data</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
@@ -971,7 +971,7 @@ and their accel paths are set to <code class="literal">&lt;Actions&gt;/group-nam
 </tr>
 <tr>
 <td class="parameter_name"><p>entries</p></td>
-<td class="parameter_description"><p> an array of toggle action descriptions. </p></td>
+<td class="parameter_description"><p>an array of toggle action descriptions. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_entries]</span></td>
 </tr>
 <tr>
@@ -1020,7 +1020,7 @@ gtk_action_group_add_toggle_actions_full
 </tr>
 <tr>
 <td class="parameter_name"><p>entries</p></td>
-<td class="parameter_description"><p> an array of toggle action descriptions. </p></td>
+<td class="parameter_description"><p>an array of toggle action descriptions. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_entries]</span></td>
 </tr>
 <tr>
@@ -1035,7 +1035,7 @@ gtk_action_group_add_toggle_actions_full
 </tr>
 <tr>
 <td class="parameter_name"><p>destroy</p></td>
-<td class="parameter_description"><p> destroy notification callback for <em class="parameter"><code>user_data</code></em>
+<td class="parameter_description"><p>destroy notification callback for <em class="parameter"><code>user_data</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
@@ -1078,7 +1078,7 @@ add them to the action group. </p>
 </tr>
 <tr>
 <td class="parameter_name"><p>entries</p></td>
-<td class="parameter_description"><p> an array of radio action descriptions. </p></td>
+<td class="parameter_description"><p>an array of radio action descriptions. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_entries]</span></td>
 </tr>
 <tr>
@@ -1140,7 +1140,7 @@ gtk_action_group_add_radio_actions_full
 </tr>
 <tr>
 <td class="parameter_name"><p>entries</p></td>
-<td class="parameter_description"><p> an array of radio action descriptions. </p></td>
+<td class="parameter_description"><p>an array of radio action descriptions. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_entries]</span></td>
 </tr>
 <tr>
@@ -1201,7 +1201,7 @@ or tooltip from a <a class="link" href="GtkActionGroup.html#GtkActionEntry" titl
 </tr>
 <tr>
 <td class="parameter_name"><p>func_data</p></td>
-<td class="parameter_description"><p> user data passed in when registering the
+<td class="parameter_description"><p>user data passed in when registering the
 function. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
@@ -1297,7 +1297,7 @@ gtk_action_group_set_translation_domain
 </tr>
 <tr>
 <td class="parameter_name"><p>domain</p></td>
-<td class="parameter_description"><p> the translation domain to use for <a href="https://developer.gnome.org/glib/unstable/glib-I18N.html#g-dgettext"><code class="function">g_dgettext()</code></a>
+<td class="parameter_description"><p>the translation domain to use for <a href="https://developer.gnome.org/glib/unstable/glib-I18N.html#g-dgettext"><code class="function">g_dgettext()</code></a>
 calls, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the domain set with <code class="function">textdomain()</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1807,6 +1807,6 @@ notification just before any action is activated.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

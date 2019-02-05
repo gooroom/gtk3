@@ -8,7 +8,7 @@
 <link rel="up" href="DisplayWidgets.html" title="Display Widgets">
 <link rel="prev" href="GtkProgressBar.html" title="GtkProgressBar">
 <link rel="next" href="GtkStatusbar.html" title="GtkStatusbar">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -340,35 +340,35 @@ them to the new range.</p>
 27
 28
 29</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static</span> GtkWidget <span class="gtkdoc opt">*</span>
-<span class="function">create_level_bar</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwb">void</span><span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkWidget <span class="gtkdoc opt">*</span>widget<span class="gtkdoc opt">;</span>
-  GtkLevelBar <span class="gtkdoc opt">*</span>bar<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> <a href="GtkWidget.html#GtkWidget-struct">GtkWidget</a> </span><span class="symbol">*</span>
+<span class="function">create_level_bar</span><span class="normal"> </span><span class="symbol">(</span><span class="type">void</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">widget</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkLevelBar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">bar</span><span class="symbol">;</span>
 
-  widget <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkLevelBar.html#gtk-level-bar-new">gtk_level_bar_new</a></span> <span class="gtkdoc opt">();</span>
-  bar <span class="gtkdoc opt">=</span> <span class="function">GTK_LEVEL_BAR</span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">);</span>
+<span class="normal">  widget </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkLevelBar.html#gtk-level-bar-new">gtk_level_bar_new</a></span><span class="normal"> </span><span class="symbol">();</span>
+<span class="normal">  bar </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GTK_LEVEL_BAR</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// This changes the value of the default low offset</span>
+<span class="normal">  </span><span class="comment">// This changes the value of the default low offset</span>
 
-  <span class="function"><a href="GtkLevelBar.html#gtk-level-bar-add-offset-value">gtk_level_bar_add_offset_value</a></span> <span class="gtkdoc opt">(</span>bar<span class="gtkdoc opt">,</span>
-                                  GTK_LEVEL_BAR_OFFSET_LOW<span class="gtkdoc opt">,</span>
-                                  <span class="number">0.10</span><span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkLevelBar.html#gtk-level-bar-add-offset-value">gtk_level_bar_add_offset_value</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">bar</span><span class="symbol">,</span>
+<span class="normal">                                  <a href="GtkLevelBar.html#GTK-LEVEL-BAR-OFFSET-LOW:CAPS">GTK_LEVEL_BAR_OFFSET_LOW</a></span><span class="symbol">,</span>
+<span class="normal">                                  </span><span class="number">0.10</span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// This adds a new offset to the bar; the application will</span>
-  <span class="gtkdoc slc">// be able to change its color CSS like this:</span>
-  <span class="gtkdoc slc">//</span>
-  <span class="gtkdoc slc">// levelbar block.my-offset {</span>
-  <span class="gtkdoc slc">//   background-color: magenta;</span>
-  <span class="gtkdoc slc">//   border-style: solid;</span>
-  <span class="gtkdoc slc">//   border-color: black;</span>
-  <span class="gtkdoc slc">//   border-style: 1px;</span>
-  <span class="gtkdoc slc">// }</span>
+<span class="normal">  </span><span class="comment">// This adds a new offset to the bar; the application will</span>
+<span class="normal">  </span><span class="comment">// be able to change its color CSS like this:</span>
+<span class="normal">  </span><span class="comment">//</span>
+<span class="normal">  </span><span class="comment">// levelbar block.my-offset {</span>
+<span class="normal">  </span><span class="comment">//   background-color: magenta;</span>
+<span class="normal">  </span><span class="comment">//   border-style: solid;</span>
+<span class="normal">  </span><span class="comment">//   border-color: black;</span>
+<span class="normal">  </span><span class="comment">//   border-style: 1px;</span>
+<span class="normal">  </span><span class="comment">// }</span>
 
-  <span class="function"><a href="GtkLevelBar.html#gtk-level-bar-add-offset-value">gtk_level_bar_add_offset_value</a></span> <span class="gtkdoc opt">(</span>bar<span class="gtkdoc opt">,</span> <span class="string">&quot;my-offset&quot;</span><span class="gtkdoc opt">,</span> <span class="number">0.60</span><span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkLevelBar.html#gtk-level-bar-add-offset-value">gtk_level_bar_add_offset_value</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">bar</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"my-offset"</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.60</span><span class="symbol">);</span>
 
-  <span class="keyword">return</span> widget<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> widget</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -408,12 +408,12 @@ each of which must have name and value attributes.</p>
 4
 5
 6</pre></td>
-        <td class="listing_code"><pre class="programlisting">levelbar<span class="gtkdoc opt">[.</span>discrete<span class="gtkdoc opt">]</span>
-╰── trough
-    ├── block<span class="gtkdoc opt">.</span>filled<span class="gtkdoc opt">.</span>level<span class="gtkdoc opt">-</span>name
-    ┊
-    ├── block<span class="gtkdoc opt">.</span>empty
-    ┊</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">levelbar</span><span class="symbol">[.</span><span class="normal">discrete</span><span class="symbol">]</span>
+<span class="normal">╰── trough</span>
+<span class="normal">    ├── block</span><span class="symbol">.</span><span class="normal">filled</span><span class="symbol">.</span><span class="normal">level</span><span class="symbol">-</span><span class="normal">name</span>
+<span class="normal">    ┊</span>
+<span class="normal">    ├── block</span><span class="symbol">.</span><span class="normal">empty</span>
+<span class="normal">    ┊</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -850,7 +850,7 @@ gtk_level_bar_remove_offset_value (<em class="parameter"><code><a class="link" h
 </tr>
 <tr>
 <td class="parameter_name"><p>name</p></td>
-<td class="parameter_description"><p> the name of an offset in the bar. </p></td>
+<td class="parameter_description"><p>the name of an offset in the bar. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -886,12 +886,12 @@ returning <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macro
 </tr>
 <tr>
 <td class="parameter_name"><p>name</p></td>
-<td class="parameter_description"><p> the name of an offset in the bar. </p></td>
+<td class="parameter_description"><p>the name of an offset in the bar. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>value</p></td>
-<td class="parameter_description"><p> location where to store the value. </p></td>
+<td class="parameter_description"><p>location where to store the value. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1110,6 +1110,6 @@ the value of offset "x" changes.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

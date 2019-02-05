@@ -68,6 +68,9 @@
 ..\..\gtk\gtkenums.h
 ..\..\gtk\gtkeventbox.h
 ..\..\gtk\gtkeventcontroller.h
+..\..\gtk\gtkeventcontrollerkey.h
+..\..\gtk\gtkeventcontrollermotion.h
+..\..\gtk\gtkeventcontrollerscroll.h
 ..\..\gtk\gtkexpander.h
 ..\..\gtk\gtkfilechooser.h
 ..\..\gtk\gtkfilechooserbutton.h
@@ -89,6 +92,7 @@
 ..\..\gtk\gtkgesturepan.h
 ..\..\gtk\gtkgesturerotate.h
 ..\..\gtk\gtkgesturesingle.h
+..\..\gtk\gtkgesturestylus.h
 ..\..\gtk\gtkgestureswipe.h
 ..\..\gtk\gtkgesturezoom.h
 ..\..\gtk\gtkglarea.h
@@ -503,6 +507,10 @@
 ..\..\gtk\gtkcolorchooserwidget.c
 ..\..\gtk\gtkcolorchooserdialog.c
 ..\..\gtk\gtkcoloreditor.c
+..\..\gtk\gtkcolorpicker.c
+..\..\gtk\gtkcolorpickerkwin.c
+..\..\gtk\gtkcolorpickerportal.c
+..\..\gtk\gtkcolorpickershell.c
 ..\..\gtk\gtkcolorplane.c
 ..\..\gtk\gtkcolorscale.c
 ..\..\gtk\gtkcolorswatch.c
@@ -583,11 +591,16 @@
 ..\..\gtk\gtkdragsource.c
 ..\..\gtk\gtkdrawingarea.c
 ..\..\gtk\gtkeditable.c
+..\..\gtk\gtkemojichooser.c
+..\..\gtk\gtkemojicompletion.c
 ..\..\gtk\gtkentry.c
 ..\..\gtk\gtkentrybuffer.c
 ..\..\gtk\gtkentrycompletion.c
 ..\..\gtk\gtkeventbox.c
 ..\..\gtk\gtkeventcontroller.c
+..\..\gtk\gtkeventcontrollerkey.c
+..\..\gtk\gtkeventcontrollermotion.c
+..\..\gtk\gtkeventcontrollerscroll.c
 ..\..\gtk\gtkexpander.c
 ..\..\gtk\gtkfilechooser.c
 ..\..\gtk\gtkfilechooserbutton.c
@@ -617,6 +630,7 @@
 ..\..\gtk\gtkgesturepan.c
 ..\..\gtk\gtkgesturerotate.c
 ..\..\gtk\gtkgesturesingle.c
+..\..\gtk\gtkgesturestylus.c
 ..\..\gtk\gtkgestureswipe.c
 ..\..\gtk\gtkgesturezoom.c
 ..\..\gtk\gtkglarea.c
@@ -648,7 +662,6 @@
 ..\..\gtk\gtklockbutton.c
 ..\..\gtk\gtkmain.c
 ..\..\gtk\gtkmagnifier.c
-..\..\gtk\gtkmarshalers.c
 ..\..\gtk\gtkmenu.c
 ..\..\gtk\gtkmenubar.c
 ..\..\gtk\gtkmenubutton.c
@@ -685,7 +698,6 @@
 ..\..\gtk\gtkprintsettings.c
 ..\..\gtk\gtkprintutils.c
 ..\..\gtk\gtkprivate.c
-..\..\gtk\gtkprivatetypebuiltins.c
 ..\..\gtk\gtkprogressbar.c
 ..\..\gtk\gtkprogresstracker.c
 ..\..\gtk\gtkpixelcache.c
@@ -708,7 +720,6 @@
 ..\..\gtk\gtkrenderbackground.c
 ..\..\gtk\gtkrenderborder.c
 ..\..\gtk\gtkrendericon.c
-..\..\gtk\gtkresources.c
 ..\..\gtk\gtkrevealer.c
 ..\..\gtk\gtkroundedbox.c
 ..\..\gtk\gtkscale.c
@@ -784,7 +795,6 @@
 ..\..\gtk\gtktreestore.c
 ..\..\gtk\gtktreeview.c
 ..\..\gtk\gtktreeviewcolumn.c
-..\..\gtk\gtktypebuiltins.c
 ..\..\gtk\gtkutils.c
 ..\..\gtk\gtkvolumebutton.c
 ..\..\gtk\gtkviewport.c
@@ -795,6 +805,8 @@
 ..\..\gtk\gtkwin32draw.c
 ..\..\gtk\gtkwin32theme.c
 ..\..\gtk\gdkpixbufutils.c
+..\..\gtk\language-names.c
+..\..\gtk\script-names.c
 ..\..\gtk\gtkclipboard.c
 ..\..\gtk\gtkdnd.c
 ..\..\gtk\gtkdragdest.c

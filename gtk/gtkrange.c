@@ -449,7 +449,7 @@ gtk_range_class_init (GtkRangeClass *class)
                          P_("The sensitivity policy for the stepper that points to the adjustment's lower side"),
                          GTK_TYPE_SENSITIVITY_TYPE,
                          GTK_SENSITIVITY_AUTO,
-                         GTK_PARAM_READWRITE|G_PARAM_EXPLICIT_NOTIFY);
+                         GTK_PARAM_READWRITE|G_PARAM_EXPLICIT_NOTIFY|G_PARAM_DEPRECATED);
 
   properties[PROP_UPPER_STEPPER_SENSITIVITY] =
       g_param_spec_enum ("upper-stepper-sensitivity",
@@ -457,7 +457,7 @@ gtk_range_class_init (GtkRangeClass *class)
                          P_("The sensitivity policy for the stepper that points to the adjustment's upper side"),
                          GTK_TYPE_SENSITIVITY_TYPE,
                          GTK_SENSITIVITY_AUTO,
-                         GTK_PARAM_READWRITE|G_PARAM_EXPLICIT_NOTIFY);
+                         GTK_PARAM_READWRITE|G_PARAM_EXPLICIT_NOTIFY|G_PARAM_DEPRECATED);
 
   /**
    * GtkRange:show-fill-level:
@@ -947,6 +947,24 @@ should_invert (GtkRange *range)
       (!priv->inverted && priv->flippable && gtk_widget_get_direction (GTK_WIDGET (range)) == GTK_TEXT_DIR_RTL);
   else
     return priv->inverted;
+}
+
+static gboolean
+should_invert_move (GtkRange       *range,
+                    GtkOrientation  move_orientation)
+{
+  GtkRangePrivate *priv = range->priv;
+
+  /* If the move is parallel to the range, use general check for inversion */
+  if (move_orientation == priv->orientation)
+    return should_invert (range);
+
+  /* H scale/V move: Always invert, so down/up always dec/increase the value */
+  if (priv->orientation == GTK_ORIENTATION_HORIZONTAL && GTK_IS_SCALE (range))
+    return TRUE;
+
+  /* V range/H move: Left/right always dec/increase the value */
+  return FALSE;
 }
 
 static void
@@ -2426,6 +2444,8 @@ range_grab_add (GtkRange      *range,
   update_steppers_state (range);
 
   gtk_style_context_add_class (context, "dragging");
+
+  gtk_grab_add (GTK_WIDGET (range));
 }
 
 static void
@@ -2453,6 +2473,7 @@ range_grab_remove (GtkRange *range)
   if (!priv->grab_location)
     return;
 
+  gtk_grab_remove (GTK_WIDGET (range));
   context = gtk_widget_get_style_context (GTK_WIDGET (range));
 
   gtk_css_gadget_queue_allocate (priv->grab_location);
@@ -2738,9 +2759,9 @@ gtk_range_multipress_gesture_pressed (GtkGestureMultiPress *gesture,
     }
   else if (priv->mouse_location == priv->trough_gadget &&
            (source == GDK_SOURCE_TOUCHSCREEN ||
-            (button == GDK_BUTTON_PRIMARY &&
-             ((primary_warps && !shift_pressed) ||
-              (!primary_warps && shift_pressed)))))
+            (primary_warps && !shift_pressed && button == GDK_BUTTON_PRIMARY) ||
+            (!primary_warps && shift_pressed && button == GDK_BUTTON_PRIMARY) ||
+            (!primary_warps && button == GDK_BUTTON_MIDDLE)))
     {
       /* warp to location */
       GdkRectangle slider;
@@ -2769,9 +2790,9 @@ gtk_range_multipress_gesture_pressed (GtkGestureMultiPress *gesture,
       update_slider_position (range, x, y);
     }
   else if (priv->mouse_location == priv->trough_gadget &&
-           button == GDK_BUTTON_PRIMARY &&
-           ((primary_warps && shift_pressed) ||
-            (!primary_warps && !shift_pressed)))
+           ((primary_warps && shift_pressed && button == GDK_BUTTON_PRIMARY) ||
+            (!primary_warps && !shift_pressed && button == GDK_BUTTON_PRIMARY) ||
+            (primary_warps && button == GDK_BUTTON_MIDDLE)))
     {
       /* jump by pages */
       GtkScrollType scroll;
@@ -3034,12 +3055,23 @@ _gtk_range_get_wheel_delta (GtkRange       *range,
   gdouble page_increment;
   gdouble scroll_unit;
   GdkScrollDirection direction;
+  GtkOrientation move_orientation;
 
   page_size = gtk_adjustment_get_page_size (adjustment);
   page_increment = gtk_adjustment_get_page_increment (adjustment);
 
   if (GTK_IS_SCROLLBAR (range))
-    scroll_unit = pow (page_size, 2.0 / 3.0);
+    {
+      gdouble pow_unit = pow (page_size, 2.0 / 3.0);
+
+      /* for very small page sizes of < 1.0, the effect of pow() is
+       * the opposite of what's intended and the scroll steps become
+       * unusably large, make sure we never get a scroll_unit larger
+       * than page_size / 2.0, which used to be the default before the
+       * pow() magic was introduced.
+       */
+      scroll_unit = MIN (pow_unit, page_size / 2.0);
+    }
   else
     scroll_unit = page_increment;
 
@@ -3049,21 +3081,31 @@ _gtk_range_get_wheel_delta (GtkRange       *range,
       scroll_unit = 1;
 #endif
 
-      if (gtk_orientable_get_orientation (GTK_ORIENTABLE (range)) == GTK_ORIENTATION_HORIZONTAL)
-        delta = - (dx ? dx : dy) * scroll_unit;
+      if (priv->orientation == GTK_ORIENTATION_HORIZONTAL && dx != 0)
+        {
+          move_orientation = GTK_ORIENTATION_HORIZONTAL;
+          delta = dx * scroll_unit;
+        }
       else
-        delta = dy * scroll_unit;
+        {
+          move_orientation = GTK_ORIENTATION_VERTICAL;
+          delta = dy * scroll_unit;
+        }
     }
   else if (gdk_event_get_scroll_direction ((GdkEvent *) event, &direction))
     {
-      if (direction == GDK_SCROLL_UP ||
-          direction == GDK_SCROLL_LEFT)
+      if (direction == GDK_SCROLL_LEFT || direction == GDK_SCROLL_RIGHT)
+        move_orientation = GTK_ORIENTATION_HORIZONTAL;
+      else
+        move_orientation = GTK_ORIENTATION_VERTICAL;
+
+      if (direction == GDK_SCROLL_LEFT || direction == GDK_SCROLL_UP)
         delta = - scroll_unit;
       else
         delta = scroll_unit;
     }
 
-  if (priv->inverted)
+  if (delta != 0 && should_invert_move (range, move_orientation))
     delta = - delta;
 
   return delta;
@@ -3075,18 +3117,12 @@ gtk_range_scroll_event (GtkWidget      *widget,
 {
   GtkRange *range = GTK_RANGE (widget);
   GtkRangePrivate *priv = range->priv;
+  double delta = _gtk_range_get_wheel_delta (range, event);
+  gboolean handled;
 
-  if (gtk_widget_get_realized (widget))
-    {
-      gdouble delta;
-      gboolean handled;
-
-      delta = _gtk_range_get_wheel_delta (range, event);
-
-      g_signal_emit (range, signals[CHANGE_VALUE], 0,
-                     GTK_SCROLL_JUMP, gtk_adjustment_get_value (priv->adjustment) + delta,
-                     &handled);
-    }
+  g_signal_emit (range, signals[CHANGE_VALUE], 0,
+                 GTK_SCROLL_JUMP, gtk_adjustment_get_value (priv->adjustment) + delta,
+                 &handled);
 
   return GDK_EVENT_STOP;
 }

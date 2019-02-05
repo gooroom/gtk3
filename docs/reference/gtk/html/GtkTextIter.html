@@ -8,7 +8,7 @@
 <link rel="up" href="TextWidgetObjects.html" title="Multiline Text Editor">
 <link rel="prev" href="TextWidget.html" title="Text Widget Overview">
 <link rel="next" href="GtkTextMark.html" title="GtkTextMark">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -354,7 +354,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#PangoLanguage-struct"><span class="returnvalue">PangoLanguage</span></a> *
+<a href="/usr/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#PangoLanguage-struct"><span class="returnvalue">PangoLanguage</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkTextIter.html#gtk-text-iter-get-language" title="gtk_text_iter_get_language ()">gtk_text_iter_get_language</a> <span class="c_punctuation">()</span>
@@ -808,7 +808,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkTextIter.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-Boxed-Types.html">GBoxed</a>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/gobject-Boxed-Types.html">GBoxed</a>
     <span class="lineart">╰──</span> GtkTextIter
 </pre>
 </div>
@@ -848,7 +848,7 @@ gtk_text_iter_get_buffer (<em class="parameter"><code>const <a class="link" href
 </div>
 <div class="refsect3">
 <a name="gtk-text-iter-get-buffer.returns"></a><h4>Returns</h4>
-<p> the buffer. </p>
+<p>the buffer. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -1191,7 +1191,7 @@ widget is in the buffer.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-text-iter-get-slice.returns"></a><h4>Returns</h4>
-<p> slice of text from the buffer. </p>
+<p>slice of text from the buffer. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -1230,7 +1230,7 @@ byte offsets in the buffer. If you want offsets to correspond, see
 </div>
 <div class="refsect3">
 <a name="gtk-text-iter-get-text.returns"></a><h4>Returns</h4>
-<p> array of characters from the buffer. </p>
+<p>array of characters from the buffer. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -1267,7 +1267,7 @@ Invisible text is usually invisible because a <a class="link" href="GtkTextTag.h
 </div>
 <div class="refsect3">
 <a name="gtk-text-iter-get-visible-slice.returns"></a><h4>Returns</h4>
-<p> slice of text from the buffer. </p>
+<p>slice of text from the buffer. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -1304,7 +1304,7 @@ Invisible text is usually invisible because a <a class="link" href="GtkTextTag.h
 </div>
 <div class="refsect3">
 <a name="gtk-text-iter-get-visible-text.returns"></a><h4>Returns</h4>
-<p> string containing visible text in the
+<p>string containing visible text in the
 range. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -1335,7 +1335,7 @@ gtk_text_iter_get_pixbuf (<em class="parameter"><code>const <a class="link" href
 </div>
 <div class="refsect3">
 <a name="gtk-text-iter-get-pixbuf.returns"></a><h4>Returns</h4>
-<p> the pixbuf at <em class="parameter"><code>iter</code></em>
+<p>the pixbuf at <em class="parameter"><code>iter</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1367,7 +1367,7 @@ meaningful order.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-text-iter-get-marks.returns"></a><h4>Returns</h4>
-<p> list of <a class="link" href="GtkTextMark.html" title="GtkTextMark"><span class="type">GtkTextMark</span></a>. </p>
+<p>list of <a class="link" href="GtkTextMark.html" title="GtkTextMark"><span class="type">GtkTextMark</span></a>. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkTextMark][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span></p>
 </div>
 </div>
@@ -1411,7 +1411,7 @@ does not have the tag applied to it.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-text-iter-get-toggled-tags.returns"></a><h4>Returns</h4>
-<p> tags toggled at this point. </p>
+<p>tags toggled at this point. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkTextTag][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span></p>
 </div>
 </div>
@@ -1441,7 +1441,7 @@ anchor is returned (with no new reference count added). Otherwise,
 </div>
 <div class="refsect3">
 <a name="gtk-text-iter-get-child-anchor.returns"></a><h4>Returns</h4>
-<p> the anchor at <em class="parameter"><code>iter</code></em>
+<p>the anchor at <em class="parameter"><code>iter</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1480,7 +1480,7 @@ parameters.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>tag</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1532,7 +1532,7 @@ parameters.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>tag</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1578,7 +1578,7 @@ unlike <a class="link" href="GtkTextIter.html#gtk-text-iter-starts-tag" title="g
 </tr>
 <tr>
 <td class="parameter_name"><p>tag</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1618,7 +1618,7 @@ gtk_text_iter_toggles_tag (<em class="parameter"><code>const <a class="link" hre
 </tr>
 <tr>
 <td class="parameter_name"><p>tag</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1697,7 +1697,7 @@ itself.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-text-iter-get-tags.returns"></a><h4>Returns</h4>
-<p> list of <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>. </p>
+<p>list of <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkTextTag][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span></p>
 </div>
 </div>
@@ -2056,8 +2056,8 @@ is inside a sentence.</p>
 <a name="gtk-text-iter-is-cursor-position"></a><h3>gtk_text_iter_is_cursor_position ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_text_iter_is_cursor_position (<em class="parameter"><code>const <a class="link" href="GtkTextIter.html" title="GtkTextIter"><span class="type">GtkTextIter</span></a> *iter</code></em>);</pre>
-<p>See <a class="link" href="GtkTextIter.html#gtk-text-iter-forward-cursor-position" title="gtk_text_iter_forward_cursor_position ()"><code class="function">gtk_text_iter_forward_cursor_position()</code></a> or <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Processing.html#PangoLogAttr"><span class="type">PangoLogAttr</span></a> or
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Processing.html#pango-break"><code class="function">pango_break()</code></a> for details on what a cursor position is.</p>
+<p>See <a class="link" href="GtkTextIter.html#gtk-text-iter-forward-cursor-position" title="gtk_text_iter_forward_cursor_position ()"><code class="function">gtk_text_iter_forward_cursor_position()</code></a> or <a href="/usr/share/gtk-doc/html/pango/pango-Text-Processing.html#PangoLogAttr"><span class="type">PangoLogAttr</span></a> or
+<a href="/usr/share/gtk-doc/html/pango/pango-Text-Processing.html#pango-break"><code class="function">pango_break()</code></a> for details on what a cursor position is.</p>
 <div class="refsect3">
 <a name="gtk-text-iter-is-cursor-position.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -2168,7 +2168,7 @@ the function returns <a href="https://developer.gnome.org/glib/unstable/glib-Sta
 </tr>
 <tr>
 <td class="parameter_name"><p>values</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> to be filled in. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> to be filled in. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2183,7 +2183,7 @@ was modified</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-text-iter-get-language"></a><h3>gtk_text_iter_get_language ()</h3>
-<pre class="programlisting"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#PangoLanguage-struct"><span class="returnvalue">PangoLanguage</span></a> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#PangoLanguage-struct"><span class="returnvalue">PangoLanguage</span></a> *
 gtk_text_iter_get_language (<em class="parameter"><code>const <a class="link" href="GtkTextIter.html" title="GtkTextIter"><span class="type">GtkTextIter</span></a> *iter</code></em>);</pre>
 <p>A convenience wrapper around <a class="link" href="GtkTextIter.html#gtk-text-iter-get-attributes" title="gtk_text_iter_get_attributes ()"><code class="function">gtk_text_iter_get_attributes()</code></a>,
 which returns the language in effect at <em class="parameter"><code>iter</code></em>
@@ -2208,7 +2208,7 @@ language apply to <em class="parameter"><code>iter</code></em>
 </div>
 <div class="refsect3">
 <a name="gtk-text-iter-get-language.returns"></a><h4>Returns</h4>
-<p> language in effect at <em class="parameter"><code>iter</code></em>
+<p>language in effect at <em class="parameter"><code>iter</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -2739,7 +2739,7 @@ the equivalent of say the letter “a” with an accent mark will be
 represented as two characters, first the letter then a "combining
 mark" that causes the accent to be rendered; so the cursor can’t go
 between those two characters. See also the <span class="type">PangoLogAttr</span> and
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Processing.html#pango-break"><code class="function">pango_break()</code></a> function.</p>
+<a href="/usr/share/gtk-doc/html/pango/pango-Text-Processing.html#pango-break"><code class="function">pango_break()</code></a> function.</p>
 <div class="refsect3">
 <a name="gtk-text-iter-forward-cursor-position.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -3750,7 +3750,7 @@ if no toggle is found.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>tag</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -3796,7 +3796,7 @@ if no toggle is found.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>tag</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkTextTag.html" title="GtkTextTag"><span class="type">GtkTextTag</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -3850,7 +3850,7 @@ If <em class="parameter"><code>pred</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>pred</p></td>
-<td class="parameter_description"><p> a function to be called on each character. </p></td>
+<td class="parameter_description"><p>a function to be called on each character. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -3861,7 +3861,7 @@ If <em class="parameter"><code>pred</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>limit</p></td>
-<td class="parameter_description"><p> search limit, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for none. </p></td>
+<td class="parameter_description"><p>search limit, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for none. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -3898,7 +3898,7 @@ gtk_text_iter_backward_find_char (<em class="parameter"><code><a class="link" hr
 </tr>
 <tr>
 <td class="parameter_name"><p>pred</p></td>
-<td class="parameter_description"><p> function to be called on each character. </p></td>
+<td class="parameter_description"><p>function to be called on each character. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -3909,7 +3909,7 @@ gtk_text_iter_backward_find_char (<em class="parameter"><code><a class="link" hr
 </tr>
 <tr>
 <td class="parameter_name"><p>limit</p></td>
-<td class="parameter_description"><p> search limit, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for none. </p></td>
+<td class="parameter_description"><p>search limit, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for none. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -3973,17 +3973,17 @@ there is a possible <em class="parameter"><code>match_end</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>match_start</p></td>
-<td class="parameter_description"><p> return location for start of match, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for start of match, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>match_end</p></td>
-<td class="parameter_description"><p> return location for end of match, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for end of match, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>limit</p></td>
-<td class="parameter_description"><p> location of last possible <em class="parameter"><code>match_end</code></em>
+<td class="parameter_description"><p>location of last possible <em class="parameter"><code>match_end</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the end of the buffer. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -4038,17 +4038,17 @@ there is a possible <em class="parameter"><code>match_start</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>match_start</p></td>
-<td class="parameter_description"><p> return location for start of match, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for start of match, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>match_end</p></td>
-<td class="parameter_description"><p> return location for end of match, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for end of match, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>limit</p></td>
-<td class="parameter_description"><p> location of last possible <em class="parameter"><code>match_start</code></em>
+<td class="parameter_description"><p>location of last possible <em class="parameter"><code>match_start</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for start of buffer. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -4290,6 +4290,6 @@ what case it is in.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

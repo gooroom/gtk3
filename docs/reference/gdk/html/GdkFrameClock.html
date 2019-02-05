@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Windows.html" title="Windows">
 <link rel="next" href="gdk3-GdkFrameTimings.html" title="Frame timings">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -190,7 +190,7 @@
 </div>
 <div class="refsect1">
 <a name="GdkFrameClock.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gdk/gdk.h&gt;
+<pre class="synopsis">#include &lt;gdk/gdkwayland.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -450,10 +450,10 @@ be received.</p></td>
 </div>
 <div class="refsect3">
 <a name="gdk-frame-clock-get-timings.returns"></a><h4>Returns</h4>
-<p> the <a class="link" href="gdk3-GdkFrameTimings.html#GdkFrameTimings" title="GdkFrameTimings"><span class="type">GdkFrameTimings</span></a> object for the specified
-frame, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it is not available. See
+<p>the <a class="link" href="gdk3-GdkFrameTimings.html#GdkFrameTimings" title="GdkFrameTimings"><span class="type">GdkFrameTimings</span></a> object for
+the specified frame, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it is not available. See
 <a class="link" href="GdkFrameClock.html#gdk-frame-clock-get-history-start" title="gdk_frame_clock_get_history_start ()"><code class="function">gdk_frame_clock_get_history_start()</code></a>. </p>
-<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-8.html#api-index-3.8">3.8</a></p>
 </div>
@@ -480,11 +480,11 @@ gdk_frame_clock_get_current_timings (<em class="parameter"><code><a class="link"
 </div>
 <div class="refsect3">
 <a name="gdk-frame-clock-get-current-timings.returns"></a><h4>Returns</h4>
-<p> the <a class="link" href="gdk3-GdkFrameTimings.html#GdkFrameTimings" title="GdkFrameTimings"><span class="type">GdkFrameTimings</span></a> for the frame currently
-being processed, or even no frame is being processed, for the
-previous frame. Before any frames have been procesed, returns
-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
-<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
+<p>the <a class="link" href="gdk3-GdkFrameTimings.html#GdkFrameTimings" title="GdkFrameTimings"><span class="type">GdkFrameTimings</span></a> for the
+frame currently being processed, or even no frame is being
+processed, for the previous frame. Before any frames have been
+processed, returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-8.html#api-index-3.8">3.8</a></p>
 </div>
@@ -523,17 +523,17 @@ interval after the last presentation time, and later than <em class="parameter">
 </tr>
 <tr>
 <td class="parameter_name"><p>refresh_interval_return</p></td>
-<td class="parameter_description"><p>a location to store the determined refresh
-interval, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. A default refresh interval of 1/60th of
-a second will be stored if no history is present.</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>a location to store the
+determined refresh interval, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. A default refresh interval of
+1/60th of a second will be stored if no history is present. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>presentation_time_return</p></td>
 <td class="parameter_description"><p>a location to store the next
 candidate presentation time after the given base time.
-0 will be will be stored if no history is present.</p></td>
-<td class="parameter_annotations"> </td>
+0 will be will be stored if no history is present. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -777,7 +777,7 @@ user_function (<a class="link" href="GdkFrameClock.html" title="Frame clock"><sp
 application processing of the frame. The frame is
 repainted. GDK normally handles this internally and
 produces expose events, which are turned into GTK+
-<a href="http://developer.gnome.org/gtk4/GtkWidget.html#GtkWidget-draw"><span class="type">“draw”</span></a> signals.</p>
+<a href="https://developer.gnome.org/gtk3/GtkWidget.html#GtkWidget-draw"><span class="type">“draw”</span></a> signals.</p>
 <div class="refsect3">
 <a name="GdkFrameClock-paint.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -845,7 +845,7 @@ user_function (<a class="link" href="GdkFrameClock.html" title="Frame clock"><sp
 application processing of the frame. Animations should
 be updated using <a class="link" href="GdkFrameClock.html#gdk-frame-clock-get-frame-time" title="gdk_frame_clock_get_frame_time ()"><code class="function">gdk_frame_clock_get_frame_time()</code></a>.
 Applications can connect directly to this signal, or
-use <a href="http://developer.gnome.org/gtk4/GtkWidget.html#gtk-widget-add-tick-callback"><code class="function">gtk_widget_add_tick_callback()</code></a> as a more convenient
+use <a href="https://developer.gnome.org/gtk3/GtkWidget.html#gtk-widget-add-tick-callback"><code class="function">gtk_widget_add_tick_callback()</code></a> as a more convenient
 interface.</p>
 <div class="refsect3">
 <a name="GdkFrameClock-update.parameters"></a><h4>Parameters</h4>
@@ -874,6 +874,6 @@ interface.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

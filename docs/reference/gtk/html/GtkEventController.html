@@ -7,8 +7,8 @@
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="Gestures.html" title="Gestures and event handling">
 <link rel="prev" href="Gestures.html" title="Gestures and event handling">
-<link rel="next" href="GtkGesture.html" title="GtkGesture">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<link rel="next" href="GtkEventControllerKey.html" title="GtkEventControllerKey">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -22,7 +22,7 @@
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
 <td><a accesskey="u" href="Gestures.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
 <td><a accesskey="p" href="Gestures.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="GtkGesture.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="GtkEventControllerKey.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="GtkEventController"></a><div class="titlepage"></div>
@@ -130,19 +130,22 @@
 <a name="GtkEventController.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkEventController
+        <span class="lineart">├──</span> <a class="link" href="GtkEventControllerKey.html" title="GtkEventControllerKey">GtkEventControllerKey</a>
+        <span class="lineart">├──</span> <a class="link" href="GtkEventControllerMotion.html" title="GtkEventControllerMotion">GtkEventControllerMotion</a>
+        <span class="lineart">├──</span> <a class="link" href="GtkEventControllerScroll.html" title="GtkEventControllerScroll">GtkEventControllerScroll</a>
         <span class="lineart">├──</span> <a class="link" href="GtkGesture.html" title="GtkGesture">GtkGesture</a>
         <span class="lineart">╰──</span> <a class="link" href="GtkPadController.html" title="GtkPadController">GtkPadController</a>
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkEventController.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkEventController.description"></a><h2>Description</h2>
 <p><a class="link" href="GtkEventController.html" title="GtkEventController"><span class="type">GtkEventController</span></a> is a base, low-level implementation for event
-controllers. Those react to a series of <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvents</span></a>, and possibly trigger
+controllers. Those react to a series of <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvents</span></a>, and possibly trigger
 actions as a consequence of those.</p>
 </div>
 <div class="refsect1">
@@ -216,7 +219,7 @@ the events can be managed by calling <a class="link" href="GtkEventController.ht
 <a name="gtk-event-controller-handle-event"></a><h3>gtk_event_controller_handle_event ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_event_controller_handle_event (<em class="parameter"><code><a class="link" href="GtkEventController.html" title="GtkEventController"><span class="type">GtkEventController</span></a> *controller</code></em>,
-                                   <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
+                                   <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
 <p>Feeds an events into <em class="parameter"><code>controller</code></em>
 , so it can be interpreted
 and the controller actions triggered.</p>
@@ -236,7 +239,7 @@ and the controller actions triggered.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -272,7 +275,7 @@ gtk_event_controller_get_widget (<em class="parameter"><code><a class="link" hre
 </div>
 <div class="refsect3">
 <a name="gtk-event-controller-get-widget.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>. </p>
+<p>a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
@@ -381,7 +384,7 @@ will be dropped at this point.</p>
 <div class="refsect2">
 <a name="GtkEventController--widget"></a><h3>The <code class="literal">“widget”</code> property</h3>
 <pre class="programlisting">  “widget”                   <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *</pre>
-<p>The widget receiving the <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvents</span></a> that the controller will handle.</p>
+<p>The widget receiving the <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvents</span></a> that the controller will handle.</p>
 <p>Flags: Read / Write / Construct Only</p>
 <p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
@@ -392,6 +395,6 @@ will be dropped at this point.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

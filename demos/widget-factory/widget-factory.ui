@@ -16,6 +16,16 @@
         <attribute name="action">win.transition</attribute>
       </item>
     </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_About Widget Factory</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
   </menu>
   <menu id="dinner_menu">
     <section>
@@ -493,9 +503,11 @@ Suspendisse feugiat quam quis dolor accumsan cursus.</property>
                           <object class="GtkEntry" id="entry1">
                             <property name="visible">1</property>
                             <property name="can_focus">1</property>
+                            <property name="enable-emoji-completion">1</property>
                             <property name="invisible_char">•</property>
                             <property name="placeholder-text" translatable="yes">Click icon to change mode</property>
                             <property name="secondary_icon_name">view-refresh-symbolic</property>
+                            <property name="secondary_icon_tooltip_text">Change mode</property>
                             <signal name="icon-release" handler="on_entry_icon_release" swapped="no"/>
                           </object>
                           <packing>
@@ -1300,11 +1312,13 @@ Suspendisse feugiat quam quis dolor accumsan cursus.</property>
                         <child>
                           <object class="GtkFrame" id="frame1">
                             <property name="visible">1</property>
-                            <property name="shadow_type">in</property>
+                            <style>
+                              <class name="border-inset"/>
+                            </style>
                             <child type="label">
                               <object class="GtkLabel" id="label1">
                                 <property name="visible">1</property>
-                                <property name="label" translatable="yes">&lt;b&gt;In&lt;/b&gt;</property>
+                                <property name="label" translatable="yes">&lt;b&gt;Inset&lt;/b&gt;</property>
                                 <property name="use_markup">1</property>
                               </object>
                             </child>
@@ -1316,11 +1330,13 @@ Suspendisse feugiat quam quis dolor accumsan cursus.</property>
                         <child>
                           <object class="GtkFrame" id="frame2">
                             <property name="visible">1</property>
-                            <property name="shadow_type">out</property>
+                            <style>
+                              <class name="border-outset"/>
+                            </style>
                             <child type="label">
                               <object class="GtkLabel" id="label2">
                                 <property name="visible">1</property>
-                                <property name="label" translatable="yes">&lt;b&gt;Out&lt;/b&gt;</property>
+                                <property name="label" translatable="yes">&lt;b&gt;Outset&lt;/b&gt;</property>
                                 <property name="use_markup">1</property>
                               </object>
                             </child>
@@ -1333,10 +1349,13 @@ Suspendisse feugiat quam quis dolor accumsan cursus.</property>
                         <child>
                           <object class="GtkFrame" id="frame3">
                             <property name="visible">1</property>
+                            <style>
+                              <class name="border-groove"/>
+                            </style>
                             <child type="label">
                               <object class="GtkLabel" id="label17">
                                 <property name="visible">1</property>
-                                <property name="label" translatable="yes">&lt;b&gt;Etched in&lt;/b&gt;</property>
+                                <property name="label" translatable="yes">&lt;b&gt;Groove&lt;/b&gt;</property>
                                 <property name="use_markup">1</property>
                               </object>
                             </child>
@@ -1349,11 +1368,13 @@ Suspendisse feugiat quam quis dolor accumsan cursus.</property>
                         <child>
                           <object class="GtkFrame" id="frame4">
                             <property name="visible">1</property>
-                            <property name="shadow_type">etched-out</property>
+                            <style>
+                              <class name="border-ridge"/>
+                            </style>
                             <child type="label">
                               <object class="GtkLabel" id="label18">
                                 <property name="visible">1</property>
-                                <property name="label" translatable="yes">&lt;b&gt;Etched out&lt;/b&gt;</property>
+                                <property name="label" translatable="yes">&lt;b&gt;Ridge&lt;/b&gt;</property>
                                 <property name="use_markup">1</property>
                               </object>
                             </child>
@@ -3724,6 +3745,7 @@ microphone-sensitivity-medium-symbolic</property>
                           <object class="GtkEntry">
                             <property name="visible">1</property>
                             <property name="can_focus">1</property>
+                            <property name="show_emoji_icon">1</property>
                             <property name="placeholder_text" translatable="yes">Age…</property>
                           </object>
                           <packing>
@@ -3750,6 +3772,7 @@ microphone-sensitivity-medium-symbolic</property>
                             <property name="visible">1</property>
                             <property name="valign">center</property>
                             <property name="popover">notebook_info_popover</property>
+                            <property name="relief">none</property>
                             <child>
                               <object class="GtkImage">
                                 <property name="visible">1</property>
@@ -3760,7 +3783,6 @@ microphone-sensitivity-medium-symbolic</property>
                             <style>
                               <class name="image-button"/>
                               <class name="circular"/>
-                              <class name="flat"/>
                             </style>
                           </object>
                         </child>

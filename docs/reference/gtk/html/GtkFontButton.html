@@ -8,7 +8,7 @@
 <link rel="up" href="SelectorWidgets.html" title="Selector Widgets and Dialogs">
 <link rel="prev" href="GtkFontChooser.html" title="GtkFontChooser">
 <link rel="next" href="GtkFontChooserWidget.html" title="GtkFontChooserWidget">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -306,6 +306,10 @@ gtk_font_button_new_with_font (<em class="parameter"><code>const <a href="https:
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_font_button_set_font_name (<em class="parameter"><code><a class="link" href="GtkFontButton.html" title="GtkFontButton"><span class="type">GtkFontButton</span></a> *font_button</code></em>,
                                <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *fontname</code></em>);</pre>
+<div class="warning">
+<p><code class="literal">gtk_font_button_set_font_name</code> has been deprecated since version 3.22 and should not be used in newly-written code.</p>
+<p>Use <a class="link" href="GtkFontChooser.html#gtk-font-chooser-set-font" title="gtk_font_chooser_set_font ()"><code class="function">gtk_font_chooser_set_font()</code></a> instead</p>
+</div>
 <p>Sets or updates the currently-displayed font in font picker dialog.</p>
 <div class="refsect3">
 <a name="gtk-font-button-set-font-name.parameters"></a><h4>Parameters</h4>
@@ -340,12 +344,16 @@ gtk_font_button_set_font_name (<em class="parameter"><code><a class="link" href=
 <a name="gtk-font-button-get-font-name"></a><h3>gtk_font_button_get_font_name ()</h3>
 <pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
 gtk_font_button_get_font_name (<em class="parameter"><code><a class="link" href="GtkFontButton.html" title="GtkFontButton"><span class="type">GtkFontButton</span></a> *font_button</code></em>);</pre>
+<div class="warning">
+<p><code class="literal">gtk_font_button_get_font_name</code> has been deprecated since version 3.22 and should not be used in newly-written code.</p>
+<p>Use <a class="link" href="GtkFontChooser.html#gtk-font-chooser-get-font" title="gtk_font_chooser_get_font ()"><code class="function">gtk_font_chooser_get_font()</code></a> instead</p>
+</div>
 <p>Retrieves the name of the currently selected font. This name includes
 style and size information as well. If you want to render something
-with the font, use this string with <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a> .
+with the font, use this string with <a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a> .
 If you’re interested in peeking certain values (family name,
 style, size, weight) just query these properties from the
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a> object.</p>
+<a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a> object.</p>
 <div class="refsect3">
 <a name="gtk-font-button-get-font-name.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -675,6 +683,10 @@ gtk_font_button_get_title (<em class="parameter"><code><a class="link" href="Gtk
 <a name="GtkFontButton--font-name"></a><h3>The <code class="literal">“font-name”</code> property</h3>
 <pre class="programlisting">  “font-name”                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
 <p>The name of the currently selected font.</p>
+<div class="warning">
+<p><code class="literal">GtkFontButton:font-name</code> has been deprecated since version 3.22 and should not be used in newly-written code.</p>
+<p>Use the <span class="type">“font”</span> property instead</p>
+</div>
 <p>Flags: Read / Write</p>
 <p>Default value: "Sans 12"</p>
 <p class="since">Since: 2.4</p>
@@ -746,12 +758,11 @@ user_function (<a class="link" href="GtkFontButton.html" title="GtkFontButton"><
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>       user_data)</pre>
 <p>The ::font-set signal is emitted when the user selects a font.
 
-When handling this signal, use <a class="link" href="GtkFontButton.html#gtk-font-button-get-font-name" title="gtk_font_button_get_font_name ()"><code class="function">gtk_font_button_get_font_name()</code></a>
-
+When handling this signal, use <a class="link" href="GtkFontChooser.html#gtk-font-chooser-get-font" title="gtk_font_chooser_get_font ()"><code class="function">gtk_font_chooser_get_font()</code></a>
 to find out which font was just selected.</p>
 <p>Note that this signal is only emitted when the user
 changes the font. If you need to react to programmatic font changes
-as well, use the notify::font-name signal.</p>
+as well, use the notify::font signal.</p>
 <div class="refsect3">
 <a name="GtkFontButton-font-set.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -784,6 +795,6 @@ as well, use the notify::font-name signal.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

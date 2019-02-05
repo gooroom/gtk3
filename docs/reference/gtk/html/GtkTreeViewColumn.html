@@ -8,7 +8,7 @@
 <link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
 <link rel="prev" href="GtkTreeSelection.html" title="GtkTreeSelection">
 <link rel="next" href="GtkTreeView.html" title="GtkTreeView">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -697,7 +697,7 @@ calling <a class="link" href="GtkTreeViewColumn.html#gtk-tree-view-column-set-ce
 </tr>
 <tr>
 <td class="parameter_name"><p>data</p></td>
-<td class="parameter_description"><p> user data. </p></td>
+<td class="parameter_description"><p>user data. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -772,18 +772,18 @@ This is equivalent to calling <a class="link" href="GtkTreeViewColumn.html#gtk-t
 10
 11
 12</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">enum</span> <span class="gtkdoc opt">{</span> TEXT_COLUMN<span class="gtkdoc opt">,</span> COLOR_COLUMN<span class="gtkdoc opt">,</span> N_COLUMNS <span class="gtkdoc opt">};</span>
-<span class="gtkdoc opt">...</span>
-<span class="gtkdoc opt">{</span>
-  GtkTreeViewColumn <span class="gtkdoc opt">*</span>column<span class="gtkdoc opt">;</span>
-  GtkCellRenderer   <span class="gtkdoc opt">*</span>renderer <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkCellRendererText.html#gtk-cell-renderer-text-new">gtk_cell_renderer_text_new</a></span> <span class="gtkdoc opt">();</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">enum</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> TEXT_COLUMN</span><span class="symbol">,</span><span class="normal"> COLOR_COLUMN</span><span class="symbol">,</span><span class="normal"> N_COLUMNS </span><span class="cbracket">}</span><span class="symbol">;</span>
+<span class="comment">// ...</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkTreeViewColumn</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">column</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkCellRenderer</span><span class="normal">   </span><span class="symbol">*</span><span class="normal">renderer </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkCellRendererText.html#gtk-cell-renderer-text-new">gtk_cell_renderer_text_new</a></span><span class="normal"> </span><span class="symbol">();</span>
 
-  column <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkTreeViewColumn.html#gtk-tree-view-column-new-with-attributes">gtk_tree_view_column_new_with_attributes</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;Title&quot;</span><span class="gtkdoc opt">,</span>
-                                                     renderer<span class="gtkdoc opt">,</span>
-                                                     <span class="string">&quot;text&quot;</span><span class="gtkdoc opt">,</span> TEXT_COLUMN<span class="gtkdoc opt">,</span>
-                                                     <span class="string">&quot;foreground&quot;</span><span class="gtkdoc opt">,</span> COLOR_COLUMN<span class="gtkdoc opt">,</span>
-                                                     NULL<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  column </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeViewColumn.html#gtk-tree-view-column-new-with-attributes">gtk_tree_view_column_new_with_attributes</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Title"</span><span class="symbol">,</span>
+<span class="normal">                                                     renderer</span><span class="symbol">,</span>
+<span class="normal">                                                     </span><span class="string">"text"</span><span class="symbol">,</span><span class="normal"> TEXT_COLUMN</span><span class="symbol">,</span>
+<span class="normal">                                                     </span><span class="string">"foreground"</span><span class="symbol">,</span><span class="normal"> COLOR_COLUMN</span><span class="symbol">,</span>
+<span class="normal">                                                     <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1062,12 +1062,12 @@ older one.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>func</p></td>
-<td class="parameter_description"><p> The <a class="link" href="GtkTreeViewColumn.html#GtkTreeCellDataFunc" title="GtkTreeCellDataFunc ()"><span class="type">GtkTreeCellDataFunc</span></a> to use. </p></td>
+<td class="parameter_description"><p>The <a class="link" href="GtkTreeViewColumn.html#GtkTreeCellDataFunc" title="GtkTreeCellDataFunc ()"><span class="type">GtkTreeCellDataFunc</span></a> to use. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>func_data</p></td>
-<td class="parameter_description"><p> The user data for <em class="parameter"><code>func</code></em>
+<td class="parameter_description"><p>The user data for <em class="parameter"><code>func</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
@@ -1809,7 +1809,7 @@ header button is set with a <a class="link" href="GtkLabel.html" title="GtkLabel
 </tr>
 <tr>
 <td class="parameter_name"><p>widget</p></td>
-<td class="parameter_description"><p> A child <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>A child <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1840,7 +1840,7 @@ If a custom widget has not been set then <a href="https://developer.gnome.org/gl
 </div>
 <div class="refsect3">
 <a name="gtk-tree-view-column-get-widget.returns"></a><h4>Returns</h4>
-<p> The <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> in the column
+<p>The <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> in the column
 header, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1868,7 +1868,7 @@ gtk_tree_view_column_get_button (<em class="parameter"><code><a class="link" hre
 </div>
 <div class="refsect3">
 <a name="gtk-tree-view-column-get-button.returns"></a><h4>Returns</h4>
-<p> The button for the column header. </p>
+<p>The button for the column header. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -2247,7 +2247,7 @@ renderer.  This is used primarily by the <a class="link" href="GtkTreeView.html"
 <a name="gtk-tree-view-column-cell-get-size"></a><h3>gtk_tree_view_column_cell_get_size ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_tree_view_column_cell_get_size (<em class="parameter"><code><a class="link" href="GtkTreeViewColumn.html" title="GtkTreeViewColumn"><span class="type">GtkTreeViewColumn</span></a> *tree_column</code></em>,
-                                    <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *cell_area</code></em>,
+                                    <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *cell_area</code></em>,
                                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *x_offset</code></em>,
                                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *y_offset</code></em>,
                                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *width</code></em>,
@@ -2270,29 +2270,29 @@ primarily by the <a class="link" href="GtkTreeView.html" title="GtkTreeView"><sp
 </tr>
 <tr>
 <td class="parameter_name"><p>cell_area</p></td>
-<td class="parameter_description"><p> The area a cell in the column will be allocated, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>The area a cell in the column will be allocated, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>x_offset</p></td>
-<td class="parameter_description"><p> location to return x offset of a cell relative to <em class="parameter"><code>cell_area</code></em>
+<td class="parameter_description"><p>location to return x offset of a cell relative to <em class="parameter"><code>cell_area</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>y_offset</p></td>
-<td class="parameter_description"><p> location to return y offset of a cell relative to <em class="parameter"><code>cell_area</code></em>
+<td class="parameter_description"><p>location to return y offset of a cell relative to <em class="parameter"><code>cell_area</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>width</p></td>
-<td class="parameter_description"><p> location to return width needed to render a cell, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to return width needed to render a cell, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>height</p></td>
-<td class="parameter_description"><p> location to return height needed to render a cell, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to return height needed to render a cell, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2334,7 +2334,7 @@ cell is not found in the column, <em class="parameter"><code>start_pos</code></e
 </tr>
 <tr>
 <td class="parameter_name"><p>x_offset</p></td>
-<td class="parameter_description"><p> return location for the horizontal
+<td class="parameter_description"><p>return location for the horizontal
 position of <em class="parameter"><code>cell</code></em>
 within <em class="parameter"><code>tree_column</code></em>
 , may be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
@@ -2342,7 +2342,7 @@ within <em class="parameter"><code>tree_column</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>width</p></td>
-<td class="parameter_description"><p> return location for the width of <em class="parameter"><code>cell</code></em>
+<td class="parameter_description"><p>return location for the width of <em class="parameter"><code>cell</code></em>
 ,
 may be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
@@ -2471,7 +2471,7 @@ returned.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-tree-view-column-get-tree-view.returns"></a><h4>Returns</h4>
-<p> The tree view wherein <em class="parameter"><code>column</code></em>
+<p>The tree view wherein <em class="parameter"><code>column</code></em>
 has
 been inserted if any, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> otherwise. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -2741,6 +2741,6 @@ user_function (<a class="link" href="GtkTreeViewColumn.html" title="GtkTreeViewC
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

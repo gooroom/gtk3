@@ -36,11 +36,13 @@ SUBDIRS =	\
 
 EXTRA_DIST +=	\
 	detectenv-msvc.mak		\
-	introspection-msvc.mak		\
+	gentypefuncs.py			\
 	gtk-introspection-msvc.mak	\
+	introspection-msvc.mak		\
 	replace.py			\
 	pc_base.py			\
 	gtkpc.py			\
+	README_EGL_MSVC.txt		\
 	$(GENERATED_ITEMS)
 
 -include $(top_srcdir)/git.mk

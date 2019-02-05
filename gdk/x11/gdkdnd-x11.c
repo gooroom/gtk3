@@ -74,8 +74,6 @@ struct _GdkX11DragContext
 {
   GdkDragContext context;
 
-  guint   ref_count;
-
   gint start_x;                /* Where the drag started */
   gint start_y;
   guint16 last_x;              /* Coordinates from last event */
@@ -2678,6 +2676,7 @@ drag_context_grab (GdkDragContext *context)
   GdkWindow *root;
   GdkSeat *seat;
   gint keycode, i;
+  GdkCursor *cursor;
 
   if (!x11_context->ipc_window)
     return FALSE;
@@ -2692,6 +2691,9 @@ drag_context_grab (GdkDragContext *context)
 #endif
     capabilities = GDK_SEAT_CAPABILITY_ALL;
 
+  cursor = gdk_drag_get_cursor (context, x11_context->current_action);
+  g_set_object (&x11_context->cursor, cursor);
+
   if (gdk_seat_grab (seat, x11_context->ipc_window,
                      capabilities, FALSE,
                      x11_context->cursor, NULL, NULL, NULL) != GDK_GRAB_SUCCESS)
@@ -2699,7 +2701,7 @@ drag_context_grab (GdkDragContext *context)
 
   g_set_object (&x11_context->grab_seat, seat);
 
-  gdk_error_trap_push ();
+  gdk_x11_display_error_trap_push (gdk_window_get_display (x11_context->ipc_window));
 
   for (i = 0; i < G_N_ELEMENTS (grab_keys); ++i)
     {
@@ -2750,6 +2752,8 @@ drag_context_grab (GdkDragContext *context)
                     GrabModeAsync);
         }
     }
+
+  gdk_x11_display_error_trap_pop_ignored (gdk_window_get_display (x11_context->ipc_window));
 
   return TRUE;
 }

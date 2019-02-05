@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="gtk3-Stock-Items.html" title="Stock Items">
 <link rel="next" href="GtkNumerableIcon.html" title="GtkNumerableIcon">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -163,7 +163,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<span class="returnvalue">cairo_surface_t</span> *
+<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="returnvalue">cairo_surface_t</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-Themeable-Stock-Images.html#gtk-icon-set-render-icon-surface" title="gtk_icon_set_render_icon_surface ()">gtk_icon_set_render_icon_surface</a> <span class="c_punctuation">()</span>
@@ -418,7 +418,7 @@
 </div>
 <div class="refsect1">
 <a name="gtk3-Themeable-Stock-Images.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-Boxed-Types.html">GBoxed</a>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/gobject-Boxed-Types.html">GBoxed</a>
     <span class="lineart">╰──</span> GtkIconSet
     <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkIconFactory
@@ -507,19 +507,19 @@ attribute is optional.</p>
 11
 12
 13</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkIconFactory&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;iconfactory1&quot;</span><span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>sources<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>source stock<span class="gtkdoc opt">-</span>id<span class="gtkdoc opt">=</span><span class="string">&quot;apple-red&quot;</span> filename<span class="gtkdoc opt">=</span><span class="string">&quot;apple-red.png&quot;</span><span class="gtkdoc opt">/&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>sources<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkWindow&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;window1&quot;</span><span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkButton&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;apple_button&quot;</span><span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;label&quot;</span><span class="gtkdoc opt">&gt;</span>apple<span class="gtkdoc opt">-</span>red<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;use-stock&quot;</span><span class="gtkdoc opt">&gt;</span>True<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkIconFactory"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"iconfactory1"</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">sources</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">source</span><span class="normal"> stock</span><span class="symbol">-</span><span class="normal">id</span><span class="symbol">=</span><span class="string">"apple-red"</span><span class="normal"> filename</span><span class="symbol">=</span><span class="string">"apple-red.png"</span><span class="symbol">/&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">sources</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkWindow"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"window1"</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkButton"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"apple_button"</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"label"</span><span class="symbol">&gt;</span><span class="normal">apple</span><span class="symbol">-</span><span class="normal">red</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"use-stock"</span><span class="symbol">&gt;</span><span class="normal">True</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -716,7 +716,7 @@ function directly, so that themes are taken into account.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-factory-lookup.returns"></a><h4>Returns</h4>
-<p> icon set of <em class="parameter"><code>stock_id</code></em>
+<p>icon set of <em class="parameter"><code>stock_id</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -752,7 +752,7 @@ account.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-factory-lookup-default.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSet"><span class="type">GtkIconSet</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>a <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSet"><span class="type">GtkIconSet</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -1024,7 +1024,7 @@ image" icon will be returned instead.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>style</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> associated with <em class="parameter"><code>widget</code></em>
+<td class="parameter_description"><p>a <a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> associated with <em class="parameter"><code>widget</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1040,20 +1040,20 @@ image" icon will be returned instead.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>size</p></td>
-<td class="parameter_description"><p> icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). A size of <code class="literal">(GtkIconSize)-1</code>
+<td class="parameter_description"><p>icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). A size of <code class="literal">(GtkIconSize)-1</code>
 means render at the size of the source and don’t scale. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>widget</p></td>
-<td class="parameter_description"><p> widget that will display the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+<td class="parameter_description"><p>widget that will display the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 The only use that is typically made of this
-is to determine the appropriate <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>. </p></td>
+is to determine the appropriate <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>detail</p></td>
-<td class="parameter_description"><p> detail to pass to the theme engine, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+<td class="parameter_description"><p>detail to pass to the theme engine, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 Note that passing a detail of anything but <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 will disable caching. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
@@ -1063,7 +1063,7 @@ will disable caching. </p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-set-render-icon.returns"></a><h4>Returns</h4>
-<p> a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> to be displayed. </p>
+<p>a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> to be displayed. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -1105,7 +1105,7 @@ image" icon will be returned instead.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>size</p></td>
-<td class="parameter_description"><p> icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). A size of <code class="literal">(GtkIconSize)-1</code>
+<td class="parameter_description"><p>icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). A size of <code class="literal">(GtkIconSize)-1</code>
 means render at the size of the source and don’t scale. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></td>
 </tr>
@@ -1114,7 +1114,7 @@ means render at the size of the source and don’t scale. </p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-set-render-icon-pixbuf.returns"></a><h4>Returns</h4>
-<p> a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> to be displayed. </p>
+<p>a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> to be displayed. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -1122,12 +1122,12 @@ means render at the size of the source and don’t scale. </p></td>
 <hr>
 <div class="refsect2">
 <a name="gtk-icon-set-render-icon-surface"></a><h3>gtk_icon_set_render_icon_surface ()</h3>
-<pre class="programlisting"><span class="returnvalue">cairo_surface_t</span> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="returnvalue">cairo_surface_t</span></a> *
 gtk_icon_set_render_icon_surface (<em class="parameter"><code><a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSet"><span class="type">GtkIconSet</span></a> *icon_set</code></em>,
                                   <em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
                                   <em class="parameter"><code><a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a> size</code></em>,
                                   <em class="parameter"><code><span class="type">int</span> scale</code></em>,
-                                  <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *for_window</code></em>);</pre>
+                                  <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *for_window</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_icon_set_render_icon_surface</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkIconTheme.html" title="GtkIconTheme"><span class="type">GtkIconTheme</span></a> instead.</p>
@@ -1158,7 +1158,7 @@ image" icon will be returned instead.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>size</p></td>
-<td class="parameter_description"><p> icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). A size of <code class="literal">(GtkIconSize)-1</code>
+<td class="parameter_description"><p>icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). A size of <code class="literal">(GtkIconSize)-1</code>
 means render at the size of the source and don’t scale. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></td>
 </tr>
@@ -1169,7 +1169,7 @@ means render at the size of the source and don’t scale. </p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>for_window</p></td>
-<td class="parameter_description"><p> <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> to optimize drawing for, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> to optimize drawing for, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1177,7 +1177,7 @@ means render at the size of the source and don’t scale. </p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-set-render-icon-surface.returns"></a><h4>Returns</h4>
-<p> a <span class="type">cairo_surface_t</span> to be displayed. </p>
+<p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a> to be displayed. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
@@ -1237,17 +1237,17 @@ the usual size.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>size</p></td>
-<td class="parameter_description"><p> an icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). </p></td>
+<td class="parameter_description"><p>an icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>width</p></td>
-<td class="parameter_description"><p> location to store icon width. </p></td>
+<td class="parameter_description"><p>location to store icon width. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>height</p></td>
-<td class="parameter_description"><p> location to store icon height. </p></td>
+<td class="parameter_description"><p>location to store icon height. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1299,17 +1299,17 @@ which set of user preferences to used.</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>size</p></td>
-<td class="parameter_description"><p> an icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). </p></td>
+<td class="parameter_description"><p>an icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>width</p></td>
-<td class="parameter_description"><p> location to store icon width. </p></td>
+<td class="parameter_description"><p>location to store icon width. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>height</p></td>
-<td class="parameter_description"><p> location to store icon height. </p></td>
+<td class="parameter_description"><p>location to store icon height. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1364,7 +1364,7 @@ etc. Returns the integer value for the size.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-size-register.returns"></a><h4>Returns</h4>
-<p> integer value representing the size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). </p>
+<p>integer value representing the size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). </p>
 <p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></p>
 </div>
 </div>
@@ -1402,7 +1402,7 @@ will return <em class="parameter"><code>target</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>target</p></td>
-<td class="parameter_description"><p> an existing icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). </p></td>
+<td class="parameter_description"><p>an existing icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></td>
 </tr>
 </tbody>
@@ -1437,7 +1437,7 @@ gtk_icon_size_from_name (<em class="parameter"><code>const <a href="https://deve
 </div>
 <div class="refsect3">
 <a name="gtk-icon-size-from-name.returns"></a><h4>Returns</h4>
-<p> the icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). </p>
+<p>the icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). </p>
 <p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></p>
 </div>
 </div>
@@ -1462,7 +1462,7 @@ is statically allocated and should not be freed.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>size</p></td>
-<td class="parameter_description"><p> a <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></td>
 </tr></tbody>
 </table></div>
@@ -1501,7 +1501,7 @@ array must be freed with <a href="https://developer.gnome.org/glib/unstable/glib
 </tr>
 <tr>
 <td class="parameter_name"><p>sizes</p></td>
-<td class="parameter_description"><p> return location
+<td class="parameter_description"><p>return location
 for array of sizes (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>). </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_sizes][<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></td>
 </tr>
@@ -1606,7 +1606,7 @@ persist beyond the lifetime of the icon source.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-source-get-filename.returns"></a><h4>Returns</h4>
-<p> image filename. This string must not
+<p>image filename. This string must not
 be modified or freed. </p>
 <p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></p>
 </div>
@@ -1644,7 +1644,7 @@ not incremented.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-source-get-pixbuf.returns"></a><h4>Returns</h4>
-<p> source pixbuf. </p>
+<p>source pixbuf. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -1708,7 +1708,7 @@ is only useful/meaningful if the icon size is not wildcarded.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-source-get-size.returns"></a><h4>Returns</h4>
-<p> icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>) this source matches. </p>
+<p>icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>) this source matches. </p>
 <p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></p>
 </div>
 </div>
@@ -1951,7 +1951,7 @@ icon variants for <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIcon
 </tr>
 <tr>
 <td class="parameter_name"><p>filename</p></td>
-<td class="parameter_description"><p> image file to use. </p></td>
+<td class="parameter_description"><p>image file to use. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 </tbody>
@@ -2021,7 +2021,7 @@ to use as a base image when creating icon variants for <a class="link" href="gtk
 </tr>
 <tr>
 <td class="parameter_name"><p>icon_name</p></td>
-<td class="parameter_description"><p> name of icon to use. </p></td>
+<td class="parameter_description"><p>name of icon to use. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2060,7 +2060,7 @@ in addition to calling this function.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>size</p></td>
-<td class="parameter_description"><p> icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>) this source applies to. </p></td>
+<td class="parameter_description"><p>icon size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>) this source applies to. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></td>
 </tr>
 </tbody>
@@ -2298,6 +2298,6 @@ that match exactly.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

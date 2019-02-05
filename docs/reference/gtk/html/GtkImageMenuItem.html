@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="GtkActivatable.html" title="GtkActivatable">
 <link rel="next" href="GtkMisc.html" title="GtkMisc">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -227,17 +227,17 @@ GtkImageMenuItem implements
 9
 10
 11</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkWidget <span class="gtkdoc opt">*</span>box <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkBox.html#gtk-box-new">gtk_box_new</a></span> <span class="gtkdoc opt">(</span>GTK_ORIENTATION_HORIZONTAL<span class="gtkdoc opt">,</span> <span class="number">6</span><span class="gtkdoc opt">);</span>
-GtkWidget <span class="gtkdoc opt">*</span>icon <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkImage.html#gtk-image-new-from-icon-name">gtk_image_new_from_icon_name</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;folder-music-symbolic&quot;</span><span class="gtkdoc opt">,</span> GTK_ICON_SIZE_MENU<span class="gtkdoc opt">);</span>
-GtkWidget <span class="gtkdoc opt">*</span>label <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkLabel.html#gtk-label-new">gtk_label_new</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;Music&quot;</span><span class="gtkdoc opt">);</span>
-GtkWidget <span class="gtkdoc opt">*</span>menu_item <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkMenuItem.html#gtk-menu-item-new">gtk_menu_item_new</a></span> <span class="gtkdoc opt">();</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">box </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkBox.html#gtk-box-new">gtk_box_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="gtk3-Standard-Enumerations.html#GTK-ORIENTATION-HORIZONTAL:CAPS">GTK_ORIENTATION_HORIZONTAL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="number">6</span><span class="symbol">);</span>
+<span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">icon </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkImage.html#gtk-image-new-from-icon-name">gtk_image_new_from_icon_name</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"folder-music-symbolic"</span><span class="symbol">,</span><span class="normal"> <a href="gtk3-Themeable-Stock-Images.html#GTK-ICON-SIZE-MENU:CAPS">GTK_ICON_SIZE_MENU</a></span><span class="symbol">);</span>
+<span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">label </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkLabel.html#gtk-label-new">gtk_label_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Music"</span><span class="symbol">);</span>
+<span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">menu_item </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkMenuItem.html#gtk-menu-item-new">gtk_menu_item_new</a></span><span class="normal"> </span><span class="symbol">();</span>
 
-<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CONTAINER</span> <span class="gtkdoc opt">(</span>box<span class="gtkdoc opt">),</span> icon<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CONTAINER</span> <span class="gtkdoc opt">(</span>box<span class="gtkdoc opt">),</span> label<span class="gtkdoc opt">);</span>
+<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">box</span><span class="symbol">),</span><span class="normal"> icon</span><span class="symbol">);</span>
+<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">box</span><span class="symbol">),</span><span class="normal"> label</span><span class="symbol">);</span>
 
-<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CONTAINER</span> <span class="gtkdoc opt">(</span>menu_item<span class="gtkdoc opt">),</span> box<span class="gtkdoc opt">);</span>
+<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">menu_item</span><span class="symbol">),</span><span class="normal"> box</span><span class="symbol">);</span>
 
-<span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span> <span class="gtkdoc opt">(</span>menu_item<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">menu_item</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -252,7 +252,7 @@ with a <a class="link" href="GtkImage.html" title="GtkImage"><span class="type">
 <p><a class="link" href="GtkImageMenuItem.html" title="GtkImageMenuItem"><span class="type">GtkImageMenuItem</span></a> has been deprecated since GTK+ 3.10. If you want to
 display an icon in a menu item, you should use <a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMenuItem</span></a> and pack a
 <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> with a <a class="link" href="GtkImage.html" title="GtkImage"><span class="type">GtkImage</span></a> and a <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a> instead. You should also consider
-using <a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a> and the XML <a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenu-struct"><span class="type">GMenu</span></a> description for creating menus, by
+using <a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a> and the XML <span class="type">GMenu</span> description for creating menus, by
 following the GMenu guide. You should
 consider using icons in menu items only sparingly, and for "objects" (or
 "nouns") elements only, like bookmarks, files, and links; "actions" (or
@@ -286,26 +286,26 @@ binding of Ctrl+M:</p>
 18
 19
 20</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkWidget <span class="gtkdoc opt">*</span>box <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkBox.html#gtk-box-new">gtk_box_new</a></span> <span class="gtkdoc opt">(</span>GTK_ORIENTATION_HORIZONTAL<span class="gtkdoc opt">,</span> <span class="number">6</span><span class="gtkdoc opt">);</span>
-GtkWidget <span class="gtkdoc opt">*</span>icon <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkImage.html#gtk-image-new-from-icon-name">gtk_image_new_from_icon_name</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;folder-music-symbolic&quot;</span><span class="gtkdoc opt">,</span> GTK_ICON_SIZE_MENU<span class="gtkdoc opt">);</span>
-GtkWidget <span class="gtkdoc opt">*</span>label <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkAccelLabel.html#gtk-accel-label-new">gtk_accel_label_new</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;Music&quot;</span><span class="gtkdoc opt">);</span>
-GtkWidget <span class="gtkdoc opt">*</span>menu_item <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkMenuItem.html#gtk-menu-item-new">gtk_menu_item_new</a></span> <span class="gtkdoc opt">();</span>
-GtkAccelGroup <span class="gtkdoc opt">*</span>accel_group <span class="gtkdoc opt">=</span> <span class="function"><a href="gtk3-Keyboard-Accelerators.html#gtk-accel-group-new">gtk_accel_group_new</a></span> <span class="gtkdoc opt">();</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">box </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkBox.html#gtk-box-new">gtk_box_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="gtk3-Standard-Enumerations.html#GTK-ORIENTATION-HORIZONTAL:CAPS">GTK_ORIENTATION_HORIZONTAL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="number">6</span><span class="symbol">);</span>
+<span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">icon </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkImage.html#gtk-image-new-from-icon-name">gtk_image_new_from_icon_name</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"folder-music-symbolic"</span><span class="symbol">,</span><span class="normal"> <a href="gtk3-Themeable-Stock-Images.html#GTK-ICON-SIZE-MENU:CAPS">GTK_ICON_SIZE_MENU</a></span><span class="symbol">);</span>
+<span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">label </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkAccelLabel.html#gtk-accel-label-new">gtk_accel_label_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Music"</span><span class="symbol">);</span>
+<span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">menu_item </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkMenuItem.html#gtk-menu-item-new">gtk_menu_item_new</a></span><span class="normal"> </span><span class="symbol">();</span>
+<span class="usertype">GtkAccelGroup</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">accel_group </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gtk3-Keyboard-Accelerators.html#gtk-accel-group-new">gtk_accel_group_new</a></span><span class="normal"> </span><span class="symbol">();</span>
 
-<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CONTAINER</span> <span class="gtkdoc opt">(</span>box<span class="gtkdoc opt">),</span> icon<span class="gtkdoc opt">);</span>
+<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">box</span><span class="symbol">),</span><span class="normal"> icon</span><span class="symbol">);</span>
 
-<span class="function"><a href="GtkLabel.html#gtk-label-set-use-underline">gtk_label_set_use_underline</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_LABEL</span> <span class="gtkdoc opt">(</span>label<span class="gtkdoc opt">),</span> TRUE<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkLabel.html#gtk-label-set-xalign">gtk_label_set_xalign</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_LABEL</span> <span class="gtkdoc opt">(</span>label<span class="gtkdoc opt">),</span> <span class="number">0.0</span><span class="gtkdoc opt">);</span>
+<span class="function"><a href="GtkLabel.html#gtk-label-set-use-underline">gtk_label_set_use_underline</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_LABEL</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">label</span><span class="symbol">),</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">);</span>
+<span class="function"><a href="GtkLabel.html#gtk-label-set-xalign">gtk_label_set_xalign</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_LABEL</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">label</span><span class="symbol">),</span><span class="normal"> </span><span class="number">0.0</span><span class="symbol">);</span>
 
-<span class="function"><a href="GtkWidget.html#gtk-widget-add-accelerator">gtk_widget_add_accelerator</a></span> <span class="gtkdoc opt">(</span>menu_item<span class="gtkdoc opt">,</span> <span class="string">&quot;activate&quot;</span><span class="gtkdoc opt">,</span> accel_group<span class="gtkdoc opt">,</span>
-                            GDK_KEY_m<span class="gtkdoc opt">,</span> GDK_CONTROL_MASK<span class="gtkdoc opt">,</span> GTK_ACCEL_VISIBLE<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkAccelLabel.html#gtk-accel-label-set-accel-widget">gtk_accel_label_set_accel_widget</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_ACCEL_LABEL</span> <span class="gtkdoc opt">(</span>label<span class="gtkdoc opt">),</span> menu_item<span class="gtkdoc opt">);</span>
+<span class="function"><a href="GtkWidget.html#gtk-widget-add-accelerator">gtk_widget_add_accelerator</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">menu_item</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"activate"</span><span class="symbol">,</span><span class="normal"> accel_group</span><span class="symbol">,</span>
+<span class="normal">                            GDK_KEY_m</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GDK-CONTROL-MASK:CAPS">GDK_CONTROL_MASK</a></span><span class="symbol">,</span><span class="normal"> <a href="gtk3-Keyboard-Accelerators.html#GTK-ACCEL-VISIBLE:CAPS">GTK_ACCEL_VISIBLE</a></span><span class="symbol">);</span>
+<span class="function"><a href="GtkAccelLabel.html#gtk-accel-label-set-accel-widget">gtk_accel_label_set_accel_widget</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_ACCEL_LABEL</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">label</span><span class="symbol">),</span><span class="normal"> menu_item</span><span class="symbol">);</span>
 
-<span class="function"><a href="GtkBox.html#gtk-box-pack-end">gtk_box_pack_end</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_BOX</span> <span class="gtkdoc opt">(</span>box<span class="gtkdoc opt">),</span> label<span class="gtkdoc opt">,</span> TRUE<span class="gtkdoc opt">,</span> TRUE<span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">);</span>
+<span class="function"><a href="GtkBox.html#gtk-box-pack-end">gtk_box_pack_end</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_BOX</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">box</span><span class="symbol">),</span><span class="normal"> label</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">);</span>
 
-<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CONTAINER</span> <span class="gtkdoc opt">(</span>menu_item<span class="gtkdoc opt">),</span> box<span class="gtkdoc opt">);</span>
+<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">menu_item</span><span class="symbol">),</span><span class="normal"> box</span><span class="symbol">);</span>
 
-<span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span> <span class="gtkdoc opt">(</span>menu_item<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">menu_item</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -341,7 +341,7 @@ the image will be displayed or not.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>image</p></td>
-<td class="parameter_description"><p> a widget to set as the image for the menu item. </p></td>
+<td class="parameter_description"><p>a widget to set as the image for the menu item. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -374,7 +374,7 @@ See <a class="link" href="GtkImageMenuItem.html#gtk-image-menu-item-set-image" t
 </div>
 <div class="refsect3">
 <a name="gtk-image-menu-item-get-image.returns"></a><h4>Returns</h4>
-<p> the widget set as image of <em class="parameter"><code>image_menu_item</code></em>
+<p>the widget set as image of <em class="parameter"><code>image_menu_item</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -428,7 +428,7 @@ standard accelerator for the stock item, and if one is found, call
 </tr>
 <tr>
 <td class="parameter_name"><p>accel_group</p></td>
-<td class="parameter_description"><p> the <a class="link" href="gtk3-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> to add the menu items
+<td class="parameter_description"><p>the <a class="link" href="gtk3-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> to add the menu items
 accelerator to, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -756,6 +756,6 @@ stock id to select the stock item for the item.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

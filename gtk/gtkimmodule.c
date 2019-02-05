@@ -403,6 +403,9 @@ gtk_im_module_initialize (void)
 #ifdef INCLUDE_IM_broadway
   do_builtin (broadway);
 #endif
+#ifdef INCLUDE_IM_wayland
+  do_builtin (wayland);
+#endif
 
 #undef do_builtin
 
@@ -694,7 +697,21 @@ match_backend (GtkIMContextInfo *context)
 {
 #ifdef GDK_WINDOWING_WAYLAND
   if (g_strcmp0 (context->context_id, "wayland") == 0)
-    return GDK_IS_WAYLAND_DISPLAY (gdk_display_get_default ());
+    {
+      GdkDisplay *display = gdk_display_get_default ();
+
+      return GDK_IS_WAYLAND_DISPLAY (display) &&
+             gdk_wayland_display_query_registry (display,
+                                                 "zwp_text_input_manager_v3");
+    }
+  if (g_strcmp0 (context->context_id, "waylandgtk") == 0)
+    {
+      GdkDisplay *display = gdk_display_get_default ();
+
+      return GDK_IS_WAYLAND_DISPLAY (display) &&
+             gdk_wayland_display_query_registry (display,
+                                                 "gtk_text_input_manager");
+    }
 #endif
 
 #ifdef GDK_WINDOWING_BROADWAY

@@ -61,7 +61,6 @@
 #define MAX_TIMER_CALLS       5
 #define EPSILON               1e-10
 #define MAX_DIGITS            20
-#define MIN_ARROW_WIDTH       6
 #define TIMEOUT_INITIAL       500
 #define TIMEOUT_REPEAT        50
 
@@ -91,6 +90,8 @@
  *
  * |[<!-- language="plain" -->
  * spinbutton.horizontal
+ * ├── undershoot.left
+ * ├── undershoot.right
  * ├── entry
  * │   ╰── ...
  * ├── button.down
@@ -99,6 +100,8 @@
  *
  * |[<!-- language="plain" -->
  * spinbutton.vertical
+ * ├── undershoot.left
+ * ├── undershoot.right
  * ├── button.up
  * ├── entry
  * │   ╰── ...
@@ -382,7 +385,7 @@ gtk_spin_button_class_init (GtkSpinButtonClass *class)
                                    PROP_CLIMB_RATE,
                                    g_param_spec_double ("climb-rate",
                                                         P_("Climb Rate"),
-                                                        P_("The acceleration rate when you hold down a button"),
+                                                        P_("The acceleration rate when you hold down a button or key"),
                                                         0.0, G_MAXDOUBLE, 0.0,
                                                         GTK_PARAM_READWRITE|G_PARAM_EXPLICIT_NOTIFY));
 
@@ -442,7 +445,7 @@ gtk_spin_button_class_init (GtkSpinButtonClass *class)
   /**
    * GtkSpinButton:shadow-type:
    *
-   * Style of bevel around the sping button.
+   * Style of bevel around the spin button.
    *
    * Deprecated: 3.20: Use CSS to determine the style of the border;
    *     the value of this style property is ignored.
@@ -1912,13 +1915,13 @@ gtk_spin_button_default_output (GtkSpinButton *spin_button)
 /**
  * gtk_spin_button_configure:
  * @spin_button: a #GtkSpinButton
- * @adjustment: (allow-none):  a #GtkAdjustment
+ * @adjustment: (nullable): a #GtkAdjustment to replace the spin button’s
+ *     existing adjustment, or %NULL to leave its current adjustment unchanged
  * @climb_rate: the new climb rate
  * @digits: the number of decimal places to display in the spin button
  *
  * Changes the properties of an existing spin button. The adjustment,
- * climb rate, and number of decimal places are all changed accordingly,
- * after this function call.
+ * climb rate, and number of decimal places are updated accordingly.
  */
 void
 gtk_spin_button_configure (GtkSpinButton *spin_button,
@@ -1976,8 +1979,8 @@ gtk_spin_button_configure (GtkSpinButton *spin_button,
  * gtk_spin_button_new:
  * @adjustment: (allow-none): the #GtkAdjustment object that this spin
  *     button should use, or %NULL
- * @climb_rate: specifies how much the spin button changes when an arrow
- *     is clicked on
+ * @climb_rate: specifies by how much the rate of change in the value will
+ *     accelerate if you continue to hold down an up/down button or arrow key
  * @digits: the number of decimal places to display
  *
  * Creates a new #GtkSpinButton.
@@ -2428,9 +2431,10 @@ gtk_spin_button_set_wrap (GtkSpinButton  *spin_button,
 
   if (priv->wrap != wrap)
     {
-       priv->wrap = wrap;
+      priv->wrap = wrap;
+      g_object_notify (G_OBJECT (spin_button), "wrap");
 
-       g_object_notify (G_OBJECT (spin_button), "wrap");
+      update_node_state (spin_button);
     }
 }
 

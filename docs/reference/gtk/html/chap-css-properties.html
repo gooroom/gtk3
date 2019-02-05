@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GTK+ CSS: GTK+ 3 Reference Manual</title>
+<title>GTK+ CSS Properties: GTK+ 3 Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="theming.html" title="Part IV. Theming in GTK+">
-<link rel="prev" href="chap-css-overview.html" title="GTK+ CSS">
+<link rel="prev" href="chap-css-overview.html" title="GTK+ CSS Overview">
 <link rel="next" href="GtkStyleContext.html" title="GtkStyleContext">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -23,9 +23,9 @@
 <a name="chap-css-properties"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle">GTK+ CSS</span></h2>
-<p>GTK+ CSS — 
-GTK+ CSS Properties
+<h2><span class="refentrytitle">GTK+ CSS Properties</span></h2>
+<p>GTK+ CSS Properties — 
+CSS Properties in GTK+
 </p>
 </td>
 <td class="gallery_image" valign="top" align="right"></td>
@@ -63,11 +63,12 @@ GTK+ CSS Properties
       theme size:
     </p>
 <div class="literallayout"><p><br>
-<code class="code">〈win32 theme size〉 = 〈win32 size〉| 〈win32 part size〉</code><br>
+<code class="code">〈win32 theme size〉 = 〈win32 size〉 | 〈win32 part size〉</code><br>
 <code class="code">〈win32 size〉 = -gtk-win32-size ( 〈theme name〉, 〈metric id〉 )</code><br>
 <code class="code">〈win32 part size〉 = [ -gtk-win32-part-width | -gtk-win32-part-height |</code><br>
-<code class="code">                         -gtk-win32-part-border-top | -gtk-win32-part-border-right |</code><br>
-<code class="code">                         -gtk-win32-part-border-bottom | -gtk-win32-part-border-left ] ( 〈theme name〉 , 〈integer〉 , 〈integer〉 )</code><br>
+<code class="code">                      -gtk-win32-part-border-top | -gtk-win32-part-border-right |</code><br>
+<code class="code">                      -gtk-win32-part-border-bottom | -gtk-win32-part-border-left ]</code><br>
+<code class="code">                    ( 〈theme name〉 , 〈integer〉 , 〈integer〉 )</code><br>
 </p></div>
 <div class="literallayout"><p><code class="code">〈calc expression〉 = calc( 〈calc sum〉 )</code><br>
 <code class="code">〈calc sum〉 = 〈calc product〉 [ [ + | - ] 〈calc product〉 ]*</code><br>
@@ -78,7 +79,7 @@ GTK+ CSS Properties
       The calc() notation adds considerable expressive power. There are limits
       on what types can be combined in such an expression (e.g. it does not make
       sense to add a number and a time). For the full details, see the
-      <a class="ulink" href="http://www.w3.org/TR/css3-values/#calc-notation" target="_top">CSS3 Values and
+      <a class="ulink" href="https://www.w3.org/TR/css3-values/#calc-notation" target="_top">CSS3 Values and
       Units</a> spec.
     </p>
 <p>
@@ -136,24 +137,24 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>color</td>
+<td><span class="nowrap">color</span></td>
 <td><code class="code">〈color〉</code></td>
 <td><code class="code">rgba(1,1,1,1)</code></td>
 <td align="center">✓</td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-color" target="_top">CSS2</a>,
-                    <a class="ulink" href="http://www.w3.org/TR/css3-color/#foreground" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-color" target="_top">CSS2</a>,
+                    <a class="ulink" href="https://www.w3.org/TR/css3-color/#foreground" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>opacity</td>
+<td><span class="nowrap">opacity</span></td>
 <td><code class="code">〈alpha value〉</code></td>
 <td><code class="code">1</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-color/#opacity" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-color/#opacity" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 </tbody>
@@ -188,76 +189,76 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>font‑family</td>
+<td><span class="nowrap">font-family</span></td>
 <td><code class="code">〈family name〉 [ , 〈family name〉 ]*</code></td>
 <td>gtk-font-name setting</td>
 <td align="center">✓</td>
 <td align="center"> </td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/fonts.html#propdef-font-family" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-fonts/#font-family-prop" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/fonts.html#propdef-font-family" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-fonts/#font-family-prop" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>font‑size</td>
+<td><span class="nowrap">font-size</span></td>
 <td><code class="code">〈absolute size〉 | 〈relative size〉 | 〈length〉 | 〈percentage〉</code></td>
 <td>gtk-font-name setting</td>
 <td align="center">✓</td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/fonts.html#font-size-props" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-fonts/#font-size-prop" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/fonts.html#font-size-props" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-fonts/#font-size-prop" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>font‑style</td>
+<td><span class="nowrap">font-style</span></td>
 <td><code class="code">normal | oblique | italic</code></td>
 <td><code class="code">normal</code></td>
 <td align="center">✓</td>
 <td align="center"> </td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/fonts.html#propdef-font-style" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-fonts/#font-style-prop" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/fonts.html#propdef-font-style" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-fonts/#font-style-prop" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>font‑variant</td>
+<td><span class="nowrap">font-variant</span></td>
 <td><code class="code">normal | small-caps</code></td>
 <td><code class="code">normal</code></td>
 <td align="center">✓</td>
 <td align="center"> </td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/fonts.html#propdef-font-variant" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-fonts/#descdef-font-variant" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/fonts.html#propdef-font-variant" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-fonts/#descdef-font-variant" target="_top">CSS3</a>
 </td>
 <td>only CSS2 values supported</td>
 </tr>
 <tr>
-<td>font‑weight</td>
+<td><span class="nowrap">font-weight</span></td>
 <td><code class="code">normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900</code></td>
 <td><code class="code">normal</code></td>
 <td align="center">✓</td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/fonts.html#propdef-font-weight" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-fonts/#font-weight-prop" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/fonts.html#propdef-font-weight" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-fonts/#font-weight-prop" target="_top">CSS3</a>
 </td>
 <td>normal is synonymous with 400, bold with 700</td>
 </tr>
 <tr>
-<td>font‑stretch</td>
+<td><span class="nowrap">font-stretch</span></td>
 <td><code class="code">ultra-condensed | extra-condensed | condensed | semi-condensed | normal | semi-expanded | expanded | extra-expanded | ultra-expanded</code></td>
 <td><code class="code">normal</code></td>
 <td align="center">✓</td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-fonts/#font-stretch-prop" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-fonts/#font-stretch-prop" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>‑gtk‑dpi</td>
+<td><span class="nowrap">-gtk-dpi</span></td>
 <td><code class="code">〈number〉</code></td>
 <td>screen resolution</td>
 <td align="center">✓</td>
@@ -283,12 +284,12 @@ GTK+ CSS Properties
 <th>Notes</th>
 </tr></thead>
 <tbody><tr>
-<td>font</td>
+<td><span class="nowrap">font</span></td>
 <td><code class="code">[ 〈font-style〉 || 〈font-variant〉 || 〈font-weight〉 || 〈font-stretch〉 ]? 〈font-size〉 〈font-family〉</code></td>
 <td>see individual properties</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/fonts.html#font-shorthand" target="_top">CSS2</a>,
-<a class="ulink" href="http://www.w3.org/TR/css3-fonts/#font-prop" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/fonts.html#font-shorthand" target="_top">CSS2</a>,
+<a class="ulink" href="https://www.w3.org/TR/css3-fonts/#font-prop" target="_top">CSS3</a>
 </td>
 <td>CSS allows line-height, etc</td>
 </tr></tbody>
@@ -326,16 +327,16 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>caret-color</td>
+<td><span class="nowrap">caret-color</span></td>
 <td><code class="code">〈color〉</code></td>
 <td><code class="code">currentColor</code></td>
 <td align="center">✓</td>
 <td align="center">✓</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-ui/#caret-color" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-ui/#caret-color" target="_top">CSS3</a></td>
 <td>CSS allows an auto value</td>
 </tr>
 <tr>
-<td>-gtk-secondary-caret-color</td>
+<td><span class="nowrap">-gtk-secondary-caret-color</span></td>
 <td><code class="code">〈color〉</code></td>
 <td><code class="code">currentColor</code></td>
 <td align="center">✓</td>
@@ -374,51 +375,51 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>letter‑spacing</td>
+<td><span class="nowrap">letter-spacing</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center">✓</td>
 <td align="center">✓</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-text/#letter-spacing" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-text/#letter-spacing" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>text‑decoration‑line</td>
+<td><span class="nowrap">text-decoration-line</span></td>
 <td><code class="code">none | underline | line-through</code></td>
 <td><code class="code">none</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/text.html#propdef-text-decoration" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css-text-decor-3/#text-decoration-line-property" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/text.html#propdef-text-decoration" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css-text-decor-3/#text-decoration-line-property" target="_top">CSS3</a>
 </td>
 <td>CSS allows overline</td>
 </tr>
 <tr>
-<td>text‑decoration‑color</td>
+<td><span class="nowrap">text-decoration-color</span></td>
 <td><code class="code">〈color〉</code></td>
 <td><code class="code">currentColor</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css-text-decor-3/#text-decoration-color-property" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css-text-decor-3/#text-decoration-color-property" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>text‑decoration‑style</td>
+<td><span class="nowrap">text-decoration-style</span></td>
 <td><code class="code">solid | double | wavy</code></td>
 <td><code class="code">solid</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css-text-decor-3/#text-decoration-style-property" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css-text-decor-3/#text-decoration-style-property" target="_top">CSS3</a></td>
 <td>CSS allows dashed and dotted</td>
 </tr>
 <tr>
-<td>text‑shadow</td>
+<td><span class="nowrap">text-shadow</span></td>
 <td><code class="code">none | 〈shadow〉</code></td>
 <td><code class="code">none</code></td>
 <td align="center">✓</td>
 <td align="center">✓</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css-text-decor-3/#text-shadow-property" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css-text-decor-3/#text-shadow-property" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 </tbody>
@@ -439,10 +440,10 @@ GTK+ CSS Properties
 <th>Notes</th>
 </tr></thead>
 <tbody><tr>
-<td>text‑decoration</td>
+<td><span class="nowrap">text-decoration</span></td>
 <td><code class="code">〈text-decoration-line〉 || 〈text-decoration-style〉 || 〈text-decoration-color〉</code></td>
 <td>see individual properties</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css-text-decor-3/#text-decoration-property" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css-text-decor-3/#text-decoration-property" target="_top">CSS3</a></td>
 <td> </td>
 </tr></tbody>
 </table>
@@ -477,7 +478,7 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>‑gtk‑icon‑source</td>
+<td><span class="nowrap">-gtk-icon-source</span></td>
 <td><code class="code">builtin | 〈image〉 | none</code></td>
 <td><code class="code">builtin</code></td>
 <td align="center"> </td>
@@ -486,7 +487,7 @@ GTK+ CSS Properties
 <td> </td>
 </tr>
 <tr>
-<td>‑gtk‑icon‑transform</td>
+<td><span class="nowrap">-gtk-icon-transform</span></td>
 <td><code class="code">none | 〈transform〉+</code></td>
 <td><code class="code">none</code></td>
 <td align="center"> </td>
@@ -495,7 +496,7 @@ GTK+ CSS Properties
 <td> </td>
 </tr>
 <tr>
-<td>‑gtk‑icon‑style</td>
+<td><span class="nowrap">-gtk-icon-style</span></td>
 <td><code class="code">requested | regular | symbolic</code></td>
 <td><code class="code">requested</code></td>
 <td align="center">✓</td>
@@ -504,7 +505,7 @@ GTK+ CSS Properties
 <td>Determines the preferred style for application-loaded icons</td>
 </tr>
 <tr>
-<td>‑gtk‑icon‑theme</td>
+<td><span class="nowrap">-gtk-icon-theme</span></td>
 <td><code class="code">〈name〉</code></td>
 <td>current icon theme</td>
 <td align="center">✓</td>
@@ -513,7 +514,7 @@ GTK+ CSS Properties
 <td>The icon theme to use with -gtk-icontheme(). Since 3.20</td>
 </tr>
 <tr>
-<td>‑gtk‑icon‑palette</td>
+<td><span class="nowrap">-gtk-icon-palette</span></td>
 <td><code class="code">〈color palette〉</code></td>
 <td><code class="code">default</code></td>
 <td align="center">✓</td>
@@ -522,7 +523,7 @@ GTK+ CSS Properties
 <td>Used to recolor symbolic icons (both application-loaded and from -gtk-icontheme()). Since 3.20</td>
 </tr>
 <tr>
-<td>‑gtk‑icon‑shadow</td>
+<td><span class="nowrap">-gtk-icon-shadow</span></td>
 <td><code class="code">none | 〈shadow〉</code></td>
 <td><code class="code">none</code></td>
 <td align="center">✓</td>
@@ -531,7 +532,7 @@ GTK+ CSS Properties
 <td> </td>
 </tr>
 <tr>
-<td>‑gtk‑icon‑effect</td>
+<td><span class="nowrap">-gtk-icon-effect</span></td>
 <td><code class="code">none | highlight | dim</code></td>
 <td><code class="code">none</code></td>
 <td align="center">✓</td>
@@ -543,7 +544,7 @@ GTK+ CSS Properties
 </table></div>
 </div>
 <br class="table-break"><div class="literallayout"><p><code class="code">〈transform〉 = matrix( 〈number〉 [ , 〈number〉 ]{5} ) | translate( 〈length〉, 〈length〉 ) | translateX( 〈length〉 ) | translateY( 〈length〉 ) |</code><br>
-<code class="code">                scale( 〈number〉[ , 〈number〉 ]? ) | scaleX( 〈number〉 ) | scaleY( 〈number〉 ) | rotate( 〈angle〉 ) | skew( 〈angle〉 [ , 〈angle〉 ]? ) |</code><br>
+<code class="code">                scale( 〈number〉 [ , 〈number〉 ]? ) | scaleX( 〈number〉 ) | scaleY( 〈number〉 ) | rotate( 〈angle〉 ) | skew( 〈angle〉 [ , 〈angle〉 ]? ) |</code><br>
 <code class="code">                skewX( 〈angle〉 ) |  skewY( 〈angle〉 )</code><br>
 <code class="code">〈color palette〉 = default | 〈name〉 〈color〉 [ , 〈name〉 〈color〉 ]*</code><br>
 </p></div>
@@ -564,7 +565,7 @@ GTK+ CSS Properties
         icons. The recognized names for colors in symbolic icons are error,
         warning and success. The default palette maps these three names to
         symbolic colors with the names @error_color, @warning_color and
-        @error_color.
+        @success_color respectively.
       </p>
 <div class="table">
 <a name="id-1.5.3.3.29"></a><p class="title"><b>Table 7. Box properties</b></p>
@@ -590,122 +591,122 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>min‑width</td>
+<td><span class="nowrap">min-width</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/visudet.html#propdef-min-width" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-box/#min-width" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/visudet.html#propdef-min-width" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-box/#min-width" target="_top">CSS3</a>
 </td>
 <td>CSS allows percentages</td>
 </tr>
 <tr>
-<td>min‑height</td>
+<td><span class="nowrap">min-height</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/visudet.html#propdef-min-height" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-box/#min-height" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/visudet.html#propdef-min-height" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-box/#min-height" target="_top">CSS3</a>
 </td>
 <td>CSS allows percentages</td>
 </tr>
 <tr>
-<td>margin‑top</td>
+<td><span class="nowrap">margin-top</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-margin-top" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-box/#margin-top" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-margin-top" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-box/#margin-top" target="_top">CSS3</a>
 </td>
 <td>CSS allows percentages or auto</td>
 </tr>
 <tr>
-<td>margin‑right</td>
+<td><span class="nowrap">margin-right</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-margin-right" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-box/#margin-right" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-margin-right" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-box/#margin-right" target="_top">CSS3</a>
 </td>
 <td>CSS allows percentages or auto</td>
 </tr>
 <tr>
-<td>margin‑bottom</td>
+<td><span class="nowrap">margin-bottom</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-margin-bottom" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-box/#margin-bottom" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-margin-bottom" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-box/#margin-bottom" target="_top">CSS3</a>
 </td>
 <td>CSS allows percentages or auto</td>
 </tr>
 <tr>
-<td>margin‑left</td>
+<td><span class="nowrap">margin-left</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-margin-left" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-box/#margin-left" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-margin-left" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-box/#margin-left" target="_top">CSS3</a>
 </td>
 <td>CSS allows percentages or auto</td>
 </tr>
 <tr>
-<td>padding‑top</td>
+<td><span class="nowrap">padding-top</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-padding-top" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-box/#padding-top" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-padding-top" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-box/#padding-top" target="_top">CSS3</a>
 </td>
 <td>CSS allows percentages</td>
 </tr>
 <tr>
-<td>padding‑right</td>
+<td><span class="nowrap">padding-right</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-padding-right" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-box/#padding-right" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-padding-right" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-box/#padding-right" target="_top">CSS3</a>
 </td>
 <td>CSS allows percentages</td>
 </tr>
 <tr>
-<td>padding‑bottom</td>
+<td><span class="nowrap">padding-bottom</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-padding-bottom" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-box/#padding-bottom" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-padding-bottom" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-box/#padding-bottom" target="_top">CSS3</a>
 </td>
 <td>CSS allows percentages</td>
 </tr>
 <tr>
-<td>padding‑left</td>
+<td><span class="nowrap">padding-left</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-padding-left" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-box/#padding-left" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-padding-left" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-box/#padding-left" target="_top">CSS3</a>
 </td>
 <td>CSS allows percentages</td>
 </tr>
@@ -728,22 +729,22 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>margin</td>
+<td><span class="nowrap">margin</span></td>
 <td><code class="code">〈length〉{1,4}</code></td>
 <td>see individual properties</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-margin" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-box/#margin" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-margin" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-box/#margin" target="_top">CSS3</a>
 </td>
 <td>a 'four sides' shorthand</td>
 </tr>
 <tr>
-<td>padding</td>
+<td><span class="nowrap">padding</span></td>
 <td><code class="code">〈length〉{1,4}</code></td>
 <td>see individual properties</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-padding" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-box/#padding" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-padding" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-box/#padding" target="_top">CSS3</a>
 </td>
 <td>a 'four sides' shorthand</td>
 </tr>
@@ -775,231 +776,231 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>border‑top‑width</td>
+<td><span class="nowrap">border-top-width</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-top-width" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-width" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-top-width" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-width" target="_top">CSS3</a>
 </td>
 <td>CSS allows other values</td>
 </tr>
 <tr>
-<td>border‑right‑width</td>
+<td><span class="nowrap">border-right-width</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-right-width" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/css3-background/#the-border-width" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-right-width" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/css3-background/#the-border-width" target="_top">CSS3</a>
 </td>
 <td>CSS allows other values</td>
 </tr>
 <tr>
-<td>border‑bottom‑width</td>
+<td><span class="nowrap">border-bottom-width</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-bottom-width" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-width" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-bottom-width" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-width" target="_top">CSS3</a>
 </td>
 <td>CSS allows other values</td>
 </tr>
 <tr>
-<td>border‑right‑width</td>
+<td><span class="nowrap">border-left-width</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-right-width" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-width" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-left-width" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-width" target="_top">CSS3</a>
 </td>
 <td>CSS allows other values</td>
 </tr>
 <tr>
-<td>border‑top‑style</td>
+<td><span class="nowrap">border-top-style</span></td>
 <td><code class="code">〈border style〉</code></td>
 <td><code class="code">none</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-top-style" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-style" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-top-style" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-style" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑right‑style</td>
+<td><span class="nowrap">border-right-style</span></td>
 <td><code class="code">〈border style〉</code></td>
 <td><code class="code">none</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-right-style" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-style" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-right-style" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-style" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑bottom‑style</td>
+<td><span class="nowrap">border-bottom-style</span></td>
 <td><code class="code">〈border style〉</code></td>
 <td><code class="code">none</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-bottom-style" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-style" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-bottom-style" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-style" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑left‑style</td>
+<td><span class="nowrap">border-left-style</span></td>
 <td><code class="code">〈border style〉</code></td>
 <td><code class="code">none</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-left-style" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-style" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-left-style" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-style" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑top‑right‑radius</td>
+<td><span class="nowrap">border-top-right-radius</span></td>
 <td><code class="code">〈corner radius〉</code></td>
 <td><code class="code">0</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-top-right-radius" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-radius" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-top-right-radius" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-radius" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑bottom‑right‑radius</td>
+<td><span class="nowrap">border-bottom-right-radius</span></td>
 <td><code class="code">〈corner radius〉</code></td>
 <td><code class="code">0</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-bottom-right-radius" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-radius" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-bottom-right-radius" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-radius" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑bottom‑left‑radius</td>
+<td><span class="nowrap">border-bottom-left-radius</span></td>
 <td><code class="code">〈corner radius〉</code></td>
 <td><code class="code">0</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-bottom-left-radius" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-radius" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-bottom-left-radius" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-radius" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑top‑left‑radius</td>
+<td><span class="nowrap">border-top-left-radius</span></td>
 <td><code class="code">〈corner radius〉</code></td>
 <td><code class="code">0</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-top-left-radius" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-radius" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-top-left-radius" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-radius" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑top‑color</td>
+<td><span class="nowrap">border-top-color</span></td>
 <td><code class="code">〈color〉</code></td>
 <td><code class="code">currentColor</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-top-color" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-color" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-top-color" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-color" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑right‑color</td>
+<td><span class="nowrap">border-right-color</span></td>
 <td><code class="code">〈color〉</code></td>
 <td><code class="code">currentColor</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-right-color" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-color" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-right-color" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-color" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑bottom‑color</td>
+<td><span class="nowrap">border-bottom-color</span></td>
 <td><code class="code">〈color〉</code></td>
 <td><code class="code">currentColor</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-bottom-color" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-color" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-bottom-color" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-color" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑left‑color</td>
+<td><span class="nowrap">border-left-color</span></td>
 <td><code class="code">〈color〉</code></td>
 <td><code class="code">currentColor</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-left-color" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-color" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-left-color" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-color" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑image‑source</td>
+<td><span class="nowrap">border-image-source</span></td>
 <td><code class="code">〈image〉 | none</code></td>
 <td><code class="code">none</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-image-source" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-image-source" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑image‑repeat</td>
+<td><span class="nowrap">border-image-repeat</span></td>
 <td><code class="code">〈border repeat〉{1,2}</code></td>
 <td><code class="code">stretch</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR//css3-background/#the-border-image-repeat" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR//css3-background/#the-border-image-repeat" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑image‑slice</td>
+<td><span class="nowrap">border-image-slice</span></td>
 <td><code class="code">[ 〈number〉 | 〈percentage〉 ]{1,4} &amp;&amp; fill?</code></td>
 <td><code class="code">100%</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR//css3-background/#the-border-image-slice" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR//css3-background/#the-border-image-slice" target="_top">CSS3</a></td>
 <td>a 'four sides' shorthand</td>
 </tr>
 <tr>
-<td>border‑image‑width</td>
-<td><code class="code">[ 〈length〉 | 〈number〉 | 〈percentage〉 | auto ]{1,4}</code></td>
+<td><span class="nowrap">border-image-width</span></td>
+<td><code class="code">[ 〈length〉 | 〈number〉 | 〈percentage〉 | auto ]{1,4}</code></td>
 <td><code class="code">1</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR//css3-background/#the-border-image-width" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR//css3-background/#the-border-image-width" target="_top">CSS3</a></td>
 <td>a 'four sides' shorthand</td>
 </tr>
 </tbody>
@@ -1021,94 +1022,94 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>border‑width</td>
+<td><span class="nowrap">border-width</span></td>
 <td><code class="code">〈length〉{1,4}</code></td>
 <td>see individual properties</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-width" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-width" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-width" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-width" target="_top">CSS3</a>
 </td>
 <td>a 'four sides' shorthand</td>
 </tr>
 <tr>
-<td>border‑style</td>
+<td><span class="nowrap">border-style</span></td>
 <td><code class="code">〈border style〉{1,4}</code></td>
 <td>see individual properties</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-style" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#the-border-style" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-style" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#the-border-style" target="_top">CSS3</a>
 </td>
 <td>a 'four sides' shorthand</td>
 </tr>
 <tr>
-<td>border‑color</td>
+<td><span class="nowrap">border-color</span></td>
 <td><code class="code">〈color〉{1,4}</code></td>
 <td>see individual properties</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-background/#border-color" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-background/#border-color" target="_top">CSS3</a></td>
 <td>a 'four sides' shorthand</td>
 </tr>
 <tr>
-<td>border‑top</td>
+<td><span class="nowrap">border-top</span></td>
 <td><code class="code">〈length〉 || 〈border style〉 || 〈color〉</code></td>
 <td>see individual properties</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-top" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#border-top" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-top" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#border-top" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑left</td>
+<td><span class="nowrap">border-right</span></td>
 <td><code class="code">〈length〉 || 〈border style〉 || 〈color〉</code></td>
 <td>see individual properties</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-left" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#border-left" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-right" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#border-right" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑bottom</td>
+<td><span class="nowrap">border-bottom</span></td>
 <td><code class="code">〈length〉 || 〈border style〉 || 〈color〉</code></td>
 <td>see individual properties</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-bottom" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#border-bottom" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-bottom" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#border-bottom" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑right</td>
+<td><span class="nowrap">border-left</span></td>
 <td><code class="code">〈length〉 || 〈border style〉 || 〈color〉</code></td>
 <td>see individual properties</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-right" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#border-right" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-left" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#border-left" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border</td>
+<td><span class="nowrap">border</span></td>
 <td><code class="code">〈length〉 || 〈border style〉 || 〈color〉</code></td>
 <td>see individual properties</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-right" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#border" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#propdef-border-right" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#border" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑radius</td>
-<td><code class="code">[ 〈length〉 | 〈percentage〉 ]{1,4} [ / [ 〈length〉 | 〈percentage&gt; ]{1,4} ]?</code></td>
+<td><span class="nowrap">border-radius</span></td>
+<td><code class="code">[ 〈length〉 | 〈percentage〉 ]{1,4} [ / [ 〈length〉 | 〈percentage〉 ]{1,4} ]?</code></td>
 <td>see individual properties</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-background/#border-radius" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-background/#border-radius" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>border‑image</td>
+<td><span class="nowrap">border-image</span></td>
 <td><code class="code">〈border-image-source〉 || 〈border-image-slice〉 [ / 〈border-image-width〉 | / 〈border-image-width〉? / 〈border-image-outset〉 ]? || 〈border-image-repeat〉</code></td>
 <td>see individual properties</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-background/#border-image" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-background/#border-image" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 </tbody>
@@ -1142,52 +1143,52 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>outline‑style</td>
+<td><span class="nowrap">outline-style</span></td>
 <td><code class="code">none | solid | inset | outset | hidden | dotted | dashed | double  | groove | ridge</code></td>
 <td><code class="code">none</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html#propdef-outline-style" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-ui/#outline-style" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html#propdef-outline-style" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-ui/#outline-style" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>outline‑width</td>
+<td><span class="nowrap">outline-width</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html#propdef-outline-width" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-ui/#outline-width" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html#propdef-outline-width" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-ui/#outline-width" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>outline‑color</td>
+<td><span class="nowrap">outline-color</span></td>
 <td><code class="code">〈color〉</code></td>
 <td><code class="code">currentColor</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html#propdef-outline-color" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-ui/#outline-color" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html#propdef-outline-color" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-ui/#outline-color" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>outline‑offset</td>
+<td><span class="nowrap">outline-offset</span></td>
 <td><code class="code">〈length〉</code></td>
 <td><code class="code">0px</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-ui/#outline-offset" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-ui/#outline-offset" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>‑gtk‑outline‑top‑left‑radius</td>
+<td><span class="nowrap">-gtk-outline-top-left-radius</span></td>
 <td><code class="code">〈corner radius〉</code></td>
 <td><code class="code">0</code></td>
 <td align="center"> </td>
@@ -1196,7 +1197,7 @@ GTK+ CSS Properties
 <td> </td>
 </tr>
 <tr>
-<td>‑gtk‑outline‑top‑right‑radius</td>
+<td><span class="nowrap">-gtk-outline-top-right-radius</span></td>
 <td><code class="code">〈corner radius〉</code></td>
 <td><code class="code">0</code></td>
 <td align="center"> </td>
@@ -1205,7 +1206,7 @@ GTK+ CSS Properties
 <td> </td>
 </tr>
 <tr>
-<td>‑gtk‑outline‑bottom‑right‑radius</td>
+<td><span class="nowrap">-gtk-outline-bottom-right-radius</span></td>
 <td><code class="code">〈corner radius〉</code></td>
 <td><code class="code">0</code></td>
 <td align="center"> </td>
@@ -1214,7 +1215,7 @@ GTK+ CSS Properties
 <td> </td>
 </tr>
 <tr>
-<td>‑gtk‑outline‑bottom‑left‑radius</td>
+<td><span class="nowrap">-gtk-outline-bottom-left-radius</span></td>
 <td><code class="code">〈corner radius〉</code></td>
 <td><code class="code">0</code></td>
 <td align="center"> </td>
@@ -1241,18 +1242,18 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>outline</td>
+<td><span class="nowrap">outline</span></td>
 <td><code class="code">〈outline-color〉 || 〈outline-style〉 || 〈outline-width〉</code></td>
 <td>see individual properties</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html#propdef-outline" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-ui/#propdef-outline" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html#propdef-outline" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-ui/#propdef-outline" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>‑gtk‑outline‑radius</td>
-<td><code class="code">[ 〈length〉|〈percentage〉 ]{1,4} [ / [〈length〉 | 〈percentage&gt; ]{1,4} ]?</code></td>
+<td><span class="nowrap">-gtk-outline-radius</span></td>
+<td><code class="code">[ 〈length〉 | 〈percentage〉 ]{1,4} [ / [ 〈length〉 | 〈percentage〉 ]{1,4} ]?</code></td>
 <td>see individual properties</td>
 <td> </td>
 <td> </td>
@@ -1288,83 +1289,83 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>background‑color</td>
+<td><span class="nowrap">background-color</span></td>
 <td><code class="code">〈color〉</code></td>
 <td><code class="code">rgba(0,0,0,0)</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-color" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#background-color" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-color" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#background-color" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>background‑clip</td>
+<td><span class="nowrap">background-clip</span></td>
 <td><code class="code">〈box〉 [ , 〈box〉 ]*</code></td>
 <td><code class="code">border-box</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-background/#background-clip" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-background/#background-clip" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>background‑origin</td>
+<td><span class="nowrap">background-origin</span></td>
 <td><code class="code">〈box〉 [ , 〈box〉 ]*</code></td>
 <td><code class="code">padding-box</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-background/#background-origin" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-background/#background-origin" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>background‑size</td>
+<td><span class="nowrap">background-size</span></td>
 <td><code class="code">〈bg-size〉 [ , 〈bg-size〉 ]*</code></td>
 <td><code class="code">auto</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-background/#background-size" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-background/#background-size" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>background‑position</td>
-<td><code class="code">〈position〉 [ , 〈position〉 ]*</code></td>
+<td><span class="nowrap">background-position</span></td>
+<td><code class="code">〈position〉 [ , 〈position〉 ]*</code></td>
 <td><code class="code">0</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-position" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#background-position" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-position" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#background-position" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>background‑repeat</td>
-<td><code class="code">〈bg-repeat 〉[ , 〈bg-repeat〉 ]*</code></td>
+<td><span class="nowrap">background-repeat</span></td>
+<td><code class="code">〈bg-repeat〉 [ , 〈bg-repeat〉 ]*</code></td>
 <td><code class="code">repeat</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-repeat" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#background-repeat" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-repeat" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#background-repeat" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr>
 <tr>
-<td>background‑image</td>
-<td><code class="code">〈bg-image〉[ , 〈bg-image〉 ]*</code></td>
+<td><span class="nowrap">background-image</span></td>
+<td><code class="code">〈bg-image〉 [ , 〈bg-image〉 ]*</code></td>
 <td><code class="code">none</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-image" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#background-image" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-image" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#background-image" target="_top">CSS3</a>
 </td>
 <td>not supported: urls without quotes, CSS radial gradients, colors in crossfades</td>
 </tr>
 <tr>
-<td>background-blend-mode</td>
-<td><code class="code">〈blend-mode〉 [ , 〈blend-mode〉 ]*</code></td>
+<td><span class="nowrap">background-blend-mode</span></td>
+<td><code class="code">〈blend-mode〉 [ , 〈blend-mode〉 ]*</code></td>
 <td><code class="code">normal</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
@@ -1372,12 +1373,12 @@ GTK+ CSS Properties
 <td>only affects multiple backgrounds</td>
 </tr>
 <tr>
-<td>box‑shadow</td>
-<td><code class="code">none | 〈box shadow〉 [ , 〈box shadow〉 ]*</code></td>
+<td><span class="nowrap">box-shadow</span></td>
+<td><code class="code">none | 〈box shadow〉 [ , 〈box shadow〉 ]*</code></td>
 <td><code class="code">none</code></td>
 <td align="center"> </td>
 <td align="center">✓</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-background/#box-shadow" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-background/#box-shadow" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 </tbody>
@@ -1398,12 +1399,12 @@ GTK+ CSS Properties
 <th>Notes</th>
 </tr></thead>
 <tbody><tr>
-<td><p>background</p></td>
+<td>background</td>
 <td><code class="code">[ 〈bg-layer〉 , ]* 〈final-bg-layer〉</code></td>
 <td>see individual properties</td>
 <td>
-<a class="ulink" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background" target="_top">CSS2</a>,
-                     <a class="ulink" href="http://www.w3.org/TR/css3-background/#background" target="_top">CSS3</a>
+<a class="ulink" href="https://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background" target="_top">CSS2</a>,
+                     <a class="ulink" href="https://www.w3.org/TR/css3-background/#background" target="_top">CSS3</a>
 </td>
 <td> </td>
 </tr></tbody>
@@ -1416,8 +1417,10 @@ GTK+ CSS Properties
 <code class="code">〈bg-repeat〉 = repeat-x | repeat-y | [ no-repeat | repeat | round | space ]{1,2}</code><br>
 <code class="code">〈bg-image〉 = 〈image〉 | none</code><br>
 <code class="code">〈bg-layer〉 = 〈bg-image〉 || 〈position〉 [ / 〈bg-size〉 ]? || 〈bg-repeat〉 || 〈box〉 || 〈box〉</code><br>
-<code class="code">〈final-bg-layer〉 = 〈bg-image〉 || 〈position〉 [ / 〈bg-size〉 ]? || 〈bg-repeat〉 || 〈box〉 || 〈box〉|| 〈color〉</code><br>
-<code class="code">〈blend-mode〉 = color || color-burn || color-dodge || darken || difference || exclusion || hard-light || hue || lighten || luminosity || multiply || normal || overlay || saturate || screen || soft-light</code><br>
+<code class="code">〈final-bg-layer〉 = 〈bg-image〉 || 〈position〉 [ / 〈bg-size〉 ]? || 〈bg-repeat〉 || 〈box〉 || 〈box〉 || 〈color〉</code><br>
+<code class="code">〈blend-mode〉 = color || color-burn || color-dodge || darken || difference || exclusion ||</code><br>
+<code class="code">               hard-light || hue || lighten || luminosity || multiply || normal || overlay ||</code><br>
+<code class="code">               saturate || screen || soft-light</code><br>
 <code class="code">〈box shadow〉 = inset? &amp;&amp; 〈length〉{2,4}? &amp;&amp; 〈color〉?</code><br>
 </p></div>
 <p>
@@ -1451,39 +1454,39 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>transition‑property</td>
+<td><span class="nowrap">transition-property</span></td>
 <td><code class="code">none | all | 〈property name〉 [ , 〈property name〉 ]*</code></td>
 <td><code class="code">all</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-transitions/#transition-property" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-transitions/#transition-property" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>transition‑duration</td>
+<td><span class="nowrap">transition-duration</span></td>
 <td><code class="code">〈time〉 [ , 〈time〉 ]*</code></td>
 <td><code class="code">0s</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-transitions/#transition-duration" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-transitions/#transition-duration" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>transition‑timing‑function</td>
-<td><code class="code">〈single‑timing‑function〉[ , 〈single‑timing‑function〉 ]*</code></td>
+<td><span class="nowrap">transition-timing-function</span></td>
+<td><code class="code">〈single-timing-function〉 [ , 〈single-timing-function〉 ]*</code></td>
 <td><code class="code">ease</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-transitions/#transition-timing-function" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-transitions/#transition-timing-function" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>transition‑delay</td>
+<td><span class="nowrap">transition-delay</span></td>
 <td><code class="code">〈time〉 [ , 〈time〉 ]*</code></td>
 <td><code class="code">0s</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-transitions/#transition-delay" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-transitions/#transition-delay" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 </tbody>
@@ -1504,18 +1507,18 @@ GTK+ CSS Properties
 <th>Notes</th>
 </tr></thead>
 <tbody><tr>
-<td>transition</td>
+<td><span class="nowrap">transition</span></td>
 <td><code class="code">〈single-transition〉 [ , 〈single-transition〉 ]*</code></td>
 <td>see individual properties</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-transitions/#transition" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-transitions/#transition" target="_top">CSS3</a></td>
 <td> </td>
 </tr></tbody>
 </table>
 </div>
 </div>
 <br class="table-break"><div class="literallayout"><p><code class="code">〈single-timing-function〉 = ease | linear | ease-in | ease-out | ease-in-out |</code><br>
-<code class="code">                             step-start | step-end | steps( 〈integer〉 [ , [ start | end ] ]? ) |</code><br>
-<code class="code">                             cubic-bezier( 〈number〉, 〈number〉, 〈number〉, 〈number〉 )</code><br>
+<code class="code">                           step-start | step-end | steps( 〈integer〉 [ , [ start | end ] ]? ) |</code><br>
+<code class="code">                           cubic-bezier( 〈number〉, 〈number〉, 〈number〉, 〈number〉 )</code><br>
 <code class="code">〈single-transition〉 = [ none | 〈property name〉 ] || 〈time〉 || 〈single-transition-timing-function〉 || 〈time〉</code><br>
 </p></div>
 <div class="table">
@@ -1542,75 +1545,75 @@ GTK+ CSS Properties
 </tr></thead>
 <tbody>
 <tr>
-<td>animation‑name</td>
+<td><span class="nowrap">animation-name</span></td>
 <td><code class="code">〈single-animation-name〉 [ , 〈single-animation-name〉 ]*</code></td>
 <td><code class="code">none</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-animations/#animation-name" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-animations/#animation-name" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>animation‑duration</td>
+<td><span class="nowrap">animation-duration</span></td>
 <td><code class="code">〈time〉 [ , 〈time〉 ]*</code></td>
 <td><code class="code">0s</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-animations/#animation-duration" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-animations/#animation-duration" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>animation‑timing‑function</td>
-<td><code class="code">〈single‑timing‑function〉 [ , 〈single‑timing‑function〉 ]*</code></td>
+<td><span class="nowrap">animation-timing-function</span></td>
+<td><code class="code">〈single-timing-function〉 [ , 〈single-timing-function〉 ]*</code></td>
 <td><code class="code">ease</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-animations/#animation-timing-function" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-animations/#animation-timing-function" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>animation‑iteration-count</td>
-<td><code class="code">〈single‑animation‑iteration‑count〉 [ , 〈single‑animation‑iteration‑count〉 ]*</code></td>
+<td><span class="nowrap">animation-iteration-count</span></td>
+<td><code class="code">〈single-animation-iteration-count〉 [ , 〈single-animation-iteration-count〉 ]*</code></td>
 <td><code class="code">1</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-animations/#animation-iteration-count" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-animations/#animation-iteration-count" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>animation‑direction</td>
-<td><code class="code">〈single‑animation‑direction〉 [ , 〈single‑animation‑direction〉 ]*</code></td>
+<td><span class="nowrap">animation-direction</span></td>
+<td><code class="code">〈single-animation-direction〉 [ , 〈single-animation-direction〉 ]*</code></td>
 <td><code class="code">normal</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-animations/#animation-direction" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-animations/#animation-direction" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>animation‑play‑state</td>
-<td><code class="code">〈single‑animation‑play‑state〉 [ , 〈single‑animation‑play‑state〉 ]*</code></td>
+<td><span class="nowrap">animation-play-state</span></td>
+<td><code class="code">〈single-animation-play-state〉 [ , 〈single-animation-play-state〉 ]*</code></td>
 <td><code class="code">running</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-animations/#animation-play-state" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-animations/#animation-play-state" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>animation‑delay</td>
+<td><span class="nowrap">animation-delay</span></td>
 <td><code class="code">〈time〉 [ , 〈time〉 ]*</code></td>
 <td><code class="code">0s</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-animations/#animation-delay" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-animations/#animation-delay" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 <tr>
-<td>animation‑fill‑mode</td>
-<td><code class="code">〈single‑animation‑fill‑mode〉 [ , 〈single‑animation‑fill‑mode〉 ]*</code></td>
+<td><span class="nowrap">animation-fill-mode</span></td>
+<td><code class="code">〈single-animation-fill-mode〉 [ , 〈single-animation-fill-mode〉 ]*</code></td>
 <td><code class="code">none</code></td>
 <td align="center"> </td>
 <td align="center"> </td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-animations/#animation-fill-mode" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-animations/#animation-fill-mode" target="_top">CSS3</a></td>
 <td> </td>
 </tr>
 </tbody>
@@ -1631,10 +1634,10 @@ GTK+ CSS Properties
 <th>Notes</th>
 </tr></thead>
 <tbody><tr>
-<td>animation</td>
-<td><code class="code">〈single‑animation〉 [ , 〈single‑animation〉]*</code></td>
+<td><span class="nowrap">animation</span></td>
+<td><code class="code">〈single-animation〉 [ , 〈single-animation〉 ]*</code></td>
 <td>see individual properties</td>
-<td><a class="ulink" href="http://www.w3.org/TR/css3-animations/#animation" target="_top">CSS3</a></td>
+<td><a class="ulink" href="https://www.w3.org/TR/css3-animations/#animation" target="_top">CSS3</a></td>
 <td> </td>
 </tr></tbody>
 </table>
@@ -1646,7 +1649,8 @@ GTK+ CSS Properties
 <code class="code">〈single-animation-play-state〉 = running | paused</code><br>
 <code class="code">〈single-animation-fill-mode〉 = none | forwards | backwards | both</code><br>
 <code class="code">〈single-animation〉 = 〈single-animation-name〉 || 〈time〉 || 〈single-timing-function〉 || 〈time〉 ||</code><br>
-<code class="code">                       〈single-animation-iteration-count〉 || 〈single-animation-direction〉 || 〈single-animation-play-state〉 || 〈single-animation-fill-mode〉</code><br>
+<code class="code">                     〈single-animation-iteration-count〉 || 〈single-animation-direction〉 ||</code><br>
+<code class="code">                     〈single-animation-play-state〉 || 〈single-animation-fill-mode〉</code><br>
 </p></div>
 <div class="table">
 <a name="id-1.5.3.3.42"></a><p class="title"><b>Table 13. Key binding properties</b></p>
@@ -1670,7 +1674,7 @@ GTK+ CSS Properties
 <th>Notes</th>
 </tr></thead>
 <tbody><tr>
-<td>‑gtk‑key‑bindings</td>
+<td><span class="nowrap">-gtk-key-bindings</span></td>
 <td><code class="code">none | 〈binding name〉 [ , 〈binding name〉 ]*</code></td>
 <td><code class="code">none</code></td>
 <td align="center"> </td>
@@ -1686,6 +1690,6 @@ GTK+ CSS Properties
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

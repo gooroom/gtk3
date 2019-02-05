@@ -8,7 +8,7 @@
 <link rel="up" href="Printing.html" title="Printing">
 <link rel="prev" href="GtkPrintSettings.html" title="GtkPrintSettings">
 <link rel="next" href="GtkPaperSize.html" title="GtkPaperSize">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -280,7 +280,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkPageSetup.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -327,25 +327,25 @@ and receive the resulting page setup.</p>
 17
 18
 19</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static</span> GtkPrintSettings <span class="gtkdoc opt">*</span>settings <span class="gtkdoc opt">=</span> NULL<span class="gtkdoc opt">;</span>
-<span class="gtkdoc kwb">static</span> GtkPageSetup <span class="gtkdoc opt">*</span>page_setup <span class="gtkdoc opt">=</span> NULL<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="usertype">GtkPrintSettings</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">settings </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
+<span class="keyword">static</span><span class="normal"> </span><span class="usertype">GtkPageSetup</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">page_setup </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
 
-<span class="gtkdoc kwb">static void</span>
-<span class="function">do_page_setup</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwb">void</span><span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkPageSetup <span class="gtkdoc opt">*</span>new_page_setup<span class="gtkdoc opt">;</span>
+<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">do_page_setup</span><span class="normal"> </span><span class="symbol">(</span><span class="type">void</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkPageSetup</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">new_page_setup</span><span class="symbol">;</span>
 
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>settings <span class="gtkdoc opt">==</span> NULL<span class="gtkdoc opt">)</span>
-    settings <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkPrintSettings.html#gtk-print-settings-new">gtk_print_settings_new</a></span> <span class="gtkdoc opt">();</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">settings </span><span class="symbol">==</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
+<span class="normal">    settings </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkPrintSettings.html#gtk-print-settings-new">gtk_print_settings_new</a></span><span class="normal"> </span><span class="symbol">();</span>
 
-  new_page_setup <span class="gtkdoc opt">=</span> <span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-run-page-setup-dialog">gtk_print_run_page_setup_dialog</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_WINDOW</span> <span class="gtkdoc opt">(</span>main_window<span class="gtkdoc opt">),</span>
-                                                    page_setup<span class="gtkdoc opt">,</span> settings<span class="gtkdoc opt">);</span>
+<span class="normal">  new_page_setup </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-run-page-setup-dialog">gtk_print_run_page_setup_dialog</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WINDOW</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">main_window</span><span class="symbol">),</span>
+<span class="normal">                                                    page_setup</span><span class="symbol">,</span><span class="normal"> settings</span><span class="symbol">);</span>
 
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>page_setup<span class="gtkdoc opt">)</span>
-    <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>page_setup<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">page_setup</span><span class="symbol">)</span>
+<span class="normal">    </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">page_setup</span><span class="symbol">);</span>
 
-  page_setup <span class="gtkdoc opt">=</span> new_page_setup<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  page_setup </span><span class="symbol">=</span><span class="normal"> new_page_setup</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -391,7 +391,7 @@ gtk_page_setup_copy (<em class="parameter"><code><a class="link" href="GtkPageSe
 </div>
 <div class="refsect3">
 <a name="gtk-page-setup-copy.returns"></a><h4>Returns</h4>
-<p> a copy of <em class="parameter"><code>other</code></em>
+<p>a copy of <em class="parameter"><code>other</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -478,7 +478,7 @@ gtk_page_setup_get_paper_size (<em class="parameter"><code><a class="link" href=
 </div>
 <div class="refsect3">
 <a name="gtk-page-setup-get-paper-size.returns"></a><h4>Returns</h4>
-<p> the paper size. </p>
+<p>the paper size. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.10</p>
@@ -1026,12 +1026,12 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <tbody>
 <tr>
 <td class="parameter_name"><p>file_name</p></td>
-<td class="parameter_description"><p> the filename to read the page setup from. </p></td>
+<td class="parameter_description"><p>the filename to read the page setup from. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1071,13 +1071,13 @@ page setup, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-
 </tr>
 <tr>
 <td class="parameter_name"><p>group_name</p></td>
-<td class="parameter_description"><p> the name of the group in the key_file to read, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td class="parameter_description"><p>the name of the group in the key_file to read, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 to use the default name “Page Setup”. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1113,7 +1113,7 @@ the format produced by <a class="link" href="GtkPageSetup.html#gtk-page-setup-to
 </div>
 <div class="refsect3">
 <a name="gtk-page-setup-new-from-gvariant.returns"></a><h4>Returns</h4>
-<p> a new <a class="link" href="GtkPageSetup.html" title="GtkPageSetup"><span class="type">GtkPageSetup</span></a> object. </p>
+<p>a new <a class="link" href="GtkPageSetup.html" title="GtkPageSetup"><span class="type">GtkPageSetup</span></a> object. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
@@ -1144,12 +1144,12 @@ See <a class="link" href="GtkPageSetup.html#gtk-page-setup-to-file" title="gtk_p
 </tr>
 <tr>
 <td class="parameter_name"><p>file_name</p></td>
-<td class="parameter_description"><p> the filename to read the page setup from. </p></td>
+<td class="parameter_description"><p>the filename to read the page setup from. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1194,13 +1194,13 @@ gtk_page_setup_load_key_file (<em class="parameter"><code><a class="link" href="
 </tr>
 <tr>
 <td class="parameter_name"><p>group_name</p></td>
-<td class="parameter_description"><p> the name of the group in the key_file to read, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td class="parameter_description"><p>the name of the group in the key_file to read, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 to use the default name “Page Setup”. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for an error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1238,12 +1238,12 @@ gtk_page_setup_to_file (<em class="parameter"><code><a class="link" href="GtkPag
 </tr>
 <tr>
 <td class="parameter_name"><p>file_name</p></td>
-<td class="parameter_description"><p> the file to save to. </p></td>
+<td class="parameter_description"><p>the file to save to. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for errors, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for errors, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1288,8 +1288,8 @@ gtk_page_setup_to_key_file (<em class="parameter"><code><a class="link" href="Gt
 <td class="parameter_name"><p>group_name</p></td>
 <td class="parameter_description"><p>the group to add the settings to in <em class="parameter"><code>key_file</code></em>
 ,
-or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default name “Page Setup”</p></td>
-<td class="parameter_annotations"> </td>
+or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default name “Page Setup”. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -1330,6 +1330,6 @@ gtk_page_setup_to_gvariant (<em class="parameter"><code><a class="link" href="Gt
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

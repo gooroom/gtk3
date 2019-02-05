@@ -8,7 +8,7 @@
 <link rel="up" href="AbstractObjects.html" title="Abstract Base Classes">
 <link rel="prev" href="GtkIMContext.html" title="GtkIMContext">
 <link rel="next" href="PlugSocket.html" title="Cross-process Embedding">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -396,7 +396,7 @@ gtk_native_dialog_get_title (<em class="parameter"><code><span class="type">GtkN
 </div>
 <div class="refsect3">
 <a name="gtk-native-dialog-get-title.returns"></a><h4>Returns</h4>
-<p> the title of the dialog, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none has
+<p>the title of the dialog, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none has
 been set explicitly. The returned string is owned by the widget
 and must not be modified or freed. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
@@ -432,7 +432,7 @@ main window.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p> parent window, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>parent window, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -464,7 +464,7 @@ gtk_native_dialog_get_transient_for (<em class="parameter"><code><span class="ty
 </div>
 <div class="refsect3">
 <a name="gtk-native-dialog-get-transient-for.returns"></a><h4>Returns</h4>
-<p> the transient parent for this window,
+<p>the transient parent for this window,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no transient parent has been set. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -498,17 +498,17 @@ calls <a class="link" href="gtk3-GtkNativeDialog.html#gtk-native-dialog-show" ti
 9
 10
 11</pre></td>
-        <td class="listing_code"><pre class="programlisting">gint result <span class="gtkdoc opt">=</span> <span class="function"><a href="gtk3-GtkNativeDialog.html#gtk-native-dialog-run">gtk_native_dialog_run</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_NATIVE_DIALOG</span> <span class="gtkdoc opt">(</span>dialog<span class="gtkdoc opt">));</span>
-<span class="keyword">switch</span> <span class="gtkdoc opt">(</span>result<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-    <span class="keyword">case</span> GTK_RESPONSE_ACCEPT<span class="gtkdoc opt">:</span>
-       <span class="function">do_application_specific_something</span> <span class="gtkdoc opt">();</span>
-       <span class="keyword">break</span><span class="gtkdoc opt">;</span>
-    <span class="keyword">default</span><span class="gtkdoc opt">:</span>
-       <span class="function">do_nothing_since_dialog_was_cancelled</span> <span class="gtkdoc opt">();</span>
-       <span class="keyword">break</span><span class="gtkdoc opt">;</span>
-  <span class="gtkdoc opt">}</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>dialog<span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">gint</span><span class="normal"> result </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gtk3-GtkNativeDialog.html#gtk-native-dialog-run">gtk_native_dialog_run</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_NATIVE_DIALOG</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">));</span>
+<span class="keyword">switch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">result</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="keyword">case</span><span class="normal"> <a href="GtkDialog.html#GTK-RESPONSE-ACCEPT:CAPS">GTK_RESPONSE_ACCEPT</a></span><span class="symbol">:</span>
+<span class="normal">       </span><span class="function">do_application_specific_something</span><span class="normal"> </span><span class="symbol">();</span>
+<span class="normal">       </span><span class="keyword">break</span><span class="symbol">;</span>
+<span class="label">    default:</span>
+<span class="normal">       </span><span class="function">do_nothing_since_dialog_was_cancelled</span><span class="normal"> </span><span class="symbol">();</span>
+<span class="normal">       </span><span class="keyword">break</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="cbracket">}</span>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -566,6 +566,6 @@ be triggered during a <code class="function">gtk_nautilus_dialog_run()</code> ca
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

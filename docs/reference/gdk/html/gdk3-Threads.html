@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Properties-and-Atoms.html" title="Properties and Atoms">
 <link rel="next" href="gdk3-Pango-Interaction.html" title="Pango Interaction">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -144,7 +144,7 @@ locked), but individual data structure instances are not automatically
 locked for performance reasons. So e.g. you must coordinate
 accesses to the same <a href="https://developer.gnome.org/glib/unstable/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a> from multiple threads.</p>
 <p>GTK+, however, is not thread safe. You should only use GTK+ and GDK
-from the thread <a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-init"><code class="function">gtk_init()</code></a> and <a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-main"><code class="function">gtk_main()</code></a> were called on.
+from the thread <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a> and <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-main"><code class="function">gtk_main()</code></a> were called on.
 This is usually referred to as the “main thread”.</p>
 <p>Signals on GTK+ and GDK types, as well as non-signal callbacks, are
 emitted in the main thread.</p>
@@ -173,25 +173,25 @@ by using <a class="link" href="gdk3-Threads.html#gdk-threads-add-idle" title="gd
 17
 18
 19</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">worker_thread</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwb">void</span><span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  ExpensiveData <span class="gtkdoc opt">*</span>expensive_data <span class="gtkdoc opt">=</span> <span class="function">do_expensive_computation</span> <span class="gtkdoc opt">();</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">worker_thread</span><span class="normal"> </span><span class="symbol">(</span><span class="type">void</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">ExpensiveData</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">expensive_data </span><span class="symbol">=</span><span class="normal"> </span><span class="function">do_expensive_computation</span><span class="normal"> </span><span class="symbol">();</span>
 
-  <span class="function"><a href="gdk3-Threads.html#gdk-threads-add-idle">gdk_threads_add_idle</a></span> <span class="gtkdoc opt">(</span>got_value<span class="gtkdoc opt">,</span> expensive_data<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">  </span><span class="function"><a href="gdk3-Threads.html#gdk-threads-add-idle">gdk_threads_add_idle</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">got_value</span><span class="symbol">,</span><span class="normal"> expensive_data</span><span class="symbol">);</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc kwb">static</span> gboolean
-<span class="function">got_value</span> <span class="gtkdoc opt">(</span>gpointer user_data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  ExpensiveData <span class="gtkdoc opt">*</span>expensive_data <span class="gtkdoc opt">=</span> user_data<span class="gtkdoc opt">;</span>
+<span class="keyword">static</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean">gboolean</a></span>
+<span class="function">got_value</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">gpointer</span><span class="normal"> user_data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">ExpensiveData</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">expensive_data </span><span class="symbol">=</span><span class="normal"> user_data</span><span class="symbol">;</span>
 
-  my_app<span class="gtkdoc opt">-&gt;</span>expensive_data <span class="gtkdoc opt">=</span> expensive_data<span class="gtkdoc opt">;</span>
-  <span class="function">gtk_button_set_sensitive</span> <span class="gtkdoc opt">(</span>my_app<span class="gtkdoc opt">-&gt;</span>button<span class="gtkdoc opt">,</span> TRUE<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="http://developer.gnome.org/gtk4/GtkButton.html#gtk-button-set-label">gtk_button_set_label</a></span> <span class="gtkdoc opt">(</span>my_app<span class="gtkdoc opt">-&gt;</span>button<span class="gtkdoc opt">,</span> expensive_data<span class="gtkdoc opt">-&gt;</span>result_label<span class="gtkdoc opt">);</span>
+<span class="normal">  my_app</span><span class="symbol">-&gt;</span><span class="normal">expensive_data </span><span class="symbol">=</span><span class="normal"> expensive_data</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="function">gtk_button_set_sensitive</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">my_app</span><span class="symbol">-&gt;</span><span class="normal">button</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gtk3/GtkButton.html#gtk-button-set-label">gtk_button_set_label</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">my_app</span><span class="symbol">-&gt;</span><span class="normal">button</span><span class="symbol">,</span><span class="normal"> expensive_data</span><span class="symbol">-&gt;</span><span class="normal">result_label</span><span class="symbol">);</span>
 
-  <span class="keyword">return</span> G_SOURCE_REMOVE<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#G-SOURCE-REMOVE:CAPS">G_SOURCE_REMOVE</a></span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -205,7 +205,7 @@ If you are sure that none of the code in your application and libraries
 use the deprecated <a class="link" href="gdk3-Threads.html#gdk-threads-enter" title="gdk_threads_enter ()"><code class="function">gdk_threads_enter()</code></a> or <a class="link" href="gdk3-Threads.html#gdk-threads-leave" title="gdk_threads_leave ()"><code class="function">gdk_threads_leave()</code></a> methods,
 then you can safely use <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-idle-add"><code class="function">g_idle_add()</code></a> and <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-timeout-add"><code class="function">g_timeout_add()</code></a>.</p>
 <p>For more information on this "worker thread" pattern, you should
-also look at <a href="https://developer.gnome.org/gio/unstable/GTask.html#GTask-struct"><span class="type">GTask</span></a>, which gives you high-level tools to perform
+also look at <span class="type">GTask</span>, which gives you high-level tools to perform
 expensive tasks from worker threads, and will handle thread
 management for you.</p>
 </div>
@@ -252,7 +252,7 @@ gdk_threads_init (<em class="parameter"><code><span class="type">void</span></co
 <p>Initializes GDK so that it can be used from multiple threads
 in conjunction with <a class="link" href="gdk3-Threads.html#gdk-threads-enter" title="gdk_threads_enter ()"><code class="function">gdk_threads_enter()</code></a> and <a class="link" href="gdk3-Threads.html#gdk-threads-leave" title="gdk_threads_leave ()"><code class="function">gdk_threads_leave()</code></a>.</p>
 <p>This call must be made before any use of the main loop from
-GTK+; to be safe, call it before <a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-init"><code class="function">gtk_init()</code></a>.</p>
+GTK+; to be safe, call it before <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a>.</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -426,35 +426,35 @@ in thread B:</p>
 27
 28
 29</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static</span> gboolean
-<span class="function">idle_callback</span> <span class="gtkdoc opt">(</span>gpointer data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-   <span class="gtkdoc slc">// gdk_threads_enter(); would be needed for g_idle_add()</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean">gboolean</a></span>
+<span class="function">idle_callback</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">gpointer</span><span class="normal"> data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">   </span><span class="comment">// gdk_threads_enter(); would be needed for g_idle_add()</span>
 
-   SomeWidget <span class="gtkdoc opt">*</span>self <span class="gtkdoc opt">=</span> data<span class="gtkdoc opt">;</span>
-   <span class="gtkdoc slc">// do stuff with self</span>
+<span class="normal">   </span><span class="usertype">SomeWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self </span><span class="symbol">=</span><span class="normal"> data</span><span class="symbol">;</span>
+<span class="normal">   </span><span class="comment">// do stuff with self</span>
 
-   self<span class="gtkdoc opt">-&gt;</span>idle_id <span class="gtkdoc opt">=</span> <span class="number">0</span><span class="gtkdoc opt">;</span>
+<span class="normal">   self</span><span class="symbol">-&gt;</span><span class="normal">idle_id </span><span class="symbol">=</span><span class="normal"> </span><span class="number">0</span><span class="symbol">;</span>
 
-   <span class="gtkdoc slc">// gdk_threads_leave(); would be needed for g_idle_add()</span>
-   <span class="keyword">return</span> FALSE<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">   </span><span class="comment">// gdk_threads_leave(); would be needed for g_idle_add()</span>
+<span class="normal">   </span><span class="keyword">return</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">;</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc kwb">static void</span>
-<span class="function">some_widget_do_stuff_later</span> <span class="gtkdoc opt">(</span>SomeWidget <span class="gtkdoc opt">*</span>self<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-   self<span class="gtkdoc opt">-&gt;</span>idle_id <span class="gtkdoc opt">=</span> <span class="function"><a href="gdk3-Threads.html#gdk-threads-add-idle">gdk_threads_add_idle</a></span> <span class="gtkdoc opt">(</span>idle_callback<span class="gtkdoc opt">,</span> self<span class="gtkdoc opt">)</span>
-   <span class="gtkdoc slc">// using g_idle_add() here would require thread protection in the callback</span>
-<span class="gtkdoc opt">}</span>
+<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">some_widget_do_stuff_later</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">SomeWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">   self</span><span class="symbol">-&gt;</span><span class="normal">idle_id </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gdk3-Threads.html#gdk-threads-add-idle">gdk_threads_add_idle</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">idle_callback</span><span class="symbol">,</span><span class="normal"> self</span><span class="symbol">)</span>
+<span class="normal">   </span><span class="comment">// using g_idle_add() here would require thread protection in the callback</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc kwb">static void</span>
-<span class="function">some_widget_finalize</span> <span class="gtkdoc opt">(</span>GObject <span class="gtkdoc opt">*</span>object<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-   SomeWidget <span class="gtkdoc opt">*</span>self <span class="gtkdoc opt">=</span> <span class="function">SOME_WIDGET</span> <span class="gtkdoc opt">(</span>object<span class="gtkdoc opt">);</span>
-   <span class="keyword">if</span> <span class="gtkdoc opt">(</span>self<span class="gtkdoc opt">-&gt;</span>idle_id<span class="gtkdoc opt">)</span>
-     <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-source-remove">g_source_remove</a></span> <span class="gtkdoc opt">(</span>self<span class="gtkdoc opt">-&gt;</span>idle_id<span class="gtkdoc opt">);</span>
-   <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT-CLASS:CAPS">G_OBJECT_CLASS</a></span> <span class="gtkdoc opt">(</span>parent_class<span class="gtkdoc opt">)-&gt;</span><span class="function">finalize</span> <span class="gtkdoc opt">(</span>object<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">some_widget_finalize</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GObject</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">object</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">   </span><span class="usertype">SomeWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self </span><span class="symbol">=</span><span class="normal"> </span><span class="function">SOME_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
+<span class="normal">   </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">idle_id</span><span class="symbol">)</span>
+<span class="normal">     </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-source-remove">g_source_remove</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">idle_id</span><span class="symbol">);</span>
+<span class="normal">   </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT-CLASS:CAPS">G_OBJECT_CLASS</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">parent_class</span><span class="symbol">)-&gt;</span><span class="function">finalize</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -490,7 +490,7 @@ range between <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-E
 </tr>
 <tr>
 <td class="parameter_name"><p>notify</p></td>
-<td class="parameter_description"><p>   function to call when the idle is removed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>function to call when the idle is removed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -601,31 +601,31 @@ for GTK+ widgets for the following use case:</p>
 23
 24
 25</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static</span> gboolean <span class="function">timeout_callback</span> <span class="gtkdoc opt">(</span>gpointer data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-   SomeWidget <span class="gtkdoc opt">*</span>self <span class="gtkdoc opt">=</span> data<span class="gtkdoc opt">;</span>
-   
-   <span class="gtkdoc slc">// do stuff with self</span>
-   
-   self<span class="gtkdoc opt">-&gt;</span>timeout_id <span class="gtkdoc opt">=</span> <span class="number">0</span><span class="gtkdoc opt">;</span>
-   
-   <span class="keyword">return</span> G_SOURCE_REMOVE<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span>
- 
-<span class="gtkdoc kwb">static void</span> <span class="function">some_widget_do_stuff_later</span> <span class="gtkdoc opt">(</span>SomeWidget <span class="gtkdoc opt">*</span>self<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-   self<span class="gtkdoc opt">-&gt;</span>timeout_id <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-timeout-add">g_timeout_add</a></span> <span class="gtkdoc opt">(</span>timeout_callback<span class="gtkdoc opt">,</span> self<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">}</span>
- 
-<span class="gtkdoc kwb">static void</span> <span class="function">some_widget_finalize</span> <span class="gtkdoc opt">(</span>GObject <span class="gtkdoc opt">*</span>object<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-   SomeWidget <span class="gtkdoc opt">*</span>self <span class="gtkdoc opt">=</span> <span class="function">SOME_WIDGET</span> <span class="gtkdoc opt">(</span>object<span class="gtkdoc opt">);</span>
-   
-   <span class="keyword">if</span> <span class="gtkdoc opt">(</span>self<span class="gtkdoc opt">-&gt;</span>timeout_id<span class="gtkdoc opt">)</span>
-     <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-source-remove">g_source_remove</a></span> <span class="gtkdoc opt">(</span>self<span class="gtkdoc opt">-&gt;</span>timeout_id<span class="gtkdoc opt">);</span>
-   
-   <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT-CLASS:CAPS">G_OBJECT_CLASS</a></span> <span class="gtkdoc opt">(</span>parent_class<span class="gtkdoc opt">)-&gt;</span><span class="function">finalize</span> <span class="gtkdoc opt">(</span>object<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="usertype">gboolean</span><span class="normal"> </span><span class="function">timeout_callback</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">gpointer</span><span class="normal"> data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">   </span><span class="usertype">SomeWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self </span><span class="symbol">=</span><span class="normal"> data</span><span class="symbol">;</span>
+<span class="normal">   </span>
+<span class="normal">   </span><span class="comment">// do stuff with self</span>
+<span class="normal">   </span>
+<span class="normal">   self</span><span class="symbol">-&gt;</span><span class="normal">timeout_id </span><span class="symbol">=</span><span class="normal"> </span><span class="number">0</span><span class="symbol">;</span>
+<span class="normal">   </span>
+<span class="normal">   </span><span class="keyword">return</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#G-SOURCE-REMOVE:CAPS">G_SOURCE_REMOVE</a></span><span class="symbol">;</span>
+<span class="cbracket">}</span>
+<span class="normal"> </span>
+<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">some_widget_do_stuff_later</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">SomeWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">   self</span><span class="symbol">-&gt;</span><span class="normal">timeout_id </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-timeout-add">g_timeout_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">timeout_callback</span><span class="symbol">,</span><span class="normal"> self</span><span class="symbol">)</span>
+<span class="cbracket">}</span>
+<span class="normal"> </span>
+<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">some_widget_finalize</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GObject</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">object</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">   </span><span class="usertype">SomeWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self </span><span class="symbol">=</span><span class="normal"> </span><span class="function">SOME_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
+<span class="normal">   </span>
+<span class="normal">   </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">timeout_id</span><span class="symbol">)</span>
+<span class="normal">     </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-source-remove">g_source_remove</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">timeout_id</span><span class="symbol">);</span>
+<span class="normal">   </span>
+<span class="normal">   </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT-CLASS:CAPS">G_OBJECT_CLASS</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">parent_class</span><span class="symbol">)-&gt;</span><span class="function">finalize</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -667,7 +667,7 @@ range between <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-E
 </tr>
 <tr>
 <td class="parameter_name"><p>notify</p></td>
-<td class="parameter_description"><p>   function to call when the timeout is removed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>function to call when the timeout is removed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -770,7 +770,7 @@ range between <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-E
 </tr>
 <tr>
 <td class="parameter_name"><p>notify</p></td>
-<td class="parameter_description"><p> function to call when the timeout is removed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>function to call when the timeout is removed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -788,6 +788,6 @@ range between <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-E
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

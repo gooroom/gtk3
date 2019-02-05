@@ -8,7 +8,7 @@
 <link rel="up" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
 <link rel="prev" href="GtkPopover.html" title="GtkPopover">
 <link rel="next" href="SelectorWidgets.html" title="Selector Widgets and Dialogs">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -133,7 +133,7 @@ GtkPopoverMenu implements
 </div>
 <div class="refsect1">
 <a name="GtkPopoverMenu.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -143,7 +143,7 @@ children like menus and allows switching between them. It is
 meant to be used primarily together with <a class="link" href="GtkModelButton.html" title="GtkModelButton"><span class="type">GtkModelButton</span></a>, but
 any widget can be used, such as <a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a> or <a class="link" href="GtkScale.html" title="GtkScale"><span class="type">GtkScale</span></a>.
 In this respect, GtkPopoverMenu is more flexible than popovers
-that are created from a <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> with <a class="link" href="GtkPopover.html#gtk-popover-new-from-model" title="gtk_popover_new_from_model ()"><code class="function">gtk_popover_new_from_model()</code></a>.</p>
+that are created from a <span class="type">GMenuModel</span> with <a class="link" href="GtkPopover.html#gtk-popover-new-from-model" title="gtk_popover_new_from_model ()"><code class="function">gtk_popover_new_from_model()</code></a>.</p>
 <p>To add a child as a submenu, set the <span class="type">“submenu”</span>
 child property to the name of the submenu. To let the user open
 this submenu, add a <a class="link" href="GtkModelButton.html" title="GtkModelButton"><span class="type">GtkModelButton</span></a> whose <a class="link" href="GtkModelButton.html#GtkModelButton--menu-name" title="The “menu-name” property"><span class="type">“menu-name”</span></a>
@@ -205,51 +205,51 @@ as the menu name.</p>
 43
 44
 45</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkPopoverMenu&quot;</span><span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkBox&quot;</span><span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;visible&quot;</span><span class="gtkdoc opt">&gt;</span>True<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;margin&quot;</span><span class="gtkdoc opt">&gt;</span><span class="number">10</span><span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkModelButton&quot;</span><span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;visible&quot;</span><span class="gtkdoc opt">&gt;</span>True<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;action-name&quot;</span><span class="gtkdoc opt">&gt;</span>win<span class="gtkdoc opt">.</span>frob<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;text&quot;</span> translatable<span class="gtkdoc opt">=</span><span class="string">&quot;yes&quot;</span><span class="gtkdoc opt">&gt;</span>Frob<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkModelButton&quot;</span><span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;visible&quot;</span><span class="gtkdoc opt">&gt;</span>True<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;menu-name&quot;</span><span class="gtkdoc opt">&gt;</span>more<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;text&quot;</span> translatable<span class="gtkdoc opt">=</span><span class="string">&quot;yes&quot;</span><span class="gtkdoc opt">&gt;</span>More<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkBox&quot;</span><span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;visible&quot;</span><span class="gtkdoc opt">&gt;</span>True<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;margin&quot;</span><span class="gtkdoc opt">&gt;</span><span class="number">10</span><span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkModelButton&quot;</span><span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;visible&quot;</span><span class="gtkdoc opt">&gt;</span>True<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;action-name&quot;</span><span class="gtkdoc opt">&gt;</span>win<span class="gtkdoc opt">.</span>foo<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;text&quot;</span> translatable<span class="gtkdoc opt">=</span><span class="string">&quot;yes&quot;</span><span class="gtkdoc opt">&gt;</span>Foo<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkModelButton&quot;</span><span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;visible&quot;</span><span class="gtkdoc opt">&gt;</span>True<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;action-name&quot;</span><span class="gtkdoc opt">&gt;</span>win<span class="gtkdoc opt">.</span>bar<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;text&quot;</span> translatable<span class="gtkdoc opt">=</span><span class="string">&quot;yes&quot;</span><span class="gtkdoc opt">&gt;</span>Bar<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>packing<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;submenu&quot;</span><span class="gtkdoc opt">&gt;</span>more<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;/</span>packing<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkPopoverMenu"</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkBox"</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"visible"</span><span class="symbol">&gt;</span><span class="normal">True</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"margin"</span><span class="symbol">&gt;</span><span class="number">10</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkModelButton"</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"visible"</span><span class="symbol">&gt;</span><span class="normal">True</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"action-name"</span><span class="symbol">&gt;</span><span class="normal">win</span><span class="symbol">.</span><span class="normal">frob</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"text"</span><span class="normal"> translatable</span><span class="symbol">=</span><span class="string">"yes"</span><span class="symbol">&gt;</span><span class="normal">Frob</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkModelButton"</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"visible"</span><span class="symbol">&gt;</span><span class="normal">True</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"menu-name"</span><span class="symbol">&gt;</span><span class="normal">more</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"text"</span><span class="normal"> translatable</span><span class="symbol">=</span><span class="string">"yes"</span><span class="symbol">&gt;</span><span class="normal">More</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkBox"</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"visible"</span><span class="symbol">&gt;</span><span class="normal">True</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"margin"</span><span class="symbol">&gt;</span><span class="number">10</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkModelButton"</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"visible"</span><span class="symbol">&gt;</span><span class="normal">True</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"action-name"</span><span class="symbol">&gt;</span><span class="normal">win</span><span class="symbol">.</span><span class="normal">foo</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"text"</span><span class="normal"> translatable</span><span class="symbol">=</span><span class="string">"yes"</span><span class="symbol">&gt;</span><span class="normal">Foo</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkModelButton"</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"visible"</span><span class="symbol">&gt;</span><span class="normal">True</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"action-name"</span><span class="symbol">&gt;</span><span class="normal">win</span><span class="symbol">.</span><span class="normal">bar</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"text"</span><span class="normal"> translatable</span><span class="symbol">=</span><span class="string">"yes"</span><span class="symbol">&gt;</span><span class="normal">Bar</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">packing</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"submenu"</span><span class="symbol">&gt;</span><span class="normal">more</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;/</span><span class="normal">packing</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -357,6 +357,6 @@ which is shown initially when the popover is mapped.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

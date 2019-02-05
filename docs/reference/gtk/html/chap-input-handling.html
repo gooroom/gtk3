@@ -8,7 +8,7 @@
 <link rel="up" href="gtk.html" title="Part I. GTK+ Overview">
 <link rel="prev" href="chap-drawing-model.html" title="The GTK+ Drawing Model">
 <link rel="next" href="gtkobjects.html" title="Part II. GTK+ Widgets and Objects">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -44,7 +44,7 @@
      The most basic input devices that every computer user has interacted with are
      keyboards and mice; beyond these, GTK+ supports touchpads, touchscreens and
      more exotic input devices such as graphics tablets. Inside GTK+, every such
-     input device is represented by a <a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> object.
+     input device is represented by a <a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> object.
     </p>
 <p>
      To simplify dealing with the variability between these input devices, GTK+
@@ -67,16 +67,16 @@
      the window with the keyboard focus.
     </p>
 <p>
-     GDK translates these raw windowing system events into <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvents</span></a>.
+     GDK translates these raw windowing system events into <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvents</span></a>.
      Typical input events are:
      </p>
 <table border="0" summary="Simple list" class="simplelist">
-<tr><td><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventButton"><span class="type">GdkEventButton</span></a></td></tr>
-<tr><td><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventMotion"><span class="type">GdkEventMotion</span></a></td></tr>
-<tr><td><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventCrossing"><span class="type">GdkEventCrossing</span></a></td></tr>
-<tr><td><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventKey"><span class="type">GdkEventKey</span></a></td></tr>
-<tr><td><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventFocus"><span class="type">GdkEventFocus</span></a></td></tr>
-<tr><td><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventTouch"><span class="type">GdkEventTouch</span></a></td></tr>
+<tr><td><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventButton"><span class="type">GdkEventButton</span></a></td></tr>
+<tr><td><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventMotion"><span class="type">GdkEventMotion</span></a></td></tr>
+<tr><td><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventCrossing"><span class="type">GdkEventCrossing</span></a></td></tr>
+<tr><td><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventKey"><span class="type">GdkEventKey</span></a></td></tr>
+<tr><td><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventFocus"><span class="type">GdkEventFocus</span></a></td></tr>
+<tr><td><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventTouch"><span class="type">GdkEventTouch</span></a></td></tr>
 </table>
 <p>
     </p>
@@ -85,14 +85,14 @@
       grabs (system-wide or in-app) are taking input away:
       </p>
 <table border="0" summary="Simple list" class="simplelist">
-<tr><td><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventGrabBroken"><span class="type">GdkEventGrabBroken</span></a></td></tr>
+<tr><td><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventGrabBroken"><span class="type">GdkEventGrabBroken</span></a></td></tr>
 <tr><td><a class="link" href="GtkWidget.html#GtkWidget-grab-notify" title="The “grab-notify” signal"><span class="type">“grab-notify”</span></a></td></tr>
 </table>
 <p>
     </p>
 <p>
       When GTK+ is initialized, it sets up an event handler function with
-      <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#gdk-event-handler-set"><code class="function">gdk_event_handler_set()</code></a>, which receives all of these input events
+      <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#gdk-event-handler-set"><code class="function">gdk_event_handler_set()</code></a>, which receives all of these input events
       (as well as others, for instance window management related events).
     </p>
 </div>
@@ -100,7 +100,7 @@
 <div class="refsect2">
 <a name="event-propagation"></a><h3>Event propagation</h3>
 <p>
-      For widgets which have a <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> set, events are received from the
+      For widgets which have a <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> set, events are received from the
       windowing system and passed to <a class="link" href="gtk3-General.html#gtk-main-do-event" title="gtk_main_do_event ()"><code class="function">gtk_main_do_event()</code></a>. See its documentation
       for details of what it does: compression of enter/leave events,
       identification of the widget receiving the event, pushing the event onto a
@@ -108,26 +108,26 @@
       widget.
     </p>
 <p>
-      When a GDK backend produces an input event, it is tied to a <a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> and
-      a <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>, which in turn represents a windowing system surface in the
+      When a GDK backend produces an input event, it is tied to a <a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> and
+      a <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>, which in turn represents a windowing system surface in the
       backend. If a widget has grabbed the current input device, or all input
       devices, the event is propagated to that <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>. Otherwise, it is
       propagated to the the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> which called <a class="link" href="GtkWidget.html#gtk-widget-register-window" title="gtk_widget_register_window ()"><code class="function">gtk_widget_register_window()</code></a>
-      on the <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> receiving the event.
+      on the <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> receiving the event.
     </p>
 <p>
       Grabs are implemented for each input device, and globally. A grab for a
       specific input device (<a class="link" href="gtk3-General.html#gtk-device-grab-add" title="gtk_device_grab_add ()"><code class="function">gtk_device_grab_add()</code></a>), is sent events in
       preference to a global grab (<a class="link" href="gtk3-General.html#gtk-grab-add" title="gtk_grab_add ()"><code class="function">gtk_grab_add()</code></a>). Input grabs only have effect
       within the <a class="link" href="GtkWindowGroup.html" title="GtkWindowGroup"><span class="type">GtkWindowGroup</span></a> containing the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> which registered the
-      event’s <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>. If this <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> is a child of the grab widget, the
+      event’s <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>. If this <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> is a child of the grab widget, the
       event is propagated to the child — this is the basis for propagating
       events within modal dialogs.
     </p>
 <p>
       An event is propagated to a widget using <a class="link" href="gtk3-General.html#gtk-propagate-event" title="gtk_propagate_event ()"><code class="function">gtk_propagate_event()</code></a>.
-      Propagation differs between event types: key events (<a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-KEY-PRESS:CAPS"><code class="literal">GDK_KEY_PRESS</code></a>,
-      <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-KEY-RELEASE:CAPS"><code class="literal">GDK_KEY_RELEASE</code></a>) are delivered to the top-level <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>; other events
+      Propagation differs between event types: key events (<a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-KEY-PRESS:CAPS"><code class="literal">GDK_KEY_PRESS</code></a>,
+      <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-KEY-RELEASE:CAPS"><code class="literal">GDK_KEY_RELEASE</code></a>) are delivered to the top-level <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>; other events
       are propagated down and up the widget hierarchy in three phases (see
       <a class="link" href="GtkEventController.html#GtkPropagationPhase" title="enum GtkPropagationPhase"><span class="type">GtkPropagationPhase</span></a>).
     </p>
@@ -173,7 +173,7 @@
 <p>
       Any time during the propagation phase, a widget may indicate that a
       received event was consumed and propagation should therefore be stopped.
-      In traditional event handlers, this is hinted by returning <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-EVENT-STOP:CAPS"><code class="literal">GDK_EVENT_STOP</code></a>.
+      In traditional event handlers, this is hinted by returning <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-EVENT-STOP:CAPS"><code class="literal">GDK_EVENT_STOP</code></a>.
       If gestures are used, this may happen when the widget tells the gesture
       to claim the event touch sequence (or the pointer events) for its own. See the
       "gesture states" section below to know more of the latter.
@@ -186,21 +186,21 @@
       Each widget instance has a basic event mask and another per input device,
       which determine the types of input event it receives. Each event mask set
       on a widget is added to the corresponding (basic or per-device) event mask
-      for the widget’s <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>, and all child <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindows</span></a>.
+      for the widget’s <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>, and all child <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindows</span></a>.
     </p>
 <p>
       If a widget is windowless (<a class="link" href="GtkWidget.html#gtk-widget-get-has-window" title="gtk_widget_get_has_window ()"><code class="function">gtk_widget_get_has_window()</code></a> returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>) and
       an application wants to receive custom events on it, it must be placed
       inside a <a class="link" href="GtkEventBox.html" title="GtkEventBox"><span class="type">GtkEventBox</span></a> to receive the events, and an appropriate event mask
-      must be set on the box. When implementing a widget, use a <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GDK-INPUT-ONLY:CAPS"><code class="literal">GDK_INPUT_ONLY</code></a>
-      <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> to receive the events instead.
+      must be set on the box. When implementing a widget, use a <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GDK-INPUT-ONLY:CAPS"><code class="literal">GDK_INPUT_ONLY</code></a>
+      <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> to receive the events instead.
     </p>
 <p>
-      Filtering events against event masks happens inside <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>, which
+      Filtering events against event masks happens inside <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>, which
       exposes event masks to the windowing system to reduce the number of events
       GDK receives from it. On receiving an event, it is filtered against the
-      <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>’s mask for the input device, if set. Otherwise, it is filtered
-      against the <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>’s basic event mask.
+      <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>’s mask for the input device, if set. Otherwise, it is filtered
+      against the <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>’s basic event mask.
     </p>
 <p>
       This means that widgets must add to the event mask for each event type
@@ -208,7 +208,7 @@
       <a class="link" href="GtkWidget.html#gtk-widget-add-events" title="gtk_widget_add_events ()"><code class="function">gtk_widget_add_events()</code></a> to preserve the existing mask. Widgets which are
       aware of floating devices should use <a class="link" href="GtkWidget.html#gtk-widget-set-device-events" title="gtk_widget_set_device_events ()"><code class="function">gtk_widget_set_device_events()</code></a> or
       <a class="link" href="GtkWidget.html#gtk-widget-add-device-events" title="gtk_widget_add_device_events ()"><code class="function">gtk_widget_add_device_events()</code></a>, and must explicitly enable the device
-      using <a class="link" href="GtkWidget.html#gtk-widget-set-device-enabled" title="gtk_widget_set_device_enabled ()"><code class="function">gtk_widget_set_device_enabled()</code></a>. See the <a href="http://developer.gnome.org/gdk3/GdkDeviceManager.html#GdkDeviceManager-struct"><span class="type">GdkDeviceManager</span></a>
+      using <a class="link" href="GtkWidget.html#gtk-widget-set-device-enabled" title="gtk_widget_set_device_enabled ()"><code class="function">gtk_widget_set_device_enabled()</code></a>. See the <a href="https://developer.gnome.org/gdk3/GdkDeviceManager.html#GdkDeviceManager-struct"><span class="type">GdkDeviceManager</span></a>
       documentation for more information.
     </p>
 <p>
@@ -221,23 +221,23 @@
 <div class="refsect2">
 <a name="id-1.2.7.3.6"></a><h3>Touch events</h3>
 <p>
-      Touch events are emitted as events of type <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-TOUCH-BEGIN:CAPS"><code class="literal">GDK_TOUCH_BEGIN</code></a>, <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-TOUCH-UPDATE:CAPS"><code class="literal">GDK_TOUCH_UPDATE</code></a> or
-      <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-TOUCH-END:CAPS"><code class="literal">GDK_TOUCH_END</code></a>, those events contain an “event sequence” that univocally identifies
+      Touch events are emitted as events of type <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-TOUCH-BEGIN:CAPS"><code class="literal">GDK_TOUCH_BEGIN</code></a>, <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-TOUCH-UPDATE:CAPS"><code class="literal">GDK_TOUCH_UPDATE</code></a> or
+      <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-TOUCH-END:CAPS"><code class="literal">GDK_TOUCH_END</code></a>, those events contain an “event sequence” that univocally identifies
       the physical touch until it is lifted from the device.
     </p>
 <p>
       On some windowing platforms, multitouch devices perform pointer emulation, this works
       by granting a “pointer emulating” hint to one of the currently interacting touch
-      sequences, which will be reported on every <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventTouch"><span class="type">GdkEventTouch</span></a> event from that sequence. By
-      default, if a widget didn't request touch events by setting <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-TOUCH-MASK:CAPS"><code class="literal">GDK_TOUCH_MASK</code></a> on its
+      sequences, which will be reported on every <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventTouch"><span class="type">GdkEventTouch</span></a> event from that sequence. By
+      default, if a widget didn't request touch events by setting <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-TOUCH-MASK:CAPS"><code class="literal">GDK_TOUCH_MASK</code></a> on its
       event mask and didn't override <a class="link" href="GtkWidget.html#GtkWidget-touch-event" title="The “touch-event” signal"><span class="type">“touch-event”</span></a>, GTK+ will transform these
-      “pointer emulating” events into semantically similar <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventButton"><span class="type">GdkEventButton</span></a> and <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventMotion"><span class="type">GdkEventMotion</span></a>
-      events. Depending on <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-TOUCH-MASK:CAPS"><code class="literal">GDK_TOUCH_MASK</code></a> being in the event mask or not, non-pointer-emulating
+      “pointer emulating” events into semantically similar <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventButton"><span class="type">GdkEventButton</span></a> and <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventMotion"><span class="type">GdkEventMotion</span></a>
+      events. Depending on <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-TOUCH-MASK:CAPS"><code class="literal">GDK_TOUCH_MASK</code></a> being in the event mask or not, non-pointer-emulating
       sequences could still trigger gestures or just get filtered out, regardless of the widget
       not handling those directly.
     </p>
 <p>
-      If the widget sets <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-TOUCH-MASK:CAPS"><code class="literal">GDK_TOUCH_MASK</code></a> on its event mask and doesn't chain up on
+      If the widget sets <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-TOUCH-MASK:CAPS"><code class="literal">GDK_TOUCH_MASK</code></a> on its event mask and doesn't chain up on
       <a class="link" href="GtkWidget.html#GtkWidget-touch-event" title="The “touch-event” signal"><span class="type">“touch-event”</span></a>, only touch events will be received, and no pointer emulation
       will be performed.
     </p>
@@ -251,8 +251,8 @@
       happen on user interaction, when a <span class="type">GdkEventButtonPress</span> happens, all events from
       then on, until after the corresponding <span class="type">GdkEventButtonRelease</span>, will be reported
       to the widget that got the first event. Likewise, on touch events, every
-      <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GdkEventSequence"><span class="type">GdkEventSequence</span></a> will deliver only events to the widget that received its
-      <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-TOUCH-BEGIN:CAPS"><code class="literal">GDK_TOUCH_BEGIN</code></a> event.
+      <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GdkEventSequence"><span class="type">GdkEventSequence</span></a> will deliver only events to the widget that received its
+      <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-TOUCH-BEGIN:CAPS"><code class="literal">GDK_TOUCH_BEGIN</code></a> event.
     </p>
 <p>
       Explicit grabs happen programatically (both activation and deactivation),
@@ -268,7 +268,7 @@
       This makes it necessary for widgets to handle the cancellation of any ongoing
       interaction. Depending on whether a GTK or GDK grab is causing this, the
       widget will respectively receive a <a class="link" href="GtkWidget.html#GtkWidget-grab-notify" title="The “grab-notify” signal"><span class="type">“grab-notify”</span></a> signal, or a
-      <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventGrabBroken"><span class="type">GdkEventGrabBroken</span></a> event.
+      <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventGrabBroken"><span class="type">GdkEventGrabBroken</span></a> event.
     </p>
 <p>
       On gestures, these signals are handled automatically, causing the gesture
@@ -284,7 +284,7 @@
 <a name="event-controllers-and-gestures"></a><h3>Event controllers and gestures</h3>
 <p>
       Event controllers are standalone objects that can perform specific actions
-      upon received <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvents</span></a>. These are tied to a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>, and can be told of
+      upon received <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvents</span></a>. These are tied to a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>, and can be told of
       the event propagation phase at which they will manage the events.
     </p>
 <p>
@@ -338,7 +338,7 @@
       Alternatively, or at a later point in time, the widget may choose to deny the touch
       sequences, thus letting those go through again in event propagation. When this happens
       in the capture phase, and if there are no other claiming gestures in the widget,
-      a <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-TOUCH-BEGIN:CAPS"><code class="literal">GDK_TOUCH_BEGIN</code></a>/<a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-BUTTON-PRESS:CAPS"><code class="literal">GDK_BUTTON_PRESS</code></a> event will be emulated and
+      a <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-TOUCH-BEGIN:CAPS"><code class="literal">GDK_TOUCH_BEGIN</code></a>/<a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-BUTTON-PRESS:CAPS"><code class="literal">GDK_BUTTON_PRESS</code></a> event will be emulated and
       propagated downwards, in order to preserve consistency.
     </p>
 <p>
@@ -352,6 +352,6 @@
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

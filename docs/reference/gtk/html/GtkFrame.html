@@ -8,7 +8,7 @@
 <link rel="up" href="Ornaments.html" title="Ornaments">
 <link rel="prev" href="Ornaments.html" title="Ornaments">
 <link rel="next" href="GtkSeparator.html" title="GtkSeparator">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -221,14 +221,14 @@ be specified without specifying a &lt;child&gt; type attribute.</p>
 6
 7
 8</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkFrame&quot;</span><span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>child type<span class="gtkdoc opt">=</span><span class="string">&quot;label&quot;</span><span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkLabel&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;frame-label&quot;</span><span class="gtkdoc opt">/&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkEntry&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;frame-content&quot;</span><span class="gtkdoc opt">/&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkFrame"</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="usertype">child</span><span class="normal"> type</span><span class="symbol">=</span><span class="string">"label"</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkLabel"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"frame-label"</span><span class="symbol">/&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkEntry"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"frame-content"</span><span class="symbol">/&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -247,21 +247,22 @@ be specified without specifying a &lt;child&gt; type attribute.</p>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting">frame 
-├── border
-├── <span class="gtkdoc opt">&lt;</span>label widget<span class="gtkdoc opt">&gt;</span>
-╰── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">frame </span>
+<span class="normal">├── border</span><span class="symbol">[.</span><span class="normal">flat</span><span class="symbol">]</span>
+<span class="normal">├── </span><span class="symbol">&lt;</span><span class="usertype">label</span><span class="normal"> widget</span><span class="symbol">&gt;</span>
+<span class="normal">╰── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
 </div>
 
 <p></p>
-<p>GtkFrame has a main CSS node with name frame and a subnode with
-name border. The border node is used to render the visible border.</p>
-<p>The border node can be given the style class .flat, which is used by themes
+<p>GtkFrame has a main CSS node named “frame” and a subnode named “border”. The
+“border” node is used to draw the visible border. You can set the appearance
+of the border using CSS properties like “border-style” on the “border” node.</p>
+<p>The border node can be given the style class “.flat”, which is used by themes
 to disable drawing of the border. To do this from code, call
-<a class="link" href="GtkFrame.html#gtk-frame-set-shadow-type" title="gtk_frame_set_shadow_type ()"><code class="function">gtk_frame_set_shadow_type()</code></a> with GTK_SHADOW_NONE to add the .flat class or
+<a class="link" href="GtkFrame.html#gtk-frame-set-shadow-type" title="gtk_frame_set_shadow_type ()"><code class="function">gtk_frame_set_shadow_type()</code></a> with <a class="link" href="gtk3-Standard-Enumerations.html#GTK-SHADOW-NONE:CAPS"><code class="literal">GTK_SHADOW_NONE</code></a> to add the “.flat” class or
 any other shadow type to remove it.</p>
 </div>
 </div>
@@ -285,7 +286,7 @@ If <em class="parameter"><code>label</code></em>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>label</p></td>
-<td class="parameter_description"><p> the text to use as the label of the frame. </p></td>
+<td class="parameter_description"><p>the text to use as the label of the frame. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr></tbody>
 </table></div>
@@ -320,7 +321,7 @@ new <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">Gtk
 </tr>
 <tr>
 <td class="parameter_name"><p>label</p></td>
-<td class="parameter_description"><p> the text to use as the label of the frame. </p></td>
+<td class="parameter_description"><p>the text to use as the label of the frame. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -351,7 +352,7 @@ will appear embedded in the top edge of the frame as a title.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>label_widget</p></td>
-<td class="parameter_description"><p> the new label widget. </p></td>
+<td class="parameter_description"><p>the new label widget. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -408,8 +409,8 @@ gtk_frame_set_shadow_type (<em class="parameter"><code><a class="link" href="Gtk
                            <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> type</code></em>);</pre>
 <p>Sets the <a class="link" href="GtkFrame.html#GtkFrame--shadow-type" title="The “shadow-type” property"><span class="type">“shadow-type”</span></a> for <em class="parameter"><code>frame</code></em>
 , i.e. whether it is drawn without
-(GTK_SHADOW_NONE) or with (other values) a visible border. Values other than
-GTK_SHADOW_NONE are treated identically by <a class="link" href="GtkFrame.html" title="GtkFrame"><span class="type">GtkFrame</span></a>. The chosen type is
+(<a class="link" href="gtk3-Standard-Enumerations.html#GTK-SHADOW-NONE:CAPS"><code class="literal">GTK_SHADOW_NONE</code></a>) or with (other values) a visible border. Values other than
+<a class="link" href="gtk3-Standard-Enumerations.html#GTK-SHADOW-NONE:CAPS"><code class="literal">GTK_SHADOW_NONE</code></a> are treated identically by GtkFrame. The chosen type is
 applied by removing or adding the .flat class to the CSS node named border.</p>
 <div class="refsect3">
 <a name="gtk-frame-set-shadow-type.parameters"></a><h4>Parameters</h4>
@@ -460,7 +461,7 @@ to <a class="link" href="GtkFrame.html#gtk-frame-new" title="gtk_frame_new ()">
 </div>
 <div class="refsect3">
 <a name="gtk-frame-get-label.returns"></a><h4>Returns</h4>
-<p> the text in the label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there
+<p>the text in the label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there
 was no label widget or the lable widget was not
 a <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a>. This string is owned by GTK+ and
 must not be modified or freed. </p>
@@ -492,13 +493,13 @@ gtk_frame_get_label_align (<em class="parameter"><code><a class="link" href="Gtk
 </tr>
 <tr>
 <td class="parameter_name"><p>xalign</p></td>
-<td class="parameter_description"><p> location to store X alignment of
+<td class="parameter_description"><p>location to store X alignment of
 frame’s label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>yalign</p></td>
-<td class="parameter_description"><p> location to store X alignment of
+<td class="parameter_description"><p>location to store X alignment of
 frame’s label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -530,7 +531,7 @@ gtk_frame_get_label_widget (<em class="parameter"><code><a class="link" href="Gt
 </div>
 <div class="refsect3">
 <a name="gtk-frame-get-label-widget.returns"></a><h4>Returns</h4>
-<p> the label widget, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
+<p>the label widget, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
 there is none. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -642,6 +643,6 @@ gtk_frame_get_shadow_type (<em class="parameter"><code><a class="link" href="Gtk
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

@@ -1,8 +1,17 @@
-Index: gtk+-3.21.6/testsuite/reftests/gtk-reftest.c
-===================================================================
---- gtk+-3.21.6.orig/testsuite/reftests/gtk-reftest.c	2016-09-14 04:19:58.524616584 +0200
-+++ gtk+-3.21.6/testsuite/reftests/gtk-reftest.c	2016-09-14 04:19:58.524616584 +0200
-@@ -253,6 +253,20 @@
+From: Michael Biebl <biebl@debian.org>
+Date: Mon, 2 May 2016 01:18:04 +0200
+Subject: Mark known failing tests as non-fatal
+
+Forwarded: no
+---
+ testsuite/reftests/gtk-reftest.c | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
+
+diff --git a/testsuite/reftests/gtk-reftest.c b/testsuite/reftests/gtk-reftest.c
+index 4930af8..69f906c 100644
+--- a/testsuite/reftests/gtk-reftest.c
++++ b/testsuite/reftests/gtk-reftest.c
+@@ -253,6 +253,20 @@ save_image (cairo_surface_t *surface,
    g_free (filename);
  }
  
@@ -23,7 +32,7 @@ Index: gtk+-3.21.6/testsuite/reftests/gtk-reftest.c
  static void
  test_ui_file (GFile *file)
  {
-@@ -285,7 +299,13 @@
+@@ -285,7 +299,13 @@ test_ui_file (GFile *file)
    if (diff_image)
      {
        save_image (diff_image, ui_file, ".diff.png");

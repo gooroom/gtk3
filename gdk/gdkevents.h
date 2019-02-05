@@ -62,7 +62,7 @@ G_BEGIN_DECLS
 #define GDK_PRIORITY_EVENTS	(G_PRIORITY_DEFAULT)
 
 /**
- * GDK_PRIORITY_REDRAW:
+ * GDK_PRIORITY_REDRAW: (value 120)
  *
  * This is the priority that the idle handler processing window updates
  * is given in the
@@ -520,21 +520,38 @@ typedef enum
  * @GDK_WINDOW_STATE_ABOVE: the window is kept above other windows.
  * @GDK_WINDOW_STATE_BELOW: the window is kept below other windows.
  * @GDK_WINDOW_STATE_FOCUSED: the window is presented as focused (with active decorations).
- * @GDK_WINDOW_STATE_TILED: the window is in a tiled state, Since 3.10
+ * @GDK_WINDOW_STATE_TILED: the window is in a tiled state, Since 3.10. Since 3.22.23, this
+ *                          is deprecated in favor of per-edge information.
+ * @GDK_WINDOW_STATE_TOP_TILED: whether the top edge is tiled, Since 3.22.23
+ * @GDK_WINDOW_STATE_TOP_RESIZABLE: whether the top edge is resizable, Since 3.22.23
+ * @GDK_WINDOW_STATE_RIGHT_TILED: whether the right edge is tiled, Since 3.22.23
+ * @GDK_WINDOW_STATE_RIGHT_RESIZABLE: whether the right edge is resizable, Since 3.22.23
+ * @GDK_WINDOW_STATE_BOTTOM_TILED: whether the bottom edge is tiled, Since 3.22.23
+ * @GDK_WINDOW_STATE_BOTTOM_RESIZABLE: whether the bottom edge is resizable, Since 3.22.23
+ * @GDK_WINDOW_STATE_LEFT_TILED: whether the left edge is tiled, Since 3.22.23
+ * @GDK_WINDOW_STATE_LEFT_RESIZABLE: whether the left edge is resizable, Since 3.22.23
  *
  * Specifies the state of a toplevel window.
  */
 typedef enum
 {
-  GDK_WINDOW_STATE_WITHDRAWN  = 1 << 0,
-  GDK_WINDOW_STATE_ICONIFIED  = 1 << 1,
-  GDK_WINDOW_STATE_MAXIMIZED  = 1 << 2,
-  GDK_WINDOW_STATE_STICKY     = 1 << 3,
-  GDK_WINDOW_STATE_FULLSCREEN = 1 << 4,
-  GDK_WINDOW_STATE_ABOVE      = 1 << 5,
-  GDK_WINDOW_STATE_BELOW      = 1 << 6,
-  GDK_WINDOW_STATE_FOCUSED    = 1 << 7,
-  GDK_WINDOW_STATE_TILED      = 1 << 8
+  GDK_WINDOW_STATE_WITHDRAWN        = 1 << 0,
+  GDK_WINDOW_STATE_ICONIFIED        = 1 << 1,
+  GDK_WINDOW_STATE_MAXIMIZED        = 1 << 2,
+  GDK_WINDOW_STATE_STICKY           = 1 << 3,
+  GDK_WINDOW_STATE_FULLSCREEN       = 1 << 4,
+  GDK_WINDOW_STATE_ABOVE            = 1 << 5,
+  GDK_WINDOW_STATE_BELOW            = 1 << 6,
+  GDK_WINDOW_STATE_FOCUSED          = 1 << 7,
+  GDK_WINDOW_STATE_TILED            = 1 << 8,
+  GDK_WINDOW_STATE_TOP_TILED        = 1 << 9,
+  GDK_WINDOW_STATE_TOP_RESIZABLE    = 1 << 10,
+  GDK_WINDOW_STATE_RIGHT_TILED      = 1 << 11,
+  GDK_WINDOW_STATE_RIGHT_RESIZABLE  = 1 << 12,
+  GDK_WINDOW_STATE_BOTTOM_TILED     = 1 << 13,
+  GDK_WINDOW_STATE_BOTTOM_RESIZABLE = 1 << 14,
+  GDK_WINDOW_STATE_LEFT_TILED       = 1 << 15,
+  GDK_WINDOW_STATE_LEFT_RESIZABLE   = 1 << 16
 } GdkWindowState;
 
 /**
@@ -1183,7 +1200,7 @@ struct _GdkEventDND {
  * @type: the type of the event (%GDK_TOUCHPAD_SWIPE)
  * @window: the window which received the event
  * @send_event: %TRUE if the event was sent explicitly
- * @phase: (type GdkTouchpadGesturePhase): the current phase of the gesture
+ * @phase: the current phase of the gesture
  * @n_fingers: The number of fingers triggering the swipe
  * @time: the time of the event in milliseconds
  * @x: The X coordinate of the pointer
@@ -1220,7 +1237,7 @@ struct _GdkEventTouchpadSwipe {
  * @type: the type of the event (%GDK_TOUCHPAD_PINCH)
  * @window: the window which received the event
  * @send_event: %TRUE if the event was sent explicitly
- * @phase: (type GdkTouchpadGesturePhase): the current phase of the gesture
+ * @phase: the current phase of the gesture
  * @n_fingers: The number of fingers triggering the pinch
  * @time: the time of the event in milliseconds
  * @x: The X coordinate of the pointer

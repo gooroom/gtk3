@@ -43,6 +43,10 @@
 #endif
 #endif
 
+#ifdef GDK_WINDOWING_WIN32
+#include <gdk/win32/gdkwin32.h>
+#endif
+
 #ifdef GDK_WINDOWING_WAYLAND
 #include <gdk/wayland/gdkwayland.h>
 #endif
@@ -410,6 +414,7 @@ grab_dnd_keys (GtkWidget *widget,
                guint32    time)
 {
   guint i;
+  GdkDisplay *display;
   GdkWindow *window, *root;
   gint keycode;
 #ifdef XINPUT_2
@@ -441,9 +446,10 @@ grab_dnd_keys (GtkWidget *widget,
     using_xi2 = FALSE;
 #endif
 
+  display = gtk_widget_get_display (widget);
   root = gdk_screen_get_root_window (gtk_widget_get_screen (widget));
 
-  gdk_error_trap_push ();
+  gdk_x11_display_error_trap_push (display);
 
   for (i = 0; i < G_N_ELEMENTS (grab_keys); ++i)
     {
@@ -486,8 +492,8 @@ grab_dnd_keys (GtkWidget *widget,
                   GrabModeAsync);
     }
 
-  gdk_flush ();
-  gdk_error_trap_pop_ignored ();
+  gdk_display_flush (display);
+  gdk_x11_display_error_trap_pop_ignored (display);
 
   gdk_window_add_filter (NULL, root_key_filter, (gpointer) GDK_WINDOW_XID (window));
 }
@@ -499,6 +505,7 @@ ungrab_dnd_keys (GtkWidget *widget,
 {
   guint i;
   GdkWindow *window, *root;
+  GdkDisplay *display;
   gint keycode;
 #ifdef XINPUT_2
   XIGrabModifiers mods;
@@ -523,11 +530,12 @@ ungrab_dnd_keys (GtkWidget *widget,
     using_xi2 = FALSE;
 #endif
 
+  display = gtk_widget_get_display (widget);
   root = gdk_screen_get_root_window (gtk_widget_get_screen (widget));
 
   gdk_window_remove_filter (NULL, root_key_filter, (gpointer) GDK_WINDOW_XID (window));
 
-  gdk_error_trap_push ();
+  gdk_x11_display_error_trap_push (display);
 
   for (i = 0; i < G_N_ELEMENTS (grab_keys); ++i)
     {
@@ -555,8 +563,8 @@ ungrab_dnd_keys (GtkWidget *widget,
                     GDK_WINDOW_XID (root));
     }
 
-  gdk_flush ();
-  gdk_error_trap_pop_ignored ();
+  gdk_display_flush (display);
+  gdk_x11_display_error_trap_pop_ignored (display);
 }
 
 #else /* !GDK_WINDOWING_X11 */
@@ -896,7 +904,7 @@ gtk_drag_get_data (GtkWidget      *widget,
 }
 
 /**
- * gtk_drag_get_source_widget: (method)
+ * gtk_drag_get_source_widget:
  * @context: a (destination side) drag context
  *
  * Determines the source widget for a drag.
@@ -932,7 +940,7 @@ gtk_drag_get_source_widget (GdkDragContext *context)
 }
 
 /**
- * gtk_drag_finish: (method)
+ * gtk_drag_finish:
  * @context: the drag context
  * @success: a flag indicating whether the drop was successful
  * @del: a flag indicating whether the source should delete the
@@ -1674,18 +1682,37 @@ gtk_drag_dest_drop (GtkWidget      *widget,
  * Source side *
  ***************/
 
-/* Like gtk_drag_begin(), but also takes a GtkIconHelper
- * so that we can set the icon from the source site information
+
+static gboolean
+gtk_drag_is_managed (GtkWidget *source_widget)
+{
+  return
+#ifdef GDK_WINDOWING_X11
+    GDK_IS_X11_DISPLAY (gtk_widget_get_display (source_widget)) ||
+#endif
+#ifdef GDK_WINDOWING_WAYLAND
+    GDK_IS_WAYLAND_DISPLAY (gtk_widget_get_display (source_widget)) ||
+#endif
+#ifdef GDK_WINDOWING_WIN32
+    GDK_IS_WIN32_DISPLAY (gtk_widget_get_display (source_widget)) ||
+#endif
+    FALSE;
+}
+
+/* Like gtk_drag_begin(), but also communicates the need to
+ * create an icon for the drag operation back to the caller.
+ * If the caller passes out_needs_icon == NULL, it means that
+ * the caller does not care.
  */
 GdkDragContext *
-gtk_drag_begin_internal (GtkWidget          *widget,
-                         GtkImageDefinition *icon,
-                         GtkTargetList      *target_list,
-                         GdkDragAction       actions,
-                         gint                button,
-                         const GdkEvent     *event,
-                         int                 x,
-                         int                 y)
+gtk_drag_begin_internal (GtkWidget           *widget,
+                         gboolean            *out_needs_icon,
+                         GtkTargetList       *target_list,
+                         GdkDragAction        actions,
+                         gint                 button,
+                         const GdkEvent      *event,
+                         int                  x,
+                         int                  y)
 {
   GtkDragSourceInfo *info;
   GList *targets = NULL;
@@ -1699,16 +1726,9 @@ gtk_drag_begin_internal (GtkWidget          *widget,
   GdkWindow *ipc_window;
   gint start_x, start_y;
   GdkAtom selection;
-  gboolean managed = FALSE;
+  gboolean managed;
 
-  managed =
-#ifdef GDK_WINDOWING_X11
-    GDK_IS_X11_DISPLAY (gtk_widget_get_display (widget)) ||
-#endif
-#ifdef GDK_WINDOWING_WAYLAND
-    GDK_IS_WAYLAND_DISPLAY (gtk_widget_get_display (widget)) ||
-#endif
-    FALSE;
+  managed = gtk_drag_is_managed (widget);
 
   pointer = keyboard = NULL;
   ipc_widget = gtk_drag_get_ipc_widget (widget);
@@ -1855,19 +1875,15 @@ gtk_drag_begin_internal (GtkWidget          *widget,
    * application may have set one in ::drag_begin, or it may
    * not have set one.
    */
-  if (!info->icon_widget)
+  if (!info->icon_widget && out_needs_icon == NULL)
     {
-      if (icon)
-        {
-          set_icon_helper (info->context, icon, 0, 0);
-        }
-      else
-        {
-          icon = gtk_image_definition_new_icon_name ("text-x-generic");
-          set_icon_helper (info->context, icon, 0, 0);
-          gtk_image_definition_unref (icon);
-        }
+      GtkImageDefinition *icon = gtk_image_definition_new_icon_name ("text-x-generic");
+      set_icon_helper (info->context, icon, 0, 0);
+      gtk_image_definition_unref (icon);
     }
+
+  if (out_needs_icon != NULL)
+    *out_needs_icon = (info->icon_widget == NULL);
 
   if (managed)
     {
@@ -1957,7 +1973,7 @@ gtk_drag_begin_internal (GtkWidget          *widget,
  * button is held down for some time.  Try to save the last event that you got
  * from the mouse, using gdk_event_copy(), and pass it to this function
  * (remember to free the event with gdk_event_free() when you are done).
- * If you can really not pass a real event, pass #NULL instead.
+ * If you really cannot pass a real event, pass %NULL instead.
  *
  * Returns: (transfer none): the context for this drag
  *
@@ -2017,6 +2033,22 @@ icon_widget_destroyed (GtkWidget         *widget,
                        GtkDragSourceInfo *info)
 {
   g_clear_object (&info->icon_widget);
+}
+
+static void
+gtk_drag_update_icon_window (GtkDragSourceInfo *info)
+{
+  if (!gtk_drag_is_managed (info->widget) && info->icon_window)
+    {
+      gtk_window_move (GTK_WINDOW (info->icon_window),
+                       info->cur_x - info->hot_x,
+                       info->cur_y - info->hot_y);
+
+      if (gtk_widget_get_visible (info->icon_window))
+        gdk_window_raise (gtk_widget_get_window (info->icon_window));
+      else
+        gtk_widget_show (info->icon_window);
+    }
 }
 
 static void
@@ -2093,10 +2125,11 @@ gtk_drag_set_icon_widget_internal (GdkDragContext *context,
 
 out:
   gtk_drag_update_cursor (info);
+  gtk_drag_update_icon_window (info);
 }
 
 /**
- * gtk_drag_set_icon_widget: (method)
+ * gtk_drag_set_icon_widget:
  * @context: the context for a drag. (This must be called 
           with a context for the source side of a drag)
  * @widget: a widget to use as an icon
@@ -2177,7 +2210,7 @@ gtk_drag_set_icon_definition (GdkDragContext     *context,
 }
 
 /**
- * gtk_drag_set_icon_pixbuf: (method)
+ * gtk_drag_set_icon_pixbuf:
  * @context: the context for a drag (This must be called 
  *            with a  context for the source side of a drag)
  * @pixbuf: the #GdkPixbuf to use as the drag icon
@@ -2204,7 +2237,7 @@ gtk_drag_set_icon_pixbuf (GdkDragContext *context,
 }
 
 /**
- * gtk_drag_set_icon_stock: (method)
+ * gtk_drag_set_icon_stock:
  * @context: the context for a drag (This must be called 
  *            with a  context for the source side of a drag)
  * @stock_id: the ID of the stock icon to use for the drag
@@ -2271,7 +2304,7 @@ _gtk_cairo_surface_extents (cairo_surface_t *surface,
 }
 
 /**
- * gtk_drag_set_icon_surface: (method)
+ * gtk_drag_set_icon_surface:
  * @context: the context for a drag (This must be called
  *     with a context for the source side of a drag)
  * @surface: the surface to use as icon
@@ -2337,7 +2370,7 @@ gtk_drag_set_icon_surface (GdkDragContext  *context,
 }
 
 /**
- * gtk_drag_set_icon_name: (method)
+ * gtk_drag_set_icon_name:
  * @context: the context for a drag (This must be called 
  *     with a context for the source side of a drag)
  * @icon_name: name of icon to use
@@ -2370,7 +2403,7 @@ gtk_drag_set_icon_name (GdkDragContext *context,
 }
 
 /**
- * gtk_drag_set_icon_gicon: (method)
+ * gtk_drag_set_icon_gicon:
  * @context: the context for a drag (This must be called 
  *     with a context for the source side of a drag)
  * @icon: a #GIcon
@@ -2401,7 +2434,7 @@ gtk_drag_set_icon_gicon (GdkDragContext *context,
 }
 
 /**
- * gtk_drag_set_icon_default: (method)
+ * gtk_drag_set_icon_default:
  * @context: the context for a drag (This must be called 
  *     with a  context for the source side of a drag)
  * 
@@ -2733,6 +2766,9 @@ gtk_drag_source_info_free (GtkDragSourceInfo *info)
 static void
 gtk_drag_source_info_destroy (GtkDragSourceInfo *info)
 {
+  GdkDragContext *context;
+  GdkEvent       *last_event;
+
   g_signal_handlers_disconnect_by_func (info->context,
                                         gtk_drag_context_drop_performed_cb,
                                         info);
@@ -2785,12 +2821,15 @@ gtk_drag_source_info_destroy (GtkDragSourceInfo *info)
 
   /* keep the icon_window alive until the (possible) drag cancel animation is done */
   g_object_set_data_full (G_OBJECT (info->context), "former-gtk-source-info", info, (GDestroyNotify)gtk_drag_source_info_free);
+  context = info->context;
+  last_event = info->last_event;
 
-  gtk_drag_clear_source_info (info->context);
-  g_object_unref (info->context);
+  gtk_drag_clear_source_info (context);
 
-  if (info->last_event)
-    gdk_event_free (info->last_event);
+  if (last_event)
+    gdk_event_free (last_event);
+
+  g_object_unref (context);
 }
 
 static gboolean
@@ -2815,6 +2854,7 @@ gtk_drag_update_idle (gpointer data)
                                   info->possible_actions,
                                   &action, &possible_actions);
 
+      gtk_drag_update_icon_window (info);
       gdk_drag_find_window_for_screen (info->context,
                                        info->icon_window ? gtk_widget_get_window (info->icon_window) : NULL,
                                        info->cur_screen, info->cur_x, info->cur_y,

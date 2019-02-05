@@ -41,6 +41,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include <fribidi.h>
+
 
 /**
  * SECTION:general
@@ -468,6 +470,32 @@ gdk_display_open_default (void)
   return display;
 }
 
+gboolean
+gdk_running_in_sandbox (void)
+{
+  return g_file_test ("/.flatpak-info", G_FILE_TEST_EXISTS);
+}
+
+gboolean
+gdk_should_use_portal (void)
+{
+  static const char *use_portal = NULL;
+
+  if (G_UNLIKELY (use_portal == NULL))
+    {
+      if (gdk_running_in_sandbox ())
+        use_portal = "1";
+      else
+        {
+          use_portal = g_getenv ("GTK_USE_PORTAL");
+          if (!use_portal)
+            use_portal = "";
+        }
+    }
+
+  return use_portal[0] == '1';
+}
+
 /**
  * gdk_display_open_default_libgtk_only:
  *
@@ -600,7 +628,6 @@ gdk_init (int *argc, char ***argv)
  * expensive tasks from worker threads, and will handle thread
  * management for you.
  */
-
 
 /**
  * gdk_threads_enter:
@@ -1087,4 +1114,21 @@ gdk_disable_multidevice (void)
     return;
 
   _gdk_disable_multidevice = TRUE;
+}
+
+PangoDirection
+gdk_unichar_direction (gunichar ch)
+{
+  FriBidiCharType fribidi_ch_type;
+
+  G_STATIC_ASSERT (sizeof (FriBidiChar) == sizeof (gunichar));
+
+  fribidi_ch_type = fribidi_get_bidi_type (ch);
+
+  if (!FRIBIDI_IS_STRONG (fribidi_ch_type))
+    return PANGO_DIRECTION_NEUTRAL;
+  else if (FRIBIDI_IS_RTL (fribidi_ch_type))
+    return PANGO_DIRECTION_RTL;
+  else
+    return PANGO_DIRECTION_LTR;
 }

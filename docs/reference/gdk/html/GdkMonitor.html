@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="GdkSeat.html" title="GdkSeat">
 <link rel="next" href="GdkDevice.html" title="GdkDevice">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -240,15 +240,15 @@
 </div>
 <div class="refsect1">
 <a name="GdkMonitor.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gdk/gdk.h&gt;
+<pre class="synopsis">#include &lt;gdk/gdkwayland.h&gt;
 </pre>
 </div>
 <div class="refsect1">
 <a name="GdkMonitor.description"></a><h2>Description</h2>
 <p>GdkMonitor objects represent the individual outputs that are
 associated with a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>. GdkDisplay has APIs to enumerate
-monitors with <a href="GdkDisplay.html#gdk-display-get-monitor"><code class="function">gdk_display_get_monitors()</code></a> and to find particular
-monitors with <a class="link" href="GdkDisplay.html#gdk-display-get-primary-monitor" title="gdk_display_get_primary_monitor ()"><code class="function">gdk_display_get_primary_monitor()</code></a> or
+monitors with <a class="link" href="GdkDisplay.html#gdk-display-get-n-monitors" title="gdk_display_get_n_monitors ()"><code class="function">gdk_display_get_n_monitors()</code></a> and <a class="link" href="GdkDisplay.html#gdk-display-get-monitor" title="gdk_display_get_monitor ()"><code class="function">gdk_display_get_monitor()</code></a>, and
+to find particular monitors with <a class="link" href="GdkDisplay.html#gdk-display-get-primary-monitor" title="gdk_display_get_primary_monitor ()"><code class="function">gdk_display_get_primary_monitor()</code></a> or
 <a class="link" href="GdkDisplay.html#gdk-display-get-monitor-at-window" title="gdk_display_get_monitor_at_window ()"><code class="function">gdk_display_get_monitor_at_window()</code></a>.</p>
 <p>GdkMonitor was introduced in GTK+ 3.22 and supersedes earlier
 APIs in GdkScreen to obtain monitor-related information.</p>
@@ -277,7 +277,7 @@ gdk_monitor_get_display (<em class="parameter"><code><a class="link" href="GdkMo
 </div>
 <div class="refsect3">
 <a name="gdk-monitor-get-display.returns"></a><h4>Returns</h4>
-<p> the display. </p>
+<p>the display. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
@@ -307,7 +307,7 @@ not in ”device pixels” (see <a class="link" href="GdkMonitor.html#gdk-monito
 </tr>
 <tr>
 <td class="parameter_name"><p>geometry</p></td>
-<td class="parameter_description"><p> a <a class="link" href="gdk3-Points-Rectangles-and-Regions.html#GdkRectangle" title="GdkRectangle"><span class="type">GdkRectangle</span></a> to be filled wiht the monitor geometry. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk3-Points-Rectangles-and-Regions.html#GdkRectangle" title="GdkRectangle"><span class="type">GdkRectangle</span></a> to be filled with the monitor geometry. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -347,7 +347,7 @@ available, or does not apply.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>workarea</p></td>
-<td class="parameter_description"><p> a <a class="link" href="gdk3-Points-Rectangles-and-Regions.html#GdkRectangle" title="GdkRectangle"><span class="type">GdkRectangle</span></a> to be filled with
+<td class="parameter_description"><p>a <a class="link" href="gdk3-Points-Rectangles-and-Regions.html#GdkRectangle" title="GdkRectangle"><span class="type">GdkRectangle</span></a> to be filled with
 the monitor workarea. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
@@ -433,7 +433,7 @@ gdk_monitor_get_manufacturer (<em class="parameter"><code><a class="link" href="
 </div>
 <div class="refsect3">
 <a name="gdk-monitor-get-manufacturer.returns"></a><h4>Returns</h4>
-<p> the name of the manufacturer, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the name of the manufacturer, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 </div>
@@ -460,7 +460,7 @@ gdk_monitor_get_model (<em class="parameter"><code><a class="link" href="GdkMoni
 </div>
 <div class="refsect3">
 <a name="gdk-monitor-get-model.returns"></a><h4>Returns</h4>
-<p> the monitor model, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the monitor model, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 </div>
@@ -746,6 +746,6 @@ user_function (<a class="link" href="GdkMonitor.html" title="GdkMonitor"><span c
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="DisplayWidgets.html" title="Display Widgets">
 <link rel="prev" href="GtkInfoBar.html" title="GtkInfoBar">
 <link rel="next" href="GtkLevelBar.html" title="GtkLevelBar">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -132,7 +132,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="returnvalue">PangoEllipsizeMode</span></a>
+<a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="returnvalue">PangoEllipsizeMode</span></a>
 </td>
 <td class="function_name">
 <a class="link" href="GtkProgressBar.html#gtk-progress-bar-get-ellipsize" title="gtk_progress_bar_get_ellipsize ()">gtk_progress_bar_get_ellipsize</a> <span class="c_punctuation">()</span>
@@ -167,7 +167,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="property_type"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a></td>
+<td class="property_type"><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a></td>
 <td class="property_name"><a class="link" href="GtkProgressBar.html#GtkProgressBar--ellipsize" title="The “ellipsize” property">ellipsize</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -305,10 +305,10 @@ step size used in activity mode can be set.</p>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting">progressbar<span class="gtkdoc opt">[.</span>osd<span class="gtkdoc opt">]</span>
-╰── trough<span class="gtkdoc opt">[.</span>empty<span class="gtkdoc opt">][.</span>full<span class="gtkdoc opt">]</span>
-    ├── <span class="gtkdoc opt">[</span>text<span class="gtkdoc opt">]</span>
-    ╰── progress<span class="gtkdoc opt">[.</span>pulse<span class="gtkdoc opt">]</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">progressbar</span><span class="symbol">[.</span><span class="normal">osd</span><span class="symbol">]</span>
+<span class="normal">├── </span><span class="symbol">[</span><span class="normal">text</span><span class="symbol">]</span>
+<span class="normal">╰── trough</span><span class="symbol">[.</span><span class="normal">empty</span><span class="symbol">][.</span><span class="normal">full</span><span class="symbol">]</span>
+<span class="normal">    ╰── progress</span><span class="symbol">[.</span><span class="normal">pulse</span><span class="symbol">]</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -316,12 +316,12 @@ step size used in activity mode can be set.</p>
 
 <p></p>
 <p>GtkProgressBar has a main CSS node with name progressbar and subnodes with
-names text, trough and progress. The text subnode is only present if text
-is shown. The progress subnode has the style class .pulse when in activity
-mode. It gets the style classes .left, .right, .top or .bottom added when
-the progress 'touches' the corresponding end of the GtkProgressBar.
-The .osd class on the progressbar node is for use in overlays like the one
-epiphany has for page loading progress.</p>
+names text and trough, of which the latter has a subnode named progress. The
+text subnode is only present if text is shown. The progress subnode has the
+style class .pulse when in activity mode. It gets the style classes .left,
+.right, .top or .bottom added when the progress 'touches' the corresponding
+end of the GtkProgressBar. The .osd class on the progressbar node is for use
+in overlays like the one Epiphany has for page loading progress.</p>
 </div>
 </div>
 <div class="refsect1">
@@ -506,7 +506,7 @@ text (even if the actual text is blank), set <a class="link" href="GtkProgressBa
 </tr>
 <tr>
 <td class="parameter_name"><p>show_text</p></td>
-<td class="parameter_description"><p>whether to show superimposed text</p></td>
+<td class="parameter_description"><p>whether to show text</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -576,7 +576,7 @@ be styled and sized suitably for containing text, as long as
 </tr>
 <tr>
 <td class="parameter_name"><p>text</p></td>
-<td class="parameter_description"><p> a UTF-8 string, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a UTF-8 string, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -609,7 +609,7 @@ if you change the text in the progress bar.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-progress-bar-get-text.returns"></a><h4>Returns</h4>
-<p> text, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>; this string is owned by the widget
+<p>text, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>; this string is owned by the widget
 and should not be modified or freed. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -619,7 +619,7 @@ and should not be modified or freed. </p>
 <a name="gtk-progress-bar-set-ellipsize"></a><h3>gtk_progress_bar_set_ellipsize ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_progress_bar_set_ellipsize (<em class="parameter"><code><a class="link" href="GtkProgressBar.html" title="GtkProgressBar"><span class="type">GtkProgressBar</span></a> *pbar</code></em>,
-                                <em class="parameter"><code><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a> mode</code></em>);</pre>
+                                <em class="parameter"><code><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a> mode</code></em>);</pre>
 <p>Sets the mode used to ellipsize (add an ellipsis: "...") the
 text if there is not enough space to render the entire string.</p>
 <div class="refsect3">
@@ -638,7 +638,7 @@ text if there is not enough space to render the entire string.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>mode</p></td>
-<td class="parameter_description"><p>a <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -649,7 +649,7 @@ text if there is not enough space to render the entire string.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-progress-bar-get-ellipsize"></a><h3>gtk_progress_bar_get_ellipsize ()</h3>
-<pre class="programlisting"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="returnvalue">PangoEllipsizeMode</span></a>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="returnvalue">PangoEllipsizeMode</span></a>
 gtk_progress_bar_get_ellipsize (<em class="parameter"><code><a class="link" href="GtkProgressBar.html" title="GtkProgressBar"><span class="type">GtkProgressBar</span></a> *pbar</code></em>);</pre>
 <p>Returns the ellipsizing position of the progress bar.
 See <a class="link" href="GtkProgressBar.html#gtk-progress-bar-set-ellipsize" title="gtk_progress_bar_set_ellipsize ()"><code class="function">gtk_progress_bar_set_ellipsize()</code></a>.</p>
@@ -670,7 +670,7 @@ See <a class="link" href="GtkProgressBar.html#gtk-progress-bar-set-ellipsize" ti
 </div>
 <div class="refsect3">
 <a name="gtk-progress-bar-get-ellipsize.returns"></a><h4>Returns</h4>
-<p> <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a></p>
+<p> <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a></p>
 </div>
 <p class="since">Since: 2.6</p>
 </div>
@@ -743,12 +743,12 @@ gtk_progress_bar_get_pulse_step (<em class="parameter"><code><a class="link" hre
 <a name="GtkProgressBar.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkProgressBar--ellipsize"></a><h3>The <code class="literal">“ellipsize”</code> property</h3>
-<pre class="programlisting">  “ellipsize”                <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a></pre>
+<pre class="programlisting">  “ellipsize”                <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a></pre>
 <p>The preferred place to ellipsize the string, if the progress bar does
 not have enough room to display the entire string, specified as a
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a>.</p>
+<a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a>.</p>
 <p>Note that setting this property to a value other than
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PANGO-ELLIPSIZE-NONE:CAPS"><code class="literal">PANGO_ELLIPSIZE_NONE</code></a> has the side-effect that the progress bar requests
+<a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PANGO-ELLIPSIZE-NONE:CAPS"><code class="literal">PANGO_ELLIPSIZE_NONE</code></a> has the side-effect that the progress bar requests
 only enough space to display the ellipsis ("..."). Another means to set a
 progress bar's width is <a class="link" href="GtkWidget.html#gtk-widget-set-size-request" title="gtk_widget_set_size_request ()"><code class="function">gtk_widget_set_size_request()</code></a>.</p>
 <p>Flags: Read / Write</p>
@@ -856,7 +856,7 @@ to the empty string (not <a href="https://developer.gnome.org/glib/unstable/glib
 <p>The minimum vertical width of the progress bar.</p>
 <div class="warning">
 <p><code class="literal">GtkProgressBar:min-vertical-bar-width</code> has been deprecated since version 3.20 and should not be used in newly-written code.</p>
-<p>Use the standard CSS proeprty min-width.</p>
+<p>Use the standard CSS property min-width.</p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Allowed values: &gt;= 1</p>
@@ -894,6 +894,6 @@ to the empty string (not <a href="https://developer.gnome.org/glib/unstable/glib
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

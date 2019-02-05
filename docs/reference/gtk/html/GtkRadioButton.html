@@ -8,7 +8,7 @@
 <link rel="up" href="ButtonWidgets.html" title="Buttons and Toggles">
 <link rel="prev" href="GtkCheckButton.html" title="GtkCheckButton">
 <link rel="next" href="GtkToggleButton.html" title="GtkToggleButton">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -219,9 +219,9 @@ itself and its list item when it is destroyed.</p>
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">radiobutton
-├── radio
-╰── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">radiobutton</span>
+<span class="normal">├── radio</span>
+<span class="normal">╰── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -237,9 +237,9 @@ main CSS node with name radiobutton and a subnode with name radio.</p>
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">button<span class="gtkdoc opt">.</span>radio
-├── radio
-╰── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">button</span><span class="symbol">.</span><span class="normal">radio</span>
+<span class="normal">├── radio</span>
+<span class="normal">╰── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -279,30 +279,30 @@ in this case.</p>
 22
 23
 24</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">void</span> <span class="function">create_radio_buttons</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwb">void</span><span class="gtkdoc opt">) {</span>
+        <td class="listing_code"><pre class="programlisting"><span class="type">void</span><span class="normal"> </span><span class="function">create_radio_buttons</span><span class="normal"> </span><span class="symbol">(</span><span class="type">void</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
 
-   GtkWidget <span class="gtkdoc opt">*</span>window<span class="gtkdoc opt">, *</span>radio1<span class="gtkdoc opt">, *</span>radio2<span class="gtkdoc opt">, *</span>box<span class="gtkdoc opt">, *</span>entry<span class="gtkdoc opt">;</span>
-   window <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWindow.html#gtk-window-new">gtk_window_new</a></span> <span class="gtkdoc opt">(</span>GTK_WINDOW_TOPLEVEL<span class="gtkdoc opt">);</span>
-   box <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkBox.html#gtk-box-new">gtk_box_new</a></span> <span class="gtkdoc opt">(</span>GTK_ORIENTATION_VERTICAL<span class="gtkdoc opt">,</span> <span class="number">2</span><span class="gtkdoc opt">);</span>
-   <span class="function"><a href="GtkBox.html#gtk-box-set-homogeneous">gtk_box_set_homogeneous</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_BOX</span> <span class="gtkdoc opt">(</span>box<span class="gtkdoc opt">),</span> TRUE<span class="gtkdoc opt">);</span>
+<span class="normal">   </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">window</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">radio1</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">radio2</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">box</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">entry</span><span class="symbol">;</span>
+<span class="normal">   window </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWindow.html#gtk-window-new">gtk_window_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="GtkWindow.html#GTK-WINDOW-TOPLEVEL:CAPS">GTK_WINDOW_TOPLEVEL</a></span><span class="symbol">);</span>
+<span class="normal">   box </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkBox.html#gtk-box-new">gtk_box_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="gtk3-Standard-Enumerations.html#GTK-ORIENTATION-VERTICAL:CAPS">GTK_ORIENTATION_VERTICAL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="number">2</span><span class="symbol">);</span>
+<span class="normal">   </span><span class="function"><a href="GtkBox.html#gtk-box-set-homogeneous">gtk_box_set_homogeneous</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_BOX</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">box</span><span class="symbol">),</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">);</span>
 
-   <span class="gtkdoc slc">// Create a radio button with a GtkEntry widget</span>
-   radio1 <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkRadioButton.html#gtk-radio-button-new">gtk_radio_button_new</a></span> <span class="gtkdoc opt">(</span>NULL<span class="gtkdoc opt">);</span>
-   entry <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkEntry.html#gtk-entry-new">gtk_entry_new</a></span> <span class="gtkdoc opt">();</span>
-   <span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CONTAINER</span> <span class="gtkdoc opt">(</span>radio1<span class="gtkdoc opt">),</span> entry<span class="gtkdoc opt">);</span>
+<span class="normal">   </span><span class="comment">// Create a radio button with a GtkEntry widget</span>
+<span class="normal">   radio1 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkRadioButton.html#gtk-radio-button-new">gtk_radio_button_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">   entry </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkEntry.html#gtk-entry-new">gtk_entry_new</a></span><span class="normal"> </span><span class="symbol">();</span>
+<span class="normal">   </span><span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">radio1</span><span class="symbol">),</span><span class="normal"> entry</span><span class="symbol">);</span>
 
 
-   <span class="gtkdoc slc">// Create a radio button with a label</span>
-   radio2 <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkRadioButton.html#gtk-radio-button-new-with-label-from-widget">gtk_radio_button_new_with_label_from_widget</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_RADIO_BUTTON</span> <span class="gtkdoc opt">(</span>radio1<span class="gtkdoc opt">),</span>
-                                                         <span class="string">&quot;I’m the second radio button.&quot;</span><span class="gtkdoc opt">);</span>
+<span class="normal">   </span><span class="comment">// Create a radio button with a label</span>
+<span class="normal">   radio2 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkRadioButton.html#gtk-radio-button-new-with-label-from-widget">gtk_radio_button_new_with_label_from_widget</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_RADIO_BUTTON</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">radio1</span><span class="symbol">),</span>
+<span class="normal">                                                         </span><span class="string">"I’m the second radio button."</span><span class="symbol">);</span>
 
-   <span class="gtkdoc slc">// Pack them into a box, then show all the widgets</span>
-   <span class="function"><a href="GtkBox.html#gtk-box-pack-start">gtk_box_pack_start</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_BOX</span> <span class="gtkdoc opt">(</span>box<span class="gtkdoc opt">),</span> radio1<span class="gtkdoc opt">,</span> TRUE<span class="gtkdoc opt">,</span> TRUE<span class="gtkdoc opt">,</span> <span class="number">2</span><span class="gtkdoc opt">);</span>
-   <span class="function"><a href="GtkBox.html#gtk-box-pack-start">gtk_box_pack_start</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_BOX</span> <span class="gtkdoc opt">(</span>box<span class="gtkdoc opt">),</span> radio2<span class="gtkdoc opt">,</span> TRUE<span class="gtkdoc opt">,</span> TRUE<span class="gtkdoc opt">,</span> <span class="number">2</span><span class="gtkdoc opt">);</span>
-   <span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CONTAINER</span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">),</span> box<span class="gtkdoc opt">);</span>
-   <span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">);</span>
-   <span class="keyword">return</span><span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">   </span><span class="comment">// Pack them into a box, then show all the widgets</span>
+<span class="normal">   </span><span class="function"><a href="GtkBox.html#gtk-box-pack-start">gtk_box_pack_start</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_BOX</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">box</span><span class="symbol">),</span><span class="normal"> radio1</span><span class="symbol">);</span>
+<span class="normal">   </span><span class="function"><a href="GtkBox.html#gtk-box-pack-start">gtk_box_pack_start</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_BOX</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">box</span><span class="symbol">),</span><span class="normal"> radio2</span><span class="symbol">);</span>
+<span class="normal">   </span><span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">),</span><span class="normal"> box</span><span class="symbol">);</span>
+<span class="normal">   </span><span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">);</span>
+<span class="normal">   </span><span class="keyword">return</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -335,7 +335,7 @@ then be packed into the radio button.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>group</p></td>
-<td class="parameter_description"><p> an existing
+<td class="parameter_description"><p>an existing
 radio button group, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if you are creating a new group. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkRadioButton][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr></tbody>
@@ -366,14 +366,14 @@ should be packed into the radio button.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>radio_group_member</p></td>
-<td class="parameter_description"><p> an existing <a class="link" href="GtkRadioButton.html" title="GtkRadioButton"><span class="type">GtkRadioButton</span></a>. </p></td>
+<td class="parameter_description"><p>an existing <a class="link" href="GtkRadioButton.html" title="GtkRadioButton"><span class="type">GtkRadioButton</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
 <a name="gtk-radio-button-new-from-widget.returns"></a><h4>Returns</h4>
-<p> a new radio button. </p>
+<p>a new radio button. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -395,7 +395,7 @@ gtk_radio_button_new_with_label (<em class="parameter"><code><a href="https://de
 <tbody>
 <tr>
 <td class="parameter_name"><p>group</p></td>
-<td class="parameter_description"><p> an existing
+<td class="parameter_description"><p>an existing
 radio button group, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if you are creating a new group. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkRadioButton][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -434,7 +434,7 @@ the same group as <em class="parameter"><code>radio_group_member</code></em>
 <tbody>
 <tr>
 <td class="parameter_name"><p>radio_group_member</p></td>
-<td class="parameter_description"><p> widget to get radio group from or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>widget to get radio group from or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -447,7 +447,7 @@ the same group as <em class="parameter"><code>radio_group_member</code></em>
 </div>
 <div class="refsect3">
 <a name="gtk-radio-button-new-with-label-from-widget.returns"></a><h4>Returns</h4>
-<p> a new radio button. </p>
+<p>a new radio button. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -474,7 +474,7 @@ mnemonic for the button.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>group</p></td>
-<td class="parameter_description"><p> the radio button
+<td class="parameter_description"><p>the radio button
 group, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkRadioButton][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -515,7 +515,7 @@ in <em class="parameter"><code>label</code></em>
 <tbody>
 <tr>
 <td class="parameter_name"><p>radio_group_member</p></td>
-<td class="parameter_description"><p> widget to get radio group from or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>widget to get radio group from or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -529,7 +529,7 @@ mnemonic character</p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-radio-button-new-with-mnemonic-from-widget.returns"></a><h4>Returns</h4>
-<p> a new <a class="link" href="GtkRadioButton.html" title="GtkRadioButton"><span class="type">GtkRadioButton</span></a>. </p>
+<p>a new <a class="link" href="GtkRadioButton.html" title="GtkRadioButton"><span class="type">GtkRadioButton</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -559,7 +559,7 @@ changes.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>group</p></td>
-<td class="parameter_description"><p> an existing radio
+<td class="parameter_description"><p>an existing radio
 button group, such as one returned from <a class="link" href="GtkRadioButton.html#gtk-radio-button-get-group" title="gtk_radio_button_get_group ()"><code class="function">gtk_radio_button_get_group()</code></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkRadioButton][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -590,7 +590,7 @@ gtk_radio_button_get_group (<em class="parameter"><code><a class="link" href="Gt
 </div>
 <div class="refsect3">
 <a name="gtk-radio-button-get-group.returns"></a><h4>Returns</h4>
-<p> a linked list
+<p>a linked list
 containing all the radio buttons in the same group
 as <em class="parameter"><code>radio_button</code></em>
 . The returned list is owned by the radio button
@@ -622,16 +622,16 @@ and <a class="link" href="GtkRadioButton.html#gtk-radio-button-set-group" title=
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkRadioButton <span class="gtkdoc opt">*</span>radio_button<span class="gtkdoc opt">;</span>
-GtkRadioButton <span class="gtkdoc opt">*</span>last_button<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkRadioButton</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">radio_button</span><span class="symbol">;</span>
+<span class="usertype">GtkRadioButton</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">last_button</span><span class="symbol">;</span>
 
-<span class="keyword">while</span> <span class="gtkdoc opt">( ...</span>more buttons to add<span class="gtkdoc opt">... )</span>
-  <span class="gtkdoc opt">{</span>
-     radio_button <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkRadioButton.html#gtk-radio-button-new">gtk_radio_button_new</a></span> <span class="gtkdoc opt">(...);</span>
+<span class="keyword">while</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">some_condition</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">     radio_button </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkRadioButton.html#gtk-radio-button-new">gtk_radio_button_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 
-     <span class="function"><a href="GtkRadioButton.html#gtk-radio-button-join-group">gtk_radio_button_join_group</a></span> <span class="gtkdoc opt">(</span>radio_button<span class="gtkdoc opt">,</span> last_button<span class="gtkdoc opt">);</span>
-     last_button <span class="gtkdoc opt">=</span> radio_button<span class="gtkdoc opt">;</span>
-  <span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">     </span><span class="function"><a href="GtkRadioButton.html#gtk-radio-button-join-group">gtk_radio_button_join_group</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">radio_button</span><span class="symbol">,</span><span class="normal"> last_button</span><span class="symbol">);</span>
+<span class="normal">     last_button </span><span class="symbol">=</span><span class="normal"> radio_button</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -654,7 +654,7 @@ GtkRadioButton <span class="gtkdoc opt">*</span>last_button<span class="gtkdoc o
 </tr>
 <tr>
 <td class="parameter_name"><p>group_source</p></td>
-<td class="parameter_description"><p> a radio button object whos group we are
+<td class="parameter_description"><p>a radio button object whos group we are
 joining, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to remove the radio button from its group. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -725,6 +725,6 @@ of the group that a button belongs to changes.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

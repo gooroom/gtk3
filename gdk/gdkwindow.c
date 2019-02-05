@@ -588,6 +588,9 @@ gdk_window_finalize (GObject *object)
   if (window->devices_inside)
     g_list_free (window->devices_inside);
 
+  if (window->opaque_region)
+    cairo_region_destroy (window->opaque_region);
+
   G_OBJECT_CLASS (gdk_window_parent_class)->finalize (object);
 }
 
@@ -4024,12 +4027,10 @@ static void
 before_process_all_updates (void)
 {
   GSList *displays, *l;
-  GdkDisplayClass *display_class;
 
   displays = gdk_display_manager_list_displays (gdk_display_manager_get ());
-  display_class = GDK_DISPLAY_GET_CLASS (displays->data);
   for (l = displays; l; l = l->next)
-    display_class->before_process_all_updates (l->data);
+    GDK_DISPLAY_GET_CLASS (l->data)->before_process_all_updates (l->data);
 
   g_slist_free (displays);
 }
@@ -4038,12 +4039,10 @@ static void
 after_process_all_updates (void)
 {
   GSList *displays, *l;
-  GdkDisplayClass *display_class;
 
   displays = gdk_display_manager_list_displays (gdk_display_manager_get ());
-  display_class = GDK_DISPLAY_GET_CLASS (displays->data);
   for (l = displays; l; l = l->next)
-    display_class->after_process_all_updates (l->data);
+    GDK_DISPLAY_GET_CLASS (l->data)->after_process_all_updates (l->data);
 
   g_slist_free (displays);
 }
@@ -4165,7 +4164,7 @@ static void
 gdk_window_process_updates_with_mode (GdkWindow     *window,
                                       int            recurse_mode)
 {
-  GPtrArray *list = g_ptr_array_new_with_free_func (g_object_unref);
+  GPtrArray *list;
   int i;
 
   g_return_if_fail (GDK_IS_WINDOW (window));
@@ -4173,6 +4172,7 @@ gdk_window_process_updates_with_mode (GdkWindow     *window,
   if (GDK_WINDOW_DESTROYED (window))
     return;
 
+  list = g_ptr_array_new_with_free_func (g_object_unref);
   find_impl_windows_to_update (list, window, recurse_mode);
 
   if (window->impl_window != window)
@@ -5745,6 +5745,7 @@ gdk_window_withdraw (GdkWindow *window)
 {
   GdkWindowImplClass *impl_class;
   gboolean was_mapped;
+  GdkGLContext *current_context;
 
   g_return_if_fail (GDK_IS_WINDOW (window));
 
@@ -5768,6 +5769,10 @@ gdk_window_withdraw (GdkWindow *window)
 
 	  _gdk_synthesize_crossing_events_for_geometry_change (window->parent);
 	}
+
+      current_context = gdk_gl_context_get_current ();
+      if (current_context != NULL && gdk_gl_context_get_window (current_context) == window)
+        gdk_gl_context_clear_current ();
 
       recompute_visible_regions (window, FALSE);
       gdk_window_clear_old_updated_area (window);
@@ -6228,8 +6233,7 @@ gdk_window_move_resize (GdkWindow *window,
  * Connect to the #GdkWindow::moved-to-rect signal to find out how it was
  * actually positioned.
  *
- * Since: 3.22
- * Stability: Private
+ * Since: 3.24
  */
 void
 gdk_window_move_to_rect (GdkWindow          *window,
@@ -6438,8 +6442,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
  *
  * Sets the background of @window.
  *
- * A background of %NULL means that the window will inherit its
- * background from its parent window.
+ * A background of %NULL means that the window won't have any background. On the
+ * X11 backend it's also possible to inherit the background from the parent
+ * window using gdk_x11_get_parent_relative_pattern().
  *
  * The windowing system will normally fill a window with its background
  * when the window is obscured then exposed.
@@ -6474,12 +6479,10 @@ gdk_window_set_background_pattern (GdkWindow       *window,
  * gdk_window_get_background_pattern:
  * @window: a window
  *
- * Gets the pattern used to clear the background on @window. If @window
- * does not have its own background and reuses the parent's, %NULL is
- * returned and you’ll have to query it yourself.
+ * Gets the pattern used to clear the background on @window.
  *
  * Returns: (nullable) (transfer none): The pattern to use for the
- * background or %NULL to use the parent’s background.
+ * background or %NULL if there is no background.
  *
  * Since: 2.22
  *
@@ -6587,8 +6590,18 @@ gdk_window_set_cursor (GdkWindow *window,
 
       for (s = seats; s; s = s->next)
         {
+          GList *devices, *d;
+
           device = gdk_seat_get_pointer (s->data);
           gdk_window_set_cursor_internal (window, device, window->cursor);
+
+          devices = gdk_seat_get_slaves (s->data, GDK_SEAT_CAPABILITY_TABLET_STYLUS);
+          for (d = devices; d; d = d->next)
+            {
+              device = gdk_device_get_associated_device (d->data);
+              gdk_window_set_cursor_internal (window, device, window->cursor);
+            }
+          g_list_free (devices);
         }
 
       g_list_free (seats);
@@ -9280,8 +9293,9 @@ proxy_pointer_event (GdkDisplay                 *display,
 				       serial, non_linear);
       _gdk_display_set_window_under_pointer (display, device, pointer_window);
     }
-  else if (source_event->type == GDK_MOTION_NOTIFY ||
-           source_event->type == GDK_TOUCH_UPDATE)
+
+  if (source_event->type == GDK_MOTION_NOTIFY ||
+      source_event->type == GDK_TOUCH_UPDATE)
     {
       GdkWindow *event_win;
       guint evmask;
@@ -11872,6 +11886,14 @@ gdk_window_set_opaque_region (GdkWindow      *window,
 
   g_return_if_fail (GDK_IS_WINDOW (window));
   g_return_if_fail (!GDK_WINDOW_DESTROYED (window));
+
+  if (cairo_region_equal (window->opaque_region, region))
+    return;
+
+  g_clear_pointer (&window->opaque_region, cairo_region_destroy);
+
+  if (region != NULL)
+    window->opaque_region = cairo_region_reference (region);
 
   impl_class = GDK_WINDOW_IMPL_GET_CLASS (window->impl);
 

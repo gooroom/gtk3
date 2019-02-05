@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="GdkScreen.html" title="GdkScreen">
 <link rel="next" href="GdkMonitor.html" title="GdkMonitor">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -257,7 +257,7 @@ gdk_seat_get_display (<em class="parameter"><code><a class="link" href="GdkSeat.
 </div>
 <div class="refsect3">
 <a name="gdk-seat-get-display.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>. This object is owned by GTK+
+<p>a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>. This object is owned by GTK+
 and must not be freed. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -336,7 +336,7 @@ and only if selected by
 </tr>
 <tr>
 <td class="parameter_name"><p>cursor</p></td>
-<td class="parameter_description"><p> the cursor to display while the grab is active. If
+<td class="parameter_description"><p>the cursor to display while the grab is active. If
 this is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> then the normal cursors are used for
 <em class="parameter"><code>window</code></em>
 and its descendants, and the cursor for <em class="parameter"><code>window</code></em>
@@ -346,13 +346,13 @@ elsewhere. </p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p> the event that is triggering the grab, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none
+<td class="parameter_description"><p>the event that is triggering the grab, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none
 is available. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>prepare_func</p></td>
-<td class="parameter_description"><p> function to
+<td class="parameter_description"><p>function to
 prepare the window to be grabbed, it can be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>window</code></em>
 is
 visible before this call. </p></td>
@@ -446,7 +446,7 @@ gdk_seat_get_pointer (<em class="parameter"><code><a class="link" href="GdkSeat.
 </div>
 <div class="refsect3">
 <a name="gdk-seat-get-pointer.returns"></a><h4>Returns</h4>
-<p> a master <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> with pointer
+<p>a master <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> with pointer
 capabilities. This object is owned by GTK+ and must not be freed. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -475,7 +475,7 @@ gdk_seat_get_keyboard (<em class="parameter"><code><a class="link" href="GdkSeat
 </div>
 <div class="refsect3">
 <a name="gdk-seat-get-keyboard.returns"></a><h4>Returns</h4>
-<p> a master <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> with keyboard
+<p>a master <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> with keyboard
 capabilities. This object is owned by GTK+ and must not be freed. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -512,7 +512,7 @@ gdk_seat_get_slaves (<em class="parameter"><code><a class="link" href="GdkSeat.h
 </div>
 <div class="refsect3">
 <a name="gdk-seat-get-slaves.returns"></a><h4>Returns</h4>
-<p> A list of <a href="GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevices</span></a>.
+<p>A list of <a href="GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevices</span></a>.
 The list must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>, the elements are owned
 by GDK and must not be freed. </p>
 <p><span class="annotation">[<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GdkDevice]</span></p>
@@ -772,6 +772,6 @@ to this <em class="parameter"><code>seat</code></em>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

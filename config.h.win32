@@ -209,6 +209,11 @@
 /* Define to 1 if you have the <sys/types.h> header file. */
 #define HAVE_SYS_TYPES_H 1
 
+/* Define to 1 if trunc() is available */
+#if !defined (_MSC_VER) || (_MSC_VER >= 1800)
+# define HAVE_TRUNC 1
+#endif
+
 /* Define to 1 if you have the <unistd.h> header file. */
 #ifndef _MSC_VER
 #define HAVE_UNISTD_H 1
@@ -282,7 +287,7 @@
 #define PACKAGE_NAME "gtk+"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "gtk+ 3.22.11"
+#define PACKAGE_STRING "gtk+ 3.24.5"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "gtk+"
@@ -291,7 +296,7 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "3.22.11"
+#define PACKAGE_VERSION "3.24.5"
 
 /* Use NSBundle functions to determine load paths for libraries, translations,
    etc. */

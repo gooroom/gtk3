@@ -46,6 +46,7 @@
 #include "tablet-unstable-v2-client-protocol.h"
 #include "xdg-shell-unstable-v6-client-protocol.h"
 #include "xdg-foreign-unstable-v1-client-protocol.h"
+#include "server-decoration-client-protocol.h"
 
 /**
  * SECTION:wayland_interaction
@@ -79,6 +80,10 @@
  *   g_error ("Unsupported GDK backend");
  * ]|
  */
+
+#define MIN_SYSTEM_BELL_DELAY_MS 20
+
+#define GTK_SHELL1_VERSION       3
 
 static void _gdk_wayland_display_load_cursor_theme (GdkWaylandDisplay *display_wayland);
 
@@ -114,9 +119,28 @@ _gdk_wayland_display_async_roundtrip (GdkWaylandDisplay *display_wayland)
 }
 
 static void
-xdg_shell_ping (void                 *data,
-                struct zxdg_shell_v6 *xdg_shell,
-                uint32_t              serial)
+xdg_wm_base_ping (void               *data,
+                  struct xdg_wm_base *xdg_wm_base,
+                  uint32_t            serial)
+{
+  GdkWaylandDisplay *display_wayland = data;
+
+  _gdk_wayland_display_update_serial (display_wayland, serial);
+
+  GDK_NOTE (EVENTS,
+            g_message ("ping, shell %p, serial %u\n", xdg_wm_base, serial));
+
+  xdg_wm_base_pong (xdg_wm_base, serial);
+}
+
+static const struct xdg_wm_base_listener xdg_wm_base_listener = {
+  xdg_wm_base_ping,
+};
+
+static void
+zxdg_shell_v6_ping (void                 *data,
+                    struct zxdg_shell_v6 *xdg_shell,
+                    uint32_t              serial)
 {
   GdkWaylandDisplay *display_wayland = data;
 
@@ -128,8 +152,8 @@ xdg_shell_ping (void                 *data,
   zxdg_shell_v6_pong (xdg_shell, serial);
 }
 
-static const struct zxdg_shell_v6_listener xdg_shell_listener = {
-  xdg_shell_ping,
+static const struct zxdg_shell_v6_listener zxdg_shell_v6_listener = {
+  zxdg_shell_v6_ping,
 };
 
 static gboolean
@@ -330,6 +354,35 @@ static const struct wl_shm_listener wl_shm_listener = {
 };
 
 static void
+server_decoration_manager_default_mode (void                                          *data,
+                                        struct org_kde_kwin_server_decoration_manager *manager,
+                                        uint32_t                                       mode)
+{
+  g_assert (mode <= ORG_KDE_KWIN_SERVER_DECORATION_MANAGER_MODE_SERVER);
+  const char *modes[] = {
+    [ORG_KDE_KWIN_SERVER_DECORATION_MANAGER_MODE_NONE]   = "none",
+    [ORG_KDE_KWIN_SERVER_DECORATION_MANAGER_MODE_CLIENT] = "client",
+    [ORG_KDE_KWIN_SERVER_DECORATION_MANAGER_MODE_SERVER] = "server",
+  };
+  GdkWaylandDisplay *display_wayland = data;
+  g_debug ("Compositor prefers decoration mode '%s'", modes[mode]);
+  display_wayland->server_decoration_mode = mode;
+}
+
+static const struct org_kde_kwin_server_decoration_manager_listener server_decoration_listener = {
+  .default_mode = server_decoration_manager_default_mode
+};
+
+gboolean
+gdk_wayland_display_prefers_ssd (GdkDisplay *display)
+{
+  GdkWaylandDisplay *display_wayland = GDK_WAYLAND_DISPLAY (display);
+  if (display_wayland->server_decoration_manager)
+    return display_wayland->server_decoration_mode == ORG_KDE_KWIN_SERVER_DECORATION_MANAGER_MODE_SERVER;
+  return FALSE;
+}
+
+static void
 gdk_registry_handle_global (void               *data,
                             struct wl_registry *registry,
                             uint32_t            id,
@@ -338,7 +391,6 @@ gdk_registry_handle_global (void               *data,
 {
   GdkWaylandDisplay *display_wayland = data;
   struct wl_output *output;
-  gboolean handled = TRUE;
 
   GDK_NOTE (MISC,
             g_message ("add global %u, interface %s, version %u", id, interface, version));
@@ -355,21 +407,20 @@ gdk_registry_handle_global (void               *data,
         wl_registry_bind (display_wayland->wl_registry, id, &wl_shm_interface, 1);
       wl_shm_add_listener (display_wayland->shm, &wl_shm_listener, display_wayland);
     }
+  else if (strcmp (interface, "xdg_wm_base") == 0)
+    {
+      display_wayland->xdg_wm_base_id = id;
+    }
   else if (strcmp (interface, "zxdg_shell_v6") == 0)
     {
-      display_wayland->xdg_shell =
-        wl_registry_bind (display_wayland->wl_registry, id,
-                          &zxdg_shell_v6_interface, 1);
-      zxdg_shell_v6_add_listener (display_wayland->xdg_shell,
-                                  &xdg_shell_listener,
-                                  display_wayland);
+      display_wayland->zxdg_shell_v6_id = id;
     }
   else if (strcmp (interface, "gtk_shell1") == 0)
     {
       display_wayland->gtk_shell =
         wl_registry_bind(display_wayland->wl_registry, id,
                          &gtk_shell1_interface,
-                         1);
+                         MIN (version, GTK_SHELL1_VERSION));
       _gdk_wayland_screen_set_has_gtk_shell (display_wayland->screen);
       display_wayland->gtk_shell_version = version;
     }
@@ -446,12 +497,24 @@ gdk_registry_handle_global (void               *data,
         wl_registry_bind (display_wayland->wl_registry, id,
                           &zxdg_importer_v1_interface, 1);
     }
-  else
-    handled = FALSE;
+  else if (strcmp (interface, "zwp_keyboard_shortcuts_inhibit_manager_v1") == 0)
+    {
+      display_wayland->keyboard_shortcuts_inhibit =
+        wl_registry_bind (display_wayland->wl_registry, id,
+                          &zwp_keyboard_shortcuts_inhibit_manager_v1_interface, 1);
+    }
+  else if (strcmp (interface, "org_kde_kwin_server_decoration_manager") == 0)
+    {
+      display_wayland->server_decoration_manager =
+        wl_registry_bind (display_wayland->wl_registry, id,
+                          &org_kde_kwin_server_decoration_manager_interface, 1);
+      org_kde_kwin_server_decoration_manager_add_listener (display_wayland->server_decoration_manager,
+                                                           &server_decoration_listener,
+                                                           display_wayland);
+    }
 
-  if (handled)
-    g_hash_table_insert (display_wayland->known_globals,
-                         GUINT_TO_POINTER (id), g_strdup (interface));
+  g_hash_table_insert (display_wayland->known_globals,
+                       GUINT_TO_POINTER (id), g_strdup (interface));
 
   process_on_globals_closures (display_wayland);
 }
@@ -558,11 +621,32 @@ _gdk_wayland_display_open (const gchar *display_name)
         }
     }
 
-  /* Make sure we have xdg_shell at least */
-  if (display_wayland->xdg_shell == NULL)
+  if (display_wayland->xdg_wm_base_id)
     {
-      g_warning ("Wayland compositor does not support xdg_shell interface,"
-                 " not using Wayland display");
+      display_wayland->shell_variant = GDK_WAYLAND_SHELL_VARIANT_XDG_SHELL;
+      display_wayland->xdg_wm_base =
+        wl_registry_bind (display_wayland->wl_registry,
+                          display_wayland->xdg_wm_base_id,
+                          &xdg_wm_base_interface, 1);
+      xdg_wm_base_add_listener (display_wayland->xdg_wm_base,
+                                &xdg_wm_base_listener,
+                                display_wayland);
+    }
+  else if (display_wayland->zxdg_shell_v6_id)
+    {
+      display_wayland->shell_variant = GDK_WAYLAND_SHELL_VARIANT_ZXDG_SHELL_V6;
+      display_wayland->zxdg_shell_v6 =
+        wl_registry_bind (display_wayland->wl_registry,
+                          display_wayland->zxdg_shell_v6_id,
+                          &zxdg_shell_v6_interface, 1);
+      zxdg_shell_v6_add_listener (display_wayland->zxdg_shell_v6,
+                                  &zxdg_shell_v6_listener,
+                                  display_wayland);
+    }
+  else
+    {
+      g_warning ("The Wayland compositor does not provide any supported shell interface, "
+                 "not using Wayland display");
       g_object_unref (display);
 
       return NULL;
@@ -656,10 +740,13 @@ gdk_wayland_display_get_default_screen (GdkDisplay *display)
   return GDK_WAYLAND_DISPLAY (display)->screen;
 }
 
-static void
-gdk_wayland_display_beep (GdkDisplay *display)
+void
+gdk_wayland_display_system_bell (GdkDisplay *display,
+                                 GdkWindow  *window)
 {
   GdkWaylandDisplay *display_wayland;
+  struct gtk_surface1 *gtk_surface;
+  gint64 now_ms;
 
   g_return_if_fail (GDK_IS_DISPLAY (display));
 
@@ -668,7 +755,24 @@ gdk_wayland_display_beep (GdkDisplay *display)
   if (!display_wayland->gtk_shell)
     return;
 
-  gtk_shell1_system_bell (display_wayland->gtk_shell, NULL);
+  if (window)
+    gtk_surface = gdk_wayland_window_get_gtk_surface (window);
+  else
+    gtk_surface = NULL;
+
+  now_ms = g_get_monotonic_time () / 1000;
+  if (now_ms - display_wayland->last_bell_time_ms < MIN_SYSTEM_BELL_DELAY_MS)
+    return;
+
+  display_wayland->last_bell_time_ms = now_ms;
+
+  gtk_shell1_system_bell (display_wayland->gtk_shell, gtk_surface);
+}
+
+static void
+gdk_wayland_display_beep (GdkDisplay *display)
+{
+  gdk_wayland_display_system_bell (display, NULL);
 }
 
 static void
@@ -1172,6 +1276,9 @@ open_shared_memory (void)
 
       if (force_shm_open)
         {
+#if defined (__FreeBSD__)
+          ret = shm_open (SHM_ANON, O_CREAT | O_EXCL | O_RDWR | O_CLOEXEC, 0600);
+#else
           char name[NAME_MAX - 1] = "";
 
           sprintf (name, "/gdk-wayland-%x", g_random_int ());
@@ -1182,6 +1289,7 @@ open_shared_memory (void)
             shm_unlink (name);
           else if (errno == EEXIST)
             continue;
+#endif
         }
     }
   while (ret < 0 && errno == EINTR);
@@ -1316,4 +1424,38 @@ gdk_wayland_display_get_selection (GdkDisplay *display)
   GdkWaylandDisplay *display_wayland = GDK_WAYLAND_DISPLAY (display);
 
   return display_wayland->selection;
+}
+
+/**
+ * gdk_wayland_display_query_registry:
+ * @display: a wayland #GdkDisplay
+ * @interface: global interface to query in the registry
+ *
+ * Returns %TRUE if the the interface was found in the display
+ * wl_registry.global handler.
+ *
+ * Returns: %TRUE if the global is offered by the compositor
+ *
+ * Since: 3.22.27
+ **/
+gboolean
+gdk_wayland_display_query_registry (GdkDisplay  *display,
+				    const gchar *global)
+{
+  GdkWaylandDisplay *display_wayland = GDK_WAYLAND_DISPLAY (display);
+  GHashTableIter iter;
+  gchar *value;
+
+  g_return_val_if_fail (GDK_IS_WAYLAND_DISPLAY (display), FALSE);
+  g_return_val_if_fail (global != NULL, FALSE);
+
+  g_hash_table_iter_init (&iter, display_wayland->known_globals);
+
+  while (g_hash_table_iter_next (&iter, NULL, (gpointer*) &value))
+    {
+      if (strcmp (value, global) == 0)
+        return TRUE;
+    }
+
+  return FALSE;
 }

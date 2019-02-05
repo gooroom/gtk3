@@ -8,7 +8,7 @@
 <link rel="up" href="SelectorWidgets.html" title="Selector Widgets and Dialogs">
 <link rel="prev" href="GtkColorChooserDialog.html" title="GtkColorChooserDialog">
 <link rel="next" href="GtkFileChooserButton.html" title="GtkFileChooserButton">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -454,7 +454,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="returnvalue">GFile</span></a> *
+<span class="returnvalue">GFile</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkFileChooser.html#gtk-file-chooser-get-current-folder-file" title="gtk_file_chooser_get_current_folder_file ()">gtk_file_chooser_get_current_folder_file</a> <span class="c_punctuation">()</span>
@@ -462,7 +462,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="returnvalue">GFile</span></a> *
+<span class="returnvalue">GFile</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkFileChooser.html#gtk-file-chooser-get-file" title="gtk_file_chooser_get_file ()">gtk_file_chooser_get_file</a> <span class="c_punctuation">()</span>
@@ -478,7 +478,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="returnvalue">GFile</span></a> *
+<span class="returnvalue">GFile</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkFileChooser.html#gtk-file-chooser-get-preview-file" title="gtk_file_chooser_get_preview_file ()">gtk_file_chooser_get_preview_file</a> <span class="c_punctuation">()</span>
@@ -659,7 +659,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkFileChooser.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/GTypeModule.html">GInterface</a>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/GTypeModule.html">GInterface</a>
     <span class="lineart">╰──</span> GtkFileChooser
 </pre>
 </div>
@@ -777,39 +777,39 @@ generate a preview.</p>
 31
 32
 33</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">{</span>
-  GtkImage <span class="gtkdoc opt">*</span>preview<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkImage</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">preview</span><span class="symbol">;</span>
 
-  <span class="gtkdoc opt">...</span>
+<span class="normal">  </span><span class="symbol">...</span>
 
-  preview <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkImage.html#gtk-image-new">gtk_image_new</a></span> <span class="gtkdoc opt">();</span>
+<span class="normal">  preview </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkImage.html#gtk-image-new">gtk_image_new</a></span><span class="normal"> </span><span class="symbol">();</span>
 
-  <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-preview-widget">gtk_file_chooser_set_preview_widget</a></span> <span class="gtkdoc opt">(</span>my_file_chooser<span class="gtkdoc opt">,</span> preview<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>my_file_chooser<span class="gtkdoc opt">,</span> <span class="string">&quot;update-preview&quot;</span><span class="gtkdoc opt">,</span>
-		    <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>update_preview_cb<span class="gtkdoc opt">),</span> preview<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">  </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-preview-widget">gtk_file_chooser_set_preview_widget</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">my_file_chooser</span><span class="symbol">,</span><span class="normal"> preview</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">my_file_chooser</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"update-preview"</span><span class="symbol">,</span>
+<span class="normal">            </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">update_preview_cb</span><span class="symbol">),</span><span class="normal"> preview</span><span class="symbol">);</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc kwb">static void</span>
-<span class="function">update_preview_cb</span> <span class="gtkdoc opt">(</span>GtkFileChooser <span class="gtkdoc opt">*</span>file_chooser<span class="gtkdoc opt">,</span> gpointer data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkWidget <span class="gtkdoc opt">*</span>preview<span class="gtkdoc opt">;</span>
-  <span class="gtkdoc kwb">char</span> <span class="gtkdoc opt">*</span>filename<span class="gtkdoc opt">;</span>
-  GdkPixbuf <span class="gtkdoc opt">*</span>pixbuf<span class="gtkdoc opt">;</span>
-  gboolean have_preview<span class="gtkdoc opt">;</span>
+<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">update_preview_cb</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkFileChooser</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">file_chooser</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">gpointer</span><span class="normal"> data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">preview</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">filename</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GdkPixbuf</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">pixbuf</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">gboolean</span><span class="normal"> have_preview</span><span class="symbol">;</span>
 
-  preview <span class="gtkdoc opt">=</span> <span class="function">GTK_WIDGET</span> <span class="gtkdoc opt">(</span>data<span class="gtkdoc opt">);</span>
-  filename <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-get-preview-filename">gtk_file_chooser_get_preview_filename</a></span> <span class="gtkdoc opt">(</span>file_chooser<span class="gtkdoc opt">);</span>
+<span class="normal">  preview </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GTK_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">data</span><span class="symbol">);</span>
+<span class="normal">  filename </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-get-preview-filename">gtk_file_chooser_get_preview_filename</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">file_chooser</span><span class="symbol">);</span>
 
-  pixbuf <span class="gtkdoc opt">=</span> <span class="function"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-File-Loading.html#gdk-pixbuf-new-from-file-at-size">gdk_pixbuf_new_from_file_at_size</a></span> <span class="gtkdoc opt">(</span>filename<span class="gtkdoc opt">,</span> <span class="number">128</span><span class="gtkdoc opt">,</span> <span class="number">128</span><span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span>
-  have_preview <span class="gtkdoc opt">= (</span>pixbuf <span class="gtkdoc opt">!=</span> NULL<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span> <span class="gtkdoc opt">(</span>filename<span class="gtkdoc opt">);</span>
+<span class="normal">  pixbuf </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-File-Loading.html#gdk-pixbuf-new-from-file-at-size">gdk_pixbuf_new_from_file_at_size</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filename</span><span class="symbol">,</span><span class="normal"> </span><span class="number">128</span><span class="symbol">,</span><span class="normal"> </span><span class="number">128</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">  have_preview </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">pixbuf </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filename</span><span class="symbol">);</span>
 
-  <span class="function"><a href="GtkImage.html#gtk-image-set-from-pixbuf">gtk_image_set_from_pixbuf</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_IMAGE</span> <span class="gtkdoc opt">(</span>preview<span class="gtkdoc opt">),</span> pixbuf<span class="gtkdoc opt">);</span>
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>pixbuf<span class="gtkdoc opt">)</span>
-    <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>pixbuf<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkImage.html#gtk-image-set-from-pixbuf">gtk_image_set_from_pixbuf</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_IMAGE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">preview</span><span class="symbol">),</span><span class="normal"> pixbuf</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">pixbuf</span><span class="symbol">)</span>
+<span class="normal">    </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">pixbuf</span><span class="symbol">);</span>
 
-  <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-preview-widget-active">gtk_file_chooser_set_preview_widget_active</a></span> <span class="gtkdoc opt">(</span>file_chooser<span class="gtkdoc opt">,</span> have_preview<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-preview-widget-active">gtk_file_chooser_set_preview_widget_active</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">file_chooser</span><span class="symbol">,</span><span class="normal"> have_preview</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -840,14 +840,14 @@ widgets in a file chooser.</p>
 6
 7
 8</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkWidget <span class="gtkdoc opt">*</span>toggle<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">toggle</span><span class="symbol">;</span>
 
-<span class="gtkdoc opt">...</span>
+<span class="symbol">...</span>
 
-toggle <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkCheckButton.html#gtk-check-button-new-with-label">gtk_check_button_new_with_label</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;Open file read-only&quot;</span><span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span> <span class="gtkdoc opt">(</span>toggle<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-extra-widget">gtk_file_chooser_set_extra_widget</a></span> <span class="gtkdoc opt">(</span>my_file_chooser<span class="gtkdoc opt">,</span> toggle<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">toggle </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkCheckButton.html#gtk-check-button-new-with-label">gtk_check_button_new_with_label</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Open file read-only"</span><span class="symbol">);</span>
+<span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">toggle</span><span class="symbol">);</span>
+<span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-extra-widget">gtk_file_chooser_set_extra_widget</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">my_file_chooser</span><span class="symbol">,</span><span class="normal"> toggle</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1279,7 +1279,7 @@ Please see the documentation for those functions for an example of using
 </tr>
 <tr>
 <td class="parameter_name"><p>name</p></td>
-<td class="parameter_description"><p> the filename to use, as a UTF-8 string. </p></td>
+<td class="parameter_description"><p>the filename to use, as a UTF-8 string. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 </tbody>
@@ -1351,7 +1351,7 @@ folder.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-filename.returns"></a><h4>Returns</h4>
-<p> The currently selected filename,
+<p>The currently selected filename,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no file is selected, or the selected file can't
 be represented with a local filename. Free with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></p>
@@ -1394,16 +1394,16 @@ time, do not call this function.  Instead, use something similar to this:</p>
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span> <span class="gtkdoc opt">(</span>document_is_new<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-    <span class="gtkdoc slc">// the user just created a new document</span>
-    <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-current-name">gtk_file_chooser_set_current_name</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">,</span> <span class="string">&quot;Untitled document&quot;</span><span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">document_is_new</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="comment">// the user just created a new document</span>
+<span class="normal">    </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-current-name">gtk_file_chooser_set_current_name</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Untitled document"</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span>
 <span class="keyword">else</span>
-  <span class="gtkdoc opt">{</span>
-    <span class="gtkdoc slc">// the user edited an existing document</span>
-    <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-filename">gtk_file_chooser_set_filename</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">,</span> existing_filename<span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="comment">// the user edited an existing document</span>
+<span class="normal">    </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-filename">gtk_file_chooser_set_filename</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">,</span><span class="normal"> existing_filename</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1429,7 +1429,7 @@ is already known, so the file chooser will use it.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>filename</p></td>
-<td class="parameter_description"><p> the filename to set as current. </p></td>
+<td class="parameter_description"><p>the filename to set as current. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 </tbody>
@@ -1469,7 +1469,7 @@ be changed to the folder containing <em class="parameter"><code>filename</code><
 </tr>
 <tr>
 <td class="parameter_name"><p>filename</p></td>
-<td class="parameter_description"><p> the filename to select. </p></td>
+<td class="parameter_description"><p>the filename to select. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 </tbody>
@@ -1507,7 +1507,7 @@ is otherwise not currently selected, does nothing.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>filename</p></td>
-<td class="parameter_description"><p> the filename to unselect. </p></td>
+<td class="parameter_description"><p>the filename to unselect. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 </tbody>
@@ -1588,7 +1588,7 @@ folder cannot be represented as local filenames they will be ignored. (See
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-filenames.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a>
+<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a>
 containing the filenames of all selected files and subfolders in
 the current folder. Free the returned list with <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a>,
 and the filenames with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. </p>
@@ -1625,7 +1625,7 @@ for the rationale behind this.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>filename</p></td>
-<td class="parameter_description"><p> the full path of the new current folder. </p></td>
+<td class="parameter_description"><p>the full path of the new current folder. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 </tbody>
@@ -1669,7 +1669,7 @@ usual way to get the selection.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-current-folder.returns"></a><h4>Returns</h4>
-<p> the full path of the current
+<p>the full path of the current
 folder, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the current path cannot be represented as a local
 filename.  Free with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.  This function will also return
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the file chooser was unable to load the last folder that
@@ -1706,7 +1706,7 @@ folder.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-uri.returns"></a><h4>Returns</h4>
-<p> The currently selected URI, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<p>The currently selected URI, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 if no file is selected. If <a class="link" href="GtkFileChooser.html#gtk-file-chooser-set-local-only" title="gtk_file_chooser_set_local_only ()"><code class="function">gtk_file_chooser_set_local_only()</code></a> is set to
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> (the default) a local URI will be returned for any FUSE locations.
 Free with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. </p>
@@ -1749,16 +1749,16 @@ not call this function.  Instead, use something similar to this:</p>
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span> <span class="gtkdoc opt">(</span>document_is_new<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-    <span class="gtkdoc slc">// the user just created a new document</span>
-    <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-current-name">gtk_file_chooser_set_current_name</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">,</span> <span class="string">&quot;Untitled document&quot;</span><span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">document_is_new</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="comment">// the user just created a new document</span>
+<span class="normal">    </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-current-name">gtk_file_chooser_set_current_name</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Untitled document"</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span>
 <span class="keyword">else</span>
-  <span class="gtkdoc opt">{</span>
-    <span class="gtkdoc slc">// the user edited an existing document</span>
-    <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-uri">gtk_file_chooser_set_uri</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">,</span> existing_uri<span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="comment">// the user edited an existing document</span>
+<span class="normal">    </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-uri">gtk_file_chooser_set_uri</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">,</span><span class="normal"> existing_uri</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1896,7 +1896,7 @@ gtk_file_chooser_get_uris (<em class="parameter"><code><a class="link" href="Gtk
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-uris.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> containing the URIs of all selected
+<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> containing the URIs of all selected
 files and subfolders in the current folder. Free the returned list
 with <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a>, and the filenames with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -1979,7 +1979,7 @@ usual way to get the selection.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-current-folder-uri.returns"></a><h4>Returns</h4>
-<p> the URI for the current folder.
+<p>the URI for the current folder.
 Free with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.  This function will also return <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the file chooser
 was unable to load the last folder that was requested from it; for example,
 as would be for calling <a class="link" href="GtkFileChooser.html#gtk-file-chooser-set-current-folder-uri" title="gtk_file_chooser_set_current_folder_uri ()"><code class="function">gtk_file_chooser_set_current_folder_uri()</code></a> on a
@@ -2053,7 +2053,7 @@ gtk_file_chooser_get_preview_widget (<em class="parameter"><code><a class="link"
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-preview-widget.returns"></a><h4>Returns</h4>
-<p> the current preview widget, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the current preview widget, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.4</p>
@@ -2215,7 +2215,7 @@ widget. See <a class="link" href="GtkFileChooser.html#gtk-file-chooser-set-previ
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-preview-filename.returns"></a><h4>Returns</h4>
-<p> the filename to preview, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
+<p>the filename to preview, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
 no file is selected, or if the selected file cannot be represented
 as a local filename. Free with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></p>
@@ -2246,7 +2246,7 @@ widget. See <a class="link" href="GtkFileChooser.html#gtk-file-chooser-set-previ
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-preview-uri.returns"></a><h4>Returns</h4>
-<p> the URI for the file to preview,
+<p>the URI for the file to preview,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no file is selected. Free with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -2288,7 +2288,7 @@ gtk_file_chooser_set_extra_widget (<em class="parameter"><code><a class="link" h
 <a name="gtk-file-chooser-get-extra-widget"></a><h3>gtk_file_chooser_get_extra_widget ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
 gtk_file_chooser_get_extra_widget (<em class="parameter"><code><a class="link" href="GtkFileChooser.html" title="GtkFileChooser"><span class="type">GtkFileChooser</span></a> *chooser</code></em>);</pre>
-<p>Gets the current preview widget; see
+<p>Gets the current extra widget; see
 <a class="link" href="GtkFileChooser.html#gtk-file-chooser-set-extra-widget" title="gtk_file_chooser_set_extra_widget ()"><code class="function">gtk_file_chooser_set_extra_widget()</code></a>.</p>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-extra-widget.parameters"></a><h4>Parameters</h4>
@@ -2307,7 +2307,7 @@ gtk_file_chooser_get_extra_widget (<em class="parameter"><code><a class="link" h
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-extra-widget.returns"></a><h4>Returns</h4>
-<p> the current extra widget, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the current extra widget, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.4</p>
@@ -2341,7 +2341,7 @@ ref and sink it if you want to keep a reference.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>filter</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkFileFilter.html" title="GtkFileFilter"><span class="type">GtkFileFilter</span></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkFileFilter.html" title="GtkFileFilter"><span class="type">GtkFileFilter</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2405,7 +2405,7 @@ gtk_file_chooser_list_filters (<em class="parameter"><code><a class="link" href=
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-list-filters.returns"></a><h4>Returns</h4>
-<p> a
+<p>a
 <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> containing the current set of user selectable filters. The
 contents of the list are owned by GTK+, but you must free the list
 itself with <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a> when you are done with it. </p>
@@ -2472,7 +2472,7 @@ gtk_file_chooser_get_filter (<em class="parameter"><code><a class="link" href="G
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-filter.returns"></a><h4>Returns</h4>
-<p> the current filter, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the current filter, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.4</p>
@@ -2504,12 +2504,12 @@ application.  For example, you can use this to add a
 </tr>
 <tr>
 <td class="parameter_name"><p>folder</p></td>
-<td class="parameter_description"><p> filename of the folder to add. </p></td>
+<td class="parameter_description"><p>filename of the folder to add. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2548,12 +2548,12 @@ gtk_file_chooser_remove_shortcut_folder
 </tr>
 <tr>
 <td class="parameter_name"><p>folder</p></td>
-<td class="parameter_description"><p> filename of the folder to remove. </p></td>
+<td class="parameter_description"><p>filename of the folder to remove. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2593,7 +2593,7 @@ gtk_file_chooser_list_shortcut_folders
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-list-shortcut-folders.returns"></a><h4>Returns</h4>
-<p> A list
+<p>A list
 of folder filenames, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there are no shortcut folders.
 Free the returned list with <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a>, and the filenames with
 <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. </p>
@@ -2634,7 +2634,7 @@ by the application.  For example, you can use this to add a
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2678,7 +2678,7 @@ gtk_file_chooser_remove_shortcut_folder_uri
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2718,7 +2718,7 @@ gtk_file_chooser_list_shortcut_folder_uris
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-list-shortcut-folder-uris.returns"></a><h4>Returns</h4>
-<p> A list of
+<p>A list of
 folder URIs, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there are no shortcut folders.  Free the
 returned list with <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a>, and the URIs with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -2728,11 +2728,11 @@ returned list with <a href="https://developer.gnome.org/glib/unstable/glib-Singl
 <hr>
 <div class="refsect2">
 <a name="gtk-file-chooser-get-current-folder-file"></a><h3>gtk_file_chooser_get_current_folder_file ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="returnvalue">GFile</span></a> *
+<pre class="programlisting"><span class="returnvalue">GFile</span> *
 gtk_file_chooser_get_current_folder_file
                                (<em class="parameter"><code><a class="link" href="GtkFileChooser.html" title="GtkFileChooser"><span class="type">GtkFileChooser</span></a> *chooser</code></em>);</pre>
 <p>Gets the current folder of <em class="parameter"><code>chooser</code></em>
- as <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a>.
+ as <span class="type">GFile</span>.
 See <a class="link" href="GtkFileChooser.html#gtk-file-chooser-get-current-folder-uri" title="gtk_file_chooser_get_current_folder_uri ()"><code class="function">gtk_file_chooser_get_current_folder_uri()</code></a>.</p>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-current-folder-file.parameters"></a><h4>Parameters</h4>
@@ -2751,7 +2751,7 @@ See <a class="link" href="GtkFileChooser.html#gtk-file-chooser-get-current-folde
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-current-folder-file.returns"></a><h4>Returns</h4>
-<p> the <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> for the current folder. </p>
+<p>the <span class="type">GFile</span> for the current folder. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -2759,9 +2759,9 @@ See <a class="link" href="GtkFileChooser.html#gtk-file-chooser-get-current-folde
 <hr>
 <div class="refsect2">
 <a name="gtk-file-chooser-get-file"></a><h3>gtk_file_chooser_get_file ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="returnvalue">GFile</span></a> *
+<pre class="programlisting"><span class="returnvalue">GFile</span> *
 gtk_file_chooser_get_file (<em class="parameter"><code><a class="link" href="GtkFileChooser.html" title="GtkFileChooser"><span class="type">GtkFileChooser</span></a> *chooser</code></em>);</pre>
-<p>Gets the <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> for the currently selected file in
+<p>Gets the <span class="type">GFile</span> for the currently selected file in
 the file selector. If multiple files are selected,
 one of the files will be returned at random.</p>
 <p>If the file chooser is in folder mode, this function returns the selected
@@ -2783,7 +2783,7 @@ folder.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-file.returns"></a><h4>Returns</h4>
-<p> a selected <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a>. You own the returned file;
+<p>a selected <span class="type">GFile</span>. You own the returned file;
 use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> to release it. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -2796,7 +2796,7 @@ use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Objec
 gtk_file_chooser_get_files (<em class="parameter"><code><a class="link" href="GtkFileChooser.html" title="GtkFileChooser"><span class="type">GtkFileChooser</span></a> *chooser</code></em>);</pre>
 <p>Lists all the selected files and subfolders in the current folder of <em class="parameter"><code>chooser</code></em>
 
-as <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a>. An internal function, see <a class="link" href="GtkFileChooser.html#gtk-file-chooser-get-uris" title="gtk_file_chooser_get_uris ()"><code class="function">gtk_file_chooser_get_uris()</code></a>.</p>
+as <span class="type">GFile</span>. An internal function, see <a class="link" href="GtkFileChooser.html#gtk-file-chooser-get-uris" title="gtk_file_chooser_get_uris ()"><code class="function">gtk_file_chooser_get_uris()</code></a>.</p>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-files.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -2814,8 +2814,8 @@ as <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><s
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-files.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a>
-containing a <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> for each selected file and subfolder in the
+<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a>
+containing a <span class="type">GFile</span> for each selected file and subfolder in the
 current folder.  Free the returned list with <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a>, and
 the files with <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GFile][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -2825,9 +2825,9 @@ the files with <a href="https://developer.gnome.org/gobject/unstable/gobject-The
 <hr>
 <div class="refsect2">
 <a name="gtk-file-chooser-get-preview-file"></a><h3>gtk_file_chooser_get_preview_file ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="returnvalue">GFile</span></a> *
+<pre class="programlisting"><span class="returnvalue">GFile</span> *
 gtk_file_chooser_get_preview_file (<em class="parameter"><code><a class="link" href="GtkFileChooser.html" title="GtkFileChooser"><span class="type">GtkFileChooser</span></a> *chooser</code></em>);</pre>
-<p>Gets the <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> that should be previewed in a custom preview
+<p>Gets the <span class="type">GFile</span> that should be previewed in a custom preview
 Internal function, see <a class="link" href="GtkFileChooser.html#gtk-file-chooser-get-preview-uri" title="gtk_file_chooser_get_preview_uri ()"><code class="function">gtk_file_chooser_get_preview_uri()</code></a>.</p>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-preview-file.parameters"></a><h4>Parameters</h4>
@@ -2846,7 +2846,7 @@ Internal function, see <a class="link" href="GtkFileChooser.html#gtk-file-choose
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-get-preview-file.returns"></a><h4>Returns</h4>
-<p> the <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> for the file to preview,
+<p>the <span class="type">GFile</span> for the file to preview,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no file is selected. Free with <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -2857,7 +2857,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <a name="gtk-file-chooser-select-file"></a><h3>gtk_file_chooser_select_file ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_file_chooser_select_file (<em class="parameter"><code><a class="link" href="GtkFileChooser.html" title="GtkFileChooser"><span class="type">GtkFileChooser</span></a> *chooser</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> *file</code></em>,
+                              <em class="parameter"><code><span class="type">GFile</span> *file</code></em>,
                               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Selects the file referred to by <em class="parameter"><code>file</code></em>
 . An internal function. See
@@ -2883,7 +2883,7 @@ gtk_file_chooser_select_file (<em class="parameter"><code><a class="link" href="
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2901,10 +2901,10 @@ gtk_file_chooser_select_file (<em class="parameter"><code><a class="link" href="
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_file_chooser_set_current_folder_file
                                (<em class="parameter"><code><a class="link" href="GtkFileChooser.html" title="GtkFileChooser"><span class="type">GtkFileChooser</span></a> *chooser</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> *file</code></em>,
+                                <em class="parameter"><code><span class="type">GFile</span> *file</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Sets the current folder for <em class="parameter"><code>chooser</code></em>
- from a <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a>.
+ from a <span class="type">GFile</span>.
 Internal function, see <a class="link" href="GtkFileChooser.html#gtk-file-chooser-set-current-folder-uri" title="gtk_file_chooser_set_current_folder_uri ()"><code class="function">gtk_file_chooser_set_current_folder_uri()</code></a>.</p>
 <div class="refsect3">
 <a name="gtk-file-chooser-set-current-folder-file.parameters"></a><h4>Parameters</h4>
@@ -2922,12 +2922,12 @@ Internal function, see <a class="link" href="GtkFileChooser.html#gtk-file-choose
 </tr>
 <tr>
 <td class="parameter_name"><p>file</p></td>
-<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> for the new folder</p></td>
+<td class="parameter_description"><p>the <span class="type">GFile</span> for the new folder</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2945,7 +2945,7 @@ otherwise.</p>
 <a name="gtk-file-chooser-set-file"></a><h3>gtk_file_chooser_set_file ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_file_chooser_set_file (<em class="parameter"><code><a class="link" href="GtkFileChooser.html" title="GtkFileChooser"><span class="type">GtkFileChooser</span></a> *chooser</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> *file</code></em>,
+                           <em class="parameter"><code><span class="type">GFile</span> *file</code></em>,
                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Sets <em class="parameter"><code>file</code></em>
  as the current filename for the file chooser, by changing
@@ -2984,17 +2984,17 @@ Instead, use something similar to this:</p>
 9
 10
 11</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span> <span class="gtkdoc opt">(</span>document_is_new<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-    <span class="gtkdoc slc">// the user just created a new document</span>
-    <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-current-folder-file">gtk_file_chooser_set_current_folder_file</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">,</span> default_file_for_saving<span class="gtkdoc opt">);</span>
-    <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-current-name">gtk_file_chooser_set_current_name</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">,</span> <span class="string">&quot;Untitled document&quot;</span><span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">document_is_new</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="comment">// the user just created a new document</span>
+<span class="normal">    </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-current-folder-file">gtk_file_chooser_set_current_folder_file</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">,</span><span class="normal"> default_file_for_saving</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-current-name">gtk_file_chooser_set_current_name</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Untitled document"</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span>
 <span class="keyword">else</span>
-  <span class="gtkdoc opt">{</span>
-    <span class="gtkdoc slc">// the user edited an existing document</span>
-    <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-file">gtk_file_chooser_set_file</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">,</span> existing_file<span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="comment">// the user edited an existing document</span>
+<span class="normal">    </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-file">gtk_file_chooser_set_file</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">,</span><span class="normal"> existing_file</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -3017,12 +3017,12 @@ Instead, use something similar to this:</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>file</p></td>
-<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> to set as current</p></td>
+<td class="parameter_description"><p>the <span class="type">GFile</span> to set as current</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store the error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore errors. </p></td>
+<td class="parameter_description"><p>location to store the error, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore errors. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -3039,7 +3039,7 @@ Instead, use something similar to this:</p>
 <a name="gtk-file-chooser-unselect-file"></a><h3>gtk_file_chooser_unselect_file ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_file_chooser_unselect_file (<em class="parameter"><code><a class="link" href="GtkFileChooser.html" title="GtkFileChooser"><span class="type">GtkFileChooser</span></a> *chooser</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a> *file</code></em>);</pre>
+                                <em class="parameter"><code><span class="type">GFile</span> *file</code></em>);</pre>
 <p>Unselects the file referred to by <em class="parameter"><code>file</code></em>
 . If the file is not in the current
 directory, does not exist, or is otherwise not currently selected, does nothing.</p>
@@ -3059,7 +3059,7 @@ directory, does not exist, or is otherwise not currently selected, does nothing.
 </tr>
 <tr>
 <td class="parameter_name"><p>file</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gio/unstable/GFile.html#GFile-struct"><span class="type">GFile</span></a></p></td>
+<td class="parameter_description"><p>a <span class="type">GFile</span></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -3384,35 +3384,35 @@ illustrates this.</p>
 27
 28
 29</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static</span> GtkFileChooserConfirmation
-<span class="function">confirm_overwrite_callback</span> <span class="gtkdoc opt">(</span>GtkFileChooser <span class="gtkdoc opt">*</span>chooser<span class="gtkdoc opt">,</span> gpointer data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc kwb">char</span> <span class="gtkdoc opt">*</span>uri<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> <a href="GtkFileChooser.html#GtkFileChooserConfirmation">GtkFileChooserConfirmation</a></span>
+<span class="function">confirm_overwrite_callback</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkFileChooser</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">chooser</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">gpointer</span><span class="normal"> data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">uri</span><span class="symbol">;</span>
 
-  uri <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-get-uri">gtk_file_chooser_get_uri</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">);</span>
+<span class="normal">  uri </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-get-uri">gtk_file_chooser_get_uri</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">);</span>
 
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span><span class="function">is_uri_read_only</span> <span class="gtkdoc opt">(</span>uri<span class="gtkdoc opt">))</span>
-    <span class="gtkdoc opt">{</span>
-      <span class="keyword">if</span> <span class="gtkdoc opt">(</span><span class="function">user_wants_to_replace_read_only_file</span> <span class="gtkdoc opt">(</span>uri<span class="gtkdoc opt">))</span>
-        <span class="keyword">return</span> GTK_FILE_CHOOSER_CONFIRMATION_ACCEPT_FILENAME<span class="gtkdoc opt">;</span>
-      <span class="keyword">else</span>
-        <span class="keyword">return</span> GTK_FILE_CHOOSER_CONFIRMATION_SELECT_AGAIN<span class="gtkdoc opt">;</span>
-    <span class="gtkdoc opt">}</span> <span class="keyword">else</span>
-      <span class="keyword">return</span> GTK_FILE_CHOOSER_CONFIRMATION_CONFIRM<span class="gtkdoc opt">;</span> <span class="gtkdoc slc">// fall back to the default dialog</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function">is_uri_read_only</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">uri</span><span class="symbol">))</span>
+<span class="normal">    </span><span class="cbracket">{</span>
+<span class="normal">      </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function">user_wants_to_replace_read_only_file</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">uri</span><span class="symbol">))</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> <a href="GtkFileChooser.html#GTK-FILE-CHOOSER-CONFIRMATION-ACCEPT-FILENAME:CAPS">GTK_FILE_CHOOSER_CONFIRMATION_ACCEPT_FILENAME</a></span><span class="symbol">;</span>
+<span class="normal">      </span><span class="keyword">else</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> <a href="GtkFileChooser.html#GTK-FILE-CHOOSER-CONFIRMATION-SELECT-AGAIN:CAPS">GTK_FILE_CHOOSER_CONFIRMATION_SELECT_AGAIN</a></span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span><span class="normal"> </span><span class="keyword">else</span>
+<span class="normal">      </span><span class="keyword">return</span><span class="normal"> <a href="GtkFileChooser.html#GTK-FILE-CHOOSER-CONFIRMATION-CONFIRM:CAPS">GTK_FILE_CHOOSER_CONFIRMATION_CONFIRM</a></span><span class="symbol">;</span><span class="normal"> </span><span class="comment">// fall back to the default dialog</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc opt">...</span>
+<span class="symbol">...</span>
 
-chooser <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkFileChooserDialog.html#gtk-file-chooser-dialog-new">gtk_file_chooser_dialog_new</a></span> <span class="gtkdoc opt">(...);</span>
+<span class="normal">chooser </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkFileChooserDialog.html#gtk-file-chooser-dialog-new">gtk_file_chooser_dialog_new</a></span><span class="normal"> </span><span class="symbol">(...);</span>
 
-<span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-do-overwrite-confirmation">gtk_file_chooser_set_do_overwrite_confirmation</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_FILE_CHOOSER</span> <span class="gtkdoc opt">(</span>dialog<span class="gtkdoc opt">),</span> TRUE<span class="gtkdoc opt">);</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">,</span> <span class="string">&quot;confirm-overwrite&quot;</span><span class="gtkdoc opt">,</span>
-                  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>confirm_overwrite_callback<span class="gtkdoc opt">),</span> NULL<span class="gtkdoc opt">);</span>
+<span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-do-overwrite-confirmation">gtk_file_chooser_set_do_overwrite_confirmation</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_FILE_CHOOSER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">),</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">);</span>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"confirm-overwrite"</span><span class="symbol">,</span>
+<span class="normal">                  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">confirm_overwrite_callback</span><span class="symbol">),</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 
-<span class="keyword">if</span> <span class="gtkdoc opt">(</span><span class="function"><a href="GtkDialog.html#gtk-dialog-run">gtk_dialog_run</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">) ==</span> GTK_RESPONSE_ACCEPT<span class="gtkdoc opt">)</span>
-        <span class="function">save_to_file</span> <span class="gtkdoc opt">(</span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-get-filename">gtk_file_chooser_get_filename</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_FILE_CHOOSER</span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">));</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GtkDialog.html#gtk-dialog-run">gtk_dialog_run</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">==</span><span class="normal"> <a href="GtkDialog.html#GTK-RESPONSE-ACCEPT:CAPS">GTK_RESPONSE_ACCEPT</a></span><span class="symbol">)</span>
+<span class="normal">        </span><span class="function">save_to_file</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-get-filename">gtk_file_chooser_get_filename</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_FILE_CHOOSER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">));</span>
 
-<span class="function"><a href="GtkWidget.html#gtk-widget-destroy">gtk_widget_destroy</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="GtkWidget.html#gtk-widget-destroy">gtk_widget_destroy</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -3628,6 +3628,6 @@ chooser about whether the preview was generated successfully or not.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

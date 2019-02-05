@@ -3466,6 +3466,8 @@ gtk_icon_view_row_inserted (GtkTreeModel *model,
   if (gtk_tree_path_get_depth (path) > 1)
     return;
 
+  gtk_tree_model_ref_node (model, iter);
+
   index = gtk_tree_path_get_indices(path)[0];
 
   item = gtk_icon_view_item_new ();
@@ -3502,10 +3504,14 @@ gtk_icon_view_row_deleted (GtkTreeModel *model,
   GtkIconViewItem *item;
   GList *list, *next;
   gboolean emit = FALSE;
+  GtkTreeIter iter;
 
   /* ignore changes in branches */
   if (gtk_tree_path_get_depth (path) > 1)
     return;
+
+  if (gtk_tree_model_get_iter (model, &iter, path))
+    gtk_tree_model_unref_node (model, &iter);
 
   index = gtk_tree_path_get_indices(path)[0];
 
@@ -4472,7 +4478,7 @@ gtk_icon_view_get_path_at_pos (GtkIconView *icon_view,
  * @x: The x position to be identified
  * @y: The y position to be identified
  * @path: (out) (allow-none): Return location for the path, or %NULL
- * @cell: (out) (allow-none): Return location for the renderer
+ * @cell: (out) (allow-none) (transfer none): Return location for the renderer
  *   responsible for the cell at (@x, @y), or %NULL
  * 
  * Finds the path at the point (@x, @y), relative to bin_window coordinates.

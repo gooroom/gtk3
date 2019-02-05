@@ -8,7 +8,7 @@
 <link rel="up" href="WindowWidgets.html" title="Windows">
 <link rel="prev" href="GtkMessageDialog.html" title="GtkMessageDialog">
 <link rel="next" href="GtkAssistant.html" title="GtkAssistant">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -483,12 +483,14 @@ as shown in the following example:</p>
 2
 3
 4
-5</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="GtkAboutDialog.html#gtk-show-about-dialog">gtk_show_about_dialog</a></span> <span class="gtkdoc opt">(</span>NULL<span class="gtkdoc opt">,</span>
-                       <span class="string">&quot;program-name&quot;</span><span class="gtkdoc opt">,</span> <span class="string">&quot;ExampleCode&quot;</span><span class="gtkdoc opt">,</span>
-                       <span class="string">&quot;logo&quot;</span><span class="gtkdoc opt">,</span> example_logo<span class="gtkdoc opt">,</span>
-                       <span class="string">&quot;title&quot;</span> <span class="function">_</span><span class="gtkdoc opt">(</span><span class="string">&quot;About ExampleCode&quot;</span><span class="gtkdoc opt">),</span>
-                       NULL<span class="gtkdoc opt">);</span></pre></td>
+5
+6</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkPixbuf</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">example_logo </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-File-Loading.html#gdk-pixbuf-new-from-file">gdk_pixbuf_new_from_file</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"./logo.png"</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="function"><a href="GtkAboutDialog.html#gtk-show-about-dialog">gtk_show_about_dialog</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span>
+<span class="normal">                       </span><span class="string">"program-name"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"ExampleCode"</span><span class="symbol">,</span>
+<span class="normal">                       </span><span class="string">"logo"</span><span class="symbol">,</span><span class="normal"> example_logo</span><span class="symbol">,</span>
+<span class="normal">                       </span><span class="string">"title"</span><span class="symbol">,</span><span class="normal"> </span><span class="function">_</span><span class="symbol">(</span><span class="string">"About ExampleCode"</span><span class="symbol">),</span>
+<span class="normal">                       <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -623,7 +625,7 @@ gtk_about_dialog_set_version (<em class="parameter"><code><a class="link" href="
 </tr>
 <tr>
 <td class="parameter_name"><p>version</p></td>
-<td class="parameter_description"><p> the version string. </p></td>
+<td class="parameter_description"><p>the version string. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -683,7 +685,7 @@ This should be a short string of one or two lines.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>copyright</p></td>
-<td class="parameter_description"><p> the copyright string. </p></td>
+<td class="parameter_description"><p>the copyright string. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -743,7 +745,7 @@ This should be a short string of one or two lines.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>comments</p></td>
-<td class="parameter_description"><p> a comments string. </p></td>
+<td class="parameter_description"><p>a comments string. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -805,7 +807,7 @@ hidden.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>license</p></td>
-<td class="parameter_description"><p> the license information or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>the license information or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -988,7 +990,7 @@ gtk_about_dialog_set_website (<em class="parameter"><code><a class="link" href="
 </tr>
 <tr>
 <td class="parameter_name"><p>website</p></td>
-<td class="parameter_description"><p> a URL string starting with "http://". </p></td>
+<td class="parameter_description"><p>a URL string starting with "http://". </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1079,7 +1081,7 @@ of the secondary credits dialog.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-about-dialog-get-authors.returns"></a><h4>Returns</h4>
-<p> A
+<p>A
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated string array containing the authors. The array is
 owned by the about dialog and must not be modified. </p>
 <p><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1110,7 +1112,7 @@ of the secondary credits dialog.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>authors</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings. </p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
 </tbody>
@@ -1142,7 +1144,7 @@ of the secondary credits dialog.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-about-dialog-get-artists.returns"></a><h4>Returns</h4>
-<p> A
+<p>A
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated string array containing the artists. The array is
 owned by the about dialog and must not be modified. </p>
 <p><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1173,7 +1175,7 @@ of the secondary credits dialog.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>artists</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings. </p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
 </tbody>
@@ -1205,7 +1207,7 @@ tab of the secondary credits dialog.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-about-dialog-get-documenters.returns"></a><h4>Returns</h4>
-<p> A
+<p>A
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated string array containing the documenters. The
 array is owned by the about dialog and must not be modified. </p>
 <p><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1236,7 +1238,7 @@ of the secondary credits dialog.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>documenters</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings. </p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
 </tbody>
@@ -1292,9 +1294,11 @@ string for translation:</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1
-2</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="GtkAboutDialog.html#gtk-about-dialog-set-translator-credits">gtk_about_dialog_set_translator_credits</a></span> <span class="gtkdoc opt">(</span>about<span class="gtkdoc opt">,</span>
-                                         <span class="function">_</span><span class="gtkdoc opt">(</span><span class="string">&quot;translator-credits&quot;</span><span class="gtkdoc opt">));</span></pre></td>
+2
+3</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">about </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkAboutDialog.html#gtk-about-dialog-new">gtk_about_dialog_new</a></span><span class="normal"> </span><span class="symbol">();</span>
+<span class="function"><a href="GtkAboutDialog.html#gtk-about-dialog-set-translator-credits">gtk_about_dialog_set_translator_credits</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_ABOUT_DIALOG</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">about</span><span class="symbol">),</span>
+<span class="normal">                                         </span><span class="function">_</span><span class="symbol">(</span><span class="string">"translator-credits"</span><span class="symbol">));</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1321,7 +1325,7 @@ and hide the tab.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>translator_credits</p></td>
-<td class="parameter_description"><p> the translator credits. </p></td>
+<td class="parameter_description"><p>the translator credits. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1352,7 +1356,7 @@ gtk_about_dialog_get_logo (<em class="parameter"><code><a class="link" href="Gtk
 </div>
 <div class="refsect3">
 <a name="gtk-about-dialog-get-logo.returns"></a><h4>Returns</h4>
-<p> the pixbuf displayed as logo. The
+<p>the pixbuf displayed as logo. The
 pixbuf is owned by the about dialog. If you want to keep a
 reference to it, you have to call <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a> on it. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1384,7 +1388,7 @@ If it is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros
 </tr>
 <tr>
 <td class="parameter_name"><p>logo</p></td>
-<td class="parameter_description"><p> a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1446,7 +1450,7 @@ If it is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros
 </tr>
 <tr>
 <td class="parameter_name"><p>icon_name</p></td>
-<td class="parameter_description"><p> an icon name, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>an icon name, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1483,7 +1487,7 @@ gtk_about_dialog_add_credit_section (<em class="parameter"><code><a class="link"
 </tr>
 <tr>
 <td class="parameter_name"><p>people</p></td>
-<td class="parameter_description"><p> The people who belong to that section. </p></td>
+<td class="parameter_description"><p>The people who belong to that section. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
 </tbody>
@@ -1512,7 +1516,7 @@ reused for future invocations of this function.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p> transient parent, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for none. </p></td>
+<td class="parameter_description"><p>transient parent, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for none. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -1649,6 +1653,13 @@ only private fields and should not be directly accessed.</p>
 <td class="enum_member_name"><p><a name="GTK-LICENSE-AGPL-3-0:CAPS"></a>GTK_LICENSE_AGPL_3_0</p></td>
 <td class="enum_member_description">
 <p>The GNU Affero General Public License, version 3.0 or later. Since: 3.22.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-LICENSE-AGPL-3-0-ONLY:CAPS"></a>GTK_LICENSE_AGPL_3_0_ONLY</p></td>
+<td class="enum_member_description">
+<p>The GNU Affero General Public License, version 3.0 only. Since: 3.22.27.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -1870,6 +1881,6 @@ which is to call <a class="link" href="gtk3-Filesystem-utilities.html#gtk-show-u
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

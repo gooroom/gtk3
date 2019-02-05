@@ -786,8 +786,6 @@ gtk_recent_manager_add_item_query_info (GObject      *source_object,
 
   if (file_info)
     {
-      gchar *content_type;
-
       content_type = g_file_info_get_attribute_as_string (file_info, G_FILE_ATTRIBUTE_STANDARD_FAST_CONTENT_TYPE);
 
       if (G_LIKELY (content_type))
@@ -989,7 +987,7 @@ gtk_recent_manager_add_full (GtkRecentManager    *manager,
 
   g_bookmark_file_set_mime_type (priv->recent_items, uri, data->mime_type);
 
-  if (data->groups && data->groups[0] != '\0')
+  if (data->groups && ((char*)data->groups)[0] != '\0')
     {
       gint j;
 

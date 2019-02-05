@@ -43,12 +43,6 @@
  * connection as follows:
  *
  * |[<!-- language="C" -->
- * expander = gtk_expander_new_with_mnemonic ("_More Options");
- * g_signal_connect (expander, "notify::expanded",
- *                   G_CALLBACK (expander_callback), NULL);
- *
- * ...
- *
  * static void
  * expander_callback (GObject    *object,
  *                    GParamSpec *param_spec,
@@ -66,6 +60,16 @@
  *     {
  *       // Hide or destroy widgets
  *     }
+ * }
+ *
+ * static void
+ * create_expander (void)
+ * {
+ *   GtkWidget *expander = gtk_expander_new_with_mnemonic ("_More Options");
+ *   g_signal_connect (expander, "notify::expanded",
+ *                     G_CALLBACK (expander_callback), NULL);
+ *
+ *   // ...
  * }
  * ]|
  *
@@ -99,8 +103,8 @@
  * ]|
  *
  * GtkExpander has three CSS nodes, the main node with the name expander,
- * a subnode with name title and node below it with name arrow. Neither of
- * them is using any style classes.
+ * a subnode with name title and node below it with name arrow. The arrow of an
+ * expander that is showing its child gets the :checked pseudoclass added to it.
  */
 
 #include "config.h"
@@ -602,7 +606,7 @@ gtk_expander_destroy (GtkWidget *widget)
 static void
 gtk_expander_realize (GtkWidget *widget)
 {
-  GtkAllocation allocation;
+  GtkAllocation title_allocation;
   GtkExpanderPrivate *priv;
   GdkWindow *window;
   GdkWindowAttr attributes;
@@ -610,13 +614,13 @@ gtk_expander_realize (GtkWidget *widget)
 
   priv = GTK_EXPANDER (widget)->priv;
 
-  gtk_widget_get_allocation (widget, &allocation);
+  gtk_css_gadget_get_border_allocation (priv->title_gadget, &title_allocation, NULL);
 
   attributes.window_type = GDK_WINDOW_CHILD;
-  attributes.x = allocation.x;
-  attributes.y = allocation.y;
-  attributes.width = allocation.width;
-  attributes.height = allocation.height;
+  attributes.x = title_allocation.x;
+  attributes.y = title_allocation.y;
+  attributes.width = title_allocation.width;
+  attributes.height = title_allocation.height;
   attributes.wclass = GDK_INPUT_ONLY;
   attributes.event_mask = gtk_widget_get_events (widget)
                           | GDK_BUTTON_PRESS_MASK
@@ -1026,30 +1030,23 @@ gtk_expander_resize_toplevel (GtkExpander *expander)
     {
       GtkWidget *toplevel = gtk_widget_get_toplevel (GTK_WIDGET (expander));
 
-      if (toplevel && gtk_widget_get_realized (toplevel))
+      if (toplevel && GTK_IS_WINDOW (toplevel) &&
+          gtk_widget_get_realized (toplevel))
         {
-          GtkAllocation toplevel_allocation;
-          GtkAllocation child_allocation;
+          int toplevel_width, toplevel_height;
+          int child_height;
 
-          gtk_widget_get_allocation (toplevel, &toplevel_allocation);
-          gtk_widget_get_allocation (child, &child_allocation);
+          gtk_widget_get_preferred_height (child, &child_height, NULL);
+          gtk_window_get_size (GTK_WINDOW (toplevel), &toplevel_width, &toplevel_height);
 
           if (priv->expanded)
-            {
-              GtkRequisition child_requisition;
-
-              gtk_widget_get_preferred_height_for_width (child, child_allocation.width, &child_requisition.height, NULL);
-
-              toplevel_allocation.height += child_requisition.height;
-            }
+            toplevel_height += child_height;
           else
-            {
-              toplevel_allocation.height -= child_allocation.height;
-            }
+            toplevel_height -= child_height;
 
           gtk_window_resize (GTK_WINDOW (toplevel),
-                             toplevel_allocation.width,
-                             toplevel_allocation.height);
+                             toplevel_width,
+                             toplevel_height);
         }
     }
 }
@@ -1089,6 +1086,26 @@ gtk_expander_focus (GtkWidget        *widget,
 }
 
 static void
+gtk_expander_update_child_mapped (GtkExpander *expander,
+                                  GtkWidget   *child)
+{
+  /* If collapsing, we must unmap the child, as gtk_box_gadget_remove() does
+   * not, so otherwise the child is not drawn but still consumes input in-place.
+   */
+
+  if (expander->priv->expanded &&
+      gtk_widget_get_realized (child) &&
+      gtk_widget_get_visible (child))
+    {
+      gtk_widget_map (child);
+    }
+  else
+    {
+      gtk_widget_unmap (child);
+    }
+}
+
+static void
 gtk_expander_add (GtkContainer *container,
                   GtkWidget    *widget)
 {
@@ -1100,6 +1117,8 @@ gtk_expander_add (GtkContainer *container,
 
   if (expander->priv->expanded)
     gtk_box_gadget_insert_widget (GTK_BOX_GADGET (expander->priv->gadget), -1, widget);
+
+  gtk_expander_update_child_mapped (expander, widget);
 }
 
 static void
@@ -1193,7 +1212,7 @@ gtk_expander_get_preferred_height_for_width (GtkWidget *widget,
 
 /**
  * gtk_expander_new:
- * @label: the text of the label
+ * @label: (nullable): the text of the label
  *
  * Creates a new expander using @label as the text of the label.
  *
@@ -1209,7 +1228,7 @@ gtk_expander_new (const gchar *label)
 
 /**
  * gtk_expander_new_with_mnemonic:
- * @label: (allow-none): the text of the label with an underscore
+ * @label: (nullable): the text of the label with an underscore
  *     in front of the mnemonic character
  *
  * Creates a new expander using @label as the text of the label.
@@ -1274,6 +1293,8 @@ gtk_expander_set_expanded (GtkExpander *expander,
 
       gtk_widget_queue_resize (GTK_WIDGET (expander));
       gtk_expander_resize_toplevel (expander);
+
+      gtk_expander_update_child_mapped (expander, child);
     }
 
   g_object_notify (G_OBJECT (expander), "expanded");
@@ -1352,7 +1373,7 @@ gtk_expander_get_spacing (GtkExpander *expander)
 /**
  * gtk_expander_set_label:
  * @expander: a #GtkExpander
- * @label: (allow-none): a string
+ * @label: (nullable): a string
  *
  * Sets the text of the label of the expander to @label.
  *
@@ -1401,12 +1422,12 @@ gtk_expander_set_label (GtkExpander *expander,
  * be avoided by fetching the label text directly from the label
  * widget.
  *
- * Returns: The text of the label widget. This string is owned
+ * Returns: (nullable): The text of the label widget. This string is owned
  *     by the widget and must not be modified or freed.
  *
  * Since: 2.4
  */
-const char *
+const gchar *
 gtk_expander_get_label (GtkExpander *expander)
 {
   GtkExpanderPrivate *priv;
@@ -1531,7 +1552,7 @@ gtk_expander_get_use_markup (GtkExpander *expander)
 /**
  * gtk_expander_set_label_widget:
  * @expander: a #GtkExpander
- * @label_widget: (allow-none): the new label widget
+ * @label_widget: (nullable): the new label widget
  *
  * Set the label widget for the expander. This is the widget
  * that will appear embedded alongside the expander arrow.

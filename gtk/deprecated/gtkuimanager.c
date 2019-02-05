@@ -54,7 +54,13 @@
  * SECTION:gtkuimanager
  * @Short_description: Constructing menus and toolbars from an XML description
  * @Title: GtkUIManager
- * @See_also:#GtkBuilder
+ * @See_also: #GtkBuilder
+ *
+ * > GtkUIManager is deprecated since GTK+ 3.10. To construct user interfaces
+ * > from XML definitions, you should use #GtkBuilder, #GMenuModel, et al. To
+ * > work with actions, use #GAction, #GtkActionable et al. These newer classes
+ * > support richer functionality and integration with various desktop shells.
+ * > It should be possible to migrate most/all functionality from GtkUIManager.
  *
  * A #GtkUIManager constructs a user interface (menus and toolbars) from
  * one or more UI definitions, which reference actions from one or more
@@ -740,7 +746,7 @@ gtk_ui_manager_buildable_construct_child (GtkBuildable *buildable,
   g_signal_connect (widget, "hierarchy-changed",
 		    G_CALLBACK (child_hierarchy_changed_cb),
 		    GTK_UI_MANAGER (buildable));
-  return g_object_ref (widget);
+  return G_OBJECT (g_object_ref (widget));
 }
 
 static void

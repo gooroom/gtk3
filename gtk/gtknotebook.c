@@ -562,6 +562,8 @@ static void gtk_notebook_menu_switch_page    (GtkWidget        *widget,
 /*** GtkNotebook Menu Functions ***/
 static void gtk_notebook_menu_item_create    (GtkNotebook      *notebook,
                                               GList            *list);
+static void gtk_notebook_menu_item_recreate  (GtkNotebook      *notebook,
+                                              GList            *list);
 static void gtk_notebook_menu_label_unparent (GtkWidget        *widget,
                                               gpointer          data);
 static void gtk_notebook_menu_detacher       (GtkWidget        *widget,
@@ -5146,7 +5148,7 @@ gtk_notebook_update_labels (GtkNotebook *notebook)
         {
           if (GTK_IS_LABEL (page->tab_label))
             gtk_label_set_text (GTK_LABEL (page->menu_label),
-                                gtk_label_get_label (GTK_LABEL (page->tab_label)));
+                                gtk_label_get_text (GTK_LABEL (page->tab_label)));
           else
             gtk_label_set_text (GTK_LABEL (page->menu_label), string);
         }
@@ -5544,7 +5546,6 @@ gtk_notebook_calculate_shown_tabs (GtkNotebook          *notebook,
           priv->first_tab = priv->focus_tab;
           *last_child = gtk_notebook_search_page (notebook, priv->focus_tab,
                                                   STEP_NEXT, TRUE);
-          page = priv->first_tab->data;
           *n = 1;
         }
       else
@@ -5953,8 +5954,7 @@ gtk_notebook_calculate_tabs_allocation (GtkNotebook          *notebook,
         {
         case GTK_POS_TOP:
         case GTK_POS_BOTTOM:
-          if (priv->operation != DRAG_OPERATION_REORDER ||
-              (priv->operation == DRAG_OPERATION_REORDER && page != priv->cur_page))
+          if (priv->operation != DRAG_OPERATION_REORDER || page != priv->cur_page)
             {
               if (priv->operation == DRAG_OPERATION_REORDER)
                 {
@@ -5975,8 +5975,7 @@ gtk_notebook_calculate_tabs_allocation (GtkNotebook          *notebook,
           break;
         case GTK_POS_LEFT:
         case GTK_POS_RIGHT:
-          if (priv->operation != DRAG_OPERATION_REORDER  ||
-              (priv->operation == DRAG_OPERATION_REORDER && page != priv->cur_page))
+          if (priv->operation != DRAG_OPERATION_REORDER || page != priv->cur_page)
             {
               if (priv->operation == DRAG_OPERATION_REORDER)
                 {
@@ -6003,8 +6002,7 @@ gtk_notebook_calculate_tabs_allocation (GtkNotebook          *notebook,
     }
 
   /* Don't move the current tab past the last position during tabs reordering */
-  if (children &&
-      priv->operation == DRAG_OPERATION_REORDER &&
+  if (priv->operation == DRAG_OPERATION_REORDER &&
       direction == STEP_NEXT)
     {
       switch (tab_pos)
@@ -6339,6 +6337,7 @@ gtk_notebook_menu_switch_page (GtkWidget       *widget,
 /* Private GtkNotebook Menu Functions:
  *
  * gtk_notebook_menu_item_create
+ * gtk_notebook_menu_item_recreate
  * gtk_notebook_menu_label_unparent
  * gtk_notebook_menu_detacher
  */
@@ -6354,7 +6353,7 @@ gtk_notebook_menu_item_create (GtkNotebook *notebook,
   if (page->default_menu)
     {
       if (GTK_IS_LABEL (page->tab_label))
-        page->menu_label = gtk_label_new (gtk_label_get_label (GTK_LABEL (page->tab_label)));
+        page->menu_label = gtk_label_new (gtk_label_get_text (GTK_LABEL (page->tab_label)));
       else
         page->menu_label = gtk_label_new ("");
       gtk_widget_set_halign (page->menu_label, GTK_ALIGN_START);
@@ -6370,6 +6369,19 @@ gtk_notebook_menu_item_create (GtkNotebook *notebook,
                     G_CALLBACK (gtk_notebook_menu_switch_page), page);
   if (gtk_widget_get_visible (page->child))
     gtk_widget_show (menu_item);
+}
+
+static void
+gtk_notebook_menu_item_recreate (GtkNotebook *notebook,
+                                 GList       *list)
+{
+  GtkNotebookPrivate *priv = notebook->priv;
+  GtkNotebookPage *page = list->data;
+  GtkWidget *menu_item = gtk_widget_get_parent (page->menu_label);
+
+  gtk_container_remove (GTK_CONTAINER (menu_item), page->menu_label);
+  gtk_container_remove (GTK_CONTAINER (priv->menu), menu_item);
+  gtk_notebook_menu_item_create (notebook, list);
 }
 
 static void
@@ -7311,7 +7323,7 @@ gtk_notebook_popup_disable (GtkNotebook *notebook)
  * %NULL is returned if @child is not in @notebook or
  * if no tab label has specifically been set for @child.
  *
- * Returns: (transfer none): the tab label
+ * Returns: (transfer none) (nullable): the tab label
  */
 GtkWidget *
 gtk_notebook_get_tab_label (GtkNotebook *notebook,
@@ -7367,7 +7379,6 @@ gtk_notebook_set_tab_label (GtkNotebook *notebook,
   if (page->tab_label == tab_label)
     return;
 
-
   gtk_notebook_remove_tab_label (notebook, page);
 
   if (tab_label)
@@ -7409,6 +7420,9 @@ gtk_notebook_set_tab_label (GtkNotebook *notebook,
       gtk_widget_queue_resize (GTK_WIDGET (notebook));
     }
 
+  if (priv->menu)
+    gtk_notebook_menu_item_recreate (notebook, list);
+
   gtk_widget_child_notify (child, "tab-label");
 }
 
@@ -7433,7 +7447,6 @@ gtk_notebook_set_tab_label_text (GtkNotebook *notebook,
   if (tab_text)
     tab_label = gtk_label_new (tab_text);
   gtk_notebook_set_tab_label (notebook, child, tab_label);
-  gtk_widget_child_notify (child, "tab-label");
 }
 
 /**
@@ -7614,14 +7627,7 @@ gtk_notebook_child_reordered (GtkNotebook     *notebook,
   list = g_list_find (priv->children, page);
 
   if (priv->menu)
-    {
-      GtkWidget *menu_item;
-
-      menu_item = gtk_widget_get_parent (page->menu_label);
-      gtk_container_remove (GTK_CONTAINER (menu_item), page->menu_label);
-      gtk_container_remove (GTK_CONTAINER (priv->menu), menu_item);
-      gtk_notebook_menu_item_create (notebook, list);
-    }
+    gtk_notebook_menu_item_recreate (notebook, list);
 
   if (list->prev)
     sibling = gtk_css_gadget_get_node (GTK_NOTEBOOK_PAGE (list->prev)->gadget);
@@ -7953,7 +7959,8 @@ gtk_notebook_get_tab_detachable (GtkNotebook *notebook,
  *    notebook = gtk_drag_get_source_widget (context);
  *    child = (void*) gtk_selection_data_get_data (data);
  *
- *    process_widget (*child);
+ *    // process_widget (*child);
+ *
  *    gtk_notebook_detach_tab (GTK_NOTEBOOK (notebook), *child);
  *  }
  * ]|

@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-GdkFrameTimings.html" title="Frame timings">
 <link rel="next" href="GdkGLContext.html" title="GdkGLContext">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -51,7 +51,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<span class="returnvalue">cairo_region_t</span> *
+<a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-t"><span class="returnvalue">cairo_region_t</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GdkDrawingContext.html#gdk-drawing-context-get-clip" title="gdk_drawing_context_get_clip ()">gdk_drawing_context_get_clip</a> <span class="c_punctuation">()</span>
@@ -59,7 +59,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<span class="returnvalue">cairo_t</span> *
+<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="returnvalue">cairo_t</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GdkDrawingContext.html#gdk-drawing-context-get-cairo-context" title="gdk_drawing_context_get_cairo_context ()">gdk_drawing_context_get_cairo_context</a> <span class="c_punctuation">()</span>
@@ -121,7 +121,7 @@
 </div>
 <div class="refsect1">
 <a name="GdkDrawingContext.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gdk/gdk.h&gt;
+<pre class="synopsis">#include &lt;gdk/gdkwayland.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -159,7 +159,7 @@ gdk_drawing_context_get_window (<em class="parameter"><code><a class="link" href
 </div>
 <div class="refsect3">
 <a name="gdk-drawing-context-get-window.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. </p>
+<p>a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
@@ -167,7 +167,7 @@ gdk_drawing_context_get_window (<em class="parameter"><code><a class="link" href
 <hr>
 <div class="refsect2">
 <a name="gdk-drawing-context-get-clip"></a><h3>gdk_drawing_context_get_clip ()</h3>
-<pre class="programlisting"><span class="returnvalue">cairo_region_t</span> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-t"><span class="returnvalue">cairo_region_t</span></a> *
 gdk_drawing_context_get_clip (<em class="parameter"><code><a class="link" href="GdkDrawingContext.html" title="GdkDrawingContext"><span class="type">GdkDrawingContext</span></a> *context</code></em>);</pre>
 <p>Retrieves a copy of the clip region used when creating the <em class="parameter"><code>context</code></em>
 .</p>
@@ -188,7 +188,7 @@ gdk_drawing_context_get_clip (<em class="parameter"><code><a class="link" href="
 </div>
 <div class="refsect3">
 <a name="gdk-drawing-context-get-clip.returns"></a><h4>Returns</h4>
-<p> a Cairo region. </p>
+<p>a Cairo region. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
@@ -196,7 +196,7 @@ gdk_drawing_context_get_clip (<em class="parameter"><code><a class="link" href="
 <hr>
 <div class="refsect2">
 <a name="gdk-drawing-context-get-cairo-context"></a><h3>gdk_drawing_context_get_cairo_context ()</h3>
-<pre class="programlisting"><span class="returnvalue">cairo_t</span> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="returnvalue">cairo_t</span></a> *
 gdk_drawing_context_get_cairo_context (<em class="parameter"><code><a class="link" href="GdkDrawingContext.html" title="GdkDrawingContext"><span class="type">GdkDrawingContext</span></a> *context</code></em>);</pre>
 <p>Retrieves a Cairo context to be used to draw on the <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>
 that created the <a class="link" href="GdkDrawingContext.html" title="GdkDrawingContext"><span class="type">GdkDrawingContext</span></a>.</p>
@@ -205,7 +205,7 @@ that created the <a class="link" href="GdkDrawingContext.html" title="GdkDrawing
 <a class="link" href="gdk3-Windows.html#gdk-window-begin-draw-frame" title="gdk_window_begin_draw_frame ()"><code class="function">gdk_window_begin_draw_frame()</code></a> and <a class="link" href="gdk3-Windows.html#gdk-window-end-draw-frame" title="gdk_window_end_draw_frame ()"><code class="function">gdk_window_end_draw_frame()</code></a>.</p>
 <div class="refsect3">
 <a name="gdk-drawing-context-get-cairo-context.returns"></a><h4>Returns</h4>
-<p> a Cairo context to be used to draw
+<p>a Cairo context to be used to draw
 the contents of the <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. The context is owned by the
 <a class="link" href="GdkDrawingContext.html" title="GdkDrawingContext"><span class="type">GdkDrawingContext</span></a> and should not be destroyed. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -267,6 +267,6 @@ gdk_drawing_context_is_valid (<em class="parameter"><code><a class="link" href="
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="migrating.html" title="Part V. Migrating from Previous Versions of GTK+">
 <link rel="prev" href="migrating.html" title="Part V. Migrating from Previous Versions of GTK+">
 <link rel="next" href="ch26s02.html" title="Changes that need to be done at the time of the switch">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -204,14 +204,14 @@
 6
 7
 8</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">on_toggled</span> <span class="gtkdoc opt">(</span>GtkToggleButton <span class="gtkdoc opt">*</span>button<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>button<span class="gtkdoc opt">-&gt;</span>active<span class="gtkdoc opt">)</span>
-    <span class="function">frob_active</span> <span class="gtkdoc opt">();</span>
-  <span class="keyword">else</span>
-    <span class="function">frob_inactive</span> <span class="gtkdoc opt">();</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">on_toggled</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkToggleButton</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">button</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">button</span><span class="symbol">-&gt;</span><span class="normal">active</span><span class="symbol">)</span>
+<span class="normal">    </span><span class="function">frob_active</span><span class="normal"> </span><span class="symbol">();</span>
+<span class="normal">  </span><span class="keyword">else</span>
+<span class="normal">    </span><span class="function">frob_inactive</span><span class="normal"> </span><span class="symbol">();</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -237,14 +237,14 @@
 6
 7
 8</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">on_toggled</span> <span class="gtkdoc opt">(</span>GtkToggleButton <span class="gtkdoc opt">*</span>button<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span><span class="function"><a href="GtkToggleButton.html#gtk-toggle-button-get-active">gtk_toggle_button_get_active</a></span> <span class="gtkdoc opt">(</span>button<span class="gtkdoc opt">))</span>
-    <span class="function">frob_active</span> <span class="gtkdoc opt">();</span>
-  <span class="keyword">else</span>
-    <span class="function">frob_inactive</span> <span class="gtkdoc opt">();</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">on_toggled</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkToggleButton</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">button</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GtkToggleButton.html#gtk-toggle-button-get-active">gtk_toggle_button_get_active</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">button</span><span class="symbol">))</span>
+<span class="normal">    </span><span class="function">frob_active</span><span class="normal"> </span><span class="symbol">();</span>
+<span class="normal">  </span><span class="keyword">else</span>
+<span class="normal">    </span><span class="function">frob_inactive</span><span class="normal"> </span><span class="symbol">();</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -284,7 +284,7 @@
         henceforth respect the users preference for what application to use and
         correctly open links in sandboxed applications.</li>
 <li class="listitem">If you are launching a regular, installed application that
-        has a desktop file, it is best to use GIOs <a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#GAppInfo-struct"><span class="type">GAppInfo</span></a> with a suitable
+        has a desktop file, it is best to use GIOs <span class="type">GAppInfo</span> with a suitable
         launch context.
         <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
@@ -306,22 +306,22 @@
 14
 15
 16</pre></td>
-        <td class="listing_code"><pre class="programlisting">GAppInfo <span class="gtkdoc opt">*</span>info<span class="gtkdoc opt">;</span>
-GAppLaunchContext <span class="gtkdoc opt">*</span>context<span class="gtkdoc opt">;</span>
-GError <span class="gtkdoc opt">*</span>error <span class="gtkdoc opt">=</span> NULL<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GAppInfo</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">info</span><span class="symbol">;</span>
+<span class="usertype">GAppLaunchContext</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">context</span><span class="symbol">;</span>
+<span class="usertype">GError</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">error </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
 
-info <span class="gtkdoc opt">= (</span>GAppInfo<span class="gtkdoc opt">*)</span> <span class="function"><a href="https://developer.gnome.org/gio/unstable/gio-Desktop-file-based-GAppInfo.html#g-desktop-app-info-new">g_desktop_app_info_new</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;epiphany.desktop&quot;</span><span class="gtkdoc opt">);</span>
-context <span class="gtkdoc opt">= (</span>GAppLaunchContext<span class="gtkdoc opt">*)</span> <span class="function"><a href="http://developer.gnome.org/gdk3/GdkDisplay.html#gdk-display-get-app-launch-context">gdk_display_get_app_launch_context</a></span> <span class="gtkdoc opt">(</span>display<span class="gtkdoc opt">);</span>
-<span class="function"><a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#g-app-info-launch">g_app_info_launch</a></span> <span class="gtkdoc opt">(</span>info<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">,</span> context<span class="gtkdoc opt">, &amp;</span>error<span class="gtkdoc opt">);</span>
+<span class="normal">info </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">GAppInfo</span><span class="symbol">*)</span><span class="normal"> </span><span class="function">g_desktop_app_info_new</span><span class="normal"> </span><span class="symbol">(</span><span class="string">"epiphany.desktop"</span><span class="symbol">);</span>
+<span class="normal">context </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">GAppLaunchContext</span><span class="symbol">*)</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gdk3/GdkDisplay.html#gdk-display-get-app-launch-context">gdk_display_get_app_launch_context</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">display</span><span class="symbol">);</span>
+<span class="function">g_app_info_launch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">info</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> context</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">error</span><span class="symbol">);</span>
 
-<span class="keyword">if</span> <span class="gtkdoc opt">(</span>error<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-    <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Message-Logging.html#g-warning">g_warning</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;Failed to launch epiphany: %s&quot;</span><span class="gtkdoc opt">,</span> error<span class="gtkdoc opt">-&gt;</span>message<span class="gtkdoc opt">);</span>
-    <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#g-error-free">g_error_free</a></span> <span class="gtkdoc opt">(</span>error<span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Message-Logging.html#g-warning">g_warning</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Failed to launch epiphany: %s"</span><span class="symbol">,</span><span class="normal"> error</span><span class="symbol">-&gt;</span><span class="normal">message</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#g-error-free">g_error_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span>
 
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>info<span class="gtkdoc opt">);</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>context<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">info</span><span class="symbol">);</span>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -330,14 +330,14 @@ context <span class="gtkdoc opt">= (</span>GAppLaunchContext<span class="gtkdoc 
         Remember that you have to include
         <code class="filename">gio/gdesktopappinfo.h</code>
         and use the <code class="filename">gio-unix-2.0</code> pkg-config file
-        when using <a href="https://developer.gnome.org/gio/unstable/gio-Desktop-file-based-GAppInfo.html#g-desktop-app-info-new"><code class="function">g_desktop_app_info_new()</code></a>.
+        when using <code class="function">g_desktop_app_info_new()</code>.
         </li>
 <li class="listitem">If you are launching a custom commandline, you can
-        still use <a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#g-app-info-launch"><code class="function">g_app_info_launch()</code></a> with a GAppInfo that is constructed
-        with <a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#g-app-info-create-from-commandline"><code class="function">g_app_info_create_from_commandline()</code></a>, or you can use the
+        still use <code class="function">g_app_info_launch()</code> with a GAppInfo that is constructed
+        with <code class="function">g_app_info_create_from_commandline()</code>, or you can use the
         more lowlevel <code class="literal">g_spawn</code> family of functions
         (e.g. <a href="https://developer.gnome.org/glib/unstable/glib-Spawning-Processes.html#g-spawn-command-line-async"><code class="function">g_spawn_command_line_async()</code></a>), and pass <code class="envar">DISPLAY</code>
-        in the environment. <code class="function">gdk_screen_make_display_name()</code> can be
+        in the environment. <a href="https://developer.gnome.org/gdk3/GdkScreen.html#gdk-screen-make-display-name"><code class="function">gdk_screen_make_display_name()</code></a> can be
         used to find the right value for the <code class="envar">DISPLAY</code>
         environment variable.
         </li>
@@ -357,7 +357,7 @@ context <span class="gtkdoc opt">= (</span>GAppLaunchContext<span class="gtkdoc 
       The <span class="type">GdkGC</span> and <span class="type">GdkImage</span> objects, as well as all the functions using
       them, are gone. This includes the <code class="literal">gdk_draw</code> family
       of functions like <code class="function">gdk_draw_rectangle()</code> and <code class="function">gdk_draw_drawable()</code>. As
-      <span class="type">GdkGC</span> is roughly equivalent to <span class="type">cairo_t</span> and <span class="type">GdkImage</span> was used for
+      <span class="type">GdkGC</span> is roughly equivalent to <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> and <span class="type">GdkImage</span> was used for
       drawing images to GdkWindows, which cairo supports automatically,
       a transition is usually straightforward.
     </p>
@@ -385,15 +385,15 @@ context <span class="gtkdoc opt">= (</span>GAppLaunchContext<span class="gtkdoc 
 7
 8
 9</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function">gdk_draw_pixbuf</span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">,</span>
-                 <span class="function"><a href="GtkWidget.html#gtk-widget-get-style">gtk_widget_get_style</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">)-&gt;</span>black_gc<span class="gtkdoc opt">,</span>
-                 pixbuf<span class="gtkdoc opt">,</span>
-                 <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span>
-                 x<span class="gtkdoc opt">,</span> y<span class="gtkdoc opt">,</span>
-                 <span class="function"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#gdk-pixbuf-get-width">gdk_pixbuf_get_width</a></span> <span class="gtkdoc opt">(</span>pixbuf<span class="gtkdoc opt">),</span>
-                 <span class="function"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#gdk-pixbuf-get-height">gdk_pixbuf_get_height</a></span> <span class="gtkdoc opt">(</span>pixbuf<span class="gtkdoc opt">),</span>
-                 GDK_RGB_DITHER_NORMAL<span class="gtkdoc opt">,</span>
-                 <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function">gdk_draw_pixbuf</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">,</span>
+<span class="normal">                 </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-style">gtk_widget_get_style</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">)-&gt;</span><span class="normal">black_gc</span><span class="symbol">,</span>
+<span class="normal">                 pixbuf</span><span class="symbol">,</span>
+<span class="normal">                 </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span>
+<span class="normal">                 x</span><span class="symbol">,</span><span class="normal"> y</span><span class="symbol">,</span>
+<span class="normal">                 </span><span class="function"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#gdk-pixbuf-get-width">gdk_pixbuf_get_width</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">pixbuf</span><span class="symbol">),</span>
+<span class="normal">                 </span><span class="function"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#gdk-pixbuf-get-height">gdk_pixbuf_get_height</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">pixbuf</span><span class="symbol">),</span>
+<span class="normal">                 GDK_RGB_DITHER_NORMAL</span><span class="symbol">,</span>
+<span class="normal">                 </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -410,10 +410,10 @@ context <span class="gtkdoc opt">= (</span>GAppLaunchContext<span class="gtkdoc 
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting">cairo_t <span class="gtkdoc opt">*</span>cr <span class="gtkdoc opt">=</span> <span class="function">gdk_cairo_create</span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">);</span>
-<span class="function"><a href="http://developer.gnome.org/gdk3/gdk4-Cairo-Interaction.html#gdk-cairo-set-source-pixbuf">gdk_cairo_set_source_pixbuf</a></span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> pixbuf<span class="gtkdoc opt">,</span> x<span class="gtkdoc opt">,</span> y<span class="gtkdoc opt">);</span>
-<span class="function">cairo_paint</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span>
-<span class="function">cairo_destroy</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">cairo_t</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">cr </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-create">gdk_cairo_create</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">);</span>
+<span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-set-source-pixbuf">gdk_cairo_set_source_pixbuf</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> pixbuf</span><span class="symbol">,</span><span class="normal"> x</span><span class="symbol">,</span><span class="normal"> y</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-paint">cairo_paint</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-destroy">cairo_destroy</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -421,9 +421,9 @@ context <span class="gtkdoc opt">= (</span>GAppLaunchContext<span class="gtkdoc 
 
 <p>
            Note that very similar code can be used when porting code
-           using GdkPixmap to <span class="type">cairo_surface_t</span> by calling
-           <code class="function">cairo_set_source_surface()</code> instead of
-           <a href="http://developer.gnome.org/gdk3/gdk4-Cairo-Interaction.html#gdk-cairo-set-source-pixbuf"><code class="function">gdk_cairo_set_source_pixbuf()</code></a>.
+           using GdkPixmap to <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a> by calling
+           <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-set-source-surface"><code class="function">cairo_set_source_surface()</code></a> instead of
+           <a href="https://developer.gnome.org/gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-set-source-pixbuf"><code class="function">gdk_cairo_set_source_pixbuf()</code></a>.
          </p>
 </div>
 </div>
@@ -452,20 +452,20 @@ context <span class="gtkdoc opt">= (</span>GAppLaunchContext<span class="gtkdoc 
 12
 13
 14</pre></td>
-        <td class="listing_code"><pre class="programlisting">GdkGCValues gc_values<span class="gtkdoc opt">;</span>
-GdkGC <span class="gtkdoc opt">*</span>gc<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkGCValues</span><span class="normal"> gc_values</span><span class="symbol">;</span>
+<span class="usertype">GdkGC</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">gc</span><span class="symbol">;</span>
 
 <span class="comment">/* setup */</span>
-gc <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidget.html#gtk-widget-get-style">gtk_widget_get_style</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">)-&gt;</span>black_gc<span class="gtkdoc opt">;</span>
-<span class="function">gdk_gc_set_tile</span> <span class="gtkdoc opt">(</span>gc<span class="gtkdoc opt">,</span> pixmap<span class="gtkdoc opt">);</span>
-<span class="function">gdk_gc_set_fill</span> <span class="gtkdoc opt">(</span>gc<span class="gtkdoc opt">,</span> GDK_TILED<span class="gtkdoc opt">);</span>
-<span class="function">gdk_gc_set_ts_origin</span> <span class="gtkdoc opt">(</span>gc<span class="gtkdoc opt">,</span> x_origin<span class="gtkdoc opt">,</span> y_origin<span class="gtkdoc opt">);</span>
+<span class="normal">gc </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-style">gtk_widget_get_style</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">)-&gt;</span><span class="normal">black_gc</span><span class="symbol">;</span>
+<span class="function">gdk_gc_set_tile</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gc</span><span class="symbol">,</span><span class="normal"> pixmap</span><span class="symbol">);</span>
+<span class="function">gdk_gc_set_fill</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gc</span><span class="symbol">,</span><span class="normal"> GDK_TILED</span><span class="symbol">);</span>
+<span class="function">gdk_gc_set_ts_origin</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gc</span><span class="symbol">,</span><span class="normal"> x_origin</span><span class="symbol">,</span><span class="normal"> y_origin</span><span class="symbol">);</span>
 <span class="comment">/* use */</span>
-<span class="function">gdk_draw_rectangle</span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">,</span> gc<span class="gtkdoc opt">,</span> TRUE<span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> width<span class="gtkdoc opt">,</span> height<span class="gtkdoc opt">);</span>
+<span class="function">gdk_draw_rectangle</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">,</span><span class="normal"> gc</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> width</span><span class="symbol">,</span><span class="normal"> height</span><span class="symbol">);</span>
 <span class="comment">/* restore */</span>
-<span class="function">gdk_gc_set_tile</span> <span class="gtkdoc opt">(</span>gc<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span>
-<span class="function">gdk_gc_set_fill</span> <span class="gtkdoc opt">(</span>gc<span class="gtkdoc opt">,</span> GDK_SOLID<span class="gtkdoc opt">);</span>
-<span class="function">gdk_gc_set_ts_origin</span> <span class="gtkdoc opt">(</span>gc<span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">);</span></pre></td>
+<span class="function">gdk_gc_set_tile</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gc</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="function">gdk_gc_set_fill</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gc</span><span class="symbol">,</span><span class="normal"> GDK_SOLID</span><span class="symbol">);</span>
+<span class="function">gdk_gc_set_ts_origin</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gc</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -489,16 +489,16 @@ gc <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidget.h
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting">cairo_t <span class="gtkdoc opt">*</span>cr<span class="gtkdoc opt">;</span>
-cairo_surface_t <span class="gtkdoc opt">*</span>surface<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">cairo_t</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">cr</span><span class="symbol">;</span>
+<span class="usertype">cairo_surface_t</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">surface</span><span class="symbol">;</span>
 
-surface <span class="gtkdoc opt">= ...</span>
-cr <span class="gtkdoc opt">=</span> <span class="function">gdk_cairo_create</span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">);</span>
-<span class="function">cairo_set_source_surface</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> surface<span class="gtkdoc opt">,</span> x_origin<span class="gtkdoc opt">,</span> y_origin<span class="gtkdoc opt">);</span>
-<span class="function">cairo_pattern_set_extend</span> <span class="gtkdoc opt">(</span><span class="function">cairo_get_source</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">),</span> CAIRO_EXTEND_REPEAT<span class="gtkdoc opt">);</span>
-<span class="function">cairo_rectangle</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> width<span class="gtkdoc opt">,</span> height<span class="gtkdoc opt">);</span>
-<span class="function">cairo_fill</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span>
-<span class="function">cairo_destroy</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span></pre></td>
+<span class="normal">surface </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">...</span>
+<span class="normal">cr </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-create">gdk_cairo_create</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-set-source-surface">cairo_set_source_surface</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> surface</span><span class="symbol">,</span><span class="normal"> x_origin</span><span class="symbol">,</span><span class="normal"> y_origin</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-set-extend">cairo_pattern_set_extend</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-get-source">cairo_get_source</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">),</span><span class="normal"> <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#CAIRO-EXTEND-REPEAT:CAPS">CAIRO_EXTEND_REPEAT</a></span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-Paths.html#cairo-rectangle">cairo_rectangle</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> width</span><span class="symbol">,</span><span class="normal"> height</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-fill">cairo_fill</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-destroy">cairo_destroy</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -508,7 +508,7 @@ cr <span class="gtkdoc opt">=</span> <span class="function">gdk_cairo_create</sp
 The surface here can be either an image surface or a X surface,
 and can either be created on the spot or kept around for caching purposes.
 Another alternative is to use pixbufs instead of surfaces with
-<a href="http://developer.gnome.org/gdk3/gdk4-Cairo-Interaction.html#gdk-cairo-set-source-pixbuf"><code class="function">gdk_cairo_set_source_pixbuf()</code></a> instead of <code class="function">cairo_set_source_surface()</code>.
+<a href="https://developer.gnome.org/gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-set-source-pixbuf"><code class="function">gdk_cairo_set_source_pixbuf()</code></a> instead of <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-set-source-surface"><code class="function">cairo_set_source_surface()</code></a>.
         </p>
 </div>
 </div>
@@ -532,15 +532,15 @@ Another alternative is to use pixbufs instead of surfaces with
 7
 8
 9</pre></td>
-        <td class="listing_code"><pre class="programlisting">GdkGC <span class="gtkdoc opt">*</span>gc<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkGC</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">gc</span><span class="symbol">;</span>
 
 <span class="comment">/* setup */</span>
-gc <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidget.html#gtk-widget-get-style">gtk_widget_get_style</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">)-&gt;</span>text_gc<span class="gtkdoc opt">[</span>state<span class="gtkdoc opt">];</span>
-<span class="function">gdk_gc_set_clip_rectangle</span> <span class="gtkdoc opt">(</span>gc<span class="gtkdoc opt">, &amp;</span>area<span class="gtkdoc opt">);</span>
+<span class="normal">gc </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-style">gtk_widget_get_style</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">)-&gt;</span><span class="normal">text_gc</span><span class="symbol">[</span><span class="normal">state</span><span class="symbol">];</span>
+<span class="function">gdk_gc_set_clip_rectangle</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gc</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">area</span><span class="symbol">);</span>
 <span class="comment">/* use */</span>
-<span class="function">gdk_draw_layout</span> <span class="gtkdoc opt">(</span>drawable<span class="gtkdoc opt">,</span> gc<span class="gtkdoc opt">,</span> x<span class="gtkdoc opt">,</span> y<span class="gtkdoc opt">,</span> layout<span class="gtkdoc opt">);</span>
+<span class="function">gdk_draw_layout</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">drawable</span><span class="symbol">,</span><span class="normal"> gc</span><span class="symbol">,</span><span class="normal"> x</span><span class="symbol">,</span><span class="normal"> y</span><span class="symbol">,</span><span class="normal"> layout</span><span class="symbol">);</span>
 <span class="comment">/* restore */</span>
-<span class="function">gdk_gc_set_clip_rectangle</span> <span class="gtkdoc opt">(</span>gc<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span></pre></td>
+<span class="function">gdk_gc_set_clip_rectangle</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gc</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -571,33 +571,33 @@ gc <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidget.h
 16
 17
 18</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkStyleContext <span class="gtkdoc opt">*</span>context<span class="gtkdoc opt">;</span>
-GtkStateFlags flags<span class="gtkdoc opt">;</span>
-GdkRGBA rgba<span class="gtkdoc opt">;</span>
-cairo_t <span class="gtkdoc opt">*</span>cr<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkStyleContext</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">context</span><span class="symbol">;</span>
+<span class="usertype">GtkStateFlags</span><span class="normal"> flags</span><span class="symbol">;</span>
+<span class="usertype">GdkRGBA</span><span class="normal"> rgba</span><span class="symbol">;</span>
+<span class="usertype">cairo_t</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">cr</span><span class="symbol">;</span>
 
-cr <span class="gtkdoc opt">=</span> <span class="function">gdk_cairo_create</span> <span class="gtkdoc opt">(</span>drawable<span class="gtkdoc opt">);</span>
+<span class="normal">cr </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-create">gdk_cairo_create</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">drawable</span><span class="symbol">);</span>
 <span class="comment">/* clip */</span>
-<span class="function"><a href="http://developer.gnome.org/gdk3/gdk4-Cairo-Interaction.html#gdk-cairo-rectangle">gdk_cairo_rectangle</a></span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">, &amp;</span>area<span class="gtkdoc opt">);</span>
-<span class="function">cairo_clip</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span>
+<span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-rectangle">gdk_cairo_rectangle</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">area</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-clip">cairo_clip</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span>
 <span class="comment">/* set the correct source color */</span>
-context <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidget.html#gtk-widget-get-style-context">gtk_widget_get_style_context</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">));</span>
-state <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidget.html#gtk-widget-get-state-flags">gtk_widget_get_state_flags</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkStyleContext.html#gtk-style-context-get-color">gtk_style_context_get_color</a></span> <span class="gtkdoc opt">(</span>context<span class="gtkdoc opt">,</span> state<span class="gtkdoc opt">, &amp;</span>rgba<span class="gtkdoc opt">);</span>
-<span class="function"><a href="http://developer.gnome.org/gdk3/gdk4-Cairo-Interaction.html#gdk-cairo-set-source-rgba">gdk_cairo_set_source_rgba</a></span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">, &amp;</span>rgba<span class="gtkdoc opt">);</span>
+<span class="normal">context </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-style-context">gtk_widget_get_style_context</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">));</span>
+<span class="normal">state </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-state-flags">gtk_widget_get_state_flags</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">);</span>
+<span class="function"><a href="GtkStyleContext.html#gtk-style-context-get-color">gtk_style_context_get_color</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> state</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">rgba</span><span class="symbol">);</span>
+<span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-set-source-rgba">gdk_cairo_set_source_rgba</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">rgba</span><span class="symbol">);</span>
 <span class="comment">/* draw the text */</span>
-<span class="function">cairo_move_to</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> x<span class="gtkdoc opt">,</span> y<span class="gtkdoc opt">);</span>
-<span class="function"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Cairo-Rendering.html#pango-cairo-show-layout">pango_cairo_show_layout</a></span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> layout<span class="gtkdoc opt">);</span>
-<span class="function">cairo_destroy</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-Paths.html#cairo-move-to">cairo_move_to</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> x</span><span class="symbol">,</span><span class="normal"> y</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Cairo-Rendering.html#pango-cairo-show-layout">pango_cairo_show_layout</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> layout</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-destroy">cairo_destroy</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
 </div>
 
 <p>
-          Clipping using <code class="function">cairo_clip()</code> is of course not restricted to text
+          Clipping using <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-clip"><code class="function">cairo_clip()</code></a> is of course not restricted to text
           rendering and can be used everywhere where GC clips were used.
-          And using <code class="function">gdk_cairo_set_source_color()</code> with style colors should
+          And using <a href="https://developer.gnome.org/gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-set-source-color"><code class="function">gdk_cairo_set_source_color()</code></a> with style colors should
           be used in all the places where a style’s GC was used to achieve
           a particular color.
         </p>
@@ -609,7 +609,7 @@ state <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidge
 <p><b>No more stippling. </b>
           Stippling is the usage of a bi-level mask, called a <span class="type">GdkBitmap</span>.
           It was often used to achieve a checkerboard effect. You can use
-          <code class="function">cairo_mask()</code> to achieve this effect. To get a checkerbox mask,
+          <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-mask"><code class="function">cairo_mask()</code></a> to achieve this effect. To get a checkerbox mask,
           you can use code like this:
           </p>
 <div class="informalexample">
@@ -636,26 +636,26 @@ state <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidge
 18
 19
 20</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static</span> cairo_pattern_t <span class="gtkdoc opt">*</span>
-<span class="function">gtk_color_button_get_checkered</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwb">void</span><span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-    <span class="comment">/* need to respect pixman&apos;s stride being a multiple of 4 */</span>
-    <span class="gtkdoc kwb">static unsigned char</span> data<span class="gtkdoc opt">[</span><span class="number">8</span><span class="gtkdoc opt">] = {</span> <span class="number">0xFF</span><span class="gtkdoc opt">,</span> <span class="number">0x00</span><span class="gtkdoc opt">,</span> <span class="number">0x00</span><span class="gtkdoc opt">,</span> <span class="number">0x00</span><span class="gtkdoc opt">,</span>
-                                     <span class="number">0x00</span><span class="gtkdoc opt">,</span> <span class="number">0xFF</span><span class="gtkdoc opt">,</span> <span class="number">0x00</span><span class="gtkdoc opt">,</span> <span class="number">0x00</span> <span class="gtkdoc opt">};</span>
-    cairo_surface_t <span class="gtkdoc opt">*</span>surface<span class="gtkdoc opt">;</span>
-    cairo_pattern_t <span class="gtkdoc opt">*</span>pattern<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-t">cairo_pattern_t</a> </span><span class="symbol">*</span>
+<span class="function">gtk_color_button_get_checkered</span><span class="normal"> </span><span class="symbol">(</span><span class="type">void</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">    </span><span class="comment">/* need to respect pixman's stride being a multiple of 4 */</span>
+<span class="normal">    </span><span class="keyword">static</span><span class="normal"> </span><span class="type">unsigned</span><span class="normal"> </span><span class="type">char</span><span class="normal"> data</span><span class="symbol">[</span><span class="number">8</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> </span><span class="number">0xFF</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0x00</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0x00</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0x00</span><span class="symbol">,</span>
+<span class="normal">                                     </span><span class="number">0x00</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0xFF</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0x00</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0x00</span><span class="normal"> </span><span class="cbracket">}</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="usertype">cairo_surface_t</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">surface</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="usertype">cairo_pattern_t</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">pattern</span><span class="symbol">;</span>
 
-    surface <span class="gtkdoc opt">=</span> <span class="function">cairo_image_surface_create_for_data</span> <span class="gtkdoc opt">(</span>data<span class="gtkdoc opt">,</span>
-                                                   CAIRO_FORMAT_A8<span class="gtkdoc opt">,</span>
-                                                   <span class="number">2</span><span class="gtkdoc opt">,</span> <span class="number">2</span><span class="gtkdoc opt">,</span>
-                                                   <span class="number">4</span><span class="gtkdoc opt">);</span>
-    pattern <span class="gtkdoc opt">=</span> <span class="function">cairo_pattern_create_for_surface</span> <span class="gtkdoc opt">(</span>surface<span class="gtkdoc opt">);</span>
-    <span class="function">cairo_surface_destroy</span> <span class="gtkdoc opt">(</span>surface<span class="gtkdoc opt">);</span>
-    <span class="function">cairo_pattern_set_extend</span> <span class="gtkdoc opt">(</span>pattern<span class="gtkdoc opt">,</span> CAIRO_EXTEND_REPEAT<span class="gtkdoc opt">);</span>
-    <span class="function">cairo_pattern_set_filter</span> <span class="gtkdoc opt">(</span>pattern<span class="gtkdoc opt">,</span> CAIRO_FILTER_NEAREST<span class="gtkdoc opt">);</span>
+<span class="normal">    surface </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-Image-Surfaces.html#cairo-image-surface-create-for-data">cairo_image_surface_create_for_data</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">data</span><span class="symbol">,</span>
+<span class="normal">                                                   <a href="/usr/share/gtk-doc/html/cairo/cairo-Image-Surfaces.html#CAIRO-FORMAT-A8:CAPS">CAIRO_FORMAT_A8</a></span><span class="symbol">,</span>
+<span class="normal">                                                   </span><span class="number">2</span><span class="symbol">,</span><span class="normal"> </span><span class="number">2</span><span class="symbol">,</span>
+<span class="normal">                                                   </span><span class="number">4</span><span class="symbol">);</span>
+<span class="normal">    pattern </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-create-for-surface">cairo_pattern_create_for_surface</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">surface</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-destroy">cairo_surface_destroy</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">surface</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-set-extend">cairo_pattern_set_extend</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">pattern</span><span class="symbol">,</span><span class="normal"> <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#CAIRO-EXTEND-REPEAT:CAPS">CAIRO_EXTEND_REPEAT</a></span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-set-filter">cairo_pattern_set_filter</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">pattern</span><span class="symbol">,</span><span class="normal"> <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#CAIRO-FILTER-NEAREST:CAPS">CAIRO_FILTER_NEAREST</a></span><span class="symbol">);</span>
 
-    <span class="keyword">return</span> pattern<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">    </span><span class="keyword">return</span><span class="normal"> pattern</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -671,7 +671,7 @@ state <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidge
           The <code class="function">gdk_draw_drawable()</code> function allowed using the same drawable
           as source and target. This was often used to achieve a scrolling
           effect. Cairo does not allow this yet. You can however use
-          <code class="function">cairo_push_group()</code> to get a different intermediate target that
+          <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-push-group"><code class="function">cairo_push_group()</code></a> to get a different intermediate target that
           you can copy to. So you can replace this code:
           </p>
 <div class="informalexample">
@@ -684,12 +684,12 @@ state <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidge
 4
 5
 6</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function">gdk_draw_drawable</span> <span class="gtkdoc opt">(</span>pixmap<span class="gtkdoc opt">,</span>
-                   gc<span class="gtkdoc opt">,</span>
-                   pixmap<span class="gtkdoc opt">,</span>
-                   area<span class="gtkdoc opt">.</span>x <span class="gtkdoc opt">+</span> dx<span class="gtkdoc opt">,</span> area<span class="gtkdoc opt">.</span>y <span class="gtkdoc opt">+</span> dy<span class="gtkdoc opt">,</span>
-                   area<span class="gtkdoc opt">.</span>x<span class="gtkdoc opt">,</span> area<span class="gtkdoc opt">.</span>y<span class="gtkdoc opt">,</span>
-                   area<span class="gtkdoc opt">.</span>width<span class="gtkdoc opt">,</span> area<span class="gtkdoc opt">.</span>height<span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function">gdk_draw_drawable</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">pixmap</span><span class="symbol">,</span>
+<span class="normal">                   gc</span><span class="symbol">,</span>
+<span class="normal">                   pixmap</span><span class="symbol">,</span>
+<span class="normal">                   area</span><span class="symbol">.</span><span class="normal">x </span><span class="symbol">+</span><span class="normal"> dx</span><span class="symbol">,</span><span class="normal"> area</span><span class="symbol">.</span><span class="normal">y </span><span class="symbol">+</span><span class="normal"> dy</span><span class="symbol">,</span>
+<span class="normal">                   area</span><span class="symbol">.</span><span class="normal">x</span><span class="symbol">,</span><span class="normal"> area</span><span class="symbol">.</span><span class="normal">y</span><span class="symbol">,</span>
+<span class="normal">                   area</span><span class="symbol">.</span><span class="normal">width</span><span class="symbol">,</span><span class="normal"> area</span><span class="symbol">.</span><span class="normal">height</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -715,19 +715,19 @@ state <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidge
 11
 12
 13</pre></td>
-        <td class="listing_code"><pre class="programlisting">cairo_t <span class="gtkdoc opt">*</span>cr <span class="gtkdoc opt">=</span> <span class="function">cairo_create</span> <span class="gtkdoc opt">(</span>surface<span class="gtkdoc opt">);</span>
-<span class="comment">/* clipping restricts the intermediate surface&apos;s size, so it&apos;s a good idea</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">cairo_t</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">cr </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-create">cairo_create</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">surface</span><span class="symbol">);</span>
+<span class="comment">/* clipping restricts the intermediate surface's size, so it's a good idea</span>
 <span class="comment"> * to use it. */</span>
-<span class="function"><a href="http://developer.gnome.org/gdk3/gdk4-Cairo-Interaction.html#gdk-cairo-rectangle">gdk_cairo_rectangle</a></span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">, &amp;</span>area<span class="gtkdoc opt">);</span>
-<span class="function">cairo_clip</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span>
+<span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-rectangle">gdk_cairo_rectangle</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">area</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-clip">cairo_clip</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span>
 <span class="comment">/* Now push a group to change the target */</span>
-<span class="function">cairo_push_group</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span>
-<span class="function">cairo_set_source_surface</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> surface<span class="gtkdoc opt">,</span> dx<span class="gtkdoc opt">,</span> dy<span class="gtkdoc opt">);</span>
-<span class="function">cairo_paint</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-push-group">cairo_push_group</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-set-source-surface">cairo_set_source_surface</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> surface</span><span class="symbol">,</span><span class="normal"> dx</span><span class="symbol">,</span><span class="normal"> dy</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-paint">cairo_paint</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span>
 <span class="comment">/* Now copy the intermediate target back */</span>
-<span class="function">cairo_pop_group_to_source</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span>
-<span class="function">cairo_paint</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span>
-<span class="function">cairo_destroy</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-pop-group-to-source">cairo_pop_group_to_source</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-paint">cairo_paint</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-destroy">cairo_destroy</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -737,7 +737,7 @@ state <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidge
 The surface here can be either an image surface or a X surface,
 and can either be created on the spot or kept around for caching purposes.
 Another alternative is to use pixbufs instead of surfaces with
-<a href="http://developer.gnome.org/gdk3/gdk4-Cairo-Interaction.html#gdk-cairo-set-source-pixbuf"><code class="function">gdk_cairo_set_source_pixbuf()</code></a> instead of <code class="function">cairo_set_source_surface()</code>.
+<a href="https://developer.gnome.org/gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-set-source-pixbuf"><code class="function">gdk_cairo_set_source_pixbuf()</code></a> instead of <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-set-source-surface"><code class="function">cairo_set_source_surface()</code></a>.
         
           The cairo developers plan to add self-copies in the future to allow
           exactly this effect, so you might want to keep up on cairo
@@ -749,7 +749,7 @@ Another alternative is to use pixbufs instead of surfaces with
           function. This is often used to draw text shadows or selections.
           Pango’s cairo support does not yet provide this functionality. If
           you use Pango layouts that change colors, the easiest way to achieve
-          a similar effect is using <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Cairo-Rendering.html#pango-cairo-layout-path"><code class="function">pango_cairo_layout_path()</code></a> and <code class="function">cairo_fill()</code>
+          a similar effect is using <a href="/usr/share/gtk-doc/html/pango/pango-Cairo-Rendering.html#pango-cairo-layout-path"><code class="function">pango_cairo_layout_path()</code></a> and <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-fill"><code class="function">cairo_fill()</code></a>
           instead of <code class="function">gdk_draw_layout_with_colors()</code>. Note that this results in
           a slightly uglier-looking text, as subpixel anti-aliasing is not
           supported.
@@ -759,6 +759,6 @@ Another alternative is to use pixbufs instead of surfaces with
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

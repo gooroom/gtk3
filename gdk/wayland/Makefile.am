@@ -23,6 +23,8 @@ noinst_LTLIBRARIES =				\
 BUILT_SOURCES = 				\
 	pointer-gestures-unstable-v1-client-protocol.h		\
 	pointer-gestures-unstable-v1-protocol.c			\
+	xdg-shell-client-protocol.h				\
+	xdg-shell-protocol.c					\
 	xdg-shell-unstable-v6-client-protocol.h			\
 	xdg-shell-unstable-v6-protocol.c			\
 	xdg-foreign-unstable-v1-client-protocol.h		\
@@ -31,6 +33,10 @@ BUILT_SOURCES = 				\
 	gtk-primary-selection-protocol.c			\
 	tablet-unstable-v2-client-protocol.h	\
 	tablet-unstable-v2-protocol.c		\
+	keyboard-shortcuts-inhibit-unstable-v1-client-protocol.h \
+	keyboard-shortcuts-inhibit-unstable-v1-protocol.c	\
+	server-decoration-client-protocol.h		\
+	server-decoration-protocol.c			\
 	gtk-shell-client-protocol.h		\
 	gtk-shell-protocol.c
 
@@ -76,11 +82,11 @@ libgdkwaylandinclude_HEADERS = 			\
 .SECONDEXPANSION:
 
 define protostability
-$(shell echo $1 | sed 's/.*\(\<unstable\>\|\<stable\>\).*/\1/')
+$(if $(findstring unstable,$1),unstable,stable)
 endef
 
 define protoname
-$(shell echo $1 | sed 's/\([a-z\-]\+\)-[a-z]\+-v[0-9]\+/\1/')
+$(shell echo $1 | sed 's/\([a-z\-]\{1,\}\)-[a-z]\{1,\}-v[0-9]\{1,\}/\1/')
 endef
 
 %-protocol.c : $(WAYLAND_PROTOCOLS_DATADIR)/$$(call protostability,$$*)/$$(call protoname,$$*)/$$*.xml
@@ -100,6 +106,7 @@ endef
 
 EXTRA_DIST += 					\
 	protocol/gtk-primary-selection.xml	\
-	protocol/gtk-shell.xml
+	protocol/gtk-shell.xml			\
+	protocol/server-decoration.xml
 
 -include $(top_srcdir)/git.mk

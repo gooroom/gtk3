@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="reference.html" title="API Reference">
 <link rel="next" href="GdkDisplayManager.html" title="GdkDisplayManager">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -349,7 +349,7 @@ terminates with a call to <code class="literal">exit(1)</code>.</p>
  and <em class="parameter"><code>argv</code></em>
 
 are updated accordingly.</p>
-<p>GTK+ initializes GDK in <a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-init"><code class="function">gtk_init()</code></a> and so this function is not usually
+<p>GTK+ initializes GDK in <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a> and so this function is not usually
 needed by GTK+ applications.</p>
 <div class="refsect3">
 <a name="gdk-init.parameters"></a><h4>Parameters</h4>
@@ -362,12 +362,12 @@ needed by GTK+ applications.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>argc</p></td>
-<td class="parameter_description"><p> the number of command line arguments. </p></td>
+<td class="parameter_description"><p>the number of command line arguments. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>argv</p></td>
-<td class="parameter_description"><p> the array of command line arguments. </p></td>
+<td class="parameter_description"><p>the array of command line arguments. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=argc][<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -386,7 +386,7 @@ returning <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macro
  and <em class="parameter"><code>argv</code></em>
 
 are updated accordingly.</p>
-<p>GTK+ initializes GDK in <a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-init"><code class="function">gtk_init()</code></a> and so this function is not usually
+<p>GTK+ initializes GDK in <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a> and so this function is not usually
 needed by GTK+ applications.</p>
 <div class="refsect3">
 <a name="gdk-init-check.parameters"></a><h4>Parameters</h4>
@@ -399,12 +399,12 @@ needed by GTK+ applications.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>argc</p></td>
-<td class="parameter_description"><p> the number of command line arguments. </p></td>
+<td class="parameter_description"><p>the number of command line arguments. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>argv</p></td>
-<td class="parameter_description"><p> the array of command line arguments. </p></td>
+<td class="parameter_description"><p>the array of command line arguments. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=argc][<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -428,7 +428,7 @@ use by calls to <a class="link" href="GdkDisplay.html#gdk-display-open" title="g
  are
 updated accordingly.</p>
 <p>You shouldn’t call this function explicitly if you are using
-<a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-init"><code class="function">gtk_init()</code></a>, <a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-init-check"><code class="function">gtk_init_check()</code></a>, <a class="link" href="gdk3-General.html#gdk-init" title="gdk_init ()"><code class="function">gdk_init()</code></a>, or <a class="link" href="gdk3-General.html#gdk-init-check" title="gdk_init_check ()"><code class="function">gdk_init_check()</code></a>.</p>
+<a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a>, <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init-check"><code class="function">gtk_init_check()</code></a>, <a class="link" href="gdk3-General.html#gdk-init" title="gdk_init ()"><code class="function">gdk_init()</code></a>, or <a class="link" href="gdk3-General.html#gdk-init-check" title="gdk_init_check ()"><code class="function">gdk_init_check()</code></a>.</p>
 <div class="refsect3">
 <a name="gdk-parse-args.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -445,7 +445,7 @@ updated accordingly.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>argv</p></td>
-<td class="parameter_description"><p> the array of command line arguments. </p></td>
+<td class="parameter_description"><p>the array of command line arguments. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=argc]</span></td>
 </tr>
 </tbody>
@@ -462,7 +462,7 @@ gdk_get_display_arg_name (<em class="parameter"><code><span class="type">void</s
 to <a class="link" href="gdk3-General.html#gdk-init" title="gdk_init ()"><code class="function">gdk_init()</code></a> or <a class="link" href="gdk3-General.html#gdk-parse-args" title="gdk_parse_args ()"><code class="function">gdk_parse_args()</code></a>, if any.</p>
 <div class="refsect3">
 <a name="gdk-get-display-arg-name.returns"></a><h4>Returns</h4>
-<p> the display name, if specified explicitly,
+<p>the display name, if specified explicitly,
 otherwise <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> this string is owned by GTK+ and must not be
 modified or freed. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
@@ -479,7 +479,7 @@ loading. If the applications opens windows, this function is
 normally called after opening the application’s initial set of
 windows.</p>
 <p>GTK+ will call this function automatically after opening the first
-<a href="http://developer.gnome.org/gtk4/GtkWindow.html#GtkWindow-struct"><span class="type">GtkWindow</span></a> unless <a href="http://developer.gnome.org/gtk4/GtkWindow.html#gtk-window-set-auto-startup-notification"><code class="function">gtk_window_set_auto_startup_notification()</code></a> is called
+<a href="https://developer.gnome.org/gtk3/GtkWindow.html#GtkWindow-struct"><span class="type">GtkWindow</span></a> unless <a href="https://developer.gnome.org/gtk3/GtkWindow.html#gtk-window-set-auto-startup-notification"><code class="function">gtk_window_set_auto_startup_notification()</code></a> is called
 to disable that feature.</p>
 <p class="since">Since: 2.2</p>
 </div>
@@ -490,9 +490,9 @@ to disable that feature.</p>
 gdk_notify_startup_complete_with_id (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *startup_id</code></em>);</pre>
 <p>Indicates to the GUI environment that the application has
 finished loading, using a given identifier.</p>
-<p>GTK+ will call this function automatically for <a href="http://developer.gnome.org/gtk4/GtkWindow.html#GtkWindow-struct"><span class="type">GtkWindow</span></a>
+<p>GTK+ will call this function automatically for <a href="https://developer.gnome.org/gtk3/GtkWindow.html#GtkWindow-struct"><span class="type">GtkWindow</span></a>
 with custom startup-notification identifier unless
-<a href="http://developer.gnome.org/gtk4/GtkWindow.html#gtk-window-set-auto-startup-notification"><code class="function">gtk_window_set_auto_startup_notification()</code></a> is called to
+<a href="https://developer.gnome.org/gtk3/GtkWindow.html#gtk-window-set-auto-startup-notification"><code class="function">gtk_window_set_auto_startup_notification()</code></a> is called to
 disable that feature.</p>
 <div class="refsect3">
 <a name="gdk-notify-startup-complete-with-id.parameters"></a><h4>Parameters</h4>
@@ -527,7 +527,7 @@ work with certain GDK backends.</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="gdk3-General.html#gdk-set-allowed-backends">gdk_set_allowed_backends</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;wayland,quartz,*&quot;</span><span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="gdk3-General.html#gdk-set-allowed-backends">gdk_set_allowed_backends</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"wayland,quartz,*"</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -545,7 +545,7 @@ that are specified by this function.</p>
 broadway, wayland. You can also include a * in the
 list to try all remaining backends.</p>
 <p>This call must happen prior to <a class="link" href="GdkDisplay.html#gdk-display-open" title="gdk_display_open ()"><code class="function">gdk_display_open()</code></a>,
-<a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-init"><code class="function">gtk_init()</code></a>, <a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-init-with-args"><code class="function">gtk_init_with_args()</code></a> or <a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-init-check"><code class="function">gtk_init_check()</code></a>
+<a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a>, <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init-with-args"><code class="function">gtk_init_with_args()</code></a> or <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init-check"><code class="function">gtk_init_check()</code></a>
 in order to take effect.</p>
 <div class="refsect3">
 <a name="gdk-set-allowed-backends.parameters"></a><h4>Parameters</h4>
@@ -627,6 +627,7 @@ gdk_get_display (<em class="parameter"><code><span class="type">void</span></cod
 <a name="gdk-flush"></a><h3>gdk_flush ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gdk_flush (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="warning"><p><code class="literal">gdk_flush</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Flushes the output buffers of all display connections and waits
 until all requests have been processed.
 This is rarely needed by applications.</p>
@@ -720,7 +721,7 @@ This overrides any previous pointer grab by this client.</p>
 <p>Pointer grabs are used for operations which need complete control over mouse
 events, even if the mouse leaves the application.
 For example in GTK+ it is used for Drag and Drop, for dragging the handle in
-the <span class="type">GtkHPaned</span> and <span class="type">GtkVPaned</span> widgets.</p>
+the <a href="https://developer.gnome.org/gtk3/GtkHPaned.html#GtkHPaned-struct"><span class="type">GtkHPaned</span></a> and <a href="https://developer.gnome.org/gtk3/GtkVPaned.html#GtkVPaned-struct"><span class="type">GtkVPaned</span></a> widgets.</p>
 <p>Note that if the event mask of an X window has selected both button press and
 button release events, then a button press event will cause an automatic
 pointer grab until the button is released.
@@ -769,7 +770,7 @@ may be selected.</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>confine_to</p></td>
-<td class="parameter_description"><p> If non-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the pointer will be confined to this
+<td class="parameter_description"><p>If non-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the pointer will be confined to this
 window during the grab. If the pointer is outside <em class="parameter"><code>confine_to</code></em>
 , it will
 automatically be moved to the closest edge of <em class="parameter"><code>confine_to</code></em>
@@ -779,7 +780,7 @@ and leave events will be generated as necessary. </p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>cursor</p></td>
-<td class="parameter_description"><p> the cursor to display while the grab is active. If this is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> then
+<td class="parameter_description"><p>the cursor to display while the grab is active. If this is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> then
 the normal cursors are used for <em class="parameter"><code>window</code></em>
 and its descendants, and the cursor
 for <em class="parameter"><code>window</code></em>
@@ -853,6 +854,7 @@ presses into account.</p>
 <a name="gdk-set-double-click-time"></a><h3>gdk_set_double_click_time ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gdk_set_double_click_time (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> msec</code></em>);</pre>
+<div class="warning"><p><code class="literal">gdk_set_double_click_time</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Set the double click time for the default display. See
 <a class="link" href="GdkDisplay.html#gdk-display-set-double-click-time" title="gdk_display_set_double_click_time ()"><code class="function">gdk_display_set_double_click_time()</code></a>. 
 See also <a class="link" href="GdkDisplay.html#gdk-display-set-double-click-distance" title="gdk_display_set_double_click_distance ()"><code class="function">gdk_display_set_double_click_distance()</code></a>.
@@ -965,6 +967,7 @@ timestamp is available.</p></td>
 <a name="gdk-beep"></a><h3>gdk_beep ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gdk_beep (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="warning"><p><code class="literal">gdk_beep</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Emits a short beep on the default display.</p>
 </div>
 <hr>
@@ -972,6 +975,7 @@ gdk_beep (<em class="parameter"><code><span class="type">void</span></code></em>
 <a name="gdk-error-trap-push"></a><h3>gdk_error_trap_push ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gdk_error_trap_push (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="warning"><p><code class="literal">gdk_error_trap_push</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>This function allows X errors to be trapped instead of the normal
 behavior of exiting the application. It should only be used if it
 is not possible to avoid the X error in any other way. Errors are
@@ -984,7 +988,7 @@ to block and wait for the error to arrive from the X server.</p>
 <p>You can use <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-error-trap-push" title="gdk_x11_display_error_trap_push ()"><code class="function">gdk_x11_display_error_trap_push()</code></a> to ignore errors
 on only a single display.</p>
 <div class="refsect3">
-<a name="id-1.2.2.7.24.7"></a><h4>Trapping an X error</h4>
+<a name="id-1.2.2.7.24.8"></a><h4>Trapping an X error</h4>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -998,15 +1002,15 @@ on only a single display.</p>
 7
 8
 9</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="gdk3-General.html#gdk-error-trap-push">gdk_error_trap_push</a></span> <span class="gtkdoc opt">();</span>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="gdk3-General.html#gdk-error-trap-push">gdk_error_trap_push</a></span><span class="normal"> </span><span class="symbol">();</span>
 
- <span class="gtkdoc slc">// ... Call the X function which may cause an error here ...</span>
+<span class="normal"> </span><span class="comment">// ... Call the X function which may cause an error here ...</span>
 
 
-<span class="keyword">if</span> <span class="gtkdoc opt">(</span><span class="function"><a href="gdk3-General.html#gdk-error-trap-pop">gdk_error_trap_pop</a></span> <span class="gtkdoc opt">())</span>
- <span class="gtkdoc opt">{</span>
-   <span class="gtkdoc slc">// ... Handle the error here ...</span>
- <span class="gtkdoc opt">}</span></pre></td>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="gdk3-General.html#gdk-error-trap-pop">gdk_error_trap_pop</a></span><span class="normal"> </span><span class="symbol">())</span>
+<span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">   </span><span class="comment">// ... Handle the error here ...</span>
+<span class="normal"> </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1020,6 +1024,7 @@ on only a single display.</p>
 <a name="gdk-error-trap-pop"></a><h3>gdk_error_trap_pop ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
 gdk_error_trap_pop (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="warning"><p><code class="literal">gdk_error_trap_pop</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Removes an error trap pushed with <a class="link" href="gdk3-General.html#gdk-error-trap-push" title="gdk_error_trap_push ()"><code class="function">gdk_error_trap_push()</code></a>.
 May block until an error has been definitively received
 or not received from the X server. <a class="link" href="gdk3-General.html#gdk-error-trap-pop-ignored" title="gdk_error_trap_pop_ignored ()"><code class="function">gdk_error_trap_pop_ignored()</code></a>
@@ -1040,6 +1045,7 @@ call to Xlib was not a blocking round trip.</p>
 <a name="gdk-error-trap-pop-ignored"></a><h3>gdk_error_trap_pop_ignored ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gdk_error_trap_pop_ignored (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="warning"><p><code class="literal">gdk_error_trap_pop_ignored</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Removes an error trap pushed with <a class="link" href="gdk3-General.html#gdk-error-trap-push" title="gdk_error_trap_push ()"><code class="function">gdk_error_trap_push()</code></a>, but
 without bothering to wait and see whether an error occurred.  If an
 error arrives later asynchronously that was triggered while the
@@ -1256,11 +1262,11 @@ trying to use that function.</p>
 </pre>
 <p>A macro that should be defined before including the gdk.h header.
 If it is defined, no compiler warnings will be produced for uses
-of deprecated GDK APIs.</p>
+of deprecated GDK and GTK+ APIs.</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

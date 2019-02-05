@@ -8,7 +8,7 @@
 <link rel="up" href="ButtonWidgets.html" title="Buttons and Toggles">
 <link rel="prev" href="GtkLockButton.html" title="GtkLockButton">
 <link rel="next" href="NumericEntry.html" title="Numeric and Text Data Entry">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -72,7 +72,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *</td>
+<span class="type">GIcon</span> *</td>
 <td class="property_name"><a class="link" href="GtkModelButton.html#GtkModelButton--icon" title="The “icon” property">icon</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -101,6 +101,11 @@
 <td class="property_type">
 <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkModelButton.html#GtkModelButton--text" title="The “text” property">text</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_name"><a class="link" href="GtkModelButton.html#GtkModelButton--use-markup" title="The “use-markup” property">use-markup</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 </tbody>
@@ -144,14 +149,14 @@ GtkModelButton implements
 </div>
 <div class="refsect1">
 <a name="GtkModelButton.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkModelButton.description"></a><h2>Description</h2>
-<p>GtkModelButton is a button class that can use a <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> as its model.
+<p>GtkModelButton is a button class that can use a <span class="type">GAction</span> as its model.
 In contrast to <a class="link" href="GtkToggleButton.html" title="GtkToggleButton"><span class="type">GtkToggleButton</span></a> or <a class="link" href="GtkRadioButton.html" title="GtkRadioButton"><span class="type">GtkRadioButton</span></a>, which can also
-be backed by a <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> via the <a class="link" href="GtkActionable.html#GtkActionable--action-name" title="The “action-name” property"><span class="type">“action-name”</span></a> property,
+be backed by a <span class="type">GAction</span> via the <a class="link" href="GtkActionable.html#GtkActionable--action-name" title="The “action-name” property"><span class="type">“action-name”</span></a> property,
 GtkModelButton will adapt its appearance according to the kind of
 action it is backed by, and appear either as a plain, check or
 radio button.</p>
@@ -207,35 +212,35 @@ property to place the submenu indicator at the opposite side.</p>
 27
 28
 29</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkPopoverMenu&quot;</span><span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkBox&quot;</span><span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;visible&quot;</span><span class="gtkdoc opt">&gt;</span>True<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;margin&quot;</span><span class="gtkdoc opt">&gt;</span><span class="number">10</span><span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkModelButton&quot;</span><span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;visible&quot;</span><span class="gtkdoc opt">&gt;</span>True<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;action-name&quot;</span><span class="gtkdoc opt">&gt;</span>view<span class="gtkdoc opt">.</span>cut<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;text&quot;</span> translatable<span class="gtkdoc opt">=</span><span class="string">&quot;yes&quot;</span><span class="gtkdoc opt">&gt;</span>Cut<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkModelButton&quot;</span><span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;visible&quot;</span><span class="gtkdoc opt">&gt;</span>True<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;action-name&quot;</span><span class="gtkdoc opt">&gt;</span>view<span class="gtkdoc opt">.</span>copy<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;text&quot;</span> translatable<span class="gtkdoc opt">=</span><span class="string">&quot;yes&quot;</span><span class="gtkdoc opt">&gt;</span>Copy<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkModelButton&quot;</span><span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;visible&quot;</span><span class="gtkdoc opt">&gt;</span>True<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;action-name&quot;</span><span class="gtkdoc opt">&gt;</span>view<span class="gtkdoc opt">.</span>paste<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-          <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;text&quot;</span> translatable<span class="gtkdoc opt">=</span><span class="string">&quot;yes&quot;</span><span class="gtkdoc opt">&gt;</span>Paste<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-        <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkPopoverMenu"</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkBox"</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"visible"</span><span class="symbol">&gt;</span><span class="normal">True</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"margin"</span><span class="symbol">&gt;</span><span class="number">10</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkModelButton"</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"visible"</span><span class="symbol">&gt;</span><span class="normal">True</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"action-name"</span><span class="symbol">&gt;</span><span class="normal">view</span><span class="symbol">.</span><span class="normal">cut</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"text"</span><span class="normal"> translatable</span><span class="symbol">=</span><span class="string">"yes"</span><span class="symbol">&gt;</span><span class="normal">Cut</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkModelButton"</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"visible"</span><span class="symbol">&gt;</span><span class="normal">True</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"action-name"</span><span class="symbol">&gt;</span><span class="normal">view</span><span class="symbol">.</span><span class="normal">copy</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"text"</span><span class="normal"> translatable</span><span class="symbol">=</span><span class="string">"yes"</span><span class="symbol">&gt;</span><span class="normal">Copy</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkModelButton"</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"visible"</span><span class="symbol">&gt;</span><span class="normal">True</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"action-name"</span><span class="symbol">&gt;</span><span class="normal">view</span><span class="symbol">.</span><span class="normal">paste</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">          </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"text"</span><span class="normal"> translatable</span><span class="symbol">=</span><span class="string">"yes"</span><span class="symbol">&gt;</span><span class="normal">Paste</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">        </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -253,9 +258,9 @@ property to place the submenu indicator at the opposite side.</p>
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">modelbutton
-├── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-╰── check</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">modelbutton</span>
+<span class="normal">├── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">╰── check</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -269,9 +274,9 @@ property to place the submenu indicator at the opposite side.</p>
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">modelbutton
-├── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-╰── radio</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">modelbutton</span>
+<span class="normal">├── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">╰── radio</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -285,9 +290,9 @@ property to place the submenu indicator at the opposite side.</p>
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">modelbutton
-├── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-╰── arrow</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">modelbutton</span>
+<span class="normal">├── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">╰── arrow</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -306,9 +311,9 @@ of the button and whether it has a menu name set.</p>
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">button<span class="gtkdoc opt">.</span>model
-├── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-╰── check</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">button</span><span class="symbol">.</span><span class="normal">model</span>
+<span class="normal">├── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">╰── check</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -385,7 +390,7 @@ gtk_model_button_new (<em class="parameter"><code><span class="type">void</span>
 <a name="GtkModelButton--active"></a><h3>The <code class="literal">“active”</code> property</h3>
 <pre class="programlisting">  “active”                   <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
 <p>The state of the button. This is reflecting the state of the associated
-<a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a>.</p>
+<span class="type">GAction</span>.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
@@ -394,7 +399,7 @@ gtk_model_button_new (<em class="parameter"><code><span class="type">void</span>
 <div class="refsect2">
 <a name="GtkModelButton--centered"></a><h3>The <code class="literal">“centered”</code> property</h3>
 <pre class="programlisting">  “centered”                 <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
-<p>Wether to render the button contents centered instead of left-aligned.
+<p>Whether to render the button contents centered instead of left-aligned.
 This property should be set for title-like items.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
@@ -403,8 +408,8 @@ This property should be set for title-like items.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkModelButton--icon"></a><h3>The <code class="literal">“icon”</code> property</h3>
-<pre class="programlisting">  “icon”                     <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *</pre>
-<p>A <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> that will be used if iconic appearance for the button is
+<pre class="programlisting">  “icon”                     <span class="type">GIcon</span> *</pre>
+<p>A <span class="type">GIcon</span> that will be used if iconic appearance for the button is
 desired.</p>
 <p>Flags: Read / Write</p>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
@@ -461,9 +466,20 @@ from the action and does not have to be set explicitly.</p>
 <p>Default value: ""</p>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
 </div>
+<hr>
+<div class="refsect2">
+<a name="GtkModelButton--use-markup"></a><h3>The <code class="literal">“use-markup”</code> property</h3>
+<pre class="programlisting">  “use-markup”               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, XML tags in the text of the button are interpreted as by
+<a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#pango-parse-markup"><code class="function">pango_parse_markup()</code></a> to format the enclosed spans of text. If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>, the
+text will be displayed verbatim.</p>
+<p>Flags: Read / Write</p>
+<p>Default value: FALSE</p>
+<p class="since">Since: <a class="link" href="api-index-3-24.html#api-index-3.24">3.24</a></p>
+</div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

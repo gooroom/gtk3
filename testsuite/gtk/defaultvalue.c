@@ -94,6 +94,10 @@ test_type (gconstpointer data)
   if (g_type_is_a (type, GTK_TYPE_APP_CHOOSER_DIALOG))
     return;
 
+  /* pixbufs without pixel data are just pointless */
+  if (g_type_is_a (type, GDK_TYPE_PIXBUF))
+    return;
+
   /* These leak their GDBusConnections */
   if (g_type_is_a (type, GTK_TYPE_FILE_CHOOSER_BUTTON) ||
       g_type_is_a (type, GTK_TYPE_FILE_CHOOSER_DIALOG) ||
@@ -104,7 +108,7 @@ test_type (gconstpointer data)
   klass = g_type_class_ref (type);
 
   if (g_type_is_a (type, GTK_TYPE_SETTINGS))
-    instance = g_object_ref (gtk_settings_get_default ());
+    instance = G_OBJECT (g_object_ref (gtk_settings_get_default ()));
   else if (g_type_is_a (type, GDK_TYPE_WINDOW))
     {
       GdkWindowAttr attributes;
@@ -113,7 +117,7 @@ test_type (gconstpointer data)
       attributes.event_mask = 0;
       attributes.width = 100;
       attributes.height = 100;
-      instance = g_object_ref (gdk_window_new (NULL, &attributes, 0));
+      instance = G_OBJECT (g_object_ref (gdk_window_new (NULL, &attributes, 0)));
     }
   else if (g_str_equal (g_type_name (type), "GdkX11Cursor"))
     instance = g_object_new (type, "display", display, NULL);
@@ -232,9 +236,14 @@ G_GNUC_BEGIN_IGNORE_DEPRECATIONS
            strcmp (pspec->name, "cell-area-context") == 0))
 	continue;
 
-      if (g_type_is_a (type, GTK_TYPE_FONT_SELECTION) &&
-	  strcmp (pspec->name, "font") == 0)
-	continue;
+G_GNUC_END_IGNORE_DEPRECATIONS
+
+      /* This is set in init() */
+      if (g_type_is_a (type, GTK_TYPE_FONT_CHOOSER_WIDGET) &&
+          strcmp (pspec->name, "tweak-action") == 0)
+        continue;
+
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 
       if (g_type_is_a (type, GTK_TYPE_ICON_VIEW) &&
 	  (strcmp (pspec->name, "cell-area") == 0 ||
@@ -358,9 +367,12 @@ G_GNUC_END_IGNORE_DEPRECATIONS
         continue;
 
       if (g_test_verbose ())
-      g_print ("Property %s.%s\n",
-	     g_type_name (pspec->owner_type),
-	     pspec->name);
+        {
+          g_print ("Property %s:%s\n",
+                   g_type_name (pspec->owner_type),
+                   pspec->name);
+        }
+
       g_value_init (&value, G_PARAM_SPEC_VALUE_TYPE (pspec));
       g_object_get_property (instance, pspec->name, &value);
       check_property ("Property", pspec, &value);
@@ -370,7 +382,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 
   if (g_type_is_a (type, GTK_TYPE_WIDGET))
     {
-      g_object_set (gtk_settings_get_default (), "gtk-theme-name", "Raleigh", NULL);
+      g_object_set (gtk_settings_get_default (), "gtk-theme-name", "Adwaita", NULL);
       pspecs = gtk_widget_class_list_style_properties (GTK_WIDGET_CLASS (klass), &n_pspecs);
 
       for (i = 0; i < n_pspecs; ++i)
@@ -384,14 +396,43 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 	  if ((pspec->flags & G_PARAM_READABLE) == 0)
 	    continue;
 
-          if (g_type_is_a (type, GTK_TYPE_BUTTON) &&
-              strcmp (pspec->name, "default-border") == 0)
+          /* These are overridden by Adwaita */
+          if (g_type_is_a (type, GTK_TYPE_DIALOG) &&
+              (strcmp (pspec->name, "action-area-border") == 0 ||
+               strcmp (pspec->name, "button-spacing") == 0))
             continue;
 
+          if (g_type_is_a (type, GTK_TYPE_SCROLLBAR) &&
+              (strcmp (pspec->name, "has-backward-stepper") == 0 ||
+               strcmp (pspec->name, "has-forward-stepper") == 0))
+            continue;
+
+          if (g_type_is_a (type, GTK_TYPE_SCROLLED_WINDOW) &&
+              strcmp (pspec->name, "scrollbar-spacing") == 0)
+            continue;
+
+          if (g_type_is_a (type, GTK_TYPE_TEXT_VIEW) &&
+              strcmp (pspec->name, "error-underline-color") == 0)
+            continue;
+
+          if (g_type_is_a (type, GTK_TYPE_TOOL_BUTTON) &&
+              strcmp (pspec->name, "icon-spacing") == 0)
+            continue;
+
+          if (g_type_is_a (type, GTK_TYPE_TOOL_ITEM_GROUP) &&
+              strcmp (pspec->name, "expander-size") == 0)
+            continue;
+
+          if (g_type_is_a (type, GTK_TYPE_TREE_VIEW) &&
+              (strcmp (pspec->name, "expander-size") == 0 ||
+               strcmp (pspec->name, "grid-line-pattern") == 0 ||
+               strcmp (pspec->name, "horizontal-separator") == 0 ||
+               strcmp (pspec->name, "tree-line-pattern") == 0))
+            continue;
+
+          /* This is desktop-dependent */
           if (g_type_is_a (type, GTK_TYPE_WINDOW) &&
-              (strcmp (pspec->name, "resize-grip-width") == 0 ||
-               strcmp (pspec->name, "resize-grip-height") == 0 ||
-               strcmp (pspec->name, "decoration-button-layout") == 0))
+              strcmp (pspec->name, "decoration-button-layout") == 0)
             continue;
 
 	  g_value_init (&value, G_PARAM_SPEC_VALUE_TYPE (pspec));

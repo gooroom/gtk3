@@ -8,7 +8,7 @@
 <link rel="up" href="ApplicationChoosing.html" title="Choosing from installed applications">
 <link rel="prev" href="GtkAppChooserDialog.html" title="GtkAppChooserDialog">
 <link rel="next" href="Gestures.html" title="Gestures and event handling">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -256,7 +256,7 @@ GtkAppChooserWidget implements
 </div>
 <div class="refsect1">
 <a name="GtkAppChooserWidget.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -805,7 +805,7 @@ among the other applications.</p>
 <a name="GtkAppChooserWidget-application-activated"></a><h3>The <code class="literal">“application-activated”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkAppChooserWidget.html" title="GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self,
-               <a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#GAppInfo-struct"><span class="type">GAppInfo</span></a>            *application,
+               <span class="type">GAppInfo</span>            *application,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>             user_data)</pre>
 <p>Emitted when an application item is activated from the widget's list.</p>
 <p>This usually happens when the user double clicks an item, or an item
@@ -827,7 +827,7 @@ Return or Enter.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>application</p></td>
-<td class="parameter_description"><p>the activated <a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#GAppInfo-struct"><span class="type">GAppInfo</span></a></p></td>
+<td class="parameter_description"><p>the activated <span class="type">GAppInfo</span></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -845,7 +845,7 @@ Return or Enter.</p>
 <a name="GtkAppChooserWidget-application-selected"></a><h3>The <code class="literal">“application-selected”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkAppChooserWidget.html" title="GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self,
-               <a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#GAppInfo-struct"><span class="type">GAppInfo</span></a>            *application,
+               <span class="type">GAppInfo</span>            *application,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>             user_data)</pre>
 <p>Emitted when an application item is selected from the widget's list.</p>
 <div class="refsect3">
@@ -864,7 +864,7 @@ user_function (<a class="link" href="GtkAppChooserWidget.html" title="GtkAppChoo
 </tr>
 <tr>
 <td class="parameter_name"><p>application</p></td>
-<td class="parameter_description"><p>the selected <a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#GAppInfo-struct"><span class="type">GAppInfo</span></a></p></td>
+<td class="parameter_description"><p>the selected <span class="type">GAppInfo</span></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -883,7 +883,7 @@ user_function (<a class="link" href="GtkAppChooserWidget.html" title="GtkAppChoo
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkAppChooserWidget.html" title="GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self,
                <a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a>             *menu,
-               <a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#GAppInfo-struct"><span class="type">GAppInfo</span></a>            *application,
+               <span class="type">GAppInfo</span>            *application,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>             user_data)</pre>
 <p>Emitted when a context menu is about to popup over an application item.
 Clients can insert menu items into the provided <a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> object in the
@@ -910,7 +910,7 @@ if at least one item has been added to the menu.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>application</p></td>
-<td class="parameter_description"><p>the current <a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#GAppInfo-struct"><span class="type">GAppInfo</span></a></p></td>
+<td class="parameter_description"><p>the current <span class="type">GAppInfo</span></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -926,6 +926,6 @@ if at least one item has been added to the menu.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

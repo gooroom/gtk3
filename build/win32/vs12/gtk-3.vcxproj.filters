@@ -21,6 +21,7 @@
     <CustomBuild Include="..\..\..\gtk\gtkdbusinterfaces.xml"><Filter>Resource Files</Filter></CustomBuild>
     <CustomBuild Include="..\..\..\gtk\gtk-win32.rc.body"><Filter>Resource Files</Filter></CustomBuild>
     <CustomBuild Include="..\..\..\gtk\libgtk3.manifest.in"><Filter>Resource Files</Filter></CustomBuild>
+    <CustomBuild Include="..\gentypefuncs.py"><Filter>Resource Files</Filter></CustomBuild>
   </ItemGroup>
   <ItemGroup>
    <ClCompile Include="..\..\..\gtk\a11y\gtkaccessibility.c"><Filter>Source Files</Filter></ClCompile>
@@ -215,6 +216,10 @@
    <ClCompile Include="..\..\..\gtk\gtkcolorchooserwidget.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkcolorchooserdialog.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkcoloreditor.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtkcolorpicker.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtkcolorpickerkwin.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtkcolorpickerportal.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtkcolorpickershell.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkcolorplane.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkcolorscale.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkcolorswatch.c"><Filter>Source Files</Filter></ClCompile>
@@ -295,11 +300,16 @@
    <ClCompile Include="..\..\..\gtk\gtkdragsource.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkdrawingarea.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkeditable.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtkemojichooser.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtkemojicompletion.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkentry.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkentrybuffer.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkentrycompletion.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkeventbox.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkeventcontroller.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtkeventcontrollerkey.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtkeventcontrollermotion.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtkeventcontrollerscroll.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkexpander.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkfilechooser.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkfilechooserbutton.c"><Filter>Source Files</Filter></ClCompile>
@@ -329,6 +339,7 @@
    <ClCompile Include="..\..\..\gtk\gtkgesturepan.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkgesturerotate.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkgesturesingle.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtkgesturestylus.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkgestureswipe.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkgesturezoom.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkglarea.c"><Filter>Source Files</Filter></ClCompile>
@@ -360,7 +371,6 @@
    <ClCompile Include="..\..\..\gtk\gtklockbutton.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkmain.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkmagnifier.c"><Filter>Source Files</Filter></ClCompile>
-   <ClCompile Include="..\..\..\gtk\gtkmarshalers.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkmenu.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkmenubar.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkmenubutton.c"><Filter>Source Files</Filter></ClCompile>
@@ -397,7 +407,6 @@
    <ClCompile Include="..\..\..\gtk\gtkprintsettings.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkprintutils.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkprivate.c"><Filter>Source Files</Filter></ClCompile>
-   <ClCompile Include="..\..\..\gtk\gtkprivatetypebuiltins.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkprogressbar.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkprogresstracker.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkpixelcache.c"><Filter>Source Files</Filter></ClCompile>
@@ -420,7 +429,6 @@
    <ClCompile Include="..\..\..\gtk\gtkrenderbackground.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkrenderborder.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkrendericon.c"><Filter>Source Files</Filter></ClCompile>
-   <ClCompile Include="..\..\..\gtk\gtkresources.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkrevealer.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkroundedbox.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkscale.c"><Filter>Source Files</Filter></ClCompile>
@@ -496,7 +504,6 @@
    <ClCompile Include="..\..\..\gtk\gtktreestore.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtktreeview.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtktreeviewcolumn.c"><Filter>Source Files</Filter></ClCompile>
-   <ClCompile Include="..\..\..\gtk\gtktypebuiltins.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkutils.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkvolumebutton.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkviewport.c"><Filter>Source Files</Filter></ClCompile>
@@ -507,6 +514,8 @@
    <ClCompile Include="..\..\..\gtk\gtkwin32draw.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkwin32theme.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gdkpixbufutils.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\language-names.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\script-names.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkclipboard.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkdnd.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkdragdest.c"><Filter>Source Files</Filter></ClCompile>
@@ -518,6 +527,10 @@
    <ClCompile Include="..\..\..\gtk\gtkwin32embedwidget.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkmountoperation-stub.c"><Filter>Source Files</Filter></ClCompile>
    <ClCompile Include="..\..\..\gtk\gtkdbusgenerated.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtkresources.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtktypebuiltins.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtkmarshalers.c"><Filter>Source Files</Filter></ClCompile>
+   <ClCompile Include="..\..\..\gtk\gtkprivatetypebuiltins.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\modules\input\gtkimcontextime.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\modules\input\gtkimcontextmultipress.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\modules\input\gtkimcontextthai.c"><Filter>Source Files</Filter></ClCompile>

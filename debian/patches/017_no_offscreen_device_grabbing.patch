@@ -1,13 +1,19 @@
-Description: Do not allow devices in an offscreen hierarchy to take grabs.
-Author: Robert Carr <racarr@canonical.com>
+From: Robert Carr <racarr@canonical.com>
+Date: Wed, 30 Nov 2011 00:25:29 +0100
+Subject: Do not allow devices in an offscreen hierarchy to take grabs.
+
 Bug: https://bugzilla.gnome.org/show_bug.cgi?id=658563
 Bug-Ubuntu: https://launchpad.net/bugs/804009
+Forwarded: yes
+---
+ gtk/gtkmain.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Index: b/gtk/gtkmain.c
-===================================================================
+diff --git a/gtk/gtkmain.c b/gtk/gtkmain.c
+index 61d15e8..3ee7a80 100644
 --- a/gtk/gtkmain.c
 +++ b/gtk/gtkmain.c
-@@ -2307,9 +2307,14 @@
+@@ -2321,9 +2321,14 @@ gtk_device_grab_add (GtkWidget *widget,
  {
    GtkWindowGroup *group;
    GtkWidget *old_grab_widget;

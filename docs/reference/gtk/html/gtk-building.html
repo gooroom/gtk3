@@ -8,7 +8,7 @@
 <link rel="up" href="platform-support.html" title="Part VII. GTK+ Platform Support">
 <link rel="prev" href="platform-support.html" title="Part VII. GTK+ Platform Support">
 <link rel="next" href="gtk-compiling.html" title="Compiling GTK+ Applications">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -153,7 +153,7 @@ How to compile GTK+ itself
     </p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>
-          <a class="ulink" href="http://pkg-config.freedesktop.org" target="_top">pkg-config</a>
+          <a class="ulink" href="https://www.freedesktop.org/wiki/Software/pkg-config/" target="_top">pkg-config</a>
           is a tool for tracking the compilation flags needed for
           libraries that are used by the GTK+ libraries. (For each
           library, a small <code class="literal">.pc</code> text file is installed
@@ -164,7 +164,7 @@ How to compile GTK+ itself
           The GTK+ makefiles will mostly work with different versions
           of <span class="command"><strong>make</strong></span>, however, there tends to be
           a few incompatibilities, so the GTK+ team recommends
-          installing <a class="ulink" href="http://www.gnu.org/software/make" target="_top">GNU
+          installing <a class="ulink" href="https://www.gnu.org/software/make" target="_top">GNU
             make</a> if you don't already have it on your system
           and using it. (It may be called <span class="command"><strong>gmake</strong></span>
           rather than <span class="command"><strong>make</strong></span>.)
@@ -180,40 +180,40 @@ How to compile GTK+ itself
           The GLib library provides core non-graphical functionality
           such as high level data types, Unicode manipulation, and
           an object and type system to C programs. It is available
-          from the <a class="ulink" href="http://ftp.gtk.org/pub/glib/" target="_top">GTK+
+          from the <a class="ulink" href="https://ftp.gtk.org/pub/glib/" target="_top">GTK+
           FTP site</a> or
-          <a class="ulink" href="http://download.gnome.org/sources/glib/" target="_top">here</a>.
+          <a class="ulink" href="https://download.gnome.org/sources/glib/" target="_top">here</a>.
         </p></li>
 <li class="listitem"><p>
-          The <a class="ulink" href="http://git.gnome.org/browse/gdk-pixbuf/" target="_top">GdkPixbuf library</a>
+          The <a class="ulink" href="https://git.gnome.org/browse/gdk-pixbuf/" target="_top">GdkPixbuf library</a>
           provides facilities for loading images in a variety of file formats.
           It is available
-          <a class="ulink" href="http://download.gnome.org/sources/gdk-pixbuf/" target="_top">here</a>.
+          <a class="ulink" href="https://download.gnome.org/sources/gdk-pixbuf/" target="_top">here</a>.
         </p></li>
 <li class="listitem"><p>
           <a class="ulink" href="http://www.pango.org" target="_top">Pango</a> is a library
           for internationalized text handling. It is available
-          <a class="ulink" href="http://download.gnome.org/sources/pango/" target="_top">here</a>.
+          <a class="ulink" href="https://download.gnome.org/sources/pango/" target="_top">here</a>.
         </p></li>
 <li class="listitem"><p>
           ATK is the Accessibility Toolkit. It provides a set of generic
           interfaces allowing accessibility technologies such as
           screen readers to interact with a graphical user interface.
           It is available
-          <a class="ulink" href="http://download.gnome.org/sources/atk/" target="_top">here</a>.
+          <a class="ulink" href="https://download.gnome.org/sources/atk/" target="_top">here</a>.
         </p></li>
 <li class="listitem"><p>
           <a class="ulink" href="https://wiki.gnome.org/Projects/GObjectIntrospection" target="_top">Gobject Introspection</a>
           is a framework for making introspection data available to
           language bindings. It is available
-          <a class="ulink" href="http://download.gnome.org/sources/gobject-introspection/" target="_top">here</a>.
+          <a class="ulink" href="https://download.gnome.org/sources/gobject-introspection/" target="_top">here</a>.
         </p></li>
 </ul></div>
 <div class="itemizedlist">
 <p class="title"><b>External dependencies</b></p>
 <ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>
-          The <a class="ulink" href="http://www.gnu.org/software/libiconv/" target="_top">GNU
+          The <a class="ulink" href="https://www.gnu.org/software/libiconv/" target="_top">GNU
           libiconv library</a> is needed to build GLib if your
           system doesn't have the <code class="function">iconv()</code>
           function for doing conversion between character
@@ -221,7 +221,7 @@ How to compile GTK+ itself
           <code class="function">iconv()</code>.
         </p></li>
 <li class="listitem"><p>
-          The libintl library from the <a class="ulink" href="http://www.gnu.org/software/gettext/" target="_top">GNU gettext
+          The libintl library from the <a class="ulink" href="https://www.gnu.org/software/gettext/" target="_top">GNU gettext
           package</a> is needed if your system doesn't have the
           <code class="function">gettext()</code> functionality for handling
           message translation databases.
@@ -234,12 +234,12 @@ How to compile GTK+ itself
           operating system vendor provides.
         </p></li>
 <li class="listitem"><p>
-          The <a class="ulink" href="http://www.fontconfig.org" target="_top">fontconfig</a>
+          The <a class="ulink" href="https://www.freedesktop.org/wiki/Software/fontconfig/" target="_top">fontconfig</a>
           library provides Pango with a standard way of locating
           fonts and matching them against font names.
         </p></li>
 <li class="listitem"><p>
-          <a class="ulink" href="http://www.cairographics.org" target="_top">Cairo</a>
+          <a class="ulink" href="https://www.cairographics.org" target="_top">Cairo</a>
           is a graphics library that supports vector graphics and image
           compositing. Both Pango and GTK+ use cairo for all of their
           drawing.
@@ -250,11 +250,11 @@ How to compile GTK+ itself
           OpenGL libraries. GTK+ uses it for cross-platform GL support.
         </p></li>
 <li class="listitem"><p>
-          The <a class="ulink" href="http://wayland.freedesktop.org" target="_top">Wayland</a> libraries
+          The <a class="ulink" href="https://wayland.freedesktop.org" target="_top">Wayland</a> libraries
           are needed to build GTK+ with the Wayland backend.
         </p></li>
 <li class="listitem"><p>
-          The <a class="ulink" href="http://www.freedesktop.org/wiki/Software/shared-mime-info" target="_top">shared-mime-info</a>
+          The <a class="ulink" href="https://www.freedesktop.org/wiki/Software/shared-mime-info" target="_top">shared-mime-info</a>
           package is not a hard dependency of GTK+, but it contains definitions
           for mime types that are used by GIO and, indirectly, by GTK+.
           gdk-pixbuf will use GIO for mime type detection if possible. For this
@@ -468,6 +468,6 @@ How to compile GTK+ itself
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

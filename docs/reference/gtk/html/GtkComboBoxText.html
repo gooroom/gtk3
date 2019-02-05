@@ -8,7 +8,7 @@
 <link rel="up" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
 <link rel="prev" href="GtkComboBox.html" title="GtkComboBox">
 <link rel="next" href="GtkMenu.html" title="GtkMenu">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -202,13 +202,13 @@ translation attributes “translatable”, “context” and “comments”.</p>
 5
 6
 7</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkComboBoxText&quot;</span><span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>items<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>item translatable<span class="gtkdoc opt">=</span><span class="string">&quot;yes&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;factory&quot;</span><span class="gtkdoc opt">&gt;</span>Factory<span class="gtkdoc opt">&lt;/</span>item<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>item translatable<span class="gtkdoc opt">=</span><span class="string">&quot;yes&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;home&quot;</span><span class="gtkdoc opt">&gt;</span>Home<span class="gtkdoc opt">&lt;/</span>item<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>item translatable<span class="gtkdoc opt">=</span><span class="string">&quot;yes&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;subway&quot;</span><span class="gtkdoc opt">&gt;</span>Subway<span class="gtkdoc opt">&lt;/</span>item<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>items<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkComboBoxText"</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">items</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">item</span><span class="normal"> translatable</span><span class="symbol">=</span><span class="string">"yes"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"factory"</span><span class="symbol">&gt;</span><span class="normal">Factory</span><span class="symbol">&lt;/</span><span class="normal">item</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">item</span><span class="normal"> translatable</span><span class="symbol">=</span><span class="string">"yes"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"home"</span><span class="symbol">&gt;</span><span class="normal">Home</span><span class="symbol">&lt;/</span><span class="normal">item</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">item</span><span class="normal"> translatable</span><span class="symbol">=</span><span class="string">"yes"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"subway"</span><span class="symbol">&gt;</span><span class="normal">Subway</span><span class="symbol">&lt;/</span><span class="normal">item</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">items</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -228,11 +228,11 @@ translation attributes “translatable”, “context” and “comments”.</p>
 3
 4
 5</pre></td>
-        <td class="listing_code"><pre class="programlisting">combobox
-╰── box<span class="gtkdoc opt">.</span>linked
-    ├── entry<span class="gtkdoc opt">.</span>combo
-    ├── button<span class="gtkdoc opt">.</span>combo
-    ╰── window<span class="gtkdoc opt">.</span>popup</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">combobox</span>
+<span class="normal">╰── box</span><span class="symbol">.</span><span class="normal">linked</span>
+<span class="normal">    ├── entry</span><span class="symbol">.</span><span class="normal">combo</span>
+<span class="normal">    ├── button</span><span class="symbol">.</span><span class="normal">combo</span>
+<span class="normal">    ╰── window</span><span class="symbol">.</span><span class="normal">popup</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -301,7 +301,7 @@ position of -1.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>id</p></td>
-<td class="parameter_description"><p> a string ID for this value, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a string ID for this value, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -344,7 +344,7 @@ position of 0.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>id</p></td>
-<td class="parameter_description"><p> a string ID for this value, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a string ID for this value, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -397,7 +397,7 @@ If <em class="parameter"><code>id</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>id</p></td>
-<td class="parameter_description"><p> a string ID for this value, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a string ID for this value, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -610,7 +610,7 @@ be an item from the list).</p>
 </div>
 <div class="refsect3">
 <a name="gtk-combo-box-text-get-active-text.returns"></a><h4>Returns</h4>
-<p> a newly allocated string containing the
+<p>a newly allocated string containing the
 currently active text. Must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -630,6 +630,6 @@ currently active text. Must be freed with <a href="https://developer.gnome.org/g
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

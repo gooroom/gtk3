@@ -17,6 +17,8 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <AvailabilityMacros.h>
+#include "config.h"
 #import "GdkQuartzView.h"
 #include "gdkquartzwindow.h"
 #include "gdkprivate-quartz.h"
@@ -122,7 +124,6 @@
 -(void)unmarkText
 {
   GDK_NOTE (EVENTS, g_message ("unmarkText"));
-  gchar *prev_str;
   markedRange = selectedRange = NSMakeRange (NSNotFound, 0);
 
   g_object_set_data_full (G_OBJECT (gdk_window), TIC_MARKED_TEXT, NULL, g_free);
@@ -132,7 +133,6 @@
 {
   GDK_NOTE (EVENTS, g_message ("setMarkedText"));
   const char *str;
-  gchar *prev_str;
 
   if (replacementRange.location == NSNotFound)
     {
@@ -182,7 +182,6 @@
   GDK_NOTE (EVENTS, g_message ("insertText"));
   const char *str;
   NSString *string;
-  gchar *prev_str;
 
   if ([self hasMarkedText])
     [self unmarkText];
@@ -200,8 +199,12 @@
       /* discard invalid text input with Chinese input methods */
       str = "";
       [self unmarkText];
+#if MAC_OS_X_VERSION_MIN_REQUIRED < 1060
       NSInputManager *currentInputManager = [NSInputManager currentInputManager];
       [currentInputManager markedTextAbandoned:self];
+#else
+      [[NSTextInputContext currentInputContext] discardMarkedText];
+#endif
     }
   else
    {

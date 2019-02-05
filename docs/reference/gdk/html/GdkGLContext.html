@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="GdkDrawingContext.html" title="GdkDrawingContext">
 <link rel="next" href="gdk3-Events.html" title="Events">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -237,7 +237,7 @@
 </div>
 <div class="refsect1">
 <a name="GdkGLContext.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gdk/gdk.h&gt;
+<pre class="synopsis">#include &lt;gdk/gdkwayland.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -282,7 +282,7 @@ want to draw with is the current one before issuing commands:</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="GdkGLContext.html#gdk-gl-context-make-current">gdk_gl_context_make_current</a></span> <span class="gtkdoc opt">(</span>context<span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="GdkGLContext.html#gdk-gl-context-make-current">gdk_gl_context_make_current</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -320,7 +320,7 @@ gdk_gl_context_get_display (<em class="parameter"><code><a class="link" href="Gd
 </div>
 <div class="refsect3">
 <a name="gdk-gl-context-get-display.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
@@ -349,7 +349,7 @@ gdk_gl_context_get_window (<em class="parameter"><code><a class="link" href="Gdk
 </div>
 <div class="refsect3">
 <a name="gdk-gl-context-get-window.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
@@ -378,7 +378,7 @@ gdk_gl_context_get_shared_context (<em class="parameter"><code><a class="link" h
 </div>
 <div class="refsect3">
 <a name="gdk-gl-context-get-shared-context.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="type">GdkGLContext</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>a <a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="type">GdkGLContext</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
@@ -410,12 +410,12 @@ gdk_gl_context_get_version (<em class="parameter"><code><a class="link" href="Gd
 </tr>
 <tr>
 <td class="parameter_name"><p>major</p></td>
-<td class="parameter_description"><p> return location for the major version. </p></td>
+<td class="parameter_description"><p>return location for the major version. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>minor</p></td>
-<td class="parameter_description"><p> return location for the minor version. </p></td>
+<td class="parameter_description"><p>return location for the minor version. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -490,12 +490,12 @@ gdk_gl_context_get_required_version (<em class="parameter"><code><a class="link"
 </tr>
 <tr>
 <td class="parameter_name"><p>major</p></td>
-<td class="parameter_description"><p> return location for the major version to request. </p></td>
+<td class="parameter_description"><p>return location for the major version to request. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>minor</p></td>
-<td class="parameter_description"><p> return location for the minor version to request. </p></td>
+<td class="parameter_description"><p>return location for the minor version to request. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -805,7 +805,7 @@ gdk_gl_context_get_current (<em class="parameter"><code><span class="type">void<
 <p>Retrieves the current <a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="type">GdkGLContext</span></a>.</p>
 <div class="refsect3">
 <a name="gdk-gl-context-get-current.returns"></a><h4>Returns</h4>
-<p> the current <a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="type">GdkGLContext</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the current <a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="type">GdkGLContext</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
@@ -880,7 +880,7 @@ until <a class="link" href="GdkGLContext.html#gdk-gl-context-make-current" title
 <div class="refsect2">
 <a name="GdkGLContext--shared-context"></a><h3>The <code class="literal">“shared-context”</code> property</h3>
 <pre class="programlisting">  “shared-context”           <a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="type">GdkGLContext</span></a> *</pre>
-<p>The <a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="type">GdkGLContext</span></a> that this context is sharing data with, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><span class="type">NULL</span></a></p>
+<p>The <a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="type">GdkGLContext</span></a> that this context is sharing data with, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p>
 <p>Flags: Read / Write / Construct Only</p>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
 </div>
@@ -895,6 +895,6 @@ until <a class="link" href="GdkGLContext.html#gdk-gl-context-make-current" title
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

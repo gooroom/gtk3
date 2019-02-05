@@ -71,6 +71,8 @@
  *
  * An example for setting markup and accelerator on a MenuItem:
  * |[<!-- language="C" -->
+ * GtkWidget *menu_item = gtk_menu_item_new_with_label ("Example Menu Item");
+ *
  * GtkWidget *child = gtk_bin_get_child (GTK_BIN (menu_item));
  * gtk_label_set_markup (GTK_LABEL (child), "<i>new label</i> with <b>markup</b>");
  * gtk_accel_label_set_accel (GTK_ACCEL_LABEL (child), GDK_KEY_1, 0);
@@ -2343,7 +2345,7 @@ _gtk_menu_item_refresh_accel_path (GtkMenuItem   *menu_item,
           if (postfix)
             {
               new_path = g_strconcat (prefix, "/", postfix, NULL);
-              path = priv->accel_path = (char*)g_intern_string (new_path);
+              path = priv->accel_path = g_intern_string (new_path);
               g_free (new_path);
             }
         }
@@ -2395,7 +2397,7 @@ gtk_menu_item_set_accel_path (GtkMenuItem *menu_item,
   widget = GTK_WIDGET (menu_item);
 
   /* store new path */
-  priv->accel_path = (char*)g_intern_string (accel_path);
+  priv->accel_path = g_intern_string (accel_path);
 
   /* forget accelerators associated with old path */
   gtk_widget_set_accel_path (widget, NULL, NULL);

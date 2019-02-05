@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Keyboard-Handling.html" title="Key Values">
 <link rel="next" href="gdk3-Drag-and-Drop.html" title="Drag And Drop">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -27,7 +27,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="gdk3-Selections.top_of_page"></a>Selections</span></h2>
-<p>Selections — Functions for transfering data via the X selection mechanism</p>
+<p>Selections — Functions for transferring data between programs</p>
 </td>
 <td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
@@ -188,7 +188,8 @@
 </div>
 <div class="refsect1">
 <a name="gdk3-Selections.description"></a><h2>Description</h2>
-<p>The X selection mechanism provides a way to transfer arbitrary chunks of
+<p>GDK’s selection functions, based on the <a class="ulink" href="https://www.x.org/releases/X11R7.6/doc/xorg-docs/specs/ICCCM/icccm.html" target="_top">X selection mechanism</a>,
+provide a way to transfer arbitrary chunks of
 data between programs. A “selection” is a essentially
 a named clipboard, identified by a string interned as a <a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a>. By
 claiming ownership of a selection, an application indicates that it will
@@ -208,7 +209,9 @@ on top of this. GTK+ contains such an implementation in the functions in
 <code class="literal">gtkselection.h</code> and programmers should use those functions
 instead of the ones presented here. If you plan to implement selection
 handling directly on top of the functions here, you should refer to the
-X Inter-client Communication Conventions Manual (ICCCM).</p>
+<a class="ulink" href="https://www.x.org/releases/X11R7.6/doc/xorg-docs/specs/ICCCM/icccm.html" target="_top">X Inter-Client Communication Conventions Manual (ICCCM)</a>.</p>
+<p>Note that although much of the selection API design is based on that of X,
+it will work on other GDK backends too.</p>
 </div>
 <div class="refsect1">
 <a name="gdk3-Selections.functions_details"></a><h2>Functions</h2>
@@ -231,7 +234,7 @@ gdk_selection_owner_set (<em class="parameter"><code><a class="link" href="gdk3-
 <tbody>
 <tr>
 <td class="parameter_name"><p>owner</p></td>
-<td class="parameter_description"><p> a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to indicate that the
+<td class="parameter_description"><p>a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to indicate that the
 the owner for the given should be unset. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -293,7 +296,7 @@ gdk_selection_owner_set_for_display (<em class="parameter"><code><a class="link"
 </tr>
 <tr>
 <td class="parameter_name"><p>owner</p></td>
-<td class="parameter_description"><p> a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to indicate that the owner for
+<td class="parameter_description"><p>a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to indicate that the owner for
 the given should be unset. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
@@ -348,7 +351,7 @@ gdk_selection_owner_get (<em class="parameter"><code><a class="link" href="gdk3-
 </div>
 <div class="refsect3">
 <a name="gdk-selection-owner-get.returns"></a><h4>Returns</h4>
-<p> if there is a selection owner
+<p>if there is a selection owner
 for this window, and it is a window known to the current process,
 the <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> that owns the selection, otherwise <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. Note
 that the return value may be owned by a different process if a
@@ -391,7 +394,7 @@ window, but a new foreign window will never be created by this call.</p>
 </div>
 <div class="refsect3">
 <a name="gdk-selection-owner-get-for-display.returns"></a><h4>Returns</h4>
-<p> if there is a selection owner
+<p>if there is a selection owner
 for this window, and it is a window known to the current
 process, the <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> that owns the selection, otherwise
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
@@ -456,7 +459,7 @@ gdk_selection_property_get (<em class="parameter"><code><a class="link" href="gd
                             <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *prop_format</code></em>);</pre>
 <p>Retrieves selection data that was stored by the selection
 data in response to a call to <a class="link" href="gdk3-Selections.html#gdk-selection-convert" title="gdk_selection_convert ()"><code class="function">gdk_selection_convert()</code></a>. This function
-will not be used by applications, who should use the <a href="http://developer.gnome.org/gtk4/gtk4-Clipboards.html#GtkClipboard-struct"><span class="type">GtkClipboard</span></a>
+will not be used by applications, who should use the <a href="https://developer.gnome.org/gtk3/gtk3-Clipboards.html#GtkClipboard-struct"><span class="type">GtkClipboard</span></a>
 API instead.</p>
 <p><span class="annotation">[<acronym title="Exposed in C code, not necessarily available in other languages."><span class="acronym">skip</span></acronym>]</span></p>
 <div class="refsect3">
@@ -726,6 +729,6 @@ or <a class="link" href="gdk3-Properties-and-Atoms.html#GDK-NONE:CAPS" title="GD
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

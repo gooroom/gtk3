@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Events.html" title="Events">
 <link rel="next" href="gdk3-Keyboard-Handling.html" title="Key Values">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -183,7 +183,7 @@
 <a name="gdk3-Event-Structures.description"></a><h2>Description</h2>
 <p>The event structures contain data specific to each type of event in GDK.</p>
 <div class="blockquote"><blockquote class="blockquote"><p>A common mistake is to forget to set the event mask of a widget so that
-the required events are received. See <a href="http://developer.gnome.org/gtk4/GtkWidget.html#gtk-widget-set-events"><code class="function">gtk_widget_set_events()</code></a>.</p></blockquote></div>
+the required events are received. See <a href="https://developer.gnome.org/gtk3/GtkWidget.html#gtk-widget-set-events"><code class="function">gtk_widget_set_events()</code></a>.</p></blockquote></div>
 </div>
 <div class="refsect1">
 <a name="gdk3-Event-Structures.functions_details"></a><h2>Functions</h2>
@@ -206,10 +206,10 @@ event it is:</p>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting">GdkEvent <span class="gtkdoc opt">*</span>event<span class="gtkdoc opt">;</span>
-GdkEventType type<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkEvent</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">event</span><span class="symbol">;</span>
+<span class="usertype">GdkEventType</span><span class="normal"> type</span><span class="symbol">;</span>
 
-type <span class="gtkdoc opt">=</span> event<span class="gtkdoc opt">-&gt;</span>type<span class="gtkdoc opt">;</span></pre></td>
+<span class="normal">type </span><span class="symbol">=</span><span class="normal"> event</span><span class="symbol">-&gt;</span><span class="normal">type</span><span class="symbol">;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -228,10 +228,10 @@ then the x coordinate of the button press can be accessed with:</p>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting">GdkEvent <span class="gtkdoc opt">*</span>event<span class="gtkdoc opt">;</span>
-gdouble x<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkEvent</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">event</span><span class="symbol">;</span>
+<span class="usertype">gdouble</span><span class="normal"> x</span><span class="symbol">;</span>
 
-x <span class="gtkdoc opt">= ((</span>GdkEventButton<span class="gtkdoc opt">*)</span>event<span class="gtkdoc opt">)-&gt;</span>x<span class="gtkdoc opt">;</span></pre></td>
+<span class="normal">x </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">((</span><span class="normal"><a href="gdk3-Event-Structures.html#GdkEventButton">GdkEventButton</a></span><span class="symbol">*)</span><span class="normal">event</span><span class="symbol">)-&gt;</span><span class="normal">x</span><span class="symbol">;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -247,10 +247,10 @@ or:</p>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting">GdkEvent <span class="gtkdoc opt">*</span>event<span class="gtkdoc opt">;</span>
-gdouble x<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkEvent</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">event</span><span class="symbol">;</span>
+<span class="usertype">gdouble</span><span class="normal"> x</span><span class="symbol">;</span>
 
-x <span class="gtkdoc opt">=</span> event<span class="gtkdoc opt">-&gt;</span>button<span class="gtkdoc opt">.</span>x<span class="gtkdoc opt">;</span></pre></td>
+<span class="normal">x </span><span class="symbol">=</span><span class="normal"> event</span><span class="symbol">-&gt;</span><span class="normal">button</span><span class="symbol">.</span><span class="normal">x</span><span class="symbol">;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -484,7 +484,7 @@ access these fields.</p>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventKey.state"></a>state</code></em>;</p></td>
-<td class="struct_member_description"><p> a bit-mask representing the state of
+<td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkModifierType]</span></td>
@@ -506,7 +506,7 @@ complete list of GDK key codes.</p></td>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GdkEventKey.string"></a>string</code></em>;</p></td>
 <td class="struct_member_description"><p>a string containing an approximation of the text that
 would result from this keypress. The only correct way to handle text
-input of text is using input methods (see <a href="http://developer.gnome.org/gtk4/GtkIMContext.html#GtkIMContext-struct"><span class="type">GtkIMContext</span></a>), so this
+input of text is using input methods (see <a href="https://developer.gnome.org/gtk3/GtkIMContext.html#GtkIMContext-struct"><span class="type">GtkIMContext</span></a>), so this
 field is deprecated and should never be used.
 (<a class="link" href="gdk3-Keyboard-Handling.html#gdk-unicode-to-keyval" title="gdk_unicode_to_keyval ()"><code class="function">gdk_unicode_to_keyval()</code></a> provides a non-deprecated way of getting
 an approximate translation for a key.) The string is encoded in the
@@ -640,7 +640,7 @@ the mouse.</p></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventButton.state"></a>state</code></em>;</p></td>
-<td class="struct_member_description"><p> a bit-mask representing the state of
+<td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkModifierType]</span></td>
@@ -756,7 +756,7 @@ the mouse</p></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventTouch.state"></a>state</code></em>;</p></td>
-<td class="struct_member_description"><p> a bit-mask representing the state of
+<td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkModifierType]</span></td>
@@ -861,7 +861,7 @@ these, the scroll deltas can be obtained with
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventScroll.state"></a>state</code></em>;</p></td>
-<td class="struct_member_description"><p> a bit-mask representing the state of
+<td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkModifierType]</span></td>
@@ -979,7 +979,7 @@ the mouse.</p></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventMotion.state"></a>state</code></em>;</p></td>
-<td class="struct_member_description"><p> a bit-mask representing the state of
+<td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkModifierType]</span></td>
@@ -1057,7 +1057,7 @@ redrawn.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><span class="type">cairo_region_t</span> *<em class="structfield"><code><a name="GdkEventExpose.region"></a>region</code></em>;</p></td>
+<td class="struct_member_name"><p><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-t"><span class="type">cairo_region_t</span></a> *<em class="structfield"><code><a name="GdkEventExpose.region"></a>region</code></em>;</p></td>
 <td class="struct_member_description"><p>the region that needs to be redrawn.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
@@ -1223,7 +1223,7 @@ is the focus window or an inferior.</p></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventCrossing.state"></a>state</code></em>;</p></td>
-<td class="struct_member_description"><p> a bit-mask representing the state of
+<td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkModifierType]</span></td>
@@ -1387,7 +1387,7 @@ it has lost the focus.</p></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventProperty.state"></a>state</code></em>;</p></td>
-<td class="struct_member_description"><p> whether the property was changed
+<td class="struct_member_description"><p>whether the property was changed
 (<a class="link" href="gdk3-Event-Structures.html#GDK-PROPERTY-NEW-VALUE:CAPS"><code class="literal">GDK_PROPERTY_NEW_VALUE</code></a>) or deleted (<a class="link" href="gdk3-Event-Structures.html#GDK-PROPERTY-DELETE:CAPS"><code class="literal">GDK_PROPERTY_DELETE</code></a>). </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkPropertyState]</span></td>
 </tr>
@@ -1876,8 +1876,8 @@ is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.phase"></a>phase</code></em>;</p></td>
-<td class="struct_member_description"><p> the current phase of the gesture. </p></td>
-<td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkTouchpadGesturePhase]</span></td>
+<td class="struct_member_description"><p>the current phase of the gesture</p></td>
+<td class="struct_member_annotations"> </td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.n-fingers"></a>n_fingers</code></em>;</p></td>
@@ -1923,7 +1923,7 @@ root of the screen.</p></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.state"></a>state</code></em>;</p></td>
-<td class="struct_member_description"><p> a bit-mask representing the state of
+<td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkModifierType]</span></td>
@@ -1979,8 +1979,8 @@ buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enu
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.phase"></a>phase</code></em>;</p></td>
-<td class="struct_member_description"><p> the current phase of the gesture. </p></td>
-<td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkTouchpadGesturePhase]</span></td>
+<td class="struct_member_description"><p>the current phase of the gesture</p></td>
+<td class="struct_member_annotations"> </td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.n-fingers"></a>n_fingers</code></em>;</p></td>
@@ -2038,7 +2038,7 @@ root of the screen.</p></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.state"></a>state</code></em>;</p></td>
-<td class="struct_member_description"><p> a bit-mask representing the state of
+<td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkModifierType]</span></td>
@@ -2595,7 +2595,64 @@ full details of crossing event generation.</p>
 <tr>
 <td class="enum_member_name"><p><a name="GDK-WINDOW-STATE-TILED:CAPS"></a>GDK_WINDOW_STATE_TILED</p></td>
 <td class="enum_member_description">
-<p>the window is in a tiled state, Since 3.10</p>
+<p>the window is in a tiled state, Since 3.10. Since 3.22.23, this
+                         is deprecated in favor of per-edge information.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-WINDOW-STATE-TOP-TILED:CAPS"></a>GDK_WINDOW_STATE_TOP_TILED</p></td>
+<td class="enum_member_description">
+<p>whether the top edge is tiled, Since 3.22.23</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-WINDOW-STATE-TOP-RESIZABLE:CAPS"></a>GDK_WINDOW_STATE_TOP_RESIZABLE</p></td>
+<td class="enum_member_description">
+<p>whether the top edge is resizable, Since 3.22.23</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-WINDOW-STATE-RIGHT-TILED:CAPS"></a>GDK_WINDOW_STATE_RIGHT_TILED</p></td>
+<td class="enum_member_description">
+<p>whether the right edge is tiled, Since 3.22.23</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-WINDOW-STATE-RIGHT-RESIZABLE:CAPS"></a>GDK_WINDOW_STATE_RIGHT_RESIZABLE</p></td>
+<td class="enum_member_description">
+<p>whether the right edge is resizable, Since 3.22.23</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-WINDOW-STATE-BOTTOM-TILED:CAPS"></a>GDK_WINDOW_STATE_BOTTOM_TILED</p></td>
+<td class="enum_member_description">
+<p>whether the bottom edge is tiled, Since 3.22.23</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-WINDOW-STATE-BOTTOM-RESIZABLE:CAPS"></a>GDK_WINDOW_STATE_BOTTOM_RESIZABLE</p></td>
+<td class="enum_member_description">
+<p>whether the bottom edge is resizable, Since 3.22.23</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-WINDOW-STATE-LEFT-TILED:CAPS"></a>GDK_WINDOW_STATE_LEFT_TILED</p></td>
+<td class="enum_member_description">
+<p>whether the left edge is tiled, Since 3.22.23</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-WINDOW-STATE-LEFT-RESIZABLE:CAPS"></a>GDK_WINDOW_STATE_LEFT_RESIZABLE</p></td>
+<td class="enum_member_description">
+<p>whether the left edge is resizable, Since 3.22.23</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -2683,6 +2740,6 @@ full details of crossing event generation.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

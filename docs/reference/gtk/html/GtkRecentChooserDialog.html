@@ -8,7 +8,7 @@
 <link rel="up" href="RecentDocuments.html" title="Recently Used Documents">
 <link rel="prev" href="GtkRecentChooser.html" title="GtkRecentChooser">
 <link rel="next" href="GtkRecentChooserMenu.html" title="GtkRecentChooserMenu">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -136,29 +136,29 @@ a <a class="link" href="GtkRecentChooserDialog.html" title="GtkRecentChooserDial
 21
 22
 23</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkWidget <span class="gtkdoc opt">*</span>dialog<span class="gtkdoc opt">;</span>
-gint res<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">dialog</span><span class="symbol">;</span>
+<span class="usertype">gint</span><span class="normal"> res</span><span class="symbol">;</span>
 
-dialog <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkRecentChooserDialog.html#gtk-recent-chooser-dialog-new">gtk_recent_chooser_dialog_new</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;Recent Documents&quot;</span><span class="gtkdoc opt">,</span>
-                                        parent_window<span class="gtkdoc opt">,</span>
-                                        <span class="function">_</span><span class="gtkdoc opt">(</span><span class="string">&quot;_Cancel&quot;</span><span class="gtkdoc opt">),</span>
-                                        GTK_RESPONSE_CANCEL<span class="gtkdoc opt">,</span>
-                                        <span class="function">_</span><span class="gtkdoc opt">(</span><span class="string">&quot;_Open&quot;</span><span class="gtkdoc opt">),</span>
-                                        GTK_RESPONSE_ACCEPT<span class="gtkdoc opt">,</span>
-                                        NULL<span class="gtkdoc opt">);</span>
+<span class="normal">dialog </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkRecentChooserDialog.html#gtk-recent-chooser-dialog-new">gtk_recent_chooser_dialog_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Recent Documents"</span><span class="symbol">,</span>
+<span class="normal">                                        parent_window</span><span class="symbol">,</span>
+<span class="normal">                                        </span><span class="function">_</span><span class="symbol">(</span><span class="string">"_Cancel"</span><span class="symbol">),</span>
+<span class="normal">                                        <a href="GtkDialog.html#GTK-RESPONSE-CANCEL:CAPS">GTK_RESPONSE_CANCEL</a></span><span class="symbol">,</span>
+<span class="normal">                                        </span><span class="function">_</span><span class="symbol">(</span><span class="string">"_Open"</span><span class="symbol">),</span>
+<span class="normal">                                        <a href="GtkDialog.html#GTK-RESPONSE-ACCEPT:CAPS">GTK_RESPONSE_ACCEPT</a></span><span class="symbol">,</span>
+<span class="normal">                                        <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 
-res <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkDialog.html#gtk-dialog-run">gtk_dialog_run</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_DIALOG</span> <span class="gtkdoc opt">(</span>dialog<span class="gtkdoc opt">));</span>
-<span class="keyword">if</span> <span class="gtkdoc opt">(</span>res <span class="gtkdoc opt">==</span> GTK_RESPONSE_ACCEPT<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-    GtkRecentInfo <span class="gtkdoc opt">*</span>info<span class="gtkdoc opt">;</span>
-    GtkRecentChooser <span class="gtkdoc opt">*</span>chooser <span class="gtkdoc opt">=</span> <span class="function">GTK_RECENT_CHOOSER</span> <span class="gtkdoc opt">(</span>dialog<span class="gtkdoc opt">);</span>
+<span class="normal">res </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkDialog.html#gtk-dialog-run">gtk_dialog_run</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_DIALOG</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">));</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">res </span><span class="symbol">==</span><span class="normal"> <a href="GtkDialog.html#GTK-RESPONSE-ACCEPT:CAPS">GTK_RESPONSE_ACCEPT</a></span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="usertype">GtkRecentInfo</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">info</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="usertype">GtkRecentChooser</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">chooser </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GTK_RECENT_CHOOSER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">);</span>
 
-    info <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkRecentChooser.html#gtk-recent-chooser-get-current-item">gtk_recent_chooser_get_current_item</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">);</span>
-    <span class="function">open_file</span> <span class="gtkdoc opt">(</span><span class="function"><a href="GtkRecentManager.html#gtk-recent-info-get-uri">gtk_recent_info_get_uri</a></span> <span class="gtkdoc opt">(</span>info<span class="gtkdoc opt">));</span>
-    <span class="function"><a href="GtkRecentManager.html#gtk-recent-info-unref">gtk_recent_info_unref</a></span> <span class="gtkdoc opt">(</span>info<span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span>
+<span class="normal">    info </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkRecentChooser.html#gtk-recent-chooser-get-current-item">gtk_recent_chooser_get_current_item</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function">open_file</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GtkRecentManager.html#gtk-recent-info-get-uri">gtk_recent_info_get_uri</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">info</span><span class="symbol">));</span>
+<span class="normal">    </span><span class="function"><a href="GtkRecentManager.html#gtk-recent-info-unref">gtk_recent_info_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">info</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span>
 
-<span class="function"><a href="GtkWidget.html#gtk-widget-destroy">gtk_widget_destroy</a></span> <span class="gtkdoc opt">(</span>dialog<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="GtkWidget.html#gtk-widget-destroy">gtk_widget_destroy</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -190,17 +190,17 @@ gtk_recent_chooser_dialog_new (<em class="parameter"><code>const <a href="https:
 <tbody>
 <tr>
 <td class="parameter_name"><p>title</p></td>
-<td class="parameter_description"><p> Title of the dialog, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>Title of the dialog, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p> Transient parent of the dialog, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>,. </p></td>
+<td class="parameter_description"><p>Transient parent of the dialog, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>,. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>first_button_text</p></td>
-<td class="parameter_description"><p> stock ID or text to go in the first button, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>stock ID or text to go in the first button, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -242,12 +242,12 @@ have a customized instance of a <a class="link" href="GtkRecentManager.html" tit
 <tbody>
 <tr>
 <td class="parameter_name"><p>title</p></td>
-<td class="parameter_description"><p> Title of the dialog, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>Title of the dialog, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p> Transient parent of the dialog, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>,. </p></td>
+<td class="parameter_description"><p>Transient parent of the dialog, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>,. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -257,7 +257,7 @@ have a customized instance of a <a class="link" href="GtkRecentManager.html" tit
 </tr>
 <tr>
 <td class="parameter_name"><p>first_button_text</p></td>
-<td class="parameter_description"><p> stock ID or text to go in the first button, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>stock ID or text to go in the first button, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -289,6 +289,6 @@ pairs, ending with <a href="https://developer.gnome.org/glib/unstable/glib-Stand
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

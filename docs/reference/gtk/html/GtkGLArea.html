@@ -8,7 +8,7 @@
 <link rel="up" href="MiscObjects.html" title="Miscellaneous">
 <link rel="prev" href="GtkDrawingArea.html" title="GtkDrawingArea">
 <link rel="next" href="GtkEventBox.html" title="GtkEventBox">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="returnvalue">GdkGLContext</span></a> *
+<a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="returnvalue">GdkGLContext</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkGLArea.html#gtk-gl-area-get-context" title="gtk_gl_area_get_context ()">gtk_gl_area_get_context</a> <span class="c_punctuation">()</span>
@@ -214,7 +214,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> *</td>
+<a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkGLArea.html#GtkGLArea--context" title="The “context” property">context</a></td>
 <td class="property_flags">Read</td>
 </tr>
@@ -252,7 +252,7 @@
 <tbody>
 <tr>
 <td class="signal_type">
-<a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="returnvalue">GdkGLContext</span></a>*</td>
+<a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="returnvalue">GdkGLContext</span></a>*</td>
 <td class="signal_name"><a class="link" href="GtkGLArea.html#GtkGLArea-create-context" title="The “create-context” signal">create-context</a></td>
 <td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
 </tr>
@@ -304,13 +304,13 @@ GtkGLArea implements
 </div>
 <div class="refsect1">
 <a name="GtkGLArea.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkGLArea.description"></a><h2>Description</h2>
 <p><a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> is a widget that allows drawing with OpenGL.</p>
-<p><a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> sets up its own <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> for the window it creates, and
+<p><a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> sets up its own <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> for the window it creates, and
 creates a custom GL framebuffer that the widget will do GL rendering onto.
 It also ensures that this framebuffer is the default GL rendering target
 when rendering.</p>
@@ -318,7 +318,7 @@ when rendering.</p>
 or subclass <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> and override the <em class="parameter"><code>GtkGLAreaClass.render()</code></em>
  virtual
 function.</p>
-<p>The <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> widget ensures that the <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> is associated with
+<p>The <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> widget ensures that the <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> is associated with
 the widget's drawing area, and it is kept updated when the size and
 position of the drawing area changes.</p>
 <div class="refsect3">
@@ -334,11 +334,11 @@ create a widget instance and connect to the <a class="link" href="GtkGLArea.html
 3
 4
 5</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc slc">// create a GtkGLArea instance</span>
-GtkWidget <span class="gtkdoc opt">*</span>gl_area <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkGLArea.html#gtk-gl-area-new">gtk_gl_area_new</a></span> <span class="gtkdoc opt">();</span>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">// create a GtkGLArea instance</span>
+<span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">gl_area </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkGLArea.html#gtk-gl-area-new">gtk_gl_area_new</a></span><span class="normal"> </span><span class="symbol">();</span>
 
-<span class="gtkdoc slc">// connect to the &quot;render&quot; signal</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>gl_area<span class="gtkdoc opt">,</span> <span class="string">&quot;render&quot;</span><span class="gtkdoc opt">,</span> <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>render<span class="gtkdoc opt">),</span> NULL<span class="gtkdoc opt">);</span></pre></td>
+<span class="comment">// connect to the "render" signal</span>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gl_area</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"render"</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">render</span><span class="symbol">),</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -371,26 +371,26 @@ for you to draw its content:</p>
 18
 19
 20</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static</span> gboolean
-<span class="function">render</span> <span class="gtkdoc opt">(</span>GtkGLArea <span class="gtkdoc opt">*</span>area<span class="gtkdoc opt">,</span> GdkGLContext <span class="gtkdoc opt">*</span>context<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc slc">// inside this function it&apos;s safe to use GL; the given</span>
-  <span class="gtkdoc slc">// #GdkGLContext has been made current to the drawable</span>
-  <span class="gtkdoc slc">// surface used by the #GtkGLArea and the viewport has</span>
-  <span class="gtkdoc slc">// already been set to be the size of the allocation</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean">gboolean</a></span>
+<span class="function">render</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkGLArea</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">area</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">GdkGLContext</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">context</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="comment">// inside this function it's safe to use GL; the given</span>
+<span class="normal">  </span><span class="comment">// #GdkGLContext has been made current to the drawable</span>
+<span class="normal">  </span><span class="comment">// surface used by the #GtkGLArea and the viewport has</span>
+<span class="normal">  </span><span class="comment">// already been set to be the size of the allocation</span>
 
-  <span class="gtkdoc slc">// we can start by clearing the buffer</span>
-  <span class="function">glClearColor</span> <span class="gtkdoc opt">(</span><span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">);</span>
-  <span class="function">glClear</span> <span class="gtkdoc opt">(</span>GL_COLOR_BUFFER_BIT<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="comment">// we can start by clearing the buffer</span>
+<span class="normal">  </span><span class="function">glClearColor</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function">glClear</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">GL_COLOR_BUFFER_BIT</span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// draw your object</span>
-  <span class="function">draw_an_object</span> <span class="gtkdoc opt">();</span>
+<span class="normal">  </span><span class="comment">// draw your object</span>
+<span class="normal">  </span><span class="function">draw_an_object</span><span class="normal"> </span><span class="symbol">();</span>
 
-  <span class="gtkdoc slc">// we completed our drawing; the draw commands will be</span>
-  <span class="gtkdoc slc">// flushed at the end of the signal emission chain, and</span>
-  <span class="gtkdoc slc">// the buffers will be drawn on the window</span>
-  <span class="keyword">return</span> TRUE<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="comment">// we completed our drawing; the draw commands will be</span>
+<span class="normal">  </span><span class="comment">// flushed at the end of the signal emission chain, and</span>
+<span class="normal">  </span><span class="comment">// the buffers will be drawn on the window</span>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -400,7 +400,7 @@ for you to draw its content:</p>
 <p>If you need to initialize OpenGL state, e.g. buffer objects or
 shaders, you should use the <a class="link" href="GtkWidget.html#GtkWidget-realize" title="The “realize” signal"><span class="type">“realize”</span></a> signal; you
 can use the <a class="link" href="GtkWidget.html#GtkWidget-unrealize" title="The “unrealize” signal"><span class="type">“unrealize”</span></a> signal to clean up. Since the
-<a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> creation and initialization may fail, you will
+<a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> creation and initialization may fail, you will
 need to check for errors, using <a class="link" href="GtkGLArea.html#gtk-gl-area-get-error" title="gtk_gl_area_get_error ()"><code class="function">gtk_gl_area_get_error()</code></a>. An example
 of how to safely initialize the GL state is:</p>
 <div class="informalexample">
@@ -440,46 +440,46 @@ of how to safely initialize the GL state is:</p>
 31
 32
 33</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">on_realize</span> <span class="gtkdoc opt">(</span>GtkGLarea <span class="gtkdoc opt">*</span>area<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc slc">// We need to make the context current if we want to</span>
-  <span class="gtkdoc slc">// call GL API</span>
-  <span class="function"><a href="GtkGLArea.html#gtk-gl-area-make-current">gtk_gl_area_make_current</a></span> <span class="gtkdoc opt">(</span>area<span class="gtkdoc opt">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">on_realize</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkGLarea</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">area</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="comment">// We need to make the context current if we want to</span>
+<span class="normal">  </span><span class="comment">// call GL API</span>
+<span class="normal">  </span><span class="function"><a href="GtkGLArea.html#gtk-gl-area-make-current">gtk_gl_area_make_current</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">area</span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// If there were errors during the initialization or</span>
-  <span class="gtkdoc slc">// when trying to make the context current, this</span>
-  <span class="gtkdoc slc">// function will return a #GError for you to catch</span>
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span><span class="function"><a href="GtkGLArea.html#gtk-gl-area-get-error">gtk_gl_area_get_error</a></span> <span class="gtkdoc opt">(</span>area<span class="gtkdoc opt">) !=</span> NULL<span class="gtkdoc opt">)</span>
-    <span class="keyword">return</span><span class="gtkdoc opt">;</span>
+<span class="normal">  </span><span class="comment">// If there were errors during the initialization or</span>
+<span class="normal">  </span><span class="comment">// when trying to make the context current, this</span>
+<span class="normal">  </span><span class="comment">// function will return a #GError for you to catch</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GtkGLArea.html#gtk-gl-area-get-error">gtk_gl_area_get_error</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">area</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
+<span class="normal">    </span><span class="keyword">return</span><span class="symbol">;</span>
 
-  <span class="gtkdoc slc">// You can also use gtk_gl_area_set_error() in order</span>
-  <span class="gtkdoc slc">// to show eventual initialization errors on the</span>
-  <span class="gtkdoc slc">// GtkGLArea widget itself</span>
-  GError <span class="gtkdoc opt">*</span>internal_error <span class="gtkdoc opt">=</span> NULL<span class="gtkdoc opt">;</span>
-  <span class="function">init_buffer_objects</span> <span class="gtkdoc opt">(&amp;</span>error<span class="gtkdoc opt">);</span>
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>error <span class="gtkdoc opt">!=</span> NULL<span class="gtkdoc opt">)</span>
-    <span class="gtkdoc opt">{</span>
-      <span class="function"><a href="GtkGLArea.html#gtk-gl-area-set-error">gtk_gl_area_set_error</a></span> <span class="gtkdoc opt">(</span>area<span class="gtkdoc opt">,</span> error<span class="gtkdoc opt">);</span>
-      <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#g-error-free">g_error_free</a></span> <span class="gtkdoc opt">(</span>error<span class="gtkdoc opt">);</span>
-      <span class="keyword">return</span><span class="gtkdoc opt">;</span>
-    <span class="gtkdoc opt">}</span>
+<span class="normal">  </span><span class="comment">// You can also use gtk_gl_area_set_error() in order</span>
+<span class="normal">  </span><span class="comment">// to show eventual initialization errors on the</span>
+<span class="normal">  </span><span class="comment">// GtkGLArea widget itself</span>
+<span class="normal">  </span><span class="usertype">GError</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">internal_error </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
+<span class="normal">  </span><span class="function">init_buffer_objects</span><span class="normal"> </span><span class="symbol">(&amp;</span><span class="normal">error</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
+<span class="normal">    </span><span class="cbracket">{</span>
+<span class="normal">      </span><span class="function"><a href="GtkGLArea.html#gtk-gl-area-set-error">gtk_gl_area_set_error</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">area</span><span class="symbol">,</span><span class="normal"> error</span><span class="symbol">);</span>
+<span class="normal">      </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#g-error-free">g_error_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error</span><span class="symbol">);</span>
+<span class="normal">      </span><span class="keyword">return</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
 
-  <span class="function">init_shaders</span> <span class="gtkdoc opt">(&amp;</span>error<span class="gtkdoc opt">);</span>
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>error <span class="gtkdoc opt">!=</span> NULL<span class="gtkdoc opt">)</span>
-    <span class="gtkdoc opt">{</span>
-      <span class="function"><a href="GtkGLArea.html#gtk-gl-area-set-error">gtk_gl_area_set_error</a></span> <span class="gtkdoc opt">(</span>area<span class="gtkdoc opt">,</span> error<span class="gtkdoc opt">);</span>
-      <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#g-error-free">g_error_free</a></span> <span class="gtkdoc opt">(</span>error<span class="gtkdoc opt">);</span>
-      <span class="keyword">return</span><span class="gtkdoc opt">;</span>
-    <span class="gtkdoc opt">}</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="function">init_shaders</span><span class="normal"> </span><span class="symbol">(&amp;</span><span class="normal">error</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
+<span class="normal">    </span><span class="cbracket">{</span>
+<span class="normal">      </span><span class="function"><a href="GtkGLArea.html#gtk-gl-area-set-error">gtk_gl_area_set_error</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">area</span><span class="symbol">,</span><span class="normal"> error</span><span class="symbol">);</span>
+<span class="normal">      </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#g-error-free">g_error_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error</span><span class="symbol">);</span>
+<span class="normal">      </span><span class="keyword">return</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
 </div>
 
 <p></p>
-<p>If you need to change the options for creating the <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a>
+<p>If you need to change the options for creating the <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a>
 you should use the <a class="link" href="GtkGLArea.html#GtkGLArea-create-context" title="The “create-context” signal"><span class="type">“create-context”</span></a> signal.</p>
 </div>
 </div>
@@ -492,17 +492,16 @@ gtk_gl_area_new (<em class="parameter"><code><span class="type">void</span></cod
 <p>Creates a new <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> widget.</p>
 <div class="refsect3">
 <a name="gtk-gl-area-new.returns"></a><h4>Returns</h4>
-<p> the newly created <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a>. </p>
-<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p> a new <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-gl-area-get-context"></a><h3>gtk_gl_area_get_context ()</h3>
-<pre class="programlisting"><a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="returnvalue">GdkGLContext</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="returnvalue">GdkGLContext</span></a> *
 gtk_gl_area_get_context (<em class="parameter"><code><a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> *area</code></em>);</pre>
-<p>Retrieves the <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> used by <em class="parameter"><code>area</code></em>
+<p>Retrieves the <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> used by <em class="parameter"><code>area</code></em>
 .</p>
 <div class="refsect3">
 <a name="gtk-gl-area-get-context.parameters"></a><h4>Parameters</h4>
@@ -521,7 +520,7 @@ gtk_gl_area_get_context (<em class="parameter"><code><a class="link" href="GtkGL
 </div>
 <div class="refsect3">
 <a name="gtk-gl-area-get-context.returns"></a><h4>Returns</h4>
-<p> the <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a>. </p>
+<p>the <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
@@ -531,7 +530,7 @@ gtk_gl_area_get_context (<em class="parameter"><code><a class="link" href="GtkGL
 <a name="gtk-gl-area-make-current"></a><h3>gtk_gl_area_make_current ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_gl_area_make_current (<em class="parameter"><code><a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> *area</code></em>);</pre>
-<p>Ensures that the <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> used by <em class="parameter"><code>area</code></em>
+<p>Ensures that the <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> used by <em class="parameter"><code>area</code></em>
  is associated with
 the <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a>.</p>
 <p>This function is automatically called before emitting the
@@ -637,7 +636,7 @@ signal if GL context creation fails.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> a new <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to unset the error. </p></td>
+<td class="parameter_description"><p>a new <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to unset the error. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -669,7 +668,7 @@ gtk_gl_area_get_error (<em class="parameter"><code><a class="link" href="GtkGLAr
 </div>
 <div class="refsect3">
 <a name="gtk-gl-area-get-error.returns"></a><h4>Returns</h4>
-<p> the <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
@@ -956,12 +955,12 @@ using <a class="link" href="GtkGLArea.html#gtk-gl-area-set-required-version" tit
 </tr>
 <tr>
 <td class="parameter_name"><p>major</p></td>
-<td class="parameter_description"><p> return location for the required major version. </p></td>
+<td class="parameter_description"><p>return location for the required major version. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>minor</p></td>
-<td class="parameter_description"><p> return location for the required minor version. </p></td>
+<td class="parameter_description"><p>return location for the required minor version. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1016,7 +1015,7 @@ gtk_gl_area_set_use_es (<em class="parameter"><code><a class="link" href="GtkGLA
                         <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_es</code></em>);</pre>
 <p>Sets whether the <em class="parameter"><code>area</code></em>
  should create an OpenGL or an OpenGL ES context.</p>
-<p>You should check the capabilities of the <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> before drawing
+<p>You should check the capabilities of the <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> before drawing
 with either API.</p>
 <div class="refsect3">
 <a name="gtk-gl-area-set-use-es.parameters"></a><h4>Parameters</h4>
@@ -1142,9 +1141,9 @@ to redraw.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkGLArea--context"></a><h3>The <code class="literal">“context”</code> property</h3>
-<pre class="programlisting">  “context”                  <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> *</pre>
-<p>The <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> used by the <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> widget.</p>
-<p>The <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> widget is responsible for creating the <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a>
+<pre class="programlisting">  “context”                  <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> *</pre>
+<p>The <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> used by the <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> widget.</p>
+<p>The <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> widget is responsible for creating the <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a>
 instance. If you need to render with other kinds of buffers (stencil,
 depth, etc), use render buffers.</p>
 <p>Flags: Read</p>
@@ -1187,9 +1186,9 @@ target framebuffer.</p>
 <div class="refsect2">
 <a name="GtkGLArea--use-es"></a><h3>The <code class="literal">“use-es”</code> property</h3>
 <pre class="programlisting">  “use-es”                   <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
-<p>If set to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> the widget will try to create a <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> using
+<p>If set to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> the widget will try to create a <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> using
 OpenGL ES instead of OpenGL.</p>
-<p>See also: <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#gdk-gl-context-set-use-es"><code class="function">gdk_gl_context_set_use_es()</code></a></p>
+<p>See also: <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#gdk-gl-context-set-use-es"><code class="function">gdk_gl_context_set_use_es()</code></a></p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
@@ -1199,7 +1198,7 @@ OpenGL ES instead of OpenGL.</p>
 <a name="GtkGLArea.signal-details"></a><h2>Signal Details</h2>
 <div class="refsect2">
 <a name="GtkGLArea-create-context"></a><h3>The <code class="literal">“create-context”</code> signal</h3>
-<pre class="programlisting"><a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="returnvalue">GdkGLContext</span></a>*
+<pre class="programlisting"><a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="returnvalue">GdkGLContext</span></a>*
 user_function (<a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> *area,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>   user_data)</pre>
 <p>The ::create-context signal is emitted when the widget is being
@@ -1226,7 +1225,7 @@ of how the construction failed.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error information on failure. </p></td>
+<td class="parameter_description"><p>location to store error information on failure. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -1239,7 +1238,7 @@ of how the construction failed.</p>
 </div>
 <div class="refsect3">
 <a name="GtkGLArea-create-context.returns"></a><h4>Returns</h4>
-<p> a newly created <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a>;
+<p>a newly created <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a>;
 the <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> widget will take ownership of the returned value. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -1251,7 +1250,7 @@ the <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">G
 <a name="GtkGLArea-render"></a><h3>The <code class="literal">“render”</code> signal</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 user_function (<a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a>    *area,
-               <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> *context,
+               <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> *context,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)</pre>
 <p>The ::render signal is emitted every time the contents
 of the <a class="link" href="GtkGLArea.html" title="GtkGLArea"><span class="type">GtkGLArea</span></a> should be redrawn.</p>
@@ -1275,7 +1274,7 @@ and the buffers are painted to the window once the emission terminates.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>context</p></td>
-<td class="parameter_description"><p>the <a href="http://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> used by <em class="parameter"><code>area</code></em>
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gdk3/GdkGLContext.html#GdkGLContext-struct"><span class="type">GdkGLContext</span></a> used by <em class="parameter"><code>area</code></em>
 </p></td>
 <td class="parameter_annotations"> </td>
 </tr>
@@ -1348,6 +1347,6 @@ is emitted.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="GtkToggleAction.html" title="GtkToggleAction">
 <link rel="next" href="GtkRecentAction.html" title="GtkRecentAction">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -205,18 +205,18 @@ call <a class="link" href="GtkActionGroup.html#gtk-action-group-add-action-with-
 </tr>
 <tr>
 <td class="parameter_name"><p>label</p></td>
-<td class="parameter_description"><p> The label displayed in menu items and on buttons,
+<td class="parameter_description"><p>The label displayed in menu items and on buttons,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>tooltip</p></td>
-<td class="parameter_description"><p> A tooltip for this action, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>A tooltip for this action, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>stock_id</p></td>
-<td class="parameter_description"><p> The stock icon to display in widgets representing
+<td class="parameter_description"><p>The stock icon to display in widgets representing
 this action, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -259,16 +259,16 @@ to the group. </p>
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting">GSList <span class="gtkdoc opt">*</span>group <span class="gtkdoc opt">=</span> NULL<span class="gtkdoc opt">;</span>
-GtkRadioAction <span class="gtkdoc opt">*</span>action<span class="gtkdoc opt">;</span>
- 
-<span class="keyword">while</span> <span class="gtkdoc opt">( ...</span>more actions to add<span class="gtkdoc opt">... /)</span>
-  <span class="gtkdoc opt">{</span>
-     action <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkRadioAction.html#gtk-radio-action-new">gtk_radio_action_new</a></span> <span class="gtkdoc opt">(...);</span>
-     
-     <span class="function"><a href="GtkRadioAction.html#gtk-radio-action-set-group">gtk_radio_action_set_group</a></span> <span class="gtkdoc opt">(</span>action<span class="gtkdoc opt">,</span> group<span class="gtkdoc opt">);</span>
-     group <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkRadioAction.html#gtk-radio-action-get-group">gtk_radio_action_get_group</a></span> <span class="gtkdoc opt">(</span>action<span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GSList</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">group </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
+<span class="usertype">GtkRadioAction</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">action</span><span class="symbol">;</span>
+<span class="normal"> </span>
+<span class="keyword">while</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"> </span><span class="symbol">...</span><span class="normal">more actions </span><span class="usertype">to</span><span class="normal"> add</span><span class="symbol">...</span><span class="normal"> </span><span class="symbol">/)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">     action </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkRadioAction.html#gtk-radio-action-new">gtk_radio_action_new</a></span><span class="normal"> </span><span class="symbol">(...);</span>
+<span class="normal">     </span>
+<span class="normal">     </span><span class="function"><a href="GtkRadioAction.html#gtk-radio-action-set-group">gtk_radio_action_set_group</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">,</span><span class="normal"> group</span><span class="symbol">);</span>
+<span class="normal">     group </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkRadioAction.html#gtk-radio-action-get-group">gtk_radio_action_get_group</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -292,7 +292,7 @@ GtkRadioAction <span class="gtkdoc opt">*</span>action<span class="gtkdoc opt">;
 </div>
 <div class="refsect3">
 <a name="gtk-radio-action-get-group.returns"></a><h4>Returns</h4>
-<p> the list representing the radio group for this object. </p>
+<p>the list representing the radio group for this object. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkRadioAction][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.4</p>
@@ -321,7 +321,7 @@ gtk_radio_action_set_group (<em class="parameter"><code><a class="link" href="Gt
 </tr>
 <tr>
 <td class="parameter_name"><p>group</p></td>
-<td class="parameter_description"><p> a list representing a radio group, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a list representing a radio group, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkRadioAction][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -354,16 +354,16 @@ and <a class="link" href="GtkRadioAction.html#gtk-radio-action-set-group" title=
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkRadioAction <span class="gtkdoc opt">*</span>action<span class="gtkdoc opt">;</span>
-GtkRadioAction <span class="gtkdoc opt">*</span>last_action<span class="gtkdoc opt">;</span>
- 
-<span class="keyword">while</span> <span class="gtkdoc opt">( ...</span>more actions to add<span class="gtkdoc opt">... /)</span>
-  <span class="gtkdoc opt">{</span>
-     action <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkRadioAction.html#gtk-radio-action-new">gtk_radio_action_new</a></span> <span class="gtkdoc opt">(...);</span>
-     
-     <span class="function"><a href="GtkRadioAction.html#gtk-radio-action-join-group">gtk_radio_action_join_group</a></span> <span class="gtkdoc opt">(</span>action<span class="gtkdoc opt">,</span> last_action<span class="gtkdoc opt">);</span>
-     last_action <span class="gtkdoc opt">=</span> action<span class="gtkdoc opt">;</span>
-  <span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkRadioAction</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">action</span><span class="symbol">;</span>
+<span class="usertype">GtkRadioAction</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">last_action</span><span class="symbol">;</span>
+<span class="normal"> </span>
+<span class="keyword">while</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"> </span><span class="symbol">...</span><span class="normal">more actions </span><span class="usertype">to</span><span class="normal"> add</span><span class="symbol">...</span><span class="normal"> </span><span class="symbol">/)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">     action </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkRadioAction.html#gtk-radio-action-new">gtk_radio_action_new</a></span><span class="normal"> </span><span class="symbol">(...);</span>
+<span class="normal">     </span>
+<span class="normal">     </span><span class="function"><a href="GtkRadioAction.html#gtk-radio-action-join-group">gtk_radio_action_join_group</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">,</span><span class="normal"> last_action</span><span class="symbol">);</span>
+<span class="normal">     last_action </span><span class="symbol">=</span><span class="normal"> action</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -386,7 +386,7 @@ GtkRadioAction <span class="gtkdoc opt">*</span>last_action<span class="gtkdoc o
 </tr>
 <tr>
 <td class="parameter_name"><p>group_source</p></td>
-<td class="parameter_description"><p> a radio action object whos group we are
+<td class="parameter_description"><p>a radio action object whos group we are
 joining, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to remove the radio action from its group. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -550,6 +550,6 @@ for the previous and current active members.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

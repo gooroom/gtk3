@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="GdkMonitor.html" title="GdkMonitor">
 <link rel="next" href="GdkDevicePad.html" title="GtkDevicePad">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -549,7 +549,7 @@ gdk_device_get_vendor_id (<em class="parameter"><code><a class="link" href="GdkD
 be obtained. This ID is retrieved from the device, and is thus constant for
 it.</p>
 <p>This function, together with <a class="link" href="GdkDevice.html#gdk-device-get-product-id" title="gdk_device_get_product_id ()"><code class="function">gdk_device_get_product_id()</code></a>, can be used to eg.
-compose <a href="https://developer.gnome.org/gio/unstable/GSettings.html#GSettings-struct"><span class="type">GSettings</span></a> paths to store settings for this device.</p>
+compose <span class="type">GSettings</span> paths to store settings for this device.</p>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -571,23 +571,23 @@ compose <a href="https://developer.gnome.org/gio/unstable/GSettings.html#GSettin
 15
 16
 17</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static</span> GSettings <span class="gtkdoc opt">*</span>
-<span class="function">get_device_settings</span> <span class="gtkdoc opt">(</span>GdkDevice <span class="gtkdoc opt">*</span>device<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc kwb">const</span> gchar <span class="gtkdoc opt">*</span>vendor<span class="gtkdoc opt">, *</span>product<span class="gtkdoc opt">;</span>
-  GSettings <span class="gtkdoc opt">*</span>settings<span class="gtkdoc opt">;</span>
-  GdkDevice <span class="gtkdoc opt">*</span>device<span class="gtkdoc opt">;</span>
-  gchar <span class="gtkdoc opt">*</span>path<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> GSettings </span><span class="symbol">*</span>
+<span class="function">get_device_settings</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GdkDevice</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">device</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="keyword">const</span><span class="normal"> </span><span class="usertype">gchar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">vendor</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">product</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GSettings</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">settings</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GdkDevice</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">device</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">gchar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">path</span><span class="symbol">;</span>
 
-  vendor <span class="gtkdoc opt">=</span> <span class="function"><a href="GdkDevice.html#gdk-device-get-vendor-id">gdk_device_get_vendor_id</a></span> <span class="gtkdoc opt">(</span>device<span class="gtkdoc opt">);</span>
-  product <span class="gtkdoc opt">=</span> <span class="function"><a href="GdkDevice.html#gdk-device-get-product-id">gdk_device_get_product_id</a></span> <span class="gtkdoc opt">(</span>device<span class="gtkdoc opt">);</span>
+<span class="normal">  vendor </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GdkDevice.html#gdk-device-get-vendor-id">gdk_device_get_vendor_id</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">device</span><span class="symbol">);</span>
+<span class="normal">  product </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GdkDevice.html#gdk-device-get-product-id">gdk_device_get_product_id</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">device</span><span class="symbol">);</span>
 
-  path <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strdup-printf">g_strdup_printf</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;/org/example/app/devices/%s:%s/&quot;</span><span class="gtkdoc opt">,</span> vendor<span class="gtkdoc opt">,</span> product<span class="gtkdoc opt">);</span>
-  settings <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/gio/unstable/GSettings.html#g-settings-new-with-path">g_settings_new_with_path</a></span> <span class="gtkdoc opt">(</span>DEVICE_SCHEMA<span class="gtkdoc opt">,</span> path<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span> <span class="gtkdoc opt">(</span>path<span class="gtkdoc opt">);</span>
+<span class="normal">  path </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strdup-printf">g_strdup_printf</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"/org/example/app/devices/%s:%s/"</span><span class="symbol">,</span><span class="normal"> vendor</span><span class="symbol">,</span><span class="normal"> product</span><span class="symbol">);</span>
+<span class="normal">  settings </span><span class="symbol">=</span><span class="normal"> </span><span class="function">g_settings_new_with_path</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">DEVICE_SCHEMA</span><span class="symbol">,</span><span class="normal"> path</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">path</span><span class="symbol">);</span>
 
-  <span class="keyword">return</span> settings<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> settings</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -611,7 +611,7 @@ compose <a href="https://developer.gnome.org/gio/unstable/GSettings.html#GSettin
 </div>
 <div class="refsect3">
 <a name="gdk-device-get-vendor-id.returns"></a><h4>Returns</h4>
-<p> the vendor ID, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the vendor ID, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
@@ -641,7 +641,7 @@ it. See <a class="link" href="GdkDevice.html#gdk-device-get-vendor-id" title="gd
 </div>
 <div class="refsect3">
 <a name="gdk-device-get-product-id.returns"></a><h4>Returns</h4>
-<p> the product ID, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the product ID, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-16.html#api-index-3.16">3.16</a></p>
@@ -816,12 +816,12 @@ and fill in <em class="parameter"><code>keyval</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>keyval</p></td>
-<td class="parameter_description"><p> return value for the keyval. </p></td>
+<td class="parameter_description"><p>return value for the keyval. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>modifiers</p></td>
-<td class="parameter_description"><p> return value for modifiers. </p></td>
+<td class="parameter_description"><p>return value for modifiers. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -940,7 +940,7 @@ returned, as there is no associated device.</p>
 </div>
 <div class="refsect3">
 <a name="gdk-device-get-associated-device.returns"></a><h4>Returns</h4>
-<p> The associated device, or
+<p>The associated device, or
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -971,7 +971,7 @@ the list of slave devices attached to it, otherwise it will return
 </div>
 <div class="refsect3">
 <a name="gdk-device-list-slave-devices.returns"></a><h4>Returns</h4>
-<p>         the list of slave devices, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. The list must be
+<p>the list of slave devices, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. The list must be
 freed with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>, the contents of the list are
 owned by GTK+ and should not be freed. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GdkDevice]</span></p>
@@ -1030,7 +1030,7 @@ gdk_device_get_display (<em class="parameter"><code><a class="link" href="GdkDev
 </div>
 <div class="refsect3">
 <a name="gdk-device-get-display.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>. This memory is owned
+<p>a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>. This memory is owned
 by GTK+, and must not be freed or unreffed. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1163,7 +1163,7 @@ instantaneously to the destination.</p>
 <p>Note that the pointer should normally be under the
 control of the user. This function was added to cover
 some rare use cases like keyboard navigation support
-for the color picker in the <span class="type">GtkColorSelectionDialog</span>.</p>
+for the color picker in the <a href="https://developer.gnome.org/gtk3/GtkColorSelectionDialog.html#GtkColorSelectionDialog-struct"><span class="type">GtkColorSelectionDialog</span></a>.</p>
 <div class="refsect3">
 <a name="gdk-device-warp.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -1222,7 +1222,7 @@ gdk_device_get_seat (<em class="parameter"><code><a class="link" href="GdkDevice
 </div>
 <div class="refsect3">
 <a name="gdk-device-get-seat.returns"></a><h4>Returns</h4>
-<p> A <a class="link" href="GdkSeat.html" title="GdkSeat"><span class="type">GdkSeat</span></a>. This memory is owned by GTK+ and
+<p>A <a class="link" href="GdkSeat.html" title="GdkSeat"><span class="type">GdkSeat</span></a>. This memory is owned by GTK+ and
 must not be freed. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1274,7 +1274,7 @@ events that are emitted when the grab ends unvoluntarily.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>device</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>. To get the device you can use <a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-get-current-event-device"><code class="function">gtk_get_current_event_device()</code></a>
+<td class="parameter_description"><p>a <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>. To get the device you can use <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-get-current-event-device"><code class="function">gtk_get_current_event_device()</code></a>
 or <a class="link" href="gdk3-Events.html#gdk-event-get-device" title="gdk_event_get_device ()"><code class="function">gdk_event_get_device()</code></a> if the grab is in reaction to an event. Also, you can use
 <a class="link" href="GdkDeviceManager.html#gdk-device-manager-get-client-pointer" title="gdk_device_manager_get_client_pointer ()"><code class="function">gdk_device_manager_get_client_pointer()</code></a> but only in code that isn’t triggered by a
 <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> and there aren’t other means to get a meaningful <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> to operate on.</p></td>
@@ -1313,7 +1313,7 @@ and only if selected by
 </tr>
 <tr>
 <td class="parameter_name"><p>cursor</p></td>
-<td class="parameter_description"><p> the cursor to display while the grab is active if the device is
+<td class="parameter_description"><p>the cursor to display while the grab is active if the device is
 a pointer. If this is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> then the normal cursors are used for
 <em class="parameter"><code>window</code></em>
 and its descendants, and the cursor for <em class="parameter"><code>window</code></em>
@@ -1408,14 +1408,14 @@ unless there is an ongoing grab on them. See <a class="link" href="GdkDevice.htm
 </tr>
 <tr>
 <td class="parameter_name"><p>axes</p></td>
-<td class="parameter_description"><p> an array of doubles to store the values of
+<td class="parameter_description"><p>an array of doubles to store the values of
 the axes of <em class="parameter"><code>device</code></em>
 in, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>mask</p></td>
-<td class="parameter_description"><p> location to store the modifiers, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store the modifiers, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>][<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1451,20 +1451,20 @@ unless there is an ongoing grab on them, see <a class="link" href="GdkDevice.htm
 </tr>
 <tr>
 <td class="parameter_name"><p>screen</p></td>
-<td class="parameter_description"><p> location to store the <a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a>
+<td class="parameter_description"><p>location to store the <a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a>
 the <em class="parameter"><code>device</code></em>
 is on, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>x</p></td>
-<td class="parameter_description"><p> location to store root window X coordinate of <em class="parameter"><code>device</code></em>
+<td class="parameter_description"><p>location to store root window X coordinate of <em class="parameter"><code>device</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>y</p></td>
-<td class="parameter_description"><p> location to store root window Y coordinate of <em class="parameter"><code>device</code></em>
+<td class="parameter_description"><p>location to store root window Y coordinate of <em class="parameter"><code>device</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1502,20 +1502,20 @@ unless there is an ongoing grab on them. See <a class="link" href="GdkDevice.htm
 </tr>
 <tr>
 <td class="parameter_name"><p>screen</p></td>
-<td class="parameter_description"><p> location to store the <a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a>
+<td class="parameter_description"><p>location to store the <a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a>
 the <em class="parameter"><code>device</code></em>
 is on, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>x</p></td>
-<td class="parameter_description"><p> location to store root window X coordinate of <em class="parameter"><code>device</code></em>
+<td class="parameter_description"><p>location to store root window X coordinate of <em class="parameter"><code>device</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>y</p></td>
-<td class="parameter_description"><p> location to store root window Y coordinate of <em class="parameter"><code>device</code></em>
+<td class="parameter_description"><p>location to store root window Y coordinate of <em class="parameter"><code>device</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1556,13 +1556,13 @@ unless there is an ongoing grab on them, see <a class="link" href="GdkDevice.htm
 </tr>
 <tr>
 <td class="parameter_name"><p>win_x</p></td>
-<td class="parameter_description"><p> return location for the X coordinate of the device location,
+<td class="parameter_description"><p>return location for the X coordinate of the device location,
 relative to the window origin, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>win_y</p></td>
-<td class="parameter_description"><p> return location for the Y coordinate of the device location,
+<td class="parameter_description"><p>return location for the Y coordinate of the device location,
 relative to the window origin, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1571,7 +1571,7 @@ relative to the window origin, or <a href="https://developer.gnome.org/glib/unst
 </div>
 <div class="refsect3">
 <a name="gdk-device-get-window-at-position.returns"></a><h4>Returns</h4>
-<p> the <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> under the
+<p>the <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> under the
 device position, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1611,13 +1611,13 @@ unless there is an ongoing grab on them, see <a class="link" href="GdkDevice.htm
 </tr>
 <tr>
 <td class="parameter_name"><p>win_x</p></td>
-<td class="parameter_description"><p> return location for the X coordinate of the device location,
+<td class="parameter_description"><p>return location for the X coordinate of the device location,
 relative to the window origin, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>win_y</p></td>
-<td class="parameter_description"><p> return location for the Y coordinate of the device location,
+<td class="parameter_description"><p>return location for the Y coordinate of the device location,
 relative to the window origin, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1626,7 +1626,7 @@ relative to the window origin, or <a href="https://developer.gnome.org/glib/unst
 </div>
 <div class="refsect3">
 <a name="gdk-device-get-window-at-position-double.returns"></a><h4>Returns</h4>
-<p> the <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> under the
+<p>the <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> under the
 device position, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1683,13 +1683,13 @@ system.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>events</p></td>
-<td class="parameter_description"><p>  location to store a newly-allocated array of <a class="link" href="GdkDevice.html#GdkTimeCoord" title="struct GdkTimeCoord"><span class="type">GdkTimeCoord</span></a>, or
+<td class="parameter_description"><p>location to store a newly-allocated array of <a class="link" href="GdkDevice.html#GdkTimeCoord" title="struct GdkTimeCoord"><span class="type">GdkTimeCoord</span></a>, or
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_events][<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>n_events</p></td>
-<td class="parameter_description"><p> location to store the length of
+<td class="parameter_description"><p>location to store the length of
 <em class="parameter"><code>events</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
@@ -1722,7 +1722,7 @@ gdk_device_free_history (<em class="parameter"><code><a class="link" href="GdkDe
 <tbody>
 <tr>
 <td class="parameter_name"><p>events</p></td>
-<td class="parameter_description"><p> an array of <a class="link" href="GdkDevice.html#GdkTimeCoord" title="struct GdkTimeCoord"><span class="type">GdkTimeCoord</span></a>. </p></td>
+<td class="parameter_description"><p>an array of <a class="link" href="GdkDevice.html#GdkTimeCoord" title="struct GdkTimeCoord"><span class="type">GdkTimeCoord</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_events]</span></td>
 </tr>
 <tr>
@@ -1761,7 +1761,7 @@ and locates the value in the array for a given axis use.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>axes</p></td>
-<td class="parameter_description"><p> pointer to an array of axes. </p></td>
+<td class="parameter_description"><p>pointer to an array of axes. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -1771,7 +1771,7 @@ and locates the value in the array for a given axis use.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>value</p></td>
-<td class="parameter_description"><p> location to store the found value. </p></td>
+<td class="parameter_description"><p>location to store the found value. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1807,7 +1807,7 @@ the axes that <em class="parameter"><code>device</code></em>
 </div>
 <div class="refsect3">
 <a name="gdk-device-list-axes.returns"></a><h4>Returns</h4>
-<p>    A <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of <a href="gdk3-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtoms</span></a>, free with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>. </p>
+<p>A <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of <a href="gdk3-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtoms</span></a>, free with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GdkAtom]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -1840,7 +1840,7 @@ by <a class="link" href="GdkDevice.html#gdk-device-list-axes" title="gdk_device_
 </tr>
 <tr>
 <td class="parameter_name"><p>axes</p></td>
-<td class="parameter_description"><p> pointer to an array of axes. </p></td>
+<td class="parameter_description"><p>pointer to an array of axes. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -1850,7 +1850,7 @@ by <a class="link" href="GdkDevice.html#gdk-device-list-axes" title="gdk_device_
 </tr>
 <tr>
 <td class="parameter_name"><p>value</p></td>
-<td class="parameter_description"><p> location to store the found value. </p></td>
+<td class="parameter_description"><p>location to store the found value. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1889,7 +1889,7 @@ application's windows.</p>
 </div>
 <div class="refsect3">
 <a name="gdk-device-get-last-event-window.returns"></a><h4>Returns</h4>
-<p> the last window the device. </p>
+<p>the last window the device. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-12.html#api-index-3.12">3.12</a></p>
@@ -2670,6 +2670,6 @@ user_function (<a class="link" href="GdkDevice.html" title="GdkDevice"><span cla
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

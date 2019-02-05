@@ -29,8 +29,11 @@
 #include <wayland-egl.h>
 #include <gdk/wayland/tablet-unstable-v2-client-protocol.h>
 #include <gdk/wayland/gtk-shell-client-protocol.h>
+#include <gdk/wayland/xdg-shell-client-protocol.h>
 #include <gdk/wayland/xdg-shell-unstable-v6-client-protocol.h>
 #include <gdk/wayland/xdg-foreign-unstable-v1-client-protocol.h>
+#include <gdk/wayland/keyboard-shortcuts-inhibit-unstable-v1-client-protocol.h>
+#include <gdk/wayland/server-decoration-client-protocol.h>
 
 #include <glib.h>
 #include <gdk/gdkkeys.h>
@@ -44,12 +47,18 @@
 
 G_BEGIN_DECLS
 
-#define GDK_WAYLAND_MAX_THEME_SCALE 2
+#define GDK_WAYLAND_MAX_THEME_SCALE 3
 #define GDK_WAYLAND_THEME_SCALES_COUNT GDK_WAYLAND_MAX_THEME_SCALE
 
 #define GDK_ZWP_POINTER_GESTURES_V1_VERSION 1
 
 typedef struct _GdkWaylandSelection GdkWaylandSelection;
+
+typedef enum _GdkWaylandShellVariant
+{
+  GDK_WAYLAND_SHELL_VARIANT_XDG_SHELL,
+  GDK_WAYLAND_SHELL_VARIANT_ZXDG_SHELL_V6,
+} GdkWaylandShellVariant;
 
 struct _GdkWaylandDisplay
 {
@@ -62,12 +71,17 @@ struct _GdkWaylandDisplay
   /* Most recent serial */
   guint32 serial;
 
+  uint32_t xdg_wm_base_id;
+  uint32_t zxdg_shell_v6_id;
+  GdkWaylandShellVariant shell_variant;
+
   /* Wayland fields below */
   struct wl_display *wl_display;
   struct wl_registry *wl_registry;
   struct wl_compositor *compositor;
   struct wl_shm *shm;
-  struct zxdg_shell_v6 *xdg_shell;
+  struct xdg_wm_base *xdg_wm_base;
+  struct zxdg_shell_v6 *zxdg_shell_v6;
   struct gtk_shell1 *gtk_shell;
   struct wl_input_device *input_device;
   struct wl_data_device_manager *data_device_manager;
@@ -77,6 +91,8 @@ struct _GdkWaylandDisplay
   struct zwp_tablet_manager_v2 *tablet_manager;
   struct zxdg_exporter_v1 *xdg_exporter;
   struct zxdg_importer_v1 *xdg_importer;
+  struct zwp_keyboard_shortcuts_inhibit_manager_v1 *keyboard_shortcuts_inhibit;
+  struct org_kde_kwin_server_decoration_manager *server_decoration_manager;
 
   GList *async_roundtrips;
 
@@ -104,11 +120,15 @@ struct _GdkWaylandDisplay
   int data_device_manager_version;
   int gtk_shell_version;
 
+  uint32_t server_decoration_mode;
+
   struct xkb_context *xkb_context;
 
   GdkWaylandSelection *selection;
 
   GPtrArray *monitors;
+
+  gint64 last_bell_time_ms;
 
   /* egl info */
   EGLDisplay egl_display;

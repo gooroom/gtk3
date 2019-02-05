@@ -8,7 +8,7 @@
 <link rel="up" href="gtk-migrating-2-to-3.html" title="Migrating from GTK+ 2.x to GTK+ 3">
 <link rel="prev" href="gtk-migrating-2-to-3.html" title="Migrating from GTK+ 2.x to GTK+ 3">
 <link rel="next" href="gtk-migrating-GtkStyleContext.html" title="Theming changes">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -63,17 +63,17 @@
 9
 10
 11</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">my_widget_class_init</span> <span class="gtkdoc opt">(</span>MyWidgetClass <span class="gtkdoc opt">*</span><span class="gtkdoc kwc">class</span><span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkWidgetClass <span class="gtkdoc opt">*</span>widget_class <span class="gtkdoc opt">=</span> <span class="function">GTK_WIDGET_CLASS</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwc">class</span><span class="gtkdoc opt">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">my_widget_class_init</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">MyWidgetClass</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">class</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkWidgetClass</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">widget_class </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GTK_WIDGET_CLASS</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">class</span><span class="symbol">);</span>
 
-  <span class="comment">/* ... */</span>
+<span class="normal">  </span><span class="comment">/* ... */</span>
 
-  widget_class<span class="gtkdoc opt">-&gt;</span>size_request <span class="gtkdoc opt">=</span> my_widget_size_request<span class="gtkdoc opt">;</span>
+<span class="normal">  widget_class</span><span class="symbol">-&gt;</span><span class="normal">size_request </span><span class="symbol">=</span><span class="normal"> my_widget_size_request</span><span class="symbol">;</span>
 
-  <span class="comment">/* ... */</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="comment">/* ... */</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -129,45 +129,45 @@
 37
 38
 39</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">my_widget_get_preferred_width</span> <span class="gtkdoc opt">(</span>GtkWidget <span class="gtkdoc opt">*</span>widget<span class="gtkdoc opt">,</span>
-                               gint      <span class="gtkdoc opt">*</span>minimal_width<span class="gtkdoc opt">,</span>
-                               gint      <span class="gtkdoc opt">*</span>natural_width<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkRequisition requisition<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">my_widget_get_preferred_width</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">widget</span><span class="symbol">,</span>
+<span class="normal">                               </span><span class="usertype">gint</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">minimal_width</span><span class="symbol">,</span>
+<span class="normal">                               </span><span class="usertype">gint</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">natural_width</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkRequisition</span><span class="normal"> requisition</span><span class="symbol">;</span>
 
-  <span class="function">my_widget_size_request</span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">, &amp;</span>requisition<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function">my_widget_size_request</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">requisition</span><span class="symbol">);</span>
 
-  <span class="gtkdoc opt">*</span>minimal_width <span class="gtkdoc opt">= *</span>natural_width <span class="gtkdoc opt">=</span> requisition<span class="gtkdoc opt">.</span>width<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">  </span><span class="symbol">*</span><span class="normal">minimal_width </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">natural_width </span><span class="symbol">=</span><span class="normal"> requisition</span><span class="symbol">.</span><span class="normal">width</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc kwb">static void</span>
-<span class="function">my_widget_get_preferred_height</span> <span class="gtkdoc opt">(</span>GtkWidget <span class="gtkdoc opt">*</span>widget<span class="gtkdoc opt">,</span>
-                                gint      <span class="gtkdoc opt">*</span>minimal_height<span class="gtkdoc opt">,</span>
-                                gint      <span class="gtkdoc opt">*</span>natural_height<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkRequisition requisition<span class="gtkdoc opt">;</span>
+<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">my_widget_get_preferred_height</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">widget</span><span class="symbol">,</span>
+<span class="normal">                                </span><span class="usertype">gint</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">minimal_height</span><span class="symbol">,</span>
+<span class="normal">                                </span><span class="usertype">gint</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">natural_height</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkRequisition</span><span class="normal"> requisition</span><span class="symbol">;</span>
 
-  <span class="function">my_widget_size_request</span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">, &amp;</span>requisition<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function">my_widget_size_request</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">requisition</span><span class="symbol">);</span>
 
-  <span class="gtkdoc opt">*</span>minimal_height <span class="gtkdoc opt">= *</span>natural_height <span class="gtkdoc opt">=</span> requisition<span class="gtkdoc opt">.</span>height<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">  </span><span class="symbol">*</span><span class="normal">minimal_height </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">natural_height </span><span class="symbol">=</span><span class="normal"> requisition</span><span class="symbol">.</span><span class="normal">height</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
 
- <span class="comment">/* ... */</span>
+<span class="normal"> </span><span class="comment">/* ... */</span>
 
-<span class="gtkdoc kwb">static void</span>
-<span class="function">my_widget_class_init</span> <span class="gtkdoc opt">(</span>MyWidgetClass <span class="gtkdoc opt">*</span><span class="gtkdoc kwc">class</span><span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkWidgetClass <span class="gtkdoc opt">*</span>widget_class <span class="gtkdoc opt">=</span> <span class="function">GTK_WIDGET_CLASS</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwc">class</span><span class="gtkdoc opt">);</span>
+<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">my_widget_class_init</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">MyWidgetClass</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">class</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkWidgetClass</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">widget_class </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GTK_WIDGET_CLASS</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">class</span><span class="symbol">);</span>
 
-  <span class="comment">/* ... */</span>
+<span class="normal">  </span><span class="comment">/* ... */</span>
 
-  widget_class<span class="gtkdoc opt">-&gt;</span>get_preferred_width <span class="gtkdoc opt">=</span> my_widget_get_preferred_width<span class="gtkdoc opt">;</span>
-  widget_class<span class="gtkdoc opt">-&gt;</span>get_preferred_height <span class="gtkdoc opt">=</span> my_widget_get_preferred_height<span class="gtkdoc opt">;</span>
+<span class="normal">  widget_class</span><span class="symbol">-&gt;</span><span class="normal">get_preferred_width </span><span class="symbol">=</span><span class="normal"> my_widget_get_preferred_width</span><span class="symbol">;</span>
+<span class="normal">  widget_class</span><span class="symbol">-&gt;</span><span class="normal">get_preferred_height </span><span class="symbol">=</span><span class="normal"> my_widget_get_preferred_height</span><span class="symbol">;</span>
 
-  <span class="comment">/* ... */</span>
+<span class="normal">  </span><span class="comment">/* ... */</span>
 
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -232,52 +232,52 @@
 44
 45
 46</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">my_widget_get_preferred_size</span> <span class="gtkdoc opt">(</span>GtkWidget      <span class="gtkdoc opt">*</span>widget<span class="gtkdoc opt">,</span>
-                              GtkOrientation  orientation<span class="gtkdoc opt">,</span>
-                               gint          <span class="gtkdoc opt">*</span>minimal_size<span class="gtkdoc opt">,</span>
-                               gint          <span class="gtkdoc opt">*</span>natural_size<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">my_widget_get_preferred_size</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkWidget</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">widget</span><span class="symbol">,</span>
+<span class="normal">                              </span><span class="usertype">GtkOrientation</span><span class="normal">  orientation</span><span class="symbol">,</span>
+<span class="normal">                               </span><span class="usertype">gint</span><span class="normal">          </span><span class="symbol">*</span><span class="normal">minimal_size</span><span class="symbol">,</span>
+<span class="normal">                               </span><span class="usertype">gint</span><span class="normal">          </span><span class="symbol">*</span><span class="normal">natural_size</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
 
-  <span class="comment">/* do things that are common for both orientations ... */</span>
+<span class="normal">  </span><span class="comment">/* do things that are common for both orientations ... */</span>
 
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>orientation <span class="gtkdoc opt">==</span> GTK_ORIENTATION_HORIZONTAL<span class="gtkdoc opt">)</span>
-    <span class="gtkdoc opt">{</span>
-      <span class="comment">/* do stuff that only applies to width... */</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">orientation </span><span class="symbol">==</span><span class="normal"> <a href="gtk3-Standard-Enumerations.html#GTK-ORIENTATION-HORIZONTAL:CAPS">GTK_ORIENTATION_HORIZONTAL</a></span><span class="symbol">)</span>
+<span class="normal">    </span><span class="cbracket">{</span>
+<span class="normal">      </span><span class="comment">/* do stuff that only applies to width... */</span>
 
-      <span class="gtkdoc opt">*</span>minimal_size <span class="gtkdoc opt">= *</span>natural_size <span class="gtkdoc opt">= ...</span>
-    <span class="gtkdoc opt">}</span>
-  <span class="keyword">else</span>
-   <span class="gtkdoc opt">{</span>
-      <span class="comment">/* do stuff that only applies to height... */</span>
+<span class="normal">      </span><span class="symbol">*</span><span class="normal">minimal_size </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">natural_size </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">...</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+<span class="normal">  </span><span class="keyword">else</span>
+<span class="normal">   </span><span class="cbracket">{</span>
+<span class="normal">      </span><span class="comment">/* do stuff that only applies to height... */</span>
 
-      <span class="gtkdoc opt">*</span>minimal_size <span class="gtkdoc opt">= *</span>natural_size <span class="gtkdoc opt">= ...</span>
-   <span class="gtkdoc opt">}</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">      </span><span class="symbol">*</span><span class="normal">minimal_size </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">natural_size </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">...</span>
+<span class="normal">   </span><span class="cbracket">}</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc kwb">static void</span>
-<span class="function">my_widget_get_preferred_width</span> <span class="gtkdoc opt">(</span>GtkWidget <span class="gtkdoc opt">*</span>widget<span class="gtkdoc opt">,</span>
-                               gint      <span class="gtkdoc opt">*</span>minimal_width<span class="gtkdoc opt">,</span>
-                               gint      <span class="gtkdoc opt">*</span>natural_width<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  <span class="function">my_widget_get_preferred_size</span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">,</span>
-                                GTK_ORIENTATION_HORIZONTAL<span class="gtkdoc opt">,</span>
-                                minimal_width<span class="gtkdoc opt">,</span>
-                                natural_width<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span>
+<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">my_widget_get_preferred_width</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">widget</span><span class="symbol">,</span>
+<span class="normal">                               </span><span class="usertype">gint</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">minimal_width</span><span class="symbol">,</span>
+<span class="normal">                               </span><span class="usertype">gint</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">natural_width</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="function">my_widget_get_preferred_size</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">,</span>
+<span class="normal">                                <a href="gtk3-Standard-Enumerations.html#GTK-ORIENTATION-HORIZONTAL:CAPS">GTK_ORIENTATION_HORIZONTAL</a></span><span class="symbol">,</span>
+<span class="normal">                                minimal_width</span><span class="symbol">,</span>
+<span class="normal">                                natural_width</span><span class="symbol">);</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc kwb">static void</span>
-<span class="function">my_widget_get_preferred_height</span> <span class="gtkdoc opt">(</span>GtkWidget <span class="gtkdoc opt">*</span>widget<span class="gtkdoc opt">,</span>
-                                gint      <span class="gtkdoc opt">*</span>minimal_height<span class="gtkdoc opt">,</span>
-                                gint      <span class="gtkdoc opt">*</span>natural_height<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  <span class="function">my_widget_get_preferred_size</span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">,</span>
-                                GTK_ORIENTATION_VERTICAL<span class="gtkdoc opt">,</span>
-                                minimal_height<span class="gtkdoc opt">,</span>
-                                natural_height<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span>
+<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">my_widget_get_preferred_height</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">widget</span><span class="symbol">,</span>
+<span class="normal">                                </span><span class="usertype">gint</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">minimal_height</span><span class="symbol">,</span>
+<span class="normal">                                </span><span class="usertype">gint</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">natural_height</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="function">my_widget_get_preferred_size</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">,</span>
+<span class="normal">                                <a href="gtk3-Standard-Enumerations.html#GTK-ORIENTATION-VERTICAL:CAPS">GTK_ORIENTATION_VERTICAL</a></span><span class="symbol">,</span>
+<span class="normal">                                minimal_height</span><span class="symbol">,</span>
+<span class="normal">                                natural_height</span><span class="symbol">);</span>
+<span class="cbracket">}</span>
 
- <span class="comment">/* ... */</span></pre></td>
+<span class="normal"> </span><span class="comment">/* ... */</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -333,33 +333,33 @@
 25
 26
 27</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">gtk_fixed_get_preferred_height</span> <span class="gtkdoc opt">(</span>GtkWidget <span class="gtkdoc opt">*</span>widget<span class="gtkdoc opt">,</span>
-                                gint      <span class="gtkdoc opt">*</span>minimum<span class="gtkdoc opt">,</span>
-                                gint      <span class="gtkdoc opt">*</span>natural<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkFixed <span class="gtkdoc opt">*</span>fixed <span class="gtkdoc opt">=</span> <span class="function">GTK_FIXED</span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">);</span>
-  GtkFixedPrivate <span class="gtkdoc opt">*</span>priv <span class="gtkdoc opt">=</span> fixed<span class="gtkdoc opt">-&gt;</span>priv<span class="gtkdoc opt">;</span>
-  GtkFixedChild <span class="gtkdoc opt">*</span>child<span class="gtkdoc opt">;</span>
-  GList <span class="gtkdoc opt">*</span>children<span class="gtkdoc opt">;</span>
-  gint child_min<span class="gtkdoc opt">,</span> child_nat<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">gtk_fixed_get_preferred_height</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">widget</span><span class="symbol">,</span>
+<span class="normal">                                </span><span class="usertype">gint</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">minimum</span><span class="symbol">,</span>
+<span class="normal">                                </span><span class="usertype">gint</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">natural</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkFixed</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">fixed </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GTK_FIXED</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="usertype">GtkFixedPrivate</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">priv </span><span class="symbol">=</span><span class="normal"> fixed</span><span class="symbol">-&gt;</span><span class="normal">priv</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkFixedChild</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">child</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GList</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">children</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">gint</span><span class="normal"> child_min</span><span class="symbol">,</span><span class="normal"> child_nat</span><span class="symbol">;</span>
 
-  <span class="gtkdoc opt">*</span>minimum <span class="gtkdoc opt">=</span> <span class="number">0</span><span class="gtkdoc opt">;</span>
-  <span class="gtkdoc opt">*</span>natural <span class="gtkdoc opt">=</span> <span class="number">0</span><span class="gtkdoc opt">;</span>
+<span class="normal">  </span><span class="symbol">*</span><span class="normal">minimum </span><span class="symbol">=</span><span class="normal"> </span><span class="number">0</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="symbol">*</span><span class="normal">natural </span><span class="symbol">=</span><span class="normal"> </span><span class="number">0</span><span class="symbol">;</span>
 
-  <span class="keyword">for</span> <span class="gtkdoc opt">(</span>children <span class="gtkdoc opt">=</span> priv<span class="gtkdoc opt">-&gt;</span>children<span class="gtkdoc opt">;</span> children<span class="gtkdoc opt">;</span> children <span class="gtkdoc opt">=</span> children<span class="gtkdoc opt">-&gt;</span>next<span class="gtkdoc opt">)</span>
-    <span class="gtkdoc opt">{</span>
-      child <span class="gtkdoc opt">=</span> children<span class="gtkdoc opt">-&gt;</span>data<span class="gtkdoc opt">;</span>
+<span class="normal">  </span><span class="keyword">for</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">children </span><span class="symbol">=</span><span class="normal"> priv</span><span class="symbol">-&gt;</span><span class="normal">children</span><span class="symbol">;</span><span class="normal"> children</span><span class="symbol">;</span><span class="normal"> children </span><span class="symbol">=</span><span class="normal"> children</span><span class="symbol">-&gt;</span><span class="normal">next</span><span class="symbol">)</span>
+<span class="normal">    </span><span class="cbracket">{</span>
+<span class="normal">      child </span><span class="symbol">=</span><span class="normal"> children</span><span class="symbol">-&gt;</span><span class="normal">data</span><span class="symbol">;</span>
 
-      <span class="keyword">if</span> <span class="gtkdoc opt">(!</span><span class="function"><a href="GtkWidget.html#gtk-widget-get-visible">gtk_widget_get_visible</a></span> <span class="gtkdoc opt">(</span>child<span class="gtkdoc opt">-&gt;</span>widget<span class="gtkdoc opt">))</span>
-        <span class="keyword">continue</span><span class="gtkdoc opt">;</span>
+<span class="normal">      </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(!</span><span class="function"><a href="GtkWidget.html#gtk-widget-get-visible">gtk_widget_get_visible</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">child</span><span class="symbol">-&gt;</span><span class="normal">widget</span><span class="symbol">))</span>
+<span class="normal">        </span><span class="keyword">continue</span><span class="symbol">;</span>
 
-      <span class="function"><a href="GtkWidget.html#gtk-widget-get-preferred-height">gtk_widget_get_preferred_height</a></span> <span class="gtkdoc opt">(</span>child<span class="gtkdoc opt">-&gt;</span>widget<span class="gtkdoc opt">, &amp;</span>child_min<span class="gtkdoc opt">, &amp;</span>child_nat<span class="gtkdoc opt">);</span>
+<span class="normal">      </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-preferred-height">gtk_widget_get_preferred_height</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">child</span><span class="symbol">-&gt;</span><span class="normal">widget</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">child_min</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">child_nat</span><span class="symbol">);</span>
 
-      <span class="gtkdoc opt">*</span>minimum <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#MAX:CAPS">MAX</a></span> <span class="gtkdoc opt">(*</span>minimum<span class="gtkdoc opt">,</span> child<span class="gtkdoc opt">-&gt;</span>y <span class="gtkdoc opt">+</span> child_min<span class="gtkdoc opt">);</span>
-      <span class="gtkdoc opt">*</span>natural <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#MAX:CAPS">MAX</a></span> <span class="gtkdoc opt">(*</span>natural<span class="gtkdoc opt">,</span> child<span class="gtkdoc opt">-&gt;</span>y <span class="gtkdoc opt">+</span> child_nat<span class="gtkdoc opt">);</span>
-    <span class="gtkdoc opt">}</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">      </span><span class="symbol">*</span><span class="normal">minimum </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#MAX:CAPS">MAX</a></span><span class="normal"> </span><span class="symbol">(*</span><span class="normal">minimum</span><span class="symbol">,</span><span class="normal"> child</span><span class="symbol">-&gt;</span><span class="normal">y </span><span class="symbol">+</span><span class="normal"> child_min</span><span class="symbol">);</span>
+<span class="normal">      </span><span class="symbol">*</span><span class="normal">natural </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#MAX:CAPS">MAX</a></span><span class="normal"> </span><span class="symbol">(*</span><span class="normal">natural</span><span class="symbol">,</span><span class="normal"> child</span><span class="symbol">-&gt;</span><span class="normal">y </span><span class="symbol">+</span><span class="normal"> child_nat</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -415,86 +415,86 @@
 <tbody>
 <tr>
 <td><span class="type">GdkRegion</span></td>
-<td><span class="type">cairo_region_t</span></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-t"><span class="type">cairo_region_t</span></a></td>
 </tr>
 <tr>
-<td><a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a></td>
-<td><span class="type">cairo_rectangle_int_t</span></td>
+<td><a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Types.html#cairo-rectangle-int-t"><span class="type">cairo_rectangle_int_t</span></a></td>
 </tr>
 <tr>
-<td><a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#gdk-rectangle-intersect"><code class="function">gdk_rectangle_intersect()</code></a></td>
+<td><a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#gdk-rectangle-intersect"><code class="function">gdk_rectangle_intersect()</code></a></td>
 <td>this function is still there</td>
 </tr>
 <tr>
-<td><a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#gdk-rectangle-union"><code class="function">gdk_rectangle_union()</code></a></td>
+<td><a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#gdk-rectangle-union"><code class="function">gdk_rectangle_union()</code></a></td>
 <td>this function is still there</td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_new()</code></td>
-<td><code class="function">cairo_region_create()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-create"><code class="function">cairo_region_create()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_copy()</code></td>
-<td><code class="function">cairo_region_copy()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-copy"><code class="function">cairo_region_copy()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_destroy()</code></td>
-<td><code class="function">cairo_region_destroy()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-destroy"><code class="function">cairo_region_destroy()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_rectangle()</code></td>
-<td><code class="function">cairo_region_create_rectangle()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-create-rectangle"><code class="function">cairo_region_create_rectangle()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_get_clipbox()</code></td>
-<td><code class="function">cairo_region_get_extents()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-get-extents"><code class="function">cairo_region_get_extents()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_get_rectangles()</code></td>
 <td>
-<code class="function">cairo_region_num_rectangles()</code> and
-                                <code class="function">cairo_region_get_rectangle()</code>
+<a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-num-rectangles"><code class="function">cairo_region_num_rectangles()</code></a> and
+                                <a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-get-rectangle"><code class="function">cairo_region_get_rectangle()</code></a>
 </td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_empty()</code></td>
-<td><code class="function">cairo_region_is_empty()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-is-empty"><code class="function">cairo_region_is_empty()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_equal()</code></td>
-<td><code class="function">cairo_region_equal()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-equal"><code class="function">cairo_region_equal()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_point_in()</code></td>
-<td><code class="function">cairo_region_contains_point()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-contains-point"><code class="function">cairo_region_contains_point()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_rect_in()</code></td>
-<td><code class="function">cairo_region_contains_rectangle()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-contains-rectangle"><code class="function">cairo_region_contains_rectangle()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_offset()</code></td>
-<td><code class="function">cairo_region_translate()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-translate"><code class="function">cairo_region_translate()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_union_with_rect()</code></td>
-<td><code class="function">cairo_region_union_rectangle()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-union-rectangle"><code class="function">cairo_region_union_rectangle()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_intersect()</code></td>
-<td><code class="function">cairo_region_intersect()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-intersect"><code class="function">cairo_region_intersect()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_union()</code></td>
-<td><code class="function">cairo_region_union()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-union"><code class="function">cairo_region_union()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_subtract()</code></td>
-<td><code class="function">cairo_region_subtract()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-subtract"><code class="function">cairo_region_subtract()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_xor()</code></td>
-<td><code class="function">cairo_region_xor()</code></td>
+<td><a href="/usr/share/gtk-doc/html/cairo/cairo-Regions.html#cairo-region-xor"><code class="function">cairo_region_xor()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_region_shrink()</code></td>
@@ -544,21 +544,21 @@
 13
 14
 15</pre></td>
-        <td class="listing_code"><pre class="programlisting">GdkCursor <span class="gtkdoc opt">*</span>cursor<span class="gtkdoc opt">;</span>
-GdkPixmap <span class="gtkdoc opt">*</span>pixmap<span class="gtkdoc opt">;</span>
-cairo_t <span class="gtkdoc opt">*</span>cr<span class="gtkdoc opt">;</span>
-GdkColor fg <span class="gtkdoc opt">= {</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span> <span class="gtkdoc opt">};</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkCursor</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">cursor</span><span class="symbol">;</span>
+<span class="usertype">GdkPixmap</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">pixmap</span><span class="symbol">;</span>
+<span class="usertype">cairo_t</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">cr</span><span class="symbol">;</span>
+<span class="usertype">GdkColor</span><span class="normal"> fg </span><span class="symbol">=</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="normal"> </span><span class="cbracket">}</span><span class="symbol">;</span>
 
-pixmap <span class="gtkdoc opt">=</span> <span class="function">gdk_pixmap_new</span> <span class="gtkdoc opt">(</span>NULL<span class="gtkdoc opt">,</span> <span class="number">1</span><span class="gtkdoc opt">,</span> <span class="number">1</span><span class="gtkdoc opt">,</span> <span class="number">1</span><span class="gtkdoc opt">);</span>
+<span class="normal">pixmap </span><span class="symbol">=</span><span class="normal"> </span><span class="function">gdk_pixmap_new</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">);</span>
 
-cr <span class="gtkdoc opt">=</span> <span class="function">gdk_cairo_create</span> <span class="gtkdoc opt">(</span>pixmap<span class="gtkdoc opt">);</span>
-<span class="function">cairo_rectangle</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">1</span><span class="gtkdoc opt">,</span> <span class="number">1</span><span class="gtkdoc opt">);</span>
-<span class="function">cairo_fill</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span>
-<span class="function">cairo_destroy</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span>
+<span class="normal">cr </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-create">gdk_cairo_create</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">pixmap</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-Paths.html#cairo-rectangle">cairo_rectangle</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-fill">cairo_fill</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-destroy">cairo_destroy</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span>
 
-cursor <span class="gtkdoc opt">=</span> <span class="function">gdk_cursor_new_from_pixmap</span> <span class="gtkdoc opt">(</span>pixmap<span class="gtkdoc opt">,</span> pixmap<span class="gtkdoc opt">, &amp;</span>fg<span class="gtkdoc opt">, &amp;</span>fg<span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">);</span>
+<span class="normal">cursor </span><span class="symbol">=</span><span class="normal"> </span><span class="function">gdk_cursor_new_from_pixmap</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">pixmap</span><span class="symbol">,</span><span class="normal"> pixmap</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">fg</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">fg</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">);</span>
 
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>pixmap<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">pixmap</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -592,26 +592,26 @@ cursor <span class="gtkdoc opt">=</span> <span class="function">gdk_cursor_new_f
 18
 19
 20</pre></td>
-        <td class="listing_code"><pre class="programlisting">GdkCursor <span class="gtkdoc opt">*</span>cursor<span class="gtkdoc opt">;</span>
-cairo_surface_t <span class="gtkdoc opt">*</span>s<span class="gtkdoc opt">;</span>
-cairo_t <span class="gtkdoc opt">*</span>cr<span class="gtkdoc opt">;</span>
-GdkPixbuf <span class="gtkdoc opt">*</span>pixbuf<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkCursor</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">cursor</span><span class="symbol">;</span>
+<span class="usertype">cairo_surface_t</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">s</span><span class="symbol">;</span>
+<span class="usertype">cairo_t</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">cr</span><span class="symbol">;</span>
+<span class="usertype">GdkPixbuf</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">pixbuf</span><span class="symbol">;</span>
 
-s <span class="gtkdoc opt">=</span> <span class="function">cairo_image_surface_create</span> <span class="gtkdoc opt">(</span>CAIRO_FORMAT_A1<span class="gtkdoc opt">,</span> <span class="number">3</span><span class="gtkdoc opt">,</span> <span class="number">3</span><span class="gtkdoc opt">);</span>
-cr <span class="gtkdoc opt">=</span> <span class="function">cairo_create</span> <span class="gtkdoc opt">(</span>s<span class="gtkdoc opt">);</span>
-<span class="function">cairo_arc</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> <span class="number">1.5</span><span class="gtkdoc opt">,</span> <span class="number">1.5</span><span class="gtkdoc opt">,</span> <span class="number">1.5</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">2</span> <span class="gtkdoc opt">*</span> M_PI<span class="gtkdoc opt">);</span>
-<span class="function">cairo_fill</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span>
-<span class="function">cairo_destroy</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span>
+<span class="normal">s </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-Image-Surfaces.html#cairo-image-surface-create">cairo_image_surface_create</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="/usr/share/gtk-doc/html/cairo/cairo-Image-Surfaces.html#CAIRO-FORMAT-A1:CAPS">CAIRO_FORMAT_A1</a></span><span class="symbol">,</span><span class="normal"> </span><span class="number">3</span><span class="symbol">,</span><span class="normal"> </span><span class="number">3</span><span class="symbol">);</span>
+<span class="normal">cr </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-create">cairo_create</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">s</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-Paths.html#cairo-arc">cairo_arc</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1.5</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1.5</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1.5</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">2</span><span class="normal"> </span><span class="symbol">*</span><span class="normal"> M_PI</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-fill">cairo_fill</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-destroy">cairo_destroy</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span>
 
-pixbuf <span class="gtkdoc opt">=</span> <span class="function"><a href="http://developer.gnome.org/gdk3/gdk4-Pixbufs.html#gdk-pixbuf-get-from-surface">gdk_pixbuf_get_from_surface</a></span> <span class="gtkdoc opt">(</span>s<span class="gtkdoc opt">,</span>
-                                      <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span>
-                                      <span class="number">3</span><span class="gtkdoc opt">,</span> <span class="number">3</span><span class="gtkdoc opt">);</span>
+<span class="normal">pixbuf </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Pixbufs.html#gdk-pixbuf-get-from-surface">gdk_pixbuf_get_from_surface</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">s</span><span class="symbol">,</span>
+<span class="normal">                                      </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span>
+<span class="normal">                                      </span><span class="number">3</span><span class="symbol">,</span><span class="normal"> </span><span class="number">3</span><span class="symbol">);</span>
 
-<span class="function">cairo_surface_destroy</span> <span class="gtkdoc opt">(</span>s<span class="gtkdoc opt">);</span>
+<span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-destroy">cairo_surface_destroy</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">s</span><span class="symbol">);</span>
 
-cursor <span class="gtkdoc opt">=</span> <span class="function"><a href="http://developer.gnome.org/gdk3/gdk4-Cursors.html#gdk-cursor-new-from-pixbuf">gdk_cursor_new_from_pixbuf</a></span> <span class="gtkdoc opt">(</span>display<span class="gtkdoc opt">,</span> pixbuf<span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">);</span>
+<span class="normal">cursor </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Cursors.html#gdk-cursor-new-from-pixbuf">gdk_cursor_new_from_pixbuf</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">display</span><span class="symbol">,</span><span class="normal"> pixbuf</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">);</span>
 
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>pixbuf<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">pixbuf</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -628,7 +628,7 @@ cursor <span class="gtkdoc opt">=</span> <span class="function"><a href="http://
 <a name="id-1.6.3.4.6"></a>Replace GdkColormap by GdkVisual</h3></div></div></div>
 <p>
       For drawing with cairo, it is not necessary to allocate colors, and
-      a <a href="http://developer.gnome.org/gdk3/gdk4-Visuals.html#GdkVisual-struct"><span class="type">GdkVisual</span></a> provides enough information for cairo to handle colors
+      a <a href="https://developer.gnome.org/gdk3/gdk3-Visuals.html#GdkVisual-struct"><span class="type">GdkVisual</span></a> provides enough information for cairo to handle colors
       in 'native' surfaces. Therefore, <span class="type">GdkColormap</span> and related functions
       have been removed in GTK+ 3, and visuals are used instead. The
       colormap-handling functions of <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> (<code class="function">gtk_widget_set_colormap()</code>,
@@ -657,19 +657,19 @@ cursor <span class="gtkdoc opt">=</span> <span class="function"><a href="http://
 11
 12
 13</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">on_alpha_screen_changed</span> <span class="gtkdoc opt">(</span>GtkWidget <span class="gtkdoc opt">*</span>widget<span class="gtkdoc opt">,</span>
-                         GdkScreen <span class="gtkdoc opt">*</span>old_screen<span class="gtkdoc opt">,</span>
-                         GtkWidget <span class="gtkdoc opt">*</span>label<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GdkScreen <span class="gtkdoc opt">*</span>screen <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidget.html#gtk-widget-get-screen">gtk_widget_get_screen</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">);</span>
-  GdkColormap <span class="gtkdoc opt">*</span>colormap <span class="gtkdoc opt">=</span> <span class="function">gdk_screen_get_rgba_colormap</span> <span class="gtkdoc opt">(</span>screen<span class="gtkdoc opt">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">on_alpha_screen_changed</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">widget</span><span class="symbol">,</span>
+<span class="normal">                         </span><span class="usertype">GdkScreen</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">old_screen</span><span class="symbol">,</span>
+<span class="normal">                         </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">label</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GdkScreen</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">screen </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-screen">gtk_widget_get_screen</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="usertype">GdkColormap</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">colormap </span><span class="symbol">=</span><span class="normal"> </span><span class="function">gdk_screen_get_rgba_colormap</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">screen</span><span class="symbol">);</span>
 
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>colormap <span class="gtkdoc opt">==</span> NULL<span class="gtkdoc opt">)</span>
-    colormap <span class="gtkdoc opt">=</span> <span class="function">gdk_screen_get_default_colormap</span> <span class="gtkdoc opt">(</span>screen<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">colormap </span><span class="symbol">==</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
+<span class="normal">    colormap </span><span class="symbol">=</span><span class="normal"> </span><span class="function">gdk_screen_get_default_colormap</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">screen</span><span class="symbol">);</span>
 
-  <span class="function">gtk_widget_set_colormap</span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">,</span> colormap<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="function">gtk_widget_set_colormap</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">,</span><span class="normal"> colormap</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -695,19 +695,19 @@ cursor <span class="gtkdoc opt">=</span> <span class="function"><a href="http://
 11
 12
 13</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">on_alpha_screen_changed</span> <span class="gtkdoc opt">(</span>GtkWindow <span class="gtkdoc opt">*</span>window<span class="gtkdoc opt">,</span>
-                         GdkScreen <span class="gtkdoc opt">*</span>old_screen<span class="gtkdoc opt">,</span>
-                         GtkWidget <span class="gtkdoc opt">*</span>label<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GdkScreen <span class="gtkdoc opt">*</span>screen <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidget.html#gtk-widget-get-screen">gtk_widget_get_screen</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_WIDGET</span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">));</span>
-  GdkVisual <span class="gtkdoc opt">*</span>visual <span class="gtkdoc opt">=</span> <span class="function">gdk_screen_get_rgba_visual</span> <span class="gtkdoc opt">(</span>screen<span class="gtkdoc opt">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">on_alpha_screen_changed</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkWindow</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">window</span><span class="symbol">,</span>
+<span class="normal">                         </span><span class="usertype">GdkScreen</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">old_screen</span><span class="symbol">,</span>
+<span class="normal">                         </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">label</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GdkScreen</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">screen </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-screen">gtk_widget_get_screen</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">));</span>
+<span class="normal">  </span><span class="usertype">GdkVisual</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">visual </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gdk3/GdkScreen.html#gdk-screen-get-rgba-visual">gdk_screen_get_rgba_visual</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">screen</span><span class="symbol">);</span>
 
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>visual <span class="gtkdoc opt">==</span> NULL<span class="gtkdoc opt">)</span>
-    visual <span class="gtkdoc opt">=</span> <span class="function">gdk_screen_get_system_visual</span> <span class="gtkdoc opt">(</span>screen<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">visual </span><span class="symbol">==</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
+<span class="normal">    visual </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gdk3/GdkScreen.html#gdk-screen-get-system-visual">gdk_screen_get_system_visual</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">screen</span><span class="symbol">);</span>
 
-  <span class="function"><a href="GtkWidget.html#gtk-widget-set-visual">gtk_widget_set_visual</a></span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">,</span> visual<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="function"><a href="GtkWidget.html#gtk-widget-set-visual">gtk_widget_set_visual</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">,</span><span class="normal"> visual</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -722,8 +722,8 @@ cursor <span class="gtkdoc opt">=</span> <span class="function"><a href="http://
 <a name="id-1.6.3.4.7"></a>GdkDrawable is gone</h3></div></div></div>
 <p>
       <span class="type">GdkDrawable</span> has been removed in GTK+ 3, together with <span class="type">GdkPixmap</span>
-      and <span class="type">GdkImage</span>. The only remaining drawable class is <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>.
-      For dealing with image data, you should use a <span class="type">cairo_surface_t</span> or
+      and <span class="type">GdkImage</span>. The only remaining drawable class is <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>.
+      For dealing with image data, you should use a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a> or
       a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a>.
     </p>
 <p>
@@ -744,26 +744,26 @@ cursor <span class="gtkdoc opt">=</span> <span class="function"><a href="http://
 <tbody>
 <tr>
 <td><code class="function">gdk_drawable_get_visual()</code></td>
-<td><code class="function">gdk_window_get_visual()</code></td>
+<td><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-get-visual"><code class="function">gdk_window_get_visual()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_drawable_get_size()</code></td>
 <td>
-<a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#gdk-window-get-width"><code class="function">gdk_window_get_width()</code></a>
-                                                              <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#gdk-window-get-height"><code class="function">gdk_window_get_height()</code></a>
+<a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-get-width"><code class="function">gdk_window_get_width()</code></a>
+                                                              <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-get-height"><code class="function">gdk_window_get_height()</code></a>
 </td>
 </tr>
 <tr>
 <td><code class="function">gdk_pixbuf_get_from_drawable()</code></td>
-<td><code class="function">gdk_pixbuf_get_from_window()</code></td>
+<td><a href="https://developer.gnome.org/gdk3/gdk3-Pixbufs.html#gdk-pixbuf-get-from-window"><code class="function">gdk_pixbuf_get_from_window()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_drawable_get_clip_region()</code></td>
-<td><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#gdk-window-get-clip-region"><code class="function">gdk_window_get_clip_region()</code></a></td>
+<td><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-get-clip-region"><code class="function">gdk_window_get_clip_region()</code></a></td>
 </tr>
 <tr>
 <td><code class="function">gdk_drawable_get_visible_region()</code></td>
-<td><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#gdk-window-get-visible-region"><code class="function">gdk_window_get_visible_region()</code></a></td>
+<td><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-get-visible-region"><code class="function">gdk_window_get_visible_region()</code></a></td>
 </tr>
 </tbody>
 </table></div>
@@ -781,7 +781,7 @@ cursor <span class="gtkdoc opt">=</span> <span class="function"><a href="http://
 <p>
       The special-purpose GdkEventClient events and the <code class="function">gdk_add_client_message_filter()</code> and <code class="function">gdk_display_add_client_message_filter()</code> functions have been
       removed. Receiving X11 ClientMessage events is still possible, using
-      the general <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#gdk-window-add-filter"><code class="function">gdk_window_add_filter()</code></a> API. A client message filter like
+      the general <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-add-filter"><code class="function">gdk_window_add_filter()</code></a> API. A client message filter like
 </p>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
@@ -799,18 +799,18 @@ cursor <span class="gtkdoc opt">=</span> <span class="function"><a href="http://
 10
 11
 12</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static</span> GdkFilterReturn
-<span class="function">message_filter</span> <span class="gtkdoc opt">(</span>GdkXEvent <span class="gtkdoc opt">*</span>xevent<span class="gtkdoc opt">,</span> GdkEvent <span class="gtkdoc opt">*</span>event<span class="gtkdoc opt">,</span> gpointer data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  XClientMessageEvent <span class="gtkdoc opt">*</span>evt <span class="gtkdoc opt">= (</span>XClientMessageEvent <span class="gtkdoc opt">*)</span>xevent<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkFilterReturn">GdkFilterReturn</a></span>
+<span class="function">message_filter</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GdkXEvent</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">xevent</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">GdkEvent</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">event</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">gpointer</span><span class="normal"> data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">XClientMessageEvent</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">evt </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">XClientMessageEvent </span><span class="symbol">*)</span><span class="normal">xevent</span><span class="symbol">;</span>
 
-  <span class="comment">/* do something with evt ... */</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">  </span><span class="comment">/* do something with evt ... */</span>
+<span class="cbracket">}</span>
 
- <span class="gtkdoc opt">...</span>
+<span class="normal"> </span><span class="symbol">...</span>
 
-message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="http://developer.gnome.org/gdk3/gdk4-Properties-and-Atoms.html#gdk-atom-intern">gdk_atom_intern</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;MANAGER&quot;</span><span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">);</span>
-<span class="function">gdk_display_add_client_message_filter</span> <span class="gtkdoc opt">(</span>display<span class="gtkdoc opt">,</span> message_type<span class="gtkdoc opt">,</span> message_filter<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span></pre></td>
+<span class="normal">message_type </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Properties-and-Atoms.html#gdk-atom-intern">gdk_atom_intern</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"MANAGER"</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">);</span>
+<span class="function">gdk_display_add_client_message_filter</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">display</span><span class="symbol">,</span><span class="normal"> message_type</span><span class="symbol">,</span><span class="normal"> message_filter</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -844,27 +844,27 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
 19
 20
 21</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static</span> GdkFilterReturn
-<span class="function">event_filter</span> <span class="gtkdoc opt">(</span>GdkXEvent <span class="gtkdoc opt">*</span>xevent<span class="gtkdoc opt">,</span> GdkEvent <span class="gtkdoc opt">*</span>event<span class="gtkdoc opt">,</span> gpointer data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  XClientMessageEvent <span class="gtkdoc opt">*</span>evt<span class="gtkdoc opt">;</span>
-  GdkAtom message_type<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkFilterReturn">GdkFilterReturn</a></span>
+<span class="function">event_filter</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GdkXEvent</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">xevent</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">GdkEvent</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">event</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">gpointer</span><span class="normal"> data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">XClientMessageEvent</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">evt</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GdkAtom</span><span class="normal"> message_type</span><span class="symbol">;</span>
 
-  <span class="keyword">if</span> <span class="gtkdoc opt">(((</span>XEvent <span class="gtkdoc opt">*)</span>xevent<span class="gtkdoc opt">)-&gt;</span>type <span class="gtkdoc opt">!=</span> ClientMessage<span class="gtkdoc opt">)</span>
-    <span class="keyword">return</span> GDK_FILTER_CONTINUE<span class="gtkdoc opt">;</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(((</span><span class="normal">XEvent </span><span class="symbol">*)</span><span class="normal">xevent</span><span class="symbol">)-&gt;</span><span class="normal">type </span><span class="symbol">!=</span><span class="normal"> ClientMessage</span><span class="symbol">)</span>
+<span class="normal">    </span><span class="keyword">return</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GDK-FILTER-CONTINUE:CAPS">GDK_FILTER_CONTINUE</a></span><span class="symbol">;</span>
 
-  evt <span class="gtkdoc opt">= (</span>XClientMessageEvent <span class="gtkdoc opt">*)</span>xevent<span class="gtkdoc opt">;</span>
-  message_type <span class="gtkdoc opt">=</span> <span class="function">XInternAtom</span> <span class="gtkdoc opt">(</span>evt<span class="gtkdoc opt">-&gt;</span>display<span class="gtkdoc opt">,</span> <span class="string">&quot;MANAGER&quot;</span><span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">);</span>
+<span class="normal">  evt </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">XClientMessageEvent </span><span class="symbol">*)</span><span class="normal">xevent</span><span class="symbol">;</span>
+<span class="normal">  message_type </span><span class="symbol">=</span><span class="normal"> </span><span class="function">XInternAtom</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">evt</span><span class="symbol">-&gt;</span><span class="normal">display</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"MANAGER"</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">);</span>
 
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>evt<span class="gtkdoc opt">-&gt;</span>message_type <span class="gtkdoc opt">!=</span> message_type<span class="gtkdoc opt">)</span>
-    <span class="keyword">return</span> GDK_FILTER_CONTINUE<span class="gtkdoc opt">;</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">evt</span><span class="symbol">-&gt;</span><span class="normal">message_type </span><span class="symbol">!=</span><span class="normal"> message_type</span><span class="symbol">)</span>
+<span class="normal">    </span><span class="keyword">return</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GDK-FILTER-CONTINUE:CAPS">GDK_FILTER_CONTINUE</a></span><span class="symbol">;</span>
 
-  <span class="comment">/* do something with evt ... */</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">  </span><span class="comment">/* do something with evt ... */</span>
+<span class="cbracket">}</span>
 
- <span class="gtkdoc opt">...</span>
+<span class="normal"> </span><span class="symbol">...</span>
 
-<span class="function"><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#gdk-window-add-filter">gdk_window_add_filter</a></span> <span class="gtkdoc opt">(</span>NULL<span class="gtkdoc opt">,</span> message_filter<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-add-filter">gdk_window_add_filter</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> message_filter</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -873,7 +873,7 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
 <p>
       One advantage of using an event filter is that you can actually
       remove the filter when you don't need it anymore, using
-      <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#gdk-window-remove-filter"><code class="function">gdk_window_remove_filter()</code></a>.
+      <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-remove-filter"><code class="function">gdk_window_remove_filter()</code></a>.
     </p>
 <p>
       The other difference to be aware of when working with event filters
@@ -881,7 +881,7 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
       means that your application does not receive core X11 key or button
       events. Instead, all input events are delivered as XIDeviceEvents.
       As a short-term workaround for this, you can force your application
-      to not use XI2, with <a href="http://developer.gnome.org/gdk3/GdkDeviceManager.html#gdk-disable-multidevice"><code class="function">gdk_disable_multidevice()</code></a>. In the long term,
+      to not use XI2, with <a href="https://developer.gnome.org/gdk3/GdkDeviceManager.html#gdk-disable-multidevice"><code class="function">gdk_disable_multidevice()</code></a>. In the long term,
       you probably want to rewrite your event filter to deal with
       XIDeviceEvents.
     </p>
@@ -891,7 +891,7 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
 <a name="id-1.6.3.4.9"></a>Backend-specific code</h3></div></div></div>
 <p>
       In GTK+ 2.x, GDK could only be compiled for one backend at a time,
-      and the <a href="http://developer.gnome.org/gdk3/gdk4-General.html#GDK-WINDOWING-X11:CAPS"><code class="literal">GDK_WINDOWING_X11</code></a> or <code class="literal">GDK_WINDOWING_WIN32</code> macros could
+      and the <a href="https://developer.gnome.org/gdk3/gdk3-General.html#GDK-WINDOWING-X11:CAPS"><code class="literal">GDK_WINDOWING_X11</code></a> or <a href="https://developer.gnome.org/gdk3/gdk3-General.html#GDK-WINDOWING-WIN32:CAPS"><code class="literal">GDK_WINDOWING_WIN32</code></a> macros could
       be used to find out which one you are dealing with:
       </p>
 <div class="informalexample">
@@ -905,13 +905,13 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
 5
 6
 7</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc ppc">#ifdef GDK_WINDOWING_X11</span>
-      <span class="keyword">if</span> <span class="gtkdoc opt">(</span>timestamp <span class="gtkdoc opt">!=</span> GDK_CURRENT_TIME<span class="gtkdoc opt">)</span>
-        <span class="function"><a href="http://developer.gnome.org/gdk3/gdk4-X-Window-System-Interaction.html#gdk-x11-window-set-user-time">gdk_x11_window_set_user_time</a></span> <span class="gtkdoc opt">(</span>gdk_window<span class="gtkdoc opt">,</span> timestamp<span class="gtkdoc opt">);</span>
-<span class="gtkdoc ppc">#endif</span>
-<span class="gtkdoc ppc">#ifdef GDK_WINDOWING_WIN32</span>
-        <span class="comment">/* ... win32 specific code ... */</span>
-<span class="gtkdoc ppc">#endif</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="preproc">#ifdef</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-General.html#GDK-WINDOWING-X11:CAPS">GDK_WINDOWING_X11</a></span>
+<span class="normal">      </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">timestamp </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-CURRENT-TIME:CAPS">GDK_CURRENT_TIME</a></span><span class="symbol">)</span>
+<span class="normal">        </span><span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-user-time">gdk_x11_window_set_user_time</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gdk_window</span><span class="symbol">,</span><span class="normal"> timestamp</span><span class="symbol">);</span>
+<span class="preproc">#endif</span>
+<span class="preproc">#ifdef</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-General.html#GDK-WINDOWING-WIN32:CAPS">GDK_WINDOWING_WIN32</a></span>
+<span class="normal">        </span><span class="comment">/* ... win32 specific code ... */</span>
+<span class="preproc">#endif</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -920,7 +920,7 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
 <p>
       In GTK+ 3, GDK can be built with multiple backends, and currently
       used backend has to be determined at runtime, typically using
-      type-check macros on a <a href="http://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a> or <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>. You still need
+      type-check macros on a <a href="https://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a> or <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>. You still need
       to use the GDK_WINDOWING macros to only compile code referring
       to supported backends:
       </p>
@@ -946,24 +946,24 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
 16
 17
 18</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc ppc">#ifdef GDK_WINDOWING_X11</span>
-      <span class="keyword">if</span> <span class="gtkdoc opt">(</span><span class="function">GDK_IS_X11_DISPLAY</span> <span class="gtkdoc opt">(</span>display<span class="gtkdoc opt">))</span>
-        <span class="gtkdoc opt">{</span>
-          <span class="keyword">if</span> <span class="gtkdoc opt">(</span>timestamp <span class="gtkdoc opt">!=</span> GDK_CURRENT_TIME<span class="gtkdoc opt">)</span>
-            <span class="function"><a href="http://developer.gnome.org/gdk3/gdk4-X-Window-System-Interaction.html#gdk-x11-window-set-user-time">gdk_x11_window_set_user_time</a></span> <span class="gtkdoc opt">(</span>gdk_window<span class="gtkdoc opt">,</span> timestamp<span class="gtkdoc opt">);</span>
-        <span class="gtkdoc opt">}</span>
-      <span class="keyword">else</span>
-<span class="gtkdoc ppc">#endif</span>
-<span class="gtkdoc ppc">#ifdef GDK_WINDOWING_WIN32</span>
-      <span class="keyword">if</span> <span class="gtkdoc opt">(</span><span class="function">GDK_IS_WIN32_DISPLAY</span> <span class="gtkdoc opt">(</span>display<span class="gtkdoc opt">))</span>
-        <span class="gtkdoc opt">{</span>
-          <span class="comment">/* ... win32 specific code ... */</span>
-        <span class="gtkdoc opt">}</span>
-      <span class="keyword">else</span>
-<span class="gtkdoc ppc">#endif</span>
-       <span class="gtkdoc opt">{</span>
-         <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Message-Logging.html#g-warning">g_warning</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;Unsupported GDK backend&quot;</span><span class="gtkdoc opt">);</span>
-       <span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="preproc">#ifdef</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-General.html#GDK-WINDOWING-X11:CAPS">GDK_WINDOWING_X11</a></span>
+<span class="normal">      </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function">GDK_IS_X11_DISPLAY</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">display</span><span class="symbol">))</span>
+<span class="normal">        </span><span class="cbracket">{</span>
+<span class="normal">          </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">timestamp </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-CURRENT-TIME:CAPS">GDK_CURRENT_TIME</a></span><span class="symbol">)</span>
+<span class="normal">            </span><span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-user-time">gdk_x11_window_set_user_time</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gdk_window</span><span class="symbol">,</span><span class="normal"> timestamp</span><span class="symbol">);</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">      </span><span class="keyword">else</span>
+<span class="preproc">#endif</span>
+<span class="preproc">#ifdef</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-General.html#GDK-WINDOWING-WIN32:CAPS">GDK_WINDOWING_WIN32</a></span>
+<span class="normal">      </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function">GDK_IS_WIN32_DISPLAY</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">display</span><span class="symbol">))</span>
+<span class="normal">        </span><span class="cbracket">{</span>
+<span class="normal">          </span><span class="comment">/* ... win32 specific code ... */</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">      </span><span class="keyword">else</span>
+<span class="preproc">#endif</span>
+<span class="normal">       </span><span class="cbracket">{</span>
+<span class="normal">         </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Message-Logging.html#g-warning">g_warning</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Unsupported GDK backend"</span><span class="symbol">);</span>
+<span class="normal">       </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -981,7 +981,7 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function">AM_CONDITIONAL</span><span class="gtkdoc opt">(</span>BUILD_X11<span class="gtkdoc opt">,</span> test `$PKG_CONFIG <span class="gtkdoc opt">--</span>variable<span class="gtkdoc opt">=</span>target gtk<span class="gtkdoc opt">+-</span><span class="number">2.0</span>` <span class="gtkdoc opt">=</span> <span class="string">&quot;x11&quot;</span><span class="gtkdoc opt">)</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function">AM_CONDITIONAL</span><span class="symbol">(</span><span class="normal">BUILD_X11</span><span class="symbol">,</span><span class="normal"> test `$PKG_CONFIG </span><span class="symbol">--</span><span class="normal">variable</span><span class="symbol">=</span><span class="usertype">target</span><span class="normal"> gtk</span><span class="symbol">+-</span><span class="number">2.0</span><span class="normal">` </span><span class="symbol">=</span><span class="normal"> </span><span class="string">"x11"</span><span class="symbol">)</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -996,8 +996,8 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function">GTK_CHECK_BACKEND</span><span class="gtkdoc opt">([</span>x11<span class="gtkdoc opt">], [</span><span class="number">3.0.2</span><span class="gtkdoc opt">], [</span>have_x11<span class="gtkdoc opt">=</span>yes<span class="gtkdoc opt">], [</span>have_x11<span class="gtkdoc opt">=</span>no<span class="gtkdoc opt">])</span>
-<span class="function">AM_CONDITIONAL</span><span class="gtkdoc opt">(</span>BUILD_x11<span class="gtkdoc opt">, [</span>test <span class="string">&quot;x$have_x11&quot;</span> <span class="gtkdoc opt">=</span> <span class="string">&quot;xyes&quot;</span><span class="gtkdoc opt">])</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function">GTK_CHECK_BACKEND</span><span class="symbol">([</span><span class="normal">x11</span><span class="symbol">],</span><span class="normal"> </span><span class="symbol">[</span><span class="number">3.0</span><span class="symbol">.</span><span class="number">2</span><span class="symbol">],</span><span class="normal"> </span><span class="symbol">[</span><span class="normal">have_x11</span><span class="symbol">=</span><span class="normal">yes</span><span class="symbol">],</span><span class="normal"> </span><span class="symbol">[</span><span class="normal">have_x11</span><span class="symbol">=</span><span class="normal">no</span><span class="symbol">])</span>
+<span class="function">AM_CONDITIONAL</span><span class="symbol">(</span><span class="normal">BUILD_x11</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">[</span><span class="normal">test </span><span class="string">"x$have_x11"</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="string">"xyes"</span><span class="symbol">])</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1021,7 +1021,7 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
 <a name="id-1.6.3.4.11"></a>The GtkWidget::draw signal</h3></div></div></div>
 <p>
       The GtkWidget <span class="type">“expose-event”</span> signal has been replaced by
-      a new <a class="link" href="GtkWidget.html#GtkWidget-draw" title="The “draw” signal"><span class="type">“draw”</span></a> signal, which takes a <span class="type">cairo_t</span> instead of
+      a new <a class="link" href="GtkWidget.html#GtkWidget-draw" title="The “draw” signal"><span class="type">“draw”</span></a> signal, which takes a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> instead of
       an expose event. The cairo context is being set up so that the origin
       at (0, 0) coincides with the upper left corner of the widget, and
       is properly clipped.
@@ -1057,15 +1057,15 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
 7
 8
 9</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span> <span class="gtkdoc opt">(</span>event<span class="gtkdoc opt">-&gt;</span>window <span class="gtkdoc opt">==</span> widget<span class="gtkdoc opt">-&gt;</span>window1<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-     <span class="comment">/* ... draw window1 ... */</span>
-  <span class="gtkdoc opt">}</span>
-<span class="keyword">else if</span> <span class="gtkdoc opt">(</span>event<span class="gtkdoc opt">-&gt;</span>window <span class="gtkdoc opt">==</span> widget<span class="gtkdoc opt">-&gt;</span>window2<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-     <span class="comment">/* ... draw window2 ... */</span>
-  <span class="gtkdoc opt">}</span>
-<span class="gtkdoc opt">...</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">event</span><span class="symbol">-&gt;</span><span class="normal">window </span><span class="symbol">==</span><span class="normal"> widget</span><span class="symbol">-&gt;</span><span class="normal">window1</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">     </span><span class="comment">/* ... draw window1 ... */</span>
+<span class="normal">  </span><span class="cbracket">}</span>
+<span class="keyword">else</span><span class="normal"> </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">event</span><span class="symbol">-&gt;</span><span class="normal">window </span><span class="symbol">==</span><span class="normal"> widget</span><span class="symbol">-&gt;</span><span class="normal">window2</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">     </span><span class="comment">/* ... draw window2 ... */</span>
+<span class="normal">  </span><span class="cbracket">}</span>
+<span class="symbol">...</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1091,15 +1091,15 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
 7
 8
 9</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span> <span class="gtkdoc opt">(</span><span class="function"><a href="GtkWidget.html#gtk-cairo-should-draw-window">gtk_cairo_should_draw_window</a></span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> widget<span class="gtkdoc opt">-&gt;</span>window1<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-     <span class="comment">/* ... draw window1 ... */</span>
-  <span class="gtkdoc opt">}</span>
-<span class="keyword">if</span> <span class="gtkdoc opt">(</span><span class="function"><a href="GtkWidget.html#gtk-cairo-should-draw-window">gtk_cairo_should_draw_window</a></span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> widget<span class="gtkdoc opt">-&gt;</span>window2<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-     <span class="comment">/* ... draw window2 ... */</span>
-  <span class="gtkdoc opt">}</span>
-<span class="gtkdoc opt">...</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GtkWidget.html#gtk-cairo-should-draw-window">gtk_cairo_should_draw_window</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> widget</span><span class="symbol">-&gt;</span><span class="normal">window1</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">     </span><span class="comment">/* ... draw window1 ... */</span>
+<span class="normal">  </span><span class="cbracket">}</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GtkWidget.html#gtk-cairo-should-draw-window">gtk_cairo_should_draw_window</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> widget</span><span class="symbol">-&gt;</span><span class="normal">window2</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">     </span><span class="comment">/* ... draw window2 ... */</span>
+<span class="normal">  </span><span class="cbracket">}</span>
+<span class="symbol">...</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1109,12 +1109,12 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
       Another convenience function that can help when implementing
       ::draw for multi-window widgets is <a class="link" href="GtkWidget.html#gtk-cairo-transform-to-window" title="gtk_cairo_transform_to_window ()"><code class="function">gtk_cairo_transform_to_window()</code></a>,
       which transforms a cairo context from widget-relative coordinates
-      to window-relative coordinates. You may want to use <code class="function">cairo_save()</code> and
-      <code class="function">cairo_restore()</code> when modifying the cairo context in your draw function.
+      to window-relative coordinates. You may want to use <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-save"><code class="function">cairo_save()</code></a> and
+      <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-restore"><code class="function">cairo_restore()</code></a> when modifying the cairo context in your draw function.
     </p>
 <p>
       All GtkStyle drawing functions (<a class="link" href="GtkStyle.html#gtk-paint-box" title="gtk_paint_box ()"><code class="function">gtk_paint_box()</code></a>, etc) have been changed
-      to take a <span class="type">cairo_t</span> instead of a window and a clip area. ::draw
+      to take a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> instead of a window and a clip area. ::draw
       implementations will usually just use the cairo context that has been
       passed in for this.
     </p>
@@ -1144,26 +1144,26 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
 18
 19
 20</pre></td>
-        <td class="listing_code"><pre class="programlisting">gboolean
-<span class="function">gtk_arrow_draw</span> <span class="gtkdoc opt">(</span>GtkWidget <span class="gtkdoc opt">*</span>widget<span class="gtkdoc opt">,</span>
-                cairo_t   <span class="gtkdoc opt">*</span>cr<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkStyleContext <span class="gtkdoc opt">*</span>context<span class="gtkdoc opt">;</span>
-  gint x<span class="gtkdoc opt">,</span> y<span class="gtkdoc opt">;</span>
-  gint width<span class="gtkdoc opt">,</span> height<span class="gtkdoc opt">;</span>
-  gint extent<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean">gboolean</a></span>
+<span class="function">gtk_arrow_draw</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">widget</span><span class="symbol">,</span>
+<span class="normal">                </span><span class="usertype">cairo_t</span><span class="normal">   </span><span class="symbol">*</span><span class="normal">cr</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkStyleContext</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">context</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">gint</span><span class="normal"> x</span><span class="symbol">,</span><span class="normal"> y</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">gint</span><span class="normal"> width</span><span class="symbol">,</span><span class="normal"> height</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">gint</span><span class="normal"> extent</span><span class="symbol">;</span>
 
-  context <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidget.html#gtk-widget-get-style-context">gtk_widget_get_style_context</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">);</span>
+<span class="normal">  context </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-style-context">gtk_widget_get_style_context</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">);</span>
 
-  width <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidget.html#gtk-widget-get-allocated-width">gtk_widget_get_allocated_width</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">);</span>
-  height <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWidget.html#gtk-widget-get-allocated-height">gtk_widget_get_allocated_height</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">);</span>
+<span class="normal">  width </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-allocated-width">gtk_widget_get_allocated_width</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">);</span>
+<span class="normal">  height </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-allocated-height">gtk_widget_get_allocated_height</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">);</span>
 
-  extent <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#MIN:CAPS">MIN</a></span> <span class="gtkdoc opt">(</span>width <span class="gtkdoc opt">-</span> <span class="number">2</span> <span class="gtkdoc opt">*</span> PAD<span class="gtkdoc opt">,</span> height <span class="gtkdoc opt">-</span> <span class="number">2</span> <span class="gtkdoc opt">*</span> PAD<span class="gtkdoc opt">);</span>
-  x <span class="gtkdoc opt">=</span> PAD<span class="gtkdoc opt">;</span>
-  y <span class="gtkdoc opt">=</span> PAD<span class="gtkdoc opt">;</span>
+<span class="normal">  extent </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#MIN:CAPS">MIN</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">width </span><span class="symbol">-</span><span class="normal"> </span><span class="number">2</span><span class="normal"> </span><span class="symbol">*</span><span class="normal"> PAD</span><span class="symbol">,</span><span class="normal"> height </span><span class="symbol">-</span><span class="normal"> </span><span class="number">2</span><span class="normal"> </span><span class="symbol">*</span><span class="normal"> PAD</span><span class="symbol">);</span>
+<span class="normal">  x </span><span class="symbol">=</span><span class="normal"> PAD</span><span class="symbol">;</span>
+<span class="normal">  y </span><span class="symbol">=</span><span class="normal"> PAD</span><span class="symbol">;</span>
 
-  <span class="function"><a href="GtkStyleContext.html#gtk-render-arrow">gtk_render_arrow</a></span> <span class="gtkdoc opt">(</span>context<span class="gtkdoc opt">,</span> rc<span class="gtkdoc opt">,</span> G_PI <span class="gtkdoc opt">/</span> <span class="number">2</span><span class="gtkdoc opt">,</span> x<span class="gtkdoc opt">,</span> y<span class="gtkdoc opt">,</span> extent<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="function"><a href="GtkStyleContext.html#gtk-render-arrow">gtk_render_arrow</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> rc</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Numerical-Definitions.html#G-PI:CAPS">G_PI</a> </span><span class="symbol">/</span><span class="normal"> </span><span class="number">2</span><span class="symbol">,</span><span class="normal"> x</span><span class="symbol">,</span><span class="normal"> y</span><span class="symbol">,</span><span class="normal"> extent</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1285,9 +1285,9 @@ message_type <span class="gtkdoc opt">=</span> <span class="function"><a href="h
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkObjectClass <span class="gtkdoc opt">*</span>object_class <span class="gtkdoc opt">=</span> <span class="function">GTK_OBJECT_CLASS</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwc">class</span><span class="gtkdoc opt">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkObjectClass</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">object_class </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GTK_OBJECT_CLASS</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">class</span><span class="symbol">);</span>
 
-object_class<span class="gtkdoc opt">-&gt;</span>destroy <span class="gtkdoc opt">=</span> my_destroy<span class="gtkdoc opt">;</span></pre></td>
+<span class="normal">object_class</span><span class="symbol">-&gt;</span><span class="normal">destroy </span><span class="symbol">=</span><span class="normal"> my_destroy</span><span class="symbol">;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1303,9 +1303,9 @@ object_class<span class="gtkdoc opt">-&gt;</span>destroy <span class="gtkdoc opt
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkWidgetClass <span class="gtkdoc opt">*</span>widget_class <span class="gtkdoc opt">=</span> <span class="function">GTK_WIDGET_CLASS</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwc">class</span><span class="gtkdoc opt">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkWidgetClass</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">widget_class </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GTK_WIDGET_CLASS</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">class</span><span class="symbol">);</span>
 
-widget_class<span class="gtkdoc opt">-&gt;</span>destroy <span class="gtkdoc opt">=</span> my_destroy<span class="gtkdoc opt">;</span></pre></td>
+<span class="normal">widget_class</span><span class="symbol">-&gt;</span><span class="normal">destroy </span><span class="symbol">=</span><span class="normal"> my_destroy</span><span class="symbol">;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1412,6 +1412,6 @@ widget_class<span class="gtkdoc opt">-&gt;</span>destroy <span class="gtkdoc opt
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>
