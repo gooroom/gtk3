@@ -10296,11 +10296,13 @@ gtk_tree_view_draw_arrow (GtkTreeView *tree_view,
   gint x2;
   gint vertical_separator;
   GtkCellRendererState flags = 0;
+  gint expander_size;
 
   widget = GTK_WIDGET (tree_view);
   context = gtk_widget_get_style_context (widget);
 
   gtk_widget_style_get (widget,
+                        "expander-size", &expander_size,
                         "vertical-separator", &vertical_separator,
                         NULL);
 
@@ -10334,6 +10336,21 @@ gtk_tree_view_draw_arrow (GtkTreeView *tree_view,
 
   gtk_style_context_set_state (context, state);
   gtk_style_context_add_class (context, GTK_STYLE_CLASS_EXPANDER);
+
+  if (expander_size > 0)
+    {
+      if (expander_size < area.width && area.width % expander_size != 0)
+        {
+          area.x += (area.width % expander_size) / 2;
+          area.width = expander_size;
+        }
+
+      if (expander_size < area.height && area.height % expander_size != 0)
+        {
+          area.y += (area.height % expander_size) / 2;
+          area.height = expander_size;
+        }
+    }
 
   gtk_render_expander (context, cr,
                        area.x, area.y,
@@ -12402,7 +12419,7 @@ gtk_tree_view_move_column_after (GtkTreeView       *tree_view,
 /**
  * gtk_tree_view_set_expander_column:
  * @tree_view: A #GtkTreeView
- * @column: %NULL, or the column to draw the expander arrow at.
+ * @column: (nullable): %NULL, or the column to draw the expander arrow at.
  *
  * Sets the column to draw the expander arrow at. It must be in @tree_view.  
  * If @column is %NULL, then the expander arrow is always at the first 
@@ -14123,10 +14140,14 @@ gtk_tree_view_get_visible_range (GtkTreeView  *tree_view,
  * @tree_view: A #GtkTreeView
  * @x: The x position to be identified (relative to bin_window)
  * @y: The y position to be identified (relative to bin_window)
- * @path: (out) (allow-none): A pointer to a #GtkTreePath pointer to be filled in, or %NULL
- * @column: (out) (allow-none): A pointer to a #GtkTreeViewColumn pointer to be filled in, or %NULL
- * @cell_x: (out) (allow-none): A pointer where the X coordinate relative to the cell can be placed, or %NULL
- * @cell_y: (out) (allow-none): A pointer where the Y coordinate relative to the cell can be placed, or %NULL
+ * @path: (out) (optional) (nullable): A pointer to a #GtkTreePath pointer to
+ *   be filled in, or %NULL
+ * @column: (out) (transfer none) (optional) (nullable): A pointer to a
+ *   #GtkTreeViewColumn pointer to be filled in, or %NULL
+ * @cell_x: (out) (optional): A pointer where the X coordinate relative to the
+ *   cell can be placed, or %NULL
+ * @cell_y: (out) (optional): A pointer where the Y coordinate relative to the
+ *   cell can be placed, or %NULL
  *
  * Determine whether the point (@x, @y) in @tree_view is blank, that is no
  * cell content nor an expander arrow is drawn at the location. If so, the
@@ -14981,7 +15002,7 @@ gtk_tree_view_set_search_entry (GtkTreeView *tree_view,
 
   if (entry)
     {
-      tree_view->priv->search_entry = g_object_ref (entry);
+      tree_view->priv->search_entry = GTK_WIDGET (g_object_ref (entry));
       tree_view->priv->search_custom_entry_set = TRUE;
 
       if (tree_view->priv->search_entry_changed_id == 0)

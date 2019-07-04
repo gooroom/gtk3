@@ -53,7 +53,8 @@
 #ifdef AVAILABLE_MAC_OS_X_VERSION_10_7_AND_LATER
 -(void)setStyleMask:(NSUInteger)styleMask;
 #endif
-
+- (NSPoint)convertPointToScreen:(NSPoint)point;
+- (NSPoint)convertPointFromScreen:(NSPoint)point;
 @end
 
 

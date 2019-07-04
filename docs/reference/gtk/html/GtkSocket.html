@@ -8,7 +8,7 @@
 <link rel="up" href="PlugSocket.html" title="Cross-process Embedding">
 <link rel="prev" href="GtkPlug.html" title="GtkPlug">
 <link rel="next" href="RecentDocuments.html" title="Recently Used Documents">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -68,7 +68,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
+<a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkSocket.html#gtk-socket-get-plug-window" title="gtk_socket_get_plug_window ()">gtk_socket_get_plug_window</a> <span class="c_punctuation">()</span>
@@ -158,15 +158,15 @@ and for hence, have been added to its parent.</p>
 7
 8
 9</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkWidget <span class="gtkdoc opt">*</span>socket <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkSocket.html#gtk-socket-new">gtk_socket_new</a></span> <span class="gtkdoc opt">();</span>
-<span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span> <span class="gtkdoc opt">(</span>socket<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CONTAINER</span> <span class="gtkdoc opt">(</span>parent<span class="gtkdoc opt">),</span> socket<span class="gtkdoc opt">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">socket </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkSocket.html#gtk-socket-new">gtk_socket_new</a></span><span class="normal"> </span><span class="symbol">();</span>
+<span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">socket</span><span class="symbol">);</span>
+<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">parent</span><span class="symbol">),</span><span class="normal"> socket</span><span class="symbol">);</span>
 
-<span class="gtkdoc slc">// The following call is only necessary if one of</span>
-<span class="gtkdoc slc">// the ancestors of the socket is not yet visible.</span>
-<span class="function"><a href="GtkWidget.html#gtk-widget-realize">gtk_widget_realize</a></span> <span class="gtkdoc opt">(</span>socket<span class="gtkdoc opt">);</span>
-<span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Warnings-and-Assertions.html#g-print">g_print</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;The ID of the sockets window is %#x</span><span class="gtkdoc esc">\n</span><span class="string">&quot;</span><span class="gtkdoc opt">,</span>
-         <span class="function"><a href="GtkSocket.html#gtk-socket-get-id">gtk_socket_get_id</a></span> <span class="gtkdoc opt">(</span>socket<span class="gtkdoc opt">));</span></pre></td>
+<span class="comment">// The following call is only necessary if one of</span>
+<span class="comment">// the ancestors of the socket is not yet visible.</span>
+<span class="function"><a href="GtkWidget.html#gtk-widget-realize">gtk_widget_realize</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">socket</span><span class="symbol">);</span>
+<span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Warnings-and-Assertions.html#g-print">g_print</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"The ID of the sockets window is %#x</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span>
+<span class="normal">         </span><span class="function"><a href="GtkSocket.html#gtk-socket-get-id">gtk_socket_get_id</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">socket</span><span class="symbol">));</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -193,7 +193,7 @@ This protocol has also been implemented in other toolkits, e.g. Qt,
 allowing the same level of integration when embedding a Qt widget
 in GTK or vice versa.</p>
 <p>The <a class="link" href="GtkPlug.html" title="GtkPlug"><span class="type">GtkPlug</span></a> and <a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a> widgets are only available when GTK+
-is compiled for the X11 platform and <a href="http://developer.gnome.org/gdk3/gdk4-General.html#GDK-WINDOWING-X11:CAPS"><code class="literal">GDK_WINDOWING_X11</code></a> is defined.
+is compiled for the X11 platform and <a href="https://developer.gnome.org/gdk3/gdk3-General.html#GDK-WINDOWING-X11:CAPS"><code class="literal">GDK_WINDOWING_X11</code></a> is defined.
 They can only be used on a <span class="type">GdkX11Display</span>. To use <a class="link" href="GtkPlug.html" title="GtkPlug"><span class="type">GtkPlug</span></a> and
 <a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a>, you need to include the <code class="literal">gtk/gtkx.h</code> header.</p>
 </div>
@@ -282,7 +282,7 @@ before you can make this call.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-socket-get-plug-window"></a><h3>gtk_socket_get_plug_window ()</h3>
-<pre class="programlisting"><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
 gtk_socket_get_plug_window (<em class="parameter"><code><a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a> *socket_</code></em>);</pre>
 <p>Retrieves the window of the plug. Use this to check if the plug has
 been created inside of the socket.</p>
@@ -303,7 +303,7 @@ been created inside of the socket.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-socket-get-plug-window.returns"></a><h4>Returns</h4>
-<p> the window of the plug if
+<p>the window of the plug if
 available, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -396,6 +396,6 @@ want to reuse it you must add a signal handler that returns <a href="https://dev
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

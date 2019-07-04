@@ -16,6 +16,7 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "config.h"
 #import "GdkQuartzNSWindow.h"
 #include "gdkquartzwindow.h"
 #include "gdkdnd-quartz.h"
@@ -119,6 +120,13 @@
   inMove = YES;
 }
 
+
+#ifdef AVAILABLE_MAC_OS_X_VERSION_10_12_AND_LATER
+#define NSLeftMouseUp NSEventTypeLeftMouseUp
+#define NSLeftMouseDragged NSEventTypeLeftMouseDragged
+#define NSMouseEntered NSEventTypeMouseEntered
+#endif
+
 -(void)sendEvent:(NSEvent *)event
 {
   switch ([event type])
@@ -188,7 +196,6 @@
   GdkWindow *window = [[self contentView] gdkWindow];
   GdkEvent *event;
 
-  GdkWindowImplQuartz *impl = GDK_WINDOW_IMPL_QUARTZ (window->impl);
   gboolean maximized = gdk_window_get_state (window) & GDK_WINDOW_STATE_MAXIMIZED;
 
   /* In case the window is changed when maximized remove the maximized state */
@@ -219,7 +226,6 @@
   NSRect content_rect = [self contentRectForFrameRect:[self frame]];
   GdkWindow *window = [[self contentView] gdkWindow];
   GdkEvent *event;
-  GdkWindowImplQuartz *impl = GDK_WINDOW_IMPL_QUARTZ (window->impl);
   gboolean maximized = gdk_window_get_state (window) & GDK_WINDOW_STATE_MAXIMIZED;
 
   /* see same in windowDidMove */
@@ -255,7 +261,15 @@
   [self checkSendEnterNotify];
 }
 
--(id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)styleMask backing:(NSBackingStoreType)backingType defer:(BOOL)flag screen:(NSScreen *)screen
+-(id)initWithContentRect:(NSRect)contentRect
+#if MAC_OS_X_VERSION_MIN_REQUIRED < 101200
+               styleMask:(NSUInteger)styleMask
+#else
+               styleMask:(NSWindowStyleMask)styleMask
+#endif
+                 backing:(NSBackingStoreType)backingType
+                   defer:(BOOL)flag
+                  screen:(NSScreen *)screen
 {
   self = [super initWithContentRect:contentRect
 	                  styleMask:styleMask
@@ -366,6 +380,46 @@
   initialPositionKnown = NO;
 }
 
+- (NSPoint)convertPointToScreen:(NSPoint)point
+{
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
+  if (gdk_quartz_osx_version () >= GDK_OSX_MOJAVE)
+    {
+      return [super convertPointToScreen: point];
+    }
+#endif
+  if (gdk_quartz_osx_version () >= GDK_OSX_LION)
+    {
+      NSRect inrect = NSMakeRect (point.x, point.y, 0.0, 0.0);
+      NSRect outrect = [self convertRectToScreen: inrect];
+      return (NSPoint)((CGRect)outrect).origin;
+    }
+
+#if MAC_OS_X_VERSION_MIN_REQUIRED < 1070
+  return [self convertBaseToScreen:point];
+#endif
+}
+
+- (NSPoint)convertPointFromScreen:(NSPoint)point
+{
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
+  if (gdk_quartz_osx_version () >= GDK_OSX_MOJAVE)
+    {
+      return [super convertPointFromScreen: point];
+    }
+#endif
+  if (gdk_quartz_osx_version () >= GDK_OSX_LION)
+    {
+      NSRect inrect = NSMakeRect (point.x, point.y, 0.0, 0.0);
+      NSRect outrect = [self convertRectFromScreen: inrect];
+      return (NSPoint)((CGRect)outrect).origin;
+    }
+
+#if MAC_OS_X_VERSION_MIN_REQUIRED < 1070
+  return [self convertScreenToBase:point];
+#endif
+}
+
 - (BOOL)trackManualMove
 {
   GdkWindow *window = [[self contentView] gdkWindow];
@@ -378,7 +432,7 @@
   if (!inManualMove)
     return NO;
 
-  currentLocation = [self convertBaseToScreen:[self mouseLocationOutsideOfEventStream]];
+  currentLocation = [self convertPointToScreen:[self mouseLocationOutsideOfEventStream]];
   newOrigin.x = currentLocation.x - initialMoveLocation.x;
   newOrigin.y = currentLocation.y - initialMoveLocation.y;
 
@@ -409,7 +463,7 @@
 
   inManualMove = YES;
 
-  initialMoveLocation = [self convertBaseToScreen:[self mouseLocationOutsideOfEventStream]];
+  initialMoveLocation = [self convertPointToScreen:[self mouseLocationOutsideOfEventStream]];
   initialMoveLocation.x -= frame.origin.x;
   initialMoveLocation.y -= frame.origin.y;
 }
@@ -425,8 +479,7 @@
     return NO;
 
   inTrackManualResize = YES;
-
-  mouse_location = [self convertBaseToScreen:[self mouseLocationOutsideOfEventStream]];
+  mouse_location = [self convertPointToScreen:[self mouseLocationOutsideOfEventStream]];
   mdx = initialResizeLocation.x - mouse_location.x;
   mdy = initialResizeLocation.y - mouse_location.y;
 
@@ -511,7 +564,7 @@
   resizeEdge = edge;
 
   initialResizeFrame = [self frame];
-  initialResizeLocation = [self convertBaseToScreen:[self mouseLocationOutsideOfEventStream]];
+  initialResizeLocation = [self convertPointToScreen:[self mouseLocationOutsideOfEventStream]];
 }
 
 
@@ -577,7 +630,7 @@ update_context_from_dragging_info (id <NSDraggingInfo> sender)
 
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
 {
-  GdkDeviceManager *device_manager;
+  GdkSeat *seat = NULL;
   GdkEvent *event;
   GdkWindow *window;
 
@@ -591,10 +644,8 @@ update_context_from_dragging_info (id <NSDraggingInfo> sender)
 
   current_context->display = gdk_window_get_display (window);
 
-  device_manager = gdk_display_get_device_manager (gdk_display_get_default ());
-  gdk_drag_context_set_device (current_context,
-                               gdk_device_manager_get_client_pointer (device_manager));
-
+  seat = gdk_display_get_default_seat (gdk_display_get_default ());
+  gdk_drag_context_set_device (current_context, gdk_seat_get_pointer (seat));
   event = gdk_event_new (GDK_DRAG_ENTER);
   event->dnd.window = g_object_ref (window);
   event->dnd.send_event = FALSE;
@@ -646,7 +697,7 @@ update_context_from_dragging_info (id <NSDraggingInfo> sender)
 - (NSDragOperation)draggingUpdated:(id <NSDraggingInfo>)sender
 {
   NSPoint point = [sender draggingLocation];
-  NSPoint screen_point = [self convertBaseToScreen:point];
+  NSPoint screen_point = [self convertPointToScreen:point];
   GdkEvent *event;
   int gx, gy;
 
@@ -674,7 +725,7 @@ update_context_from_dragging_info (id <NSDraggingInfo> sender)
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)sender
 {
   NSPoint point = [sender draggingLocation];
-  NSPoint screen_point = [self convertBaseToScreen:point];
+  NSPoint screen_point = [self convertPointToScreen:point];
   GdkEvent *event;
   int gy, gx;
 
@@ -760,17 +811,27 @@ update_context_from_dragging_info (id <NSDraggingInfo> sender)
 }
 
 #ifdef AVAILABLE_MAC_OS_X_VERSION_10_7_AND_LATER
-
+#if MAC_OS_X_VERSION_MIN_REQUIRED < 101200
+typedef enum
+{
+ GDK_QUARTZ_FULL_SCREEN_MASK = NSFullScreenWindowMask,
+} GdkQuartzFullScreen;
+#else
+typedef enum
+{
+ GDK_QUARTZ_FULL_SCREEN_MASK = NSWindowStyleMaskFullScreen,
+} GdkQuartzFullScreen;
+#endif
 - (void)setStyleMask:(NSUInteger)styleMask
 {
   gboolean was_fullscreen;
   gboolean is_fullscreen;
 
-  was_fullscreen = (([self styleMask] & NSFullScreenWindowMask) != 0);
+  was_fullscreen = (([self styleMask] & GDK_QUARTZ_FULL_SCREEN_MASK) != 0);
 
   [super setStyleMask:styleMask];
 
-  is_fullscreen = (([self styleMask] & NSFullScreenWindowMask) != 0);
+  is_fullscreen = (([self styleMask] & GDK_QUARTZ_FULL_SCREEN_MASK) != 0);
 
   if (was_fullscreen != is_fullscreen)
     _gdk_quartz_window_update_fullscreen_state ([[self contentView] gdkWindow]);
@@ -799,7 +860,6 @@ update_context_from_dragging_info (id <NSDraggingInfo> sender)
 {
   NSRect screenFrame = [[self screen] visibleFrame];
   GdkWindow *window = [[self contentView] gdkWindow];
-  GdkWindowImplQuartz *impl = GDK_WINDOW_IMPL_QUARTZ (window->impl);
   gboolean maximized = gdk_window_get_state (window) & GDK_WINDOW_STATE_MAXIMIZED;
 
   if (!maximized)
@@ -813,7 +873,6 @@ update_context_from_dragging_info (id <NSDraggingInfo> sender)
 {
 
   GdkWindow *window = [[self contentView] gdkWindow];
-  GdkWindowImplQuartz *impl = GDK_WINDOW_IMPL_QUARTZ (window->impl);
   gboolean maximized = gdk_window_get_state (window) & GDK_WINDOW_STATE_MAXIMIZED;
 
   if (maximized)

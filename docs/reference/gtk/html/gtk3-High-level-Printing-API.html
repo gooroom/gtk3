@@ -8,7 +8,7 @@
 <link rel="up" href="Printing.html" title="Printing">
 <link rel="prev" href="Printing.html" title="Printing">
 <link rel="next" href="GtkPrintContext.html" title="GtkPrintContext">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -566,7 +566,7 @@
 </div>
 <div class="refsect1">
 <a name="gtk3-High-level-Printing-API.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/GTypeModule.html">GInterface</a>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/GTypeModule.html">GInterface</a>
     <span class="lineart">╰──</span> GtkPrintOperationPreview
     <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkPrintOperation
@@ -649,34 +649,34 @@ and render the page on the provided <a class="link" href="GtkPrintContext.html" 
 26
 27
 28</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static</span> GtkPrintSettings <span class="gtkdoc opt">*</span>settings <span class="gtkdoc opt">=</span> NULL<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="usertype">GtkPrintSettings</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">settings </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
 
-<span class="gtkdoc kwb">static void</span>
-<span class="function">do_print</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwb">void</span><span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkPrintOperation <span class="gtkdoc opt">*</span>print<span class="gtkdoc opt">;</span>
-  GtkPrintOperationResult res<span class="gtkdoc opt">;</span>
+<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">do_print</span><span class="normal"> </span><span class="symbol">(</span><span class="type">void</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkPrintOperation</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">print</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkPrintOperationResult</span><span class="normal"> res</span><span class="symbol">;</span>
 
-  print <span class="gtkdoc opt">=</span> <span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-new">gtk_print_operation_new</a></span> <span class="gtkdoc opt">();</span>
+<span class="normal">  print </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-new">gtk_print_operation_new</a></span><span class="normal"> </span><span class="symbol">();</span>
 
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>settings <span class="gtkdoc opt">!=</span> NULL<span class="gtkdoc opt">)</span>
-    <span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-set-print-settings">gtk_print_operation_set_print_settings</a></span> <span class="gtkdoc opt">(</span>print<span class="gtkdoc opt">,</span> settings<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">settings </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
+<span class="normal">    </span><span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-set-print-settings">gtk_print_operation_set_print_settings</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">print</span><span class="symbol">,</span><span class="normal"> settings</span><span class="symbol">);</span>
 
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>print<span class="gtkdoc opt">,</span> <span class="string">&quot;begin_print&quot;</span><span class="gtkdoc opt">,</span> <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>begin_print<span class="gtkdoc opt">),</span> NULL<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>print<span class="gtkdoc opt">,</span> <span class="string">&quot;draw_page&quot;</span><span class="gtkdoc opt">,</span> <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>draw_page<span class="gtkdoc opt">),</span> NULL<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">print</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"begin_print"</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">begin_print</span><span class="symbol">),</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">print</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"draw_page"</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">draw_page</span><span class="symbol">),</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 
-  res <span class="gtkdoc opt">=</span> <span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-run">gtk_print_operation_run</a></span> <span class="gtkdoc opt">(</span>print<span class="gtkdoc opt">,</span> GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG<span class="gtkdoc opt">,</span>
-                                 <span class="function">GTK_WINDOW</span> <span class="gtkdoc opt">(</span>main_window<span class="gtkdoc opt">),</span> NULL<span class="gtkdoc opt">);</span>
+<span class="normal">  res </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-run">gtk_print_operation_run</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">print</span><span class="symbol">,</span><span class="normal"> <a href="gtk3-High-level-Printing-API.html#GTK-PRINT-OPERATION-ACTION-PRINT-DIALOG:CAPS">GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG</a></span><span class="symbol">,</span>
+<span class="normal">                                 </span><span class="function">GTK_WINDOW</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">main_window</span><span class="symbol">),</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>res <span class="gtkdoc opt">==</span> GTK_PRINT_OPERATION_RESULT_APPLY<span class="gtkdoc opt">)</span>
-    <span class="gtkdoc opt">{</span>
-      <span class="keyword">if</span> <span class="gtkdoc opt">(</span>settings <span class="gtkdoc opt">!=</span> NULL<span class="gtkdoc opt">)</span>
-        <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>settings<span class="gtkdoc opt">);</span>
-      settings <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-ref">g_object_ref</a></span> <span class="gtkdoc opt">(</span><span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-get-print-settings">gtk_print_operation_get_print_settings</a></span> <span class="gtkdoc opt">(</span>print<span class="gtkdoc opt">));</span>
-    <span class="gtkdoc opt">}</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">res </span><span class="symbol">==</span><span class="normal"> <a href="gtk3-High-level-Printing-API.html#GTK-PRINT-OPERATION-RESULT-APPLY:CAPS">GTK_PRINT_OPERATION_RESULT_APPLY</a></span><span class="symbol">)</span>
+<span class="normal">    </span><span class="cbracket">{</span>
+<span class="normal">      </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">settings </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
+<span class="normal">        </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">settings</span><span class="symbol">);</span>
+<span class="normal">      settings </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-ref">g_object_ref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-get-print-settings">gtk_print_operation_get_print_settings</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">print</span><span class="symbol">));</span>
+<span class="normal">    </span><span class="cbracket">}</span>
 
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>print<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">print</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -801,7 +801,7 @@ to the <a class="link" href="gtk3-High-level-Printing-API.html#GtkPrintOperation
 </tr>
 <tr>
 <td class="parameter_name"><p>default_page_setup</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkPageSetup.html" title="GtkPageSetup"><span class="type">GtkPageSetup</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkPageSetup.html" title="GtkPageSetup"><span class="type">GtkPageSetup</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -834,7 +834,7 @@ gtk_print_operation_get_default_page_setup
 </div>
 <div class="refsect3">
 <a name="gtk-print-operation-get-default-page-setup.returns"></a><h4>Returns</h4>
-<p> the default page setup. </p>
+<p>the default page setup. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.10</p>
@@ -866,7 +866,7 @@ see <a class="link" href="gtk3-High-level-Printing-API.html#gtk-print-operation-
 </tr>
 <tr>
 <td class="parameter_name"><p>print_settings</p></td>
-<td class="parameter_description"><p> <a class="link" href="GtkPrintSettings.html" title="GtkPrintSettings"><span class="type">GtkPrintSettings</span></a>. </p></td>
+<td class="parameter_description"><p><a class="link" href="GtkPrintSettings.html" title="GtkPrintSettings"><span class="type">GtkPrintSettings</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -901,7 +901,7 @@ gtk_print_operation_get_print_settings
 </div>
 <div class="refsect3">
 <a name="gtk-print-operation-get-print-settings.returns"></a><h4>Returns</h4>
-<p> the current print settings of <em class="parameter"><code>op</code></em>
+<p>the current print settings of <em class="parameter"><code>op</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1151,7 +1151,7 @@ of printers in the print dialog.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>filename</p></td>
-<td class="parameter_description"><p> the filename for the exported file. </p></td>
+<td class="parameter_description"><p>the filename for the exported file. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 </tbody>
@@ -1253,7 +1253,7 @@ gtk_print_operation_set_custom_tab_label
 </tr>
 <tr>
 <td class="parameter_name"><p>label</p></td>
-<td class="parameter_description"><p> the label to use, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default label. </p></td>
+<td class="parameter_description"><p>the label to use, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default label. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1322,41 +1322,41 @@ the print succeeds or fails).</p>
 33
 34
 35</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span> <span class="gtkdoc opt">(</span>settings <span class="gtkdoc opt">!=</span> NULL<span class="gtkdoc opt">)</span>
-  <span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-set-print-settings">gtk_print_operation_set_print_settings</a></span> <span class="gtkdoc opt">(</span>print<span class="gtkdoc opt">,</span> settings<span class="gtkdoc opt">);</span>
-  
-<span class="keyword">if</span> <span class="gtkdoc opt">(</span>page_setup <span class="gtkdoc opt">!=</span> NULL<span class="gtkdoc opt">)</span>
-  <span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-set-default-page-setup">gtk_print_operation_set_default_page_setup</a></span> <span class="gtkdoc opt">(</span>print<span class="gtkdoc opt">,</span> page_setup<span class="gtkdoc opt">);</span>
-  
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>print<span class="gtkdoc opt">,</span> <span class="string">&quot;begin-print&quot;</span><span class="gtkdoc opt">,</span> 
-                  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>begin_print<span class="gtkdoc opt">), &amp;</span>data<span class="gtkdoc opt">);</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>print<span class="gtkdoc opt">,</span> <span class="string">&quot;draw-page&quot;</span><span class="gtkdoc opt">,</span> 
-                  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>draw_page<span class="gtkdoc opt">), &amp;</span>data<span class="gtkdoc opt">);</span>
- 
-res <span class="gtkdoc opt">=</span> <span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-run">gtk_print_operation_run</a></span> <span class="gtkdoc opt">(</span>print<span class="gtkdoc opt">,</span> 
-                               GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG<span class="gtkdoc opt">,</span> 
-                               parent<span class="gtkdoc opt">,</span> 
-                               <span class="gtkdoc opt">&amp;</span>error<span class="gtkdoc opt">);</span>
- 
-<span class="keyword">if</span> <span class="gtkdoc opt">(</span>res <span class="gtkdoc opt">==</span> GTK_PRINT_OPERATION_RESULT_ERROR<span class="gtkdoc opt">)</span>
- <span class="gtkdoc opt">{</span>
-   error_dialog <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkMessageDialog.html#gtk-message-dialog-new">gtk_message_dialog_new</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_WINDOW</span> <span class="gtkdoc opt">(</span>parent<span class="gtkdoc opt">),</span>
-  			                     GTK_DIALOG_DESTROY_WITH_PARENT<span class="gtkdoc opt">,</span>
-					     GTK_MESSAGE_ERROR<span class="gtkdoc opt">,</span>
-					     GTK_BUTTONS_CLOSE<span class="gtkdoc opt">,</span>
-					     <span class="string">&quot;Error printing file:</span><span class="gtkdoc esc">\n</span><span class="string">%s&quot;</span><span class="gtkdoc opt">,</span>
-					     error<span class="gtkdoc opt">-&gt;</span>message<span class="gtkdoc opt">);</span>
-   <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>error_dialog<span class="gtkdoc opt">,</span> <span class="string">&quot;response&quot;</span><span class="gtkdoc opt">,</span> 
-                     <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>gtk_widget_destroy<span class="gtkdoc opt">),</span> NULL<span class="gtkdoc opt">);</span>
-   <span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span> <span class="gtkdoc opt">(</span>error_dialog<span class="gtkdoc opt">);</span>
-   <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#g-error-free">g_error_free</a></span> <span class="gtkdoc opt">(</span>error<span class="gtkdoc opt">);</span>
- <span class="gtkdoc opt">}</span>
-<span class="keyword">else if</span> <span class="gtkdoc opt">(</span>res <span class="gtkdoc opt">==</span> GTK_PRINT_OPERATION_RESULT_APPLY<span class="gtkdoc opt">)</span>
- <span class="gtkdoc opt">{</span>
-   <span class="keyword">if</span> <span class="gtkdoc opt">(</span>settings <span class="gtkdoc opt">!=</span> NULL<span class="gtkdoc opt">)</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>settings<span class="gtkdoc opt">);</span>
-   settings <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-ref">g_object_ref</a></span> <span class="gtkdoc opt">(</span><span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-get-print-settings">gtk_print_operation_get_print_settings</a></span> <span class="gtkdoc opt">(</span>print<span class="gtkdoc opt">));</span>
- <span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">settings </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
+<span class="normal">  </span><span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-set-print-settings">gtk_print_operation_set_print_settings</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">print</span><span class="symbol">,</span><span class="normal"> settings</span><span class="symbol">);</span>
+<span class="normal">  </span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">page_setup </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
+<span class="normal">  </span><span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-set-default-page-setup">gtk_print_operation_set_default_page_setup</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">print</span><span class="symbol">,</span><span class="normal"> page_setup</span><span class="symbol">);</span>
+<span class="normal">  </span>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">print</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"begin-print"</span><span class="symbol">,</span><span class="normal"> </span>
+<span class="normal">                  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">begin_print</span><span class="symbol">),</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">data</span><span class="symbol">);</span>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">print</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"draw-page"</span><span class="symbol">,</span><span class="normal"> </span>
+<span class="normal">                  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">draw_page</span><span class="symbol">),</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">data</span><span class="symbol">);</span>
+<span class="normal"> </span>
+<span class="normal">res </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-run">gtk_print_operation_run</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">print</span><span class="symbol">,</span><span class="normal"> </span>
+<span class="normal">                               GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG</span><span class="symbol">,</span><span class="normal"> </span>
+<span class="normal">                               parent</span><span class="symbol">,</span><span class="normal"> </span>
+<span class="normal">                               </span><span class="symbol">&amp;</span><span class="normal">error</span><span class="symbol">);</span>
+<span class="normal"> </span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">res </span><span class="symbol">==</span><span class="normal"> <a href="gtk3-High-level-Printing-API.html#GTK-PRINT-OPERATION-RESULT-ERROR:CAPS">GTK_PRINT_OPERATION_RESULT_ERROR</a></span><span class="symbol">)</span>
+<span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">   error_dialog </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkMessageDialog.html#gtk-message-dialog-new">gtk_message_dialog_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WINDOW</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">parent</span><span class="symbol">),</span>
+<span class="normal">                                 <a href="GtkDialog.html#GTK-DIALOG-DESTROY-WITH-PARENT:CAPS">GTK_DIALOG_DESTROY_WITH_PARENT</a></span><span class="symbol">,</span>
+<span class="normal">                         <a href="GtkMessageDialog.html#GTK-MESSAGE-ERROR:CAPS">GTK_MESSAGE_ERROR</a></span><span class="symbol">,</span>
+<span class="normal">                         <a href="GtkMessageDialog.html#GTK-BUTTONS-CLOSE:CAPS">GTK_BUTTONS_CLOSE</a></span><span class="symbol">,</span>
+<span class="normal">                         </span><span class="string">"Error printing file:</span><span class="specialchar">\n</span><span class="string">%s"</span><span class="symbol">,</span>
+<span class="normal">                         error</span><span class="symbol">-&gt;</span><span class="normal">message</span><span class="symbol">);</span>
+<span class="normal">   </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error_dialog</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"response"</span><span class="symbol">,</span><span class="normal"> </span>
+<span class="normal">                     </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="GtkWidget.html#gtk-widget-destroy">gtk_widget_destroy</a></span><span class="symbol">),</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">   </span><span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error_dialog</span><span class="symbol">);</span>
+<span class="normal">   </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#g-error-free">g_error_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error</span><span class="symbol">);</span>
+<span class="normal"> </span><span class="cbracket">}</span>
+<span class="keyword">else</span><span class="normal"> </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">res </span><span class="symbol">==</span><span class="normal"> <a href="gtk3-High-level-Printing-API.html#GTK-PRINT-OPERATION-RESULT-APPLY:CAPS">GTK_PRINT_OPERATION_RESULT_APPLY</a></span><span class="symbol">)</span>
+<span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">   </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">settings </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">settings</span><span class="symbol">);</span>
+<span class="normal">   settings </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-ref">g_object_ref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="gtk3-High-level-Printing-API.html#gtk-print-operation-get-print-settings">gtk_print_operation_get_print_settings</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">print</span><span class="symbol">));</span>
+<span class="normal"> </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1386,12 +1386,12 @@ given <a class="link" href="gtk3-High-level-Printing-API.html#GtkPrintOperation"
 </tr>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p> Transient parent of the dialog. </p></td>
+<td class="parameter_description"><p>Transient parent of the dialog. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> Return location for errors, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>Return location for errors, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1792,12 +1792,12 @@ a problem.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p> transient parent. </p></td>
+<td class="parameter_description"><p>transient parent. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>page_setup</p></td>
-<td class="parameter_description"><p> an existing <a class="link" href="GtkPageSetup.html" title="GtkPageSetup"><span class="type">GtkPageSetup</span></a>. </p></td>
+<td class="parameter_description"><p>an existing <a class="link" href="GtkPageSetup.html" title="GtkPageSetup"><span class="type">GtkPageSetup</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -1810,7 +1810,7 @@ a problem.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-print-run-page-setup-dialog.returns"></a><h4>Returns</h4>
-<p> a new <a class="link" href="GtkPageSetup.html" title="GtkPageSetup"><span class="type">GtkPageSetup</span></a>. </p>
+<p>a new <a class="link" href="GtkPageSetup.html" title="GtkPageSetup"><span class="type">GtkPageSetup</span></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.10</p>
@@ -1842,7 +1842,7 @@ is dismissed, and also serves as destroy notify for <em class="parameter"><code>
 </tr>
 <tr>
 <td class="parameter_name"><p>data</p></td>
-<td class="parameter_description"><p> user data that has been passed to
+<td class="parameter_description"><p>user data that has been passed to
 <a class="link" href="gtk3-High-level-Printing-API.html#gtk-print-run-page-setup-dialog-async" title="gtk_print_run_page_setup_dialog_async ()"><code class="function">gtk_print_run_page_setup_dialog_async()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
@@ -1876,12 +1876,12 @@ from a signal handler for the ::response signal of the dialog.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p> transient parent, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>transient parent, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>page_setup</p></td>
-<td class="parameter_description"><p> an existing <a class="link" href="GtkPageSetup.html" title="GtkPageSetup"><span class="type">GtkPageSetup</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>an existing <a class="link" href="GtkPageSetup.html" title="GtkPageSetup"><span class="type">GtkPageSetup</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -1891,7 +1891,7 @@ from a signal handler for the ::response signal of the dialog.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>done_cb</p></td>
-<td class="parameter_description"><p> a function to call when the user saves
+<td class="parameter_description"><p>a function to call when the user saves
 the modified page setup. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span></td>
 </tr>
@@ -2717,7 +2717,7 @@ information you need from the widgets.</p>
 </div>
 <div class="refsect3">
 <a name="GtkPrintOperation-create-custom-widget.returns"></a><h4>Returns</h4>
-<p> A custom widget that gets embedded in
+<p>A custom widget that gets embedded in
 the print dialog, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -2874,44 +2874,44 @@ from <em class="parameter"><code>context</code></em>
 36
 37
 38</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">draw_page</span> <span class="gtkdoc opt">(</span>GtkPrintOperation <span class="gtkdoc opt">*</span>operation<span class="gtkdoc opt">,</span>
-           GtkPrintContext   <span class="gtkdoc opt">*</span>context<span class="gtkdoc opt">,</span>
-           gint               page_nr<span class="gtkdoc opt">,</span>
-           gpointer           user_data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  cairo_t <span class="gtkdoc opt">*</span>cr<span class="gtkdoc opt">;</span>
-  PangoLayout <span class="gtkdoc opt">*</span>layout<span class="gtkdoc opt">;</span>
-  gdouble width<span class="gtkdoc opt">,</span> text_height<span class="gtkdoc opt">;</span>
-  gint layout_height<span class="gtkdoc opt">;</span>
-  PangoFontDescription <span class="gtkdoc opt">*</span>desc<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">draw_page</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkPrintOperation</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">operation</span><span class="symbol">,</span>
+<span class="normal">           </span><span class="usertype">GtkPrintContext</span><span class="normal">   </span><span class="symbol">*</span><span class="normal">context</span><span class="symbol">,</span>
+<span class="normal">           </span><span class="usertype">gint</span><span class="normal">               page_nr</span><span class="symbol">,</span>
+<span class="normal">           </span><span class="usertype">gpointer</span><span class="normal">           user_data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">cairo_t</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">cr</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">PangoLayout</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">layout</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">gdouble</span><span class="normal"> width</span><span class="symbol">,</span><span class="normal"> text_height</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">gint</span><span class="normal"> layout_height</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">PangoFontDescription</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">desc</span><span class="symbol">;</span>
 
-  cr <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkPrintContext.html#gtk-print-context-get-cairo-context">gtk_print_context_get_cairo_context</a></span> <span class="gtkdoc opt">(</span>context<span class="gtkdoc opt">);</span>
-  width <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkPrintContext.html#gtk-print-context-get-width">gtk_print_context_get_width</a></span> <span class="gtkdoc opt">(</span>context<span class="gtkdoc opt">);</span>
+<span class="normal">  cr </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkPrintContext.html#gtk-print-context-get-cairo-context">gtk_print_context_get_cairo_context</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">);</span>
+<span class="normal">  width </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkPrintContext.html#gtk-print-context-get-width">gtk_print_context_get_width</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">);</span>
 
-  <span class="function">cairo_rectangle</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">,</span> width<span class="gtkdoc opt">,</span> HEADER_HEIGHT<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-Paths.html#cairo-rectangle">cairo_rectangle</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> width</span><span class="symbol">,</span><span class="normal"> HEADER_HEIGHT</span><span class="symbol">);</span>
 
-  <span class="function">cairo_set_source_rgb</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> <span class="number">0.8</span><span class="gtkdoc opt">,</span> <span class="number">0.8</span><span class="gtkdoc opt">,</span> <span class="number">0.8</span><span class="gtkdoc opt">);</span>
-  <span class="function">cairo_fill</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-set-source-rgb">cairo_set_source_rgb</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.8</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.8</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.8</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-fill">cairo_fill</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">);</span>
 
-  layout <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkPrintContext.html#gtk-print-context-create-pango-layout">gtk_print_context_create_pango_layout</a></span> <span class="gtkdoc opt">(</span>context<span class="gtkdoc opt">);</span>
+<span class="normal">  layout </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkPrintContext.html#gtk-print-context-create-pango-layout">gtk_print_context_create_pango_layout</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">);</span>
 
-  desc <span class="gtkdoc opt">=</span> <span class="function"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string">pango_font_description_from_string</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;sans 14&quot;</span><span class="gtkdoc opt">);</span>
-  <span class="function"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-set-font-description">pango_layout_set_font_description</a></span> <span class="gtkdoc opt">(</span>layout<span class="gtkdoc opt">,</span> desc<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-free">pango_font_description_free</a></span> <span class="gtkdoc opt">(</span>desc<span class="gtkdoc opt">);</span>
+<span class="normal">  desc </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string">pango_font_description_from_string</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"sans 14"</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-set-font-description">pango_layout_set_font_description</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">layout</span><span class="symbol">,</span><span class="normal"> desc</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-free">pango_font_description_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">desc</span><span class="symbol">);</span>
 
-  <span class="function"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-set-text">pango_layout_set_text</a></span> <span class="gtkdoc opt">(</span>layout<span class="gtkdoc opt">,</span> <span class="string">&quot;some text&quot;</span><span class="gtkdoc opt">, -</span><span class="number">1</span><span class="gtkdoc opt">);</span>
-  <span class="function"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-set-width">pango_layout_set_width</a></span> <span class="gtkdoc opt">(</span>layout<span class="gtkdoc opt">,</span> width <span class="gtkdoc opt">*</span> PANGO_SCALE<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-set-alignment">pango_layout_set_alignment</a></span> <span class="gtkdoc opt">(</span>layout<span class="gtkdoc opt">,</span> PANGO_ALIGN_CENTER<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-set-text">pango_layout_set_text</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">layout</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"some text"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-set-width">pango_layout_set_width</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">layout</span><span class="symbol">,</span><span class="normal"> width </span><span class="symbol">*</span><span class="normal"> <a href="/usr/share/gtk-doc/html/pango/pango-Glyph-Storage.html#PANGO-SCALE:CAPS">PANGO_SCALE</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-set-alignment">pango_layout_set_alignment</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">layout</span><span class="symbol">,</span><span class="normal"> <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PANGO-ALIGN-CENTER:CAPS">PANGO_ALIGN_CENTER</a></span><span class="symbol">);</span>
 
-  <span class="function"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-get-size">pango_layout_get_size</a></span> <span class="gtkdoc opt">(</span>layout<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">, &amp;</span>layout_height<span class="gtkdoc opt">);</span>
-  text_height <span class="gtkdoc opt">= (</span>gdouble<span class="gtkdoc opt">)</span>layout_height <span class="gtkdoc opt">/</span> PANGO_SCALE<span class="gtkdoc opt">;</span>
+<span class="normal">  </span><span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-get-size">pango_layout_get_size</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">layout</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">layout_height</span><span class="symbol">);</span>
+<span class="normal">  text_height </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble">gdouble</a></span><span class="symbol">)</span><span class="normal">layout_height </span><span class="symbol">/</span><span class="normal"> <a href="/usr/share/gtk-doc/html/pango/pango-Glyph-Storage.html#PANGO-SCALE:CAPS">PANGO_SCALE</a></span><span class="symbol">;</span>
 
-  <span class="function">cairo_move_to</span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> width <span class="gtkdoc opt">/</span> <span class="number">2</span><span class="gtkdoc opt">,  (</span>HEADER_HEIGHT <span class="gtkdoc opt">-</span> text_height<span class="gtkdoc opt">) /</span> <span class="number">2</span><span class="gtkdoc opt">);</span>
-  <span class="function"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Cairo-Rendering.html#pango-cairo-show-layout">pango_cairo_show_layout</a></span> <span class="gtkdoc opt">(</span>cr<span class="gtkdoc opt">,</span> layout<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="/usr/share/gtk-doc/html/cairo/cairo-Paths.html#cairo-move-to">cairo_move_to</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> width </span><span class="symbol">/</span><span class="normal"> </span><span class="number">2</span><span class="symbol">,</span><span class="normal">  </span><span class="symbol">(</span><span class="normal">HEADER_HEIGHT </span><span class="symbol">-</span><span class="normal"> text_height</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">/</span><span class="normal"> </span><span class="number">2</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Cairo-Rendering.html#pango-cairo-show-layout">pango_cairo_show_layout</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> layout</span><span class="symbol">);</span>
 
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>layout<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">layout</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -3105,7 +3105,7 @@ finished by calling <a class="link" href="gtk3-High-level-Printing-API.html#gtk-
 </tr>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p> the <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> to use as window parent, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>the <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> to use as window parent, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -3359,6 +3359,6 @@ before the first page is rendered.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

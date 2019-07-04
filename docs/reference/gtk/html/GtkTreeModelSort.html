@@ -8,7 +8,7 @@
 <link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
 <link rel="prev" href="GtkTreeSortable.html" title="GtkTreeSortable">
 <link rel="next" href="GtkTreeModelFilter.html" title="GtkTreeModelFilter">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -210,30 +210,30 @@ sort the second.</p>
 22
 23
 24</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">{</span>
-  GtkTreeView <span class="gtkdoc opt">*</span>tree_view1<span class="gtkdoc opt">;</span>
-  GtkTreeView <span class="gtkdoc opt">*</span>tree_view2<span class="gtkdoc opt">;</span>
-  GtkTreeModel <span class="gtkdoc opt">*</span>sort_model1<span class="gtkdoc opt">;</span>
-  GtkTreeModel <span class="gtkdoc opt">*</span>sort_model2<span class="gtkdoc opt">;</span>
-  GtkTreeModel <span class="gtkdoc opt">*</span>child_model<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkTreeView</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">tree_view1</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkTreeView</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">tree_view2</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkTreeModel</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">sort_model1</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkTreeModel</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">sort_model2</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkTreeModel</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">child_model</span><span class="symbol">;</span>
 
-  <span class="gtkdoc slc">// get the child model</span>
-  child_model <span class="gtkdoc opt">=</span> <span class="function">get_my_model</span> <span class="gtkdoc opt">();</span>
+<span class="normal">  </span><span class="comment">// get the child model</span>
+<span class="normal">  child_model </span><span class="symbol">=</span><span class="normal"> </span><span class="function">get_my_model</span><span class="normal"> </span><span class="symbol">();</span>
 
-  <span class="gtkdoc slc">// Create the first tree</span>
-  sort_model1 <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkTreeModelSort.html#gtk-tree-model-sort-new-with-model">gtk_tree_model_sort_new_with_model</a></span> <span class="gtkdoc opt">(</span>child_model<span class="gtkdoc opt">);</span>
-  tree_view1 <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkTreeView.html#gtk-tree-view-new-with-model">gtk_tree_view_new_with_model</a></span> <span class="gtkdoc opt">(</span>sort_model1<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="comment">// Create the first tree</span>
+<span class="normal">  sort_model1 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeModelSort.html#gtk-tree-model-sort-new-with-model">gtk_tree_model_sort_new_with_model</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">child_model</span><span class="symbol">);</span>
+<span class="normal">  tree_view1 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeView.html#gtk-tree-view-new-with-model">gtk_tree_view_new_with_model</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model1</span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// Create the second tree</span>
-  sort_model2 <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkTreeModelSort.html#gtk-tree-model-sort-new-with-model">gtk_tree_model_sort_new_with_model</a></span> <span class="gtkdoc opt">(</span>child_model<span class="gtkdoc opt">);</span>
-  tree_view2 <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkTreeView.html#gtk-tree-view-new-with-model">gtk_tree_view_new_with_model</a></span> <span class="gtkdoc opt">(</span>sort_model2<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="comment">// Create the second tree</span>
+<span class="normal">  sort_model2 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeModelSort.html#gtk-tree-model-sort-new-with-model">gtk_tree_model_sort_new_with_model</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">child_model</span><span class="symbol">);</span>
+<span class="normal">  tree_view2 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeView.html#gtk-tree-view-new-with-model">gtk_tree_view_new_with_model</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model2</span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// Now we can sort the two models independently</span>
-  <span class="function"><a href="GtkTreeSortable.html#gtk-tree-sortable-set-sort-column-id">gtk_tree_sortable_set_sort_column_id</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_TREE_SORTABLE</span> <span class="gtkdoc opt">(</span>sort_model1<span class="gtkdoc opt">),</span>
-                                        COLUMN_1<span class="gtkdoc opt">,</span> GTK_SORT_ASCENDING<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="GtkTreeSortable.html#gtk-tree-sortable-set-sort-column-id">gtk_tree_sortable_set_sort_column_id</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_TREE_SORTABLE</span> <span class="gtkdoc opt">(</span>sort_model2<span class="gtkdoc opt">),</span>
-                                        COLUMN_1<span class="gtkdoc opt">,</span> GTK_SORT_DESCENDING<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="comment">// Now we can sort the two models independently</span>
+<span class="normal">  </span><span class="function"><a href="GtkTreeSortable.html#gtk-tree-sortable-set-sort-column-id">gtk_tree_sortable_set_sort_column_id</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_SORTABLE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model1</span><span class="symbol">),</span>
+<span class="normal">                                        COLUMN_1</span><span class="symbol">,</span><span class="normal"> <a href="gtk3-Standard-Enumerations.html#GTK-SORT-ASCENDING:CAPS">GTK_SORT_ASCENDING</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkTreeSortable.html#gtk-tree-sortable-set-sort-column-id">gtk_tree_sortable_set_sort_column_id</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_SORTABLE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model2</span><span class="symbol">),</span>
+<span class="normal">                                        COLUMN_1</span><span class="symbol">,</span><span class="normal"> <a href="gtk3-Standard-Enumerations.html#GTK-SORT-DESCENDING:CAPS">GTK_SORT_DESCENDING</a></span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -291,45 +291,45 @@ selected row on the child model, and change the row there.</p>
 37
 38
 39</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">void</span>
-<span class="function">selection_changed</span> <span class="gtkdoc opt">(</span>GtkTreeSelection <span class="gtkdoc opt">*</span>selection<span class="gtkdoc opt">,</span> gpointer data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkTreeModel <span class="gtkdoc opt">*</span>sort_model <span class="gtkdoc opt">=</span> NULL<span class="gtkdoc opt">;</span>
-  GtkTreeModel <span class="gtkdoc opt">*</span>child_model<span class="gtkdoc opt">;</span>
-  GtkTreeIter sort_iter<span class="gtkdoc opt">;</span>
-  GtkTreeIter child_iter<span class="gtkdoc opt">;</span>
-  <span class="gtkdoc kwb">char</span> <span class="gtkdoc opt">*</span>some_data <span class="gtkdoc opt">=</span> NULL<span class="gtkdoc opt">;</span>
-  <span class="gtkdoc kwb">char</span> <span class="gtkdoc opt">*</span>modified_data<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="type">void</span>
+<span class="function">selection_changed</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkTreeSelection</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">selection</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">gpointer</span><span class="normal"> data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkTreeModel</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">sort_model </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkTreeModel</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">child_model</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkTreeIter</span><span class="normal"> sort_iter</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkTreeIter</span><span class="normal"> child_iter</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">some_data </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
+<span class="normal">  </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">modified_data</span><span class="symbol">;</span>
 
-  <span class="gtkdoc slc">// Get the current selected row and the model.</span>
-  <span class="keyword">if</span> <span class="gtkdoc opt">(!</span> <span class="function"><a href="GtkTreeSelection.html#gtk-tree-selection-get-selected">gtk_tree_selection_get_selected</a></span> <span class="gtkdoc opt">(</span>selection<span class="gtkdoc opt">,</span>
-                                         <span class="gtkdoc opt">&amp;</span>sort_model<span class="gtkdoc opt">,</span>
-                                         <span class="gtkdoc opt">&amp;</span>sort_iter<span class="gtkdoc opt">))</span>
-    <span class="keyword">return</span><span class="gtkdoc opt">;</span>
+<span class="normal">  </span><span class="comment">// Get the current selected row and the model.</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(!</span><span class="normal"> </span><span class="function"><a href="GtkTreeSelection.html#gtk-tree-selection-get-selected">gtk_tree_selection_get_selected</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">selection</span><span class="symbol">,</span>
+<span class="normal">                                         </span><span class="symbol">&amp;</span><span class="normal">sort_model</span><span class="symbol">,</span>
+<span class="normal">                                         </span><span class="symbol">&amp;</span><span class="normal">sort_iter</span><span class="symbol">))</span>
+<span class="normal">    </span><span class="keyword">return</span><span class="symbol">;</span>
 
-  <span class="gtkdoc slc">// Look up the current value on the selected row and get</span>
-  <span class="gtkdoc slc">// a new value to change it to.</span>
-  <span class="function"><a href="GtkTreeModel.html#gtk-tree-model-get">gtk_tree_model_get</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_TREE_MODEL</span> <span class="gtkdoc opt">(</span>sort_model<span class="gtkdoc opt">), &amp;</span>sort_iter<span class="gtkdoc opt">,</span>
-                      COLUMN_1<span class="gtkdoc opt">, &amp;</span>some_data<span class="gtkdoc opt">,</span>
-                      <span class="gtkdoc opt">-</span><span class="number">1</span><span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="comment">// Look up the current value on the selected row and get</span>
+<span class="normal">  </span><span class="comment">// a new value to change it to.</span>
+<span class="normal">  </span><span class="function"><a href="GtkTreeModel.html#gtk-tree-model-get">gtk_tree_model_get</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_MODEL</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model</span><span class="symbol">),</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">sort_iter</span><span class="symbol">,</span>
+<span class="normal">                      COLUMN_1</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">some_data</span><span class="symbol">,</span>
+<span class="normal">                      </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">);</span>
 
-  modified_data <span class="gtkdoc opt">=</span> <span class="function">change_the_data</span> <span class="gtkdoc opt">(</span>some_data<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span> <span class="gtkdoc opt">(</span>some_data<span class="gtkdoc opt">);</span>
+<span class="normal">  modified_data </span><span class="symbol">=</span><span class="normal"> </span><span class="function">change_the_data</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">some_data</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">some_data</span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// Get an iterator on the child model, instead of the sort model.</span>
-  <span class="function"><a href="GtkTreeModelSort.html#gtk-tree-model-sort-convert-iter-to-child-iter">gtk_tree_model_sort_convert_iter_to_child_iter</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_TREE_MODEL_SORT</span> <span class="gtkdoc opt">(</span>sort_model<span class="gtkdoc opt">),</span>
-                                                  <span class="gtkdoc opt">&amp;</span>child_iter<span class="gtkdoc opt">,</span>
-                                                  <span class="gtkdoc opt">&amp;</span>sort_iter<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="comment">// Get an iterator on the child model, instead of the sort model.</span>
+<span class="normal">  </span><span class="function"><a href="GtkTreeModelSort.html#gtk-tree-model-sort-convert-iter-to-child-iter">gtk_tree_model_sort_convert_iter_to_child_iter</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_MODEL_SORT</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model</span><span class="symbol">),</span>
+<span class="normal">                                                  </span><span class="symbol">&amp;</span><span class="normal">child_iter</span><span class="symbol">,</span>
+<span class="normal">                                                  </span><span class="symbol">&amp;</span><span class="normal">sort_iter</span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// Get the child model and change the value of the row. In this</span>
-  <span class="gtkdoc slc">// example, the child model is a GtkListStore. It could be any other</span>
-  <span class="gtkdoc slc">// type of model, though.</span>
-  child_model <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkTreeModelSort.html#gtk-tree-model-sort-get-model">gtk_tree_model_sort_get_model</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_TREE_MODEL_SORT</span> <span class="gtkdoc opt">(</span>sort_model<span class="gtkdoc opt">));</span>
-  <span class="function"><a href="GtkListStore.html#gtk-list-store-set">gtk_list_store_set</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_LIST_STORE</span> <span class="gtkdoc opt">(</span>child_model<span class="gtkdoc opt">), &amp;</span>child_iter<span class="gtkdoc opt">,</span>
-                      COLUMN_1<span class="gtkdoc opt">, &amp;</span>modified_data<span class="gtkdoc opt">,</span>
-                      <span class="gtkdoc opt">-</span><span class="number">1</span><span class="gtkdoc opt">);</span>
-  <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span> <span class="gtkdoc opt">(</span>modified_data<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="comment">// Get the child model and change the value of the row. In this</span>
+<span class="normal">  </span><span class="comment">// example, the child model is a GtkListStore. It could be any other</span>
+<span class="normal">  </span><span class="comment">// type of model, though.</span>
+<span class="normal">  child_model </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeModelSort.html#gtk-tree-model-sort-get-model">gtk_tree_model_sort_get_model</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_MODEL_SORT</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model</span><span class="symbol">));</span>
+<span class="normal">  </span><span class="function"><a href="GtkListStore.html#gtk-list-store-set">gtk_list_store_set</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_LIST_STORE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">child_model</span><span class="symbol">),</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">child_iter</span><span class="symbol">,</span>
+<span class="normal">                      COLUMN_1</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">modified_data</span><span class="symbol">,</span>
+<span class="normal">                      </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">modified_data</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -363,7 +363,7 @@ gtk_tree_model_sort_new_with_model (<em class="parameter"><code><a class="link" 
 </div>
 <div class="refsect3">
 <a name="gtk-tree-model-sort-new-with-model.returns"></a><h4>Returns</h4>
-<p> A new <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a>. </p>
+<p>A new <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -390,7 +390,7 @@ gtk_tree_model_sort_get_model (<em class="parameter"><code><a class="link" href=
 </div>
 <div class="refsect3">
 <a name="gtk-tree-model-sort-get-model.returns"></a><h4>Returns</h4>
-<p> the "child model" being sorted. </p>
+<p>the "child model" being sorted. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -433,7 +433,7 @@ path on the child model, then <a href="https://developer.gnome.org/glib/unstable
 </div>
 <div class="refsect3">
 <a name="gtk-tree-model-sort-convert-child-path-to-path.returns"></a><h4>Returns</h4>
-<p> A newly allocated <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>A newly allocated <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -468,7 +468,7 @@ is returned.  Note: a boolean is only returned since 2.14.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>sort_iter</p></td>
-<td class="parameter_description"><p> An uninitialized <a class="link" href="GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a>. </p></td>
+<td class="parameter_description"><p>An uninitialized <a class="link" href="GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -528,7 +528,7 @@ sorted.  If <em class="parameter"><code>sorted_path</code></em>
 </div>
 <div class="refsect3">
 <a name="gtk-tree-model-sort-convert-path-to-child-path.returns"></a><h4>Returns</h4>
-<p> A newly allocated <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>A newly allocated <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -559,7 +559,7 @@ gtk_tree_model_sort_convert_iter_to_child_iter
 </tr>
 <tr>
 <td class="parameter_name"><p>child_iter</p></td>
-<td class="parameter_description"><p> An uninitialized <a class="link" href="GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a>. </p></td>
+<td class="parameter_description"><p>An uninitialized <a class="link" href="GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -686,6 +686,6 @@ purposes.</p></blockquote></div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

@@ -2087,6 +2087,9 @@ gtk_container_start_idle_sizer (GtkContainer *container)
   if (clock == NULL)
     return;
 
+  if (!GTK_WIDGET (container)->priv->frameclock_connected)
+    return;
+
   container->priv->resize_clock = clock;
   container->priv->resize_handler = g_signal_connect (clock, "layout",
 						      G_CALLBACK (gtk_container_idle_sizer), container);
@@ -2453,6 +2456,8 @@ gtk_container_forall (GtkContainer *container,
  * added to the container by the application with explicit add()
  * calls.
  *
+ * It is permissible to remove the child from the @callback handler.
+ *
  * Most applications should use gtk_container_foreach(),
  * rather than gtk_container_forall().
  **/
@@ -2680,14 +2685,14 @@ gtk_container_real_set_focus_child (GtkContainer     *container,
     {
       if (priv->focus_child)
         g_object_unref (priv->focus_child);
+
       priv->focus_child = child;
+
       if (priv->focus_child)
         g_object_ref (priv->focus_child);
     }
 
-
-  /* check for h/v adjustments
-   */
+  /* Check for h/v adjustments and scroll to show the focus child if possible */
   if (priv->focus_child)
     {
       GtkAdjustment *hadj;
@@ -2700,15 +2705,15 @@ gtk_container_real_set_focus_child (GtkContainer     *container,
       vadj = g_object_get_qdata (G_OBJECT (container), vadjustment_key_id);
       if (hadj || vadj)
         {
-
           focus_child = priv->focus_child;
           while (GTK_IS_CONTAINER (focus_child) && gtk_container_get_focus_child (GTK_CONTAINER (focus_child)))
             {
               focus_child = gtk_container_get_focus_child (GTK_CONTAINER (focus_child));
             }
 
-          gtk_widget_translate_coordinates (focus_child, priv->focus_child,
-                                            0, 0, &x, &y);
+          if (!gtk_widget_translate_coordinates (focus_child, priv->focus_child,
+                                                 0, 0, &x, &y))
+            return;
 
           _gtk_widget_get_allocation (priv->focus_child, &allocation);
           x += allocation.x;
@@ -3337,6 +3342,9 @@ chain_widget_destroyed (GtkWidget *widget,
  * to set the focus chain before you pack the widgets, or have a widget
  * in the chain that isn’t always packed. The necessary checks are done
  * when the focus chain is actually traversed.
+ *
+ * Deprecated: 3.24: For overriding focus behavior, use the
+ *     GtkWidgetClass::focus signal.
  **/
 void
 gtk_container_set_focus_chain (GtkContainer *container,
@@ -3401,6 +3409,9 @@ gtk_container_set_focus_chain (GtkContainer *container,
  *
  * Returns: %TRUE if the focus chain of the container
  * has been set explicitly.
+ *
+ * Deprecated: 3.24: For overriding focus behavior, use the
+ *     GtkWidgetClass::focus signal.
  **/
 gboolean
 gtk_container_get_focus_chain (GtkContainer *container,
@@ -3428,6 +3439,9 @@ gtk_container_get_focus_chain (GtkContainer *container,
  * @container: a #GtkContainer
  *
  * Removes a focus chain explicitly set with gtk_container_set_focus_chain().
+ *
+ * Deprecated: 3.24: For overriding focus behavior, use the
+ *     GtkWidgetClass::focus signal.
  **/
 void
 gtk_container_unset_focus_chain (GtkContainer  *container)

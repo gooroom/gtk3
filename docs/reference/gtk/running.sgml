@@ -523,14 +523,41 @@ nevertheless.
 </formalpara>
 
 <formalpara>
+  <title><envar>GTK_CSD</envar></title>
+
+  <para>
+    The default value of this environment variable is 1. If changed to 0, this
+    disables the default use of client-side decorations on GTK+ windows, thus
+    making the window manager responsible for drawing the decorations of
+    windows that do not have a custom titlebar widget.
+  </para>
+  <para>
+    CSD is always used for windows with a custom titlebar widget set, as the WM
+    should not draw another titlebar or other decorations around the custom one.
+  </para>
+</formalpara>
+
+<formalpara>
+  <title><envar>GTK_OVERLAY_SCROLLING</envar></title>
+
+  <para>
+    The default value of this environment variable is 1, which means that each
+    instance of GtkScrolledWindow will choose whether to use overlay or full-
+    size scrollbars via its own GtkScrolledWindow:overlay-scrolling property,
+    which defaults to <literal>TRUE</literal>. If this variable is set to 0,
+    all GtkScrolledWindow instances are made to use full/non-overlay scrollbars.
+  </para>
+</formalpara>
+
+<formalpara>
   <title><envar>XDG_DATA_HOME</envar>, <envar>XDG_DATA_DIRS</envar></title>
 
   <para>
     GTK+ uses these environment variables to locate icon themes
     and MIME information. For more information, see
-    <ulink url="http://freedesktop.org/Standards/icon-theme-spec">Icon Theme Specification</ulink>,
-    the <ulink url="http://freedesktop.org/Standards/shared-mime-info-spec">Shared MIME-info Database</ulink>
-    and the <ulink url="http://freedesktop.org/Standards/basedir-spec">Base Directory Specification</ulink>.
+    <ulink url="https://freedesktop.org/Standards/icon-theme-spec">Icon Theme Specification</ulink>,
+    the <ulink url="https://freedesktop.org/Standards/shared-mime-info-spec">Shared MIME-info Database</ulink>
+    and the <ulink url="https://freedesktop.org/Standards/basedir-spec">Base Directory Specification</ulink>.
   </para>
 </formalpara>
 
@@ -539,7 +566,7 @@ nevertheless.
 
   <para>
     GTK+ uses this environment variable to provide startup notification
-    according to the <ulink url="http://standards.freedesktop.org/startup-notification-spec/startup-notification-latest.txt">Startup Notification Spec</ulink>.
+    according to the <ulink url="https://standards.freedesktop.org/startup-notification-spec/startup-notification-latest.txt">Startup Notification Spec</ulink>.
     Following the specification, GTK+ unsets this variable after reading
     it (to keep it from leaking to child processes). So, if you need its
     value for your own purposes, you have to read it before calling

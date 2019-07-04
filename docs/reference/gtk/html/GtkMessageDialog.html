@@ -8,7 +8,7 @@
 <link rel="up" href="WindowWidgets.html" title="Windows">
 <link rel="prev" href="GtkDialog.html" title="GtkDialog">
 <link rel="next" href="GtkAboutDialog.html" title="GtkAboutDialog">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -254,16 +254,16 @@ returns when any dialog button is clicked.</p>
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkDialogFlags flags <span class="gtkdoc opt">=</span> GTK_DIALOG_DESTROY_WITH_PARENT<span class="gtkdoc opt">;</span>
-dialog <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkMessageDialog.html#gtk-message-dialog-new">gtk_message_dialog_new</a></span> <span class="gtkdoc opt">(</span>parent_window<span class="gtkdoc opt">,</span>
-                                 flags<span class="gtkdoc opt">,</span>
-                                 GTK_MESSAGE_ERROR<span class="gtkdoc opt">,</span>
-                                 GTK_BUTTONS_CLOSE<span class="gtkdoc opt">,</span>
-                                 <span class="string">&quot;Error reading “%s”: %s&quot;</span><span class="gtkdoc opt">,</span>
-                                 filename<span class="gtkdoc opt">,</span>
-                                 <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strerror">g_strerror</a></span> <span class="gtkdoc opt">(</span>errno<span class="gtkdoc opt">));</span>
-<span class="function"><a href="GtkDialog.html#gtk-dialog-run">gtk_dialog_run</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_DIALOG</span> <span class="gtkdoc opt">(</span>dialog<span class="gtkdoc opt">));</span>
-<span class="function"><a href="GtkWidget.html#gtk-widget-destroy">gtk_widget_destroy</a></span> <span class="gtkdoc opt">(</span>dialog<span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkDialogFlags</span><span class="normal"> flags </span><span class="symbol">=</span><span class="normal"> <a href="GtkDialog.html#GTK-DIALOG-DESTROY-WITH-PARENT:CAPS">GTK_DIALOG_DESTROY_WITH_PARENT</a></span><span class="symbol">;</span>
+<span class="normal">dialog </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkMessageDialog.html#gtk-message-dialog-new">gtk_message_dialog_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">parent_window</span><span class="symbol">,</span>
+<span class="normal">                                 flags</span><span class="symbol">,</span>
+<span class="normal">                                 <a href="GtkMessageDialog.html#GTK-MESSAGE-ERROR:CAPS">GTK_MESSAGE_ERROR</a></span><span class="symbol">,</span>
+<span class="normal">                                 <a href="GtkMessageDialog.html#GTK-BUTTONS-CLOSE:CAPS">GTK_BUTTONS_CLOSE</a></span><span class="symbol">,</span>
+<span class="normal">                                 </span><span class="string">"Error reading “%s”: %s"</span><span class="symbol">,</span>
+<span class="normal">                                 filename</span><span class="symbol">,</span>
+<span class="normal">                                 </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strerror">g_strerror</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">errno</span><span class="symbol">));</span>
+<span class="function"><a href="GtkDialog.html#gtk-dialog-run">gtk_dialog_run</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_DIALOG</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">));</span>
+<span class="function"><a href="GtkWidget.html#gtk-widget-destroy">gtk_widget_destroy</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -291,21 +291,21 @@ dialog <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkMess
 13
 14
 15</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkDialogFlags flags <span class="gtkdoc opt">=</span> GTK_DIALOG_DESTROY_WITH_PARENT<span class="gtkdoc opt">;</span>
-dialog <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkMessageDialog.html#gtk-message-dialog-new">gtk_message_dialog_new</a></span> <span class="gtkdoc opt">(</span>parent_window<span class="gtkdoc opt">,</span>
-                                 flags<span class="gtkdoc opt">,</span>
-                                 GTK_MESSAGE_ERROR<span class="gtkdoc opt">,</span>
-                                 GTK_BUTTONS_CLOSE<span class="gtkdoc opt">,</span>
-                                 <span class="string">&quot;Error reading “%s”: %s&quot;</span><span class="gtkdoc opt">,</span>
-                                 filename<span class="gtkdoc opt">,</span>
-                                 <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strerror">g_strerror</a></span> <span class="gtkdoc opt">(</span>errno<span class="gtkdoc opt">));</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkDialogFlags</span><span class="normal"> flags </span><span class="symbol">=</span><span class="normal"> <a href="GtkDialog.html#GTK-DIALOG-DESTROY-WITH-PARENT:CAPS">GTK_DIALOG_DESTROY_WITH_PARENT</a></span><span class="symbol">;</span>
+<span class="normal">dialog </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkMessageDialog.html#gtk-message-dialog-new">gtk_message_dialog_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">parent_window</span><span class="symbol">,</span>
+<span class="normal">                                 flags</span><span class="symbol">,</span>
+<span class="normal">                                 <a href="GtkMessageDialog.html#GTK-MESSAGE-ERROR:CAPS">GTK_MESSAGE_ERROR</a></span><span class="symbol">,</span>
+<span class="normal">                                 <a href="GtkMessageDialog.html#GTK-BUTTONS-CLOSE:CAPS">GTK_BUTTONS_CLOSE</a></span><span class="symbol">,</span>
+<span class="normal">                                 </span><span class="string">"Error reading “%s”: %s"</span><span class="symbol">,</span>
+<span class="normal">                                 filename</span><span class="symbol">,</span>
+<span class="normal">                                 </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strerror">g_strerror</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">errno</span><span class="symbol">));</span>
 
-<span class="gtkdoc slc">// Destroy the dialog when the user responds to it</span>
-<span class="gtkdoc slc">// (e.g. clicks a button)</span>
+<span class="comment">// Destroy the dialog when the user responds to it</span>
+<span class="comment">// (e.g. clicks a button)</span>
 
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect-swapped">g_signal_connect_swapped</a></span> <span class="gtkdoc opt">(</span>dialog<span class="gtkdoc opt">,</span> <span class="string">&quot;response&quot;</span><span class="gtkdoc opt">,</span>
-                          <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>gtk_widget_destroy<span class="gtkdoc opt">),</span>
-                          dialog<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect-swapped">g_signal_connect_swapped</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"response"</span><span class="symbol">,</span>
+<span class="normal">                          </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="GtkWidget.html#gtk-widget-destroy">gtk_widget_destroy</a></span><span class="symbol">),</span>
+<span class="normal">                          dialog</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -344,7 +344,7 @@ signal is emitted with response IDs from <a class="link" href="GtkDialog.html#Gt
 <tbody>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p> transient parent, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for none. </p></td>
+<td class="parameter_description"><p>transient parent, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for none. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -364,7 +364,7 @@ signal is emitted with response IDs from <a class="link" href="GtkDialog.html#Gt
 </tr>
 <tr>
 <td class="parameter_name"><p>message_format</p></td>
-<td class="parameter_description"><p> <code class="function">printf()</code>-style format string, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>printf()-style format string, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -378,7 +378,7 @@ signal is emitted with response IDs from <a class="link" href="GtkDialog.html#Gt
 </div>
 <div class="refsect3">
 <a name="gtk-message-dialog-new.returns"></a><h4>Returns</h4>
-<p> a new <a class="link" href="GtkMessageDialog.html" title="GtkMessageDialog"><span class="type">GtkMessageDialog</span></a>. </p>
+<p>a new <a class="link" href="GtkMessageDialog.html" title="GtkMessageDialog"><span class="type">GtkMessageDialog</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -418,15 +418,15 @@ argument.</p>
 7
 8
 9</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkWidget <span class="gtkdoc opt">*</span>dialog<span class="gtkdoc opt">;</span>
-GtkDialogFlags flags <span class="gtkdoc opt">=</span> GTK_DIALOG_DESTROY_WITH_PARENT<span class="gtkdoc opt">;</span>
-dialog <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkMessageDialog.html#gtk-message-dialog-new">gtk_message_dialog_new</a></span> <span class="gtkdoc opt">(</span>parent_window<span class="gtkdoc opt">,</span>
-                                 flags<span class="gtkdoc opt">,</span>
-                                 GTK_MESSAGE_ERROR<span class="gtkdoc opt">,</span>
-                                 GTK_BUTTONS_CLOSE<span class="gtkdoc opt">,</span>
-                                 NULL<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkMessageDialog.html#gtk-message-dialog-set-markup">gtk_message_dialog_set_markup</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_MESSAGE_DIALOG</span> <span class="gtkdoc opt">(</span>dialog<span class="gtkdoc opt">),</span>
-                               markup<span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">dialog</span><span class="symbol">;</span>
+<span class="usertype">GtkDialogFlags</span><span class="normal"> flags </span><span class="symbol">=</span><span class="normal"> <a href="GtkDialog.html#GTK-DIALOG-DESTROY-WITH-PARENT:CAPS">GTK_DIALOG_DESTROY_WITH_PARENT</a></span><span class="symbol">;</span>
+<span class="normal">dialog </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkMessageDialog.html#gtk-message-dialog-new">gtk_message_dialog_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">parent_window</span><span class="symbol">,</span>
+<span class="normal">                                 flags</span><span class="symbol">,</span>
+<span class="normal">                                 <a href="GtkMessageDialog.html#GTK-MESSAGE-ERROR:CAPS">GTK_MESSAGE_ERROR</a></span><span class="symbol">,</span>
+<span class="normal">                                 <a href="GtkMessageDialog.html#GTK-BUTTONS-CLOSE:CAPS">GTK_BUTTONS_CLOSE</a></span><span class="symbol">,</span>
+<span class="normal">                                 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="function"><a href="GtkMessageDialog.html#gtk-message-dialog-set-markup">gtk_message_dialog_set_markup</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_MESSAGE_DIALOG</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">),</span>
+<span class="normal">                               markup</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -444,7 +444,7 @@ dialog <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkMess
 <tbody>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p> transient parent, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for none. </p></td>
+<td class="parameter_description"><p>transient parent, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for none. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -464,7 +464,7 @@ dialog <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkMess
 </tr>
 <tr>
 <td class="parameter_name"><p>message_format</p></td>
-<td class="parameter_description"><p> <code class="function">printf()</code>-style format string, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>printf()-style format string, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -578,7 +578,7 @@ gtk_message_dialog_get_image (<em class="parameter"><code><a class="link" href="
 </div>
 <div class="refsect3">
 <a name="gtk-message-dialog-get-image.returns"></a><h4>Returns</h4>
-<p> the dialog’s image. </p>
+<p>the dialog’s image. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -610,7 +610,7 @@ gtk_message_dialog_format_secondary_text
 </tr>
 <tr>
 <td class="parameter_name"><p>message_format</p></td>
-<td class="parameter_description"><p> <code class="function">printf()</code>-style format string, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>printf()-style format string, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -650,12 +650,12 @@ to escape it.</p>
 4
 5
 6</pre></td>
-        <td class="listing_code"><pre class="programlisting">gchar <span class="gtkdoc opt">*</span>msg<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">gchar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">msg</span><span class="symbol">;</span>
 
-msg <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Simple-XML-Subset-Parser.html#g-markup-printf-escaped">g_markup_printf_escaped</a></span> <span class="gtkdoc opt">(</span>message_format<span class="gtkdoc opt">, ...);</span>
-<span class="function"><a href="GtkMessageDialog.html#gtk-message-dialog-format-secondary-markup">gtk_message_dialog_format_secondary_markup</a></span> <span class="gtkdoc opt">(</span>message_dialog<span class="gtkdoc opt">,</span>
-                                            <span class="string">&quot;%s&quot;</span><span class="gtkdoc opt">,</span> msg<span class="gtkdoc opt">);</span>
-<span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span> <span class="gtkdoc opt">(</span>msg<span class="gtkdoc opt">);</span></pre></td>
+<span class="normal">msg </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Simple-XML-Subset-Parser.html#g-markup-printf-escaped">g_markup_printf_escaped</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">message_format</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">...);</span>
+<span class="function"><a href="GtkMessageDialog.html#gtk-message-dialog-format-secondary-markup">gtk_message_dialog_format_secondary_markup</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">message_dialog</span><span class="symbol">,</span>
+<span class="normal">                                            </span><span class="string">"%s"</span><span class="symbol">,</span><span class="normal"> msg</span><span class="symbol">);</span>
+<span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">msg</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -720,7 +720,7 @@ function in the parent <a class="link" href="GtkDialog.html" title="GtkDialog"><
 </div>
 <div class="refsect3">
 <a name="gtk-message-dialog-get-message-area.returns"></a><h4>Returns</h4>
-<p> A <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> corresponding to the
+<p>A <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> corresponding to the
 “message area” in the <em class="parameter"><code>message_dialog</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -905,7 +905,7 @@ area.</p>
 <pre class="programlisting">  “secondary-use-markup”     <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
 <p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the secondary text of the dialog includes Pango markup.
 
-See <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Attributes.html#pango-parse-markup"><code class="function">pango_parse_markup()</code></a>.</p>
+See <a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#pango-parse-markup"><code class="function">pango_parse_markup()</code></a>.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
 <p class="since">Since: 2.10</p>
@@ -927,7 +927,7 @@ a secondary text, this will appear as the title.</p>
 <pre class="programlisting">  “use-markup”               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
 <p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the primary text of the dialog includes Pango markup.
 
-See <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Attributes.html#pango-parse-markup"><code class="function">pango_parse_markup()</code></a>.</p>
+See <a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#pango-parse-markup"><code class="function">pango_parse_markup()</code></a>.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
 <p class="since">Since: 2.10</p>
@@ -950,6 +950,6 @@ See <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Attributes.
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

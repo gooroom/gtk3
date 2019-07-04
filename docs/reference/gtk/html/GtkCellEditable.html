@@ -8,7 +8,7 @@
 <link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
 <link rel="prev" href="GtkCellRenderer.html" title="GtkCellRenderer">
 <link rel="next" href="GtkCellRendererAccel.html" title="GtkCellRendererAccel">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -32,8 +32,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="GtkCellEditable.top_of_page"></a>GtkCellEditable</span></h2>
-<p>GtkCellEditable — Interface for widgets which can are used for editing
- cells</p>
+<p>GtkCellEditable — Interface for widgets that can be used for editing cells</p>
 </td>
 <td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
@@ -130,7 +129,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkCellEditable.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/GTypeModule.html">GInterface</a>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/GTypeModule.html">GInterface</a>
     <span class="lineart">╰──</span> GtkCellEditable
 </pre>
 </div>
@@ -154,7 +153,8 @@ GtkCellEditable is implemented by
 <div class="refsect1">
 <a name="GtkCellEditable.description"></a><h2>Description</h2>
 <p>The <a class="link" href="GtkCellEditable.html" title="GtkCellEditable"><span class="type">GtkCellEditable</span></a> interface must be implemented for widgets to be usable
-when editing the contents of a <a class="link" href="GtkTreeView.html" title="GtkTreeView"><span class="type">GtkTreeView</span></a> cell.</p>
+to edit the contents of a <a class="link" href="GtkTreeView.html" title="GtkTreeView"><span class="type">GtkTreeView</span></a> cell. It provides a way to specify how
+temporary widgets should be configured for editing, get the new value, etc.</p>
 </div>
 <div class="refsect1">
 <a name="GtkCellEditable.functions_details"></a><h2>Functions</h2>
@@ -162,12 +162,17 @@ when editing the contents of a <a class="link" href="GtkTreeView.html" title="Gt
 <a name="gtk-cell-editable-start-editing"></a><h3>gtk_cell_editable_start_editing ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_cell_editable_start_editing (<em class="parameter"><code><a class="link" href="GtkCellEditable.html" title="GtkCellEditable"><span class="type">GtkCellEditable</span></a> *cell_editable</code></em>,
-                                 <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
+                                 <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
 <p>Begins editing on a <em class="parameter"><code>cell_editable</code></em>
-. <em class="parameter"><code>event</code></em>
- is the <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> that began 
-the editing process. It may be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, in the instance that editing was 
-initiated through programatic means.</p>
+.</p>
+<p>The <a class="link" href="GtkCellRenderer.html" title="GtkCellRenderer"><span class="type">GtkCellRenderer</span></a> for the cell creates and returns a <a class="link" href="GtkCellEditable.html" title="GtkCellEditable"><span class="type">GtkCellEditable</span></a> from
+<a class="link" href="GtkCellRenderer.html#gtk-cell-renderer-start-editing" title="gtk_cell_renderer_start_editing ()"><code class="function">gtk_cell_renderer_start_editing()</code></a>, configured for the <a class="link" href="GtkCellRenderer.html" title="GtkCellRenderer"><span class="type">GtkCellRenderer</span></a> type.</p>
+<p>gtk_cell_editable_start_editing() can then set up <em class="parameter"><code>cell_editable</code></em>
+ suitably for
+editing a cell, e.g. making the Esc key emit <a class="link" href="GtkCellEditable.html#GtkCellEditable-editing-done" title="The “editing-done” signal"><span class="type">“editing-done”</span></a>.</p>
+<p>Note that the <em class="parameter"><code>cell_editable</code></em>
+ is created on-demand for the current edit; its
+lifetime is temporary and does not persist across other edits and/or cells.</p>
 <div class="refsect3">
 <a name="gtk-cell-editable-start-editing.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -184,8 +189,9 @@ initiated through programatic means.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p> A <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_description"><p>The <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> that began the editing process, or
+<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if editing was initiated programmatically. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -309,7 +315,10 @@ value from the <em class="parameter"><code>cell_editable</code></em>
 .</p>
 <p>Implementations of <a class="link" href="GtkCellEditable.html" title="GtkCellEditable"><span class="type">GtkCellEditable</span></a> are responsible for
 emitting this signal when they are done editing, e.g.
-<a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> is emitting it when the user presses Enter.</p>
+<a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> emits this signal when the user presses Enter. Typical things to
+do in a handler for ::editing-done are to capture the edited value,
+disconnect the <em class="parameter"><code>cell_editable</code></em>
+ from signals on the <a class="link" href="GtkCellRenderer.html" title="GtkCellRenderer"><span class="type">GtkCellRenderer</span></a>, etc.</p>
 <p>gtk_cell_editable_editing_done() is a convenience method
 for emitting <a class="link" href="GtkCellEditable.html#GtkCellEditable-editing-done" title="The “editing-done” signal"><span class="type">“editing-done”</span></a>.</p>
 <div class="refsect3">
@@ -343,7 +352,9 @@ for emitting <a class="link" href="GtkCellEditable.html#GtkCellEditable-editing-
 user_function (<a class="link" href="GtkCellEditable.html" title="GtkCellEditable"><span class="type">GtkCellEditable</span></a> *cell_editable,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>         user_data)</pre>
 <p>This signal is meant to indicate that the cell is finished
-editing, and the widget may now be destroyed.</p>
+editing, and the <em class="parameter"><code>cell_editable</code></em>
+ widget is being removed and may
+subsequently be destroyed.</p>
 <p>Implementations of <a class="link" href="GtkCellEditable.html" title="GtkCellEditable"><span class="type">GtkCellEditable</span></a> are responsible for
 emitting this signal when they are done editing. It must
 be emitted after the <a class="link" href="GtkCellEditable.html#GtkCellEditable-editing-done" title="The “editing-done” signal"><span class="type">“editing-done”</span></a> signal,
@@ -378,10 +389,10 @@ for emitting <a class="link" href="GtkCellEditable.html#GtkCellEditable-remove-w
 </div>
 <div class="refsect1">
 <a name="GtkCellEditable.see-also"></a><h2>See Also</h2>
-<p><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a>, <a class="link" href="GtkCellRenderer.html" title="GtkCellRenderer"><span class="type">GtkCellRenderer</span></a></p>
+<p><a class="link" href="GtkCellRenderer.html" title="GtkCellRenderer"><span class="type">GtkCellRenderer</span></a></p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

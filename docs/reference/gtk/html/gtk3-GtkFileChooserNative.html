@@ -8,7 +8,7 @@
 <link rel="up" href="SelectorWidgets.html" title="Selector Widgets and Dialogs">
 <link rel="prev" href="GtkFileChooserButton.html" title="GtkFileChooserButton">
 <link rel="next" href="GtkFileChooserDialog.html" title="GtkFileChooserDialog">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -90,8 +90,8 @@
 <p><span class="type">GtkFileChooserNative</span> is an abstraction of a dialog box suitable
 for use with “File/Open” or “File/Save as” commands. By default, this
 just uses a <a class="link" href="GtkFileChooserDialog.html" title="GtkFileChooserDialog"><span class="type">GtkFileChooserDialog</span></a> to implement the actual dialog.
-However, on certain platforms, such as Windows, the native platform
-file chooser is uses instead. When the application is running in a
+However, on certain platforms, such as Windows and macOS, the native platform
+file chooser is used instead. When the application is running in a
 sandboxed environment without direct filesystem access (such as Flatpak),
 <span class="type">GtkFileChooserNative</span> may call the proper APIs (portals) to let the user
 choose a file and make it available to the application.</p>
@@ -128,27 +128,27 @@ Showing, hiding and running the dialog is handled by the <span class="type">GtkN
 19
 20
 21</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkFileChooserNative <span class="gtkdoc opt">*</span>native<span class="gtkdoc opt">;</span>
-GtkFileChooserAction action <span class="gtkdoc opt">=</span> GTK_FILE_CHOOSER_ACTION_OPEN<span class="gtkdoc opt">;</span>
-gint res<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkFileChooserNative</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">native</span><span class="symbol">;</span>
+<span class="usertype">GtkFileChooserAction</span><span class="normal"> action </span><span class="symbol">=</span><span class="normal"> <a href="GtkFileChooser.html#GTK-FILE-CHOOSER-ACTION-OPEN:CAPS">GTK_FILE_CHOOSER_ACTION_OPEN</a></span><span class="symbol">;</span>
+<span class="usertype">gint</span><span class="normal"> res</span><span class="symbol">;</span>
 
-native <span class="gtkdoc opt">=</span> <span class="function"><a href="gtk3-GtkFileChooserNative.html#gtk-file-chooser-native-new">gtk_file_chooser_native_new</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;Open File&quot;</span><span class="gtkdoc opt">,</span>
-                                      parent_window<span class="gtkdoc opt">,</span>
-                                      action<span class="gtkdoc opt">,</span>
-                                      <span class="string">&quot;_Open&quot;</span><span class="gtkdoc opt">,</span>
-                                      <span class="string">&quot;_Cancel&quot;</span><span class="gtkdoc opt">);</span>
+<span class="normal">native </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gtk3-GtkFileChooserNative.html#gtk-file-chooser-native-new">gtk_file_chooser_native_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Open File"</span><span class="symbol">,</span>
+<span class="normal">                                      parent_window</span><span class="symbol">,</span>
+<span class="normal">                                      action</span><span class="symbol">,</span>
+<span class="normal">                                      </span><span class="string">"_Open"</span><span class="symbol">,</span>
+<span class="normal">                                      </span><span class="string">"_Cancel"</span><span class="symbol">);</span>
 
-res <span class="gtkdoc opt">=</span> <span class="function"><a href="gtk3-GtkNativeDialog.html#gtk-native-dialog-run">gtk_native_dialog_run</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_NATIVE_DIALOG</span> <span class="gtkdoc opt">(</span>native<span class="gtkdoc opt">));</span>
-<span class="keyword">if</span> <span class="gtkdoc opt">(</span>res <span class="gtkdoc opt">==</span> GTK_RESPONSE_ACCEPT<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-    <span class="gtkdoc kwb">char</span> <span class="gtkdoc opt">*</span>filename<span class="gtkdoc opt">;</span>
-    GtkFileChooser <span class="gtkdoc opt">*</span>chooser <span class="gtkdoc opt">=</span> <span class="function">GTK_FILE_CHOOSER</span> <span class="gtkdoc opt">(</span>native<span class="gtkdoc opt">);</span>
-    filename <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-get-filename">gtk_file_chooser_get_filename</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">);</span>
-    <span class="function">open_file</span> <span class="gtkdoc opt">(</span>filename<span class="gtkdoc opt">);</span>
-    <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span> <span class="gtkdoc opt">(</span>filename<span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span>
+<span class="normal">res </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gtk3-GtkNativeDialog.html#gtk-native-dialog-run">gtk_native_dialog_run</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_NATIVE_DIALOG</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">native</span><span class="symbol">));</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">res </span><span class="symbol">==</span><span class="normal"> <a href="GtkDialog.html#GTK-RESPONSE-ACCEPT:CAPS">GTK_RESPONSE_ACCEPT</a></span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">filename</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="usertype">GtkFileChooser</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">chooser </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GTK_FILE_CHOOSER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">native</span><span class="symbol">);</span>
+<span class="normal">    filename </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-get-filename">gtk_file_chooser_get_filename</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function">open_file</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filename</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filename</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span>
 
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>native<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">native</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -192,38 +192,38 @@ res <span class="gtkdoc opt">=</span> <span class="function"><a href="gtk3-GtkNa
 30
 31
 32</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkFileChooserNative <span class="gtkdoc opt">*</span>native<span class="gtkdoc opt">;</span>
-GtkFileChooser <span class="gtkdoc opt">*</span>chooser<span class="gtkdoc opt">;</span>
-GtkFileChooserAction action <span class="gtkdoc opt">=</span> GTK_FILE_CHOOSER_ACTION_SAVE<span class="gtkdoc opt">;</span>
-gint res<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkFileChooserNative</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">native</span><span class="symbol">;</span>
+<span class="usertype">GtkFileChooser</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">chooser</span><span class="symbol">;</span>
+<span class="usertype">GtkFileChooserAction</span><span class="normal"> action </span><span class="symbol">=</span><span class="normal"> <a href="GtkFileChooser.html#GTK-FILE-CHOOSER-ACTION-SAVE:CAPS">GTK_FILE_CHOOSER_ACTION_SAVE</a></span><span class="symbol">;</span>
+<span class="usertype">gint</span><span class="normal"> res</span><span class="symbol">;</span>
 
-native <span class="gtkdoc opt">=</span> <span class="function"><a href="gtk3-GtkFileChooserNative.html#gtk-file-chooser-native-new">gtk_file_chooser_native_new</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;Save File&quot;</span><span class="gtkdoc opt">,</span>
-                                      parent_window<span class="gtkdoc opt">,</span>
-                                      action<span class="gtkdoc opt">,</span>
-                                      <span class="string">&quot;_Save&quot;</span><span class="gtkdoc opt">,</span>
-                                      <span class="string">&quot;_Cancel&quot;</span><span class="gtkdoc opt">);</span>
-chooser <span class="gtkdoc opt">=</span> <span class="function">GTK_FILE_CHOOSER</span> <span class="gtkdoc opt">(</span>native<span class="gtkdoc opt">);</span>
+<span class="normal">native </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gtk3-GtkFileChooserNative.html#gtk-file-chooser-native-new">gtk_file_chooser_native_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Save File"</span><span class="symbol">,</span>
+<span class="normal">                                      parent_window</span><span class="symbol">,</span>
+<span class="normal">                                      action</span><span class="symbol">,</span>
+<span class="normal">                                      </span><span class="string">"_Save"</span><span class="symbol">,</span>
+<span class="normal">                                      </span><span class="string">"_Cancel"</span><span class="symbol">);</span>
+<span class="normal">chooser </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GTK_FILE_CHOOSER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">native</span><span class="symbol">);</span>
 
-<span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-do-overwrite-confirmation">gtk_file_chooser_set_do_overwrite_confirmation</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">,</span> TRUE<span class="gtkdoc opt">);</span>
+<span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-do-overwrite-confirmation">gtk_file_chooser_set_do_overwrite_confirmation</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">);</span>
 
-<span class="keyword">if</span> <span class="gtkdoc opt">(</span>user_edited_a_new_document<span class="gtkdoc opt">)</span>
-  <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-current-name">gtk_file_chooser_set_current_name</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">,</span>
-                                     <span class="function">_</span><span class="gtkdoc opt">(</span><span class="string">&quot;Untitled document&quot;</span><span class="gtkdoc opt">));</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">user_edited_a_new_document</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-current-name">gtk_file_chooser_set_current_name</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">,</span>
+<span class="normal">                                     </span><span class="function">_</span><span class="symbol">(</span><span class="string">"Untitled document"</span><span class="symbol">));</span>
 <span class="keyword">else</span>
-  <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-filename">gtk_file_chooser_set_filename</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">,</span>
-                                 existing_filename<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-set-filename">gtk_file_chooser_set_filename</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">,</span>
+<span class="normal">                                 existing_filename</span><span class="symbol">);</span>
 
-res <span class="gtkdoc opt">=</span> <span class="function"><a href="gtk3-GtkNativeDialog.html#gtk-native-dialog-run">gtk_native_dialog_run</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_NATIVE_DIALOG</span> <span class="gtkdoc opt">(</span>native<span class="gtkdoc opt">));</span>
-<span class="keyword">if</span> <span class="gtkdoc opt">(</span>res <span class="gtkdoc opt">==</span> GTK_RESPONSE_ACCEPT<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-    <span class="gtkdoc kwb">char</span> <span class="gtkdoc opt">*</span>filename<span class="gtkdoc opt">;</span>
+<span class="normal">res </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gtk3-GtkNativeDialog.html#gtk-native-dialog-run">gtk_native_dialog_run</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_NATIVE_DIALOG</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">native</span><span class="symbol">));</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">res </span><span class="symbol">==</span><span class="normal"> <a href="GtkDialog.html#GTK-RESPONSE-ACCEPT:CAPS">GTK_RESPONSE_ACCEPT</a></span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">filename</span><span class="symbol">;</span>
 
-    filename <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-get-filename">gtk_file_chooser_get_filename</a></span> <span class="gtkdoc opt">(</span>chooser<span class="gtkdoc opt">);</span>
-    <span class="function">save_to_file</span> <span class="gtkdoc opt">(</span>filename<span class="gtkdoc opt">);</span>
-    <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span> <span class="gtkdoc opt">(</span>filename<span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span>
+<span class="normal">    filename </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkFileChooser.html#gtk-file-chooser-get-filename">gtk_file_chooser_get_filename</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">chooser</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function">save_to_file</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filename</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filename</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span>
 
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>native<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">native</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -289,6 +289,20 @@ supported and will be silently ignored:</p>
 <li class="listitem"><p>Any <a class="link" href="GtkFileFilter.html" title="GtkFileFilter"><span class="type">GtkFileFilter</span></a> added with a custom filter.</p></li>
 </ul></div>
 </div>
+<div class="refsect3">
+<a name="gtkfilechooserdialognative-macos"></a><h4>macOS details</h4>
+<p>On macOS the NSSavePanel and NSOpenPanel classes are used to provide native
+file chooser dialogs. Some features provided by <a class="link" href="GtkFileChooserDialog.html" title="GtkFileChooserDialog"><span class="type">GtkFileChooserDialog</span></a> are
+not supported:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>Extra widgets added with <a class="link" href="GtkFileChooser.html#gtk-file-chooser-set-extra-widget" title="gtk_file_chooser_set_extra_widget ()"><code class="function">gtk_file_chooser_set_extra_widget()</code></a>, unless the
+widget is an instance of GtkLabel, in which case the label text will be used
+to set the NSSavePanel message instance property.</p></li>
+<li class="listitem"><p>Use of custom previews by connecting to <a class="link" href="GtkFileChooser.html#GtkFileChooser-update-preview" title="The “update-preview” signal"><span class="type">“update-preview”</span></a>.</p></li>
+<li class="listitem"><p>Any <a class="link" href="GtkFileFilter.html" title="GtkFileFilter"><span class="type">GtkFileFilter</span></a> added with a custom filter.</p></li>
+<li class="listitem"><p>Shortcut folders.</p></li>
+</ul></div>
+</div>
 </div>
 <div class="refsect1">
 <a name="gtk3-GtkFileChooserNative.functions_details"></a><h2>Functions</h2>
@@ -312,12 +326,12 @@ gtk_file_chooser_native_new (<em class="parameter"><code>const <a href="https://
 <tbody>
 <tr>
 <td class="parameter_name"><p>title</p></td>
-<td class="parameter_description"><p> Title of the native, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>Title of the native, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p> Transient parent of the native, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>Transient parent of the native, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -327,12 +341,12 @@ gtk_file_chooser_native_new (<em class="parameter"><code>const <a href="https://
 </tr>
 <tr>
 <td class="parameter_name"><p>accept_label</p></td>
-<td class="parameter_description"><p> text to go in the accept button, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. </p></td>
+<td class="parameter_description"><p>text to go in the accept button, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>cancel_label</p></td>
-<td class="parameter_description"><p> text to go in the cancel button, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. </p></td>
+<td class="parameter_description"><p>text to go in the cancel button, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -368,7 +382,7 @@ gtk_file_chooser_native_get_accept_label
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-native-get-accept-label.returns"></a><h4>Returns</h4>
-<p> The custom label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. This string
+<p>The custom label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. This string
 is owned by GTK+ and should not be modified or freed. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -404,7 +418,7 @@ Pressing Alt and that key activates the button.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>accept_label</p></td>
-<td class="parameter_description"><p> custom label or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. </p></td>
+<td class="parameter_description"><p>custom label or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -436,7 +450,7 @@ gtk_file_chooser_native_get_cancel_label
 </div>
 <div class="refsect3">
 <a name="gtk-file-chooser-native-get-cancel-label.returns"></a><h4>Returns</h4>
-<p> The custom label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. This string
+<p>The custom label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. This string
 is owned by GTK+ and should not be modified or freed. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -472,7 +486,7 @@ Pressing Alt and that key activates the button.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>cancel_label</p></td>
-<td class="parameter_description"><p> custom label or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. </p></td>
+<td class="parameter_description"><p>custom label or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -490,6 +504,6 @@ Pressing Alt and that key activates the button.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

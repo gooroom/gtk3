@@ -131,8 +131,8 @@ output_result (GtkIMContext *context,
   gboolean retval = FALSE;
   gchar *fixed_str, *marked_str;
 
-  fixed_str = g_object_get_data (G_OBJECT (win), TIC_INSERT_TEXT);
-  marked_str = g_object_get_data (G_OBJECT (win), TIC_MARKED_TEXT);
+  fixed_str = g_strdup (g_object_get_data (G_OBJECT (win), TIC_INSERT_TEXT));
+  marked_str = g_strdup (g_object_get_data (G_OBJECT (win), TIC_MARKED_TEXT));
   if (fixed_str)
     {
       GTK_NOTE (MISC, g_print ("tic-insert-text: %s\n", fixed_str));
@@ -171,7 +171,8 @@ output_result (GtkIMContext *context,
       if (qc->preedit_str && strlen (qc->preedit_str) > 0)
         retval = TRUE;
     }
-
+  g_free (fixed_str);
+  g_free (marked_str);
   return retval;
 }
 
@@ -189,21 +190,22 @@ quartz_filter_keypress (GtkIMContext *context,
   if (!GDK_IS_QUARTZ_WINDOW (qc->client_window))
     return FALSE;
 
-  nsview = gdk_quartz_window_get_nsview (qc->client_window);
-  win = (GdkWindow *)[ (GdkQuartzView *)nsview gdkWindow];
-  GTK_NOTE (MISC, g_print ("client_window: %p, win: %p, nsview: %p\n",
-			   qc->client_window, win, nsview));
-
   NSEvent *nsevent = gdk_quartz_event_get_nsevent ((GdkEvent *)event);
 
   if (!nsevent)
     {
       if (event->hardware_keycode == 0 && event->keyval == 0xffffff)
         /* update text input changes by mouse events */
-        return output_result (context, win);
+        return output_result (context, event->window);
       else
         return gtk_im_context_filter_keypress (qc->slave, event);
     }
+
+  nsview = gdk_quartz_window_get_nsview (qc->client_window);
+
+  win = (GdkWindow *)[(GdkQuartzView *)[[nsevent window] contentView] gdkWindow];
+  GTK_NOTE (MISC, g_print ("client_window: %p, win: %p, nsview: %p\n",
+                           qc->client_window, win, nsview));
 
   if (event->type == GDK_KEY_RELEASE)
     return FALSE;

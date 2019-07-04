@@ -8,7 +8,7 @@
 <link rel="up" href="theming.html" title="Part IV. Theming in GTK+">
 <link rel="prev" href="gtk3-GtkWidgetPath.html" title="GtkWidgetPath">
 <link rel="next" href="migrating.html" title="Part V. Migrating from Previous Versions of GTK+">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -195,7 +195,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<span class="returnvalue">cairo_surface_t</span> *
+<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="returnvalue">cairo_surface_t</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkIconTheme.html#gtk-icon-theme-load-surface" title="gtk_icon_theme_load_surface ()">gtk_icon_theme_load_surface</a> <span class="c_punctuation">()</span>
@@ -314,7 +314,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<span class="returnvalue">cairo_surface_t</span> *
+<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="returnvalue">cairo_surface_t</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkIconTheme.html#gtk-icon-info-load-surface" title="gtk_icon_info_load_surface ()">gtk_icon_info_load_surface</a> <span class="c_punctuation">()</span>
@@ -536,7 +536,7 @@ or stock items, rather than directly, but looking up icons
 directly is also simple. The <a class="link" href="GtkIconTheme.html" title="GtkIconTheme"><span class="type">GtkIconTheme</span></a> object acts
 as a database of all the icons in the current theme. You
 can create new <a class="link" href="GtkIconTheme.html" title="GtkIconTheme"><span class="type">GtkIconTheme</span></a> objects, but it’s much more
-efficient to use the standard icon theme for the <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>
+efficient to use the standard icon theme for the <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>
 so that the icon information is shared with other people
 looking up icons.</p>
 <div class="informalexample">
@@ -563,26 +563,26 @@ looking up icons.</p>
 18
 19
 20</pre></td>
-        <td class="listing_code"><pre class="programlisting">GError <span class="gtkdoc opt">*</span>error <span class="gtkdoc opt">=</span> NULL<span class="gtkdoc opt">;</span>
-GtkIconTheme <span class="gtkdoc opt">*</span>icon_theme<span class="gtkdoc opt">;</span>
-GdkPixbuf <span class="gtkdoc opt">*</span>pixbuf<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GError</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">error </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
+<span class="usertype">GtkIconTheme</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">icon_theme</span><span class="symbol">;</span>
+<span class="usertype">GdkPixbuf</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">pixbuf</span><span class="symbol">;</span>
 
-icon_theme <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkIconTheme.html#gtk-icon-theme-get-default">gtk_icon_theme_get_default</a></span> <span class="gtkdoc opt">();</span>
-pixbuf <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkIconTheme.html#gtk-icon-theme-load-icon">gtk_icon_theme_load_icon</a></span> <span class="gtkdoc opt">(</span>icon_theme<span class="gtkdoc opt">,</span>
-                                   <span class="string">&quot;my-icon-name&quot;</span><span class="gtkdoc opt">,</span> <span class="gtkdoc slc">// icon name</span>
-                                   <span class="number">48</span><span class="gtkdoc opt">,</span> <span class="gtkdoc slc">// icon size</span>
-                                   <span class="number">0</span><span class="gtkdoc opt">,</span>  <span class="gtkdoc slc">// flags</span>
-                                   <span class="gtkdoc opt">&amp;</span>error<span class="gtkdoc opt">);</span>
-<span class="keyword">if</span> <span class="gtkdoc opt">(!</span>pixbuf<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-    <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Message-Logging.html#g-warning">g_warning</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;Couldn’t load icon: %s&quot;</span><span class="gtkdoc opt">,</span> error<span class="gtkdoc opt">-&gt;</span>message<span class="gtkdoc opt">);</span>
-    <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#g-error-free">g_error_free</a></span> <span class="gtkdoc opt">(</span>error<span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span>
+<span class="normal">icon_theme </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkIconTheme.html#gtk-icon-theme-get-default">gtk_icon_theme_get_default</a></span><span class="normal"> </span><span class="symbol">();</span>
+<span class="normal">pixbuf </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkIconTheme.html#gtk-icon-theme-load-icon">gtk_icon_theme_load_icon</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">icon_theme</span><span class="symbol">,</span>
+<span class="normal">                                   </span><span class="string">"my-icon-name"</span><span class="symbol">,</span><span class="normal"> </span><span class="comment">// icon name</span>
+<span class="normal">                                   </span><span class="number">48</span><span class="symbol">,</span><span class="normal"> </span><span class="comment">// icon size</span>
+<span class="normal">                                   </span><span class="number">0</span><span class="symbol">,</span><span class="normal">  </span><span class="comment">// flags</span>
+<span class="normal">                                   </span><span class="symbol">&amp;</span><span class="normal">error</span><span class="symbol">);</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(!</span><span class="normal">pixbuf</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Message-Logging.html#g-warning">g_warning</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Couldn’t load icon: %s"</span><span class="symbol">,</span><span class="normal"> error</span><span class="symbol">-&gt;</span><span class="normal">message</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#g-error-free">g_error_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span>
 <span class="keyword">else</span>
-  <span class="gtkdoc opt">{</span>
-    <span class="gtkdoc slc">// Use the pixbuf</span>
-    <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>pixbuf<span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="comment">// Use the pixbuf</span>
+<span class="normal">    </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">pixbuf</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -616,7 +616,7 @@ gtk_icon_theme_get_default (<em class="parameter"><code><span class="type">void<
 <a class="link" href="GtkIconTheme.html#gtk-icon-theme-get-for-screen" title="gtk_icon_theme_get_for_screen ()"><code class="function">gtk_icon_theme_get_for_screen()</code></a>.</p>
 <div class="refsect3">
 <a name="gtk-icon-theme-get-default.returns"></a><h4>Returns</h4>
-<p> A unique <a class="link" href="GtkIconTheme.html" title="GtkIconTheme"><span class="type">GtkIconTheme</span></a> associated with
+<p>A unique <a class="link" href="GtkIconTheme.html" title="GtkIconTheme"><span class="type">GtkIconTheme</span></a> associated with
 the default screen. This icon theme is associated with
 the screen and can be used as long as the screen
 is open. Do not ref or unref it. </p>
@@ -628,7 +628,7 @@ is open. Do not ref or unref it. </p>
 <div class="refsect2">
 <a name="gtk-icon-theme-get-for-screen"></a><h3>gtk_icon_theme_get_for_screen ()</h3>
 <pre class="programlisting"><a class="link" href="GtkIconTheme.html" title="GtkIconTheme"><span class="returnvalue">GtkIconTheme</span></a> *
-gtk_icon_theme_get_for_screen (<em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+gtk_icon_theme_get_for_screen (<em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
 <p>Gets the icon theme object associated with <em class="parameter"><code>screen</code></em>
 ; if this
 function has not previously been called for the given
@@ -648,14 +648,14 @@ a single icon theme object will be shared between users.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>screen</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-get-for-screen.returns"></a><h4>Returns</h4>
-<p> A unique <a class="link" href="GtkIconTheme.html" title="GtkIconTheme"><span class="type">GtkIconTheme</span></a> associated with
+<p>A unique <a class="link" href="GtkIconTheme.html" title="GtkIconTheme"><span class="type">GtkIconTheme</span></a> associated with
 the given screen. This icon theme is associated with
 the screen and can be used as long as the screen
 is open. Do not ref or unref it. </p>
@@ -668,7 +668,7 @@ is open. Do not ref or unref it. </p>
 <a name="gtk-icon-theme-set-screen"></a><h3>gtk_icon_theme_set_screen ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_icon_theme_set_screen (<em class="parameter"><code><a class="link" href="GtkIconTheme.html" title="GtkIconTheme"><span class="type">GtkIconTheme</span></a> *icon_theme</code></em>,
-                           <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+                           <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
 <p>Sets the screen for an icon theme; the screen is used
 to track the user’s currently configured icon theme,
 which might be different for different screens.</p>
@@ -688,7 +688,7 @@ which might be different for different screens.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>screen</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -734,7 +734,7 @@ rather than directly on the icon path.)</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>path</p></td>
-<td class="parameter_description"><p> array of
+<td class="parameter_description"><p>array of
 directories that are searched for icon themes. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_elements][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> filename]</span></td>
 </tr>
@@ -773,7 +773,7 @@ gtk_icon_theme_get_search_path (<em class="parameter"><code><a class="link" href
 </tr>
 <tr>
 <td class="parameter_name"><p>path</p></td>
-<td class="parameter_description"><p>    location to store a list of icon theme path directories or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+<td class="parameter_description"><p>location to store a list of icon theme path directories or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 The stored value should be freed with <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_elements][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> filename][<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
@@ -812,7 +812,7 @@ See <a class="link" href="GtkIconTheme.html#gtk-icon-theme-set-search-path" titl
 </tr>
 <tr>
 <td class="parameter_name"><p>path</p></td>
-<td class="parameter_description"><p> directory name to append to the icon path. </p></td>
+<td class="parameter_description"><p>directory name to append to the icon path. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 </tbody>
@@ -844,7 +844,7 @@ See <a class="link" href="GtkIconTheme.html#gtk-icon-theme-set-search-path" titl
 </tr>
 <tr>
 <td class="parameter_name"><p>path</p></td>
-<td class="parameter_description"><p> directory name to prepend to the icon path. </p></td>
+<td class="parameter_description"><p>directory name to prepend to the icon path. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 </tbody>
@@ -917,7 +917,7 @@ and <a class="link" href="GtkIconTheme.html#gtk-icon-theme-get-for-screen" title
 </tr>
 <tr>
 <td class="parameter_name"><p>theme_name</p></td>
-<td class="parameter_description"><p> name of icon theme to use instead of
+<td class="parameter_description"><p>name of icon theme to use instead of
 configured theme, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to unset a previously set custom theme. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -981,7 +981,7 @@ combines these two steps if all you need is the pixbuf.)</p>
 <p>When rendering on displays with high pixel densities you should not
 use a <em class="parameter"><code>size</code></em>
  multiplied by the scaling factor returned by functions
-like <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#gdk-window-get-scale-factor"><code class="function">gdk_window_get_scale_factor()</code></a>. Instead, you should use
+like <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-get-scale-factor"><code class="function">gdk_window_get_scale_factor()</code></a>. Instead, you should use
 <a class="link" href="GtkIconTheme.html#gtk-icon-theme-lookup-icon-for-scale" title="gtk_icon_theme_lookup_icon_for_scale ()"><code class="function">gtk_icon_theme_lookup_icon_for_scale()</code></a>, as the assets loaded
 for a given scaling factor may be different.</p>
 <div class="refsect3">
@@ -1018,7 +1018,7 @@ for a given scaling factor may be different.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-lookup-icon.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> object
+<p>a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> object
 containing information about the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
 icon wasn’t found. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -1078,7 +1078,7 @@ these two steps if all you need is the pixbuf.)</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-lookup-icon-for-scale.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> object
+<p>a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> object
 containing information about the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
 icon wasn’t found. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -1118,7 +1118,7 @@ inherited icon themes.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>icon_names</p></td>
-<td class="parameter_description"><p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of
+<td class="parameter_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of
 icon names to lookup. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
@@ -1137,7 +1137,7 @@ icon names to lookup. </p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-choose-icon.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> object
+<p>a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> object
 containing information about the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the icon wasn’t
 found. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -1178,7 +1178,7 @@ inherited icon themes.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>icon_names</p></td>
-<td class="parameter_description"><p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated
+<td class="parameter_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated
 array of icon names to lookup. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
@@ -1202,7 +1202,7 @@ array of icon names to lookup. </p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-choose-icon-for-scale.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> object
+<p>a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> object
 containing information about the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
 icon wasn’t found. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -1214,7 +1214,7 @@ icon wasn’t found. </p>
 <a name="gtk-icon-theme-lookup-by-gicon"></a><h3>gtk_icon_theme_lookup_by_gicon ()</h3>
 <pre class="programlisting"><a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="returnvalue">GtkIconInfo</span></a> *
 gtk_icon_theme_lookup_by_gicon (<em class="parameter"><code><a class="link" href="GtkIconTheme.html" title="GtkIconTheme"><span class="type">GtkIconTheme</span></a> *icon_theme</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *icon</code></em>,
+                                <em class="parameter"><code><span class="type">GIcon</span> *icon</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> size</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkIconTheme.html#GtkIconLookupFlags" title="enum GtkIconLookupFlags"><span class="type">GtkIconLookupFlags</span></a> flags</code></em>);</pre>
 <p>Looks up an icon and returns a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> containing information
@@ -1223,7 +1223,7 @@ into a pixbuf using <a class="link" href="GtkIconTheme.html#gtk-icon-info-load-i
 <p>When rendering on displays with high pixel densities you should not
 use a <em class="parameter"><code>size</code></em>
  multiplied by the scaling factor returned by functions
-like <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#gdk-window-get-scale-factor"><code class="function">gdk_window_get_scale_factor()</code></a>. Instead, you should use
+like <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-get-scale-factor"><code class="function">gdk_window_get_scale_factor()</code></a>. Instead, you should use
 <a class="link" href="GtkIconTheme.html#gtk-icon-theme-lookup-by-gicon-for-scale" title="gtk_icon_theme_lookup_by_gicon_for_scale ()"><code class="function">gtk_icon_theme_lookup_by_gicon_for_scale()</code></a>, as the assets loaded
 for a given scaling factor may be different.</p>
 <div class="refsect3">
@@ -1242,7 +1242,7 @@ for a given scaling factor may be different.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>icon</p></td>
-<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> to look up</p></td>
+<td class="parameter_description"><p>the <span class="type">GIcon</span> to look up</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1260,7 +1260,7 @@ for a given scaling factor may be different.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-lookup-by-gicon.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> containing
+<p>a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> containing
 information about the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the icon wasn’t
 found. Unref with <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -1273,7 +1273,7 @@ found. Unref with <a href="https://developer.gnome.org/gobject/unstable/gobject-
 <pre class="programlisting"><a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="returnvalue">GtkIconInfo</span></a> *
 gtk_icon_theme_lookup_by_gicon_for_scale
                                (<em class="parameter"><code><a class="link" href="GtkIconTheme.html" title="GtkIconTheme"><span class="type">GtkIconTheme</span></a> *icon_theme</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *icon</code></em>,
+                                <em class="parameter"><code><span class="type">GIcon</span> *icon</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> size</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> scale</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkIconTheme.html#GtkIconLookupFlags" title="enum GtkIconLookupFlags"><span class="type">GtkIconLookupFlags</span></a> flags</code></em>);</pre>
@@ -1296,7 +1296,7 @@ a pixbuf using <a class="link" href="GtkIconTheme.html#gtk-icon-info-load-icon" 
 </tr>
 <tr>
 <td class="parameter_name"><p>icon</p></td>
-<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> to look up</p></td>
+<td class="parameter_description"><p>the <span class="type">GIcon</span> to look up</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1319,7 +1319,7 @@ a pixbuf using <a class="link" href="GtkIconTheme.html#gtk-icon-info-load-icon" 
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-lookup-by-gicon-for-scale.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> containing
+<p>a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> containing
 information about the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the icon wasn’t
 found. Unref with <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -1378,7 +1378,7 @@ exactly this size; see <a class="link" href="GtkIconTheme.html#gtk-icon-info-loa
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> Location to store error information on failure,
+<td class="parameter_description"><p>Location to store error information on failure,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1387,7 +1387,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-load-icon.returns"></a><h4>Returns</h4>
-<p> the rendered icon; this may be
+<p>the rendered icon; this may be
 a newly created icon or a new reference to an internal icon, so
 you must not modify the icon. Use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> to release
 your reference to the icon. <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the icon isn’t found. </p>
@@ -1454,7 +1454,7 @@ exactly this size; see <a class="link" href="GtkIconTheme.html#gtk-icon-info-loa
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> Location to store error information on failure,
+<td class="parameter_description"><p>Location to store error information on failure,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1463,7 +1463,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-load-icon-for-scale.returns"></a><h4>Returns</h4>
-<p> the rendered icon; this may be
+<p>the rendered icon; this may be
 a newly created icon or a new reference to an internal icon, so
 you must not modify the icon. Use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> to release
 your reference to the icon. <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the icon isn’t found. </p>
@@ -1474,12 +1474,12 @@ your reference to the icon. <a href="https://developer.gnome.org/glib/unstable/g
 <hr>
 <div class="refsect2">
 <a name="gtk-icon-theme-load-surface"></a><h3>gtk_icon_theme_load_surface ()</h3>
-<pre class="programlisting"><span class="returnvalue">cairo_surface_t</span> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="returnvalue">cairo_surface_t</span></a> *
 gtk_icon_theme_load_surface (<em class="parameter"><code><a class="link" href="GtkIconTheme.html" title="GtkIconTheme"><span class="type">GtkIconTheme</span></a> *icon_theme</code></em>,
                              <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *icon_name</code></em>,
                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> size</code></em>,
                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> scale</code></em>,
-                             <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *for_window</code></em>,
+                             <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *for_window</code></em>,
                              <em class="parameter"><code><a class="link" href="GtkIconTheme.html#GtkIconLookupFlags" title="enum GtkIconLookupFlags"><span class="type">GtkIconLookupFlags</span></a> flags</code></em>,
                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Looks up an icon in an icon theme for a particular window scale,
@@ -1522,7 +1522,7 @@ exactly this size; see <a class="link" href="GtkIconTheme.html#gtk-icon-info-loa
 </tr>
 <tr>
 <td class="parameter_name"><p>for_window</p></td>
-<td class="parameter_description"><p> <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> to optimize drawing for, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> to optimize drawing for, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -1532,7 +1532,7 @@ exactly this size; see <a class="link" href="GtkIconTheme.html#gtk-icon-info-loa
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> Location to store error information on failure,
+<td class="parameter_description"><p>Location to store error information on failure,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1541,9 +1541,9 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-load-surface.returns"></a><h4>Returns</h4>
-<p> the rendered icon; this may be
+<p>the rendered icon; this may be
 a newly created icon or a new reference to an internal icon, so
-you must not modify the icon. Use <code class="function">cairo_surface_destroy()</code> to
+you must not modify the icon. Use <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-destroy"><code class="function">cairo_surface_destroy()</code></a> to
 release your reference to the icon. <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the icon isn’t
 found. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -1575,7 +1575,7 @@ See <a class="link" href="GtkIconTheme.html#gtk-icon-theme-list-icons" title="gt
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-list-contexts.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> list
+<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> list
 holding the names of all the contexts in the theme. You must first
 free each element in the list with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>, then free the list
 itself with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>. </p>
@@ -1614,7 +1614,7 @@ Also see <a class="link" href="GtkIconTheme.html#gtk-icon-theme-list-contexts" t
 </tr>
 <tr>
 <td class="parameter_name"><p>context</p></td>
-<td class="parameter_description"><p> a string identifying a particular type of
+<td class="parameter_description"><p>a string identifying a particular type of
 icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to list all icons. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1623,7 +1623,7 @@ icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-list-icons.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> list
+<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> list
 holding the names of all the icons in the theme. You must
 first free each element in the list with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>, then
 free the list itself with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>. </p>
@@ -1665,7 +1665,7 @@ is zero-terminated.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-get-icon-sizes.returns"></a><h4>Returns</h4>
-<p> An newly
+<p>An newly
 allocated array describing the sizes at which the icon is
 available. The array should be freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when it is no
 longer needed. </p>
@@ -1698,7 +1698,7 @@ a list of themes to the user.)</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-theme-get-example-icon-name.returns"></a><h4>Returns</h4>
-<p> the name of an example icon or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+<p>the name of an example icon or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 Free with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -1817,7 +1817,7 @@ gtk_icon_info_copy (<em class="parameter"><code><a class="link" href="GtkIconThe
 </div>
 <div class="refsect3">
 <a name="gtk-icon-info-copy.returns"></a><h4>Returns</h4>
-<p> the new GtkIconInfo. </p>
+<p>the new GtkIconInfo. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.4</p>
@@ -1881,7 +1881,7 @@ gtk_icon_info_new_for_pixbuf (<em class="parameter"><code><a class="link" href="
 </div>
 <div class="refsect3">
 <a name="gtk-icon-info-new-for-pixbuf.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a>. </p>
+<p>a <a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -1980,7 +1980,7 @@ use <a class="link" href="GtkIconTheme.html#gtk-icon-info-get-builtin-pixbuf" ti
 </div>
 <div class="refsect3">
 <a name="gtk-icon-info-get-filename.returns"></a><h4>Returns</h4>
-<p> the filename for the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<p>the filename for the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 if <a class="link" href="GtkIconTheme.html#gtk-icon-info-get-builtin-pixbuf" title="gtk_icon_info_get_builtin_pixbuf ()"><code class="function">gtk_icon_info_get_builtin_pixbuf()</code></a> should be used instead.
 The return value is owned by GTK+ and should not be modified
 or freed. </p>
@@ -2018,7 +2018,7 @@ to <a class="link" href="GtkIconTheme.html#gtk-icon-theme-lookup-icon" title="gt
 </div>
 <div class="refsect3">
 <a name="gtk-icon-info-get-builtin-pixbuf.returns"></a><h4>Returns</h4>
-<p> the built-in image pixbuf, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+<p>the built-in image pixbuf, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 No extra reference is added to the returned pixbuf, so if
 you want to keep it around, you must use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a>.
 The returned image must not be modified. </p>
@@ -2059,7 +2059,7 @@ returned by this function will be scaled to the exact size.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error information on failure,
+<td class="parameter_description"><p>location to store error information on failure,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -2068,7 +2068,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </div>
 <div class="refsect3">
 <a name="gtk-icon-info-load-icon.returns"></a><h4>Returns</h4>
-<p> the rendered icon; this may be a newly
+<p>the rendered icon; this may be a newly
 created icon or a new reference to an internal icon, so you must
 not modify the icon. Use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> to release your reference
 to the icon. </p>
@@ -2079,9 +2079,9 @@ to the icon. </p>
 <hr>
 <div class="refsect2">
 <a name="gtk-icon-info-load-surface"></a><h3>gtk_icon_info_load_surface ()</h3>
-<pre class="programlisting"><span class="returnvalue">cairo_surface_t</span> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="returnvalue">cairo_surface_t</span></a> *
 gtk_icon_info_load_surface (<em class="parameter"><code><a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> *icon_info</code></em>,
-                            <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *for_window</code></em>,
+                            <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *for_window</code></em>,
                             <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Renders an icon previously looked up in an icon theme using
 <a class="link" href="GtkIconTheme.html#gtk-icon-theme-lookup-icon" title="gtk_icon_theme_lookup_icon ()"><code class="function">gtk_icon_theme_lookup_icon()</code></a>; the size will be based on the size
@@ -2110,12 +2110,12 @@ returned by this function will be scaled to the exact size.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>for_window</p></td>
-<td class="parameter_description"><p> <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> to optimize drawing for, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> to optimize drawing for, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location for error information on failure, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location for error information on failure, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2123,9 +2123,9 @@ returned by this function will be scaled to the exact size.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-info-load-surface.returns"></a><h4>Returns</h4>
-<p> the rendered icon; this may be a newly
+<p>the rendered icon; this may be a newly
 created icon or a new reference to an internal icon, so you must
-not modify the icon. Use <code class="function">cairo_surface_destroy()</code> to release your
+not modify the icon. Use <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-destroy"><code class="function">cairo_surface_destroy()</code></a> to release your
 reference to the icon. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -2136,8 +2136,8 @@ reference to the icon. </p>
 <a name="gtk-icon-info-load-icon-async"></a><h3>gtk_icon_info_load_icon_async ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_icon_info_load_icon_async (<em class="parameter"><code><a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> *icon_info</code></em>,
-                               <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GCancellable.html#GCancellable-struct"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                               <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                               <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                               <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>Asynchronously load, render and scale an icon previously looked up
 from the icon theme using <a class="link" href="GtkIconTheme.html#gtk-icon-theme-lookup-icon" title="gtk_icon_theme_lookup_icon ()"><code class="function">gtk_icon_theme_lookup_icon()</code></a>.</p>
@@ -2159,18 +2159,18 @@ version of this call.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>cancellable</p></td>
-<td class="parameter_description"><p> optional <a href="https://developer.gnome.org/gio/unstable/GCancellable.html#GCancellable-struct"><span class="type">GCancellable</span></a> object, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. </p></td>
+<td class="parameter_description"><p>optional <span class="type">GCancellable</span> object, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> to call when the
+<td class="parameter_description"><p>a <span class="type">GAsyncReadyCallback</span> to call when the
 request is satisfied. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p> the data to pass to callback function. </p></td>
+<td class="parameter_description"><p>the data to pass to callback function. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2183,7 +2183,7 @@ request is satisfied. </p></td>
 <a name="gtk-icon-info-load-icon-finish"></a><h3>gtk_icon_info_load_icon_finish ()</h3>
 <pre class="programlisting"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="returnvalue">GdkPixbuf</span></a> *
 gtk_icon_info_load_icon_finish (<em class="parameter"><code><a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> *icon_info</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncResult-struct"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                <em class="parameter"><code><span class="type">GAsyncResult</span> *res</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Finishes an async icon load, see <a class="link" href="GtkIconTheme.html#gtk-icon-info-load-icon-async" title="gtk_icon_info_load_icon_async ()"><code class="function">gtk_icon_info_load_icon_async()</code></a>.</p>
 <div class="refsect3">
@@ -2202,12 +2202,12 @@ gtk_icon_info_load_icon_finish (<em class="parameter"><code><a class="link" href
 </tr>
 <tr>
 <td class="parameter_name"><p>res</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncResult-struct"><span class="type">GAsyncResult</span></a></p></td>
+<td class="parameter_description"><p>a <span class="type">GAsyncResult</span></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error information on failure,
+<td class="parameter_description"><p>location to store error information on failure,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -2216,7 +2216,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </div>
 <div class="refsect3">
 <a name="gtk-icon-info-load-icon-finish.returns"></a><h4>Returns</h4>
-<p> the rendered icon; this may be a newly
+<p>the rendered icon; this may be a newly
 created icon or a new reference to an internal icon, so you must
 not modify the icon. Use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> to release your reference
 to the icon. </p>
@@ -2229,10 +2229,10 @@ to the icon. </p>
 <a name="gtk-icon-info-load-symbolic"></a><h3>gtk_icon_info_load_symbolic ()</h3>
 <pre class="programlisting"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="returnvalue">GdkPixbuf</span></a> *
 gtk_icon_info_load_symbolic (<em class="parameter"><code><a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> *icon_info</code></em>,
-                             <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *fg</code></em>,
-                             <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *success_color</code></em>,
-                             <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *warning_color</code></em>,
-                             <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *error_color</code></em>,
+                             <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *fg</code></em>,
+                             <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *success_color</code></em>,
+                             <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *warning_color</code></em>,
+                             <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *error_color</code></em>,
                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *was_symbolic</code></em>,
                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Loads an icon, modifying it to match the system colours for the foreground,
@@ -2240,7 +2240,7 @@ success, warning and error colors provided. If the icon is not a symbolic
 one, the function will return the result from <a class="link" href="GtkIconTheme.html#gtk-icon-info-load-icon" title="gtk_icon_info_load_icon ()"><code class="function">gtk_icon_info_load_icon()</code></a>.</p>
 <p>This allows loading symbolic icons that will match the system theme.</p>
 <p>Unless you are implementing a widget, you will want to use
-<a href="https://developer.gnome.org/gio/unstable/GThemedIcon.html#g-themed-icon-new-with-default-fallbacks"><code class="function">g_themed_icon_new_with_default_fallbacks()</code></a> to load the icon.</p>
+<code class="function">g_themed_icon_new_with_default_fallbacks()</code> to load the icon.</p>
 <p>As implementation details, the icon loaded needs to be of SVG type,
 contain the “symbolic” term as the last component of the icon name,
 and use the “fg”, “success”, “warning” and “error” CSS styles in the
@@ -2263,30 +2263,30 @@ for more information about symbolic icons.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>fg</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the foreground color of the icon</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the foreground color of the icon</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>success_color</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the warning color
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the warning color
 of the icon or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default color. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>warning_color</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the warning color
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the warning color
 of the icon or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default color. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error_color</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the error color
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the error color
 of the icon or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default color (allow-none). </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>was_symbolic</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>, returns whether the
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>, returns whether the
 loaded icon was a symbolic one and whether the <em class="parameter"><code>fg</code></em>
 color was
 applied to it. </p></td>
@@ -2294,7 +2294,7 @@ applied to it. </p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error information on failure,
+<td class="parameter_description"><p>location to store error information on failure,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -2303,7 +2303,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </div>
 <div class="refsect3">
 <a name="gtk-icon-info-load-symbolic.returns"></a><h4>Returns</h4>
-<p> a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> representing the loaded icon. </p>
+<p>a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> representing the loaded icon. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -2313,12 +2313,12 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <a name="gtk-icon-info-load-symbolic-async"></a><h3>gtk_icon_info_load_symbolic_async ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_icon_info_load_symbolic_async (<em class="parameter"><code><a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> *icon_info</code></em>,
-                                   <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *fg</code></em>,
-                                   <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *success_color</code></em>,
-                                   <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *warning_color</code></em>,
-                                   <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *error_color</code></em>,
-                                   <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GCancellable.html#GCancellable-struct"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                   <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                   <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *fg</code></em>,
+                                   <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *success_color</code></em>,
+                                   <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *warning_color</code></em>,
+                                   <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *error_color</code></em>,
+                                   <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                   <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>Asynchronously load, render and scale a symbolic icon previously looked up
 from the icon theme using <a class="link" href="GtkIconTheme.html#gtk-icon-theme-lookup-icon" title="gtk_icon_theme_lookup_icon ()"><code class="function">gtk_icon_theme_lookup_icon()</code></a>.</p>
@@ -2340,42 +2340,42 @@ version of this call.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>fg</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the foreground color of the icon</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the foreground color of the icon</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>success_color</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the warning color
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the warning color
 of the icon or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default color. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>warning_color</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the warning color
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the warning color
 of the icon or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default color. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error_color</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the error color
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> representing the error color
 of the icon or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default color (allow-none). </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>cancellable</p></td>
-<td class="parameter_description"><p> optional <a href="https://developer.gnome.org/gio/unstable/GCancellable.html#GCancellable-struct"><span class="type">GCancellable</span></a> object,
+<td class="parameter_description"><p>optional <span class="type">GCancellable</span> object,
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> to call when the
+<td class="parameter_description"><p>a <span class="type">GAsyncReadyCallback</span> to call when the
 request is satisfied. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p> the data to pass to callback function. </p></td>
+<td class="parameter_description"><p>the data to pass to callback function. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2388,7 +2388,7 @@ request is satisfied. </p></td>
 <a name="gtk-icon-info-load-symbolic-finish"></a><h3>gtk_icon_info_load_symbolic_finish ()</h3>
 <pre class="programlisting"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="returnvalue">GdkPixbuf</span></a> *
 gtk_icon_info_load_symbolic_finish (<em class="parameter"><code><a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> *icon_info</code></em>,
-                                    <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncResult-struct"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                    <em class="parameter"><code><span class="type">GAsyncResult</span> *res</code></em>,
                                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *was_symbolic</code></em>,
                                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Finishes an async icon load, see <a class="link" href="GtkIconTheme.html#gtk-icon-info-load-symbolic-async" title="gtk_icon_info_load_symbolic_async ()"><code class="function">gtk_icon_info_load_symbolic_async()</code></a>.</p>
@@ -2408,12 +2408,12 @@ gtk_icon_info_load_symbolic_finish (<em class="parameter"><code><a class="link" 
 </tr>
 <tr>
 <td class="parameter_name"><p>res</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncResult-struct"><span class="type">GAsyncResult</span></a></p></td>
+<td class="parameter_description"><p>a <span class="type">GAsyncResult</span></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>was_symbolic</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>, returns whether the
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>, returns whether the
 loaded icon was a symbolic one and whether the <em class="parameter"><code>fg</code></em>
 color was
 applied to it. </p></td>
@@ -2421,7 +2421,7 @@ applied to it. </p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error information on failure,
+<td class="parameter_description"><p>location to store error information on failure,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -2430,7 +2430,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </div>
 <div class="refsect3">
 <a name="gtk-icon-info-load-symbolic-finish.returns"></a><h4>Returns</h4>
-<p> the rendered icon; this may be a newly
+<p>the rendered icon; this may be a newly
 created icon or a new reference to an internal icon, so you must
 not modify the icon. Use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> to release your reference
 to the icon. </p>
@@ -2482,7 +2482,7 @@ one, the function will return the result from <a class="link" href="GtkIconTheme
 </tr>
 <tr>
 <td class="parameter_name"><p>was_symbolic</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>, returns whether the
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>, returns whether the
 loaded icon was a symbolic one and whether the <em class="parameter"><code>fg</code></em>
 color was
 applied to it. </p></td>
@@ -2490,7 +2490,7 @@ applied to it. </p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error information on failure,
+<td class="parameter_description"><p>location to store error information on failure,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -2499,7 +2499,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </div>
 <div class="refsect3">
 <a name="gtk-icon-info-load-symbolic-for-style.returns"></a><h4>Returns</h4>
-<p> a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> representing the loaded icon. </p>
+<p>a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> representing the loaded icon. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -2542,7 +2542,7 @@ the context.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>was_symbolic</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>, returns whether the
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>, returns whether the
 loaded icon was a symbolic one and whether the <em class="parameter"><code>fg</code></em>
 color was
 applied to it. </p></td>
@@ -2550,7 +2550,7 @@ applied to it. </p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error information on failure,
+<td class="parameter_description"><p>location to store error information on failure,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -2559,7 +2559,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </div>
 <div class="refsect3">
 <a name="gtk-icon-info-load-symbolic-for-context.returns"></a><h4>Returns</h4>
-<p> a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> representing the loaded icon. </p>
+<p>a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> representing the loaded icon. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -2571,8 +2571,8 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 gtk_icon_info_load_symbolic_for_context_async
                                (<em class="parameter"><code><a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> *icon_info</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GCancellable.html#GCancellable-struct"><span class="type">GCancellable</span></a> *cancellable</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>Asynchronously load, render and scale a symbolic icon previously
 looked up from the icon theme using <a class="link" href="GtkIconTheme.html#gtk-icon-theme-lookup-icon" title="gtk_icon_theme_lookup_icon ()"><code class="function">gtk_icon_theme_lookup_icon()</code></a>.</p>
@@ -2599,19 +2599,19 @@ which is the synchronous version of this call.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>cancellable</p></td>
-<td class="parameter_description"><p> optional <a href="https://developer.gnome.org/gio/unstable/GCancellable.html#GCancellable-struct"><span class="type">GCancellable</span></a> object,
+<td class="parameter_description"><p>optional <span class="type">GCancellable</span> object,
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>callback</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> to call when the
+<td class="parameter_description"><p>a <span class="type">GAsyncReadyCallback</span> to call when the
 request is satisfied. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p> the data to pass to callback function. </p></td>
+<td class="parameter_description"><p>the data to pass to callback function. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2625,7 +2625,7 @@ request is satisfied. </p></td>
 <pre class="programlisting"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="returnvalue">GdkPixbuf</span></a> *
 gtk_icon_info_load_symbolic_for_context_finish
                                (<em class="parameter"><code><a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> *icon_info</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncResult-struct"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                <em class="parameter"><code><span class="type">GAsyncResult</span> *res</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *was_symbolic</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>Finishes an async icon load, see <a class="link" href="GtkIconTheme.html#gtk-icon-info-load-symbolic-for-context-async" title="gtk_icon_info_load_symbolic_for_context_async ()"><code class="function">gtk_icon_info_load_symbolic_for_context_async()</code></a>.</p>
@@ -2645,12 +2645,12 @@ gtk_icon_info_load_symbolic_for_context_finish
 </tr>
 <tr>
 <td class="parameter_name"><p>res</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gio/unstable/GAsyncResult.html#GAsyncResult-struct"><span class="type">GAsyncResult</span></a></p></td>
+<td class="parameter_description"><p>a <span class="type">GAsyncResult</span></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>was_symbolic</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>, returns whether the
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>, returns whether the
 loaded icon was a symbolic one and whether the <em class="parameter"><code>fg</code></em>
 color was
 applied to it. </p></td>
@@ -2658,7 +2658,7 @@ applied to it. </p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> location to store error information on failure,
+<td class="parameter_description"><p>location to store error information on failure,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -2667,7 +2667,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </div>
 <div class="refsect3">
 <a name="gtk-icon-info-load-symbolic-for-context-finish.returns"></a><h4>Returns</h4>
-<p> the rendered icon; this may be a newly
+<p>the rendered icon; this may be a newly
 created icon or a new reference to an internal icon, so you must
 not modify the icon. Use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> to release your reference
 to the icon. </p>
@@ -2728,7 +2728,7 @@ and attached points should be returned in their original
 <a name="gtk-icon-info-get-embedded-rect"></a><h3>gtk_icon_info_get_embedded_rect ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_icon_info_get_embedded_rect (<em class="parameter"><code><a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> *icon_info</code></em>,
-                                 <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *rectangle</code></em>);</pre>
+                                 <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *rectangle</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_icon_info_get_embedded_rect</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
 <p>Embedded rectangles are deprecated</p>
@@ -2750,7 +2750,7 @@ gtk_icon_info_get_embedded_rect (<em class="parameter"><code><a class="link" hre
 </tr>
 <tr>
 <td class="parameter_name"><p>rectangle</p></td>
-<td class="parameter_description"><p> <a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> in which to store embedded
+<td class="parameter_description"><p><a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> in which to store embedded
 rectangle coordinates; coordinates are only stored
 when this function returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
@@ -2769,7 +2769,7 @@ when this function returns <a href="https://developer.gnome.org/glib/unstable/gl
 <a name="gtk-icon-info-get-attach-points"></a><h3>gtk_icon_info_get_attach_points ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_icon_info_get_attach_points (<em class="parameter"><code><a class="link" href="GtkIconTheme.html#GtkIconInfo" title="GtkIconInfo"><span class="type">GtkIconInfo</span></a> *icon_info</code></em>,
-                                 <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkPoint"><span class="type">GdkPoint</span></a> **points</code></em>,
+                                 <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkPoint"><span class="type">GdkPoint</span></a> **points</code></em>,
                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *n_points</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_icon_info_get_attach_points</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
@@ -2792,13 +2792,13 @@ gtk_icon_info_get_attach_points (<em class="parameter"><code><a class="link" hre
 </tr>
 <tr>
 <td class="parameter_name"><p>points</p></td>
-<td class="parameter_description"><p> location to store pointer
+<td class="parameter_description"><p>location to store pointer
 to an array of points, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> free the array of points with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_points][<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>n_points</p></td>
-<td class="parameter_description"><p> location to store the number of points in <em class="parameter"><code>points</code></em>
+<td class="parameter_description"><p>location to store the number of points in <em class="parameter"><code>points</code></em>
 ,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
@@ -3091,6 +3091,6 @@ icon theme.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

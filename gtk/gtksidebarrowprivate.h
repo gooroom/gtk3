@@ -50,8 +50,12 @@ void           gtk_sidebar_row_reveal (GtkSidebarRow *self);
 
 GtkWidget     *gtk_sidebar_row_get_eject_button (GtkSidebarRow *self);
 GtkWidget     *gtk_sidebar_row_get_event_box    (GtkSidebarRow *self);
-void           gtk_sidebar_row_set_icon         (GtkSidebarRow *self,
+void           gtk_sidebar_row_set_start_icon   (GtkSidebarRow *self,
                                                  GIcon         *icon);
+void           gtk_sidebar_row_set_end_icon     (GtkSidebarRow *self,
+                                                 GIcon         *icon);
+void           gtk_sidebar_row_set_busy         (GtkSidebarRow *row,
+                                                 gboolean       is_busy);
 
 G_END_DECLS
 

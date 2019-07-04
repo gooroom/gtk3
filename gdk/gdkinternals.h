@@ -386,6 +386,8 @@ struct _GdkWindow
   GdkWindowInvalidateHandlerFunc invalidate_handler;
 
   GdkDrawingContext *drawing_context;
+
+  cairo_region_t *opaque_region;
 };
 
 #define GDK_WINDOW_TYPE(d) ((((GdkWindow *)(d)))->window_type)
@@ -555,6 +557,8 @@ void       _gdk_offscreen_window_new                 (GdkWindow     *window,
 cairo_surface_t * _gdk_offscreen_window_create_surface (GdkWindow *window,
                                                         gint       width,
                                                         gint       height);
+
+PangoDirection gdk_unichar_direction (gunichar ch);
 
 G_END_DECLS
 

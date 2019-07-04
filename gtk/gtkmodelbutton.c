@@ -174,6 +174,7 @@ enum
   PROP_ROLE,
   PROP_ICON,
   PROP_TEXT,
+  PROP_USE_MARKUP,
   PROP_ACTIVE,
   PROP_MENU_NAME,
   PROP_INVERTED,
@@ -397,9 +398,23 @@ gtk_model_button_set_text (GtkModelButton *button,
 }
 
 static void
+gtk_model_button_set_use_markup (GtkModelButton *button,
+                                 gboolean        use_markup)
+{
+  use_markup = !!use_markup;
+  if (gtk_label_get_use_markup (GTK_LABEL (button->label)) == use_markup)
+    return;
+
+  gtk_label_set_use_markup (GTK_LABEL (button->label), use_markup);
+  update_visibility (button);
+  g_object_notify_by_pspec (G_OBJECT (button), properties[PROP_USE_MARKUP]);
+}
+
+static void
 gtk_model_button_set_active (GtkModelButton *button,
                              gboolean        active)
 {
+  active = !!active;
   if (button->active == active)
     return;
 
@@ -427,6 +442,7 @@ static void
 gtk_model_button_set_inverted (GtkModelButton *button,
                                gboolean        inverted)
 {
+  inverted = !!inverted;
   if (button->inverted == inverted)
     return;
 
@@ -441,6 +457,7 @@ static void
 gtk_model_button_set_centered (GtkModelButton *button,
                                gboolean        centered)
 {
+  centered = !!centered;
   if (button->centered == centered)
     return;
 
@@ -457,6 +474,7 @@ gtk_model_button_set_iconic (GtkModelButton *button,
   GtkCssNode *widget_node;
   GtkCssNode *indicator_node;
 
+  iconic = !!iconic;
   if (button->iconic == iconic)
     return;
 
@@ -514,6 +532,10 @@ gtk_model_button_get_property (GObject    *object,
       g_value_set_string (value, gtk_label_get_text (GTK_LABEL (button->label)));
       break;
 
+    case PROP_USE_MARKUP:
+      g_value_set_boolean (value, gtk_label_get_use_markup (GTK_LABEL (button->label)));
+      break;
+
     case PROP_ACTIVE:
       g_value_set_boolean (value, button->active);
       break;
@@ -535,7 +557,8 @@ gtk_model_button_get_property (GObject    *object,
       break;
 
     default:
-      g_assert_not_reached ();
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
     }
 }
 
@@ -561,6 +584,10 @@ gtk_model_button_set_property (GObject      *object,
       gtk_model_button_set_text (button, g_value_get_string (value));
       break;
 
+    case PROP_USE_MARKUP:
+      gtk_model_button_set_use_markup (button, g_value_get_boolean (value));
+      break;
+
     case PROP_ACTIVE:
       gtk_model_button_set_active (button, g_value_get_boolean (value));
       break;
@@ -582,7 +609,8 @@ gtk_model_button_set_property (GObject      *object,
       break;
 
     default:
-      g_assert_not_reached ();
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
     }
 }
 
@@ -1133,6 +1161,22 @@ gtk_model_button_class_init (GtkModelButtonClass *class)
                          G_PARAM_READWRITE | G_PARAM_EXPLICIT_NOTIFY | G_PARAM_STATIC_STRINGS);
 
   /**
+   * GtkModelButton:use-markup:
+   *
+   * If %TRUE, XML tags in the text of the button are interpreted as by
+   * pango_parse_markup() to format the enclosed spans of text. If %FALSE, the
+   * text will be displayed verbatim.
+   *
+   * Since: 3.24
+   */
+  properties[PROP_USE_MARKUP] =
+    g_param_spec_boolean ("use-markup",
+                          P_("Use markup"),
+                          P_("The text of the button includes XML markup. See pango_parse_markup()"),
+                          FALSE,
+                          G_PARAM_READWRITE | G_PARAM_EXPLICIT_NOTIFY | G_PARAM_STATIC_STRINGS);
+
+  /**
    * GtkModelButton:active:
    *
    * The state of the button. This is reflecting the state of the associated
@@ -1181,7 +1225,7 @@ gtk_model_button_class_init (GtkModelButtonClass *class)
   /**
    * GtkModelButton:centered:
    *
-   * Wether to render the button contents centered instead of left-aligned.
+   * Whether to render the button contents centered instead of left-aligned.
    * This property should be set for title-like items.
    *
    * Since: 3.16

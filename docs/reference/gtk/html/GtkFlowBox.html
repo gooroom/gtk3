@@ -8,7 +8,7 @@
 <link rel="up" href="LayoutContainers.html" title="Layout Containers">
 <link rel="prev" href="GtkListBox.html" title="GtkListBox">
 <link rel="next" href="GtkStack.html" title="GtkStack">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -498,7 +498,7 @@ GtkFlowBoxChild implements
 </div>
 <div class="refsect1">
 <a name="GtkFlowBox.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -513,6 +513,9 @@ rows, so a larger height will be requested.</p>
 from top to bottom, starting a new column to the right when necessary.
 Reducing the height will require more columns, so a larger width will
 be requested.</p>
+<p>The size request of a GtkFlowBox alone may not be what you expect; if you
+need to be able to shrink it along both axes and dynamically reflow its
+children, you may have to wrap it in a <a class="link" href="GtkScrolledWindow.html" title="GtkScrolledWindow"><span class="type">GtkScrolledWindow</span></a> to enable that.</p>
 <p>The children of a GtkFlowBox can be dynamically sorted and filtered.</p>
 <p>Although a GtkFlowBox must have only <a class="link" href="GtkFlowBox.html#GtkFlowBoxChild"><span class="type">GtkFlowBoxChild</span></a> children,
 you can add any kind of widget to it via <a class="link" href="GtkContainer.html#gtk-container-add" title="gtk_container_add ()"><code class="function">gtk_container_add()</code></a>, and
@@ -521,7 +524,7 @@ the box and the widget.</p>
 <p>Also see <a class="link" href="GtkListBox.html" title="GtkListBox"><span class="type">GtkListBox</span></a>.</p>
 <p>GtkFlowBox was added in GTK+ 3.12.</p>
 <div class="refsect2">
-<a name="id-1.3.7.6.11.9"></a><h3>CSS nodes</h3>
+<a name="id-1.3.7.6.11.10"></a><h3>CSS nodes</h3>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -533,13 +536,13 @@ the box and the widget.</p>
 5
 6
 7</pre></td>
-        <td class="listing_code"><pre class="programlisting">flowbox
-├── flowboxchild
-│   ╰── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-├── flowboxchild
-│   ╰── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-┊
-╰── <span class="gtkdoc opt">[</span>rubberband<span class="gtkdoc opt">]</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">flowbox</span>
+<span class="normal">├── flowboxchild</span>
+<span class="normal">│   ╰── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">├── flowboxchild</span>
+<span class="normal">│   ╰── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">┊</span>
+<span class="normal">╰── </span><span class="symbol">[</span><span class="normal">rubberband</span><span class="symbol">]</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -645,7 +648,7 @@ gtk_flow_box_get_child_at_index (<em class="parameter"><code><a class="link" hre
 </div>
 <div class="refsect3">
 <a name="gtk-flow-box-get-child-at-index.returns"></a><h4>Returns</h4>
-<p> the child widget, which will
+<p>the child widget, which will
 always be a <a class="link" href="GtkFlowBox.html#GtkFlowBoxChild"><span class="type">GtkFlowBoxChild</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> in case no child widget
 with the given index exists. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
@@ -691,7 +694,7 @@ gtk_flow_box_get_child_at_pos (<em class="parameter"><code><a class="link" href=
 </div>
 <div class="refsect3">
 <a name="gtk-flow-box-get-child-at-pos.returns"></a><h4>Returns</h4>
-<p> the child widget, which will
+<p>the child widget, which will
 always be a <a class="link" href="GtkFlowBox.html#GtkFlowBoxChild"><span class="type">GtkFlowBoxChild</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> in case no child widget
 exists for the given x and y coordinates. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
@@ -1186,7 +1189,7 @@ It will be called on every selected child of the <em class="parameter"><code>box
 </tr>
 <tr>
 <td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p> user data. </p></td>
+<td class="parameter_description"><p>user data. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1220,7 +1223,7 @@ this function.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>func</p></td>
-<td class="parameter_description"><p> the function to call for each selected child. </p></td>
+<td class="parameter_description"><p>the function to call for each selected child. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -1256,7 +1259,7 @@ gtk_flow_box_get_selected_children (<em class="parameter"><code><a class="link" 
 </div>
 <div class="refsect3">
 <a name="gtk-flow-box-get-selected-children.returns"></a><h4>Returns</h4>
-<p>    A <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> containing the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> for each selected child.
+<p>A <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> containing the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> for each selected child.
 Free with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a> when done. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkFlowBoxChild][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span></p>
 </div>
@@ -1466,7 +1469,7 @@ visible or not.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p> user data. </p></td>
+<td class="parameter_description"><p>user data. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1513,7 +1516,7 @@ is called.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>filter_func</p></td>
-<td class="parameter_description"><p> callback that
+<td class="parameter_description"><p>callback that
 lets you filter which children to show. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym> user_data][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1593,7 +1596,7 @@ should come first.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p> user data. </p></td>
+<td class="parameter_description"><p>user data. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1643,7 +1646,7 @@ is called.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>sort_func</p></td>
-<td class="parameter_description"><p> the sort function. </p></td>
+<td class="parameter_description"><p>the sort function. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym> user_data][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -1695,7 +1698,7 @@ gtk_flow_box_invalidate_sort (<em class="parameter"><code><a class="link" href="
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
 <span class="c_punctuation">(</span>*GtkFlowBoxCreateWidgetFunc<span class="c_punctuation">)</span> (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> item</code></em>,
                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
-<p>Called for flow boxes that are bound to a <a href="https://developer.gnome.org/gio/unstable/GListModel.html#GListModel-struct"><span class="type">GListModel</span></a> with
+<p>Called for flow boxes that are bound to a <span class="type">GListModel</span> with
 <a class="link" href="GtkFlowBox.html#gtk-flow-box-bind-model" title="gtk_flow_box_bind_model ()"><code class="function">gtk_flow_box_bind_model()</code></a> for each item that gets added to the model.</p>
 <div class="refsect3">
 <a name="GtkFlowBoxCreateWidgetFunc.parameters"></a><h4>Parameters</h4>
@@ -1708,20 +1711,20 @@ gtk_flow_box_invalidate_sort (<em class="parameter"><code><a class="link" href="
 <tbody>
 <tr>
 <td class="parameter_name"><p>item</p></td>
-<td class="parameter_description"><p>the item from the model for which to create a widget for</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>the item from the model for which to create a widget for. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GObject]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p>user data from <a class="link" href="GtkFlowBox.html#gtk-flow-box-bind-model" title="gtk_flow_box_bind_model ()"><code class="function">gtk_flow_box_bind_model()</code></a></p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>user data from <a class="link" href="GtkFlowBox.html#gtk-flow-box-bind-model" title="gtk_flow_box_bind_model ()"><code class="function">gtk_flow_box_bind_model()</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="refsect3">
 <a name="GtkFlowBoxCreateWidgetFunc.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> that represents <em class="parameter"><code>item</code></em>
+<p>a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> that represents <em class="parameter"><code>item</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -1732,7 +1735,7 @@ gtk_flow_box_invalidate_sort (<em class="parameter"><code><a class="link" href="
 <a name="gtk-flow-box-bind-model"></a><h3>gtk_flow_box_bind_model ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_flow_box_bind_model (<em class="parameter"><code><a class="link" href="GtkFlowBox.html" title="GtkFlowBox"><span class="type">GtkFlowBox</span></a> *box</code></em>,
-                         <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GListModel.html#GListModel-struct"><span class="type">GListModel</span></a> *model</code></em>,
+                         <em class="parameter"><code><span class="type">GListModel</span> *model</code></em>,
                          <em class="parameter"><code><a class="link" href="GtkFlowBox.html#GtkFlowBoxCreateWidgetFunc" title="GtkFlowBoxCreateWidgetFunc ()"><span class="type">GtkFlowBoxCreateWidgetFunc</span></a> create_widget_func</code></em>,
                          <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
                          <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> user_data_free_func</code></em>);</pre>
@@ -1774,7 +1777,7 @@ should be implemented by the model.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>model</p></td>
-<td class="parameter_description"><p> the <a href="https://developer.gnome.org/gio/unstable/GListModel.html#GListModel-struct"><span class="type">GListModel</span></a> to be bound to <em class="parameter"><code>box</code></em>
+<td class="parameter_description"><p>the <span class="type">GListModel</span> to be bound to <em class="parameter"><code>box</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -2303,6 +2306,6 @@ it can be used by applications for their own purposes.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

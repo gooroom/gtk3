@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="GtkActionGroup.html" title="GtkActionGroup">
 <link rel="next" href="GtkToggleAction.html" title="GtkToggleAction">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -219,7 +219,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#GClosure"><span class="returnvalue">GClosure</span></a> *
+<a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#GClosure-struct"><span class="returnvalue">GClosure</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkAction.html#gtk-action-get-accel-closure" title="gtk_action_get_accel_closure ()">gtk_action_get_accel_closure</a> <span class="c_punctuation">()</span>
@@ -303,7 +303,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="returnvalue">GIcon</span></a> *
+<span class="returnvalue">GIcon</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkAction.html#gtk-action-get-gicon" title="gtk_action_get_gicon ()">gtk_action_get_gicon</a> <span class="c_punctuation">()</span>
@@ -397,7 +397,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *</td>
+<span class="type">GIcon</span> *</td>
 <td class="property_name"><a class="link" href="GtkAction.html#GtkAction--gicon" title="The “gicon” property">gicon</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -530,9 +530,9 @@ GtkAction implements
 </div>
 <div class="refsect1">
 <a name="GtkAction.description"></a><h2>Description</h2>
-<div class="blockquote"><blockquote class="blockquote"><p>In GTK+ 3.10, GtkAction has been deprecated. Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a>
+<div class="blockquote"><blockquote class="blockquote"><p>In GTK+ 3.10, GtkAction has been deprecated. Use <span class="type">GAction</span>
 instead, and associate actions with <a class="link" href="GtkActionable.html" title="GtkActionable"><span class="type">GtkActionable</span></a> widgets. Use
-<a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> for creating menus with <a class="link" href="GtkMenu.html#gtk-menu-new-from-model" title="gtk_menu_new_from_model ()"><code class="function">gtk_menu_new_from_model()</code></a>.</p></blockquote></div>
+<span class="type">GMenuModel</span> for creating menus with <a class="link" href="GtkMenu.html#gtk-menu-new-from-model" title="gtk_menu_new_from_model ()"><code class="function">gtk_menu_new_from_model()</code></a>.</p></blockquote></div>
 <p>Actions represent operations that the user can be perform, along with
 some information how it should be presented in the interface. Each action
 provides methods to create icons, menu items and toolbar items
@@ -578,7 +578,7 @@ gtk_action_new (<em class="parameter"><code>const <a href="https://developer.gno
                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stock_id</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_new</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, associating it to a widget with
+<p>Use <span class="type">GAction</span> instead, associating it to a widget with
 <a class="link" href="GtkActionable.html" title="GtkActionable"><span class="type">GtkActionable</span></a> or creating a <a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> with <a class="link" href="GtkMenu.html#gtk-menu-new-from-model" title="gtk_menu_new_from_model ()"><code class="function">gtk_menu_new_from_model()</code></a></p>
 </div>
 <p>Creates a new <a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> object. To add the action to a
@@ -602,18 +602,18 @@ names.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>label</p></td>
-<td class="parameter_description"><p> the label displayed in menu items and on buttons,
+<td class="parameter_description"><p>the label displayed in menu items and on buttons,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>tooltip</p></td>
-<td class="parameter_description"><p> a tooltip for the action, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a tooltip for the action, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>stock_id</p></td>
-<td class="parameter_description"><p> the stock icon to display in widgets representing
+<td class="parameter_description"><p>the stock icon to display in widgets representing
 the action, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -633,7 +633,7 @@ the action, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-
 gtk_action_get_name (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_name</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#g-action-get-name"><code class="function">g_action_get_name()</code></a> on a <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead</p>
+<p>Use <code class="function">g_action_get_name()</code> on a <span class="type">GAction</span> instead</p>
 </div>
 <p>Returns the name of the action.</p>
 <div class="refsect3">
@@ -665,7 +665,7 @@ be freed.</p>
 gtk_action_is_sensitive (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_is_sensitive</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#g-action-get-enabled"><code class="function">g_action_get_enabled()</code></a> on a <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a>
+<p>Use <code class="function">g_action_get_enabled()</code> on a <span class="type">GAction</span>
 instead</p>
 </div>
 <p>Returns whether the action is effectively sensitive.</p>
@@ -698,7 +698,7 @@ are both sensitive.</p>
 gtk_action_get_sensitive (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_sensitive</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#g-action-get-enabled"><code class="function">g_action_get_enabled()</code></a> on a <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a>
+<p>Use <code class="function">g_action_get_enabled()</code> on a <span class="type">GAction</span>
 instead</p>
 </div>
 <p>Returns whether the action itself is sensitive. Note that this doesn’t 
@@ -733,7 +733,7 @@ gtk_action_set_sensitive (<em class="parameter"><code><a class="link" href="GtkA
                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> sensitive</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_sensitive</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GSimpleAction.html#g-simple-action-set-enabled"><code class="function">g_simple_action_set_enabled()</code></a> on a <a href="https://developer.gnome.org/gio/unstable/GSimpleAction.html#GSimpleAction-struct"><span class="type">GSimpleAction</span></a>
+<p>Use <code class="function">g_simple_action_set_enabled()</code> on a <span class="type">GSimpleAction</span>
 instead</p>
 </div>
 <p>Sets the :sensitive property of the action to <em class="parameter"><code>sensitive</code></em>
@@ -772,7 +772,7 @@ for that.</p>
 gtk_action_is_visible (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_is_visible</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and control and monitor the state of
+<p>Use <span class="type">GAction</span> instead, and control and monitor the state of
 <a class="link" href="GtkActionable.html" title="GtkActionable"><span class="type">GtkActionable</span></a> widgets directly</p>
 </div>
 <p>Returns whether the action is effectively visible.</p>
@@ -805,7 +805,7 @@ are both visible.</p>
 gtk_action_get_visible (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_visible</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and control and monitor the state of
+<p>Use <span class="type">GAction</span> instead, and control and monitor the state of
 <a class="link" href="GtkActionable.html" title="GtkActionable"><span class="type">GtkActionable</span></a> widgets directly</p>
 </div>
 <p>Returns whether the action itself is visible. Note that this doesn’t 
@@ -840,7 +840,7 @@ gtk_action_set_visible (<em class="parameter"><code><a class="link" href="GtkAct
                         <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> visible</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_visible</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and control and monitor the state of
+<p>Use <span class="type">GAction</span> instead, and control and monitor the state of
 <a class="link" href="GtkActionable.html" title="GtkActionable"><span class="type">GtkActionable</span></a> widgets directly</p>
 </div>
 <p>Sets the :visible property of the action to <em class="parameter"><code>visible</code></em>
@@ -879,7 +879,7 @@ for that.</p>
 gtk_action_activate (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_activate</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GActionGroup.html#g-action-group-activate-action"><code class="function">g_action_group_activate_action()</code></a> on a <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead</p>
+<p>Use <code class="function">g_action_group_activate_action()</code> on a <span class="type">GAction</span> instead</p>
 </div>
 <p>Emits the “activate” signal on the specified action, if it isn't
 insensitive. This gets called by the proxy widgets when they get 
@@ -910,7 +910,7 @@ gtk_action_create_icon (<em class="parameter"><code><a class="link" href="GtkAct
                         <em class="parameter"><code><a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a> icon_size</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_create_icon</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GMenu.html#g-menu-item-set-icon"><code class="function">g_menu_item_set_icon()</code></a> to set an icon on a <a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenuItem-struct"><span class="type">GMenuItem</span></a>,
+<p>Use <code class="function">g_menu_item_set_icon()</code> to set an icon on a <span class="type">GMenuItem</span>,
 or <a class="link" href="GtkContainer.html#gtk-container-add" title="gtk_container_add ()"><code class="function">gtk_container_add()</code></a> to add a <a class="link" href="GtkImage.html" title="GtkImage"><span class="type">GtkImage</span></a> to a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a></p>
 </div>
 <p>This function is intended for use by action implementations to
@@ -931,7 +931,7 @@ create icons displayed in the proxy widgets.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>icon_size</p></td>
-<td class="parameter_description"><p> the size of the icon (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>) that should
+<td class="parameter_description"><p>the size of the icon (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>) that should
 be created. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></td>
 </tr>
@@ -940,7 +940,7 @@ be created. </p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-action-create-icon.returns"></a><h4>Returns</h4>
-<p> a widget that displays the icon for this action. </p>
+<p>a widget that displays the icon for this action. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.4</p>
@@ -952,7 +952,7 @@ be created. </p></td>
 gtk_action_create_menu_item (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_create_menu_item</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GMenu.html#g-menu-item-new"><code class="function">g_menu_item_new()</code></a> and associate it with a <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a>
+<p>Use <code class="function">g_menu_item_new()</code> and associate it with a <span class="type">GAction</span>
 instead.</p>
 </div>
 <p>Creates a menu item widget that proxies for the given action.</p>
@@ -973,7 +973,7 @@ instead.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-action-create-menu-item.returns"></a><h4>Returns</h4>
-<p> a menu item connected to the action. </p>
+<p>a menu item connected to the action. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.4</p>
@@ -985,7 +985,7 @@ instead.</p>
 gtk_action_create_tool_item (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_create_tool_item</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use a <a class="link" href="GtkToolItem.html" title="GtkToolItem"><span class="type">GtkToolItem</span></a> and associate it with a <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> using
+<p>Use a <a class="link" href="GtkToolItem.html" title="GtkToolItem"><span class="type">GtkToolItem</span></a> and associate it with a <span class="type">GAction</span> using
 <a class="link" href="GtkActionable.html#gtk-actionable-set-action-name" title="gtk_actionable_set_action_name ()"><code class="function">gtk_actionable_set_action_name()</code></a> instead</p>
 </div>
 <p>Creates a toolbar item widget that proxies for the given action.</p>
@@ -1006,7 +1006,7 @@ gtk_action_create_tool_item (<em class="parameter"><code><a class="link" href="G
 </div>
 <div class="refsect3">
 <a name="gtk-action-create-tool-item.returns"></a><h4>Returns</h4>
-<p> a toolbar item connected to the action. </p>
+<p>a toolbar item connected to the action. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.4</p>
@@ -1018,7 +1018,7 @@ gtk_action_create_tool_item (<em class="parameter"><code><a class="link" href="G
 gtk_action_create_menu (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_create_menu</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> and <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> instead, and create a
+<p>Use <span class="type">GAction</span> and <span class="type">GMenuModel</span> instead, and create a
 <a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> with <a class="link" href="GtkMenu.html#gtk-menu-new-from-model" title="gtk_menu_new_from_model ()"><code class="function">gtk_menu_new_from_model()</code></a></p>
 </div>
 <p>If <em class="parameter"><code>action</code></em>
@@ -1042,7 +1042,7 @@ instance of that menu.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-action-create-menu.returns"></a><h4>Returns</h4>
-<p> the menu item provided by the
+<p>the menu item provided by the
 action, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1073,7 +1073,7 @@ See also <a class="link" href="GtkActivatable.html#gtk-activatable-get-related-a
 </div>
 <div class="refsect3">
 <a name="gtk-action-get-proxies.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> of proxy widgets. The list is owned by GTK+
+<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> of proxy widgets. The list is owned by GTK+
 and must not be modified. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkWidget][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1086,7 +1086,7 @@ and must not be modified. </p>
 gtk_action_connect_accelerator (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_connect_accelerator</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> and the accelerator group on an associated
+<p>Use <span class="type">GAction</span> and the accelerator group on an associated
 <a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> instead</p>
 </div>
 <p>Installs the accelerator for <em class="parameter"><code>action</code></em>
@@ -1123,7 +1123,7 @@ function has been called and doesn’t remove the accelerator until
 gtk_action_disconnect_accelerator (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_disconnect_accelerator</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> and the accelerator group on an associated
+<p>Use <span class="type">GAction</span> and the accelerator group on an associated
 <a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> instead</p>
 </div>
 <p>Undoes the effect of one call to <a class="link" href="GtkAction.html#gtk-action-connect-accelerator" title="gtk_action_connect_accelerator ()"><code class="function">gtk_action_connect_accelerator()</code></a>.</p>
@@ -1151,8 +1151,8 @@ gtk_action_disconnect_accelerator (<em class="parameter"><code><a class="link" h
 gtk_action_block_activate (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_block_activate</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GSimpleAction.html#g-simple-action-set-enabled"><code class="function">g_simple_action_set_enabled()</code></a> to disable the
-<a href="https://developer.gnome.org/gio/unstable/GSimpleAction.html#GSimpleAction-struct"><span class="type">GSimpleAction</span></a> instead</p>
+<p>Use <code class="function">g_simple_action_set_enabled()</code> to disable the
+<span class="type">GSimpleAction</span> instead</p>
 </div>
 <p>Disable activation signals from the action </p>
 <p>This is needed when updating the state of your proxy
@@ -1183,8 +1183,8 @@ cases (updating toggle state for instance).</p>
 gtk_action_unblock_activate (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_unblock_activate</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GSimpleAction.html#g-simple-action-set-enabled"><code class="function">g_simple_action_set_enabled()</code></a> to enable the
-<a href="https://developer.gnome.org/gio/unstable/GSimpleAction.html#GSimpleAction-struct"><span class="type">GSimpleAction</span></a> instead</p>
+<p>Use <code class="function">g_simple_action_set_enabled()</code> to enable the
+<span class="type">GSimpleAction</span> instead</p>
 </div>
 <p>Reenable activation signals from the action</p>
 <div class="refsect3">
@@ -1211,7 +1211,7 @@ gtk_action_unblock_activate (<em class="parameter"><code><a class="link" href="G
 gtk_action_get_always_show_image (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_always_show_image</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GMenu.html#g-menu-item-get-attribute-value"><code class="function">g_menu_item_get_attribute_value()</code></a> on a <a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenuItem-struct"><span class="type">GMenuItem</span></a>
+<p>Use <code class="function">g_menu_item_get_attribute_value()</code> on a <span class="type">GMenuItem</span>
 instead</p>
 </div>
 <p>Returns whether <em class="parameter"><code>action</code></em>
@@ -1246,7 +1246,7 @@ gtk_action_set_always_show_image (<em class="parameter"><code><a class="link" hr
                                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> always_show</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_always_show_image</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GMenu.html#g-menu-item-set-icon"><code class="function">g_menu_item_set_icon()</code></a> on a <a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenuItem-struct"><span class="type">GMenuItem</span></a> instead, if the
+<p>Use <code class="function">g_menu_item_set_icon()</code> on a <span class="type">GMenuItem</span> instead, if the
 item should have an image</p>
 </div>
 <p>Sets whether <em class="parameter"><code>action</code></em>
@@ -1285,7 +1285,7 @@ without their image.</p>
 gtk_action_get_accel_path (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_accel_path</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> and the accelerator path on an associated
+<p>Use <span class="type">GAction</span> and the accelerator path on an associated
 <a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> instead</p>
 </div>
 <p>Returns the accel path for this action.</p>
@@ -1320,7 +1320,7 @@ gtk_action_set_accel_path (<em class="parameter"><code><a class="link" href="Gtk
                            <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *accel_path</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_accel_path</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> and the accelerator path on an associated
+<p>Use <span class="type">GAction</span> and the accelerator path on an associated
 <a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> instead</p>
 </div>
 <p>Sets the accel path for this action.  All proxy widgets associated
@@ -1357,11 +1357,11 @@ pass a static string, you can save some memory by interning it first with
 <hr>
 <div class="refsect2">
 <a name="gtk-action-get-accel-closure"></a><h3>gtk_action_get_accel_closure ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#GClosure"><span class="returnvalue">GClosure</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#GClosure-struct"><span class="returnvalue">GClosure</span></a> *
 gtk_action_get_accel_closure (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_accel_closure</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> and <a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> instead, which have no
+<p>Use <span class="type">GAction</span> and <a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> instead, which have no
 equivalent for getting the accel closure</p>
 </div>
 <p>Returns the accel closure for this action.</p>
@@ -1382,7 +1382,7 @@ equivalent for getting the accel closure</p>
 </div>
 <div class="refsect3">
 <a name="gtk-action-get-accel-closure.returns"></a><h4>Returns</h4>
-<p> the accel closure for this action. The
+<p>the accel closure for this action. The
 returned closure is owned by GTK+ and must not be unreffed
 or modified. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1397,7 +1397,7 @@ gtk_action_set_accel_group (<em class="parameter"><code><a class="link" href="Gt
                             <em class="parameter"><code><a class="link" href="gtk3-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> *accel_group</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_accel_group</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> and the accelerator group on an associated
+<p>Use <span class="type">GAction</span> and the accelerator group on an associated
 <a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> instead</p>
 </div>
 <p>Sets the <a class="link" href="gtk3-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> in which the accelerator for this action
@@ -1418,7 +1418,7 @@ will be installed.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>accel_group</p></td>
-<td class="parameter_description"><p> a <a class="link" href="gtk3-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="gtk3-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1434,8 +1434,8 @@ gtk_action_set_label (<em class="parameter"><code><a class="link" href="GtkActio
                       <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_label</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and set a label on a menu item with
-<a href="https://developer.gnome.org/gio/unstable/GMenu.html#g-menu-item-set-label"><code class="function">g_menu_item_set_label()</code></a>. For <a class="link" href="GtkActionable.html" title="GtkActionable"><span class="type">GtkActionable</span></a> widgets, use the widget-specific
+<p>Use <span class="type">GAction</span> instead, and set a label on a menu item with
+<code class="function">g_menu_item_set_label()</code>. For <a class="link" href="GtkActionable.html" title="GtkActionable"><span class="type">GtkActionable</span></a> widgets, use the widget-specific
 API to set a label</p>
 </div>
 <p>Sets the label of <em class="parameter"><code>action</code></em>
@@ -1471,8 +1471,8 @@ API to set a label</p>
 gtk_action_get_label (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_label</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and get a label from a menu item
-with <a href="https://developer.gnome.org/gio/unstable/GMenu.html#g-menu-item-get-attribute-value"><code class="function">g_menu_item_get_attribute_value()</code></a>. For <a class="link" href="GtkActionable.html" title="GtkActionable"><span class="type">GtkActionable</span></a> widgets, use the
+<p>Use <span class="type">GAction</span> instead, and get a label from a menu item
+with <code class="function">g_menu_item_get_attribute_value()</code>. For <a class="link" href="GtkActionable.html" title="GtkActionable"><span class="type">GtkActionable</span></a> widgets, use the
 widget-specific API to get a label</p>
 </div>
 <p>Gets the label text of <em class="parameter"><code>action</code></em>
@@ -1506,7 +1506,7 @@ gtk_action_set_short_label (<em class="parameter"><code><a class="link" href="Gt
                             <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *short_label</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_short_label</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, which has no equivalent of short
+<p>Use <span class="type">GAction</span> instead, which has no equivalent of short
 labels</p>
 </div>
 <p>Sets a shorter label text on <em class="parameter"><code>action</code></em>
@@ -1542,7 +1542,7 @@ labels</p>
 gtk_action_get_short_label (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_short_label</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, which has no equivalent of short
+<p>Use <span class="type">GAction</span> instead, which has no equivalent of short
 labels</p>
 </div>
 <p>Gets the short label text of <em class="parameter"><code>action</code></em>
@@ -1576,7 +1576,7 @@ gtk_action_set_tooltip (<em class="parameter"><code><a class="link" href="GtkAct
                         <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *tooltip</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_tooltip</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and set tooltips on associated
+<p>Use <span class="type">GAction</span> instead, and set tooltips on associated
 <a class="link" href="GtkActionable.html" title="GtkActionable"><span class="type">GtkActionable</span></a> widgets with <a class="link" href="GtkWidget.html#gtk-widget-set-tooltip-text" title="gtk_widget_set_tooltip_text ()"><code class="function">gtk_widget_set_tooltip_text()</code></a></p>
 </div>
 <p>Sets the tooltip text on <em class="parameter"><code>action</code></em>
@@ -1612,7 +1612,7 @@ gtk_action_set_tooltip (<em class="parameter"><code><a class="link" href="GtkAct
 gtk_action_get_tooltip (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_tooltip</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and get tooltips from associated
+<p>Use <span class="type">GAction</span> instead, and get tooltips from associated
 <a class="link" href="GtkActionable.html" title="GtkActionable"><span class="type">GtkActionable</span></a> widgets with <a class="link" href="GtkWidget.html#gtk-widget-get-tooltip-text" title="gtk_widget_get_tooltip_text ()"><code class="function">gtk_widget_get_tooltip_text()</code></a></p>
 </div>
 <p>Gets the tooltip text of <em class="parameter"><code>action</code></em>
@@ -1646,7 +1646,7 @@ gtk_action_set_stock_id (<em class="parameter"><code><a class="link" href="GtkAc
                          <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stock_id</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_stock_id</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, which has no equivalent of stock
+<p>Use <span class="type">GAction</span> instead, which has no equivalent of stock
 items</p>
 </div>
 <p>Sets the stock id on <em class="parameter"><code>action</code></em>
@@ -1682,7 +1682,7 @@ items</p>
 gtk_action_get_stock_id (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_stock_id</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, which has no equivalent of stock
+<p>Use <span class="type">GAction</span> instead, which has no equivalent of stock
 items</p>
 </div>
 <p>Gets the stock id of <em class="parameter"><code>action</code></em>
@@ -1713,11 +1713,11 @@ items</p>
 <a name="gtk-action-set-gicon"></a><h3>gtk_action_set_gicon ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_action_set_gicon (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *icon</code></em>);</pre>
+                      <em class="parameter"><code><span class="type">GIcon</span> *icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_gicon</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and <a href="https://developer.gnome.org/gio/unstable/GMenu.html#g-menu-item-set-icon"><code class="function">g_menu_item_set_icon()</code></a> to set an
-icon on a <a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenuItem-struct"><span class="type">GMenuItem</span></a> associated with a <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a>, or <a class="link" href="GtkContainer.html#gtk-container-add" title="gtk_container_add ()"><code class="function">gtk_container_add()</code></a> to
+<p>Use <span class="type">GAction</span> instead, and <code class="function">g_menu_item_set_icon()</code> to set an
+icon on a <span class="type">GMenuItem</span> associated with a <span class="type">GAction</span>, or <a class="link" href="GtkContainer.html#gtk-container-add" title="gtk_container_add ()"><code class="function">gtk_container_add()</code></a> to
 add a <a class="link" href="GtkImage.html" title="GtkImage"><span class="type">GtkImage</span></a> to a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a></p>
 </div>
 <p>Sets the icon of <em class="parameter"><code>action</code></em>
@@ -1738,7 +1738,7 @@ add a <a class="link" href="GtkImage.html" title="GtkImage"><span class="type">G
 </tr>
 <tr>
 <td class="parameter_name"><p>icon</p></td>
-<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> to set</p></td>
+<td class="parameter_description"><p>the <span class="type">GIcon</span> to set</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -1749,13 +1749,13 @@ add a <a class="link" href="GtkImage.html" title="GtkImage"><span class="type">G
 <hr>
 <div class="refsect2">
 <a name="gtk-action-get-gicon"></a><h3>gtk_action_get_gicon ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="returnvalue">GIcon</span></a> *
+<pre class="programlisting"><span class="returnvalue">GIcon</span> *
 gtk_action_get_gicon (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_gicon</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and
-<a href="https://developer.gnome.org/gio/unstable/GMenu.html#g-menu-item-get-attribute-value"><code class="function">g_menu_item_get_attribute_value()</code></a> to get an icon from a <a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenuItem-struct"><span class="type">GMenuItem</span></a>
-associated with a <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a></p>
+<p>Use <span class="type">GAction</span> instead, and
+<code class="function">g_menu_item_get_attribute_value()</code> to get an icon from a <span class="type">GMenuItem</span>
+associated with a <span class="type">GAction</span></p>
 </div>
 <p>Gets the gicon of <em class="parameter"><code>action</code></em>
 .</p>
@@ -1776,7 +1776,7 @@ associated with a <a href="https://developer.gnome.org/gio/unstable/GAction.html
 </div>
 <div class="refsect3">
 <a name="gtk-action-get-gicon.returns"></a><h4>Returns</h4>
-<p> The action’s <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> if one is set. </p>
+<p>The action’s <span class="type">GIcon</span> if one is set. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.16</p>
@@ -1789,8 +1789,8 @@ gtk_action_set_icon_name (<em class="parameter"><code><a class="link" href="GtkA
                           <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *icon_name</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_icon_name</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and <a href="https://developer.gnome.org/gio/unstable/GMenu.html#g-menu-item-set-icon"><code class="function">g_menu_item_set_icon()</code></a> to set an
-icon on a <a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenuItem-struct"><span class="type">GMenuItem</span></a> associated with a <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a>, or <a class="link" href="GtkContainer.html#gtk-container-add" title="gtk_container_add ()"><code class="function">gtk_container_add()</code></a> to
+<p>Use <span class="type">GAction</span> instead, and <code class="function">g_menu_item_set_icon()</code> to set an
+icon on a <span class="type">GMenuItem</span> associated with a <span class="type">GAction</span>, or <a class="link" href="GtkContainer.html#gtk-container-add" title="gtk_container_add ()"><code class="function">gtk_container_add()</code></a> to
 add a <a class="link" href="GtkImage.html" title="GtkImage"><span class="type">GtkImage</span></a> to a <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a></p>
 </div>
 <p>Sets the icon name on <em class="parameter"><code>action</code></em>
@@ -1826,9 +1826,9 @@ add a <a class="link" href="GtkImage.html" title="GtkImage"><span class="type">G
 gtk_action_get_icon_name (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_icon_name</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and
-<a href="https://developer.gnome.org/gio/unstable/GMenu.html#g-menu-item-get-attribute-value"><code class="function">g_menu_item_get_attribute_value()</code></a> to get an icon from a <a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenuItem-struct"><span class="type">GMenuItem</span></a>
-associated with a <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a></p>
+<p>Use <span class="type">GAction</span> instead, and
+<code class="function">g_menu_item_get_attribute_value()</code> to get an icon from a <span class="type">GMenuItem</span>
+associated with a <span class="type">GAction</span></p>
 </div>
 <p>Gets the icon name of <em class="parameter"><code>action</code></em>
 .</p>
@@ -1861,7 +1861,7 @@ gtk_action_set_visible_horizontal (<em class="parameter"><code><a class="link" h
                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> visible_horizontal</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_visible_horizontal</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and control and monitor the
+<p>Use <span class="type">GAction</span> instead, and control and monitor the
 visibility of associated widgets and menu items directly</p>
 </div>
 <p>Sets whether <em class="parameter"><code>action</code></em>
@@ -1897,7 +1897,7 @@ visibility of associated widgets and menu items directly</p>
 gtk_action_get_visible_horizontal (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_visible_horizontal</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and control and monitor the
+<p>Use <span class="type">GAction</span> instead, and control and monitor the
 visibility of associated widgets and menu items directly</p>
 </div>
 <p>Checks whether <em class="parameter"><code>action</code></em>
@@ -1932,7 +1932,7 @@ gtk_action_set_visible_vertical (<em class="parameter"><code><a class="link" hre
                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> visible_vertical</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_visible_vertical</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and control and monitor the
+<p>Use <span class="type">GAction</span> instead, and control and monitor the
 visibility of associated widgets and menu items directly</p>
 </div>
 <p>Sets whether <em class="parameter"><code>action</code></em>
@@ -1968,7 +1968,7 @@ visibility of associated widgets and menu items directly</p>
 gtk_action_get_visible_vertical (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_visible_vertical</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and control and monitor the
+<p>Use <span class="type">GAction</span> instead, and control and monitor the
 visibility of associated widgets and menu items directly</p>
 </div>
 <p>Checks whether <em class="parameter"><code>action</code></em>
@@ -2003,7 +2003,7 @@ gtk_action_set_is_important (<em class="parameter"><code><a class="link" href="G
                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_important</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_set_is_important</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and control and monitor whether
+<p>Use <span class="type">GAction</span> instead, and control and monitor whether
 labels are shown directly</p>
 </div>
 <p>Sets whether the action is important, this attribute is used
@@ -2040,7 +2040,7 @@ or not.</p>
 gtk_action_get_is_important (<em class="parameter"><code><a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> *action</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_action_get_is_important</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> instead, and control and monitor whether
+<p>Use <span class="type">GAction</span> instead, and control and monitor whether
 labels are shown directly</p>
 </div>
 <p>Checks whether <em class="parameter"><code>action</code></em>
@@ -2111,7 +2111,7 @@ is important</p>
 (for internal use).</p>
 <div class="warning">
 <p><code class="literal">GtkAction:action-group</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Lookup the <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> using <a href="https://developer.gnome.org/gio/unstable/GActionMap.html#g-action-map-lookup-action"><code class="function">g_action_map_lookup_action()</code></a>
+<p>Lookup the <span class="type">GAction</span> using <code class="function">g_action_map_lookup_action()</code>
 instead</p>
 </div>
 <p>Flags: Read / Write</p>
@@ -2128,7 +2128,7 @@ without their image.</p>
 <div class="warning">
 <p><code class="literal">GtkAction:always-show-image</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
 <p>There is no corresponding replacement when using
-<a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a></p>
+<span class="type">GAction</span></p>
 </div>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: FALSE</p>
@@ -2137,8 +2137,8 @@ without their image.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkAction--gicon"></a><h3>The <code class="literal">“gicon”</code> property</h3>
-<pre class="programlisting">  “gicon”                    <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *</pre>
-<p>The <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> displayed in the <a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a>.</p>
+<pre class="programlisting">  “gicon”                    <span class="type">GIcon</span> *</pre>
+<p>The <span class="type">GIcon</span> displayed in the <a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a>.</p>
 <p>Note that the stock icon is preferred, if the <a class="link" href="GtkAction.html#GtkAction--stock-id" title="The “stock-id” property"><span class="type">“stock-id”</span></a>
 
 property holds the id of an existing stock icon.</p>
@@ -2147,7 +2147,7 @@ property holds the id of an existing stock icon.</p>
 <a class="link" href="GtkActivatable.html#GtkActivatable--use-action-appearance" title="The “use-action-appearance” property"><span class="type">“use-action-appearance”</span></a> is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.</p>
 <div class="warning">
 <p><code class="literal">GtkAction:gicon</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use the "icon" attribute on a <a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenuItem-struct"><span class="type">GMenuItem</span></a> instead</p>
+<p>Use the "icon" attribute on a <span class="type">GMenuItem</span> instead</p>
 </div>
 <p>Flags: Read / Write</p>
 <p class="since">Since: 2.16</p>
@@ -2160,7 +2160,7 @@ property holds the id of an existing stock icon.</p>
 <div class="warning">
 <p><code class="literal">GtkAction:hide-if-empty</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
 <p>There is no corresponding replacement when using
-<a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a></p>
+<span class="type">GAction</span></p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
@@ -2172,14 +2172,14 @@ property holds the id of an existing stock icon.</p>
 <p>The name of the icon from the icon theme. </p>
 <p>Note that the stock icon is preferred, if the <a class="link" href="GtkAction.html#GtkAction--stock-id" title="The “stock-id” property"><span class="type">“stock-id”</span></a>
 
-property holds the id of an existing stock icon, and the <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> is
+property holds the id of an existing stock icon, and the <span class="type">GIcon</span> is
 preferred if the <a class="link" href="GtkAction.html#GtkAction--gicon" title="The “gicon” property"><span class="type">“gicon”</span></a> property is set. </p>
 <p>This is an appearance property and thus only applies if
 
 <a class="link" href="GtkActivatable.html#GtkActivatable--use-action-appearance" title="The “use-action-appearance” property"><span class="type">“use-action-appearance”</span></a> is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.</p>
 <div class="warning">
 <p><code class="literal">GtkAction:icon-name</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use the "icon" attribute on a <a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenuItem-struct"><span class="type">GMenuItem</span></a> instead</p>
+<p>Use the "icon" attribute on a <span class="type">GMenuItem</span> instead</p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
@@ -2194,7 +2194,7 @@ proxies for this action show text in GTK_TOOLBAR_BOTH_HORIZ mode.</p>
 <div class="warning">
 <p><code class="literal">GtkAction:is-important</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
 <p>There is no corresponding replacement when using
-<a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a></p>
+<span class="type">GAction</span></p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
@@ -2212,7 +2212,7 @@ label specified via the stock-id property.</p>
 <a class="link" href="GtkActivatable.html#GtkActivatable--use-action-appearance" title="The “use-action-appearance” property"><span class="type">“use-action-appearance”</span></a> is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.</p>
 <div class="warning">
 <p><code class="literal">GtkAction:label</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use the "label" attribute on <a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenuItem-struct"><span class="type">GMenuItem</span></a> instead</p>
+<p>Use the "label" attribute on <span class="type">GMenuItem</span> instead</p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
@@ -2224,7 +2224,7 @@ label specified via the stock-id property.</p>
 <p>A unique name for the action.</p>
 <div class="warning">
 <p><code class="literal">GtkAction:name</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction--name"><span class="type">“name”</span></a> instead</p>
+<p>Use <span class="type">“name”</span> instead</p>
 </div>
 <p>Flags: Read / Write / Construct Only</p>
 <p>Default value: NULL</p>
@@ -2236,7 +2236,7 @@ label specified via the stock-id property.</p>
 <p>Whether the action is enabled.</p>
 <div class="warning">
 <p><code class="literal">GtkAction:sensitive</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction--enabled"><span class="type">“enabled”</span></a> and <a href="https://developer.gnome.org/gio/unstable/GSimpleAction.html#GSimpleAction--enabled"><span class="type">“enabled”</span></a>
+<p>Use <span class="type">“enabled”</span> and <span class="type">“enabled”</span>
 instead</p>
 </div>
 <p>Flags: Read / Write</p>
@@ -2253,7 +2253,7 @@ instead</p>
 <div class="warning">
 <p><code class="literal">GtkAction:short-label</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
 <p>There is no corresponding replacement when using
-<a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a></p>
+<span class="type">GAction</span></p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
@@ -2269,7 +2269,7 @@ instead</p>
 <div class="warning">
 <p><code class="literal">GtkAction:stock-id</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
 <p>There is no corresponding replacement when using
-<a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a></p>
+<span class="type">GAction</span></p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
@@ -2294,7 +2294,7 @@ instead</p>
 <div class="warning">
 <p><code class="literal">GtkAction:visible</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
 <p>There is no corresponding replacement when using
-<a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a></p>
+<span class="type">GAction</span></p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
@@ -2307,7 +2307,7 @@ instead</p>
 <div class="warning">
 <p><code class="literal">GtkAction:visible-horizontal</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
 <p>There is no corresponding replacement when using
-<a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a></p>
+<span class="type">GAction</span></p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
@@ -2322,7 +2322,7 @@ toolbar overflow menu.</p>
 <div class="warning">
 <p><code class="literal">GtkAction:visible-overflown</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
 <p>There is no corresponding replacement when using
-<a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a></p>
+<span class="type">GAction</span></p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
@@ -2336,7 +2336,7 @@ toolbar overflow menu.</p>
 <div class="warning">
 <p><code class="literal">GtkAction:visible-vertical</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
 <p>There is no corresponding replacement when using
-<a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a></p>
+<span class="type">GAction</span></p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
@@ -2352,7 +2352,7 @@ user_function (<a class="link" href="GtkAction.html" title="GtkAction"><span cla
 <p>The "activate" signal is emitted when the action is activated.</p>
 <div class="warning">
 <p><code class="literal">GtkAction::activate</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gio/unstable/GSimpleAction.html#GSimpleAction-activate"><span class="type">“activate”</span></a> instead</p>
+<p>Use <span class="type">“activate”</span> instead</p>
 </div>
 <div class="refsect3">
 <a name="GtkAction-activate.parameters"></a><h4>Parameters</h4>
@@ -2386,6 +2386,6 @@ user_function (<a class="link" href="GtkAction.html" title="GtkAction"><span cla
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

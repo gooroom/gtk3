@@ -8,7 +8,7 @@
 <link rel="up" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
 <link rel="prev" href="GtkToolbar.html" title="GtkToolbar">
 <link rel="next" href="GtkToolPalette.html" title="GtkToolPalette">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -165,7 +165,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="returnvalue">PangoEllipsizeMode</span></a>
+<a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="returnvalue">PangoEllipsizeMode</span></a>
 </td>
 <td class="function_name">
 <a class="link" href="GtkToolItem.html#gtk-tool-item-get-ellipsize-mode" title="gtk_tool_item_get_ellipsize_mode ()">gtk_tool_item_get_ellipsize_mode</a> <span class="c_punctuation">()</span>
@@ -852,7 +852,7 @@ is considered important.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-tool-item-get-ellipsize-mode"></a><h3>gtk_tool_item_get_ellipsize_mode ()</h3>
-<pre class="programlisting"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="returnvalue">PangoEllipsizeMode</span></a>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="returnvalue">PangoEllipsizeMode</span></a>
 gtk_tool_item_get_ellipsize_mode (<em class="parameter"><code><a class="link" href="GtkToolItem.html" title="GtkToolItem"><span class="type">GtkToolItem</span></a> *tool_item</code></em>);</pre>
 <p>Returns the ellipsize mode used for <em class="parameter"><code>tool_item</code></em>
 . Custom subclasses of
@@ -875,7 +875,7 @@ be ellipsized.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-tool-item-get-ellipsize-mode.returns"></a><h4>Returns</h4>
-<p> a <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a> indicating how text in <em class="parameter"><code>tool_item</code></em>
+<p> a <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a> indicating how text in <em class="parameter"><code>tool_item</code></em>
 should be ellipsized.</p>
 </div>
 <p class="since">Since: 2.20</p>
@@ -906,7 +906,7 @@ they should use.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-tool-item-get-icon-size.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a> indicating the icon size
+<p>a <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a> indicating the icon size
 used for <em class="parameter"><code>tool_item</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></p>
@@ -1110,7 +1110,7 @@ that is going to appear in the overflow menu.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-tool-item-retrieve-proxy-menu-item.returns"></a><h4>Returns</h4>
-<p> The <a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMenuItem</span></a> that is going to appear in the
+<p>The <a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMenuItem</span></a> that is going to appear in the
 overflow menu for <em class="parameter"><code>tool_item</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1155,10 +1155,10 @@ will not inadvertently change a menu item that they did not create.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-tool-item-get-proxy-menu-item.returns"></a><h4>Returns</h4>
-<p> The <a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMenuItem</span></a> passed to
+<p>The <a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMenuItem</span></a> passed to
 <a class="link" href="GtkToolItem.html#gtk-tool-item-set-proxy-menu-item" title="gtk_tool_item_set_proxy_menu_item ()"><code class="function">gtk_tool_item_set_proxy_menu_item()</code></a>, if the <em class="parameter"><code>menu_item_ids</code></em>
 match. </p>
-<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.4</p>
 </div>
@@ -1173,6 +1173,7 @@ gtk_tool_item_set_proxy_menu_item (<em class="parameter"><code><a class="link" h
 <em class="parameter"><code>menu_item_id</code></em>
  is used to identify the caller of this function and
 should also be used with <a class="link" href="GtkToolItem.html#gtk-tool-item-get-proxy-menu-item" title="gtk_tool_item_get_proxy_menu_item ()"><code class="function">gtk_tool_item_get_proxy_menu_item()</code></a>.</p>
+<p>See also <a class="link" href="GtkToolItem.html#GtkToolItem-create-menu-proxy" title="The “create-menu-proxy” signal"><span class="type">“create-menu-proxy”</span></a>.</p>
 <div class="refsect3">
 <a name="gtk-tool-item-set-proxy-menu-item.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -1195,8 +1196,8 @@ should also be used with <a class="link" href="GtkToolItem.html#gtk-tool-item-ge
 </tr>
 <tr>
 <td class="parameter_name"><p>menu_item</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMenuItem</span></a> to be used in the overflow menu</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>a <a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMenuItem</span></a> to use in the overflow menu, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -1284,7 +1285,7 @@ and use the size group for labels.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-tool-item-get-text-size-group.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkSizeGroup.html" title="GtkSizeGroup"><span class="type">GtkSizeGroup</span></a>. </p>
+<p>a <a class="link" href="GtkSizeGroup.html" title="GtkSizeGroup"><span class="type">GtkSizeGroup</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.20</p>
@@ -1463,6 +1464,6 @@ themselves accordingly.</p></li>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

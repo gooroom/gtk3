@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="GtkTearoffMenuItem.html" title="GtkTearoffMenuItem">
 <link rel="next" href="GtkColorSelectionDialog.html" title="GtkColorSelectionDialog">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -246,13 +246,13 @@
 </tr>
 <tr>
 <td class="property_type">
-<span class="type">GdkColor</span> *</td>
+<a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkColorSelection.html#GtkColorSelection--current-color" title="The “current-color” property">current-color</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
 <td class="property_type">
-<a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</td>
+<a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkColorSelection.html#GtkColorSelection--current-rgba" title="The “current-rgba” property">current-rgba</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -535,7 +535,7 @@ the original opacity to be <em class="parameter"><code>alpha</code></em>
 <a name="gtk-color-selection-get-current-color"></a><h3>gtk_color_selection_get_current_color ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_color_selection_get_current_color (<em class="parameter"><code><a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a> *colorsel</code></em>,
-                                       <em class="parameter"><code><span class="type">GdkColor</span> *color</code></em>);</pre>
+                                       <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *color</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_color_selection_get_current_color</code> has been deprecated since version 3.4 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkColorSelection.html#gtk-color-selection-get-current-rgba" title="gtk_color_selection_get_current_rgba ()"><code class="function">gtk_color_selection_get_current_rgba()</code></a> instead.</p>
@@ -558,7 +558,7 @@ gtk_color_selection_get_current_color (<em class="parameter"><code><a class="lin
 </tr>
 <tr>
 <td class="parameter_name"><p>color</p></td>
-<td class="parameter_description"><p> a <span class="type">GdkColor</span> to fill in with the current color. </p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> to fill in with the current color. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -570,7 +570,7 @@ gtk_color_selection_get_current_color (<em class="parameter"><code><a class="lin
 <a name="gtk-color-selection-set-current-color"></a><h3>gtk_color_selection_set_current_color ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_color_selection_set_current_color (<em class="parameter"><code><a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a> *colorsel</code></em>,
-                                       <em class="parameter"><code>const <span class="type">GdkColor</span> *color</code></em>);</pre>
+                                       <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *color</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_color_selection_set_current_color</code> has been deprecated since version 3.4 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-current-rgba" title="gtk_color_selection_set_current_rgba ()"><code class="function">gtk_color_selection_set_current_rgba()</code></a> instead.</p>
@@ -596,7 +596,7 @@ the original color to be <em class="parameter"><code>color</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>color</p></td>
-<td class="parameter_description"><p>a <span class="type">GdkColor</span> to set the current color with</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> to set the current color with</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -672,7 +672,7 @@ as it might seem confusing to have that alpha change.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_color_selection_get_previous_color
                                (<em class="parameter"><code><a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a> *colorsel</code></em>,
-                                <em class="parameter"><code><span class="type">GdkColor</span> *color</code></em>);</pre>
+                                <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *color</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_color_selection_get_previous_color</code> has been deprecated since version 3.4 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkColorSelection.html#gtk-color-selection-get-previous-rgba" title="gtk_color_selection_get_previous_rgba ()"><code class="function">gtk_color_selection_get_previous_rgba()</code></a> instead.</p>
@@ -695,7 +695,7 @@ gtk_color_selection_get_previous_color
 </tr>
 <tr>
 <td class="parameter_name"><p>color</p></td>
-<td class="parameter_description"><p> a <span class="type">GdkColor</span> to fill in with the original color value. </p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> to fill in with the original color value. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -708,7 +708,7 @@ gtk_color_selection_get_previous_color
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_color_selection_set_previous_color
                                (<em class="parameter"><code><a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a> *colorsel</code></em>,
-                                <em class="parameter"><code>const <span class="type">GdkColor</span> *color</code></em>);</pre>
+                                <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *color</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_color_selection_set_previous_color</code> has been deprecated since version 3.4 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkColorSelection.html#gtk-color-selection-set-previous-rgba" title="gtk_color_selection_set_previous_rgba ()"><code class="function">gtk_color_selection_set_previous_rgba()</code></a> instead.</p>
@@ -735,7 +735,7 @@ set this color the first time it is called.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>color</p></td>
-<td class="parameter_description"><p>a <span class="type">GdkColor</span> to set the previous color with</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> to set the previous color with</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -747,7 +747,7 @@ set this color the first time it is called.</p>
 <a name="gtk-color-selection-get-current-rgba"></a><h3>gtk_color_selection_get_current_rgba ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_color_selection_get_current_rgba (<em class="parameter"><code><a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a> *colorsel</code></em>,
-                                      <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *rgba</code></em>);</pre>
+                                      <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *rgba</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_color_selection_get_current_rgba</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Sets <em class="parameter"><code>rgba</code></em>
  to be the current color in the GtkColorSelection widget.</p>
@@ -767,7 +767,7 @@ gtk_color_selection_get_current_rgba (<em class="parameter"><code><a class="link
 </tr>
 <tr>
 <td class="parameter_name"><p>rgba</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> to fill in with the current color. </p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> to fill in with the current color. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -780,7 +780,7 @@ gtk_color_selection_get_current_rgba (<em class="parameter"><code><a class="link
 <a name="gtk-color-selection-set-current-rgba"></a><h3>gtk_color_selection_set_current_rgba ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_color_selection_set_current_rgba (<em class="parameter"><code><a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a> *colorsel</code></em>,
-                                      <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *rgba</code></em>);</pre>
+                                      <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *rgba</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_color_selection_set_current_rgba</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Sets the current color to be <em class="parameter"><code>rgba</code></em>
 .</p>
@@ -803,7 +803,7 @@ the original color to be <em class="parameter"><code>rgba</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>rgba</p></td>
-<td class="parameter_description"><p>A <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> to set the current color with</p></td>
+<td class="parameter_description"><p>A <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> to set the current color with</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -816,7 +816,7 @@ the original color to be <em class="parameter"><code>rgba</code></em>
 <a name="gtk-color-selection-get-previous-rgba"></a><h3>gtk_color_selection_get_previous_rgba ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_color_selection_get_previous_rgba (<em class="parameter"><code><a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a> *colorsel</code></em>,
-                                       <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *rgba</code></em>);</pre>
+                                       <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *rgba</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_color_selection_get_previous_rgba</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Fills <em class="parameter"><code>rgba</code></em>
  in with the original color value.</p>
@@ -836,7 +836,7 @@ gtk_color_selection_get_previous_rgba (<em class="parameter"><code><a class="lin
 </tr>
 <tr>
 <td class="parameter_name"><p>rgba</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> to fill in with the original color value. </p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> to fill in with the original color value. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -849,7 +849,7 @@ gtk_color_selection_get_previous_rgba (<em class="parameter"><code><a class="lin
 <a name="gtk-color-selection-set-previous-rgba"></a><h3>gtk_color_selection_set_previous_rgba ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_color_selection_set_previous_rgba (<em class="parameter"><code><a class="link" href="GtkColorSelection.html" title="GtkColorSelection"><span class="type">GtkColorSelection</span></a> *colorsel</code></em>,
-                                       <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *rgba</code></em>);</pre>
+                                       <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *rgba</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_color_selection_set_previous_rgba</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Sets the “previous” color to be <em class="parameter"><code>rgba</code></em>
 .</p>
@@ -873,7 +873,7 @@ set this color the first time it is called.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>rgba</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> to set the previous color with</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> to set the previous color with</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -916,11 +916,11 @@ a color around, and <a href="https://developer.gnome.org/glib/unstable/glib-Stan
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_color_selection_palette_from_string
                                (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *str</code></em>,
-                                <em class="parameter"><code><span class="type">GdkColor</span> **colors</code></em>,
+                                <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> **colors</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *n_colors</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_color_selection_palette_from_string</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Parses a color palette string; the string is a colon-separated
-list of color names readable by <code class="function">gdk_color_parse()</code>.</p>
+list of color names readable by <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#gdk-color-parse"><code class="function">gdk_color_parse()</code></a>.</p>
 <div class="refsect3">
 <a name="gtk-color-selection-palette-from-string.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -937,8 +937,8 @@ list of color names readable by <code class="function">gdk_color_parse()</code>.
 </tr>
 <tr>
 <td class="parameter_name"><p>colors</p></td>
-<td class="parameter_description"><p> return location for
-allocated array of <span class="type">GdkColor</span>. </p></td>
+<td class="parameter_description"><p>return location for
+allocated array of <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_colors]</span></td>
 </tr>
 <tr>
@@ -958,7 +958,7 @@ allocated array of <span class="type">GdkColor</span>. </p></td>
 <div class="refsect2">
 <a name="gtk-color-selection-palette-to-string"></a><h3>gtk_color_selection_palette_to_string ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
-gtk_color_selection_palette_to_string (<em class="parameter"><code>const <span class="type">GdkColor</span> *colors</code></em>,
+gtk_color_selection_palette_to_string (<em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *colors</code></em>,
                                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_colors</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_color_selection_palette_to_string</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Encodes a palette as a string, useful for persistent storage.</p>
@@ -973,7 +973,7 @@ gtk_color_selection_palette_to_string (<em class="parameter"><code>const <span c
 <tbody>
 <tr>
 <td class="parameter_name"><p>colors</p></td>
-<td class="parameter_description"><p> an array of colors. </p></td>
+<td class="parameter_description"><p>an array of colors. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_colors]</span></td>
 </tr>
 <tr>
@@ -993,7 +993,7 @@ gtk_color_selection_palette_to_string (<em class="parameter"><code>const <span c
 <div class="refsect2">
 <a name="GtkColorSelectionChangePaletteFunc"></a><h3>GtkColorSelectionChangePaletteFunc ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-<span class="c_punctuation">(</span>*GtkColorSelectionChangePaletteFunc<span class="c_punctuation">)</span> (<em class="parameter"><code>const <span class="type">GdkColor</span> *colors</code></em>,
+<span class="c_punctuation">(</span>*GtkColorSelectionChangePaletteFunc<span class="c_punctuation">)</span> (<em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *colors</code></em>,
                                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_colors</code></em>);</pre>
 <div class="warning"><p><code class="literal">GtkColorSelectionChangePaletteFunc</code> has been deprecated since version 3.4 and should not be used in newly-written code.</p></div>
 <div class="refsect3">
@@ -1007,7 +1007,7 @@ gtk_color_selection_palette_to_string (<em class="parameter"><code>const <span c
 <tbody>
 <tr>
 <td class="parameter_name"><p>colors</p></td>
-<td class="parameter_description"><p> Array of colors. </p></td>
+<td class="parameter_description"><p>Array of colors. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_colors]</span></td>
 </tr>
 <tr>
@@ -1058,8 +1058,8 @@ GtkColorSelection widgets will be modified.</p>
 <a name="GtkColorSelectionChangePaletteWithScreenFunc"></a><h3>GtkColorSelectionChangePaletteWithScreenFunc ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 <span class="c_punctuation">(</span>*GtkColorSelectionChangePaletteWithScreenFunc<span class="c_punctuation">)</span>
-                               (<em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>,
-                                <em class="parameter"><code>const <span class="type">GdkColor</span> *colors</code></em>,
+                               (<em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>,
+                                <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *colors</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_colors</code></em>);</pre>
 <div class="warning"><p><code class="literal">GtkColorSelectionChangePaletteWithScreenFunc</code> has been deprecated since version 3.4 and should not be used in newly-written code.</p></div>
 <div class="refsect3">
@@ -1073,7 +1073,7 @@ GtkColorSelection widgets will be modified.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>colors</p></td>
-<td class="parameter_description"><p> Array of colors. </p></td>
+<td class="parameter_description"><p>Array of colors. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_colors]</span></td>
 </tr>
 <tr>
@@ -1132,7 +1132,7 @@ GtkColorSelection widgets will be modified.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkColorSelection--current-color"></a><h3>The <code class="literal">“current-color”</code> property</h3>
-<pre class="programlisting">  “current-color”            <span class="type">GdkColor</span> *</pre>
+<pre class="programlisting">  “current-color”            <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *</pre>
 <p>The current GdkColor color.</p>
 <div class="warning">
 <p><code class="literal">GtkColorSelection:current-color</code> has been deprecated since version 3.4 and should not be used in newly-written code.</p>
@@ -1143,7 +1143,7 @@ GtkColorSelection widgets will be modified.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkColorSelection--current-rgba"></a><h3>The <code class="literal">“current-rgba”</code> property</h3>
-<pre class="programlisting">  “current-rgba”             <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</pre>
+<pre class="programlisting">  “current-rgba”             <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</pre>
 <p>The current RGBA color.</p>
 <p>Flags: Read / Write</p>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -1201,6 +1201,6 @@ according to its update policy.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

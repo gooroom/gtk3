@@ -106,6 +106,57 @@ gtk_font_chooser_default_init (GtkFontChooserInterface *iface)
                           GTK_PARAM_READWRITE|G_PARAM_EXPLICIT_NOTIFY));
 
   /**
+   * GtkFontChooser:level:
+   *
+   * The level of granularity to offer for selecting fonts.
+   *
+   * Since: 3.22.30
+   */
+  g_object_interface_install_property
+     (iface,
+      g_param_spec_flags ("level",
+                          P_("Selection level"),
+                          P_("Whether to select family, face or font"),
+                          GTK_TYPE_FONT_CHOOSER_LEVEL,
+                          GTK_FONT_CHOOSER_LEVEL_FAMILY |
+                          GTK_FONT_CHOOSER_LEVEL_STYLE |
+                          GTK_FONT_CHOOSER_LEVEL_SIZE,
+                          GTK_PARAM_READWRITE|G_PARAM_EXPLICIT_NOTIFY));
+
+  /**
+   * GtkFontChooser:font-features:
+   *
+   * The selected font features, in a format that is compatible with
+   * CSS and with Pango attributes.
+   *
+   * Since: 3.22.30
+   */
+  g_object_interface_install_property
+     (iface,
+      g_param_spec_string ("font-features",
+                          P_("Font features"),
+                          P_("Font features as a string"),
+                          "",
+                          GTK_PARAM_READABLE));
+
+  /**
+   * GtkFontChooser:language:
+   *
+   * The language for which the #GtkFontChooser:font-features were
+   * selected, in a format that is compatible with CSS and with Pango
+   * attributes.
+   *
+   * Since: 3.22.30
+   */
+  g_object_interface_install_property
+     (iface,
+      g_param_spec_string ("language",
+                          P_("Language"),
+                          P_("Language for which features have been selected"),
+                          "",
+                          GTK_PARAM_READWRITE|G_PARAM_EXPLICIT_NOTIFY));
+
+  /**
    * GtkFontChooser::font-activated:
    * @self: the object which received the signal
    * @fontname: the font name
@@ -480,4 +531,106 @@ gtk_font_chooser_get_font_map (GtkFontChooser *fontchooser)
     fontmap = GTK_FONT_CHOOSER_GET_IFACE (fontchooser)->get_font_map (fontchooser);
 
   return fontmap;
+}
+
+/**
+ * gtk_font_chooser_set_level:
+ * @fontchooser: a #GtkFontChooser
+ * @level: the desired level of granularity
+ *
+ * Sets the desired level of granularity for selecting fonts.
+ *
+ * Since: 3.24
+ */
+void
+gtk_font_chooser_set_level (GtkFontChooser      *fontchooser,
+                            GtkFontChooserLevel  level)
+{
+  g_return_if_fail (GTK_IS_FONT_CHOOSER (fontchooser));
+
+  g_object_set (fontchooser, "level", level, NULL);
+}
+
+/**
+ * gtk_font_chooser_get_level:
+ * @fontchooser: a #GtkFontChooser
+ *
+ * Returns the current level of granularity for selecting fonts.
+ *
+ * Returns: the current granularity level
+ *
+ * Since: 3.24
+ */
+GtkFontChooserLevel
+gtk_font_chooser_get_level (GtkFontChooser *fontchooser)
+{
+  GtkFontChooserLevel level;
+
+  g_return_val_if_fail (GTK_IS_FONT_CHOOSER (fontchooser), 0);
+
+  g_object_get (fontchooser, "level", &level, NULL);
+
+  return level;
+}
+
+/**
+ * gtk_font_chooser_get_font_features:
+ * @fontchooser: a #GtkFontChooser
+ *
+ * Gets the currently-selected font features.
+ *
+ * Returns: the currently selected font features
+ *
+ * Since: 3.24
+ */
+char *
+gtk_font_chooser_get_font_features (GtkFontChooser *fontchooser)
+{
+  char *text;
+
+  g_return_val_if_fail (GTK_IS_FONT_CHOOSER (fontchooser), NULL);
+
+  g_object_get (fontchooser, "font-features", &text, NULL);
+
+  return text;
+}
+
+/**
+ * gtk_font_chooser_get_language:
+ * @fontchooser: a #GtkFontChooser
+ *
+ * Gets the language that is used for font features.
+ *
+ * Returns: the currently selected language
+ *
+ * Since: 3.24
+ */
+char *
+gtk_font_chooser_get_language (GtkFontChooser *fontchooser)
+{
+  char *text;
+
+  g_return_val_if_fail (GTK_IS_FONT_CHOOSER (fontchooser), NULL);
+
+  g_object_get (fontchooser, "language", &text, NULL);
+
+  return text;
+}
+
+/**
+ * gtk_font_chooser_set_language:
+ * @fontchooser: a #GtkFontChooser
+ * @language: a language
+ *
+ * Sets the language to use for font features.
+ *
+ * Since: 3.24
+ */
+void
+gtk_font_chooser_set_language (GtkFontChooser *fontchooser,
+                               const char     *language)
+{
+  g_return_if_fail (GTK_IS_FONT_CHOOSER (fontchooser));
+
+  g_object_set (fontchooser, "language", language, NULL);
 }

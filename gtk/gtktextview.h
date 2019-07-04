@@ -45,6 +45,7 @@ G_BEGIN_DECLS
 
 /**
  * GtkTextWindowType:
+ * @GTK_TEXT_WINDOW_PRIVATE: Invalid value, used as a marker
  * @GTK_TEXT_WINDOW_WIDGET: Window that floats over scrolling areas.
  * @GTK_TEXT_WINDOW_TEXT: Scrollable text window.
  * @GTK_TEXT_WINDOW_LEFT: Left side border window.
@@ -56,9 +57,7 @@ G_BEGIN_DECLS
  */
 typedef enum
 {
-  /*< private >*/
   GTK_TEXT_WINDOW_PRIVATE,
-  /*< public >*/
   GTK_TEXT_WINDOW_WIDGET,
   GTK_TEXT_WINDOW_TEXT,
   GTK_TEXT_WINDOW_LEFT,
@@ -104,7 +103,7 @@ typedef enum
 } GtkTextExtendSelection;
 
 /**
- * GTK_TEXT_VIEW_PRIORITY_VALIDATE:
+ * GTK_TEXT_VIEW_PRIORITY_VALIDATE: (value 125)
  *
  * The priority at which the text view validates onscreen lines
  * in an idle job in the background.
@@ -192,6 +191,7 @@ struct _GtkTextViewClass
                                   const GtkTextIter      *location,
                                   GtkTextIter            *start,
                                   GtkTextIter            *end);
+  void (* insert_emoji)          (GtkTextView      *text_view);
 
   /*< private >*/
 
@@ -200,7 +200,6 @@ struct _GtkTextViewClass
   void (*_gtk_reserved2) (void);
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
-  void (*_gtk_reserved5) (void);
 };
 
 GDK_AVAILABLE_IN_ALL

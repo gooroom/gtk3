@@ -108,7 +108,7 @@
  * <object class="GtkLabel">
  *   <attributes>
  *     <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
- *     <attribute name="background" value="red" start="5" end="10"/>"
+ *     <attribute name="background" value="red" start="5" end="10"/>
  *   </attributes>
  * </object>
  * ]|
@@ -136,8 +136,8 @@
  *
  * |[<!-- language="C" -->
  *   // Pressing Alt+H will activate this button
- *   button = gtk_button_new ();
- *   label = gtk_label_new_with_mnemonic ("_Hello");
+ *   GtkWidget *button = gtk_button_new ();
+ *   GtkWidget *label = gtk_label_new_with_mnemonic ("_Hello");
  *   gtk_container_add (GTK_CONTAINER (button), label);
  * ]|
  *
@@ -146,7 +146,7 @@
  *
  * |[<!-- language="C" -->
  *   // Pressing Alt+H will activate this button
- *   button = gtk_button_new_with_mnemonic ("_Hello");
+ *   GtkWidget *button = gtk_button_new_with_mnemonic ("_Hello");
  * ]|
  *
  * To create a mnemonic for a widget alongside the label, such as a
@@ -155,8 +155,8 @@
  *
  * |[<!-- language="C" -->
  *   // Pressing Alt+H will focus the entry
- *   entry = gtk_entry_new ();
- *   label = gtk_label_new_with_mnemonic ("_Hello");
+ *   GtkWidget *entry = gtk_entry_new ();
+ *   GtkWidget *label = gtk_label_new_with_mnemonic ("_Hello");
  *   gtk_label_set_mnemonic_widget (GTK_LABEL (label), entry);
  * ]|
  *
@@ -168,7 +168,7 @@
  *
  * Here’s how to create a label with a small font:
  * |[<!-- language="C" -->
- *   label = gtk_label_new (NULL);
+ *   GtkWidget *label = gtk_label_new (NULL);
  *   gtk_label_set_markup (GTK_LABEL (label), "<small>Small text</small>");
  * ]|
  *
@@ -238,9 +238,10 @@
  * |[<!-- language="C" -->
  * const gchar *text =
  * "Go to the"
- * "<a href=\"http://www.gtk.org title="&lt;i&gt;Our&lt;/i&gt; website\">"
+ * "<a href=\"http://www.gtk.org title=\"&lt;i&gt;Our&lt;/i&gt; website\">"
  * "GTK+ website</a> for more...";
- * gtk_label_set_markup (label, text);
+ * GtkWidget *label = gtk_label_new (NULL);
+ * gtk_label_set_markup (GTK_LABEL (label), text);
  * ]|
  *
  * It is possible to implement custom handling for links and their tooltips with
@@ -471,6 +472,9 @@ static void gtk_label_select_region_index (GtkLabel *label,
                                            gint      anchor_index,
                                            gint      end_index);
 
+static void gtk_label_update_active_link  (GtkWidget *widget,
+                                           gdouble    x,
+                                           gdouble    y);
 
 static gboolean gtk_label_mnemonic_activate (GtkWidget         *widget,
 					     gboolean           group_cycling);
@@ -1702,7 +1706,7 @@ gtk_label_buildable_custom_tag_start (GtkBuildable     *buildable,
 
       parser_data = g_slice_new0 (PangoParserData);
       parser_data->builder = g_object_ref (builder);
-      parser_data->object = g_object_ref (buildable);
+      parser_data->object = G_OBJECT (g_object_ref (buildable));
       *parser = pango_parser;
       *data = parser_data;
       return TRUE;
@@ -1741,7 +1745,7 @@ gtk_label_buildable_custom_finished (GtkBuildable *buildable,
 
 /**
  * gtk_label_new:
- * @str: (allow-none): The text of the label
+ * @str: (nullable): The text of the label
  *
  * Creates a new label with the given text inside it. You can
  * pass %NULL to get an empty label widget.
@@ -1763,7 +1767,7 @@ gtk_label_new (const gchar *str)
 
 /**
  * gtk_label_new_with_mnemonic:
- * @str: (allow-none): The text of the label, with an underscore in front of the
+ * @str: (nullable): The text of the label, with an underscore in front of the
  *       mnemonic character
  *
  * Creates a new #GtkLabel, containing the text in @str.
@@ -2044,7 +2048,7 @@ label_mnemonic_widget_weak_notify (gpointer      data,
 /**
  * gtk_label_set_mnemonic_widget:
  * @label: a #GtkLabel
- * @widget: (allow-none): the target #GtkWidget
+ * @widget: (nullable): the target #GtkWidget, or %NULL to unset
  *
  * If the label has been set so that it has an mnemonic key (using
  * i.e. gtk_label_set_markup_with_mnemonic(),
@@ -2277,7 +2281,7 @@ gtk_label_set_text (GtkLabel    *label,
 /**
  * gtk_label_set_attributes:
  * @label: a #GtkLabel
- * @attrs: (allow-none): a #PangoAttrList, or %NULL
+ * @attrs: (nullable): a #PangoAttrList, or %NULL
  *
  * Sets a #PangoAttrList; the attributes in the list are applied to the
  * label text.
@@ -2773,6 +2777,8 @@ gtk_label_set_markup_internal (GtkLabel    *label,
  * g_markup_escape_text() or g_markup_printf_escaped():
  *
  * |[<!-- language="C" -->
+ * GtkWidget *label = gtk_label_new (NULL);
+ * const char *str = "some text";
  * const char *format = "<span style=\"italic\">\%s</span>";
  * char *markup;
  *
@@ -3645,11 +3651,8 @@ get_size_for_allocation (GtkLabel *label,
   if (minimum_baseline || natural_baseline)
     {
       baseline = pango_layout_get_baseline (layout) / PANGO_SCALE;
-      if (minimum_baseline)
-	*minimum_baseline = baseline;
-
-      if (natural_baseline)
-	*natural_baseline = baseline;
+      *minimum_baseline = baseline;
+      *natural_baseline = baseline;
     }
 
   g_object_unref (layout);
@@ -4549,7 +4552,7 @@ gtk_label_set_text_with_mnemonic (GtkLabel    *label,
 
   g_object_freeze_notify (G_OBJECT (label));
 
-  gtk_label_set_label_internal (label, g_strdup (str ? str : ""));
+  gtk_label_set_label_internal (label, g_strdup (str));
   gtk_label_set_use_markup_internal (label, FALSE);
   gtk_label_set_use_underline_internal (label, TRUE);
   
@@ -4976,6 +4979,7 @@ gtk_label_multipress_gesture_pressed (GtkGestureMultiPress *gesture,
   button = gtk_gesture_single_get_current_button (GTK_GESTURE_SINGLE (gesture));
   sequence = gtk_gesture_single_get_current_sequence (GTK_GESTURE_SINGLE (gesture));
   event = gtk_gesture_get_last_event (GTK_GESTURE (gesture), sequence);
+  gtk_label_update_active_link (widget, widget_x, widget_y);
 
   gtk_gesture_set_state (GTK_GESTURE (gesture), GTK_EVENT_SEQUENCE_CLAIMED);
 
@@ -5316,9 +5320,10 @@ gtk_label_drag_gesture_update (GtkGestureDrag *gesture,
     }
 }
 
-static gboolean
-gtk_label_motion (GtkWidget      *widget,
-                  GdkEventMotion *event)
+static void
+gtk_label_update_active_link (GtkWidget *widget,
+                              gdouble    x,
+                              gdouble    y)
 {
   GtkLabel *label = GTK_LABEL (widget);
   GtkLabelPrivate *priv = label->priv;
@@ -5326,7 +5331,7 @@ gtk_label_motion (GtkWidget      *widget,
   gint index;
 
   if (info == NULL)
-    return FALSE;
+    return;
 
   if (info->links && !info->in_drag)
     {
@@ -5336,7 +5341,7 @@ gtk_label_motion (GtkWidget      *widget,
 
       if (info->selection_anchor == info->selection_end)
         {
-          if (get_layout_index (label, event->x, event->y, &index))
+          if (get_layout_index (label, x, y, &index))
             {
               for (l = info->links; l != NULL; l = l->next)
                 {
@@ -5374,6 +5379,16 @@ gtk_label_motion (GtkWidget      *widget,
             }
         }
     }
+}
+
+static gboolean
+gtk_label_motion (GtkWidget      *widget,
+                  GdkEventMotion *event)
+{
+  gdouble x, y;
+
+  gdk_event_get_coords ((GdkEvent *) event, &x, &y);
+  gtk_label_update_active_link (widget, x, y);
 
   return GTK_WIDGET_CLASS (gtk_label_parent_class)->motion_notify_event (widget, event);
 }
@@ -5996,8 +6011,8 @@ gtk_label_get_layout (GtkLabel *label)
 /**
  * gtk_label_get_layout_offsets:
  * @label: a #GtkLabel
- * @x: (out) (allow-none): location to store X offset of layout, or %NULL
- * @y: (out) (allow-none): location to store Y offset of layout, or %NULL
+ * @x: (out) (optional): location to store X offset of layout, or %NULL
+ * @y: (out) (optional): location to store Y offset of layout, or %NULL
  *
  * Obtains the coordinates where the label will draw the #PangoLayout
  * representing the text in the label; useful to convert mouse events

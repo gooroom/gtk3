@@ -592,6 +592,84 @@ gtk_file_filter_get_needed (GtkFileFilter *filter)
   return filter->needed;
 }
 
+#ifdef GDK_WINDOWING_QUARTZ
+
+#import <Foundation/Foundation.h>
+
+NSArray * _gtk_file_filter_get_as_pattern_nsstrings (GtkFileFilter *filter)
+{
+  NSMutableArray *array = [[NSMutableArray alloc] init];
+  GSList *tmp_list;
+
+  for (tmp_list = filter->rules; tmp_list; tmp_list = tmp_list->next)
+    {
+      FilterRule *rule = tmp_list->data;
+
+      switch (rule->type)
+	{
+	case FILTER_RULE_CUSTOM:
+	  [array release];
+          return NULL;
+	  break;
+	case FILTER_RULE_MIME_TYPE:
+	  {
+	    // convert mime-types to UTI
+	    NSString *mime_type_nsstring = [NSString stringWithUTF8String: rule->u.mime_type];
+	    NSString *uti_nsstring = (NSString *) UTTypeCreatePreferredIdentifierForTag (kUTTagClassMIMEType, (CFStringRef) mime_type_nsstring, NULL);
+	    if (uti_nsstring == NULL)
+	      {
+	        [array release];
+		return NULL;
+	      }
+	    [array addObject:uti_nsstring];
+	  }
+	  break;
+	case FILTER_RULE_PATTERN:
+	  {
+	    // patterns will need to be stripped of their leading *.
+	    GString *pattern = g_string_new (rule->u.pattern);
+	    if (strncmp (pattern->str, "*.", 2) == 0)
+	      {
+	        pattern = g_string_erase (pattern, 0, 2);
+	      }
+	    else if (strncmp (pattern->str, "*", 1) == 0)
+	      {
+	        pattern = g_string_erase (pattern, 0, 1);
+	      }
+	    gchar *pattern_c = g_string_free (pattern, FALSE);
+	    NSString *pattern_nsstring = [NSString stringWithUTF8String:pattern_c];
+	    g_free (pattern_c);
+	    [pattern_nsstring retain];
+	    [array addObject:pattern_nsstring];
+	  }
+	  break;
+	case FILTER_RULE_PIXBUF_FORMATS:
+	  {
+	    GSList *list;
+
+	    for (list = rule->u.pixbuf_formats; list; list = list->next)
+	      {
+		int i;
+		gchar **extensions;
+
+		extensions = gdk_pixbuf_format_get_extensions (list->data);
+
+		for (i = 0; extensions[i] != NULL; i++)
+		  {
+		    NSString *extension = [NSString stringWithUTF8String: extensions[i]];
+		    [extension retain];
+		    [array addObject:extension];
+		  }
+		g_strfreev (extensions);
+	      }
+	    break;
+	  }
+	}
+    }
+  return array;
+}
+#endif
+
 char **
 _gtk_file_filter_get_as_patterns (GtkFileFilter      *filter)
 {
@@ -673,19 +751,21 @@ gtk_file_filter_filter (GtkFileFilter           *filter,
       switch (rule->type)
 	{
 	case FILTER_RULE_MIME_TYPE:
-      if (filter_info->mime_type != NULL)
-        {
-          gchar *filter_content_type, *rule_content_type;
-          gboolean match;
+          if (filter_info->mime_type != NULL)
+            {
+              gchar *filter_content_type, *rule_content_type;
+              gboolean match;
 
-          filter_content_type = g_content_type_from_mime_type (filter_info->mime_type);
-          rule_content_type = g_content_type_from_mime_type (rule->u.mime_type);
-          match = g_content_type_is_a (filter_content_type, rule_content_type);
-          g_free (filter_content_type);
-          g_free (rule_content_type);
+              filter_content_type = g_content_type_from_mime_type (filter_info->mime_type);
+              rule_content_type = g_content_type_from_mime_type (rule->u.mime_type);
+              match = filter_content_type != NULL &&
+                      rule_content_type != NULL &&
+                      g_content_type_is_a (filter_content_type, rule_content_type);
+              g_free (filter_content_type);
+              g_free (rule_content_type);
 
-          if (match)
-            return TRUE;
+              if (match)
+                return TRUE;
         }
 	  break;
 	case FILTER_RULE_PATTERN:

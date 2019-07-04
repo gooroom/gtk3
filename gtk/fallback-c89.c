@@ -17,8 +17,10 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "config.h"
+
 #include <math.h>
- 
+
 /* Workaround for round() for non-GCC/non-C99 compilers */
 #ifndef HAVE_ROUND
 static inline double
@@ -102,5 +104,13 @@ static inline double
 exp2 (double x)
 {
   return pow (2.0, x);
+}
+#endif
+
+#ifndef HAVE_TRUNC
+static inline double
+trunc (double x)
+{
+  return (x > 0 ? floor (x) : ceil (x));
 }
 #endif

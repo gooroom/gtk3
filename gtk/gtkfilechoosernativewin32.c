@@ -103,6 +103,7 @@ typedef struct {
   gboolean got_hwnd;
   HWND dialog_hwnd;
   gboolean do_close; /* Set if hide was called before dialog_hwnd was set */
+  FilechooserWin32ThreadData *data;
 } FileDialogEvents;
 
 
@@ -235,6 +236,22 @@ static HRESULT STDMETHODCALLTYPE
 ifiledialogevents_OnTypeChange (IFileDialogEvents * self,
                                 IFileDialog *pfd)
 {
+  FileDialogEvents *events = (FileDialogEvents *) self;
+  UINT fileType;
+  HRESULT hr = IFileDialog_GetFileTypeIndex (pfd, &fileType);
+  GSList *filters;
+
+  if (FAILED (hr))
+    {
+      g_warning_hr ("Can't get current file type", hr);
+      return S_OK;
+    }
+
+  fileType--; // fileTypeIndex starts at 1 
+  filters = gtk_file_chooser_list_filters (GTK_FILE_CHOOSER (events->data->self));
+  events->data->self->current_filter = g_slist_nth_data (filters, fileType);
+  g_slist_free (filters);
+  g_object_notify (G_OBJECT (events->data->self), "filter");
   return S_OK;
 }
 
@@ -276,7 +293,7 @@ file_dialog_events_send_close (IFileDialogEvents *self)
 }
 
 static IFileDialogEvents *
-file_dialog_events_new (gboolean enable_owner)
+file_dialog_events_new (gboolean enable_owner, FilechooserWin32ThreadData *data)
 {
   FileDialogEvents *events;
 
@@ -284,6 +301,7 @@ file_dialog_events_new (gboolean enable_owner)
   events->iFileDialogEvents.lpVtbl = &ifde_vtbl;
   events->ref_count = 1;
   events->enable_owner = enable_owner;
+  events->data = data;
 
   return &events->iFileDialogEvents;
 }
@@ -342,22 +360,45 @@ filechooser_win32_thread_done (gpointer _data)
   return FALSE;
 }
 
+static GFile *
+get_file_for_shell_item (IShellItem *item)
+{
+  HRESULT hr;
+  PWSTR pathw = NULL;
+  char *path;
+  GFile *file;
+
+  hr = IShellItem_GetDisplayName (item, SIGDN_FILESYSPATH, &pathw);
+  if (SUCCEEDED (hr))
+    {
+      path = g_utf16_to_utf8 (pathw, -1, NULL, NULL, NULL);
+      CoTaskMemFree (pathw);
+      if (path != NULL)
+        {
+          file = g_file_new_for_path (path);
+          g_free (path);
+          return file;
+       }
+    }
+
+  /* TODO: also support URLs through SIGDN_URL, but Windows URLS are not
+   * RFC 3986 compliant and we'd need to convert them first.
+   */
+
+  return NULL;
+}
+
 static void
 data_add_shell_item (FilechooserWin32ThreadData *data,
                      IShellItem *item)
 {
-  HRESULT hr;
-  PWSTR urlw = NULL;
-  char *url;
+  GFile *file;
 
-  hr = IShellItem_GetDisplayName (item, SIGDN_URL, &urlw);
-  if (SUCCEEDED (hr))
+  file = get_file_for_shell_item (item);
+  if (file != NULL)
     {
-      url = g_utf16_to_utf8 (urlw, -1, NULL, NULL, NULL);
-      CoTaskMemFree (urlw);
-      data->files = g_slist_prepend (data->files, g_file_new_for_uri (url));
+      data->files = g_slist_prepend (data->files, file);
       data->response = GTK_RESPONSE_ACCEPT;
-      g_free (url);
     }
 }
 
@@ -530,6 +571,24 @@ filechooser_win32_thread (gpointer _data)
       hr = IFileDialog_SetFileTypes (pfd, n, data->filters);
       if (FAILED (hr))
         g_warning_hr ("Can't set file types", hr);
+
+      if (data->self->current_filter)
+        {
+          GSList *filters = gtk_file_chooser_list_filters (GTK_FILE_CHOOSER (data->self));
+	  gint current_filter_index = g_slist_index (filters, data->self->current_filter);
+	  g_slist_free (filters);
+
+	  if (current_filter_index >= 0)
+	    hr = IFileDialog_SetFileTypeIndex (pfd, current_filter_index + 1);
+	  else
+	    hr = IFileDialog_SetFileTypeIndex (pfd, 1);
+        }
+      else
+        {
+	  hr = IFileDialog_SetFileTypeIndex (pfd, 1);
+        }
+      if (FAILED (hr))
+        g_warning_hr ("Can't set current file type", hr);
     }
 
   data->response = GTK_RESPONSE_CANCEL;
@@ -693,6 +752,11 @@ gtk_file_chooser_native_win32_show (GtkFileChooserNative *self)
               return FALSE;
             }
         }
+      self->current_filter = gtk_file_chooser_get_filter (GTK_FILE_CHOOSER (self));
+    }
+  else
+    {
+      self->current_filter = NULL;
     }
 
   self->mode_data = data;
@@ -749,7 +813,7 @@ gtk_file_chooser_native_win32_show (GtkFileChooserNative *self)
         data->current_name = g_strdup (self->current_name);
     }
 
-  data->events = file_dialog_events_new (!data->modal);
+  data->events = file_dialog_events_new (!data->modal, data);
 
   thread = g_thread_new ("win32 filechooser", filechooser_win32_thread, data);
   if (thread == NULL)

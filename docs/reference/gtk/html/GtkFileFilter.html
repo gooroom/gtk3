@@ -8,7 +8,7 @@
 <link rel="up" href="SelectorWidgets.html" title="Selector Widgets and Dialogs">
 <link rel="prev" href="GtkFileChooserWidget.html" title="GtkFileChooserWidget">
 <link rel="next" href="GtkFontChooser.html" title="GtkFontChooser">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -218,16 +218,16 @@ rules:</p>
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkFileFilter&quot;</span><span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>mime<span class="gtkdoc opt">-</span>types<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>mime<span class="gtkdoc opt">-</span>type<span class="gtkdoc opt">&gt;</span>text<span class="gtkdoc opt">/</span>plain<span class="gtkdoc opt">&lt;/</span>mime<span class="gtkdoc opt">-</span>type<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>mime<span class="gtkdoc opt">-</span>type<span class="gtkdoc opt">&gt;</span>image<span class="gtkdoc opt">/ *&lt;/</span>mime<span class="gtkdoc opt">-</span>type<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>mime<span class="gtkdoc opt">-</span>types<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>patterns<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>pattern<span class="gtkdoc opt">&gt;*.</span>txt<span class="gtkdoc opt">&lt;/</span>pattern<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>pattern<span class="gtkdoc opt">&gt;*.</span>png<span class="gtkdoc opt">&lt;/</span>pattern<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>patterns<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkFileFilter"</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">types</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">type</span><span class="symbol">&gt;</span><span class="normal">text</span><span class="symbol">/</span><span class="normal">plain</span><span class="symbol">&lt;/</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">type</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">type</span><span class="symbol">&gt;</span><span class="normal">image</span><span class="symbol">/</span><span class="normal"> </span><span class="symbol">*&lt;/</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">type</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">types</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">patterns</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">pattern</span><span class="symbol">&gt;*.</span><span class="normal">txt</span><span class="symbol">&lt;/</span><span class="normal">pattern</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">pattern</span><span class="symbol">&gt;*.</span><span class="normal">png</span><span class="symbol">&lt;/</span><span class="normal">pattern</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">patterns</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -263,7 +263,7 @@ flags passed to <a class="link" href="GtkFileFilter.html#gtk-file-filter-add-cus
 </tr>
 <tr>
 <td class="parameter_name"><p>data</p></td>
-<td class="parameter_description"><p> user data passed to <a class="link" href="GtkFileFilter.html#gtk-file-filter-add-custom" title="gtk_file_filter_add_custom ()"><code class="function">gtk_file_filter_add_custom()</code></a>. </p></td>
+<td class="parameter_description"><p>user data passed to <a class="link" href="GtkFileFilter.html#gtk-file-filter-add-custom" title="gtk_file_filter_add_custom ()"><code class="function">gtk_file_filter_add_custom()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -291,8 +291,8 @@ that accepts any file, use:</p>
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkFileFilter <span class="gtkdoc opt">*</span>filter <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkFileFilter.html#gtk-file-filter-new">gtk_file_filter_new</a></span> <span class="gtkdoc opt">();</span>
-<span class="function"><a href="GtkFileFilter.html#gtk-file-filter-add-pattern">gtk_file_filter_add_pattern</a></span> <span class="gtkdoc opt">(</span>filter<span class="gtkdoc opt">,</span> <span class="string">&quot;*&quot;</span><span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkFileFilter</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">filter </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkFileFilter.html#gtk-file-filter-new">gtk_file_filter_new</a></span><span class="normal"> </span><span class="symbol">();</span>
+<span class="function"><a href="GtkFileFilter.html#gtk-file-filter-add-pattern">gtk_file_filter_add_pattern</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filter</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"*"</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -330,7 +330,7 @@ there is a selectable list of filters.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>name</p></td>
-<td class="parameter_description"><p> the human-readable-name for the filter, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td class="parameter_description"><p>the human-readable-name for the filter, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 to remove any existing name. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -362,7 +362,7 @@ gtk_file_filter_get_name (<em class="parameter"><code><a class="link" href="GtkF
 </div>
 <div class="refsect3">
 <a name="gtk-file-filter-get-name.returns"></a><h4>Returns</h4>
-<p> The human-readable name of the filter,
+<p>The human-readable name of the filter,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. This value is owned by GTK+ and must not
 be modified or freed. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
@@ -613,7 +613,7 @@ the format produced by <a class="link" href="GtkFileFilter.html#gtk-file-filter-
 </div>
 <div class="refsect3">
 <a name="gtk-file-filter-new-from-gvariant.returns"></a><h4>Returns</h4>
-<p> a new <a class="link" href="GtkFileFilter.html" title="GtkFileFilter"><span class="type">GtkFileFilter</span></a> object. </p>
+<p>a new <a class="link" href="GtkFileFilter.html" title="GtkFileFilter"><span class="type">GtkFileFilter</span></a> object. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
@@ -641,7 +641,7 @@ gtk_file_filter_to_gvariant (<em class="parameter"><code><a class="link" href="G
 </div>
 <div class="refsect3">
 <a name="gtk-file-filter-to-gvariant.returns"></a><h4>Returns</h4>
-<p> a new, floating, <a href="https://developer.gnome.org/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>. </p>
+<p>a new, floating, <a href="https://developer.gnome.org/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
@@ -761,6 +761,6 @@ are filled or need to be filled.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

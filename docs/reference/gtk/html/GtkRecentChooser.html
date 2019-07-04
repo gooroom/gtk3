@@ -8,7 +8,7 @@
 <link rel="up" href="RecentDocuments.html" title="Recently Used Documents">
 <link rel="prev" href="GtkRecentManager.html" title="GtkRecentManager">
 <link rel="next" href="GtkRecentChooserDialog.html" title="GtkRecentChooserDialog">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -423,7 +423,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkRecentChooser.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/GTypeModule.html">GInterface</a>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/GTypeModule.html">GInterface</a>
     <span class="lineart">╰──</span> GtkRecentChooser
 </pre>
 </div>
@@ -997,13 +997,13 @@ a negative integer if the first item comes after the second.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>sort_data</p></td>
-<td class="parameter_description"><p> user data to pass to <em class="parameter"><code>sort_func</code></em>
+<td class="parameter_description"><p>user data to pass to <em class="parameter"><code>sort_func</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>data_destroy</p></td>
-<td class="parameter_description"><p> destroy notifier for <em class="parameter"><code>sort_data</code></em>
+<td class="parameter_description"><p>destroy notifier for <em class="parameter"><code>sort_data</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1043,7 +1043,7 @@ gtk_recent_chooser_set_current_uri (<em class="parameter"><code><a class="link" 
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1143,7 +1143,7 @@ gtk_recent_chooser_select_uri (<em class="parameter"><code><a class="link" href=
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1265,7 +1265,7 @@ gtk_recent_chooser_get_items (<em class="parameter"><code><a class="link" href="
 </div>
 <div class="refsect3">
 <a name="gtk-recent-chooser-get-items.returns"></a><h4>Returns</h4>
-<p> A newly allocated
+<p>A newly allocated
 list of <a class="link" href="GtkRecentManager.html#GtkRecentInfo" title="GtkRecentInfo"><span class="type">GtkRecentInfo</span></a> objects.  You should
 use <a class="link" href="GtkRecentManager.html#gtk-recent-info-unref" title="gtk_recent_info_unref ()"><code class="function">gtk_recent_info_unref()</code></a> on every item of the list, and then free
 the list itself using <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>. </p>
@@ -1301,7 +1301,7 @@ properties of <em class="parameter"><code>chooser</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>length</p></td>
-<td class="parameter_description"><p> return location for a the length of the
+<td class="parameter_description"><p>return location for a the length of the
 URI list, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1310,7 +1310,7 @@ URI list, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Ma
 </div>
 <div class="refsect3">
 <a name="gtk-recent-chooser-get-uris.returns"></a><h4>Returns</h4>
-<p>    A newly allocated, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings. Use
+<p>A newly allocated, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings. Use
 <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> to free it. </p>
 <p><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=length zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -1408,7 +1408,7 @@ gtk_recent_chooser_list_filters (<em class="parameter"><code><a class="link" hre
 </div>
 <div class="refsect3">
 <a name="gtk-recent-chooser-list-filters.returns"></a><h4>Returns</h4>
-<p> A singly linked list
+<p>A singly linked list
 of <a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> objects.  You
 should just free the returned list using <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkRecentFilter][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span></p>
@@ -1441,7 +1441,7 @@ to affect the displayed recently used resources.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>filter</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1474,7 +1474,7 @@ the display of the recently used resources.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-recent-chooser-get-filter.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> object. </p>
+<p>a <a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> object. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.10</p>
@@ -1883,6 +1883,6 @@ explicitly calling functions to change the selection.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="RecentDocuments.html" title="Recently Used Documents">
 <link rel="prev" href="GtkRecentChooserWidget.html" title="GtkRecentChooserWidget">
 <link rel="next" href="ApplicationChoosing.html" title="Choosing from installed applications">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -233,21 +233,21 @@ calling <a class="link" href="GtkRecentFilter.html#gtk-recent-filter-add-mime-ty
 13
 14
 15</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkRecentFilter&quot;</span><span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>mime<span class="gtkdoc opt">-</span>types<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>mime<span class="gtkdoc opt">-</span>type<span class="gtkdoc opt">&gt;</span>text<span class="gtkdoc opt">/</span>plain<span class="gtkdoc opt">&lt;/</span>mime<span class="gtkdoc opt">-</span>type<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>mime<span class="gtkdoc opt">-</span>type<span class="gtkdoc opt">&gt;</span>image<span class="gtkdoc opt">/</span>png<span class="gtkdoc opt">&lt;/</span>mime<span class="gtkdoc opt">-</span>type<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>mime<span class="gtkdoc opt">-</span>types<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>patterns<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>pattern<span class="gtkdoc opt">&gt;*.</span>txt<span class="gtkdoc opt">&lt;/</span>pattern<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>pattern<span class="gtkdoc opt">&gt;*.</span>png<span class="gtkdoc opt">&lt;/</span>pattern<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>patterns<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>applications<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>application<span class="gtkdoc opt">&gt;</span>gimp<span class="gtkdoc opt">&lt;/</span>application<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>application<span class="gtkdoc opt">&gt;</span>gedit<span class="gtkdoc opt">&lt;/</span>application<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>application<span class="gtkdoc opt">&gt;</span>glade<span class="gtkdoc opt">&lt;/</span>application<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>applications<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkRecentFilter"</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">types</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">type</span><span class="symbol">&gt;</span><span class="normal">text</span><span class="symbol">/</span><span class="normal">plain</span><span class="symbol">&lt;/</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">type</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">type</span><span class="symbol">&gt;</span><span class="normal">image</span><span class="symbol">/</span><span class="normal">png</span><span class="symbol">&lt;/</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">type</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">types</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">patterns</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">pattern</span><span class="symbol">&gt;*.</span><span class="normal">txt</span><span class="symbol">&lt;/</span><span class="normal">pattern</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">pattern</span><span class="symbol">&gt;*.</span><span class="normal">png</span><span class="symbol">&lt;/</span><span class="normal">pattern</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">patterns</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">applications</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">application</span><span class="symbol">&gt;</span><span class="normal">gimp</span><span class="symbol">&lt;/</span><span class="normal">application</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">application</span><span class="symbol">&gt;</span><span class="normal">gedit</span><span class="symbol">&lt;/</span><span class="normal">application</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">application</span><span class="symbol">&gt;</span><span class="normal">glade</span><span class="symbol">&lt;/</span><span class="normal">application</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">applications</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -311,8 +311,8 @@ To create a filter that accepts any recently used resource, use:</p>
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkRecentFilter <span class="gtkdoc opt">*</span>filter <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkRecentFilter.html#gtk-recent-filter-new">gtk_recent_filter_new</a></span> <span class="gtkdoc opt">();</span>
-<span class="function"><a href="GtkRecentFilter.html#gtk-recent-filter-add-pattern">gtk_recent_filter_add_pattern</a></span> <span class="gtkdoc opt">(</span>filter<span class="gtkdoc opt">,</span> <span class="string">&quot;*&quot;</span><span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkRecentFilter</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">filter </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkRecentFilter.html#gtk-recent-filter-new">gtk_recent_filter_new</a></span><span class="normal"> </span><span class="symbol">();</span>
+<span class="function"><a href="GtkRecentFilter.html#gtk-recent-filter-add-pattern">gtk_recent_filter_add_pattern</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filter</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"*"</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -349,7 +349,7 @@ See <a class="link" href="GtkRecentFilter.html#gtk-recent-filter-set-name" title
 </div>
 <div class="refsect3">
 <a name="gtk-recent-filter-get-name.returns"></a><h4>Returns</h4>
-<p> the name of the filter, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.  The returned string
+<p>the name of the filter, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.  The returned string
 is owned by the filter object and should not be freed. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -748,29 +748,29 @@ to pass information about the tested file to <a class="link" href="GtkRecentFilt
 </tr>
 <tr>
 <td class="struct_member_name"><p>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GtkRecentFilterInfo.uri"></a>uri</code></em>;</p></td>
-<td class="struct_member_description"><p> The URI of the file being tested. </p></td>
+<td class="struct_member_description"><p>The URI of the file being tested. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GtkRecentFilterInfo.display-name"></a>display_name</code></em>;</p></td>
-<td class="struct_member_description"><p> The string that will be used to display
+<td class="struct_member_description"><p>The string that will be used to display
 the file in the recent chooser. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GtkRecentFilterInfo.mime-type"></a>mime_type</code></em>;</p></td>
-<td class="struct_member_description"><p> MIME type of the file. </p></td>
+<td class="struct_member_description"><p>MIME type of the file. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **<em class="structfield"><code><a name="GtkRecentFilterInfo.applications"></a>applications</code></em>;</p></td>
-<td class="struct_member_description"><p> The list of
+<td class="struct_member_description"><p>The list of
 applications that have registered the file. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **<em class="structfield"><code><a name="GtkRecentFilterInfo.groups"></a>groups</code></em>;</p></td>
-<td class="struct_member_description"><p> The groups to which
+<td class="struct_member_description"><p>The groups to which
 the file belongs to. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
@@ -850,6 +850,6 @@ are filled or need to be filled.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

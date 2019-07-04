@@ -8,7 +8,7 @@
 <link rel="up" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
 <link rel="prev" href="GtkMenuBar.html" title="GtkMenuBar">
 <link rel="next" href="GtkRadioMenuItem.html" title="GtkRadioMenuItem">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -390,10 +390,14 @@ For more advanced label settings, you can fetch the child widget from the GtkBin
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2
-3</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkWidget <span class="gtkdoc opt">*</span>child <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkBin.html#gtk-bin-get-child">gtk_bin_get_child</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_BIN</span> <span class="gtkdoc opt">(</span>menu_item<span class="gtkdoc opt">));</span>
-<span class="function"><a href="GtkLabel.html#gtk-label-set-markup">gtk_label_set_markup</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_LABEL</span> <span class="gtkdoc opt">(</span>child<span class="gtkdoc opt">),</span> <span class="string">&quot;&lt;i&gt;new label&lt;/i&gt; with &lt;b&gt;markup&lt;/b&gt;&quot;</span><span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkAccelLabel.html#gtk-accel-label-set-accel">gtk_accel_label_set_accel</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_ACCEL_LABEL</span> <span class="gtkdoc opt">(</span>child<span class="gtkdoc opt">),</span> GDK_KEY_1<span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">);</span></pre></td>
+3
+4
+5</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">menu_item </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkMenuItem.html#gtk-menu-item-new-with-label">gtk_menu_item_new_with_label</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Example Menu Item"</span><span class="symbol">);</span>
+
+<span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">child </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkBin.html#gtk-bin-get-child">gtk_bin_get_child</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_BIN</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">menu_item</span><span class="symbol">));</span>
+<span class="function"><a href="GtkLabel.html#gtk-label-set-markup">gtk_label_set_markup</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_LABEL</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">child</span><span class="symbol">),</span><span class="normal"> </span><span class="string">"&lt;i&gt;new label&lt;/i&gt; with &lt;b&gt;markup&lt;/b&gt;"</span><span class="symbol">);</span>
+<span class="function"><a href="GtkAccelLabel.html#gtk-accel-label-set-accel">gtk_accel_label_set_accel</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_ACCEL_LABEL</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">child</span><span class="symbol">),</span><span class="normal"> GDK_KEY_1</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -415,11 +419,11 @@ a &lt;child&gt; element.</p>
 3
 4
 5</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkMenuItem&quot;</span><span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>child type<span class="gtkdoc opt">=</span><span class="string">&quot;submenu&quot;</span><span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkMenu&quot;</span><span class="gtkdoc opt">/&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkMenuItem"</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="usertype">child</span><span class="normal"> type</span><span class="symbol">=</span><span class="string">"submenu"</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkMenu"</span><span class="symbol">/&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -437,9 +441,9 @@ a &lt;child&gt; element.</p>
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">menuitem
-├── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-╰── <span class="gtkdoc opt">[</span>arrow<span class="gtkdoc opt">.</span>right<span class="gtkdoc opt">]</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">menuitem</span>
+<span class="normal">├── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">╰── </span><span class="symbol">[</span><span class="normal">arrow</span><span class="symbol">.</span><span class="normal">right</span><span class="symbol">]</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -740,7 +744,7 @@ submenu is passed.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>submenu</p></td>
-<td class="parameter_description"><p> the submenu, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>the submenu, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> Gtk.Menu]</span></td>
 </tr>
 </tbody>
@@ -771,7 +775,7 @@ See <a class="link" href="GtkMenuItem.html#gtk-menu-item-set-submenu" title="gtk
 </div>
 <div class="refsect3">
 <a name="gtk-menu-item-get-submenu.returns"></a><h4>Returns</h4>
-<p> submenu for this menu item, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none. </p>
+<p>submenu for this menu item, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -816,7 +820,7 @@ by interning it first with <a href="https://developer.gnome.org/glib/unstable/gl
 </tr>
 <tr>
 <td class="parameter_name"><p>accel_path</p></td>
-<td class="parameter_description"><p> accelerator path, corresponding to this menu
+<td class="parameter_description"><p>accelerator path, corresponding to this menu
 item’s functionality, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to unset the current path. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -849,7 +853,7 @@ gtk_menu_item_get_accel_path (<em class="parameter"><code><a class="link" href="
 </div>
 <div class="refsect3">
 <a name="gtk-menu-item-get-accel-path.returns"></a><h4>Returns</h4>
-<p> the accelerator path corresponding to
+<p>the accelerator path corresponding to
 this menu item’s functionality, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if not set. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -944,7 +948,7 @@ gtk_menu_item_toggle_size_request (<em class="parameter"><code><a class="link" h
 </tr>
 <tr>
 <td class="parameter_name"><p>requisition</p></td>
-<td class="parameter_description"><p> the requisition to use as signal data. </p></td>
+<td class="parameter_description"><p>the requisition to use as signal data. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1392,6 +1396,6 @@ user_function (<a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

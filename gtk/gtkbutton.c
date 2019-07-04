@@ -1452,7 +1452,8 @@ gtk_button_new_from_icon_name (const gchar *icon_name,
  * gtk_button_new_from_stock:
  * @stock_id: the name of the stock item 
  *
- * Creates a new #GtkButton containing the image and text from a stock item.
+ * Creates a new #GtkButton containing the image and text from a
+ * [stock item][gtkstock].
  * Some stock ids have preprocessor macros like #GTK_STOCK_OK and
  * #GTK_STOCK_APPLY.
  *
@@ -1461,7 +1462,8 @@ gtk_button_new_from_icon_name (const gchar *icon_name,
  *
  * Returns: a new #GtkButton
  *
- * Deprecated: 3.10: Use gtk_button_new_with_label() instead.
+ * Deprecated: 3.10: Stock items are deprecated. Use gtk_button_new_with_label()
+ * instead.
  */
 GtkWidget*
 gtk_button_new_from_stock (const gchar *stock_id)
@@ -1990,7 +1992,6 @@ gtk_real_button_activate (GtkButton *button)
   GtkWidget *widget = GTK_WIDGET (button);
   GtkButtonPrivate *priv = button->priv;
   GdkDevice *device;
-  guint32 time;
 
   device = gtk_get_current_event_device ();
 
@@ -1999,21 +2000,13 @@ gtk_real_button_activate (GtkButton *button)
 
   if (gtk_widget_get_realized (widget) && !priv->activate_timeout)
     {
-      time = gtk_get_current_event_time ();
-
       /* bgo#626336 - Only grab if we have a device (from an event), not if we
        * were activated programmatically when no event is available.
        */
       if (device && gdk_device_get_source (device) == GDK_SOURCE_KEYBOARD)
 	{
-          if (gdk_seat_grab (gdk_device_get_seat (device), priv->event_window,
-                             GDK_SEAT_CAPABILITY_KEYBOARD, TRUE,
-                             NULL, NULL, NULL, NULL) == GDK_GRAB_SUCCESS)
-            {
-              gtk_device_grab_add (widget, device, TRUE);
-              priv->grab_keyboard = device;
-              priv->grab_time = time;
-	    }
+          gtk_device_grab_add (widget, device, TRUE);
+          priv->grab_keyboard = device;
 	}
 
       priv->activate_timeout = gdk_threads_add_timeout (ACTIVATE_TIMEOUT,
@@ -2037,7 +2030,6 @@ gtk_button_finish_activate (GtkButton *button,
 
   if (priv->grab_keyboard)
     {
-      gdk_seat_ungrab (gdk_device_get_seat (priv->grab_keyboard));
       gtk_device_grab_remove (widget, priv->grab_keyboard);
       priv->grab_keyboard = NULL;
     }
@@ -2553,7 +2545,7 @@ gtk_button_grab_notify (GtkWidget *widget,
 /**
  * gtk_button_set_image:
  * @button: a #GtkButton
- * @image: a widget to set as the image for the button
+ * @image: (nullable): a widget to set as the image for the button, or %NULL to unset
  *
  * Set the image of @button to the given widget. The image will be
  * displayed if the label text is %NULL or if

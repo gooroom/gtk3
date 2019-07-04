@@ -31,7 +31,7 @@
  * can hold almost any other standard #GtkWidget. The most commonly used
  * child is #GtkImage. If no widget is explicitely added to the #GtkMenuButton,
  * a #GtkImage is automatically created, using an arrow image oriented
- * according to #GtkMenuButton:direction or the generic "view-context-menu"
+ * according to #GtkMenuButton:direction or the generic “open-menu-symbolic”
  * icon if the direction is not set.
  *
  * The positioning of the popup is determined by the #GtkMenuButton:direction
@@ -653,6 +653,7 @@ static gboolean
 menu_deactivate_cb (GtkMenuButton *menu_button)
 {
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (menu_button), FALSE);
+  gtk_widget_unset_state_flags (GTK_WIDGET (menu_button), GTK_STATE_FLAG_PRELIGHT);
 
   return TRUE;
 }
@@ -735,11 +736,13 @@ _gtk_menu_button_set_popup_with_func (GtkMenuButton                 *menu_button
 /**
  * gtk_menu_button_set_popup:
  * @menu_button: a #GtkMenuButton
- * @menu: (allow-none): a #GtkMenu
+ * @menu: (nullable): a #GtkMenu, or %NULL to unset and disable the button
  *
- * Sets the #GtkMenu that will be popped up when the button is clicked,
- * or %NULL to disable the button. If #GtkMenuButton:menu-model or
- * #GtkMenuButton:popover are set, they will be set to %NULL.
+ * Sets the #GtkMenu that will be popped up when the @menu_button is clicked, or
+ * %NULL to dissociate any existing menu and disable the button.
+ *
+ * If #GtkMenuButton:menu-model or #GtkMenuButton:popover are set, those objects
+ * are dissociated from the @menu_button, and those properties are set to %NULL.
  *
  * Since: 3.6
  */
@@ -789,18 +792,20 @@ gtk_menu_button_get_popup (GtkMenuButton *menu_button)
 /**
  * gtk_menu_button_set_menu_model:
  * @menu_button: a #GtkMenuButton
- * @menu_model: (allow-none): a #GMenuModel
+ * @menu_model: (nullable): a #GMenuModel, or %NULL to unset and disable the
+ *   button
  *
  * Sets the #GMenuModel from which the popup will be constructed,
- * or %NULL to disable the button.
+ * or %NULL to dissociate any existing menu model and disable the button.
  *
  * Depending on the value of #GtkMenuButton:use-popover, either a
  * #GtkMenu will be created with gtk_menu_new_from_model(), or a
  * #GtkPopover with gtk_popover_new_from_model(). In either case,
  * actions will be connected as documented for these functions.
  *
- * If #GtkMenuButton:popup or #GtkMenuButton:popover are already set,
- * their content will be lost and replaced by the newly created popup.
+ * If #GtkMenuButton:popup or #GtkMenuButton:popover are already set, those
+ * widgets are dissociated from the @menu_button, and those properties are set
+ * to %NULL.
  *
  * Since: 3.6
  */
@@ -963,6 +968,12 @@ update_popover_direction (GtkMenuButton *menu_button)
     }
 }
 
+static void
+popover_destroy_cb (GtkMenuButton *menu_button)
+{
+  gtk_menu_button_set_popover (menu_button, NULL);
+}
+
 /**
  * gtk_menu_button_set_direction:
  * @menu_button: a #GtkMenuButton
@@ -1038,7 +1049,13 @@ gtk_menu_button_dispose (GObject *object)
 
   if (priv->popover)
     {
-      gtk_widget_destroy (priv->popover);
+      g_signal_handlers_disconnect_by_func (priv->popover,
+                                            menu_deactivate_cb,
+                                            object);
+      g_signal_handlers_disconnect_by_func (priv->popover,
+                                            popover_destroy_cb,
+                                            object);
+      gtk_popover_set_relative_to (GTK_POPOVER (priv->popover), NULL);
       priv->popover = NULL;
     }
 
@@ -1109,11 +1126,13 @@ gtk_menu_button_get_use_popover (GtkMenuButton *menu_button)
 /**
  * gtk_menu_button_set_popover:
  * @menu_button: a #GtkMenuButton
- * @popover: (allow-none): a #GtkPopover
+ * @popover: (nullable): a #GtkPopover, or %NULL to unset and disable the button
  *
- * Sets the #GtkPopover that will be popped up when the button is
- * clicked, or %NULL to disable the button. If #GtkMenuButton:menu-model
- * or #GtkMenuButton:popup are set, they will be set to %NULL.
+ * Sets the #GtkPopover that will be popped up when the @menu_button is clicked,
+ * or %NULL to dissociate any existing popover and disable the button.
+ *
+ * If #GtkMenuButton:menu-model or #GtkMenuButton:popup are set, those objects
+ * are dissociated from the @menu_button, and those properties are set to %NULL.
  *
  * Since: 3.12
  */
@@ -1138,6 +1157,9 @@ gtk_menu_button_set_popover (GtkMenuButton *menu_button,
       g_signal_handlers_disconnect_by_func (priv->popover,
                                             menu_deactivate_cb,
                                             menu_button);
+      g_signal_handlers_disconnect_by_func (priv->popover,
+                                            popover_destroy_cb,
+                                            menu_button);
 
       gtk_popover_set_relative_to (GTK_POPOVER (priv->popover), NULL);
     }
@@ -1149,6 +1171,8 @@ gtk_menu_button_set_popover (GtkMenuButton *menu_button,
       gtk_popover_set_relative_to (GTK_POPOVER (priv->popover), GTK_WIDGET (menu_button));
       g_signal_connect_swapped (priv->popover, "closed",
                                 G_CALLBACK (menu_deactivate_cb), menu_button);
+      g_signal_connect_swapped (priv->popover, "destroy",
+                                G_CALLBACK (popover_destroy_cb), menu_button);
       update_popover_direction (menu_button);
       gtk_style_context_remove_class (gtk_widget_get_style_context (GTK_WIDGET (menu_button)), "menu-button");
     }

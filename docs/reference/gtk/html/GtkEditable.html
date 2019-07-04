@@ -8,7 +8,7 @@
 <link rel="up" href="NumericEntry.html" title="Numeric and Text Data Entry">
 <link rel="prev" href="GtkSearchBar.html" title="GtkSearchBar">
 <link rel="next" href="TextWidgetObjects.html" title="Multiline Text Editor">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -191,7 +191,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkEditable.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/GTypeModule.html">GInterface</a>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/GTypeModule.html">GInterface</a>
     <span class="lineart">╰──</span> GtkEditable
 </pre>
 </div>
@@ -243,27 +243,27 @@ can convert all entry into a widget into uppercase.</p>
 19
 20
 21</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc ppc">#include &lt;ctype.h&gt;;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="preproc">#include</span><span class="normal"> </span><span class="string">&lt;ctype.h&gt;</span><span class="normal">;</span>
 
-<span class="gtkdoc kwb">void</span>
-<span class="function">insert_text_handler</span> <span class="gtkdoc opt">(</span>GtkEditable <span class="gtkdoc opt">*</span>editable<span class="gtkdoc opt">,</span>
-                     <span class="gtkdoc kwb">const</span> gchar <span class="gtkdoc opt">*</span>text<span class="gtkdoc opt">,</span>
-                     gint         length<span class="gtkdoc opt">,</span>
-                     gint        <span class="gtkdoc opt">*</span>position<span class="gtkdoc opt">,</span>
-                     gpointer     data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  gchar <span class="gtkdoc opt">*</span>result <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Unicode-Manipulation.html#g-utf8-strup">g_utf8_strup</a></span> <span class="gtkdoc opt">(</span>text<span class="gtkdoc opt">,</span> length<span class="gtkdoc opt">);</span>
+<span class="type">void</span>
+<span class="function">insert_text_handler</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkEditable</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">editable</span><span class="symbol">,</span>
+<span class="normal">                     </span><span class="keyword">const</span><span class="normal"> </span><span class="usertype">gchar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">text</span><span class="symbol">,</span>
+<span class="normal">                     </span><span class="usertype">gint</span><span class="normal">         length</span><span class="symbol">,</span>
+<span class="normal">                     </span><span class="usertype">gint</span><span class="normal">        </span><span class="symbol">*</span><span class="normal">position</span><span class="symbol">,</span>
+<span class="normal">                     </span><span class="usertype">gpointer</span><span class="normal">     data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">gchar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">result </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Unicode-Manipulation.html#g-utf8-strup">g_utf8_strup</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">text</span><span class="symbol">,</span><span class="normal"> length</span><span class="symbol">);</span>
 
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-handlers-block-by-func">g_signal_handlers_block_by_func</a></span> <span class="gtkdoc opt">(</span>editable<span class="gtkdoc opt">,</span>
-                               <span class="gtkdoc opt">(</span>gpointer<span class="gtkdoc opt">)</span> insert_text_handler<span class="gtkdoc opt">,</span> data<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="GtkEditable.html#gtk-editable-insert-text">gtk_editable_insert_text</a></span> <span class="gtkdoc opt">(</span>editable<span class="gtkdoc opt">,</span> result<span class="gtkdoc opt">,</span> length<span class="gtkdoc opt">,</span> position<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-handlers-unblock-by-func">g_signal_handlers_unblock_by_func</a></span> <span class="gtkdoc opt">(</span>editable<span class="gtkdoc opt">,</span>
-                                     <span class="gtkdoc opt">(</span>gpointer<span class="gtkdoc opt">)</span> insert_text_handler<span class="gtkdoc opt">,</span> data<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-handlers-block-by-func">g_signal_handlers_block_by_func</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">editable</span><span class="symbol">,</span>
+<span class="normal">                               </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">)</span><span class="normal"> insert_text_handler</span><span class="symbol">,</span><span class="normal"> data</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkEditable.html#gtk-editable-insert-text">gtk_editable_insert_text</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">editable</span><span class="symbol">,</span><span class="normal"> result</span><span class="symbol">,</span><span class="normal"> length</span><span class="symbol">,</span><span class="normal"> position</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-handlers-unblock-by-func">g_signal_handlers_unblock_by_func</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">editable</span><span class="symbol">,</span>
+<span class="normal">                                     </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">)</span><span class="normal"> insert_text_handler</span><span class="symbol">,</span><span class="normal"> data</span><span class="symbol">);</span>
 
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-stop-emission-by-name">g_signal_stop_emission_by_name</a></span> <span class="gtkdoc opt">(</span>editable<span class="gtkdoc opt">,</span> <span class="string">&quot;insert_text&quot;</span><span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-stop-emission-by-name">g_signal_stop_emission_by_name</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">editable</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"insert_text"</span><span class="symbol">);</span>
 
-  <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span> <span class="gtkdoc opt">(</span>result<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">result</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -347,12 +347,12 @@ selected both will be identical and <a href="https://developer.gnome.org/glib/un
 </tr>
 <tr>
 <td class="parameter_name"><p>start_pos</p></td>
-<td class="parameter_description"><p> location to store the starting position, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store the starting position, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>end_pos</p></td>
-<td class="parameter_description"><p> location to store the end position, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store the end position, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -406,7 +406,7 @@ The function updates <em class="parameter"><code>position</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>position</p></td>
-<td class="parameter_description"><p> location of the position text will be inserted at. </p></td>
+<td class="parameter_description"><p>location of the position text will be inserted at. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -867,7 +867,7 @@ or -1 if new_text is nul-terminated</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>position</p></td>
-<td class="parameter_description"><p> the position, in characters,
+<td class="parameter_description"><p>the position, in characters,
 at which to insert the new text. this is an in-out
 parameter.  After the signal emission is finished, it
 should point after the newly inserted text. </p></td>
@@ -886,6 +886,6 @@ should point after the newly inserted text. </p></td>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

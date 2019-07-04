@@ -8,7 +8,7 @@
 <link rel="up" href="theming.html" title="Part IV. Theming in GTK+">
 <link rel="prev" href="GtkCssProvider.html" title="GtkCssProvider">
 <link rel="next" href="gtk3-GtkStyleProperties.html" title="GtkStyleProperties">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -109,7 +109,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkStyleProvider.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/GTypeModule.html">GInterface</a>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/GTypeModule.html">GInterface</a>
     <span class="lineart">╰──</span> GtkStyleProvider
 </pre>
 </div>
@@ -167,7 +167,7 @@ is defined.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-style-provider-get-icon-factory.returns"></a><h4>Returns</h4>
-<p> The icon factory to use for <em class="parameter"><code>path</code></em>
+<p>The icon factory to use for <em class="parameter"><code>path</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -213,7 +213,7 @@ gtk_style_provider_get_style (<em class="parameter"><code><a class="link" href="
 </div>
 <div class="refsect3">
 <a name="gtk-style-provider-get-style.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="gtk3-GtkStyleProperties.html#GtkStyleProperties" title="struct GtkStyleProperties"><span class="type">GtkStyleProperties</span></a> containing the
+<p>a <a class="link" href="gtk3-GtkStyleProperties.html#GtkStyleProperties" title="struct GtkStyleProperties"><span class="type">GtkStyleProperties</span></a> containing the
 style settings affecting <em class="parameter"><code>path</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -228,7 +228,7 @@ gtk_style_provider_get_style_property (<em class="parameter"><code><a class="lin
                                        <em class="parameter"><code><a class="link" href="gtk3-GtkWidgetPath.html#GtkWidgetPath" title="GtkWidgetPath"><span class="type">GtkWidgetPath</span></a> *path</code></em>,
                                        <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkStateFlags" title="enum GtkStateFlags"><span class="type">GtkStateFlags</span></a> state</code></em>,
                                        <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
-                                       <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);</pre>
+                                       <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *value</code></em>);</pre>
 <p>Looks up a widget style property as defined by <em class="parameter"><code>provider</code></em>
  for
 the widget represented by <em class="parameter"><code>path</code></em>
@@ -264,7 +264,7 @@ the widget represented by <em class="parameter"><code>path</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>value</p></td>
-<td class="parameter_description"><p> return location for the property value. </p></td>
+<td class="parameter_description"><p>return location for the property value. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -372,7 +372,7 @@ for application-specific style information.</p>
 <pre class="programlisting">#define GTK_STYLE_PROVIDER_PRIORITY_USER        800
 </pre>
 <p>The priority used for the style information from
-<code class="literal">~/.gtk-3.0.css</code>.</p>
+<code class="literal">XDG_CONFIG_HOME/gtk-3.0/gtk.css</code>.</p>
 <p>You should not use priorities higher than this, to
 give the user the last word.</p>
 </div>
@@ -383,6 +383,6 @@ give the user the last word.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

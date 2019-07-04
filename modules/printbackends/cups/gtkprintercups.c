@@ -100,6 +100,7 @@ static void
 gtk_printer_cups_init (GtkPrinterCups *printer)
 {
   printer->device_uri = NULL;
+  printer->original_device_uri = NULL;
   printer->printer_uri = NULL;
   printer->state = 0;
   printer->hostname = NULL;
@@ -151,6 +152,7 @@ gtk_printer_cups_finalize (GObject *object)
   printer = GTK_PRINTER_CUPS (object);
 
   g_free (printer->device_uri);
+  g_free (printer->original_device_uri);
   g_free (printer->printer_uri);
   g_free (printer->hostname);
   g_free (printer->ppd_name);
@@ -537,12 +539,17 @@ colord_client_connect_cb (GObject *source_object,
   gboolean ret;
   GError *error = NULL;
   GtkPrinterCups *printer = GTK_PRINTER_CUPS (user_data);
+  static gboolean colord_warned = FALSE;
 
   ret = cd_client_connect_finish (CD_CLIENT (source_object),
                                   res, &error);
   if (!ret)
     {
-      g_warning ("failed to contact colord: %s", error->message);
+      if (!colord_warned)
+        {
+          g_warning ("failed to contact colord: %s", error->message);
+          colord_warned = TRUE;
+        }
       g_error_free (error);
     }
 

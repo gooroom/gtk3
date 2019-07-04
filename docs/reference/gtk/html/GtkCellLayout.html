@@ -8,7 +8,7 @@
 <link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
 <link rel="prev" href="GtkTreeModelFilter.html" title="GtkTreeModelFilter">
 <link rel="next" href="GtkCellArea.html" title="GtkCellArea">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -154,7 +154,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkCellLayout.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/GTypeModule.html">GInterface</a>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/GTypeModule.html">GInterface</a>
     <span class="lineart">╰──</span> GtkCellLayout
 </pre>
 </div>
@@ -212,13 +212,13 @@ attribute value.</p>
 6
 7
 8</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkCellView&quot;</span><span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkCellRendererText&quot;</span><span class="gtkdoc opt">/&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>attributes<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>attribute name<span class="gtkdoc opt">=</span><span class="string">&quot;text&quot;</span><span class="gtkdoc opt">&gt;</span><span class="number">0</span><span class="gtkdoc opt">&lt;/</span>attribute<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;/</span>attributes<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span><span class="string">&quot;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkCellView"</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkCellRendererText"</span><span class="symbol">/&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">attributes</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">attribute</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"text"</span><span class="symbol">&gt;</span><span class="number">0</span><span class="symbol">&lt;/</span><span class="normal">attribute</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;/</span><span class="normal">attributes</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span><span class="string">"</span>
 <span class="string">&lt;/object&gt;</span></pre></td>
       </tr>
     </tbody>
@@ -245,14 +245,14 @@ specifying the custom &lt;cell-packing&gt; attribute which can contain multiple
 7
 8
 9</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkTreeViewColumn&quot;</span><span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkCellRendererText&quot;</span><span class="gtkdoc opt">/&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>cell<span class="gtkdoc opt">-</span>packing<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;align&quot;</span><span class="gtkdoc opt">&gt;</span>True<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;expand&quot;</span><span class="gtkdoc opt">&gt;</span>False<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;/</span>cell<span class="gtkdoc opt">-</span>packing<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span><span class="string">&quot;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkTreeViewColumn"</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkCellRendererText"</span><span class="symbol">/&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">cell</span><span class="symbol">-</span><span class="normal">packing</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"align"</span><span class="symbol">&gt;</span><span class="normal">True</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"expand"</span><span class="symbol">&gt;</span><span class="normal">False</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;/</span><span class="normal">cell</span><span class="symbol">-</span><span class="normal">packing</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span><span class="string">"</span>
 <span class="string">&lt;/object&gt;</span></pre></td>
       </tr>
     </tbody>
@@ -274,7 +274,7 @@ widgets. This means that it is possible to e.g. do</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting">combo <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-new">g_object_new</a></span> <span class="gtkdoc opt">(</span>GTK_TYPE_COMBO_BOX<span class="gtkdoc opt">,</span> <span class="string">&quot;cell-area&quot;</span><span class="gtkdoc opt">,</span> my_cell_area<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">combo </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-new">g_object_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">GTK_TYPE_COMBO_BOX</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"cell-area"</span><span class="symbol">,</span><span class="normal"> my_cell_area</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -310,24 +310,24 @@ you to the problem).</p>
 16
 17
 18</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">my_combo_box_init</span> <span class="gtkdoc opt">(</span>MyComboBox <span class="gtkdoc opt">*</span>b<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkCellRenderer <span class="gtkdoc opt">*</span>cell<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">my_combo_box_init</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">MyComboBox</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">b</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkCellRenderer</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">cell</span><span class="symbol">;</span>
 
-  cell <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkCellRendererPixbuf.html#gtk-cell-renderer-pixbuf-new">gtk_cell_renderer_pixbuf_new</a></span> <span class="gtkdoc opt">();</span>
-  <span class="gtkdoc slc">// The following call causes the default cell area for combo boxes,</span>
-  <span class="gtkdoc slc">// a GtkCellAreaBox, to be instantiated</span>
-  <span class="function"><a href="GtkCellLayout.html#gtk-cell-layout-pack-start">gtk_cell_layout_pack_start</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CELL_LAYOUT</span> <span class="gtkdoc opt">(</span>b<span class="gtkdoc opt">),</span> cell<span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">...</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">  cell </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkCellRendererPixbuf.html#gtk-cell-renderer-pixbuf-new">gtk_cell_renderer_pixbuf_new</a></span><span class="normal"> </span><span class="symbol">();</span>
+<span class="normal">  </span><span class="comment">// The following call causes the default cell area for combo boxes,</span>
+<span class="normal">  </span><span class="comment">// a GtkCellAreaBox, to be instantiated</span>
+<span class="normal">  </span><span class="function"><a href="GtkCellLayout.html#gtk-cell-layout-pack-start">gtk_cell_layout_pack_start</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CELL_LAYOUT</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">b</span><span class="symbol">),</span><span class="normal"> cell</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="symbol">...</span>
+<span class="cbracket">}</span>
 
-GtkWidget <span class="gtkdoc opt">*</span>
-<span class="function">my_combo_box_new</span> <span class="gtkdoc opt">(</span>GtkCellArea <span class="gtkdoc opt">*</span>area<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc slc">// This call is going to cause a warning about area being ignored</span>
-  <span class="keyword">return</span> <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-new">g_object_new</a></span> <span class="gtkdoc opt">(</span>MY_TYPE_COMBO_BOX<span class="gtkdoc opt">,</span> <span class="string">&quot;cell-area&quot;</span><span class="gtkdoc opt">,</span> area<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal"><a href="GtkWidget.html#GtkWidget-struct">GtkWidget</a> </span><span class="symbol">*</span>
+<span class="function">my_combo_box_new</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkCellArea</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">area</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="comment">// This call is going to cause a warning about area being ignored</span>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-new">g_object_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">MY_TYPE_COMBO_BOX</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"cell-area"</span><span class="symbol">,</span><span class="normal"> area</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -385,7 +385,7 @@ as appropriate.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>data</p></td>
-<td class="parameter_description"><p> user data passed to <a class="link" href="GtkCellLayout.html#gtk-cell-layout-set-cell-data-func" title="gtk_cell_layout_set_cell_data_func ()"><code class="function">gtk_cell_layout_set_cell_data_func()</code></a>. </p></td>
+<td class="parameter_description"><p>user data passed to <a class="link" href="GtkCellLayout.html#gtk-cell-layout-set-cell-data-func" title="gtk_cell_layout_set_cell_data_func ()"><code class="function">gtk_cell_layout_set_cell_data_func()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -513,7 +513,7 @@ is used by <em class="parameter"><code>cell_layout</code></em>
 </div>
 <div class="refsect3">
 <a name="gtk-cell-layout-get-area.returns"></a><h4>Returns</h4>
-<p> the cell area used by <em class="parameter"><code>cell_layout</code></em>
+<p>the cell area used by <em class="parameter"><code>cell_layout</code></em>
 ,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> in case no cell area is used. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
@@ -544,7 +544,7 @@ gtk_cell_layout_get_cells (<em class="parameter"><code><a class="link" href="Gtk
 </div>
 <div class="refsect3">
 <a name="gtk-cell-layout-get-cells.returns"></a><h4>Returns</h4>
-<p>    a list of cell renderers. The list, but not the renderers has
+<p>a list of cell renderers. The list, but not the renderers has
 been newly allocated and should be freed with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>
 when no longer needed. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkCellRenderer][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span></p>
@@ -751,12 +751,12 @@ cell renderer(s) as appropriate.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>func</p></td>
-<td class="parameter_description"><p> the <a class="link" href="GtkCellLayout.html#GtkCellLayoutDataFunc" title="GtkCellLayoutDataFunc ()"><span class="type">GtkCellLayoutDataFunc</span></a> to use, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>the <a class="link" href="GtkCellLayout.html#GtkCellLayoutDataFunc" title="GtkCellLayoutDataFunc ()"><span class="type">GtkCellLayoutDataFunc</span></a> to use, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>func_data</p></td>
-<td class="parameter_description"><p> user data for <em class="parameter"><code>func</code></em>
+<td class="parameter_description"><p>user data for <em class="parameter"><code>func</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
@@ -909,6 +909,6 @@ cell_layout if called on a <a class="link" href="GtkCellArea.html" title="GtkCel
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="NumericEntry.html" title="Numeric and Text Data Entry">
 <link rel="prev" href="NumericEntry.html" title="Numeric and Text Data Entry">
 <link rel="next" href="GtkEntryBuffer.html" title="GtkEntryBuffer">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -275,7 +275,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="returnvalue">PangoLayout</span></a> *
+<a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="returnvalue">PangoLayout</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkEntry.html#gtk-entry-get-layout" title="gtk_entry_get_layout ()">gtk_entry_get_layout</a> <span class="c_punctuation">()</span>
@@ -315,7 +315,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="returnvalue">PangoAttrList</span></a> *
+<a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="returnvalue">PangoAttrList</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkEntry.html#gtk-entry-get-attributes" title="gtk_entry_get_attributes ()">gtk_entry_get_attributes</a> <span class="c_punctuation">()</span>
@@ -427,7 +427,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="returnvalue">PangoTabArray</span></a> *
+<a href="/usr/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="returnvalue">PangoTabArray</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkEntry.html#gtk-entry-get-tabs" title="gtk_entry_get_tabs ()">gtk_entry_get_tabs</a> <span class="c_punctuation">()</span>
@@ -505,7 +505,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="returnvalue">GIcon</span></a> *
+<span class="returnvalue">GIcon</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkEntry.html#gtk-entry-get-icon-gicon" title="gtk_entry_get_icon_gicon ()">gtk_entry_get_icon_gicon</a> <span class="c_punctuation">()</span>
@@ -666,7 +666,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="type">PangoAttrList</span></a> *</td>
+<a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="type">PangoAttrList</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkEntry.html#GtkEntry--attributes" title="The “attributes” property">attributes</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -695,6 +695,11 @@
 <tr>
 <td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
 <td class="property_name"><a class="link" href="GtkEntry.html#GtkEntry--editable" title="The “editable” property">editable</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_name"><a class="link" href="GtkEntry.html#GtkEntry--enable-emoji-completion" title="The “enable-emoji-completion” property">enable-emoji-completion</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
@@ -767,7 +772,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *</td>
+<span class="type">GIcon</span> *</td>
 <td class="property_name"><a class="link" href="GtkEntry.html#GtkEntry--primary-icon-gicon" title="The “primary-icon-gicon” property">primary-icon-gicon</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -833,7 +838,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *</td>
+<span class="type">GIcon</span> *</td>
 <td class="property_name"><a class="link" href="GtkEntry.html#GtkEntry--secondary-icon-gicon" title="The “secondary-icon-gicon” property">secondary-icon-gicon</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -888,8 +893,13 @@
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
+<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_name"><a class="link" href="GtkEntry.html#GtkEntry--show-emoji-icon" title="The “show-emoji-icon” property">show-emoji-icon</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
 <td class="property_type">
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="type">PangoTabArray</span></a> *</td>
+<a href="/usr/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="type">PangoTabArray</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkEntry.html#GtkEntry--tabs" title="The “tabs” property">tabs</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -1008,6 +1018,11 @@
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkEntry.html#GtkEntry-insert-at-cursor" title="The “insert-at-cursor” signal">insert-at-cursor</a></td>
+<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GtkEntry.html#GtkEntry-insert-emoji" title="The “insert-emoji” signal">insert-emoji</a></td>
 <td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></td>
 </tr>
 <tr>
@@ -1137,14 +1152,14 @@ via the context menu of the entry.</p>
 6
 7
 8</pre></td>
-        <td class="listing_code"><pre class="programlisting">entry
-├── image<span class="gtkdoc opt">.</span>left
-├── image<span class="gtkdoc opt">.</span>right
-├── undershoot<span class="gtkdoc opt">.</span>left
-├── undershoot<span class="gtkdoc opt">.</span>right
-├── <span class="gtkdoc opt">[</span>selection<span class="gtkdoc opt">]</span>
-├── <span class="gtkdoc opt">[</span>progress<span class="gtkdoc opt">[.</span>pulse<span class="gtkdoc opt">]]</span>
-╰── <span class="gtkdoc opt">[</span>window<span class="gtkdoc opt">.</span>popup<span class="gtkdoc opt">]</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">entry</span><span class="symbol">[.</span><span class="normal">read</span><span class="symbol">-</span><span class="normal">only</span><span class="symbol">][.</span><span class="normal">flat</span><span class="symbol">][.</span><span class="normal">warning</span><span class="symbol">][.</span><span class="normal">error</span><span class="symbol">]</span>
+<span class="normal">├── image</span><span class="symbol">.</span><span class="normal">left</span>
+<span class="normal">├── image</span><span class="symbol">.</span><span class="normal">right</span>
+<span class="normal">├── undershoot</span><span class="symbol">.</span><span class="normal">left</span>
+<span class="normal">├── undershoot</span><span class="symbol">.</span><span class="normal">right</span>
+<span class="normal">├── </span><span class="symbol">[</span><span class="normal">selection</span><span class="symbol">]</span>
+<span class="normal">├── </span><span class="symbol">[</span><span class="normal">progress</span><span class="symbol">[.</span><span class="normal">pulse</span><span class="symbol">]]</span>
+<span class="normal">╰── </span><span class="symbol">[</span><span class="normal">window</span><span class="symbol">.</span><span class="normal">popup</span><span class="symbol">]</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1233,7 +1248,7 @@ this widget.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-entry-get-buffer.returns"></a><h4>Returns</h4>
-<p> A <a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> object. </p>
+<p>A <a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> object. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.18</p>
@@ -1309,23 +1324,9 @@ value, replacing the current contents.</p>
 gtk_entry_get_text (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>);</pre>
 <p>Retrieves the contents of the entry widget.
 See also <a class="link" href="GtkEditable.html#gtk-editable-get-chars" title="gtk_editable_get_chars ()"><code class="function">gtk_editable_get_chars()</code></a>.</p>
-<p>This is equivalent to:</p>
-<div class="informalexample">
-  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr>
-        <td class="listing_lines" align="right"><pre>1
-2
-3</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkEntryBuffer <span class="gtkdoc opt">*</span>buffer<span class="gtkdoc opt">;</span>
-buffer <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkEntry.html#gtk-entry-get-buffer">gtk_entry_get_buffer</a></span> <span class="gtkdoc opt">(</span>entry<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkEntryBuffer.html#gtk-entry-buffer-get-text">gtk_entry_buffer_get_text</a></span> <span class="gtkdoc opt">(</span>buffer<span class="gtkdoc opt">);</span></pre></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<p></p>
+<p>This is equivalent to getting <em class="parameter"><code>entry</code></em>
+'s <a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> and calling
+<a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-get-text" title="gtk_entry_buffer_get_text ()"><code class="function">gtk_entry_buffer_get_text()</code></a> on it.</p>
 <div class="refsect3">
 <a name="gtk-entry-get-text.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -1357,23 +1358,9 @@ gtk_entry_get_text_length (<em class="parameter"><code><a class="link" href="Gtk
 <p>Retrieves the current length of the text in
 <em class="parameter"><code>entry</code></em>
 . </p>
-<p>This is equivalent to:</p>
-<div class="informalexample">
-  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr>
-        <td class="listing_lines" align="right"><pre>1
-2
-3</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkEntryBuffer <span class="gtkdoc opt">*</span>buffer<span class="gtkdoc opt">;</span>
-buffer <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkEntry.html#gtk-entry-get-buffer">gtk_entry_get_buffer</a></span> <span class="gtkdoc opt">(</span>entry<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkEntryBuffer.html#gtk-entry-buffer-get-length">gtk_entry_buffer_get_length</a></span> <span class="gtkdoc opt">(</span>buffer<span class="gtkdoc opt">);</span></pre></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<p></p>
+<p>This is equivalent to getting <em class="parameter"><code>entry</code></em>
+'s <a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> and
+calling <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-get-length" title="gtk_entry_buffer_get_length ()"><code class="function">gtk_entry_buffer_get_length()</code></a> on it.</p>
 <div class="refsect3">
 <a name="gtk-entry-get-text-length.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -1401,7 +1388,7 @@ in <a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkE
 <a name="gtk-entry-get-text-area"></a><h3>gtk_entry_get_text_area ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_entry_get_text_area (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>,
-                         <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *text_area</code></em>);</pre>
+                         <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *text_area</code></em>);</pre>
 <p>Gets the area where the entry’s text is drawn. This function is
 useful when drawing something to the entry in a draw callback.</p>
 <p>If the entry is not realized, <em class="parameter"><code>text_area</code></em>
@@ -1423,7 +1410,7 @@ useful when drawing something to the entry in a draw callback.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>text_area</p></td>
-<td class="parameter_description"><p> Return location for the text area. </p></td>
+<td class="parameter_description"><p>Return location for the text area. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1542,23 +1529,10 @@ gtk_entry_set_max_length (<em class="parameter"><code><a class="link" href="GtkE
 <p>Sets the maximum allowed length of the contents of the widget. If
 the current contents are longer than the given length, then they
 will be truncated to fit.</p>
-<p>This is equivalent to:</p>
-<div class="informalexample">
-  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr>
-        <td class="listing_lines" align="right"><pre>1
-2
-3</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkEntryBuffer <span class="gtkdoc opt">*</span>buffer<span class="gtkdoc opt">;</span>
-buffer <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkEntry.html#gtk-entry-get-buffer">gtk_entry_get_buffer</a></span> <span class="gtkdoc opt">(</span>entry<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkEntryBuffer.html#gtk-entry-buffer-set-max-length">gtk_entry_buffer_set_max_length</a></span> <span class="gtkdoc opt">(</span>buffer<span class="gtkdoc opt">,</span> max<span class="gtkdoc opt">);</span></pre></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<p></p>
+<p>This is equivalent to getting <em class="parameter"><code>entry</code></em>
+'s <a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> and
+calling <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-set-max-length" title="gtk_entry_buffer_set_max_length ()"><code class="function">gtk_entry_buffer_set_max_length()</code></a> on it.
+]|</p>
 <div class="refsect3">
 <a name="gtk-entry-set-max-length.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -1666,7 +1640,7 @@ gtk_entry_get_inner_border (<em class="parameter"><code><a class="link" href="Gt
 </div>
 <div class="refsect3">
 <a name="gtk-entry-get-inner-border.returns"></a><h4>Returns</h4>
-<p> the entry’s <a class="link" href="GtkStyleContext.html#GtkBorder"><span class="type">GtkBorder</span></a>, or
+<p>the entry’s <a class="link" href="GtkStyleContext.html#GtkBorder"><span class="type">GtkBorder</span></a>, or
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none was set. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1832,7 +1806,7 @@ pixel-exact positioning of the entry is important.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>border</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkStyleContext.html#GtkBorder"><span class="type">GtkBorder</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkStyleContext.html#GtkBorder"><span class="type">GtkBorder</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2028,7 +2002,7 @@ first key event arrives.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>text</p></td>
-<td class="parameter_description"><p> a string to be displayed when <em class="parameter"><code>entry</code></em>
+<td class="parameter_description"><p>a string to be displayed when <em class="parameter"><code>entry</code></em>
 is empty and unfocused, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
@@ -2127,9 +2101,9 @@ gtk_entry_get_overwrite_mode (<em class="parameter"><code><a class="link" href="
 <hr>
 <div class="refsect2">
 <a name="gtk-entry-get-layout"></a><h3>gtk_entry_get_layout ()</h3>
-<pre class="programlisting"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="returnvalue">PangoLayout</span></a> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="returnvalue">PangoLayout</span></a> *
 gtk_entry_get_layout (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>);</pre>
-<p>Gets the <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> used to display the entry.
+<p>Gets the <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> used to display the entry.
 The layout is useful to e.g. convert text positions to
 pixel positions, in combination with <a class="link" href="GtkEntry.html#gtk-entry-get-layout-offsets" title="gtk_entry_get_layout_offsets ()"><code class="function">gtk_entry_get_layout_offsets()</code></a>.
 The returned layout is owned by the entry and must not be 
@@ -2155,7 +2129,7 @@ indices in the layout to byte indices in the entry contents.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-entry-get-layout.returns"></a><h4>Returns</h4>
-<p> the <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> for this entry. </p>
+<p>the <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> for this entry. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -2166,18 +2140,18 @@ indices in the layout to byte indices in the entry contents.</p>
 gtk_entry_get_layout_offsets (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>,
                               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *x</code></em>,
                               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *y</code></em>);</pre>
-<p>Obtains the position of the <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> used to render text
+<p>Obtains the position of the <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> used to render text
 in the entry, in widget coordinates. Useful if you want to line
 up the text in an entry with some other text, e.g. when using the
 entry to implement editable cells in a sheet widget.</p>
 <p>Also useful to convert mouse events into coordinates inside the
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a>, e.g. to take some action if some part of the entry text
+<a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a>, e.g. to take some action if some part of the entry text
 is clicked.</p>
 <p>Note that as the user scrolls around in the entry the offsets will
 change; you’ll need to connect to the “notify::scroll-offset”
-signal to track this. Remember when using the <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a>
+signal to track this. Remember when using the <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a>
 functions you need to convert to and from pixels using
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Glyph-Storage.html#PANGO-PIXELS:CAPS"><code class="function">PANGO_PIXELS()</code></a> or <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Glyph-Storage.html#PANGO-SCALE:CAPS"><span class="type">PANGO_SCALE</span></a>.</p>
+<a href="/usr/share/gtk-doc/html/pango/pango-Glyph-Storage.html#PANGO-PIXELS:CAPS"><code class="function">PANGO_PIXELS()</code></a> or <a href="/usr/share/gtk-doc/html/pango/pango-Glyph-Storage.html#PANGO-SCALE:CAPS"><span class="type">PANGO_SCALE</span></a>.</p>
 <p>Keep in mind that the layout text may contain a preedit string, so
 <a class="link" href="GtkEntry.html#gtk-entry-layout-index-to-text-index" title="gtk_entry_layout_index_to_text_index ()"><code class="function">gtk_entry_layout_index_to_text_index()</code></a> and
 <a class="link" href="GtkEntry.html#gtk-entry-text-index-to-layout-index" title="gtk_entry_text_index_to_layout_index ()"><code class="function">gtk_entry_text_index_to_layout_index()</code></a> are needed to convert byte
@@ -2198,12 +2172,12 @@ indices in the layout to byte indices in the entry contents.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>x</p></td>
-<td class="parameter_description"><p> location to store X offset of layout, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store X offset of layout, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>y</p></td>
-<td class="parameter_description"><p> location to store Y offset of layout, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store Y offset of layout, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2216,7 +2190,7 @@ indices in the layout to byte indices in the entry contents.</p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
 gtk_entry_layout_index_to_text_index (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>,
                                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> layout_index</code></em>);</pre>
-<p>Converts from a position in the entry’s <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> (returned by
+<p>Converts from a position in the entry’s <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> (returned by
 <a class="link" href="GtkEntry.html#gtk-entry-get-layout" title="gtk_entry_get_layout ()"><code class="function">gtk_entry_get_layout()</code></a>) to a position in the entry contents
 (returned by <a class="link" href="GtkEntry.html#gtk-entry-get-text" title="gtk_entry_get_text ()"><code class="function">gtk_entry_get_text()</code></a>).</p>
 <div class="refsect3">
@@ -2254,8 +2228,8 @@ gtk_entry_text_index_to_layout_index (<em class="parameter"><code><a class="link
                                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> text_index</code></em>);</pre>
 <p>Converts from a position in the entry contents (returned
 by <a class="link" href="GtkEntry.html#gtk-entry-get-text" title="gtk_entry_get_text ()"><code class="function">gtk_entry_get_text()</code></a>) to a position in the
-entry’s <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> (returned by <a class="link" href="GtkEntry.html#gtk-entry-get-layout" title="gtk_entry_get_layout ()"><code class="function">gtk_entry_get_layout()</code></a>,
-with text retrieved via <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-get-text"><code class="function">pango_layout_get_text()</code></a>).</p>
+entry’s <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> (returned by <a class="link" href="GtkEntry.html#gtk-entry-get-layout" title="gtk_entry_get_layout ()"><code class="function">gtk_entry_get_layout()</code></a>,
+with text retrieved via <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-get-text"><code class="function">pango_layout_get_text()</code></a>).</p>
 <div class="refsect3">
 <a name="gtk-entry-text-index-to-layout-index.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -2288,8 +2262,8 @@ with text retrieved via <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pa
 <a name="gtk-entry-set-attributes"></a><h3>gtk_entry_set_attributes ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_entry_set_attributes (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>,
-                          <em class="parameter"><code><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="type">PangoAttrList</span></a> *attrs</code></em>);</pre>
-<p>Sets a <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="type">PangoAttrList</span></a>; the attributes in the list are applied to the
+                          <em class="parameter"><code><a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="type">PangoAttrList</span></a> *attrs</code></em>);</pre>
+<p>Sets a <a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="type">PangoAttrList</span></a>; the attributes in the list are applied to the
 entry text.</p>
 <div class="refsect3">
 <a name="gtk-entry-set-attributes.parameters"></a><h4>Parameters</h4>
@@ -2307,7 +2281,7 @@ entry text.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>attrs</p></td>
-<td class="parameter_description"><p>a <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="type">PangoAttrList</span></a></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="type">PangoAttrList</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -2318,7 +2292,7 @@ entry text.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-entry-get-attributes"></a><h3>gtk_entry_get_attributes ()</h3>
-<pre class="programlisting"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="returnvalue">PangoAttrList</span></a> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="returnvalue">PangoAttrList</span></a> *
 gtk_entry_get_attributes (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>);</pre>
 <p>Gets the attribute list that was set on the entry using
 <a class="link" href="GtkEntry.html#gtk-entry-set-attributes" title="gtk_entry_set_attributes ()"><code class="function">gtk_entry_set_attributes()</code></a>, if any.</p>
@@ -2339,7 +2313,7 @@ gtk_entry_get_attributes (<em class="parameter"><code><a class="link" href="GtkE
 </div>
 <div class="refsect3">
 <a name="gtk-entry-get-attributes.returns"></a><h4>Returns</h4>
-<p> the attribute list, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<p>the attribute list, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 if none was set. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -2353,23 +2327,9 @@ gtk_entry_get_max_length (<em class="parameter"><code><a class="link" href="GtkE
 <p>Retrieves the maximum allowed length of the text in
 <em class="parameter"><code>entry</code></em>
 . See <a class="link" href="GtkEntry.html#gtk-entry-set-max-length" title="gtk_entry_set_max_length ()"><code class="function">gtk_entry_set_max_length()</code></a>.</p>
-<p>This is equivalent to:</p>
-<div class="informalexample">
-  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr>
-        <td class="listing_lines" align="right"><pre>1
-2
-3</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkEntryBuffer <span class="gtkdoc opt">*</span>buffer<span class="gtkdoc opt">;</span>
-buffer <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkEntry.html#gtk-entry-get-buffer">gtk_entry_get_buffer</a></span> <span class="gtkdoc opt">(</span>entry<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkEntryBuffer.html#gtk-entry-buffer-get-max-length">gtk_entry_buffer_get_max_length</a></span> <span class="gtkdoc opt">(</span>buffer<span class="gtkdoc opt">);</span></pre></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<p></p>
+<p>This is equivalent to getting <em class="parameter"><code>entry</code></em>
+'s <a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> and
+calling <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-get-max-length" title="gtk_entry_buffer_get_max_length ()"><code class="function">gtk_entry_buffer_get_max_length()</code></a> on it.</p>
 <div class="refsect3">
 <a name="gtk-entry-get-max-length.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -2449,7 +2409,7 @@ All further configuration of the completion mechanism is done on
 </tr>
 <tr>
 <td class="parameter_name"><p>completion</p></td>
-<td class="parameter_description"><p> The <a class="link" href="GtkEntryCompletion.html" title="GtkEntryCompletion"><span class="type">GtkEntryCompletion</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>The <a class="link" href="GtkEntryCompletion.html" title="GtkEntryCompletion"><span class="type">GtkEntryCompletion</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2481,7 +2441,7 @@ gtk_entry_get_completion (<em class="parameter"><code><a class="link" href="GtkE
 </div>
 <div class="refsect3">
 <a name="gtk-entry-get-completion.returns"></a><h4>Returns</h4>
-<p> The auxiliary completion object currently
+<p>The auxiliary completion object currently
 in use by <em class="parameter"><code>entry</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -2516,7 +2476,7 @@ as the entry.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>adjustment</p></td>
-<td class="parameter_description"><p> an adjustment which should be adjusted when the cursor
+<td class="parameter_description"><p>an adjustment which should be adjusted when the cursor
 is moved, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
@@ -2549,7 +2509,7 @@ See <a class="link" href="GtkEntry.html#gtk-entry-set-cursor-hadjustment" title=
 </div>
 <div class="refsect3">
 <a name="gtk-entry-get-cursor-hadjustment.returns"></a><h4>Returns</h4>
-<p> the horizontal cursor adjustment, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<p>the horizontal cursor adjustment, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 if none has been set. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -2708,7 +2668,7 @@ where a block bounces back and forth. Each call to
 <a name="gtk-entry-im-context-filter-keypress"></a><h3>gtk_entry_im_context_filter_keypress ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_entry_im_context_filter_keypress (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>,
-                                      <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventKey"><span class="type">GdkEventKey</span></a> *event</code></em>);</pre>
+                                      <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventKey"><span class="type">GdkEventKey</span></a> *event</code></em>);</pre>
 <p>Allow the <a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> input method to internally handle key press
 and release events. If this function returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, then no further
 processing should be done for this key event. See
@@ -2734,7 +2694,7 @@ See <a class="link" href="GtkTextView.html#gtk-text-view-reset-im-context" title
 </tr>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p> the key event. </p></td>
+<td class="parameter_description"><p>the key event. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> Gdk.EventKey]</span></td>
 </tr>
 </tbody>
@@ -2774,7 +2734,7 @@ would confuse on-going input method behavior.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-entry-get-tabs"></a><h3>gtk_entry_get_tabs ()</h3>
-<pre class="programlisting"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="returnvalue">PangoTabArray</span></a> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="returnvalue">PangoTabArray</span></a> *
 gtk_entry_get_tabs (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>);</pre>
 <p>Gets the tabstops that were set on the entry using <a class="link" href="GtkEntry.html#gtk-entry-set-tabs" title="gtk_entry_set_tabs ()"><code class="function">gtk_entry_set_tabs()</code></a>, if
 any.</p>
@@ -2795,7 +2755,7 @@ any.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-entry-get-tabs.returns"></a><h4>Returns</h4>
-<p> the tabstops, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none was set. </p>
+<p>the tabstops, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none was set. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
@@ -2805,8 +2765,8 @@ any.</p>
 <a name="gtk-entry-set-tabs"></a><h3>gtk_entry_set_tabs ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_entry_set_tabs (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>,
-                    <em class="parameter"><code><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="type">PangoTabArray</span></a> *tabs</code></em>);</pre>
-<p>Sets a <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="type">PangoTabArray</span></a>; the tabstops in the array are applied to the entry
+                    <em class="parameter"><code><a href="/usr/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="type">PangoTabArray</span></a> *tabs</code></em>);</pre>
+<p>Sets a <a href="/usr/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="type">PangoTabArray</span></a>; the tabstops in the array are applied to the entry
 text.</p>
 <div class="refsect3">
 <a name="gtk-entry-set-tabs.parameters"></a><h4>Parameters</h4>
@@ -2824,7 +2784,7 @@ text.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>tabs</p></td>
-<td class="parameter_description"><p>a <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="type">PangoTabArray</span></a></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="type">PangoTabArray</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -2863,7 +2823,7 @@ gtk_entry_set_icon_from_pixbuf (<em class="parameter"><code><a class="link" href
 </tr>
 <tr>
 <td class="parameter_name"><p>pixbuf</p></td>
-<td class="parameter_description"><p> A <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>A <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2907,7 +2867,7 @@ a stock image.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>stock_id</p></td>
-<td class="parameter_description"><p> The name of the stock item, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>The name of the stock item, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2949,7 +2909,7 @@ instead.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>icon_name</p></td>
-<td class="parameter_description"><p> An icon name, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>An icon name, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2963,7 +2923,7 @@ instead.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_entry_set_icon_from_gicon (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>,
                                <em class="parameter"><code><a class="link" href="GtkEntry.html#GtkEntryIconPosition" title="enum GtkEntryIconPosition"><span class="type">GtkEntryIconPosition</span></a> icon_pos</code></em>,
-                               <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *icon</code></em>);</pre>
+                               <em class="parameter"><code><span class="type">GIcon</span> *icon</code></em>);</pre>
 <p>Sets the icon shown in the entry at the specified position
 from the current icon theme.
 If the icon isn’t known, a “broken image” icon will be displayed
@@ -2991,7 +2951,7 @@ instead.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>icon</p></td>
-<td class="parameter_description"><p> The icon to set, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>The icon to set, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -3045,7 +3005,7 @@ gtk_entry_get_icon_pixbuf (<em class="parameter"><code><a class="link" href="Gtk
 <p>Retrieves the image used for the icon.</p>
 <p>Unlike the other methods of setting and getting icon data, this
 method will work regardless of whether the icon was set using a
-<a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a>, a <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a>, a stock item, or an icon name.</p>
+<a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a>, a <span class="type">GIcon</span>, a stock item, or an icon name.</p>
 <div class="refsect3">
 <a name="gtk-entry-get-icon-pixbuf.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -3070,7 +3030,7 @@ method will work regardless of whether the icon was set using a
 </div>
 <div class="refsect3">
 <a name="gtk-entry-get-icon-pixbuf.returns"></a><h4>Returns</h4>
-<p> A <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no icon is
+<p>A <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no icon is
 set for this position. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -3151,7 +3111,7 @@ pixbuf, stock or gicon).</p>
 </div>
 <div class="refsect3">
 <a name="gtk-entry-get-icon-name.returns"></a><h4>Returns</h4>
-<p> An icon name, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no icon is set or if the icon
+<p>An icon name, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no icon is set or if the icon
 wasn’t set from an icon name. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -3160,10 +3120,10 @@ wasn’t set from an icon name. </p>
 <hr>
 <div class="refsect2">
 <a name="gtk-entry-get-icon-gicon"></a><h3>gtk_entry_get_icon_gicon ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="returnvalue">GIcon</span></a> *
+<pre class="programlisting"><span class="returnvalue">GIcon</span> *
 gtk_entry_get_icon_gicon (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>,
                           <em class="parameter"><code><a class="link" href="GtkEntry.html#GtkEntryIconPosition" title="enum GtkEntryIconPosition"><span class="type">GtkEntryIconPosition</span></a> icon_pos</code></em>);</pre>
-<p>Retrieves the <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> used for the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is
+<p>Retrieves the <span class="type">GIcon</span> used for the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is
 no icon or if the icon was set by some other method (e.g., by
 stock, pixbuf, or icon name).</p>
 <div class="refsect3">
@@ -3190,8 +3150,8 @@ stock, pixbuf, or icon name).</p>
 </div>
 <div class="refsect3">
 <a name="gtk-entry-get-icon-gicon.returns"></a><h4>Returns</h4>
-<p> A <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no icon is set
-or if the icon is not a <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a>. </p>
+<p>A <span class="type">GIcon</span>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no icon is set
+or if the icon is not a <span class="type">GIcon</span>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.16</p>
@@ -3403,6 +3363,11 @@ at the specified position.</p>
  to remove an existing tooltip.</p>
 <p>See also <a class="link" href="GtkWidget.html#gtk-widget-set-tooltip-text" title="gtk_widget_set_tooltip_text ()"><code class="function">gtk_widget_set_tooltip_text()</code></a> and 
 <a class="link" href="GtkEntry.html#gtk-entry-set-icon-tooltip-markup" title="gtk_entry_set_icon_tooltip_markup ()"><code class="function">gtk_entry_set_icon_tooltip_markup()</code></a>.</p>
+<p>If you unset the widget tooltip via <a class="link" href="GtkWidget.html#gtk-widget-set-tooltip-text" title="gtk_widget_set_tooltip_text ()"><code class="function">gtk_widget_set_tooltip_text()</code></a> or
+<a class="link" href="GtkWidget.html#gtk-widget-set-tooltip-markup" title="gtk_widget_set_tooltip_markup ()"><code class="function">gtk_widget_set_tooltip_markup()</code></a>, this sets GtkWidget:has-tooltip to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>,
+which suppresses icon tooltips too. You can resolve this by then calling
+<a class="link" href="GtkWidget.html#gtk-widget-set-has-tooltip" title="gtk_widget_set_has_tooltip ()"><code class="function">gtk_widget_set_has_tooltip()</code></a> to set GtkWidget:has-tooltip back to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, or
+setting at least one non-empty tooltip on any icon achieves the same result.</p>
 <div class="refsect3">
 <a name="gtk-entry-set-icon-tooltip-text.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -3424,7 +3389,7 @@ at the specified position.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>tooltip</p></td>
-<td class="parameter_description"><p> the contents of the tooltip for the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>the contents of the tooltip for the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -3465,7 +3430,7 @@ position in <em class="parameter"><code>entry</code></em>
 </div>
 <div class="refsect3">
 <a name="gtk-entry-get-icon-tooltip-text.returns"></a><h4>Returns</h4>
-<p> the tooltip text, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. Free the returned
+<p>the tooltip text, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. Free the returned
 string with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when done. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -3508,7 +3473,7 @@ the Pango text markup language.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>tooltip</p></td>
-<td class="parameter_description"><p> the contents of the tooltip for the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>the contents of the tooltip for the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -3549,7 +3514,7 @@ position in <em class="parameter"><code>entry</code></em>
 </div>
 <div class="refsect3">
 <a name="gtk-entry-get-icon-tooltip-markup.returns"></a><h4>Returns</h4>
-<p> the tooltip text, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. Free the returned
+<p>the tooltip text, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. Free the returned
 string with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when done. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -3562,7 +3527,7 @@ string with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Alloc
 gtk_entry_set_icon_drag_source (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkEntry.html#GtkEntryIconPosition" title="enum GtkEntryIconPosition"><span class="type">GtkEntryIconPosition</span></a> icon_pos</code></em>,
                                 <em class="parameter"><code><a class="link" href="gtk3-Selections.html#GtkTargetList"><span class="type">GtkTargetList</span></a> *target_list</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Drag-and-Drop.html#GdkDragAction"><span class="type">GdkDragAction</span></a> actions</code></em>);</pre>
+                                <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Drag-and-Drop.html#GdkDragAction"><span class="type">GdkDragAction</span></a> actions</code></em>);</pre>
 <p>Sets up the icon at the given position so that GTK+ will start a drag
 operation when the user clicks and drags the icon.</p>
 <p>To handle the drag operation, you need to connect to the usual
@@ -3646,14 +3611,17 @@ DND operation, or -1.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_entry_get_icon_area (<em class="parameter"><code><a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry</code></em>,
                          <em class="parameter"><code><a class="link" href="GtkEntry.html#GtkEntryIconPosition" title="enum GtkEntryIconPosition"><span class="type">GtkEntryIconPosition</span></a> icon_pos</code></em>,
-                         <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *icon_area</code></em>);</pre>
+                         <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *icon_area</code></em>);</pre>
 <p>Gets the area where entry’s icon at <em class="parameter"><code>icon_pos</code></em>
  is drawn.
 This function is useful when drawing something to the
 entry in a draw callback.</p>
 <p>If the entry is not realized or has no icon at the given position,
 <em class="parameter"><code>icon_area</code></em>
- is filled with zeros.</p>
+ is filled with zeros. Otherwise, <em class="parameter"><code>icon_area</code></em>
+ will be filled
+with the icon’s allocation, relative to <em class="parameter"><code>entry</code></em>
+’s allocation.</p>
 <p>See also <a class="link" href="GtkEntry.html#gtk-entry-get-text-area" title="gtk_entry_get_text_area ()"><code class="function">gtk_entry_get_text_area()</code></a></p>
 <div class="refsect3">
 <a name="gtk-entry-get-icon-area.parameters"></a><h4>Parameters</h4>
@@ -3676,7 +3644,7 @@ entry in a draw callback.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>icon_area</p></td>
-<td class="parameter_description"><p> Return location for the icon’s area. </p></td>
+<td class="parameter_description"><p>Return location for the icon’s area. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -3871,6 +3839,7 @@ such as search-as-you-type entries.</p>
                                gint           *y,
 			       gint           *width,
 			       gint           *height);
+  void (* insert_emoji)       (GtkEntry             *entry);
 };
 </pre>
 <p>Class structure for <a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a>. All virtual functions have a default
@@ -3968,6 +3937,11 @@ allocated width and requested height, minus space for margins and borders,
 and taking baseline and text height into account. This virtual function
 must be non-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p></td>
 <td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="GtkEntryClass.insert-emoji"></a>insert_emoji</code></em> ()</p></td>
+<td> </td>
+<td> </td>
 </tr>
 </tbody>
 </table></div>
@@ -4204,6 +4178,20 @@ ignore unknown values.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-INPUT-HINT-EMOJI:CAPS"></a>GTK_INPUT_HINT_EMOJI</p></td>
+<td class="enum_member_description">
+<p>Suggest offering Emoji support. Since 3.22.20</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-INPUT-HINT-NO-EMOJI:CAPS"></a>GTK_INPUT_HINT_NO_EMOJI</p></td>
+<td class="enum_member_description">
+<p>Suggest not offering Emoji support. Since 3.22.20</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
 </tbody>
 </table></div>
 </div>
@@ -4222,10 +4210,10 @@ ignore unknown values.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkEntry--attributes"></a><h3>The <code class="literal">“attributes”</code> property</h3>
-<pre class="programlisting">  “attributes”               <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="type">PangoAttrList</span></a> *</pre>
+<pre class="programlisting">  “attributes”               <a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList-struct"><span class="type">PangoAttrList</span></a> *</pre>
 <p>A list of Pango attributes to apply to the text of the entry.</p>
 <p>This is mainly useful to change the size or weight of the text.</p>
-<p>The <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttribute"><span class="type">PangoAttribute</span></a>'s <em class="parameter"><code>start_index</code></em>
+<p>The <a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttribute"><span class="type">PangoAttribute</span></a>'s <em class="parameter"><code>start_index</code></em>
  and <em class="parameter"><code>end_index</code></em>
  must refer to the
 <a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> text, i.e. without the preedit string.</p>
@@ -4275,6 +4263,14 @@ other purpose.</p>
 <p>Whether the entry contents can be edited.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkEntry--enable-emoji-completion"></a><h3>The <code class="literal">“enable-emoji-completion”</code> property</h3>
+<pre class="programlisting">  “enable-emoji-completion”  <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<p>Whether to suggest Emoji replacements.</p>
+<p>Flags: Read / Write</p>
+<p>Default value: FALSE</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -4424,8 +4420,8 @@ informational purposes.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkEntry--primary-icon-gicon"></a><h3>The <code class="literal">“primary-icon-gicon”</code> property</h3>
-<pre class="programlisting">  “primary-icon-gicon”       <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *</pre>
-<p>The <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> to use for the primary icon for the entry.</p>
+<pre class="programlisting">  “primary-icon-gicon”       <span class="type">GIcon</span> *</pre>
+<p>The <span class="type">GIcon</span> to use for the primary icon for the entry.</p>
 <p>Flags: Read / Write</p>
 <p class="since">Since: 2.16</p>
 </div>
@@ -4549,8 +4545,8 @@ informational purposes.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkEntry--secondary-icon-gicon"></a><h3>The <code class="literal">“secondary-icon-gicon”</code> property</h3>
-<pre class="programlisting">  “secondary-icon-gicon”     <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *</pre>
-<p>The <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> to use for the secondary icon for the entry.</p>
+<pre class="programlisting">  “secondary-icon-gicon”     <span class="type">GIcon</span> *</pre>
+<p>The <span class="type">GIcon</span> to use for the secondary icon for the entry.</p>
 <p>Flags: Read / Write</p>
 <p class="since">Since: 2.16</p>
 </div>
@@ -4654,8 +4650,16 @@ with the Pango text markup language.</p>
 </div>
 <hr>
 <div class="refsect2">
+<a name="GtkEntry--show-emoji-icon"></a><h3>The <code class="literal">“show-emoji-icon”</code> property</h3>
+<pre class="programlisting">  “show-emoji-icon”          <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<p>Whether to show an icon for Emoji.</p>
+<p>Flags: Read / Write</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="GtkEntry--tabs"></a><h3>The <code class="literal">“tabs”</code> property</h3>
-<pre class="programlisting">  “tabs”                     <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="type">PangoTabArray</span></a> *</pre>
+<pre class="programlisting">  “tabs”                     <a href="/usr/share/gtk-doc/html/pango/pango-Tab-Stops.html#PangoTabArray-struct"><span class="type">PangoTabArray</span></a> *</pre>
 <p>A list of tabstop locations to apply to the text of the entry.</p>
 <p>Flags: Read / Write</p>
 </div>
@@ -4977,7 +4981,7 @@ units to delete</p></td>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a>            *entry,
                <a class="link" href="GtkEntry.html#GtkEntryIconPosition" title="enum GtkEntryIconPosition"><span class="type">GtkEntryIconPosition</span></a> icon_pos,
-               <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>            *event,
+               <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>            *event,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>             user_data)</pre>
 <p>The ::icon-press signal is emitted when an activatable icon
 is clicked.</p>
@@ -5002,7 +5006,7 @@ is clicked.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p> the button press event. </p></td>
+<td class="parameter_description"><p>the button press event. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> Gdk.EventButton]</span></td>
 </tr>
 <tr>
@@ -5022,7 +5026,7 @@ is clicked.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a>            *entry,
                <a class="link" href="GtkEntry.html#GtkEntryIconPosition" title="enum GtkEntryIconPosition"><span class="type">GtkEntryIconPosition</span></a> icon_pos,
-               <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>            *event,
+               <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>            *event,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>             user_data)</pre>
 <p>The ::icon-release signal is emitted on the button release from a
 mouse click over an activatable icon.</p>
@@ -5047,7 +5051,7 @@ mouse click over an activatable icon.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p> the button release event. </p></td>
+<td class="parameter_description"><p>the button release event. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> Gdk.EventButton]</span></td>
 </tr>
 <tr>
@@ -5101,6 +5105,42 @@ fixed string at the cursor.</p>
 </table></div>
 </div>
 <p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkEntry-insert-emoji"></a><h3>The <code class="literal">“insert-emoji”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> *entry,
+               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>  user_data)</pre>
+<p>The ::insert-emoji signal is a
+<a class="link" href="gtk3-Bindings.html#GtkBindingSignal" title="struct GtkBindingSignal">keybinding signal</a>
+which gets emitted to present the Emoji chooser for the <em class="parameter"><code>entry</code></em>
+.</p>
+<p>The default bindings for this signal are Ctrl-. and Ctrl-;</p>
+<div class="refsect3">
+<a name="GtkEntry-insert-emoji.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>entry</p></td>
+<td class="parameter_description"><p>the object which received the signal</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></p>
+<p class="since">Since: 3.22.27</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -5335,6 +5375,6 @@ which gets emitted to toggle the overwrite mode of the entry.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

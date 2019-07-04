@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="next" href="gtk3-GtkGradient.html" title="GtkGradient">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -149,7 +149,7 @@ To obtain the color represented by a GtkSymbolicColor, it has to
 be resolved with <a class="link" href="gtk3-GtkSymbolicColor.html#gtk-symbolic-color-resolve" title="gtk_symbolic_color_resolve ()"><code class="function">gtk_symbolic_color_resolve()</code></a>, which replaces all
 symbolic color references by the colors they refer to (in a given
 context) and evaluates mix, shade and other expressions, resulting
-in a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> value.</p>
+in a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> value.</p>
 <p>It is not normally necessary to deal directly with <a href="gtk3-GtkSymbolicColor.html#GtkSymbolicColor"><span class="type">GtkSymbolicColors</span></a>,
 since they are mostly used behind the scenes by <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> and
 <a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a>.</p>
@@ -161,7 +161,7 @@ implementation detail of GTK+.</p>
 <div class="refsect2">
 <a name="gtk-symbolic-color-new-literal"></a><h3>gtk_symbolic_color_new_literal ()</h3>
 <pre class="programlisting"><a class="link" href="gtk3-GtkSymbolicColor.html#GtkSymbolicColor" title="GtkSymbolicColor"><span class="returnvalue">GtkSymbolicColor</span></a> *
-gtk_symbolic_color_new_literal (<em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *color</code></em>);</pre>
+gtk_symbolic_color_new_literal (<em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *color</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_symbolic_color_new_literal</code> has been deprecated since version 3.8 and should not be used in newly-written code.</p>
 <p><a class="link" href="gtk3-GtkSymbolicColor.html#GtkSymbolicColor" title="GtkSymbolicColor"><span class="type">GtkSymbolicColor</span></a> is deprecated.</p>
@@ -177,7 +177,7 @@ gtk_symbolic_color_new_literal (<em class="parameter"><code>const <a href="http:
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>color</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
@@ -472,7 +472,7 @@ reference count reaches 0.</p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_symbolic_color_resolve (<em class="parameter"><code><a class="link" href="gtk3-GtkSymbolicColor.html#GtkSymbolicColor" title="GtkSymbolicColor"><span class="type">GtkSymbolicColor</span></a> *color</code></em>,
                             <em class="parameter"><code><a class="link" href="gtk3-GtkStyleProperties.html#GtkStyleProperties" title="struct GtkStyleProperties"><span class="type">GtkStyleProperties</span></a> *props</code></em>,
-                            <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *resolved_color</code></em>);</pre>
+                            <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *resolved_color</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_symbolic_color_resolve</code> has been deprecated since version 3.8 and should not be used in newly-written code.</p>
 <p><a class="link" href="gtk3-GtkSymbolicColor.html#GtkSymbolicColor" title="GtkSymbolicColor"><span class="type">GtkSymbolicColor</span></a> is deprecated.</p>
@@ -506,13 +506,13 @@ return <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.h
 </tr>
 <tr>
 <td class="parameter_name"><p>props</p></td>
-<td class="parameter_description"><p> <a class="link" href="gtk3-GtkStyleProperties.html#GtkStyleProperties" title="struct GtkStyleProperties"><span class="type">GtkStyleProperties</span></a> to use when resolving
+<td class="parameter_description"><p><a class="link" href="gtk3-GtkStyleProperties.html#GtkStyleProperties" title="struct GtkStyleProperties"><span class="type">GtkStyleProperties</span></a> to use when resolving
 named colors, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>resolved_color</p></td>
-<td class="parameter_description"><p> return location for the resolved color. </p></td>
+<td class="parameter_description"><p>return location for the resolved color. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -570,6 +570,6 @@ create the same symbolic color from it.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

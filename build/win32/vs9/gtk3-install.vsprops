@@ -9,7 +9,9 @@
   Name="GtkDoInstallBin"
   Value="
 mkdir $(CopyDir)\bin&#x0D;&#x0A;
+mkdir $(CopyDir)\share\gir-1.0&#x0D;&#x0A;
 mkdir $(CopyDir)\lib\pkgconfig&#x0D;&#x0A;
+mkdir $(CopyDir)\lib\girepository-1.0&#x0D;&#x0A;
 copy $(ConfigurationName)\$(PlatformName)\bin\$(GtkDllPrefix)gdk-3$(GtkDllSuffix).dll $(CopyDir)\bin&#x0D;&#x0A;
 copy $(ConfigurationName)\$(PlatformName)\bin\$(GtkDllPrefix)gdk-3$(GtkDllSuffix).pdb $(CopyDir)\bin&#x0D;&#x0A;
 copy $(ConfigurationName)\$(PlatformName)\bin\gdk-$(ApiVersion).lib $(CopyDir)\lib&#x0D;&#x0A;
@@ -35,6 +37,12 @@ copy $(ConfigurationName)\$(PlatformName)\bin\gtk-query-settings.exe $(CopyDir)\
 copy $(ConfigurationName)\$(PlatformName)\bin\gtk-query-settings.pdb $(CopyDir)\bin&#x0D;&#x0A;
 copy $(ConfigurationName)\$(PlatformName)\bin\gtk-builder-tool.exe $(CopyDir)\bin&#x0D;&#x0A;
 copy $(ConfigurationName)\$(PlatformName)\bin\gtk-builder-tool.pdb $(CopyDir)\bin&#x0D;&#x0A;
+if exist $(ConfigurationName)\$(PlatformName)\bin\Gdk-3.0.gir copy $(ConfigurationName)\$(PlatformName)\bin\Gdk-3.0.gir $(CopyDir)\share\gir-1.0&#x0D;&#x0A;
+if exist $(ConfigurationName)\$(PlatformName)\bin\GdkWin32-3.0.gir copy $(ConfigurationName)\$(PlatformName)\bin\GdkWin32-3.0.gir $(CopyDir)\share\gir-1.0&#x0D;&#x0A;
+if exist $(ConfigurationName)\$(PlatformName)\bin\Gtk-3.0.gir copy $(ConfigurationName)\$(PlatformName)\bin\Gtk-3.0.gir $(CopyDir)\share\gir-1.0&#x0D;&#x0A;
+if exist $(ConfigurationName)\$(PlatformName)\bin\Gdk-3.0.typelib copy $(ConfigurationName)\$(PlatformName)\bin\Gdk-3.0.typelib $(CopyDir)\lib\girepository-1.0&#x0D;&#x0A;
+if exist $(ConfigurationName)\$(PlatformName)\bin\GdkWin32-3.0.typelib copy $(ConfigurationName)\$(PlatformName)\bin\GdkWin32-3.0.typelib $(CopyDir)\lib\girepository-1.0&#x0D;&#x0A;
+if exist $(ConfigurationName)\$(PlatformName)\bin\Gtk-3.0.typelib copy $(ConfigurationName)\$(PlatformName)\bin\Gtk-3.0.typelib $(CopyDir)\lib\girepository-1.0&#x0D;&#x0A;
 goto DONE_BIN&#x0D;&#x0A;
 :DO_BROADWAY_BIN&#x0D;&#x0A;
 copy $(ConfigurationName)\$(PlatformName)\bin\broadwayd.exe $(CopyDir)\bin&#x0D;&#x0A;
@@ -62,6 +70,12 @@ copy .\Release\$(PlatformName)\bin\gtk-query-settings.exe $(CopyDir)\bin&#x0D;&#
 copy .\Release\$(PlatformName)\bin\gtk-query-settings.pdb $(CopyDir)\bin&#x0D;&#x0A;
 copy .\Release\$(PlatformName)\bin\gtk-builder-tool.exe $(CopyDir)\bin&#x0D;&#x0A;
 copy .\Release\$(PlatformName)\bin\gtk-builder-tool.pdb $(CopyDir)\bin&#x0D;&#x0A;
+if exist .\Release\$(PlatformName)\bin\Gdk-3.0.gir copy .\Release\$(PlatformName)\bin\Gdk-3.0.gir $(CopyDir)\share\gir-1.0&#x0D;&#x0A;
+if exist .\Release\$(PlatformName)\bin\GdkWin32-3.0.gir copy .\Release\$(PlatformName)\bin\GdkWin32-3.0.gir $(CopyDir)\share\gir-1.0&#x0D;&#x0A;
+if exist .\Release\$(PlatformName)\bin\Gtk-3.0.gir copy .\Release\$(PlatformName)\bin\Gtk-3.0.gir $(CopyDir)\share\gir-1.0&#x0D;&#x0A;
+if exist .\Release\$(PlatformName)\bin\Gdk-3.0.typelib copy .\Release\$(PlatformName)\bin\Gdk-3.0.typelib $(CopyDir)\lib\girepository-1.0&#x0D;&#x0A;
+if exist .\Release\$(PlatformName)\bin\GdkWin32-3.0.typelib copy .\Release\$(PlatformName)\bin\GdkWin32-3.0.typelib $(CopyDir)\lib\girepository-1.0&#x0D;&#x0A;
+if exist .\Release\$(PlatformName)\bin\Gtk-3.0.typelib copy .\Release\$(PlatformName)\bin\Gtk-3.0.typelib $(CopyDir)\lib\girepository-1.0&#x0D;&#x0A;
 goto DONE_BIN&#x0D;&#x0A;
 :DO_BROADWAY_DEBUG&#x0D;&#x0A;
 copy .\Debug\$(PlatformName)\bin\$(GtkDllPrefix)gtk-3$(GtkDllSuffix).dll $(CopyDir)\bin&#x0D;&#x0A;
@@ -84,6 +98,12 @@ copy .\Debug\$(PlatformName)\bin\gtk-query-settings.exe $(CopyDir)\bin&#x0D;&#x0
 copy .\Debug\$(PlatformName)\bin\gtk-query-settings.pdb $(CopyDir)\bin&#x0D;&#x0A;
 copy .\Debug\$(PlatformName)\bin\gtk-builder-tool.exe $(CopyDir)\bin&#x0D;&#x0A;
 copy .\Debug\$(PlatformName)\bin\gtk-builder-tool.pdb $(CopyDir)\bin&#x0D;&#x0A;
+if exist .\Debug\$(PlatformName)\bin\Gdk-3.0.gir copy .\Debug\$(PlatformName)\bin\Gdk-3.0.gir $(CopyDir)\share\gir-1.0&#x0D;&#x0A;
+if exist .\Debug\$(PlatformName)\bin\GdkWin32-3.0.gir copy .\Debug\$(PlatformName)\bin\GdkWin32-3.0.gir $(CopyDir)\share\gir-1.0&#x0D;&#x0A;
+if exist .\Debug\$(PlatformName)\bin\Gtk-3.0.gir copy .\Debug\$(PlatformName)\bin\Gtk-3.0.gir $(CopyDir)\share\gir-1.0&#x0D;&#x0A;
+if exist .\Debug\$(PlatformName)\bin\Gdk-3.0.typelib copy .\Debug\$(PlatformName)\bin\Gdk-3.0.typelib $(CopyDir)\lib\girepository-1.0&#x0D;&#x0A;
+if exist .\Debug\$(PlatformName)\bin\GdkWin32-3.0.typelib copy .\Debug\$(PlatformName)\bin\GdkWin32-3.0.typelib $(CopyDir)\lib\girepository-1.0&#x0D;&#x0A;
+if exist .\Debug\$(PlatformName)\bin\Gtk-3.0.typelib copy .\Debug\$(PlatformName)\bin\Gtk-3.0.typelib $(CopyDir)\lib\girepository-1.0&#x0D;&#x0A;
 :DONE_BIN&#x0D;&#x0A;
 copy ..\gdk-3.0.pc $(CopyDir)\lib\pkgconfig&#x0D;&#x0A;
 copy ..\gdk-3.0.pc $(CopyDir)\lib\pkgconfig\gdk-win32-3.0.pc&#x0D;&#x0A;
@@ -222,6 +242,9 @@ copy ..\..\..\gtk\gtkentrycompletion.h $(CopyDir)\include\gtk-3.0\gtk\gtkentryco
 copy ..\..\..\gtk\gtkenums.h $(CopyDir)\include\gtk-3.0\gtk\gtkenums.h&#x0D;&#x0A;
 copy ..\..\..\gtk\gtkeventbox.h $(CopyDir)\include\gtk-3.0\gtk\gtkeventbox.h&#x0D;&#x0A;
 copy ..\..\..\gtk\gtkeventcontroller.h $(CopyDir)\include\gtk-3.0\gtk\gtkeventcontroller.h&#x0D;&#x0A;
+copy ..\..\..\gtk\gtkeventcontrollerkey.h $(CopyDir)\include\gtk-3.0\gtk\gtkeventcontrollerkey.h&#x0D;&#x0A;
+copy ..\..\..\gtk\gtkeventcontrollermotion.h $(CopyDir)\include\gtk-3.0\gtk\gtkeventcontrollermotion.h&#x0D;&#x0A;
+copy ..\..\..\gtk\gtkeventcontrollerscroll.h $(CopyDir)\include\gtk-3.0\gtk\gtkeventcontrollerscroll.h&#x0D;&#x0A;
 copy ..\..\..\gtk\gtkexpander.h $(CopyDir)\include\gtk-3.0\gtk\gtkexpander.h&#x0D;&#x0A;
 copy ..\..\..\gtk\gtkfilechooser.h $(CopyDir)\include\gtk-3.0\gtk\gtkfilechooser.h&#x0D;&#x0A;
 copy ..\..\..\gtk\gtkfilechooserbutton.h $(CopyDir)\include\gtk-3.0\gtk\gtkfilechooserbutton.h&#x0D;&#x0A;
@@ -243,6 +266,7 @@ copy ..\..\..\gtk\gtkgesturemultipress.h $(CopyDir)\include\gtk-3.0\gtk\gtkgestu
 copy ..\..\..\gtk\gtkgesturepan.h $(CopyDir)\include\gtk-3.0\gtk\gtkgesturepan.h&#x0D;&#x0A;
 copy ..\..\..\gtk\gtkgesturerotate.h $(CopyDir)\include\gtk-3.0\gtk\gtkgesturerotate.h&#x0D;&#x0A;
 copy ..\..\..\gtk\gtkgesturesingle.h $(CopyDir)\include\gtk-3.0\gtk\gtkgesturesingle.h&#x0D;&#x0A;
+copy ..\..\..\gtk\gtkgesturestylus.h $(CopyDir)\include\gtk-3.0\gtk\gtkgesturestylus.h&#x0D;&#x0A;
 copy ..\..\..\gtk\gtkgestureswipe.h $(CopyDir)\include\gtk-3.0\gtk\gtkgestureswipe.h&#x0D;&#x0A;
 copy ..\..\..\gtk\gtkgesturezoom.h $(CopyDir)\include\gtk-3.0\gtk\gtkgesturezoom.h&#x0D;&#x0A;
 copy ..\..\..\gtk\gtkglarea.h $(CopyDir)\include\gtk-3.0\gtk\gtkglarea.h&#x0D;&#x0A;
@@ -484,9 +508,10 @@ copy ..\..\..\demos\gtk-demo\data\48x48\gtk3-demo.png $(CopyDir)\share\icons\hic
 mkdir $(CopyDir)\share\icons\hicolor\256x256\apps&#x0D;&#x0A;
 copy ..\..\..\demos\gtk-demo\data\256x256\gtk3-demo.png $(CopyDir)\share\icons\hicolor\256x256\apps\&#x0D;&#x0A;
 mkdir $(CopyDir)\share\glib-2.0\schemas&#x0D;&#x0A;
-copy ..\..\..\gtk\org.gtk.Settings.FileChooser.gschema.xml $(CopyDir)\share\glib-2.0\schemas&#x0D;&#x0A;
 copy ..\..\..\gtk\org.gtk.Settings.ColorChooser.gschema.xml $(CopyDir)\share\glib-2.0\schemas&#x0D;&#x0A;
 copy ..\..\..\gtk\org.gtk.Settings.Debug.gschema.xml $(CopyDir)\share\glib-2.0\schemas&#x0D;&#x0A;
+copy ..\..\..\gtk\org.gtk.Settings.EmojiChooser.gschema.xml $(CopyDir)\share\glib-2.0\schemas&#x0D;&#x0A;
+copy ..\..\..\gtk\org.gtk.Settings.FileChooser.gschema.xml $(CopyDir)\share\glib-2.0\schemas&#x0D;&#x0A;
 copy ..\..\..\demos\gtk-demo\org.gtk.Demo.gschema.xml $(CopyDir)\share\glib-2.0\schemas&#x0D;&#x0A;
         "
  />
@@ -513,10 +538,10 @@ copy ..\..\..\gdk\broadway\gdkbroadwayvisual.h $(CopyDir)\include\gtk-3.0\gdk\br
  />
  <UserMacro
   Name="GenerateGtkPC"
-  Value="$(PythonPath)\python ..\gtkpc.py --prefix=$(CopyDir) --version=$(GtkVersion) --host=i686-pc-vs$(VSVer)"
+  Value="$(PythonDir)\python ..\gtkpc.py --prefix=$(CopyDir) --version=$(GtkVersion) --host=i686-pc-vs$(VSVer)"
  />
  <UserMacro
   Name="GenerateGtkPCX64"
-  Value="$(PythonPathX64)\python ..\gtkpc.py --prefix=$(CopyDir) --version=$(GtkVersion) --host=x86_64-pc-vs$(VSVer)"
+  Value="$(PythonDirX64)\python ..\gtkpc.py --prefix=$(CopyDir) --version=$(GtkVersion) --host=x86_64-pc-vs$(VSVer)"
  />
 </VisualStudioPropertySheet>

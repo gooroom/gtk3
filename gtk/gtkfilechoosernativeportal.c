@@ -180,6 +180,7 @@ open_file_msg_cb (GObject *source_object,
   GtkFileChooserNative *self = data->self;
   GDBusMessage *reply;
   GError *error = NULL;
+  char *handle = NULL;
 
   reply = g_dbus_connection_send_message_with_reply_finish (data->connection, res, &error);
 
@@ -197,8 +198,7 @@ open_file_msg_cb (GObject *source_object,
       return;
     }
 
-  g_variant_get_child (g_dbus_message_get_body (reply), 0, "o",
-                       &data->portal_handle);
+  g_variant_get_child (g_dbus_message_get_body (reply), 0, "o", &handle);
 
   if (data->hidden)
     {
@@ -207,8 +207,13 @@ open_file_msg_cb (GObject *source_object,
       filechooser_portal_data_free (data);
       self->mode_data = NULL;
     }
-  else
+  else if (strcmp (handle, data->portal_handle) != 0)
     {
+      g_free (data->portal_handle);
+      data->portal_handle = g_steal_pointer (&handle);
+      g_dbus_connection_signal_unsubscribe (data->connection,
+                                            data->portal_response_signal_id);
+
       data->portal_response_signal_id =
         g_dbus_connection_signal_subscribe (data->connection,
                                             "org.freedesktop.portal.Desktop",
@@ -222,6 +227,7 @@ open_file_msg_cb (GObject *source_object,
     }
 
   g_object_unref (reply);
+  g_free (handle);
 }
 
 static GVariant *
@@ -288,14 +294,33 @@ show_portal_file_chooser (GtkFileChooserNative *self,
   GDBusMessage *message;
   GVariantBuilder opt_builder;
   gboolean multiple;
+  const char *title;
+  char *token;
 
   message = g_dbus_message_new_method_call ("org.freedesktop.portal.Desktop",
                                             "/org/freedesktop/portal/desktop",
                                             "org.freedesktop.portal.FileChooser",
                                             data->method_name);
 
+  data->portal_handle = gtk_get_portal_request_path (data->connection, &token);
+  data->portal_response_signal_id =
+        g_dbus_connection_signal_subscribe (data->connection,
+                                            "org.freedesktop.portal.Desktop",
+                                            "org.freedesktop.portal.Request",
+                                            "Response",
+                                            data->portal_handle,
+                                            NULL,
+                                            G_DBUS_SIGNAL_FLAGS_NO_MATCH_RULE,
+                                            response_cb,
+                                            self, NULL);
+
   multiple = gtk_file_chooser_get_select_multiple (GTK_FILE_CHOOSER (self));
   g_variant_builder_init (&opt_builder, G_VARIANT_TYPE_VARDICT);
+
+  g_variant_builder_add (&opt_builder, "{sv}", "handle_token",
+                         g_variant_new_string (token));
+  g_free (token);
+
   g_variant_builder_add (&opt_builder, "{sv}", "multiple",
                          g_variant_new_boolean (multiple));
   if (self->accept_label)
@@ -307,10 +332,13 @@ show_portal_file_chooser (GtkFileChooserNative *self,
   g_variant_builder_add (&opt_builder, "{sv}", "modal",
                          g_variant_new_boolean (data->modal));
   g_variant_builder_add (&opt_builder, "{sv}", "filters", get_filters (GTK_FILE_CHOOSER (self)));
-  if (GTK_FILE_CHOOSER_NATIVE (self)->current_name)
+  if (self->current_filter)
+    g_variant_builder_add (&opt_builder, "{sv}", "current_filter",
+                           gtk_file_filter_to_gvariant (self->current_filter));
+  if (self->current_name)
     g_variant_builder_add (&opt_builder, "{sv}", "current_name",
                            g_variant_new_string (GTK_FILE_CHOOSER_NATIVE (self)->current_name));
-  if (GTK_FILE_CHOOSER_NATIVE (self)->current_folder)
+  if (self->current_folder)
     {
       gchar *path;
 
@@ -319,7 +347,7 @@ show_portal_file_chooser (GtkFileChooserNative *self,
                              g_variant_new_bytestring (path));
       g_free (path);
     }
-  if (GTK_FILE_CHOOSER_NATIVE (self)->current_file)
+  if (self->current_file)
     {
       gchar *path;
 
@@ -329,14 +357,16 @@ show_portal_file_chooser (GtkFileChooserNative *self,
       g_free (path);
     }
 
-  if (GTK_FILE_CHOOSER_NATIVE (self)->choices)
+  if (self->choices)
     g_variant_builder_add (&opt_builder, "{sv}", "choices",
                            serialize_choices (GTK_FILE_CHOOSER_NATIVE (self)));
+
+  title = gtk_native_dialog_get_title (GTK_NATIVE_DIALOG (self));
 
   g_dbus_message_set_body (message,
                            g_variant_new ("(ss@a{sv})",
                                           parent_window_str ? parent_window_str : "",
-                                          gtk_native_dialog_get_title (GTK_NATIVE_DIALOG (self)),
+                                          title ? title : "",
                                           g_variant_builder_end (&opt_builder)));
 
   g_dbus_connection_send_message_with_reply (data->connection,

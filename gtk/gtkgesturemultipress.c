@@ -273,13 +273,18 @@ gtk_gesture_multi_press_end (GtkGesture       *gesture,
   GtkGestureMultiPressPrivate *priv;
   GdkEventSequence *current;
   gdouble x, y;
+  gboolean interpreted;
+  GtkEventSequenceState state;
 
   multi_press = GTK_GESTURE_MULTI_PRESS (gesture);
   priv = gtk_gesture_multi_press_get_instance_private (multi_press);
   current = gtk_gesture_single_get_current_sequence (GTK_GESTURE_SINGLE (gesture));
-  gtk_gesture_get_point (gesture, current, &x, &y);
+  interpreted = gtk_gesture_get_point (gesture, current, &x, &y);
+  state = gtk_gesture_get_sequence_state (gesture, current);
 
-  g_signal_emit (gesture, signals[RELEASED], 0, priv->n_release, x, y);
+  if (state != GTK_EVENT_SEQUENCE_DENIED && interpreted)
+    g_signal_emit (gesture, signals[RELEASED], 0, priv->n_release, x, y);
+
   priv->n_release = 0;
 }
 
@@ -403,13 +408,13 @@ gtk_gesture_multi_press_new (GtkWidget *widget)
 
 /**
  * gtk_gesture_multi_press_set_area:
- * @gesture: a #GtkGesture
+ * @gesture: a #GtkGestureMultiPress
  * @rect: (allow-none): rectangle to receive coordinates on
  *
  * If @rect is non-%NULL, the press area will be checked to be
  * confined within the rectangle, otherwise the button count
  * will be reset so the press is seen as being the first one.
- * If @rect is #NULL, the area will be reset to an unrestricted
+ * If @rect is %NULL, the area will be reset to an unrestricted
  * state.
  *
  * Note: The rectangle is only used to determine whether any
@@ -425,7 +430,6 @@ gtk_gesture_multi_press_set_area (GtkGestureMultiPress *gesture,
   GtkGestureMultiPressPrivate *priv;
 
   g_return_if_fail (GTK_IS_GESTURE_MULTI_PRESS (gesture));
-  g_return_if_fail (rect != NULL);
 
   priv = gtk_gesture_multi_press_get_instance_private (gesture);
 

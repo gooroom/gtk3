@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-General.html" title="General">
 <link rel="next" href="GdkDisplay.html" title="GdkDisplay">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -179,21 +179,21 @@ macros like <code class="function">GDK_IS_X11_DISPLAY()</code> to find out which
 13
 14
 15</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc ppc">#ifdef GDK_WINDOWING_X11</span>
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span><span class="function">GDK_IS_X11_DISPLAY</span> <span class="gtkdoc opt">(</span>display<span class="gtkdoc opt">))</span>
-    <span class="gtkdoc opt">{</span>
-      <span class="gtkdoc slc">// make X11-specific calls here</span>
-    <span class="gtkdoc opt">}</span>
-  <span class="keyword">else</span>
-<span class="gtkdoc ppc">#endif</span>
-<span class="gtkdoc ppc">#ifdef GDK_WINDOWING_QUARTZ</span>
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span><span class="function">GDK_IS_QUARTZ_DISPLAY</span> <span class="gtkdoc opt">(</span>display<span class="gtkdoc opt">))</span>
-    <span class="gtkdoc opt">{</span>
-      <span class="gtkdoc slc">// make Quartz-specific calls here</span>
-    <span class="gtkdoc opt">}</span>
-  <span class="keyword">else</span>
-<span class="gtkdoc ppc">#endif</span>
-  <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Message-Logging.html#g-error">g_error</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;Unsupported GDK backend&quot;</span><span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="preproc">#ifdef</span><span class="normal"> <a href="gdk3-General.html#GDK-WINDOWING-X11:CAPS">GDK_WINDOWING_X11</a></span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function">GDK_IS_X11_DISPLAY</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">display</span><span class="symbol">))</span>
+<span class="normal">    </span><span class="cbracket">{</span>
+<span class="normal">      </span><span class="comment">// make X11-specific calls here</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+<span class="normal">  </span><span class="keyword">else</span>
+<span class="preproc">#endif</span>
+<span class="preproc">#ifdef</span><span class="normal"> <a href="gdk3-General.html#GDK-WINDOWING-QUARTZ:CAPS">GDK_WINDOWING_QUARTZ</a></span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function">GDK_IS_QUARTZ_DISPLAY</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">display</span><span class="symbol">))</span>
+<span class="normal">    </span><span class="cbracket">{</span>
+<span class="normal">      </span><span class="comment">// make Quartz-specific calls here</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+<span class="normal">  </span><span class="keyword">else</span>
+<span class="preproc">#endif</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Message-Logging.html#g-error">g_error</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Unsupported GDK backend"</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -216,7 +216,7 @@ with multiple backends). Applications can use <a class="link" href="gdk3-General
 to limit what backends can be used.</p>
 <div class="refsect3">
 <a name="gdk-display-manager-get.returns"></a><h4>Returns</h4>
-<p> The global <a class="link" href="GdkDisplayManager.html" title="GdkDisplayManager"><span class="type">GdkDisplayManager</span></a> singleton;
+<p>The global <a class="link" href="GdkDisplayManager.html" title="GdkDisplayManager"><span class="type">GdkDisplayManager</span></a> singleton;
 <a class="link" href="gdk3-General.html#gdk-parse-args" title="gdk_parse_args ()"><code class="function">gdk_parse_args()</code></a>, <a class="link" href="gdk3-General.html#gdk-init" title="gdk_init ()"><code class="function">gdk_init()</code></a>, or <a class="link" href="gdk3-General.html#gdk-init-check" title="gdk_init_check ()"><code class="function">gdk_init_check()</code></a> must have
 been called first. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -247,7 +247,7 @@ gdk_display_manager_get_default_display
 </div>
 <div class="refsect3">
 <a name="gdk-display-manager-get-default-display.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
+<p>a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
 there is no default display. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -309,7 +309,7 @@ gdk_display_manager_list_displays (<em class="parameter"><code><a class="link" h
 </div>
 <div class="refsect3">
 <a name="gdk-display-manager-list-displays.returns"></a><h4>Returns</h4>
-<p> a newly
+<p>a newly
 allocated <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> of <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> objects. Free with <a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a>
 when you are done with it. </p>
 <p><span class="annotation">[<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GdkDisplay]</span></p>
@@ -347,7 +347,7 @@ gdk_display_manager_open_display (<em class="parameter"><code><a class="link" hr
 </div>
 <div class="refsect3">
 <a name="gdk-display-manager-open-display.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
+<p>a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
 display could not be opened. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -412,6 +412,6 @@ user_function (<a class="link" href="GdkDisplayManager.html" title="GdkDisplayMa
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

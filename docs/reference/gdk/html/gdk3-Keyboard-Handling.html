@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Event-Structures.html" title="Event Structures">
 <link rel="next" href="gdk3-Selections.html" title="Selections">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -91,7 +91,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PangoDirection"><span class="returnvalue">PangoDirection</span></a>
+<a href="/usr/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PangoDirection"><span class="returnvalue">PangoDirection</span></a>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Keyboard-Handling.html#gdk-keymap-get-direction" title="gdk_keymap_get_direction ()">gdk_keymap_get_direction</a> <span class="c_punctuation">()</span>
@@ -298,7 +298,7 @@
 <p>Key values are the codes which are sent whenever a key is pressed or released.
 They appear in the <a class="link" href="gdk3-Event-Structures.html#GdkEventKey.keyval"><span class="type">GdkEventKey.keyval</span></a> field of the
 <a class="link" href="gdk3-Event-Structures.html#GdkEventKey" title="struct GdkEventKey"><span class="type">GdkEventKey</span></a> structure, which is passed to signal handlers for the
-<a href="http://developer.gnome.org/gtk4/GtkWidget.html#GtkWidget-key-press-event"><span class="type">“key-press-event”</span></a> and <a href="http://developer.gnome.org/gtk4/GtkWidget.html#GtkWidget-key-release-event"><span class="type">“key-release-event”</span></a> signals.
+<a href="https://developer.gnome.org/gtk3/GtkWidget.html#GtkWidget-key-press-event"><span class="type">“key-press-event”</span></a> and <a href="https://developer.gnome.org/gtk3/GtkWidget.html#GtkWidget-key-release-event"><span class="type">“key-release-event”</span></a> signals.
 The complete list of key values can be found in the
 <code class="literal">gdk/gdkkeysyms.h</code> header file.</p>
 <p>Key values are regularly updated from the upstream X.org X11 implementation,
@@ -358,10 +358,14 @@ contains this keyval, however, so you don’t normally need to call
 <a name="gdk-keymap-get-default"></a><h3>gdk_keymap_get_default ()</h3>
 <pre class="programlisting"><a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap"><span class="returnvalue">GdkKeymap</span></a> *
 gdk_keymap_get_default (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="warning">
+<p><code class="literal">gdk_keymap_get_default</code> has been deprecated since version 3.22 and should not be used in newly-written code.</p>
+<p>Use <a class="link" href="gdk3-Keyboard-Handling.html#gdk-keymap-get-for-display" title="gdk_keymap_get_for_display ()"><code class="function">gdk_keymap_get_for_display()</code></a> instead</p>
+</div>
 <p>Returns the <a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap"><span class="type">GdkKeymap</span></a> attached to the default display.</p>
 <div class="refsect3">
 <a name="gdk-keymap-get-default.returns"></a><h4>Returns</h4>
-<p> the <a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap"><span class="type">GdkKeymap</span></a> attached to the default display. </p>
+<p>the <a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap"><span class="type">GdkKeymap</span></a> attached to the default display. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -389,7 +393,7 @@ gdk_keymap_get_for_display (<em class="parameter"><code><a class="link" href="Gd
 </div>
 <div class="refsect3">
 <a name="gdk-keymap-get-for-display.returns"></a><h4>Returns</h4>
-<p> the <a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap"><span class="type">GdkKeymap</span></a> attached to <em class="parameter"><code>display</code></em>
+<p>the <a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap"><span class="type">GdkKeymap</span></a> attached to <em class="parameter"><code>display</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -479,14 +483,14 @@ the <code class="literal">plus</code> symbol is shifted, so when comparing a key
 6
 7
 8</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc slc">// We want to ignore irrelevant modifiers like ScrollLock</span>
-<span class="gtkdoc ppc">#define ALL_ACCELS_MASK (GDK_CONTROL_MASK | GDK_SHIFT_MASK | GDK_MOD1_MASK)</span>
-<span class="function"><a href="gdk3-Keyboard-Handling.html#gdk-keymap-translate-keyboard-state">gdk_keymap_translate_keyboard_state</a></span> <span class="gtkdoc opt">(</span>keymap<span class="gtkdoc opt">,</span> event<span class="gtkdoc opt">-&gt;</span>hardware_keycode<span class="gtkdoc opt">,</span>
-                                     event<span class="gtkdoc opt">-&gt;</span>state<span class="gtkdoc opt">,</span> event<span class="gtkdoc opt">-&gt;</span>group<span class="gtkdoc opt">,</span>
-                                     <span class="gtkdoc opt">&amp;</span>keyval<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">, &amp;</span>consumed<span class="gtkdoc opt">);</span>
-<span class="keyword">if</span> <span class="gtkdoc opt">(</span>keyval <span class="gtkdoc opt">==</span> GDK_PLUS <span class="gtkdoc opt">&amp;&amp;</span>
-    <span class="gtkdoc opt">(</span>event<span class="gtkdoc opt">-&gt;</span>state <span class="gtkdoc opt">&amp; ~</span>consumed <span class="gtkdoc opt">&amp;</span> ALL_ACCELS_MASK<span class="gtkdoc opt">) ==</span> GDK_CONTROL_MASK<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc slc">// Control was pressed</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">// We want to ignore irrelevant modifiers like ScrollLock</span>
+<span class="preproc">#define</span><span class="normal"> </span><span class="function">ALL_ACCELS_MASK</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="gdk3-Windows.html#GDK-CONTROL-MASK:CAPS">GDK_CONTROL_MASK</a> </span><span class="symbol">|</span><span class="normal"> <a href="gdk3-Windows.html#GDK-SHIFT-MASK:CAPS">GDK_SHIFT_MASK</a> </span><span class="symbol">|</span><span class="normal"> <a href="gdk3-Windows.html#GDK-MOD1-MASK:CAPS">GDK_MOD1_MASK</a></span><span class="symbol">)</span>
+<span class="function"><a href="gdk3-Keyboard-Handling.html#gdk-keymap-translate-keyboard-state">gdk_keymap_translate_keyboard_state</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">keymap</span><span class="symbol">,</span><span class="normal"> event</span><span class="symbol">-&gt;</span><span class="normal">hardware_keycode</span><span class="symbol">,</span>
+<span class="normal">                                     event</span><span class="symbol">-&gt;</span><span class="normal">state</span><span class="symbol">,</span><span class="normal"> event</span><span class="symbol">-&gt;</span><span class="normal">group</span><span class="symbol">,</span>
+<span class="normal">                                     </span><span class="symbol">&amp;</span><span class="normal">keyval</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">consumed</span><span class="symbol">);</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">keyval </span><span class="symbol">==</span><span class="normal"> <a href="gdk3-Cursors.html#GDK-PLUS:CAPS">GDK_PLUS</a> </span><span class="symbol">&amp;&amp;</span>
+<span class="normal">    </span><span class="symbol">(</span><span class="normal">event</span><span class="symbol">-&gt;</span><span class="normal">state </span><span class="symbol">&amp;</span><span class="normal"> </span><span class="symbol">~</span><span class="normal">consumed </span><span class="symbol">&amp;</span><span class="normal"> ALL_ACCELS_MASK</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">==</span><span class="normal"> <a href="gdk3-Windows.html#GDK-CONTROL-MASK:CAPS">GDK_CONTROL_MASK</a></span><span class="symbol">)</span>
+<span class="normal">  </span><span class="comment">// Control was pressed</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -506,10 +510,10 @@ modifiers, by doing:</p>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc slc">// XXX Don’t do this XXX</span>
-<span class="keyword">if</span> <span class="gtkdoc opt">(</span>keyval <span class="gtkdoc opt">==</span> accel_keyval <span class="gtkdoc opt">&amp;&amp;</span>
-    <span class="gtkdoc opt">(</span>event<span class="gtkdoc opt">-&gt;</span>state <span class="gtkdoc opt">&amp; ~</span>consumed <span class="gtkdoc opt">&amp;</span> ALL_ACCELS_MASK<span class="gtkdoc opt">) == (</span>accel_mods <span class="gtkdoc opt">&amp; ~</span>consumed<span class="gtkdoc opt">))</span>
-  <span class="gtkdoc slc">// Accelerator was pressed</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">// XXX Don’t do this XXX</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">keyval </span><span class="symbol">==</span><span class="normal"> accel_keyval </span><span class="symbol">&amp;&amp;</span>
+<span class="normal">    </span><span class="symbol">(</span><span class="normal">event</span><span class="symbol">-&gt;</span><span class="normal">state </span><span class="symbol">&amp;</span><span class="normal"> </span><span class="symbol">~</span><span class="normal">consumed </span><span class="symbol">&amp;</span><span class="normal"> ALL_ACCELS_MASK</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">==</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">accel_mods </span><span class="symbol">&amp;</span><span class="normal"> </span><span class="symbol">~</span><span class="normal">consumed</span><span class="symbol">))</span>
+<span class="normal">  </span><span class="comment">// Accelerator was pressed</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -518,7 +522,7 @@ modifiers, by doing:</p>
 <p></p>
 <p>However, this did not work if multi-modifier combinations were
 used in the keymap, since, for instance, <code class="literal">&lt;Control&gt;</code> would be
-masked out even if only <code class="literal">&lt;Control&gt;&lt;Alt&gt;</code> was used in the keymap.
+masked out even if only <code class="literal">&lt;Control&gt;&amp;lt;Alt&gt;</code> was used in the keymap.
 To support this usage as well as well as possible, all single
 modifier combinations that could affect the key for any combination
 of modifiers will be returned in <em class="parameter"><code>consumed_modifiers</code></em>
@@ -526,7 +530,7 @@ of modifiers will be returned in <em class="parameter"><code>consumed_modifiers<
 combinations are returned only when actually found in <em class="parameter"><code>state</code></em>
 . When
 you store accelerators, you should always store them with consumed
-modifiers removed. Store <code class="literal">&lt;Control&gt;plus</code>, not <code class="literal">&lt;Control&gt;&lt;Shift&gt;plus</code>,</p>
+modifiers removed. Store <code class="literal">&lt;Control&gt;plus</code>, not <code class="literal">&lt;Control&gt;&amp;lt;Shift&gt;plus</code>,</p>
 <div class="refsect3">
 <a name="gdk-keymap-translate-keyboard-state.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -558,23 +562,23 @@ modifiers removed. Store <code class="literal">&lt;Control&gt;plus</code>, not <
 </tr>
 <tr>
 <td class="parameter_name"><p>keyval</p></td>
-<td class="parameter_description"><p> return location for keyval, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for keyval, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>effective_group</p></td>
-<td class="parameter_description"><p> return location for effective
+<td class="parameter_description"><p>return location for effective
 group, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>level</p></td>
-<td class="parameter_description"><p> return location for level, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for level, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>consumed_modifiers</p></td>
-<td class="parameter_description"><p> return location for modifiers
+<td class="parameter_description"><p>return location for modifiers
 that were used to determine the group or level, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -627,7 +631,7 @@ with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.h
 </tr>
 <tr>
 <td class="parameter_name"><p>keys</p></td>
-<td class="parameter_description"><p> return location
+<td class="parameter_description"><p>return location
 for an array of <a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymapKey" title="struct GdkKeymapKey"><span class="type">GdkKeymapKey</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_keys][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
@@ -683,13 +687,13 @@ keyboard group and level. See <a class="link" href="gdk3-Keyboard-Handling.html#
 </tr>
 <tr>
 <td class="parameter_name"><p>keys</p></td>
-<td class="parameter_description"><p> return
+<td class="parameter_description"><p>return
 location for array of <a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymapKey" title="struct GdkKeymapKey"><span class="type">GdkKeymapKey</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_entries][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>keyvals</p></td>
-<td class="parameter_description"><p> return
+<td class="parameter_description"><p>return
 location for array of keyvals, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_entries][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
 </tr>
@@ -711,7 +715,7 @@ and <em class="parameter"><code>keyvals</code></em>
 <hr>
 <div class="refsect2">
 <a name="gdk-keymap-get-direction"></a><h3>gdk_keymap_get_direction ()</h3>
-<pre class="programlisting"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PangoDirection"><span class="returnvalue">PangoDirection</span></a>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PangoDirection"><span class="returnvalue">PangoDirection</span></a>
 gdk_keymap_get_direction (<em class="parameter"><code><a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap"><span class="type">GdkKeymap</span></a> *keymap</code></em>);</pre>
 <p>Returns the direction of effective layout of the keymap.</p>
 <div class="refsect3">
@@ -731,8 +735,8 @@ gdk_keymap_get_direction (<em class="parameter"><code><a class="link" href="gdk3
 </div>
 <div class="refsect3">
 <a name="gdk-keymap-get-direction.returns"></a><h4>Returns</h4>
-<p> <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PANGO-DIRECTION-LTR:CAPS"><code class="literal">PANGO_DIRECTION_LTR</code></a> or <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PANGO-DIRECTION-RTL:CAPS"><code class="literal">PANGO_DIRECTION_RTL</code></a>
-if it can determine the direction. <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PANGO-DIRECTION-NEUTRAL:CAPS"><code class="literal">PANGO_DIRECTION_NEUTRAL</code></a>
+<p> <a href="/usr/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PANGO-DIRECTION-LTR:CAPS"><code class="literal">PANGO_DIRECTION_LTR</code></a> or <a href="/usr/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PANGO-DIRECTION-RTL:CAPS"><code class="literal">PANGO_DIRECTION_RTL</code></a>
+if it can determine the direction. <a href="/usr/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PANGO-DIRECTION-NEUTRAL:CAPS"><code class="literal">PANGO_DIRECTION_NEUTRAL</code></a>
 otherwise.</p>
 </div>
 </div>
@@ -904,7 +908,7 @@ accelerators.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>state</p></td>
-<td class="parameter_description"><p> pointer to the modifier mask to change. </p></td>
+<td class="parameter_description"><p>pointer to the modifier mask to change. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -941,7 +945,7 @@ accelerators.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>state</p></td>
-<td class="parameter_description"><p> pointer to the modifier state to map. </p></td>
+<td class="parameter_description"><p>pointer to the modifier state to map. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1027,7 +1031,7 @@ but without the leading “GDK_KEY_”.</p>
 </div>
 <div class="refsect3">
 <a name="gdk-keyval-name.returns"></a><h4>Returns</h4>
-<p> a string containing the name
+<p>a string containing the name
 of the key, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>keyval</code></em>
 is not a valid key. The string
 should not be modified. </p>
@@ -1090,13 +1094,13 @@ Examples of keyvals are <span class="type">GDK_KEY_a</span>, <span class="type">
 </tr>
 <tr>
 <td class="parameter_name"><p>lower</p></td>
-<td class="parameter_description"><p> return location for lowercase version of <em class="parameter"><code>symbol</code></em>
+<td class="parameter_description"><p>return location for lowercase version of <em class="parameter"><code>symbol</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>upper</p></td>
-<td class="parameter_description"><p> return location for uppercase version of <em class="parameter"><code>symbol</code></em>
+<td class="parameter_description"><p>return location for uppercase version of <em class="parameter"><code>symbol</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
@@ -1442,6 +1446,6 @@ See <a class="link" href="gdk3-Keyboard-Handling.html#gdk-keymap-get-caps-lock-s
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

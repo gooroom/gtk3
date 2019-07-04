@@ -37,6 +37,7 @@
 #include "gtkshow.h"
 #include "gtkintl.h"
 #include "gtkwindowprivate.h"
+#include "gtkprivate.h"
 
 
 typedef struct {
@@ -53,6 +54,7 @@ typedef struct {
   GVariant *settings;
   GVariant *setup;
   GVariant *options;
+  char *prepare_print_handle;
 } PortalData;
 
 static void
@@ -70,7 +72,7 @@ portal_data_free (gpointer data)
     g_variant_unref (portal->setup);
   if (portal->options)
     g_variant_unref (portal->options);
-
+  g_free (portal->prepare_print_handle);
   g_free (portal);
 }
 
@@ -453,16 +455,23 @@ prepare_print_called (GObject      *source,
   else
     g_variant_get (ret, "(&o)", &handle);
 
-  portal->response_signal_id =
-    g_dbus_connection_signal_subscribe (g_dbus_proxy_get_connection (G_DBUS_PROXY (portal->proxy)),
-                                        "org.freedesktop.portal.Desktop",
-                                        "org.freedesktop.portal.Request",
-                                        "Response",
-                                        handle,
-                                        NULL,
-                                        G_DBUS_SIGNAL_FLAGS_NO_MATCH_RULE,
-                                        prepare_print_response,
-                                        portal, NULL);
+  if (strcmp (portal->prepare_print_handle, handle) != 0)
+    {
+      g_free (portal->prepare_print_handle);
+      portal->prepare_print_handle = g_strdup (handle);
+      g_dbus_connection_signal_unsubscribe (g_dbus_proxy_get_connection (G_DBUS_PROXY (portal->proxy)),
+                                            portal->response_signal_id);
+      portal->response_signal_id =
+        g_dbus_connection_signal_subscribe (g_dbus_proxy_get_connection (G_DBUS_PROXY (portal->proxy)),
+                                            "org.freedesktop.portal.Desktop",
+                                            "org.freedesktop.portal.Request",
+                                            "Response",
+                                            handle,
+                                            NULL,
+                                            G_DBUS_SIGNAL_FLAGS_NO_MATCH_RULE,
+                                            prepare_print_response,
+                                            portal, NULL);
+     }
 
   g_variant_unref (ret);
 }
@@ -547,8 +556,25 @@ call_prepare_print (GtkPrintOperation *op,
 {
   GtkPrintOperationPrivate *priv = op->priv;
   GVariantBuilder opt_builder;
+  char *token;
+
+  portal->prepare_print_handle =
+      gtk_get_portal_request_path (g_dbus_proxy_get_connection (portal->proxy), &token);
+
+  portal->response_signal_id =
+    g_dbus_connection_signal_subscribe (g_dbus_proxy_get_connection (G_DBUS_PROXY (portal->proxy)),
+                                        "org.freedesktop.portal.Desktop",
+                                        "org.freedesktop.portal.Request",
+                                        "Response",
+                                        portal->prepare_print_handle,
+                                        NULL,
+                                        G_DBUS_SIGNAL_FLAGS_NO_MATCH_RULE,
+                                        prepare_print_response,
+                                        portal, NULL);
 
   g_variant_builder_init (&opt_builder, G_VARIANT_TYPE_VARDICT);
+  g_variant_builder_add (&opt_builder, "{sv}", "handle_token", g_variant_new_string (token));
+  g_free (token);
   portal->options = g_variant_builder_end (&opt_builder);
 
   if (priv->print_settings)

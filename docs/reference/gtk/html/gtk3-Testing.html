@@ -8,7 +8,7 @@
 <link rel="up" href="gtkbase.html" title="Part III. GTK+ Core Reference">
 <link rel="prev" href="gtk3-Selections.html" title="Selections">
 <link rel="next" href="gtk3-Filesystem-utilities.html" title="Filesystem utilities">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -179,7 +179,7 @@
 </div>
 <div class="refsect1">
 <a name="gtk3-Testing.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -226,7 +226,7 @@ will automatically be destroyed upon test function teardown.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-test-create-simple-window.returns"></a><h4>Returns</h4>
-<p> a widget pointer to the newly created GtkWindow. </p>
+<p>a widget pointer to the newly created GtkWindow. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -262,7 +262,7 @@ and set them up for destruction during the next test teardown phase.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>first_property_name</p></td>
-<td class="parameter_description"><p> Name of first property to set or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>Name of first property to set or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -276,7 +276,7 @@ name-value pairs, terminated by <a href="https://developer.gnome.org/glib/unstab
 </div>
 <div class="refsect3">
 <a name="gtk-test-create-widget.returns"></a><h4>Returns</h4>
-<p> a newly created widget. </p>
+<p>a newly created widget. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -335,7 +335,7 @@ will automatically be destroyed upon test function teardown.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-test-display-button-window.returns"></a><h4>Returns</h4>
-<p> a widget pointer to the newly created GtkWindow. </p>
+<p>a widget pointer to the newly created GtkWindow. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -380,7 +380,7 @@ predetermined locales, see <a class="link" href="gtk3-Testing.html#gtk-test-init
 </div>
 <div class="refsect3">
 <a name="gtk-test-find-label.returns"></a><h4>Returns</h4>
-<p> a GtkLabel widget if any is found. </p>
+<p>a GtkLabel widget if any is found. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -425,7 +425,7 @@ button or text entry widget, given its corresponding label widget.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-test-find-sibling.returns"></a><h4>Returns</h4>
-<p> a widget of type <em class="parameter"><code>widget_type</code></em>
+<p>a widget of type <em class="parameter"><code>widget_type</code></em>
 if any is found. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -477,7 +477,7 @@ such widgets and synthesizing widget events.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-test-find-widget.returns"></a><h4>Returns</h4>
-<p> a valid widget if any is found or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>a valid widget if any is found or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -516,7 +516,7 @@ processed and stripped from <em class="parameter"><code>argc</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>argvp</p></td>
-<td class="parameter_description"><p> Address of the
+<td class="parameter_description"><p>Address of the
 <code class="literal">argv</code> parameter of <code class="function">main()</code>.
 Any parameters understood by <a href="https://developer.gnome.org/glib/unstable/glib-Testing.html#g-test-init"><code class="function">g_test_init()</code></a> or <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> are
 stripped before return. </p></td>
@@ -556,7 +556,7 @@ calling <a class="link" href="gtk3-Testing.html#gtk-test-register-all-types" tit
 </div>
 <div class="refsect3">
 <a name="gtk-test-list-all-types.returns"></a><h4>Returns</h4>
-<p>   0-terminated array of type ids. </p>
+<p>0-terminated array of type ids. </p>
 <p><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_types zero-terminated=1][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -773,7 +773,7 @@ GtkEditable (entry and text widgets) or GtkTextView.</p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_test_widget_click (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> button</code></em>,
-                       <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
+                       <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_test_widget_click</code> has been deprecated since version 3.20 and should not be used in newly-written code.</p>
 <p>This testing infrastructure is phased out in favor of reftests.</p>
@@ -788,7 +788,7 @@ For windowless widgets like <a class="link" href="GtkButton.html" title="GtkButt
 input-only event window. For other widgets, this is usually widget-&gt;window.
 Certain caveats should be considered when using this function, in
 particular because the mouse pointer is warped to the button click
-location, see <a href="http://developer.gnome.org/gdk3/gdk4-Testing.html#gdk-test-simulate-button"><code class="function">gdk_test_simulate_button()</code></a> for details.</p>
+location, see <a href="https://developer.gnome.org/gdk3/gdk3-Testing.html#gdk-test-simulate-button"><code class="function">gdk_test_simulate_button()</code></a> for details.</p>
 <div class="refsect3">
 <a name="gtk-test-widget-click.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -828,7 +828,7 @@ location, see <a href="http://developer.gnome.org/gdk3/gdk4-Testing.html#gdk-tes
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_test_widget_send_key (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> keyval</code></em>,
-                          <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
+                          <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
 <p>This function will generate keyboard press and release events in
 the middle of the first GdkWindow found that belongs to <em class="parameter"><code>widget</code></em>
 .
@@ -837,7 +837,7 @@ For windowless widgets like <a class="link" href="GtkButton.html" title="GtkButt
 input-only event window. For other widgets, this is usually widget-&gt;window.
 Certain caveats should be considered when using this function, in
 particular because the mouse pointer is warped to the key press
-location, see <a href="http://developer.gnome.org/gdk3/gdk4-Testing.html#gdk-test-simulate-key"><code class="function">gdk_test_simulate_key()</code></a> for details.</p>
+location, see <a href="https://developer.gnome.org/gdk3/gdk3-Testing.html#gdk-test-simulate-key"><code class="function">gdk_test_simulate_key()</code></a> for details.</p>
 <div class="refsect3">
 <a name="gtk-test-widget-send-key.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -908,6 +908,6 @@ server.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

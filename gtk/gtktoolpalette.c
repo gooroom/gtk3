@@ -61,7 +61,7 @@
  * group = gtk_tool_item_group_new (_("Test Category"));
  * gtk_container_add (GTK_CONTAINER (palette), group);
  *
- * item = gtk_tool_button_new_new (NULL, _("_Open"));
+ * item = gtk_tool_button_new (NULL, _("_Open"));
  * gtk_tool_button_set_icon_name (GTK_TOOL_BUTTON (item), "document-open");
  * gtk_tool_item_group_insert (GTK_TOOL_ITEM_GROUP (group), item, -1);
  * ]|
@@ -788,7 +788,7 @@ gtk_tool_palette_add (GtkContainer *container,
 
   g_ptr_array_add (palette->priv->groups, info);
   info->pos = palette->priv->groups->len - 1;
-  info->widget = g_object_ref_sink (child);
+  info->widget = (GtkToolItemGroup *) g_object_ref_sink (child);
 
   gtk_widget_set_parent (child, GTK_WIDGET (palette));
 }

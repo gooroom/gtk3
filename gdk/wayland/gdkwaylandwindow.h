@@ -77,6 +77,12 @@ GDK_AVAILABLE_IN_3_22
 gboolean                 gdk_wayland_window_set_transient_for_exported (GdkWindow *window,
                                                                         char      *parent_handle_str);
 
+GDK_AVAILABLE_IN_3_22
+void gdk_wayland_window_announce_csd                        (GdkWindow *window);
+
+GDK_AVAILABLE_IN_3_24
+void gdk_wayland_window_announce_ssd                        (GdkWindow *window);
+
 G_END_DECLS
 
 #endif /* __GDK_WAYLAND_WINDOW_H__ */

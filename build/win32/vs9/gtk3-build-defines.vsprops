@@ -45,7 +45,7 @@
 	/>
 	<UserMacro
 		Name="GtkGdkCommonLibs"
-		Value="imm32.lib"
+		Value="pangowin32-1.0.lib imm32.lib"
 	/>
 	<UserMacro
 		Name="GdkBroadwayAdditionalLibs"
@@ -57,6 +57,14 @@
 	/>
 	<UserMacro
 		Name="GtkAdditionalLibs"
-		Value="atk-1.0.lib pangowin32-1.0.lib winspool.lib comctl32.lib $(GtkGdkCommonLibs)"
+		Value="atk-1.0.lib winspool.lib comctl32.lib $(GtkGdkCommonLibs)"
+	/>
+	<UserMacro
+		Name="GtkIntrospectNMakeCmd"
+		Value="cd ..&#x0D;&#x0A;set VCInstallDir=$(VCInstallDir)&#x0D;&#x0A;nmake -f gtk-introspection-msvc.mak CFG=$(ConfigurationName) PREFIX=$(GlibEtcInstallRoot)"
+	/>
+	<UserMacro
+		Name="GtkIntrospectBuiltFiles"
+		Value="$(SolutionDir)\$(ConfigurationName)\$(PlatformName)\bin\Gtk-3.0.gir;$(SolutionDir)\$(ConfigurationName)\$(PlatformName)\bin\Gtk-3.0.typelib;$(SolutionDir)\$(ConfigurationName)\$(PlatformName)\bin\GdkWin32-3.0.gir;$(SolutionDir)\$(ConfigurationName)\$(PlatformName)\bin\GdkWin32-3.0.typelib;$(SolutionDir)\$(ConfigurationName)\$(PlatformName)\bin\Gdk-3.0.gir;$(SolutionDir)\$(ConfigurationName)\$(PlatformName)\bin\Gdk-3.0.typelib"
 	/>
 </VisualStudioPropertySheet>

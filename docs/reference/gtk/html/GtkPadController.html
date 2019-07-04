@@ -6,9 +6,9 @@
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="Gestures.html" title="Gestures and event handling">
-<link rel="prev" href="GtkGestureZoom.html" title="GtkGestureZoom">
+<link rel="prev" href="GtkGestureStylus.html" title="GtkGestureStylus">
 <link rel="next" href="DeprecatedObjects.html" title="Deprecated">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -21,7 +21,7 @@
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
 <td><a accesskey="u" href="Gestures.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
-<td><a accesskey="p" href="GtkGestureZoom.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="p" href="GtkGestureStylus.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
 <td><a accesskey="n" href="DeprecatedObjects.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
@@ -79,13 +79,13 @@
 <tbody>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/gio/unstable/GActionGroup.html#GActionGroup-struct"><span class="type">GActionGroup</span></a> *</td>
+<span class="type">GActionGroup</span> *</td>
 <td class="property_name"><a class="link" href="GtkPadController.html#GtkPadController--action-group" title="The “action-group” property">action-group</a></td>
 <td class="property_flags">Read / Write / Construct Only</td>
 </tr>
 <tr>
 <td class="property_type">
-<a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> *</td>
+<a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkPadController.html#GtkPadController--pad" title="The “pad” property">pad</a></td>
 <td class="property_flags">Read / Write / Construct Only</td>
 </tr>
@@ -124,7 +124,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkPadController.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -134,18 +134,18 @@ tablets (The collection of buttons and tactile sensors often found around
 the stylus-sensitive area).</p>
 <p>These buttons and sensors have no implicit meaning, and by default they
 perform no action, this event controller is provided to map those to
-<a href="https://developer.gnome.org/gio/unstable/GAction.html#GAction-struct"><span class="type">GAction</span></a> objects, thus letting the application give those a more semantic
+<span class="type">GAction</span> objects, thus letting the application give those a more semantic
 meaning.</p>
 <p>Buttons and sensors are not constrained to triggering a single action, some
-<a href="http://developer.gnome.org/gdk3/GdkDevice.html#GDK-SOURCE-TABLET-PAD:CAPS"><code class="literal">GDK_SOURCE_TABLET_PAD</code></a> devices feature multiple "modes", all these input
+<a href="https://developer.gnome.org/gdk3/GdkDevice.html#GDK-SOURCE-TABLET-PAD:CAPS"><code class="literal">GDK_SOURCE_TABLET_PAD</code></a> devices feature multiple "modes", all these input
 elements have one current mode, which may determine the final action
 being triggered. Pad devices often divide buttons and sensors into groups,
 all elements in a group share the same current mode, but different groups
-may have different modes. See <a href="http://developer.gnome.org/gdk3/GdkDevicePad.html#gdk-device-pad-get-n-groups"><code class="function">gdk_device_pad_get_n_groups()</code></a> and
-<a href="http://developer.gnome.org/gdk3/GdkDevicePad.html#gdk-device-pad-get-group-n-modes"><code class="function">gdk_device_pad_get_group_n_modes()</code></a>.</p>
+may have different modes. See <a href="https://developer.gnome.org/gdk3/GdkDevicePad.html#gdk-device-pad-get-n-groups"><code class="function">gdk_device_pad_get_n_groups()</code></a> and
+<a href="https://developer.gnome.org/gdk3/GdkDevicePad.html#gdk-device-pad-get-group-n-modes"><code class="function">gdk_device_pad_get_group_n_modes()</code></a>.</p>
 <p>Each of the actions that a given button/strip/ring performs for a given
 mode is defined by <a class="link" href="GtkPadController.html#GtkPadActionEntry" title="struct GtkPadActionEntry"><span class="type">GtkPadActionEntry</span></a>, it contains an action name that
-will be looked up in the given <a href="https://developer.gnome.org/gio/unstable/GActionGroup.html#GActionGroup-struct"><span class="type">GActionGroup</span></a> and activated whenever the
+will be looked up in the given <span class="type">GActionGroup</span> and activated whenever the
 specified input element and mode are triggered.</p>
 <p>A simple example of <a class="link" href="GtkPadController.html" title="GtkPadController"><span class="type">GtkPadController</span></a> usage, assigning button 1 in all
 modes and pad devices to an "invert-selection" action:</p>
@@ -165,18 +165,18 @@ modes and pad devices to an "invert-selection" action:</p>
 10
 11
 12</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkPadActionEntry <span class="gtkdoc opt">*</span>pad_actions<span class="gtkdoc opt">[] = {</span>
-  <span class="gtkdoc opt">{</span> GTK_PAD_ACTION_BUTTON<span class="gtkdoc opt">,</span> <span class="number">1</span><span class="gtkdoc opt">, -</span><span class="number">1</span><span class="gtkdoc opt">,</span> <span class="string">&quot;Invert selection&quot;</span><span class="gtkdoc opt">,</span> <span class="string">&quot;pad-actions.invert-selection&quot;</span> <span class="gtkdoc opt">},</span>
-  …
-<span class="gtkdoc opt">};</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkPadActionEntry</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">pad_actions</span><span class="symbol">[]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">  </span><span class="cbracket">{</span><span class="normal"> <a href="GtkPadController.html#GTK-PAD-ACTION-BUTTON:CAPS">GTK_PAD_ACTION_BUTTON</a></span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Invert selection"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"pad-actions.invert-selection"</span><span class="normal"> </span><span class="cbracket">}</span><span class="symbol">,</span>
+<span class="normal">  …</span>
+<span class="cbracket">}</span><span class="symbol">;</span>
 
-…
-action_group <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/gio/unstable/GSimpleActionGroup.html#g-simple-action-group-new">g_simple_action_group_new</a></span> <span class="gtkdoc opt">();</span>
-action <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/gio/unstable/GSimpleAction.html#g-simple-action-new">g_simple_action_new</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;pad-actions.invert-selection&quot;</span><span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>action<span class="gtkdoc opt">,</span> <span class="string">&quot;activate&quot;</span><span class="gtkdoc opt">,</span> on_invert_selection_activated<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span>
-<span class="function"><a href="https://developer.gnome.org/gio/unstable/GActionMap.html#g-action-map-add-action">g_action_map_add_action</a></span> <span class="gtkdoc opt">(</span><span class="function">G_ACTION_MAP</span> <span class="gtkdoc opt">(</span>action_group<span class="gtkdoc opt">),</span> action<span class="gtkdoc opt">);</span>
-…
-pad_controller <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkPadController.html#gtk-pad-controller-new">gtk_pad_controller_new</a></span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">,</span> action_group<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span></pre></td>
+<span class="normal">…</span>
+<span class="normal">action_group </span><span class="symbol">=</span><span class="normal"> </span><span class="function">g_simple_action_group_new</span><span class="normal"> </span><span class="symbol">();</span>
+<span class="normal">action </span><span class="symbol">=</span><span class="normal"> </span><span class="function">g_simple_action_new</span><span class="normal"> </span><span class="symbol">(</span><span class="string">"pad-actions.invert-selection"</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"activate"</span><span class="symbol">,</span><span class="normal"> on_invert_selection_activated</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="function">g_action_map_add_action</span><span class="normal"> </span><span class="symbol">(</span><span class="function">G_ACTION_MAP</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action_group</span><span class="symbol">),</span><span class="normal"> action</span><span class="symbol">);</span>
+<span class="normal">…</span>
+<span class="normal">pad_controller </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkPadController.html#gtk-pad-controller-new">gtk_pad_controller_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">,</span><span class="normal"> action_group</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -193,8 +193,8 @@ is required that those are made stateful and accepting this <a href="https://dev
 <a name="gtk-pad-controller-new"></a><h3>gtk_pad_controller_new ()</h3>
 <pre class="programlisting"><a class="link" href="GtkPadController.html" title="GtkPadController"><span class="returnvalue">GtkPadController</span></a> *
 gtk_pad_controller_new (<em class="parameter"><code><a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> *window</code></em>,
-                        <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GActionGroup.html#GActionGroup-struct"><span class="type">GActionGroup</span></a> *group</code></em>,
-                        <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> *pad</code></em>);</pre>
+                        <em class="parameter"><code><span class="type">GActionGroup</span> *group</code></em>,
+                        <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> *pad</code></em>);</pre>
 <p>Creates a new <a class="link" href="GtkPadController.html" title="GtkPadController"><span class="type">GtkPadController</span></a> that will associate events from <em class="parameter"><code>pad</code></em>
  to
 actions. A <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> pad may be provided so the controller manages all pad devices
@@ -222,12 +222,12 @@ events to actions, use <a class="link" href="GtkPadController.html#gtk-pad-contr
 </tr>
 <tr>
 <td class="parameter_name"><p>group</p></td>
-<td class="parameter_description"><p><a href="https://developer.gnome.org/gio/unstable/GActionGroup.html#GActionGroup-struct"><span class="type">GActionGroup</span></a> to trigger actions from</p></td>
+<td class="parameter_description"><p><span class="type">GActionGroup</span> to trigger actions from</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>pad</p></td>
-<td class="parameter_description"><p> A <a href="http://developer.gnome.org/gdk3/GdkDevice.html#GDK-SOURCE-TABLET-PAD:CAPS"><code class="literal">GDK_SOURCE_TABLET_PAD</code></a> device, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to handle all pads. </p></td>
+<td class="parameter_description"><p>A <a href="https://developer.gnome.org/gdk3/GdkDevice.html#GDK-SOURCE-TABLET-PAD:CAPS"><code class="literal">GDK_SOURCE_TABLET_PAD</code></a> device, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to handle all pads. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -265,7 +265,7 @@ gtk_pad_controller_set_action_entries (<em class="parameter"><code><a class="lin
 </tr>
 <tr>
 <td class="parameter_name"><p>entries</p></td>
-<td class="parameter_description"><p> the action entries to set on <em class="parameter"><code>controller</code></em>
+<td class="parameter_description"><p>the action entries to set on <em class="parameter"><code>controller</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_entries]</span></td>
 </tr>
@@ -338,7 +338,7 @@ be deemed user-visible.</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>action_name</p></td>
-<td class="parameter_description"><p>action name that will be activated in the <a href="https://developer.gnome.org/gio/unstable/GActionGroup.html#GActionGroup-struct"><span class="type">GActionGroup</span></a></p></td>
+<td class="parameter_description"><p>action name that will be activated in the <span class="type">GActionGroup</span></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -436,7 +436,7 @@ be deemed user-visible.</p></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GtkPadActionEntry.action-name"></a>action_name</code></em>;</p></td>
-<td class="struct_member_description"><p>action name that will be activated in the <a href="https://developer.gnome.org/gio/unstable/GActionGroup.html#GActionGroup-struct"><span class="type">GActionGroup</span></a>.</p></td>
+<td class="struct_member_description"><p>action name that will be activated in the <span class="type">GActionGroup</span>.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 </tbody>
@@ -448,24 +448,24 @@ be deemed user-visible.</p></td>
 <a name="GtkPadController.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkPadController--action-group"></a><h3>The <code class="literal">“action-group”</code> property</h3>
-<pre class="programlisting">  “action-group”             <a href="https://developer.gnome.org/gio/unstable/GActionGroup.html#GActionGroup-struct"><span class="type">GActionGroup</span></a> *</pre>
+<pre class="programlisting">  “action-group”             <span class="type">GActionGroup</span> *</pre>
 <p>Action group to launch actions from.</p>
 <p>Flags: Read / Write / Construct Only</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkPadController--pad"></a><h3>The <code class="literal">“pad”</code> property</h3>
-<pre class="programlisting">  “pad”                      <a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> *</pre>
+<pre class="programlisting">  “pad”                      <a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> *</pre>
 <p>Pad device to control.</p>
 <p>Flags: Read / Write / Construct Only</p>
 </div>
 </div>
 <div class="refsect1">
 <a name="GtkPadController.see-also"></a><h2>See Also</h2>
-<p><a class="link" href="GtkEventController.html" title="GtkEventController"><span class="type">GtkEventController</span></a>, <a href="http://developer.gnome.org/gdk3/GdkDevicePad.html#GdkDevicePad-struct"><span class="type">GdkDevicePad</span></a></p>
+<p><a class="link" href="GtkEventController.html" title="GtkEventController"><span class="type">GtkEventController</span></a>, <a href="https://developer.gnome.org/gdk3/GdkDevicePad.html#GdkDevicePad-struct"><span class="type">GdkDevicePad</span></a></p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

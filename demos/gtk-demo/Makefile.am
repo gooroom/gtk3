@@ -48,6 +48,7 @@ demos_base =					\
 	offscreen_window2.c			\
 	overlay.c				\
 	overlay2.c				\
+	paint.c					\
 	panes.c					\
 	pickers.c				\
 	pixbufs.c				\
@@ -103,11 +104,6 @@ LDADDS = \
 	$(GDK_DEP_LIBS)				\
 	-lm
 
-if BUILD_FONT_DEMO
-AM_CPPFLAGS += $(FONTDEMO_CFLAGS)
-LDADDS += $(FONTDEMO_LIBS)
-endif
-
 bin_PROGRAMS = gtk3-demo gtk3-demo-application
 
 desktopdir = $(datadir)/applications
@@ -153,7 +149,7 @@ gtk3_demo_application_SOURCES = \
 
 gtk3_demo_application_LDADD = $(LDADDS)
 
-resource_files = $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir) --generate-dependencies $(builddir)/demo.gresource.xml)
+resource_files = $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir) --generate-dependencies $(srcdir)/demo.gresource.xml)
 
 demo_resources.c: demo.gresource.xml $(resource_files)
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source $(srcdir)/demo.gresource.xml

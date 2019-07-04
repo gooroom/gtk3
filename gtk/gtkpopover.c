@@ -538,7 +538,12 @@ gtk_popover_apply_modality (GtkPopover *popover,
       /* Let prev_focus_widget regain focus */
       if (priv->prev_focus_widget &&
           gtk_widget_is_drawable (priv->prev_focus_widget))
-        gtk_widget_grab_focus (priv->prev_focus_widget);
+        {
+           if (GTK_IS_ENTRY (priv->prev_focus_widget))
+             gtk_entry_grab_focus_without_selecting (GTK_ENTRY (priv->prev_focus_widget));
+           else
+             gtk_widget_grab_focus (priv->prev_focus_widget);
+        }
       else if (priv->window)
         gtk_widget_grab_focus (GTK_WIDGET (priv->window));
 
@@ -1004,7 +1009,7 @@ _gtk_popover_update_child_visible (GtkPopover *popover)
     }
 
   parent = gtk_widget_get_parent (GTK_WIDGET (priv->parent_scrollable));
-  rect = priv->pointing_to;
+  gtk_popover_get_pointing_to (popover, &rect);
 
   gtk_widget_translate_coordinates (priv->widget, parent,
                                     rect.x, rect.y, &rect.x, &rect.y);
@@ -1037,6 +1042,7 @@ gtk_popover_update_position (GtkPopover *popover)
   GtkPopoverPrivate *priv = popover->priv;
   GtkWidget *widget = GTK_WIDGET (popover);
   GtkAllocation window_alloc;
+  GtkBorder window_shadow;
   GdkRectangle rect;
   GtkRequisition req;
   GtkPositionType pos;
@@ -1049,6 +1055,7 @@ gtk_popover_update_position (GtkPopover *popover)
 
   gtk_widget_get_preferred_size (widget, NULL, &req);
   gtk_widget_get_allocation (GTK_WIDGET (priv->window), &window_alloc);
+  _gtk_window_get_shadow_width (priv->window, &window_shadow);
   priv->final_position = priv->preferred_position;
 
   gtk_popover_get_pointing_to (popover, &rect);
@@ -1057,10 +1064,12 @@ gtk_popover_update_position (GtkPopover *popover)
 
   pos = get_effective_position (popover, priv->preferred_position);
 
-  overshoot[GTK_POS_TOP] = req.height - rect.y;
-  overshoot[GTK_POS_BOTTOM] = rect.y + rect.height + req.height - window_alloc.height;
-  overshoot[GTK_POS_LEFT] = req.width - rect.x;
-  overshoot[GTK_POS_RIGHT] = rect.x + rect.width + req.width - window_alloc.width;
+  overshoot[GTK_POS_TOP] = req.height - rect.y + window_shadow.top;
+  overshoot[GTK_POS_BOTTOM] = rect.y + rect.height + req.height - window_alloc.height
+                              + window_shadow.bottom;
+  overshoot[GTK_POS_LEFT] = req.width - rect.x + window_shadow.left;
+  overshoot[GTK_POS_RIGHT] = rect.x + rect.width + req.width - window_alloc.width
+                             + window_shadow.right;
 
 #ifdef GDK_WINDOWING_WAYLAND
   if (GDK_IS_WAYLAND_DISPLAY (gtk_widget_get_display (widget)) &&
@@ -1752,6 +1761,10 @@ gtk_popover_class_init (GtkPopoverClass *klass)
    * Whether show/hide transitions are enabled for this popover.
    *
    * Since: 3.16
+   *
+   * Deprecated: 3.22: You can show or hide the popover without transitions
+   *   using gtk_widget_show() and gtk_widget_hide() while gtk_popover_popup()
+   *   and gtk_popover_popdown() will use transitions.
    */
   properties[PROP_TRANSITIONS_ENABLED] =
       g_param_spec_boolean ("transitions-enabled",
@@ -1776,6 +1789,14 @@ gtk_popover_class_init (GtkPopoverClass *klass)
 
   g_object_class_install_properties (object_class, NUM_PROPERTIES, properties);
 
+  /**
+   * GtkPopover::closed:
+   *
+   * This signal is emitted when the popover is dismissed either through
+   * API or user interaction.
+   *
+   * Since: 3.12
+   */
   signals[CLOSED] =
     g_signal_new (I_("closed"),
                   G_TYPE_FROM_CLASS (object_class),
@@ -2469,6 +2490,7 @@ gtk_popover_bind_model (GtkPopover  *popover,
 {
   GtkWidget *child;
   GtkWidget *stack;
+  GtkStyleContext *style_context;
 
   g_return_if_fail (GTK_IS_POPOVER (popover));
   g_return_if_fail (model == NULL || G_IS_MENU_MODEL (model));
@@ -2476,6 +2498,8 @@ gtk_popover_bind_model (GtkPopover  *popover,
   child = gtk_bin_get_child (GTK_BIN (popover));
   if (child)
     gtk_widget_destroy (child);
+
+  style_context = gtk_widget_get_style_context (GTK_WIDGET (popover));
 
   if (model)
     {
@@ -2494,6 +2518,12 @@ gtk_popover_bind_model (GtkPopover  *popover,
 
       g_signal_connect (popover, "unmap", G_CALLBACK (back_to_main), NULL);
       g_signal_connect (popover, "map", G_CALLBACK (back_to_main), NULL);
+
+      gtk_style_context_add_class (style_context, GTK_STYLE_CLASS_MENU);
+    }
+  else
+    {
+      gtk_style_context_remove_class (style_context, GTK_STYLE_CLASS_MENU);
     }
 }
 
@@ -2522,16 +2552,12 @@ gtk_popover_new_from_model (GtkWidget  *relative_to,
                             GMenuModel *model)
 {
   GtkWidget *popover;
-  GtkStyleContext *style_context;
 
   g_return_val_if_fail (relative_to == NULL || GTK_IS_WIDGET (relative_to), NULL);
   g_return_val_if_fail (G_IS_MENU_MODEL (model), NULL);
 
   popover = gtk_popover_new (relative_to);
   gtk_popover_bind_model (GTK_POPOVER (popover), model, NULL);
-
-  style_context = gtk_widget_get_style_context (GTK_WIDGET (popover));
-  gtk_style_context_add_class (style_context, GTK_STYLE_CLASS_MENU);
 
   return popover;
 }

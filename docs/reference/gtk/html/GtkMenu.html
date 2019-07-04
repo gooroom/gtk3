@@ -8,7 +8,7 @@
 <link rel="up" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
 <link rel="prev" href="GtkComboBoxText.html" title="GtkComboBoxText">
 <link rel="next" href="GtkMenuBar.html" title="GtkMenuBar">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -337,7 +337,7 @@
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkAnchorHints"><span class="type">GdkAnchorHints</span></a></td>
+<td class="property_type"><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkAnchorHints"><span class="type">GdkAnchorHints</span></a></td>
 <td class="property_name"><a class="link" href="GtkMenu.html#GtkMenu--anchor-hints" title="The “anchor-hints” property">anchor-hints</a></td>
 <td class="property_flags">Read / Write / Construct</td>
 </tr>
@@ -348,7 +348,7 @@
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindowTypeHint"><span class="type">GdkWindowTypeHint</span></a></td>
+<td class="property_type"><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindowTypeHint"><span class="type">GdkWindowTypeHint</span></a></td>
 <td class="property_name"><a class="link" href="GtkMenu.html#GtkMenu--menu-type-hint" title="The “menu-type-hint” property">menu-type-hint</a></td>
 <td class="property_flags">Read / Write / Construct</td>
 </tr>
@@ -551,9 +551,9 @@ can pop up a menu when the 3rd mouse button is pressed.  </p>
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc slc">// connect our handler which will popup the menu</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect-swapped">g_signal_connect_swapped</a></span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">,</span> <span class="string">&quot;button_press_event&quot;</span><span class="gtkdoc opt">,</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>my_popup_handler<span class="gtkdoc opt">),</span> menu<span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">// connect our handler which will popup the menu</span>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect-swapped">g_signal_connect_swapped</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"button_press_event"</span><span class="symbol">,</span>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">my_popup_handler</span><span class="symbol">),</span><span class="normal"> menu</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -594,33 +594,33 @@ can pop up a menu when the 3rd mouse button is pressed.  </p>
 25
 26
 27</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static</span> gint
-<span class="function">my_popup_handler</span> <span class="gtkdoc opt">(</span>GtkWidget <span class="gtkdoc opt">*</span>widget<span class="gtkdoc opt">,</span> GdkEvent <span class="gtkdoc opt">*</span>event<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkMenu <span class="gtkdoc opt">*</span>menu<span class="gtkdoc opt">;</span>
-  GdkEventButton <span class="gtkdoc opt">*</span>event_button<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint">gint</a></span>
+<span class="function">my_popup_handler</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">widget</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">GdkEvent</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">event</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkMenu</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">menu</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GdkEventButton</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">event_button</span><span class="symbol">;</span>
 
-  <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Warnings-and-Assertions.html#g-return-val-if-fail">g_return_val_if_fail</a></span> <span class="gtkdoc opt">(</span>widget <span class="gtkdoc opt">!=</span> NULL<span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Warnings-and-Assertions.html#g-return-val-if-fail">g_return_val_if_fail</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_IS_MENU</span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">),</span> FALSE<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Warnings-and-Assertions.html#g-return-val-if-fail">g_return_val_if_fail</a></span> <span class="gtkdoc opt">(</span>event <span class="gtkdoc opt">!=</span> NULL<span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Warnings-and-Assertions.html#g-return-val-if-fail">g_return_val_if_fail</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Warnings-and-Assertions.html#g-return-val-if-fail">g_return_val_if_fail</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_IS_MENU</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">),</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Warnings-and-Assertions.html#g-return-val-if-fail">g_return_val_if_fail</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">event </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// The &quot;widget&quot; is the menu that was supplied when </span>
-  <span class="gtkdoc slc">// g_signal_connect_swapped() was called.</span>
-  menu <span class="gtkdoc opt">=</span> <span class="function">GTK_MENU</span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="comment">// The "widget" is the menu that was supplied when </span>
+<span class="normal">  </span><span class="comment">// g_signal_connect_swapped() was called.</span>
+<span class="normal">  menu </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GTK_MENU</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">);</span>
 
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>event<span class="gtkdoc opt">-&gt;</span>type <span class="gtkdoc opt">==</span> GDK_BUTTON_PRESS<span class="gtkdoc opt">)</span>
-    <span class="gtkdoc opt">{</span>
-      event_button <span class="gtkdoc opt">= (</span>GdkEventButton <span class="gtkdoc opt">*)</span> event<span class="gtkdoc opt">;</span>
-      <span class="keyword">if</span> <span class="gtkdoc opt">(</span>event_button<span class="gtkdoc opt">-&gt;</span>button <span class="gtkdoc opt">==</span> GDK_BUTTON_SECONDARY<span class="gtkdoc opt">)</span>
-        <span class="gtkdoc opt">{</span>
-          <span class="function"><a href="GtkMenu.html#gtk-menu-popup">gtk_menu_popup</a></span> <span class="gtkdoc opt">(</span>menu<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">,</span> 
-                          event_button<span class="gtkdoc opt">-&gt;</span>button<span class="gtkdoc opt">,</span> event_button<span class="gtkdoc opt">-&gt;</span>time<span class="gtkdoc opt">);</span>
-          <span class="keyword">return</span> TRUE<span class="gtkdoc opt">;</span>
-        <span class="gtkdoc opt">}</span>
-    <span class="gtkdoc opt">}</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">event</span><span class="symbol">-&gt;</span><span class="normal">type </span><span class="symbol">==</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-BUTTON-PRESS:CAPS">GDK_BUTTON_PRESS</a></span><span class="symbol">)</span>
+<span class="normal">    </span><span class="cbracket">{</span>
+<span class="normal">      event_button </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventButton">GdkEventButton</a> </span><span class="symbol">*)</span><span class="normal"> event</span><span class="symbol">;</span>
+<span class="normal">      </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">event_button</span><span class="symbol">-&gt;</span><span class="normal">button </span><span class="symbol">==</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-BUTTON-SECONDARY:CAPS">GDK_BUTTON_SECONDARY</a></span><span class="symbol">)</span>
+<span class="normal">        </span><span class="cbracket">{</span>
+<span class="normal">          </span><span class="function"><a href="GtkMenu.html#gtk-menu-popup">gtk_menu_popup</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">menu</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span>
+<span class="normal">                          event_button</span><span class="symbol">-&gt;</span><span class="normal">button</span><span class="symbol">,</span><span class="normal"> event_button</span><span class="symbol">-&gt;</span><span class="normal">time</span><span class="symbol">);</span>
+<span class="normal">          </span><span class="keyword">return</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">    </span><span class="cbracket">}</span>
 
-  <span class="keyword">return</span> FALSE<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -640,12 +640,12 @@ can pop up a menu when the 3rd mouse button is pressed.  </p>
 4
 5
 6</pre></td>
-        <td class="listing_code"><pre class="programlisting">menu
-├── arrow<span class="gtkdoc opt">.</span>top
-├── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-┊
-├── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-╰── arrow<span class="gtkdoc opt">.</span>bottom</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">menu</span>
+<span class="normal">├── arrow</span><span class="symbol">.</span><span class="normal">top</span>
+<span class="normal">├── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">┊</span>
+<span class="normal">├── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">╰── arrow</span><span class="symbol">.</span><span class="normal">bottom</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -673,7 +673,7 @@ gtk_menu_new (<em class="parameter"><code><span class="type">void</span></code><
 <div class="refsect2">
 <a name="gtk-menu-new-from-model"></a><h3>gtk_menu_new_from_model ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
-gtk_menu_new_from_model (<em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> *model</code></em>);</pre>
+gtk_menu_new_from_model (<em class="parameter"><code><span class="type">GMenuModel</span> *model</code></em>);</pre>
 <p>Creates a <a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> and populates it with menu items and
 submenus according to <em class="parameter"><code>model</code></em>
 .</p>
@@ -693,7 +693,7 @@ attach widget or on any of its parent widgets.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>model</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a></p></td>
+<td class="parameter_description"><p>a <span class="type">GMenuModel</span></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
@@ -709,8 +709,8 @@ attach widget or on any of its parent widgets.</p>
 <a name="gtk-menu-set-screen"></a><h3>gtk_menu_set_screen ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_menu_set_screen (<em class="parameter"><code><a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> *menu</code></em>,
-                     <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
-<p>Sets the <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> on which the menu will be displayed.</p>
+                     <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+<p>Sets the <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> on which the menu will be displayed.</p>
 <div class="refsect3">
 <a name="gtk-menu-set-screen.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -727,7 +727,7 @@ gtk_menu_set_screen (<em class="parameter"><code><a class="link" href="GtkMenu.h
 </tr>
 <tr>
 <td class="parameter_name"><p>screen</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the screen should be
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the screen should be
 determined by the widget the menu is attached to. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -847,11 +847,11 @@ rightmost, uppermost and lower column and row numbers of the table.
 <a name="gtk-menu-popup-at-rect"></a><h3>gtk_menu_popup_at_rect ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_menu_popup_at_rect (<em class="parameter"><code><a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> *menu</code></em>,
-                        <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *rect_window</code></em>,
-                        <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *rect</code></em>,
-                        <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkGravity"><span class="type">GdkGravity</span></a> rect_anchor</code></em>,
-                        <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkGravity"><span class="type">GdkGravity</span></a> menu_anchor</code></em>,
-                        <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *trigger_event</code></em>);</pre>
+                        <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *rect_window</code></em>,
+                        <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *rect</code></em>,
+                        <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkGravity"><span class="type">GdkGravity</span></a> rect_anchor</code></em>,
+                        <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkGravity"><span class="type">GdkGravity</span></a> menu_anchor</code></em>,
+                        <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *trigger_event</code></em>);</pre>
 <p>Displays <em class="parameter"><code>menu</code></em>
  and makes it available for selection.</p>
 <p>See <a class="link" href="GtkMenu.html#gtk-menu-popup-at-widget" title="gtk_menu_popup_at_widget ()"><code class="function">gtk_menu_popup_at_widget()</code></a> and <a class="link" href="GtkMenu.html#gtk-menu-popup-at-pointer" title="gtk_menu_popup_at_pointer ()"><code class="function">gtk_menu_popup_at_pointer()</code></a>, which
@@ -892,13 +892,13 @@ direction is right-to-left.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>rect_window</p></td>
-<td class="parameter_description"><p> the <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> <em class="parameter"><code>rect</code></em>
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> <em class="parameter"><code>rect</code></em>
 is relative to. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>rect</p></td>
-<td class="parameter_description"><p> the <a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> to align <em class="parameter"><code>menu</code></em>
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> to align <em class="parameter"><code>menu</code></em>
 with. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>]</span></td>
 </tr>
@@ -918,7 +918,7 @@ to align with <em class="parameter"><code>rect</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>trigger_event</p></td>
-<td class="parameter_description"><p> the <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> that initiated this request or
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> that initiated this request or
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it's the current event. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
@@ -926,20 +926,6 @@ to align with <em class="parameter"><code>rect</code></em>
 </table></div>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
-<p class="stability">Stability Level: <acronym title="Unstable interfaces are experimental or transitional. They are typically used to
-give outside developers early access to new or rapidly changing technology, or
-to provide an interim solution to a problem where a more general solution is
-anticipated. No claims are made about either source or binary compatibility from
-one minor release to the next.
-
-The Unstable interface level is a warning that these interfaces are  subject to
-change without warning and should not be used in unbundled products.
-
-Given such caveats, customer impact need not be a factor when considering
-incompatible changes to an Unstable interface in a major or minor release.
-Nonetheless, when such changes are introduced, the changes should still be
-mentioned in the release notes for the affected release.
-"><span class="acronym">Unstable</span></acronym></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -947,9 +933,9 @@ mentioned in the release notes for the affected release.
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_menu_popup_at_widget (<em class="parameter"><code><a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> *menu</code></em>,
                           <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                          <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkGravity"><span class="type">GdkGravity</span></a> widget_anchor</code></em>,
-                          <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkGravity"><span class="type">GdkGravity</span></a> menu_anchor</code></em>,
-                          <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *trigger_event</code></em>);</pre>
+                          <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkGravity"><span class="type">GdkGravity</span></a> widget_anchor</code></em>,
+                          <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkGravity"><span class="type">GdkGravity</span></a> menu_anchor</code></em>,
+                          <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *trigger_event</code></em>);</pre>
 <p>Displays <em class="parameter"><code>menu</code></em>
  and makes it available for selection.</p>
 <p>See <a class="link" href="GtkMenu.html#gtk-menu-popup-at-pointer" title="gtk_menu_popup_at_pointer ()"><code class="function">gtk_menu_popup_at_pointer()</code></a> to pop up a menu at the master pointer.
@@ -989,7 +975,7 @@ direction is right-to-left.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>widget</p></td>
-<td class="parameter_description"><p> the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to align <em class="parameter"><code>menu</code></em>
+<td class="parameter_description"><p>the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to align <em class="parameter"><code>menu</code></em>
 with. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL must not be passed as the value in, out, in-out; or as a return value."><span class="acronym">not nullable</span></acronym>]</span></td>
 </tr>
@@ -1009,7 +995,7 @@ to align with <em class="parameter"><code>widget</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>trigger_event</p></td>
-<td class="parameter_description"><p> the <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> that initiated this request or
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> that initiated this request or
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it's the current event. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
@@ -1017,27 +1003,13 @@ to align with <em class="parameter"><code>widget</code></em>
 </table></div>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
-<p class="stability">Stability Level: <acronym title="Unstable interfaces are experimental or transitional. They are typically used to
-give outside developers early access to new or rapidly changing technology, or
-to provide an interim solution to a problem where a more general solution is
-anticipated. No claims are made about either source or binary compatibility from
-one minor release to the next.
-
-The Unstable interface level is a warning that these interfaces are  subject to
-change without warning and should not be used in unbundled products.
-
-Given such caveats, customer impact need not be a factor when considering
-incompatible changes to an Unstable interface in a major or minor release.
-Nonetheless, when such changes are introduced, the changes should still be
-mentioned in the release notes for the affected release.
-"><span class="acronym">Unstable</span></acronym></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-menu-popup-at-pointer"></a><h3>gtk_menu_popup_at_pointer ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_menu_popup_at_pointer (<em class="parameter"><code><a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> *menu</code></em>,
-                           <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *trigger_event</code></em>);</pre>
+                           <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *trigger_event</code></em>);</pre>
 <p>Displays <em class="parameter"><code>menu</code></em>
  and makes it available for selection.</p>
 <p>See <a class="link" href="GtkMenu.html#gtk-menu-popup-at-widget" title="gtk_menu_popup_at_widget ()"><code class="function">gtk_menu_popup_at_widget()</code></a> to pop up a menu at a widget.
@@ -1066,7 +1038,7 @@ out how it was actually positioned.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>trigger_event</p></td>
-<td class="parameter_description"><p> the <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> that initiated this request or
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> that initiated this request or
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it's the current event. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
@@ -1074,27 +1046,13 @@ out how it was actually positioned.</p>
 </table></div>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
-<p class="stability">Stability Level: <acronym title="Unstable interfaces are experimental or transitional. They are typically used to
-give outside developers early access to new or rapidly changing technology, or
-to provide an interim solution to a problem where a more general solution is
-anticipated. No claims are made about either source or binary compatibility from
-one minor release to the next.
-
-The Unstable interface level is a warning that these interfaces are  subject to
-change without warning and should not be used in unbundled products.
-
-Given such caveats, customer impact need not be a factor when considering
-incompatible changes to an Unstable interface in a major or minor release.
-Nonetheless, when such changes are introduced, the changes should still be
-mentioned in the release notes for the affected release.
-"><span class="acronym">Unstable</span></acronym></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-menu-popup-for-device"></a><h3>gtk_menu_popup_for_device ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_menu_popup_for_device (<em class="parameter"><code><a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> *menu</code></em>,
-                           <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> *device</code></em>,
+                           <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> *device</code></em>,
                            <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *parent_menu_shell</code></em>,
                            <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *parent_menu_item</code></em>,
                            <em class="parameter"><code><a class="link" href="GtkMenu.html#GtkMenuPositionFunc" title="GtkMenuPositionFunc ()"><span class="type">GtkMenuPositionFunc</span></a> func</code></em>,
@@ -1152,36 +1110,36 @@ have this problem.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>device</p></td>
-<td class="parameter_description"><p> a <a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a>. </p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>parent_menu_shell</p></td>
-<td class="parameter_description"><p> the menu shell containing the triggering
+<td class="parameter_description"><p>the menu shell containing the triggering
 menu item, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>parent_menu_item</p></td>
-<td class="parameter_description"><p> the menu item whose activation triggered
+<td class="parameter_description"><p>the menu item whose activation triggered
 the popup, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>func</p></td>
-<td class="parameter_description"><p> a user supplied function used to position the menu,
+<td class="parameter_description"><p>a user supplied function used to position the menu,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>data</p></td>
-<td class="parameter_description"><p> user supplied data to be passed to <em class="parameter"><code>func</code></em>
+<td class="parameter_description"><p>user supplied data to be passed to <em class="parameter"><code>func</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>destroy</p></td>
-<td class="parameter_description"><p> destroy notify for <em class="parameter"><code>data</code></em>
+<td class="parameter_description"><p>destroy notify for <em class="parameter"><code>data</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1259,19 +1217,19 @@ have this problem.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>parent_menu_shell</p></td>
-<td class="parameter_description"><p> the menu shell containing the
+<td class="parameter_description"><p>the menu shell containing the
 triggering menu item, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>parent_menu_item</p></td>
-<td class="parameter_description"><p> the menu item whose activation
+<td class="parameter_description"><p>the menu item whose activation
 triggered the popup, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>func</p></td>
-<td class="parameter_description"><p> a user supplied function used to position
+<td class="parameter_description"><p>a user supplied function used to position
 the menu, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1322,7 +1280,7 @@ contained in this group.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>accel_group</p></td>
-<td class="parameter_description"><p> the <a class="link" href="gtk3-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> to be associated
+<td class="parameter_description"><p>the <a class="link" href="gtk3-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> to be associated
 with the menu. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1354,7 +1312,7 @@ menu. See <a class="link" href="GtkMenu.html#gtk-menu-set-accel-group" title="gt
 </div>
 <div class="refsect3">
 <a name="gtk-menu-get-accel-group.returns"></a><h4>Returns</h4>
-<p> the <a class="link" href="gtk3-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> associated with the menu. </p>
+<p>the <a class="link" href="gtk3-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> associated with the menu. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -1373,9 +1331,9 @@ Instead, by just calling <a class="link" href="GtkMenu.html#gtk-menu-set-accel-p
 each menu item of this menu, that contains a label describing its
 purpose, automatically gets an accel path assigned.</p>
 <p>For example, a menu containing menu items “New” and “Exit”, will, after
-<code class="literal">gtk_menu_set_accel_path (menu, "&lt;Gnumeric-Sheet&gt;/File");</code> has been
-called, assign its items the accel paths: <code class="literal">"&lt;Gnumeric-Sheet&gt;/File/New"</code>
-and <code class="literal">"&lt;Gnumeric-Sheet&gt;/File/Exit"</code>.</p>
+<code class="literal">gtk_menu_set_accel_path (menu, "&amp;lt;Gnumeric-Sheet&gt;/File");</code> has been
+called, assign its items the accel paths: <code class="literal">"&amp;lt;Gnumeric-Sheet&gt;/File/New"</code>
+and <code class="literal">"&amp;lt;Gnumeric-Sheet&gt;/File/Exit"</code>.</p>
 <p>Assigning accel paths to menu items then enables the user to change
 their accelerators at runtime. More details about accelerator paths
 and their default setups can be found at <a class="link" href="gtk3-Accelerator-Maps.html#gtk-accel-map-add-entry" title="gtk_accel_map_add_entry ()"><code class="function">gtk_accel_map_add_entry()</code></a>.</p>
@@ -1399,8 +1357,8 @@ it first with <a href="https://developer.gnome.org/glib/unstable/glib-Quarks.htm
 </tr>
 <tr>
 <td class="parameter_name"><p>accel_path</p></td>
-<td class="parameter_description"><p> a valid accelerator path. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_description"><p>a valid accelerator path, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to unset the path. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -1462,8 +1420,9 @@ text as that menu item’s label.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>title</p></td>
-<td class="parameter_description"><p>a string containing the title for the menu</p></td>
-<td class="parameter_annotations"> </td>
+<td class="parameter_description"><p>a string containing the title for the menu, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to
+inherit the title of the parent menu item, if any. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -1505,7 +1464,7 @@ and should not be modified or freed.</p>
 gtk_menu_set_monitor (<em class="parameter"><code><a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> *menu</code></em>,
                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> monitor_num</code></em>);</pre>
 <p>Informs GTK+ on which monitor a menu should be popped up.
-See <a href="http://developer.gnome.org/gdk3/GdkMonitor.html#gdk-monitor-get-geometry"><code class="function">gdk_monitor_get_geometry()</code></a>.</p>
+See <a href="https://developer.gnome.org/gdk3/GdkMonitor.html#gdk-monitor-get-geometry"><code class="function">gdk_monitor_get_geometry()</code></a>.</p>
 <p>This function should be called from a <a class="link" href="GtkMenu.html#GtkMenuPositionFunc" title="GtkMenuPositionFunc ()"><span class="type">GtkMenuPositionFunc</span></a>
 if the menu should not appear on the same monitor as the pointer.
 This information can’t be reliably inferred from the coordinates
@@ -1570,7 +1529,7 @@ be popped up or -1, if no monitor has been set</p>
 <a name="gtk-menu-place-on-monitor"></a><h3>gtk_menu_place_on_monitor ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_menu_place_on_monitor (<em class="parameter"><code><a class="link" href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> *menu</code></em>,
-                           <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkMonitor.html#GdkMonitor-struct"><span class="type">GdkMonitor</span></a> *monitor</code></em>);</pre>
+                           <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkMonitor.html#GdkMonitor-struct"><span class="type">GdkMonitor</span></a> *monitor</code></em>);</pre>
 <p>Places <em class="parameter"><code>menu</code></em>
  on the given monitor.</p>
 <div class="refsect3">
@@ -1753,7 +1712,7 @@ gtk_menu_get_active (<em class="parameter"><code><a class="link" href="GtkMenu.h
 </div>
 <div class="refsect3">
 <a name="gtk-menu-get-active.returns"></a><h4>Returns</h4>
-<p> the <a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMenuItem</span></a> that was last selected
+<p>the <a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMenuItem</span></a> that was last selected
 in the menu.  If a selection has not yet been made, the
 first menu item is selected. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1860,7 +1819,7 @@ widgets moves between screens.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>detacher</p></td>
-<td class="parameter_description"><p> the user supplied callback function
+<td class="parameter_description"><p>the user supplied callback function
 that will be called when the menu calls <a class="link" href="GtkMenu.html#gtk-menu-detach" title="gtk_menu_detach ()"><code class="function">gtk_menu_detach()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1916,7 +1875,7 @@ gtk_menu_get_attach_widget (<em class="parameter"><code><a class="link" href="Gt
 </div>
 <div class="refsect3">
 <a name="gtk-menu-get-attach-widget.returns"></a><h4>Returns</h4>
-<p> the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> that the menu is attached to. </p>
+<p>the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> that the menu is attached to. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -1944,7 +1903,7 @@ This list is owned by GTK+ and must not be modified.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-menu-get-for-attach-widget.returns"></a><h4>Returns</h4>
-<p> the list
+<p>the list
 of menus attached to his widget. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkWidget][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1983,19 +1942,19 @@ called.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>x</p></td>
-<td class="parameter_description"><p> address of the <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> representing the horizontal
+<td class="parameter_description"><p>address of the <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> representing the horizontal
 position where the menu shall be drawn. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>y</p></td>
-<td class="parameter_description"><p> address of the <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> representing the vertical position
+<td class="parameter_description"><p>address of the <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> representing the vertical position
 where the menu shall be drawn.  This is an output parameter. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>push_in</p></td>
-<td class="parameter_description"><p> This parameter controls how menus placed outside
+<td class="parameter_description"><p>This parameter controls how menus placed outside
 the monitor are handled.  If this is set to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> and part of
 the menu is outside the monitor then GTK+ pushes the window
 into the visible area, effectively modifying the popup
@@ -2128,13 +2087,13 @@ menu item is selected.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkMenu--anchor-hints"></a><h3>The <code class="literal">“anchor-hints”</code> property</h3>
-<pre class="programlisting">  “anchor-hints”             <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkAnchorHints"><span class="type">GdkAnchorHints</span></a></pre>
+<pre class="programlisting">  “anchor-hints”             <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkAnchorHints"><span class="type">GdkAnchorHints</span></a></pre>
 <p>Positioning hints for aligning the menu relative to a rectangle.</p>
 <p>These hints determine how the menu should be positioned in the case that
 the menu would fall off-screen if placed in its ideal position.</p>
 <p><span class="inlinemediaobject"><img src="popup-flip.png"></span></p>
-<p>For example, <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GDK-ANCHOR-FLIP-Y:CAPS"><code class="literal">GDK_ANCHOR_FLIP_Y</code></a> will replace <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GDK-GRAVITY-NORTH-WEST:CAPS"><code class="literal">GDK_GRAVITY_NORTH_WEST</code></a> with
-<a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GDK-GRAVITY-SOUTH-WEST:CAPS"><code class="literal">GDK_GRAVITY_SOUTH_WEST</code></a> and vice versa if the menu extends beyond the
+<p>For example, <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GDK-ANCHOR-FLIP-Y:CAPS"><code class="literal">GDK_ANCHOR_FLIP_Y</code></a> will replace <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GDK-GRAVITY-NORTH-WEST:CAPS"><code class="literal">GDK_GRAVITY_NORTH_WEST</code></a> with
+<a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GDK-GRAVITY-SOUTH-WEST:CAPS"><code class="literal">GDK_GRAVITY_SOUTH_WEST</code></a> and vice versa if the menu extends beyond the
 bottom edge of the monitor.</p>
 <p>See <a class="link" href="GtkMenu.html#gtk-menu-popup-at-rect" title="gtk_menu_popup_at_rect ()"><code class="function">gtk_menu_popup_at_rect()</code></a>, <a class="link" href="GtkMenu.html#gtk-menu-popup-at-widget" title="gtk_menu_popup_at_widget ()"><code class="function">gtk_menu_popup_at_widget()</code></a>,
 <a class="link" href="GtkMenu.html#gtk-menu-popup-at-pointer" title="gtk_menu_popup_at_pointer ()"><code class="function">gtk_menu_popup_at_pointer()</code></a>, <a class="link" href="GtkMenu.html#GtkMenu--rect-anchor-dx" title="The “rect-anchor-dx” property"><span class="type">“rect-anchor-dx”</span></a>,
@@ -2142,20 +2101,6 @@ bottom edge of the monitor.</p>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: GDK_ANCHOR_FLIP_X | GDK_ANCHOR_FLIP_Y | GDK_ANCHOR_SLIDE_X | GDK_ANCHOR_SLIDE_Y | GDK_ANCHOR_RESIZE_X | GDK_ANCHOR_RESIZE_Y</p>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
-<p class="stability">Stability Level: <acronym title="Unstable interfaces are experimental or transitional. They are typically used to
-give outside developers early access to new or rapidly changing technology, or
-to provide an interim solution to a problem where a more general solution is
-anticipated. No claims are made about either source or binary compatibility from
-one minor release to the next.
-
-The Unstable interface level is a warning that these interfaces are  subject to
-change without warning and should not be used in unbundled products.
-
-Given such caveats, customer impact need not be a factor when considering
-incompatible changes to an Unstable interface in a major or minor release.
-Nonetheless, when such changes are introduced, the changes should still be
-mentioned in the release notes for the affected release.
-"><span class="acronym">Unstable</span></acronym></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2170,28 +2115,14 @@ use <a class="link" href="GtkMenu.html#gtk-menu-attach-to-widget" title="gtk_men
 <hr>
 <div class="refsect2">
 <a name="GtkMenu--menu-type-hint"></a><h3>The <code class="literal">“menu-type-hint”</code> property</h3>
-<pre class="programlisting">  “menu-type-hint”           <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindowTypeHint"><span class="type">GdkWindowTypeHint</span></a></pre>
-<p>The <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindowTypeHint"><span class="type">GdkWindowTypeHint</span></a> to use for the menu's <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>.</p>
+<pre class="programlisting">  “menu-type-hint”           <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindowTypeHint"><span class="type">GdkWindowTypeHint</span></a></pre>
+<p>The <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindowTypeHint"><span class="type">GdkWindowTypeHint</span></a> to use for the menu's <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>.</p>
 <p>See <a class="link" href="GtkMenu.html#gtk-menu-popup-at-rect" title="gtk_menu_popup_at_rect ()"><code class="function">gtk_menu_popup_at_rect()</code></a>, <a class="link" href="GtkMenu.html#gtk-menu-popup-at-widget" title="gtk_menu_popup_at_widget ()"><code class="function">gtk_menu_popup_at_widget()</code></a>,
 <a class="link" href="GtkMenu.html#gtk-menu-popup-at-pointer" title="gtk_menu_popup_at_pointer ()"><code class="function">gtk_menu_popup_at_pointer()</code></a>, <a class="link" href="GtkMenu.html#GtkMenu--anchor-hints" title="The “anchor-hints” property"><span class="type">“anchor-hints”</span></a>,
 <a class="link" href="GtkMenu.html#GtkMenu--rect-anchor-dx" title="The “rect-anchor-dx” property"><span class="type">“rect-anchor-dx”</span></a>, <a class="link" href="GtkMenu.html#GtkMenu--rect-anchor-dy" title="The “rect-anchor-dy” property"><span class="type">“rect-anchor-dy”</span></a>, and <a class="link" href="GtkMenu.html#GtkMenu-popped-up" title="The “popped-up” signal"><span class="type">“popped-up”</span></a>.</p>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: GDK_WINDOW_TYPE_HINT_POPUP_MENU</p>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
-<p class="stability">Stability Level: <acronym title="Unstable interfaces are experimental or transitional. They are typically used to
-give outside developers early access to new or rapidly changing technology, or
-to provide an interim solution to a problem where a more general solution is
-anticipated. No claims are made about either source or binary compatibility from
-one minor release to the next.
-
-The Unstable interface level is a warning that these interfaces are  subject to
-change without warning and should not be used in unbundled products.
-
-Given such caveats, customer impact need not be a factor when considering
-incompatible changes to an Unstable interface in a major or minor release.
-Nonetheless, when such changes are introduced, the changes should still be
-mentioned in the release notes for the affected release.
-"><span class="acronym">Unstable</span></acronym></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2215,20 +2146,6 @@ anchor.</p>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: 0</p>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
-<p class="stability">Stability Level: <acronym title="Unstable interfaces are experimental or transitional. They are typically used to
-give outside developers early access to new or rapidly changing technology, or
-to provide an interim solution to a problem where a more general solution is
-anticipated. No claims are made about either source or binary compatibility from
-one minor release to the next.
-
-The Unstable interface level is a warning that these interfaces are  subject to
-change without warning and should not be used in unbundled products.
-
-Given such caveats, customer impact need not be a factor when considering
-incompatible changes to an Unstable interface in a major or minor release.
-Nonetheless, when such changes are introduced, the changes should still be
-mentioned in the release notes for the affected release.
-"><span class="acronym">Unstable</span></acronym></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2241,20 +2158,6 @@ mentioned in the release notes for the affected release.
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: 0</p>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
-<p class="stability">Stability Level: <acronym title="Unstable interfaces are experimental or transitional. They are typically used to
-give outside developers early access to new or rapidly changing technology, or
-to provide an interim solution to a problem where a more general solution is
-anticipated. No claims are made about either source or binary compatibility from
-one minor release to the next.
-
-The Unstable interface level is a warning that these interfaces are  subject to
-change without warning and should not be used in unbundled products.
-
-Given such caveats, customer impact need not be a factor when considering
-incompatible changes to an Unstable interface in a major or minor release.
-Nonetheless, when such changes are introduced, the changes should still be
-mentioned in the release notes for the affected release.
-"><span class="acronym">Unstable</span></acronym></p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2509,14 +2412,14 @@ and the red menu is <em class="parameter"><code>final_rect</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>flipped_rect</p></td>
-<td class="parameter_description"><p> the position of <em class="parameter"><code>menu</code></em>
+<td class="parameter_description"><p>the position of <em class="parameter"><code>menu</code></em>
 after any possible
 flipping or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the backend can't obtain it. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>final_rect</p></td>
-<td class="parameter_description"><p> the final position of <em class="parameter"><code>menu</code></em>
+<td class="parameter_description"><p>the final position of <em class="parameter"><code>menu</code></em>
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
 backend can't obtain it. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
@@ -2541,24 +2444,10 @@ backend can't obtain it. </p></td>
 </div>
 <p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
-<p class="stability">Stability Level: <acronym title="Unstable interfaces are experimental or transitional. They are typically used to
-give outside developers early access to new or rapidly changing technology, or
-to provide an interim solution to a problem where a more general solution is
-anticipated. No claims are made about either source or binary compatibility from
-one minor release to the next.
-
-The Unstable interface level is a warning that these interfaces are  subject to
-change without warning and should not be used in unbundled products.
-
-Given such caveats, customer impact need not be a factor when considering
-incompatible changes to an Unstable interface in a major or minor release.
-Nonetheless, when such changes are introduced, the changes should still be
-mentioned in the release notes for the affected release.
-"><span class="acronym">Unstable</span></acronym></p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

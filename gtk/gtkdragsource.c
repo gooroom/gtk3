@@ -58,6 +58,8 @@ gtk_drag_source_gesture_begin (GtkGesture       *gesture,
   else
     button = gtk_gesture_single_get_current_button (GTK_GESTURE_SINGLE (gesture));
 
+  g_assert (button >= 1);
+
   if (!site->start_button_mask ||
       !(site->start_button_mask & (GDK_BUTTON1_MASK << (button - 1))))
     gtk_gesture_set_state (gesture, GTK_EVENT_SEQUENCE_DENIED);
@@ -86,6 +88,8 @@ gtk_drag_source_event_cb (GtkWidget *widget,
           GdkEventSequence *sequence;
           GdkEvent *last_event;
           guint button;
+          gboolean needs_icon;
+          GdkDragContext *context;
 
           sequence = gtk_gesture_single_get_current_sequence (GTK_GESTURE_SINGLE (site->drag_gesture));
           last_event = gdk_event_copy (gtk_gesture_get_last_event (site->drag_gesture, sequence));
@@ -93,9 +97,12 @@ gtk_drag_source_event_cb (GtkWidget *widget,
           button = gtk_gesture_single_get_current_button (GTK_GESTURE_SINGLE (site->drag_gesture));
           gtk_event_controller_reset (GTK_EVENT_CONTROLLER (site->drag_gesture));
 
-          gtk_drag_begin_internal (widget, site->image_def, site->target_list,
-                                   site->actions, button, last_event,
-                                   start_x, start_y);
+          context = gtk_drag_begin_internal (widget, &needs_icon, site->target_list,
+                                             site->actions, button, last_event,
+                                             start_x, start_y);
+
+          if (context != NULL && needs_icon)
+            gtk_drag_set_icon_definition (context, site->image_def, 0, 0);
 
           gdk_event_free (last_event);
 

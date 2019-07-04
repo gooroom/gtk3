@@ -8,7 +8,7 @@
 <link rel="up" href="migrating.html" title="Part V. Migrating from Previous Versions of GTK+">
 <link rel="prev" href="gtk-migrating-GtkStyleContext-bonus-points.html" title="Bonus points">
 <link rel="next" href="ch28s02.html" title="Commands and Messages">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -33,7 +33,7 @@
   </p>
 <p>
     Starting with GLib 2.26, D-Bus support has been integrated into GIO
-    in the form of GDBus, and <a href="https://developer.gnome.org/gio/unstable/GApplication.html#GApplication-struct"><span class="type">GApplication</span></a> has been added to provide
+    in the form of GDBus, and <span class="type">GApplication</span> has been added to provide
     the same level of application support as libunique.
   </p>
 <div class="example">
@@ -77,38 +77,38 @@
 30
 31
 32</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">int</span>
-<span class="function">main</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwb">int</span> argc<span class="gtkdoc opt">,</span> <span class="gtkdoc kwb">char</span> <span class="gtkdoc opt">*</span>argv<span class="gtkdoc opt">[])</span>
-<span class="gtkdoc opt">{</span>
-  UniqueApp <span class="gtkdoc opt">*</span>app<span class="gtkdoc opt">;</span>
-  GtkWidget <span class="gtkdoc opt">*</span>window<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="type">int</span>
+<span class="function">main</span><span class="normal"> </span><span class="symbol">(</span><span class="type">int</span><span class="normal"> argc</span><span class="symbol">,</span><span class="normal"> </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">argv</span><span class="symbol">[])</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">UniqueApp</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">app</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">window</span><span class="symbol">;</span>
 
-  <span class="function"><a href="gtk3-General.html#gtk-init">gtk_init</a></span> <span class="gtkdoc opt">(&amp;</span>argc<span class="gtkdoc opt">, &amp;</span>argv<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="gtk3-General.html#gtk-init">gtk_init</a></span><span class="normal"> </span><span class="symbol">(&amp;</span><span class="normal">argc</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">argv</span><span class="symbol">);</span>
 
-  app <span class="gtkdoc opt">=</span> <span class="function">unique_app_new</span> <span class="gtkdoc opt">(</span><span class="string">&quot;org.gtk.TestApplication&quot;</span><span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span>
+<span class="normal">  app </span><span class="symbol">=</span><span class="normal"> </span><span class="function">unique_app_new</span><span class="normal"> </span><span class="symbol">(</span><span class="string">"org.gtk.TestApplication"</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span><span class="function">unique_app_is_running</span> <span class="gtkdoc opt">(</span>app<span class="gtkdoc opt">))</span>
-    <span class="gtkdoc opt">{</span>
-      UniqueResponse response<span class="gtkdoc opt">;</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function">unique_app_is_running</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">app</span><span class="symbol">))</span>
+<span class="normal">    </span><span class="cbracket">{</span>
+<span class="normal">      </span><span class="usertype">UniqueResponse</span><span class="normal"> response</span><span class="symbol">;</span>
 
-      response <span class="gtkdoc opt">=</span> <span class="function">unique_app_send_message</span> <span class="gtkdoc opt">(</span>app<span class="gtkdoc opt">,</span> UNIQUE_ACTIVATE<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span>
-      <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>app<span class="gtkdoc opt">);</span>
+<span class="normal">      response </span><span class="symbol">=</span><span class="normal"> </span><span class="function">unique_app_send_message</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">app</span><span class="symbol">,</span><span class="normal"> UNIQUE_ACTIVATE</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">      </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">app</span><span class="symbol">);</span>
 
-      <span class="keyword">return</span> response <span class="gtkdoc opt">==</span> UNIQUE_RESPONSE_OK <span class="gtkdoc opt">?</span> <span class="number">0</span> <span class="gtkdoc opt">:</span> <span class="number">1</span><span class="gtkdoc opt">;</span>
-    <span class="gtkdoc opt">}</span>
+<span class="normal">      </span><span class="keyword">return</span><span class="normal"> response </span><span class="symbol">==</span><span class="normal"> UNIQUE_RESPONSE_OK </span><span class="symbol">?</span><span class="normal"> </span><span class="number">0</span><span class="normal"> </span><span class="symbol">:</span><span class="normal"> </span><span class="number">1</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
 
-  window <span class="gtkdoc opt">=</span> <span class="function">create_my_window</span> <span class="gtkdoc opt">();</span>
+<span class="normal">  window </span><span class="symbol">=</span><span class="normal"> </span><span class="function">create_my_window</span><span class="normal"> </span><span class="symbol">();</span>
 
-  <span class="function">unique_app_watch_window</span> <span class="gtkdoc opt">(</span>app<span class="gtkdoc opt">,</span> <span class="function">GTK_WINDOW</span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">));</span>
+<span class="normal">  </span><span class="function">unique_app_watch_window</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">app</span><span class="symbol">,</span><span class="normal"> </span><span class="function">GTK_WINDOW</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">));</span>
 
-  <span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">);</span>
 
-  <span class="function"><a href="gtk3-General.html#gtk-main">gtk_main</a></span> <span class="gtkdoc opt">();</span>
+<span class="normal">  </span><span class="function"><a href="gtk3-General.html#gtk-main">gtk_main</a></span><span class="normal"> </span><span class="symbol">();</span>
 
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>app<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">app</span><span class="symbol">);</span>
 
-  <span class="keyword">return</span> <span class="number">0</span><span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> </span><span class="number">0</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -156,41 +156,41 @@ The same application using GtkApplication:
 33
 34
 35</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">activate</span> <span class="gtkdoc opt">(</span>GtkApplication <span class="gtkdoc opt">*</span>app<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GList <span class="gtkdoc opt">*</span>list<span class="gtkdoc opt">;</span>
-  GtkWidget <span class="gtkdoc opt">*</span>window<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">activate</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkApplication</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">app</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GList</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">list</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">window</span><span class="symbol">;</span>
 
-  list <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkApplication.html#gtk-application-get-windows">gtk_application_get_windows</a></span> <span class="gtkdoc opt">(</span>app<span class="gtkdoc opt">);</span>
+<span class="normal">  list </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkApplication.html#gtk-application-get-windows">gtk_application_get_windows</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">app</span><span class="symbol">);</span>
 
-  <span class="keyword">if</span> <span class="gtkdoc opt">(</span>list<span class="gtkdoc opt">)</span>
-    <span class="gtkdoc opt">{</span>
-      <span class="function"><a href="GtkWindow.html#gtk-window-present">gtk_window_present</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_WINDOW</span> <span class="gtkdoc opt">(</span>list<span class="gtkdoc opt">-&gt;</span>data<span class="gtkdoc opt">));</span>
-    <span class="gtkdoc opt">}</span>
-  <span class="keyword">else</span>
-    <span class="gtkdoc opt">{</span>
-      window <span class="gtkdoc opt">=</span> <span class="function">create_my_window</span> <span class="gtkdoc opt">();</span>
-      <span class="function"><a href="GtkWindow.html#gtk-window-set-application">gtk_window_set_application</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_WINDOW</span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">),</span> app<span class="gtkdoc opt">);</span>
-      <span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">);</span>
-    <span class="gtkdoc opt">}</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">list</span><span class="symbol">)</span>
+<span class="normal">    </span><span class="cbracket">{</span>
+<span class="normal">      </span><span class="function"><a href="GtkWindow.html#gtk-window-present">gtk_window_present</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WINDOW</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">list</span><span class="symbol">-&gt;</span><span class="normal">data</span><span class="symbol">));</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+<span class="normal">  </span><span class="keyword">else</span>
+<span class="normal">    </span><span class="cbracket">{</span>
+<span class="normal">      window </span><span class="symbol">=</span><span class="normal"> </span><span class="function">create_my_window</span><span class="normal"> </span><span class="symbol">();</span>
+<span class="normal">      </span><span class="function"><a href="GtkWindow.html#gtk-window-set-application">gtk_window_set_application</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WINDOW</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">),</span><span class="normal"> app</span><span class="symbol">);</span>
+<span class="normal">      </span><span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc kwb">int</span>
-<span class="function">main</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwb">int</span> argc<span class="gtkdoc opt">,</span> <span class="gtkdoc kwb">char</span> <span class="gtkdoc opt">*</span>argv<span class="gtkdoc opt">[])</span>
-<span class="gtkdoc opt">{</span>
-  GtkApplication <span class="gtkdoc opt">*</span>app<span class="gtkdoc opt">;</span>
-  gint status<span class="gtkdoc opt">;</span>
+<span class="type">int</span>
+<span class="function">main</span><span class="normal"> </span><span class="symbol">(</span><span class="type">int</span><span class="normal"> argc</span><span class="symbol">,</span><span class="normal"> </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">argv</span><span class="symbol">[])</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkApplication</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">app</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">gint</span><span class="normal"> status</span><span class="symbol">;</span>
 
-  app <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkApplication.html#gtk-application-new">gtk_application_new</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;org.gtk.TestApplication&quot;</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">);</span>
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>app<span class="gtkdoc opt">,</span> <span class="string">&quot;activate&quot;</span><span class="gtkdoc opt">,</span> <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>activate<span class="gtkdoc opt">),</span> NULL<span class="gtkdoc opt">);</span>
+<span class="normal">  app </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkApplication.html#gtk-application-new">gtk_application_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"org.gtk.TestApplication"</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">app</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"activate"</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">activate</span><span class="symbol">),</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 
-  status <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/gio/unstable/GApplication.html#g-application-run">g_application_run</a></span> <span class="gtkdoc opt">(</span><span class="function">G_APPLICATION</span> <span class="gtkdoc opt">(</span>app<span class="gtkdoc opt">),</span> argc<span class="gtkdoc opt">,</span> argv<span class="gtkdoc opt">);</span>
+<span class="normal">  status </span><span class="symbol">=</span><span class="normal"> </span><span class="function">g_application_run</span><span class="normal"> </span><span class="symbol">(</span><span class="function">G_APPLICATION</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">app</span><span class="symbol">),</span><span class="normal"> argc</span><span class="symbol">,</span><span class="normal"> argv</span><span class="symbol">);</span>
 
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span> <span class="gtkdoc opt">(</span>app<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">app</span><span class="symbol">);</span>
 
-  <span class="keyword">return</span> status<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> status</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -205,23 +205,23 @@ The same application using GtkApplication:
 <a name="id-1.6.5.5"></a>Uniqueness</h2></div></div></div>
 <p>
       Instead of creating a UniqueApp with unique_app_new(), create
-      a <a href="https://developer.gnome.org/gio/unstable/GApplication.html#GApplication-struct"><span class="type">GApplication</span></a> with <a href="https://developer.gnome.org/gio/unstable/GApplication.html#g-application-new"><code class="function">g_application_new()</code></a> or a <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a>
+      a <span class="type">GApplication</span> with <code class="function">g_application_new()</code> or a <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a>
       with <a class="link" href="GtkApplication.html#gtk-application-new" title="gtk_application_new ()"><code class="function">gtk_application_new()</code></a>. The <em class="parameter"><code>name</code></em> that was used with
       <code class="function">unique_app_new()</code> is very likely usable as the <em class="parameter"><code>application_id</code></em> for
-      <a href="https://developer.gnome.org/gio/unstable/GApplication.html#g-application-new"><code class="function">g_application_new()</code></a> without any changes, and GtkApplication passes
+      <code class="function">g_application_new()</code> without any changes, and GtkApplication passes
       the <code class="envar">DESKTOP_STARTUP_ID</code> environment variable
       automatically.
     </p>
 <p>
       While libunique expects you to check for an already running instance
       yourself and activate it manually, GApplication handles all this on
-      its own in <a href="https://developer.gnome.org/gio/unstable/GApplication.html#g-application-run"><code class="function">g_application_run()</code></a>. If you still need to find out if there
+      its own in <code class="function">g_application_run()</code>. If you still need to find out if there
       is a running instance of your application, use
-      <a href="https://developer.gnome.org/gio/unstable/GApplication.html#g-application-get-is-remote"><code class="function">g_application_get_is_remote()</code></a> instead of <code class="function">unique_app_is_running()</code>.
+      <code class="function">g_application_get_is_remote()</code> instead of <code class="function">unique_app_is_running()</code>.
     </p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

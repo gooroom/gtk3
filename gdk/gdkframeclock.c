@@ -442,8 +442,8 @@ _gdk_frame_clock_begin_frame (GdkFrameClock *frame_clock)
  * for the current frame or a recent frame. The #GdkFrameTimings
  * object may not yet be complete: see gdk_frame_timings_get_complete().
  *
- * Returns: (nullable): the #GdkFrameTimings object for the specified
- *  frame, or %NULL if it is not available. See
+ * Returns: (nullable) (transfer none): the #GdkFrameTimings object for
+ *  the specified frame, or %NULL if it is not available. See
  *  gdk_frame_clock_get_history_start().
  * Since: 3.8
  */
@@ -475,10 +475,10 @@ gdk_frame_clock_get_timings (GdkFrameClock *frame_clock,
  *
  * Gets the frame timings for the current frame.
  *
- * Returns: (nullable): the #GdkFrameTimings for the frame currently
- *  being processed, or even no frame is being processed, for the
- *  previous frame. Before any frames have been procesed, returns
- *  %NULL.
+ * Returns: (nullable) (transfer none): the #GdkFrameTimings for the
+ *  frame currently being processed, or even no frame is being
+ *  processed, for the previous frame. Before any frames have been
+ *  processed, returns %NULL.
  * Since: 3.8
  */
 GdkFrameTimings *
@@ -541,10 +541,10 @@ _gdk_frame_clock_debug_print_timings (GdkFrameClock   *clock,
  * gdk_frame_clock_get_refresh_info:
  * @frame_clock: a #GdkFrameClock
  * @base_time: base time for determining a presentaton time
- * @refresh_interval_return: a location to store the determined refresh
- *  interval, or %NULL. A default refresh interval of 1/60th of
- *  a second will be stored if no history is present.
- * @presentation_time_return: a location to store the next
+ * @refresh_interval_return: (out) (optional): a location to store the
+ * determined refresh interval, or %NULL. A default refresh interval of
+ * 1/60th of a second will be stored if no history is present.
+ * @presentation_time_return: (out): a location to store the next
  *  candidate presentation time after the given base time.
  *  0 will be will be stored if no history is present.
  *

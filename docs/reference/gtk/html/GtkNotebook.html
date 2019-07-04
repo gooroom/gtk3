@@ -8,7 +8,7 @@
 <link rel="up" href="LayoutContainers.html" title="Layout Containers">
 <link rel="prev" href="GtkLayout.html" title="GtkLayout">
 <link rel="next" href="GtkExpander.html" title="GtkExpander">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -694,18 +694,18 @@ type attribute.</p>
 10
 11
 12</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkNotebook&quot;</span><span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkLabel&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;notebook-content&quot;</span><span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;label&quot;</span><span class="gtkdoc opt">&gt;</span>Content<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;</span>child type<span class="gtkdoc opt">=</span><span class="string">&quot;tab&quot;</span><span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;</span>object <span class="gtkdoc kwc">class</span><span class="gtkdoc opt">=</span><span class="string">&quot;GtkLabel&quot;</span> id<span class="gtkdoc opt">=</span><span class="string">&quot;notebook-tab&quot;</span><span class="gtkdoc opt">&gt;</span>
-      <span class="gtkdoc opt">&lt;</span>property name<span class="gtkdoc opt">=</span><span class="string">&quot;label&quot;</span><span class="gtkdoc opt">&gt;</span>Tab<span class="gtkdoc opt">&lt;/</span>property<span class="gtkdoc opt">&gt;</span>
-    <span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span>
-  <span class="gtkdoc opt">&lt;/</span>child<span class="gtkdoc opt">&gt;</span>
-<span class="gtkdoc opt">&lt;/</span>object<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkNotebook"</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkLabel"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"notebook-content"</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"label"</span><span class="symbol">&gt;</span><span class="normal">Content</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;</span><span class="usertype">child</span><span class="normal"> type</span><span class="symbol">=</span><span class="string">"tab"</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkLabel"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"notebook-tab"</span><span class="symbol">&gt;</span>
+<span class="normal">      </span><span class="symbol">&lt;</span><span class="usertype">property</span><span class="normal"> name</span><span class="symbol">=</span><span class="string">"label"</span><span class="symbol">&gt;</span><span class="normal">Tab</span><span class="symbol">&lt;/</span><span class="normal">property</span><span class="symbol">&gt;</span>
+<span class="normal">    </span><span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span>
+<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -737,23 +737,23 @@ type attribute.</p>
 15
 16
 17</pre></td>
-        <td class="listing_code"><pre class="programlisting">notebook
-├── header<span class="gtkdoc opt">.</span>top
-│   ├── <span class="gtkdoc opt">[&lt;</span>action widget<span class="gtkdoc opt">&gt;]</span>
-│   ├── tabs
-│   │   ├── <span class="gtkdoc opt">[</span>arrow<span class="gtkdoc opt">]</span>
-│   │   ├── tab
-│   │   │   ╰── <span class="gtkdoc opt">&lt;</span>tab label<span class="gtkdoc opt">&gt;</span>
-┊   ┊   ┊
-│   │   ├── tab<span class="gtkdoc opt">[.</span>reorderable<span class="gtkdoc opt">-</span>page<span class="gtkdoc opt">]</span>
-│   │   │   ╰── <span class="gtkdoc opt">&lt;</span>tab label<span class="gtkdoc opt">&gt;</span>
-│   │   ╰── <span class="gtkdoc opt">[</span>arrow<span class="gtkdoc opt">]</span>
-│   ╰── <span class="gtkdoc opt">[&lt;</span>action widget<span class="gtkdoc opt">&gt;]</span>
-│
-╰── stack
-    ├── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-    ┊
-    ╰── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">notebook</span>
+<span class="normal">├── header</span><span class="symbol">.</span><span class="normal">top</span>
+<span class="normal">│   ├── </span><span class="symbol">[&lt;</span><span class="usertype">action</span><span class="normal"> widget</span><span class="symbol">&gt;]</span>
+<span class="normal">│   ├── tabs</span>
+<span class="normal">│   │   ├── </span><span class="symbol">[</span><span class="normal">arrow</span><span class="symbol">]</span>
+<span class="normal">│   │   ├── tab</span>
+<span class="normal">│   │   │   ╰── </span><span class="symbol">&lt;</span><span class="usertype">tab</span><span class="normal"> label</span><span class="symbol">&gt;</span>
+<span class="normal">┊   ┊   ┊</span>
+<span class="normal">│   │   ├── tab</span><span class="symbol">[.</span><span class="normal">reorderable</span><span class="symbol">-</span><span class="normal">page</span><span class="symbol">]</span>
+<span class="normal">│   │   │   ╰── </span><span class="symbol">&lt;</span><span class="usertype">tab</span><span class="normal"> label</span><span class="symbol">&gt;</span>
+<span class="normal">│   │   ╰── </span><span class="symbol">[</span><span class="normal">arrow</span><span class="symbol">]</span>
+<span class="normal">│   ╰── </span><span class="symbol">[&lt;</span><span class="usertype">action</span><span class="normal"> widget</span><span class="symbol">&gt;]</span>
+<span class="normal">│</span>
+<span class="normal">╰── stack</span>
+<span class="normal">    ├── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">    ┊</span>
+<span class="normal">    ╰── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -817,7 +817,7 @@ gtk_notebook_append_page (<em class="parameter"><code><a class="link" href="GtkN
 </tr>
 <tr>
 <td class="parameter_name"><p>tab_label</p></td>
-<td class="parameter_description"><p> the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to be used as the label
+<td class="parameter_description"><p>the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to be used as the label
 for the page, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default label, “page N”. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -862,13 +862,13 @@ label in the popup menu.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>tab_label</p></td>
-<td class="parameter_description"><p> the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to be used as the label
+<td class="parameter_description"><p>the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to be used as the label
 for the page, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default label, “page N”. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>menu_label</p></td>
-<td class="parameter_description"><p> the widget to use as a label for the
+<td class="parameter_description"><p>the widget to use as a label for the
 page-switch menu, if that is enabled. If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, and <em class="parameter"><code>tab_label</code></em>
 is a <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the menu label will be a newly
 created label with the same text as <em class="parameter"><code>tab_label</code></em>
@@ -917,7 +917,7 @@ gtk_notebook_prepend_page (<em class="parameter"><code><a class="link" href="Gtk
 </tr>
 <tr>
 <td class="parameter_name"><p>tab_label</p></td>
-<td class="parameter_description"><p> the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to be used as the label
+<td class="parameter_description"><p>the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to be used as the label
 for the page, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default label, “page N”. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -962,13 +962,13 @@ label in the popup menu.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>tab_label</p></td>
-<td class="parameter_description"><p> the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to be used as the label
+<td class="parameter_description"><p>the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to be used as the label
 for the page, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default label, “page N”. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>menu_label</p></td>
-<td class="parameter_description"><p> the widget to use as a label for the
+<td class="parameter_description"><p>the widget to use as a label for the
 page-switch menu, if that is enabled. If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, and <em class="parameter"><code>tab_label</code></em>
 is a <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the menu label will be a newly
 created label with the same text as <em class="parameter"><code>tab_label</code></em>
@@ -1018,7 +1018,7 @@ gtk_notebook_insert_page (<em class="parameter"><code><a class="link" href="GtkN
 </tr>
 <tr>
 <td class="parameter_name"><p>tab_label</p></td>
-<td class="parameter_description"><p> the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to be used as the label
+<td class="parameter_description"><p>the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to be used as the label
 for the page, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default label, “page N”. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1070,13 +1070,13 @@ the widget to use as the label in the popup menu.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>tab_label</p></td>
-<td class="parameter_description"><p> the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to be used as the label
+<td class="parameter_description"><p>the <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> to be used as the label
 for the page, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default label, “page N”. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>menu_label</p></td>
-<td class="parameter_description"><p> the widget to use as a label for the
+<td class="parameter_description"><p>the widget to use as a label for the
 page-switch menu, if that is enabled. If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, and <em class="parameter"><code>tab_label</code></em>
 is a <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the menu label will be a newly
 created label with the same text as <em class="parameter"><code>tab_label</code></em>
@@ -1526,7 +1526,7 @@ gtk_notebook_get_menu_label (<em class="parameter"><code><a class="link" href="G
 </div>
 <div class="refsect3">
 <a name="gtk-notebook-get-menu-label.returns"></a><h4>Returns</h4>
-<p> the menu label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
+<p>the menu label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
 notebook page does not have a menu label other than the default (the tab
 label). </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1565,7 +1565,7 @@ to get the last page</p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-notebook-get-nth-page.returns"></a><h4>Returns</h4>
-<p> the child widget, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>page_num</code></em>
+<p>the child widget, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>page_num</code></em>
 is out of bounds. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1634,8 +1634,8 @@ if no tab label has specifically been set for <em class="parameter"><code>child<
 </div>
 <div class="refsect3">
 <a name="gtk-notebook-get-tab-label.returns"></a><h4>Returns</h4>
-<p> the tab label. </p>
-<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+<p>the tab label. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -1668,7 +1668,7 @@ gtk_notebook_set_menu_label (<em class="parameter"><code><a class="link" href="G
 </tr>
 <tr>
 <td class="parameter_name"><p>menu_label</p></td>
-<td class="parameter_description"><p> the menu label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for default. </p></td>
+<td class="parameter_description"><p>the menu label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for default. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1745,7 +1745,7 @@ have the label “page N”.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>tab_label</p></td>
-<td class="parameter_description"><p> the tab label widget to use, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td class="parameter_description"><p>the tab label widget to use, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 for default tab label. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1875,26 +1875,28 @@ will initiate a drag cancel animation.</p>
 16
 17
 18
-19</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">static void</span>
-<span class="function">on_drag_data_received</span> <span class="gtkdoc opt">(</span>GtkWidget        <span class="gtkdoc opt">*</span>widget<span class="gtkdoc opt">,</span>
-                       GdkDragContext   <span class="gtkdoc opt">*</span>context<span class="gtkdoc opt">,</span>
-                       gint              x<span class="gtkdoc opt">,</span>
-                       gint              y<span class="gtkdoc opt">,</span>
-                       GtkSelectionData <span class="gtkdoc opt">*</span>data<span class="gtkdoc opt">,</span>
-                       guint             info<span class="gtkdoc opt">,</span>
-                       guint             time<span class="gtkdoc opt">,</span>
-                       gpointer          user_data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkWidget <span class="gtkdoc opt">*</span>notebook<span class="gtkdoc opt">;</span>
-  GtkWidget <span class="gtkdoc opt">**</span>child<span class="gtkdoc opt">;</span>
+19
+20</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
+<span class="function">on_drag_data_received</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkWidget</span><span class="normal">        </span><span class="symbol">*</span><span class="normal">widget</span><span class="symbol">,</span>
+<span class="normal">                       </span><span class="usertype">GdkDragContext</span><span class="normal">   </span><span class="symbol">*</span><span class="normal">context</span><span class="symbol">,</span>
+<span class="normal">                       </span><span class="usertype">gint</span><span class="normal">              x</span><span class="symbol">,</span>
+<span class="normal">                       </span><span class="usertype">gint</span><span class="normal">              y</span><span class="symbol">,</span>
+<span class="normal">                       </span><span class="usertype">GtkSelectionData</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">data</span><span class="symbol">,</span>
+<span class="normal">                       </span><span class="usertype">guint</span><span class="normal">             info</span><span class="symbol">,</span>
+<span class="normal">                       </span><span class="usertype">guint</span><span class="normal">             time</span><span class="symbol">,</span>
+<span class="normal">                       </span><span class="usertype">gpointer</span><span class="normal">          user_data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">notebook</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">**</span><span class="normal">child</span><span class="symbol">;</span>
 
-  notebook <span class="gtkdoc opt">=</span> <span class="function"><a href="gtk3-Drag-and-Drop.html#gtk-drag-get-source-widget">gtk_drag_get_source_widget</a></span> <span class="gtkdoc opt">(</span>context<span class="gtkdoc opt">);</span>
-  child <span class="gtkdoc opt">= (</span><span class="gtkdoc kwb">void</span><span class="gtkdoc opt">*)</span> <span class="function"><a href="gtk3-Selections.html#gtk-selection-data-get-data">gtk_selection_data_get_data</a></span> <span class="gtkdoc opt">(</span>data<span class="gtkdoc opt">);</span>
+<span class="normal">  notebook </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gtk3-Drag-and-Drop.html#gtk-drag-get-source-widget">gtk_drag_get_source_widget</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">);</span>
+<span class="normal">  child </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="type">void</span><span class="symbol">*)</span><span class="normal"> </span><span class="function"><a href="gtk3-Selections.html#gtk-selection-data-get-data">gtk_selection_data_get_data</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">data</span><span class="symbol">);</span>
 
-  <span class="function">process_widget</span> <span class="gtkdoc opt">(*</span>child<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="GtkNotebook.html#gtk-notebook-detach-tab">gtk_notebook_detach_tab</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_NOTEBOOK</span> <span class="gtkdoc opt">(</span>notebook<span class="gtkdoc opt">), *</span>child<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="comment">// process_widget (*child);</span>
+
+<span class="normal">  </span><span class="function"><a href="GtkNotebook.html#gtk-notebook-detach-tab">gtk_notebook_detach_tab</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_NOTEBOOK</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">notebook</span><span class="symbol">),</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">child</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1965,7 +1967,7 @@ gtk_notebook_get_menu_label_text (<em class="parameter"><code><a class="link" hr
 </div>
 <div class="refsect3">
 <a name="gtk-notebook-get-menu-label-text.returns"></a><h4>Returns</h4>
-<p> the text of the tab label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the widget does
+<p>the text of the tab label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the widget does
 not have a menu label other than the default menu label, or the menu label
 widget is not a <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a>. The string is owned by the widget and must not be
 freed. </p>
@@ -2087,7 +2089,7 @@ gtk_notebook_get_tab_label_text (<em class="parameter"><code><a class="link" hre
 </div>
 <div class="refsect3">
 <a name="gtk-notebook-get-tab-label-text.returns"></a><h4>Returns</h4>
-<p> the text of the tab label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the tab label
+<p>the text of the tab label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the tab label
 widget is not a <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a>. The string is owned by the widget and must not be
 freed. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
@@ -2318,7 +2320,7 @@ not be able to exchange tabs with any other notebook.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>group_name</p></td>
-<td class="parameter_description"><p> the name of the notebook group,
+<td class="parameter_description"><p>the name of the notebook group,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to unset it. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -2351,7 +2353,7 @@ gtk_notebook_get_group_name (<em class="parameter"><code><a class="link" href="G
 </div>
 <div class="refsect3">
 <a name="gtk-notebook-get-group-name.returns"></a><h4>Returns</h4>
-<p> the group name, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none is set. </p>
+<p>the group name, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none is set. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.24</p>
@@ -2429,7 +2431,7 @@ gtk_notebook_get_action_widget (<em class="parameter"><code><a class="link" href
 </div>
 <div class="refsect3">
 <a name="gtk-notebook-get-action-widget.returns"></a><h4>Returns</h4>
-<p> The action widget with the given
+<p>The action widget with the given
 <em class="parameter"><code>pack_type</code></em>
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> when this action widget has not been set. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -2751,7 +2753,7 @@ that is being detached</p></td>
 </div>
 <div class="refsect3">
 <a name="GtkNotebook-create-window.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkNotebook.html" title="GtkNotebook"><span class="type">GtkNotebook</span></a> that <em class="parameter"><code>page</code></em>
+<p>a <a class="link" href="GtkNotebook.html" title="GtkNotebook"><span class="type">GtkNotebook</span></a> that <em class="parameter"><code>page</code></em>
 should be
 added to, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -2984,6 +2986,6 @@ user_function (<a class="link" href="GtkNotebook.html" title="GtkNotebook"><span
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

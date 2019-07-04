@@ -32,8 +32,9 @@
 #ifndef S_ISDIR
 #define S_ISDIR(mode) ((mode)&_S_IFDIR)
 #endif
-#define WIN32_MEAN_AND_LEAN
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+#include <shellapi.h>
 #include "win32/gdkwin32.h"
 #endif /* G_OS_WIN32 */
 
@@ -743,7 +744,7 @@ gtk_icon_theme_init (GtkIconTheme *icon_theme)
   for (j = 0; xdg_data_dirs[j]; j++) 
     priv->search_path[i++] = g_build_filename (xdg_data_dirs[j], "pixmaps", NULL);
 
-  priv->resource_paths = g_list_append (NULL, g_strdup ("/org/gtk/libgtk/icons"));
+  priv->resource_paths = g_list_append (NULL, g_strdup ("/org/gtk/libgtk/icons/"));
 
   priv->themes_valid = FALSE;
   priv->themes = NULL;
@@ -1031,11 +1032,12 @@ void
 gtk_icon_theme_add_resource_path (GtkIconTheme *icon_theme,
                                   const gchar  *path)
 {
-  GtkIconThemePrivate *priv = icon_theme->priv;
+  GtkIconThemePrivate *priv = NULL;
 
   g_return_if_fail (GTK_IS_ICON_THEME (icon_theme));
   g_return_if_fail (path != NULL);
 
+  priv = icon_theme->priv;
   priv->resource_paths = g_list_append (priv->resource_paths, g_strdup (path));
 
   do_theme_change (icon_theme);
@@ -1164,7 +1166,6 @@ insert_theme (GtkIconTheme *icon_theme,
 
       priv->dir_mtimes = g_list_prepend (priv->dir_mtimes, dir_mtime);
     }
-  priv->dir_mtimes = g_list_reverse (priv->dir_mtimes);
 
   theme_file = NULL;
   for (i = 0; i < priv->search_path_len && !theme_file; i++)
@@ -1389,7 +1390,7 @@ load_themes (GtkIconTheme *icon_theme)
       dir = icon_theme->priv->search_path[base];
 
       dir_mtime = g_slice_new (IconThemeDirMtime);
-      priv->dir_mtimes = g_list_append (priv->dir_mtimes, dir_mtime);
+      priv->dir_mtimes = g_list_prepend (priv->dir_mtimes, dir_mtime);
       
       dir_mtime->dir = g_strdup (dir);
       dir_mtime->mtime = 0;
@@ -1414,6 +1415,7 @@ load_themes (GtkIconTheme *icon_theme)
 
       g_dir_close (gdir);
     }
+  priv->dir_mtimes = g_list_reverse (priv->dir_mtimes);
 
   for (d = priv->resource_paths; d; d = d->next)
     {
@@ -2343,6 +2345,7 @@ gtk_icon_theme_load_icon_for_scale (GtkIconTheme        *icon_theme,
     }
 
   pixbuf = gtk_icon_info_load_icon (icon_info, error);
+  g_prefix_error (error, "Failed to load %s: ", icon_info->filename);
   g_object_unref (icon_info);
 
   return pixbuf;
@@ -3397,7 +3400,9 @@ theme_subdir_load (GtkIconTheme *icon_theme,
     { 
       for (d = icon_theme->priv->resource_paths; d; d = d->next)
         {
-          full_dir = g_build_filename ((const gchar *)d->data, subdir, NULL);
+          /* Force a trailing / here, to avoid extra copies in GResource */
+          full_dir = g_build_filename ((const gchar *)d->data, subdir, " ", NULL);
+          full_dir[strlen (full_dir) - 1] = '\0';
           dir = g_new0 (IconThemeDir, 1);
           dir->type = type;
           dir->is_resource = TRUE;
@@ -4552,7 +4557,7 @@ gtk_icon_info_load_symbolic_svg (GtkIconInfo    *icon_info,
   width = g_strdup_printf ("%d", icon_info->symbolic_width);
   height = g_strdup_printf ("%d", icon_info->symbolic_height);
 
-  escaped_file_data = g_markup_escape_text (file_data, file_len);
+  escaped_file_data = g_base64_encode ((guchar *) file_data, file_len);
   g_free (file_data);
 
   g_ascii_dtostr (alphastr, G_ASCII_DTOSTR_BUF_SIZE, CLAMP (alpha, 0, 1));
@@ -4564,7 +4569,7 @@ gtk_icon_info_load_symbolic_svg (GtkIconInfo    *icon_info,
                       "     width=\"", width, "\"\n"
                       "     height=\"", height, "\">\n"
                       "  <style type=\"text/css\">\n"
-                      "    rect,path {\n"
+                      "    rect,path,ellipse,circle,polygon {\n"
                       "      fill: ", css_fg," !important;\n"
                       "    }\n"
                       "    .warning {\n"
@@ -4577,7 +4582,7 @@ gtk_icon_info_load_symbolic_svg (GtkIconInfo    *icon_info,
                       "      fill: ", css_success, " !important;\n"
                       "    }\n"
                       "  </style>\n"
-                      "  <g opacity=\"", alphastr, "\" ><xi:include href=\"data:text/xml,", escaped_file_data, "\"/></g>\n"
+                      "  <g opacity=\"", alphastr, "\" ><xi:include href=\"data:text/xml;base64,", escaped_file_data, "\"/></g>\n"
                       "</svg>",
                       NULL);
   g_free (escaped_file_data);
@@ -5396,6 +5401,7 @@ find_builtin_icon (const gchar *icon_name,
       
       if (difference == 0)
         {
+          min_difference = 0;
           min_icon = default_icon;
           break;
         }

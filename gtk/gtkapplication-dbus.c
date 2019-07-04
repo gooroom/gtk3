@@ -24,6 +24,7 @@
 
 #include "gtkapplicationprivate.h"
 #include "gtksettings.h"
+#include "gtkprivate.h"
 
 G_DEFINE_TYPE (GtkApplicationImplDBus, gtk_application_impl_dbus, GTK_TYPE_APPLICATION_IMPL)
 
@@ -35,6 +36,9 @@ G_DEFINE_TYPE (GtkApplicationImplDBus, gtk_application_impl_dbus, GTK_TYPE_APPLI
 #define XFCE_DBUS_OBJECT_PATH       "/org/xfce/SessionManager"
 #define XFCE_DBUS_INTERFACE         "org.xfce.Session.Manager"
 #define XFCE_DBUS_CLIENT_INTERFACE  "org.xfce.Session.Client"
+#define GNOME_SCREENSAVER_DBUS_NAME             "org.gnome.ScreenSaver"
+#define GNOME_SCREENSAVER_DBUS_OBJECT_PATH      "/org/gnome/ScreenSaver"
+#define GNOME_SCREENSAVER_DBUS_INTERFACE        "org.gnome.ScreenSaver"
 
 static void
 unregister_client (GtkApplicationImplDBus *dbus)
@@ -131,6 +135,9 @@ gtk_application_get_proxy_if_service_present (GDBusConnection *connection,
                                  NULL,
                                  error);
 
+  if (!proxy)
+    return NULL;
+
   /* is there anyone actually providing the service? */
   owner = g_dbus_proxy_get_name_owner (proxy);
   if (owner == NULL)
@@ -145,17 +152,100 @@ gtk_application_get_proxy_if_service_present (GDBusConnection *connection,
   return proxy;
 }
 
+#ifdef G_HAS_CONSTRUCTORS
+#ifdef G_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
+#pragma G_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(stash_desktop_autostart_id)
+#endif
+G_DEFINE_CONSTRUCTOR(stash_desktop_autostart_id)
+#endif
+
+static char *client_id = NULL;
+
+static void
+stash_desktop_autostart_id (void)
+{
+  const char *desktop_autostart_id;
+
+  desktop_autostart_id = g_getenv ("DESKTOP_AUTOSTART_ID");
+  client_id = g_strdup (desktop_autostart_id ? desktop_autostart_id : "");
+
+  /* Unset DESKTOP_AUTOSTART_ID in order to avoid child processes to
+   * use the same client id.
+   */
+  g_unsetenv ("DESKTOP_AUTOSTART_ID");
+}
+
+static void
+screensaver_signal_session (GDBusProxy     *proxy,
+                            const char     *sender_name,
+                            const char     *signal_name,
+                            GVariant       *parameters,
+                            GtkApplication *application)
+{
+  gboolean active;
+
+  if (!g_str_equal (signal_name, "ActiveChanged"))
+    return;
+
+  g_variant_get (parameters, "(b)", &active);
+  gtk_application_set_screensaver_active (application, active);
+}
+
+static void
+screensaver_signal_portal (GDBusConnection *connection,
+                           const char       *sender_name,
+                           const char       *object_path,
+                           const char       *interface_name,
+                           const char       *signal_name,
+                           GVariant         *parameters,
+                           gpointer          data)
+{
+  GtkApplication   *application = data;
+  gboolean active;
+  GVariant *state;
+
+  if (!g_str_equal (signal_name, "StateChanged"))
+    return;
+
+  g_variant_get (parameters, "(o@a{sv})", NULL, &state);
+  g_variant_lookup (state, "screensaver-active", "b", &active);
+  gtk_application_set_screensaver_active (application, active);
+}
+
+static void
+create_monitor_cb (GObject      *source,
+                   GAsyncResult *result,
+                   gpointer      data)
+{
+  GDBusProxy *proxy = G_DBUS_PROXY (source);
+  GError *error = NULL;
+  GVariant *ret = NULL;
+
+  ret = g_dbus_proxy_call_finish (proxy, result, &error);
+  if (ret == NULL)
+    {
+      g_warning ("Creating a portal monitor failed: %s", error->message);
+      g_error_free (error);
+      return;
+    }
+
+  g_variant_unref (ret);
+}
+
 static void
 gtk_application_impl_dbus_startup (GtkApplicationImpl *impl,
                                    gboolean            register_session)
 {
   GtkApplicationImplDBus *dbus = (GtkApplicationImplDBus *) impl;
-  static gchar *client_id;
   GError *error = NULL;
   GVariant *res;
   gboolean same_bus;
   const char *bus_name;
   const char *client_interface;
+
+#ifndef G_HAS_CONSTRUCTORS
+  stash_desktop_autostart_id ();
+#endif
 
   dbus->session = g_application_get_dbus_connection (G_APPLICATION (impl->application));
 
@@ -166,17 +256,8 @@ gtk_application_impl_dbus_startup (GtkApplicationImpl *impl,
   dbus->object_path = g_application_get_dbus_object_path (G_APPLICATION (impl->application));
   dbus->unique_name = g_dbus_connection_get_unique_name (dbus->session);
 
-  if (client_id == NULL)
-    {
-      const gchar *desktop_autostart_id;
-
-      desktop_autostart_id = g_getenv ("DESKTOP_AUTOSTART_ID");
-      /* Unset DESKTOP_AUTOSTART_ID in order to avoid child processes to
-       * use the same client id.
-       */
-      g_unsetenv ("DESKTOP_AUTOSTART_ID");
-      client_id = g_strdup (desktop_autostart_id ? desktop_autostart_id : "");
-    }
+  if (gtk_should_use_portal ())
+    goto out;
 
   g_debug ("Connecting to session manager");
 
@@ -218,6 +299,27 @@ gtk_application_impl_dbus_startup (GtkApplicationImpl *impl,
 
   if (!register_session)
     goto out;
+
+  dbus->ss_proxy = gtk_application_get_proxy_if_service_present (dbus->session,
+                                                                 G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START |
+                                                                 G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES |
+                                                                 G_DBUS_PROXY_FLAGS_NONE,
+                                                                 GNOME_SCREENSAVER_DBUS_NAME,
+                                                                 GNOME_SCREENSAVER_DBUS_OBJECT_PATH,
+                                                                 GNOME_SCREENSAVER_DBUS_INTERFACE,
+                                                                 &error);
+  if (error)
+    {
+      g_debug ("Failed to get the GNOME screensaver proxy: %s", error->message);
+      g_clear_error (&error);
+      g_clear_object (&dbus->ss_proxy);
+    }
+
+  if (dbus->ss_proxy)
+    {
+      g_signal_connect (dbus->ss_proxy, "g-signal",
+                        G_CALLBACK (screensaver_signal_session), impl->application);
+    }
 
   g_debug ("Registering client '%s' '%s'", dbus->application_id, client_id);
 
@@ -319,7 +421,7 @@ gtk_application_impl_dbus_startup (GtkApplicationImpl *impl,
                   "gtk-shell-shows-menubar", FALSE,
                   NULL);
 
-  if (dbus->sm_proxy == NULL)
+  if (dbus->sm_proxy == NULL && dbus->session)
     {
       dbus->inhibit_proxy = gtk_application_get_proxy_if_service_present (dbus->session,
                                                                           G_DBUS_PROXY_FLAGS_NONE,
@@ -331,8 +433,43 @@ gtk_application_impl_dbus_startup (GtkApplicationImpl *impl,
         {
           g_debug ("Failed to get an inhibit portal proxy: %s", error->message);
           g_clear_error (&error);
+          goto end;
+        }
+
+      if (register_session)
+        {
+          char *token;
+          GVariantBuilder opt_builder;
+
+          /* Monitor screensaver state */
+
+          dbus->session_id = gtk_get_portal_session_path (dbus->session, &token);
+          dbus->state_changed_handler =
+              g_dbus_connection_signal_subscribe (dbus->session,
+                                                  "org.freedesktop.portal.Desktop",
+                                                  "org.freedesktop.portal.Inhibit",
+                                                  "StateChanged",
+                                                  "/org/freedesktop/portal/desktop",
+                                                  NULL,
+                                                  G_DBUS_SIGNAL_FLAGS_NO_MATCH_RULE,
+                                                  screensaver_signal_portal,
+                                                  impl->application,
+                                                  NULL);
+          g_variant_builder_init (&opt_builder, G_VARIANT_TYPE_VARDICT);
+          g_variant_builder_add (&opt_builder, "{sv}",
+                                 "session_handle_token", g_variant_new_string (token));
+          g_dbus_proxy_call (dbus->inhibit_proxy,
+                             "CreateMonitor",
+                             g_variant_new ("(sa{sv})", "", &opt_builder),
+                             G_DBUS_CALL_FLAGS_NONE,
+                             G_MAXINT,
+                             NULL,
+                             create_monitor_cb, dbus);
+          g_free (token);
         }
     }
+
+end:;
 }
 
 static void
@@ -493,7 +630,7 @@ gtk_application_impl_dbus_inhibit (GtkApplicationImpl         *impl,
                                     g_variant_new ("(s@usu)",
                                                    dbus->application_id,
                                                    window ? gtk_application_impl_dbus_get_window_system_id (dbus, window) : g_variant_new_uint32 (0),
-                                                   reason,
+                                                   reason ? reason : "",
                                                    flags),
                                     G_DBUS_CALL_FLAGS_NONE,
                                     G_MAXINT,
@@ -689,11 +826,28 @@ gtk_application_impl_dbus_finalize (GObject *object)
 {
   GtkApplicationImplDBus *dbus = (GtkApplicationImplDBus *) object;
 
+  if (dbus->session_id)
+    {
+      g_dbus_connection_call (dbus->session,
+                              "org.freedesktop.portal.Desktop",
+                              dbus->session_id,
+                              "org.freedesktop.portal.Session",
+                              "Close",
+                              NULL, NULL, 0, -1, NULL, NULL, NULL);
+
+      g_free (dbus->session_id);
+    }
+
+  if (dbus->state_changed_handler)
+    g_dbus_connection_signal_unsubscribe (dbus->session,
+                                          dbus->state_changed_handler);
+
   g_clear_object (&dbus->inhibit_proxy);
   g_slist_free_full (dbus->inhibit_handles, inhibit_handle_free);
   g_free (dbus->app_menu_path);
   g_free (dbus->menubar_path);
   g_clear_object (&dbus->sm_proxy);
+  g_clear_object (&dbus->ss_proxy);
 
   G_OBJECT_CLASS (gtk_application_impl_dbus_parent_class)->finalize (object);
 }

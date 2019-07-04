@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="gtk3-GtkGradient.html" title="GtkGradient">
 <link rel="next" href="GtkStyle.html" title="GtkStyle">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -323,7 +323,7 @@ of such a statement:</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting">widget <span class="string">&quot;mywindow.*.GtkEntry&quot;</span> style <span class="string">&quot;my-entry-class&quot;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">widget </span><span class="string">"mywindow.*.GtkEntry"</span><span class="normal"> style </span><span class="string">"my-entry-class"</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -354,7 +354,7 @@ derived classes. For instance,</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting">widget_class <span class="string">&quot;*&lt;GtkMenuItem&gt;.GtkLabel&quot;</span> style <span class="string">&quot;my-style&quot;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">widget_class </span><span class="string">"*&lt;GtkMenuItem&gt;.GtkLabel"</span><span class="normal"> style </span><span class="string">"my-style"</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -374,7 +374,7 @@ hierarchy) in sequence, so the pattern:</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwc">class</span> <span class="string">&quot;GtkButton&quot;</span> style <span class="string">&quot;my-style&quot;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">class </span><span class="string">"GtkButton"</span><span class="normal"> style </span><span class="string">"my-style"</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -444,10 +444,10 @@ for a match across a group of applications.</p></li>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting">style <span class="string">&quot;Foo&quot;</span> <span class="gtkdoc opt">{</span> foo_content <span class="gtkdoc opt">}</span>
-<span class="gtkdoc kwc">class</span> <span class="string">&quot;X&quot;</span> style <span class="string">&quot;Foo&quot;</span>
-style <span class="string">&quot;Bar&quot;</span> <span class="gtkdoc opt">{</span> bar_content <span class="gtkdoc opt">}</span>
-<span class="gtkdoc kwc">class</span> <span class="string">&quot;X&quot;</span> style <span class="string">&quot;Bar&quot;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">style </span><span class="string">"Foo"</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> foo_content </span><span class="cbracket">}</span>
+<span class="normal">class </span><span class="string">"X"</span><span class="normal"> style </span><span class="string">"Foo"</span>
+<span class="normal">style </span><span class="string">"Bar"</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> bar_content </span><span class="cbracket">}</span>
+<span class="normal">class </span><span class="string">"X"</span><span class="normal"> style </span><span class="string">"Bar"</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -461,8 +461,8 @@ is faster to match as:</p>
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting">style <span class="string">&quot;FooBar&quot;</span> <span class="gtkdoc opt">{</span> foo_content bar_content <span class="gtkdoc opt">}</span>
-<span class="gtkdoc kwc">class</span> <span class="string">&quot;X&quot;</span> style <span class="string">&quot;FooBar&quot;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">style </span><span class="string">"FooBar"</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> </span><span class="usertype">foo_content</span><span class="normal"> bar_content </span><span class="cbracket">}</span>
+<span class="normal">class </span><span class="string">"X"</span><span class="normal"> style </span><span class="string">"FooBar"</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -617,9 +617,9 @@ elements are:</p>
   pixmap</code></p>
 <p>     Sets a background pixmap to be used in place of the <code class="literal">bg</code> color
      (or for <span class="type">GtkText</span>, in place of the <code class="literal">base</code> color. The special
-     value <code class="literal">"&lt;parent&gt;"</code> may be used to indicate that the widget should
+     value <code class="literal">"&amp;lt;parent&gt;"</code> may be used to indicate that the widget should
      use the same background pixmap as its parent. The special value
-     <code class="literal">"&lt;none&gt;"</code> may be used to indicate no background pixmap.</p>
+     <code class="literal">"&amp;lt;none&gt;"</code> may be used to indicate no background pixmap.</p>
 </li>
 <li class="listitem">
 <p><code class="literal">font = font</code></p>
@@ -636,7 +636,7 @@ elements are:</p>
 <p>     Sets the font for a widget. font must be
      a Pango font name, e.g. “Sans Italic 10” .
      For details about Pango font names, see
-     <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>.</p>
+     <a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string"><code class="function">pango_font_description_from_string()</code></a>.</p>
 </li>
 <li class="listitem">
 <p><code class="literal">stock["stock-id"] = { icon source specifications }</code></p>
@@ -742,9 +742,9 @@ colors. The following expressions are currently supported:</p>
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function">mix</span> <span class="gtkdoc opt">(</span><span class="number">0.5</span><span class="gtkdoc opt">,</span> <span class="string">&quot;red&quot;</span><span class="gtkdoc opt">,</span> <span class="string">&quot;blue&quot;</span><span class="gtkdoc opt">)</span>
-<span class="function">shade</span> <span class="gtkdoc opt">(</span><span class="number">1.5</span><span class="gtkdoc opt">,</span> <span class="function">mix</span> <span class="gtkdoc opt">(</span><span class="number">0.3</span><span class="gtkdoc opt">,</span> <span class="string">&quot;#0abbc0&quot;</span><span class="gtkdoc opt">, {</span> <span class="number">0.3</span><span class="gtkdoc opt">,</span> <span class="number">0.5</span><span class="gtkdoc opt">,</span> <span class="number">0.9</span> <span class="gtkdoc opt">}))</span>
-<span class="function">lighter</span> <span class="gtkdoc opt">(</span>&#64;foreground<span class="gtkdoc opt">)</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function">mix</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.5</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"red"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"blue"</span><span class="symbol">)</span>
+<span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">1.5</span><span class="symbol">,</span><span class="normal"> </span><span class="function">mix</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.3</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"#0abbc0"</span><span class="symbol">,</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> </span><span class="number">0.3</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.5</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.9</span><span class="normal"> </span><span class="cbracket">}</span><span class="symbol">))</span>
+<span class="function">lighter</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@foreground</span><span class="symbol">)</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -771,11 +771,11 @@ use for left-to-right and right-to-left languages:</p>
 3
 4
 5</pre></td>
-        <td class="listing_code"><pre class="programlisting">stock<span class="gtkdoc opt">[</span><span class="string">&quot;my-stock-item&quot;</span><span class="gtkdoc opt">] =</span>
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc opt">{</span> <span class="string">&quot;itemltr.png&quot;</span><span class="gtkdoc opt">,</span> LTR<span class="gtkdoc opt">, *, * },</span>
-  <span class="gtkdoc opt">{</span> <span class="string">&quot;itemrtl.png&quot;</span><span class="gtkdoc opt">,</span> RTL<span class="gtkdoc opt">, *, * }</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">stock</span><span class="symbol">[</span><span class="string">"my-stock-item"</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"itemltr.png"</span><span class="symbol">,</span><span class="normal"> LTR</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal"> </span><span class="cbracket">}</span><span class="symbol">,</span>
+<span class="normal">  </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"itemrtl.png"</span><span class="symbol">,</span><span class="normal"> RTL</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal"> </span><span class="cbracket">}</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -792,11 +792,11 @@ use for left-to-right and right-to-left languages:</p>
 3
 4
 5</pre></td>
-        <td class="listing_code"><pre class="programlisting">stock<span class="gtkdoc opt">[</span><span class="string">&quot;my-stock-item&quot;</span><span class="gtkdoc opt">] =</span>
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc opt">{</span> <span class="string">&quot;itemltr.png&quot;</span><span class="gtkdoc opt">,</span> LTR <span class="gtkdoc opt">},</span>
-  <span class="gtkdoc opt">{</span> <span class="string">&quot;itemrtl.png&quot;</span><span class="gtkdoc opt">,</span> RTL <span class="gtkdoc opt">}</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">stock</span><span class="symbol">[</span><span class="string">"my-stock-item"</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"itemltr.png"</span><span class="symbol">,</span><span class="normal"> LTR </span><span class="cbracket">}</span><span class="symbol">,</span>
+<span class="normal">  </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"itemrtl.png"</span><span class="symbol">,</span><span class="normal"> RTL </span><span class="cbracket">}</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -814,12 +814,12 @@ use for left-to-right and right-to-left languages:</p>
 4
 5
 6</pre></td>
-        <td class="listing_code"><pre class="programlisting">stock<span class="gtkdoc opt">[</span><span class="string">&quot;my-stock-item&quot;</span><span class="gtkdoc opt">] =</span>
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc opt">{</span> <span class="string">&quot;itemmenusize.png&quot;</span><span class="gtkdoc opt">, *, *,</span> <span class="string">&quot;gtk-menu&quot;</span> <span class="gtkdoc opt">},</span>
-  <span class="gtkdoc opt">{</span> <span class="string">&quot;itemtoolbarsize.png&quot;</span><span class="gtkdoc opt">, *, *,</span> <span class="string">&quot;gtk-large-toolbar&quot;</span> <span class="gtkdoc opt">}</span>
-  <span class="gtkdoc opt">{</span> <span class="string">&quot;itemgeneric.png&quot;</span> <span class="gtkdoc opt">}</span> <span class="gtkdoc slc">// implicit *, *, * as a fallback</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">stock</span><span class="symbol">[</span><span class="string">"my-stock-item"</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"itemmenusize.png"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*,</span><span class="normal"> </span><span class="symbol">*,</span><span class="normal"> </span><span class="string">"gtk-menu"</span><span class="normal"> </span><span class="cbracket">}</span><span class="symbol">,</span>
+<span class="normal">  </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"itemtoolbarsize.png"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*,</span><span class="normal"> </span><span class="symbol">*,</span><span class="normal"> </span><span class="string">"gtk-large-toolbar"</span><span class="normal"> </span><span class="cbracket">}</span>
+<span class="normal">  </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"itemgeneric.png"</span><span class="normal"> </span><span class="cbracket">}</span><span class="normal"> </span><span class="comment">// implicit *, *, * as a fallback</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -841,12 +841,12 @@ can define other sizes.</p>
 4
 5
 6</pre></td>
-        <td class="listing_code"><pre class="programlisting">stock<span class="gtkdoc opt">[</span><span class="string">&quot;my-stock-item&quot;</span><span class="gtkdoc opt">] =</span>
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc opt">{</span> <span class="string">&quot;itemprelight.png&quot;</span><span class="gtkdoc opt">, *,</span> PRELIGHT <span class="gtkdoc opt">},</span>
-  <span class="gtkdoc opt">{</span> <span class="string">&quot;iteminsensitive.png&quot;</span><span class="gtkdoc opt">, *,</span> INSENSITIVE <span class="gtkdoc opt">},</span>
-  <span class="gtkdoc opt">{</span> <span class="string">&quot;itemgeneric.png&quot;</span> <span class="gtkdoc opt">}</span> <span class="gtkdoc slc">// implicit *, *, * as a fallback</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">stock</span><span class="symbol">[</span><span class="string">"my-stock-item"</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"itemprelight.png"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*,</span><span class="normal"> PRELIGHT </span><span class="cbracket">}</span><span class="symbol">,</span>
+<span class="normal">  </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"iteminsensitive.png"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*,</span><span class="normal"> INSENSITIVE </span><span class="cbracket">}</span><span class="symbol">,</span>
+<span class="normal">  </span><span class="cbracket">{</span><span class="normal"> </span><span class="string">"itemgeneric.png"</span><span class="normal"> </span><span class="cbracket">}</span><span class="normal"> </span><span class="comment">// implicit *, *, * as a fallback</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -878,13 +878,13 @@ set declaration is:</p>
 5
 6
 7</pre></td>
-        <td class="listing_code"><pre class="programlisting">binding name <span class="gtkdoc opt">{</span>
-  bind key <span class="gtkdoc opt">{</span>
-    <span class="function">signalname</span> <span class="gtkdoc opt">(</span>param<span class="gtkdoc opt">, ...)</span>
-    <span class="gtkdoc opt">...</span>
-  <span class="gtkdoc opt">}</span>
-  <span class="gtkdoc opt">...</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">binding</span><span class="normal"> name </span><span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">bind</span><span class="normal"> key </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="function">signalname</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">param</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">...)</span>
+<span class="normal">    </span><span class="symbol">...</span>
+<span class="normal">  </span><span class="cbracket">}</span>
+<span class="normal">  </span><span class="symbol">...</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -968,7 +968,7 @@ created.)</p>
 </div>
 <div class="refsect3">
 <a name="gtk-rc-get-style.returns"></a><h4>Returns</h4>
-<p> the resulting style. No refcount is added
+<p>the resulting style. No refcount is added
 to the returned style, so if you want to save this style around,
 you should add a reference yourself. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1001,11 +1001,11 @@ would be items inside a GNOME canvas widget.</p>
 3
 4
 5</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="GtkWidget.html#gtk-widget-path">gtk_widget_path</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">, &amp;</span>path<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkWidget.html#gtk-widget-class-path">gtk_widget_class_path</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">, &amp;</span>class_path<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span>
-<span class="function"><a href="gtk3-Resource-Files.html#gtk-rc-get-style-by-paths">gtk_rc_get_style_by_paths</a></span> <span class="gtkdoc opt">(</span><span class="function"><a href="GtkWidget.html#gtk-widget-get-settings">gtk_widget_get_settings</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">),</span>
-                           path<span class="gtkdoc opt">,</span> class_path<span class="gtkdoc opt">,</span>
-                           <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT-TYPE:CAPS">G_OBJECT_TYPE</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">));</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="GtkWidget.html#gtk-widget-path">gtk_widget_path</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">path</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="function"><a href="GtkWidget.html#gtk-widget-class-path">gtk_widget_class_path</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">class_path</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="function"><a href="gtk3-Resource-Files.html#gtk-rc-get-style-by-paths">gtk_rc_get_style_by_paths</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GtkWidget.html#gtk-widget-get-settings">gtk_widget_get_settings</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">),</span>
+<span class="normal">                           path</span><span class="symbol">,</span><span class="normal"> class_path</span><span class="symbol">,</span>
+<span class="normal">                           </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT-TYPE:CAPS">G_OBJECT_TYPE</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">));</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1028,13 +1028,13 @@ would be items inside a GNOME canvas widget.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>widget_path</p></td>
-<td class="parameter_description"><p> the widget path to use when looking up the
+<td class="parameter_description"><p>the widget path to use when looking up the
 style, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no matching against the widget path should be done. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>class_path</p></td>
-<td class="parameter_description"><p> the class path to use when looking up the style,
+<td class="parameter_description"><p>the class path to use when looking up the style,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no matching against the class path should be done. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1049,7 +1049,7 @@ when matching against class styles, or <a href="https://developer.gnome.org/gobj
 </div>
 <div class="refsect3">
 <a name="gtk-rc-get-style-by-paths.returns"></a><h4>Returns</h4>
-<p> A style created by matching
+<p>A style created by matching
 with the supplied paths, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if nothing matching was
 specified and the default style should be used. The returned
 value is owned by GTK+ as part of an internal cache, so you
@@ -1180,7 +1180,7 @@ gtk_rc_reset_styles (<em class="parameter"><code><a class="link" href="GtkSettin
 </div>
 <p>This function recomputes the styles for all widgets that use a
 particular <a class="link" href="GtkSettings.html" title="Settings"><span class="type">GtkSettings</span></a> object. (There is one <a class="link" href="GtkSettings.html" title="Settings"><span class="type">GtkSettings</span></a> object
-per <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>, see <a class="link" href="GtkSettings.html#gtk-settings-get-for-screen" title="gtk_settings_get_for_screen ()"><code class="function">gtk_settings_get_for_screen()</code></a>); It is useful
+per <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>, see <a class="link" href="GtkSettings.html#gtk-settings-get-for-screen" title="gtk_settings_get_for_screen ()"><code class="function">gtk_settings_get_for_screen()</code></a>); It is useful
 when some global parameter has changed that affects the appearance
 of all widgets, because when a widget gets a new style, it will
 both redraw and recompute any cached information about its
@@ -1226,7 +1226,7 @@ end of <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><c
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>filename</p></td>
-<td class="parameter_description"><p> the pathname to the file. If <em class="parameter"><code>filename</code></em>
+<td class="parameter_description"><p>the pathname to the file. If <em class="parameter"><code>filename</code></em>
 is not absolute, it is searched in the current directory. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr></tbody>
@@ -1246,7 +1246,7 @@ gtk_rc_get_default_files (<em class="parameter"><code><span class="type">void</s
 at the end of <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a>.</p>
 <div class="refsect3">
 <a name="gtk-rc-get-default-files.returns"></a><h4>Returns</h4>
-<p>     A <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of filenames.  This memory is owned
+<p>A <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of filenames.  This memory is owned
 by GTK+ and must not be freed by the application.  If you want
 to store this information, you should make a copy. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> filename]</span></p>
@@ -1273,7 +1273,7 @@ end of <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><c
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>filenames</p></td>
-<td class="parameter_description"><p> A
+<td class="parameter_description"><p>A
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated list of filenames. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> filename]</span></td>
 </tr></tbody>
@@ -1285,7 +1285,7 @@ end of <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><c
 <a name="gtk-rc-parse-color"></a><h3>gtk_rc_parse_color ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
 gtk_rc_parse_color (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Lexical-Scanner.html#GScanner"><span class="type">GScanner</span></a> *scanner</code></em>,
-                    <em class="parameter"><code><span class="type">GdkColor</span> *color</code></em>);</pre>
+                    <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *color</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_rc_parse_color</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> instead</p>
@@ -1310,7 +1310,7 @@ order to support symbolic colors.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>color</p></td>
-<td class="parameter_description"><p> a pointer to a <span class="type">GdkColor</span> in which to store
+<td class="parameter_description"><p>a pointer to a <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> in which to store
 the result. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
@@ -1329,7 +1329,7 @@ that was expected but not found</p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
 gtk_rc_parse_color_full (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Lexical-Scanner.html#GScanner"><span class="type">GScanner</span></a> *scanner</code></em>,
                          <em class="parameter"><code><a class="link" href="gtk3-Resource-Files.html#GtkRcStyle"><span class="type">GtkRcStyle</span></a> *style</code></em>,
-                         <em class="parameter"><code><span class="type">GdkColor</span> *color</code></em>);</pre>
+                         <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *color</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_rc_parse_color_full</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> instead</p>
@@ -1354,12 +1354,12 @@ references to symbolic colors.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>style</p></td>
-<td class="parameter_description"><p> a <a class="link" href="gtk3-Resource-Files.html#GtkRcStyle"><span class="type">GtkRcStyle</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="gtk3-Resource-Files.html#GtkRcStyle"><span class="type">GtkRcStyle</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>color</p></td>
-<td class="parameter_description"><p> a pointer to a <span class="type">GdkColor</span> in which to store
+<td class="parameter_description"><p>a pointer to a <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> in which to store
 the result. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
@@ -1401,7 +1401,7 @@ in a RC file.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>state</p></td>
-<td class="parameter_description"><p> A pointer to a <a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> variable in which to
+<td class="parameter_description"><p>A pointer to a <a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> variable in which to
 store the result. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
@@ -1483,7 +1483,7 @@ is not useful for applications and should not be used.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-rc-find-module-in-path.returns"></a><h4>Returns</h4>
-<p> The filename, if found (must be
+<p>The filename, if found (must be
 freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>), otherwise <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></p>
 </div>
@@ -1532,7 +1532,7 @@ warning message, or <a href="https://developer.gnome.org/glib/unstable/glib-Stan
 </div>
 <div class="refsect3">
 <a name="gtk-rc-find-pixmap-in-path.returns"></a><h4>Returns</h4>
-<p> the filename. </p>
+<p>the filename. </p>
 <p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></p>
 </div>
 </div>
@@ -1550,7 +1550,7 @@ For full information about the search for theme engines,
 see the docs for <code class="literal">GTK_PATH</code> in <a class="link" href="gtk-running.html" title="Running GTK+ Applications">Running GTK+ Applications</a>.</p>
 <div class="refsect3">
 <a name="gtk-rc-get-module-dir.returns"></a><h4>Returns</h4>
-<p> the directory. (Must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>). </p>
+<p>the directory. (Must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>). </p>
 <p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></p>
 </div>
 </div>
@@ -1570,7 +1570,7 @@ function is useful solely for utilities supplied with GTK+ and should
 not be used by applications under normal circumstances.</p>
 <div class="refsect3">
 <a name="gtk-rc-get-im-module-path.returns"></a><h4>Returns</h4>
-<p> a newly-allocated string containing the
+<p>a newly-allocated string containing the
 path in which to look for IM modules. </p>
 <p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></p>
 </div>
@@ -1589,7 +1589,7 @@ of the <code class="literal">GTK_IM_MODULE_FILE</code>
 environment variable for more details.</p>
 <div class="refsect3">
 <a name="gtk-rc-get-im-module-file.returns"></a><h4>Returns</h4>
-<p> a newly-allocated string containing the
+<p>a newly-allocated string containing the
 name of the file listing the IM modules available for loading. </p>
 <p><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></p>
 </div>
@@ -1656,7 +1656,7 @@ derived from <a class="link" href="gtk3-Resource-Files.html#GtkRcStyle"><span cl
 </div>
 <div class="refsect3">
 <a name="gtk-rc-style-copy.returns"></a><h4>Returns</h4>
-<p> the resulting <a class="link" href="gtk3-Resource-Files.html#GtkRcStyle"><span class="type">GtkRcStyle</span></a>. </p>
+<p>the resulting <a class="link" href="gtk3-Resource-Files.html#GtkRcStyle"><span class="type">GtkRcStyle</span></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -1704,8 +1704,8 @@ This can later be composited together with other
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a> *<em class="structfield"><code><a name="GtkRcStyle-struct.font-desc"></a>font_desc</code></em>;</p></td>
-<td class="struct_member_description"><p>A <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a></p></td>
+<td class="struct_member_name"><p><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a> *<em class="structfield"><code><a name="GtkRcStyle-struct.font-desc"></a>font_desc</code></em>;</p></td>
+<td class="struct_member_description"><p>A <a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a></p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
@@ -1714,22 +1714,22 @@ This can later be composited together with other
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><span class="type">GdkColor</span> <em class="structfield"><code><a name="GtkRcStyle-struct.fg"></a>fg</code></em>[5];</p></td>
+<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkRcStyle-struct.fg"></a>fg</code></em>[5];</p></td>
 <td class="struct_member_description"><p>Foreground colors</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><span class="type">GdkColor</span> <em class="structfield"><code><a name="GtkRcStyle-struct.bg"></a>bg</code></em>[5];</p></td>
+<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkRcStyle-struct.bg"></a>bg</code></em>[5];</p></td>
 <td class="struct_member_description"><p>Background colors</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><span class="type">GdkColor</span> <em class="structfield"><code><a name="GtkRcStyle-struct.text"></a>text</code></em>[5];</p></td>
+<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkRcStyle-struct.text"></a>text</code></em>[5];</p></td>
 <td class="struct_member_description"><p>Text colors</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><span class="type">GdkColor</span> <em class="structfield"><code><a name="GtkRcStyle-struct.base"></a>base</code></em>[5];</p></td>
+<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkRcStyle-struct.base"></a>base</code></em>[5];</p></td>
 <td class="struct_member_description"><p>Base colors</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
@@ -2266,6 +2266,6 @@ See also <a class="link" href="gtk3-Bindings.html#gtk-binding-set-add-path" titl
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="next" href="gtk.html" title="Part I. GTK+ Overview">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -15,12 +15,12 @@
 <div>
 <div><table class="navigation" id="top" width="100%" cellpadding="2" cellspacing="0"><tr><th valign="middle"><p class="title">GTK+ 3 Reference Manual</p></th></tr></table></div>
 <div><p class="releaseinfo">
-      This document is for the GTK+ 3 library, version 3.22.11
+      This document is for the GTK+ 3 library, version 3.24.5
 .
       The latest versions can be found online at
-      <a class="ulink" href="http://developer.gnome.org/gtk3/" target="_top">http://developer.gnome.org/gtk3/</a>.
+      <a class="ulink" href="https://developer.gnome.org/gtk3/" target="_top">https://developer.gnome.org/gtk3/</a>.
       If you are looking for the older GTK+ 2 series of libraries,
-      see <a class="ulink" href="http://developer.gnome.org/gtk2/" target="_top">http://developer.gnome.org/gtk2/</a>.
+      see <a class="ulink" href="https://developer.gnome.org/gtk2/" target="_top">https://developer.gnome.org/gtk2/</a>.
     </p></div>
 </div>
 <hr>
@@ -124,7 +124,7 @@ Find answers to common questions in the GTK+ manual
 <dt><span class="chapter"><a href="LayoutContainers.html">Layout Containers</a></span></dt>
 <dd><dl>
 <dt>
-<span class="refentrytitle"><a href="GtkBox.html">GtkBox</a></span><span class="refpurpose"> — A container box</span>
+<span class="refentrytitle"><a href="GtkBox.html">GtkBox</a></span><span class="refpurpose"> — A container for packing widgets in a single row or column</span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="GtkGrid.html">GtkGrid</a></span><span class="refpurpose"> — Pack widgets in rows and columns</span>
@@ -350,8 +350,7 @@ widgets at fixed coordinates</span>
 <span class="refentrytitle"><a href="GtkCellRenderer.html">GtkCellRenderer</a></span><span class="refpurpose"> — An object for rendering a single cell</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="GtkCellEditable.html">GtkCellEditable</a></span><span class="refpurpose"> — Interface for widgets which can are used for editing
- cells</span>
+<span class="refentrytitle"><a href="GtkCellEditable.html">GtkCellEditable</a></span><span class="refpurpose"> — Interface for widgets that can be used for editing cells</span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="GtkCellRendererAccel.html">GtkCellRendererAccel</a></span><span class="refpurpose"> — Renders a keyboard accelerator in a cell</span>
@@ -678,6 +677,15 @@ widgets at fixed coordinates</span>
 <span class="refentrytitle"><a href="GtkEventController.html">GtkEventController</a></span><span class="refpurpose"> — Self-contained handler of series of events</span>
 </dt>
 <dt>
+<span class="refentrytitle"><a href="GtkEventControllerKey.html">GtkEventControllerKey</a></span><span class="refpurpose"> — Event controller for key events</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkEventControllerScroll.html">GtkEventControllerScroll</a></span><span class="refpurpose"> — Event controller for scroll events</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkEventControllerMotion.html">GtkEventControllerMotion</a></span><span class="refpurpose"> — Event controller for motion events</span>
+</dt>
+<dt>
 <span class="refentrytitle"><a href="GtkGesture.html">GtkGesture</a></span><span class="refpurpose"> — Base class for gestures</span>
 </dt>
 <dt>
@@ -703,6 +711,9 @@ widgets at fixed coordinates</span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="GtkGestureZoom.html">GtkGestureZoom</a></span><span class="refpurpose"> — Zoom gesture</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkGestureStylus.html">GtkGestureStylus</a></span><span class="refpurpose"> — Gesture for stylus input</span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="GtkPadController.html">GtkPadController</a></span><span class="refpurpose"> — Controller for drawing tablet pads</span>
@@ -808,7 +819,8 @@ widgets at fixed coordinates</span>
 <span class="refentrytitle"><a href="GtkMisc.html">GtkMisc</a></span><span class="refpurpose"> — Base class for widgets with alignments and padding</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="gtk3-Stock-Items.html">Stock Items</a></span><span class="refpurpose"> — Prebuilt common menu/toolbar items and corresponding icons</span>
+<span class="refentrytitle"><a href="gtk3-Stock-Items.html">Stock Items</a></span><span class="refpurpose"> — Prebuilt common menu/toolbar items and corresponding
+                    icons</span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="gtk3-Themeable-Stock-Images.html">Themeable Stock Images</a></span><span class="refpurpose"> — Manipulating stock icons</span>
@@ -874,13 +886,13 @@ widgets at fixed coordinates</span>
 <dt><span class="part"><a href="theming.html">IV. Theming in GTK+</a></span></dt>
 <dd><dl>
 <dt>
-<span class="refentrytitle"><a href="chap-css-overview.html">GTK+ CSS</a></span><span class="refpurpose"> — 
+<span class="refentrytitle"><a href="chap-css-overview.html">GTK+ CSS Overview</a></span><span class="refpurpose"> — 
 Overview of CSS in GTK+
 </span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="chap-css-properties.html">GTK+ CSS</a></span><span class="refpurpose"> — 
-GTK+ CSS Properties
+<span class="refentrytitle"><a href="chap-css-properties.html">GTK+ CSS Properties</a></span><span class="refpurpose"> — 
+CSS Properties in GTK+
 </span>
 </dt>
 <dt>
@@ -1070,6 +1082,6 @@ Mir-specific aspects of using GTK+
 </dl></div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

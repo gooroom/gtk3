@@ -36,6 +36,7 @@
 #include "gtkimageprivate.h"
 #include "gtkinvisible.h"
 #include "gtkmain.h"
+#include "gtkoffscreenwindow.h"
 #include "deprecated/gtkstock.h"
 #include "gtkwindow.h"
 #include "gtkintl.h"
@@ -64,8 +65,6 @@ static GtkDragSourceInfo *gtk_drag_get_source_info (GdkDragContext *context,
 
 static void gtk_drag_drop_finished (GtkDragSourceInfo *info,
                                    GtkDragResult      result);
-
-extern GdkDragContext *gdk_quartz_drag_source_context (); /* gdk/quartz/gdkdnd-quartz.c */
 
 struct _GtkDragSourceInfo 
 {
@@ -233,7 +232,7 @@ gtk_drag_finish (GdkDragContext *context,
 		 guint32         time)
 {
   GtkDragSourceInfo *info;
-  GdkDragContext* source_context = gdk_quartz_drag_source_context ();
+  GdkDragContext* source_context = gdk_quartz_drag_source_context_libgtk_only ();
 
   if (source_context)
     {
@@ -315,7 +314,7 @@ GtkWidget *
 gtk_drag_get_source_widget (GdkDragContext *context)
 {
   GtkDragSourceInfo *info;
-  GdkDragContext* real_source_context = gdk_quartz_drag_source_context();
+  GdkDragContext* real_source_context = gdk_quartz_drag_source_context_libgtk_only ();
 
   if (!real_source_context)
     return NULL;
@@ -356,7 +355,11 @@ get_toplevel_nswindow (GtkWidget *widget)
 {
   GtkWidget *toplevel = gtk_widget_get_toplevel (widget);
   GdkWindow *window = gtk_widget_get_window (toplevel);
-  
+
+  /* Offscreen windows don't support drag and drop */
+  if (GTK_IS_OFFSCREEN_WINDOW (toplevel))
+    return NULL;
+
   if (gtk_widget_is_toplevel (toplevel) && window)
     return [gdk_quartz_window_get_nsview (window) window];
   else
@@ -1125,7 +1128,7 @@ gtk_drag_begin_idle (gpointer arg)
 
 GdkDragContext *
 gtk_drag_begin_internal (GtkWidget         *widget,
-			 GtkImageDefinition *icon,
+			 gboolean          *out_needs_icon,
 			 GtkTargetList     *target_list,
 			 GdkDragAction      actions,
 			 gint               button,
@@ -1218,29 +1221,11 @@ gtk_drag_begin_internal (GtkWidget         *widget,
    * application may have set one in ::drag_begin, or it may
    * not have set one.
    */
-  if (!info->icon_surface && icon)
-    {
-      switch (gtk_image_definition_get_storage_type (icon))
-        {
-          case GTK_IMAGE_PIXBUF:
-              gtk_drag_set_icon_pixbuf (context,
-                                        gtk_image_definition_get_pixbuf (icon),
-                                        -2, -2);
-              break;
-          case GTK_IMAGE_STOCK:
-              gtk_drag_set_icon_stock (context,
-                                       gtk_image_definition_get_stock (icon),
-                                       -2, -2);
-              break;
-          case GTK_IMAGE_ICON_NAME:
-              gtk_drag_set_icon_name (context,
-                                      gtk_image_definition_get_icon_name (icon),
-                                      -2, -2);
-              break;
-          default:
-              break;
-        }
-    }
+  if (info->icon_surface == NULL && out_needs_icon == NULL)
+    gtk_drag_set_icon_default (context);
+
+  if (out_needs_icon != NULL)
+    *out_needs_icon = (info->icon_surface == NULL);
 
   /* no image def or no supported type -> set the default */
   if (!info->icon_surface)

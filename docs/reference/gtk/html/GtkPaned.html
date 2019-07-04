@@ -8,7 +8,7 @@
 <link rel="up" href="LayoutContainers.html" title="Layout Containers">
 <link rel="prev" href="GtkButtonBox.html" title="GtkButtonBox">
 <link rel="next" href="GtkLayout.html" title="GtkLayout">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -119,7 +119,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
+<a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkPaned.html#gtk-paned-get-handle-window" title="gtk_paned_get_handle_window ()">gtk_paned_get_handle_window</a> <span class="c_punctuation">()</span>
@@ -339,10 +339,10 @@ by the user, by calling <a class="link" href="GtkPaned.html#gtk-paned-set-positi
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting">paned
-├── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span>
-├── separator<span class="gtkdoc opt">[.</span>wide<span class="gtkdoc opt">]</span>
-╰── <span class="gtkdoc opt">&lt;</span>child<span class="gtkdoc opt">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">paned</span>
+<span class="normal">├── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
+<span class="normal">├── separator</span><span class="symbol">[.</span><span class="normal">wide</span><span class="symbol">]</span>
+<span class="normal">╰── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -350,7 +350,7 @@ by the user, by calling <a class="link" href="GtkPaned.html#gtk-paned-set-positi
 
 <p></p>
 <p>GtkPaned has a main CSS node with name paned, and a subnode for
-the separator with name separator. The subnodes gets a .wide style
+the separator with name separator. The subnode gets a .wide style
 class when the paned is supposed to be wide.</p>
 <p>In horizontal orientation, the nodes of the children are always arranged
 from left to right. So :first-child will always select the leftmost child,
@@ -374,19 +374,19 @@ regardless of text direction.</p>
 11
 12
 13</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkWidget <span class="gtkdoc opt">*</span>hpaned <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkPaned.html#gtk-paned-new">gtk_paned_new</a></span> <span class="gtkdoc opt">(</span>GTK_ORIENTATION_HORIZONTAL<span class="gtkdoc opt">);</span>
-GtkWidget <span class="gtkdoc opt">*</span>frame1 <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkFrame.html#gtk-frame-new">gtk_frame_new</a></span> <span class="gtkdoc opt">(</span>NULL<span class="gtkdoc opt">);</span>
-GtkWidget <span class="gtkdoc opt">*</span>frame2 <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkFrame.html#gtk-frame-new">gtk_frame_new</a></span> <span class="gtkdoc opt">(</span>NULL<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkFrame.html#gtk-frame-set-shadow-type">gtk_frame_set_shadow_type</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_FRAME</span> <span class="gtkdoc opt">(</span>frame1<span class="gtkdoc opt">),</span> GTK_SHADOW_IN<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkFrame.html#gtk-frame-set-shadow-type">gtk_frame_set_shadow_type</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_FRAME</span> <span class="gtkdoc opt">(</span>frame2<span class="gtkdoc opt">),</span> GTK_SHADOW_IN<span class="gtkdoc opt">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">hpaned </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkPaned.html#gtk-paned-new">gtk_paned_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="gtk3-Standard-Enumerations.html#GTK-ORIENTATION-HORIZONTAL:CAPS">GTK_ORIENTATION_HORIZONTAL</a></span><span class="symbol">);</span>
+<span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">frame1 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkFrame.html#gtk-frame-new">gtk_frame_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">frame2 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkFrame.html#gtk-frame-new">gtk_frame_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="function"><a href="GtkFrame.html#gtk-frame-set-shadow-type">gtk_frame_set_shadow_type</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_FRAME</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">frame1</span><span class="symbol">),</span><span class="normal"> <a href="gtk3-Standard-Enumerations.html#GTK-SHADOW-IN:CAPS">GTK_SHADOW_IN</a></span><span class="symbol">);</span>
+<span class="function"><a href="GtkFrame.html#gtk-frame-set-shadow-type">gtk_frame_set_shadow_type</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_FRAME</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">frame2</span><span class="symbol">),</span><span class="normal"> <a href="gtk3-Standard-Enumerations.html#GTK-SHADOW-IN:CAPS">GTK_SHADOW_IN</a></span><span class="symbol">);</span>
 
-<span class="function"><a href="GtkWidget.html#gtk-widget-set-size-request">gtk_widget_set_size_request</a></span> <span class="gtkdoc opt">(</span>hpaned<span class="gtkdoc opt">,</span> <span class="number">200</span><span class="gtkdoc opt">, -</span><span class="number">1</span><span class="gtkdoc opt">);</span>
+<span class="function"><a href="GtkWidget.html#gtk-widget-set-size-request">gtk_widget_set_size_request</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">hpaned</span><span class="symbol">,</span><span class="normal"> </span><span class="number">200</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">);</span>
 
-<span class="function"><a href="GtkPaned.html#gtk-paned-pack1">gtk_paned_pack1</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_PANED</span> <span class="gtkdoc opt">(</span>hpaned<span class="gtkdoc opt">),</span> frame1<span class="gtkdoc opt">,</span> TRUE<span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkWidget.html#gtk-widget-set-size-request">gtk_widget_set_size_request</a></span> <span class="gtkdoc opt">(</span>frame1<span class="gtkdoc opt">,</span> <span class="number">50</span><span class="gtkdoc opt">, -</span><span class="number">1</span><span class="gtkdoc opt">);</span>
+<span class="function"><a href="GtkPaned.html#gtk-paned-pack1">gtk_paned_pack1</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_PANED</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">hpaned</span><span class="symbol">),</span><span class="normal"> frame1</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">);</span>
+<span class="function"><a href="GtkWidget.html#gtk-widget-set-size-request">gtk_widget_set_size_request</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">frame1</span><span class="symbol">,</span><span class="normal"> </span><span class="number">50</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">);</span>
 
-<span class="function"><a href="GtkPaned.html#gtk-paned-pack2">gtk_paned_pack2</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_PANED</span> <span class="gtkdoc opt">(</span>hpaned<span class="gtkdoc opt">),</span> frame2<span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkWidget.html#gtk-widget-set-size-request">gtk_widget_set_size_request</a></span> <span class="gtkdoc opt">(</span>frame2<span class="gtkdoc opt">,</span> <span class="number">50</span><span class="gtkdoc opt">, -</span><span class="number">1</span><span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="GtkPaned.html#gtk-paned-pack2">gtk_paned_pack2</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_PANED</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">hpaned</span><span class="symbol">),</span><span class="normal"> frame2</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">);</span>
+<span class="function"><a href="GtkWidget.html#gtk-widget-set-size-request">gtk_widget_set_size_request</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">frame2</span><span class="symbol">,</span><span class="normal"> </span><span class="number">50</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -595,7 +595,7 @@ gtk_paned_get_child1 (<em class="parameter"><code><a class="link" href="GtkPaned
 </div>
 <div class="refsect3">
 <a name="gtk-paned-get-child1.returns"></a><h4>Returns</h4>
-<p> first child, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it is not set. </p>
+<p>first child, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it is not set. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.4</p>
@@ -623,7 +623,7 @@ gtk_paned_get_child2 (<em class="parameter"><code><a class="link" href="GtkPaned
 </div>
 <div class="refsect3">
 <a name="gtk-paned-get-child2.returns"></a><h4>Returns</h4>
-<p> second child, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it is not set. </p>
+<p>second child, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it is not set. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.4</p>
@@ -688,9 +688,9 @@ gtk_paned_get_position (<em class="parameter"><code><a class="link" href="GtkPan
 <hr>
 <div class="refsect2">
 <a name="gtk-paned-get-handle-window"></a><h3>gtk_paned_get_handle_window ()</h3>
-<pre class="programlisting"><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
 gtk_paned_get_handle_window (<em class="parameter"><code><a class="link" href="GtkPaned.html" title="GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>);</pre>
-<p>Returns the <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> of the handle. This function is
+<p>Returns the <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> of the handle. This function is
 useful when handling button or motion events because it
 enables the callback to distinguish between the window
 of the paned, a child and the handle.</p>
@@ -711,7 +711,7 @@ of the paned, a child and the handle.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-paned-get-handle-window.returns"></a><h4>Returns</h4>
-<p> the paned’s handle window. </p>
+<p>the paned’s handle window. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.20</p>
@@ -1117,6 +1117,6 @@ move focus to the next widget in the focus chain.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

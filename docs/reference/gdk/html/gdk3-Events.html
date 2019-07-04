@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="GdkGLContext.html" title="GdkGLContext">
 <link rel="next" href="gdk3-Event-Structures.html" title="Event Structures">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -451,7 +451,7 @@
 <p>This section describes functions dealing with events from the window
 system.</p>
 <p>In GTK+ applications the events are handled automatically in
-<a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-main-do-event"><code class="function">gtk_main_do_event()</code></a> and passed on to the appropriate widgets, so these
+<a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-main-do-event"><code class="function">gtk_main_do_event()</code></a> and passed on to the appropriate widgets, so these
 functions are rarely needed. Though some of the fields in the
 <a class="link" href="gdk3-Event-Structures.html" title="Event Structures">Event Structures</a> are useful.</p>
 </div>
@@ -476,7 +476,7 @@ gdk_event_peek (<em class="parameter"><code><span class="type">void</span></code
 display, returns a copy of it. See <a class="link" href="GdkDisplay.html#gdk-display-peek-event" title="gdk_display_peek_event ()"><code class="function">gdk_display_peek_event()</code></a>.</p>
 <div class="refsect3">
 <a name="gdk-event-peek.returns"></a><h4>Returns</h4>
-<p> a copy of the first <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> on some event
+<p>a copy of the first <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> on some event
 queue, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no events are in any queues. The returned
 <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> should be freed with <a class="link" href="gdk3-Events.html#gdk-event-free" title="gdk_event_free ()"><code class="function">gdk_event_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
@@ -492,7 +492,7 @@ on, fetching events from the windowing system if necessary.
 See <a class="link" href="GdkDisplay.html#gdk-display-get-event" title="gdk_display_get_event ()"><code class="function">gdk_display_get_event()</code></a>.</p>
 <div class="refsect3">
 <a name="gdk-event-get.returns"></a><h4>Returns</h4>
-<p> the next <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> to be processed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<p>the next <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> to be processed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 if no events are pending. The returned <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> should be freed
 with <a class="link" href="gdk3-Events.html#gdk-event-free" title="gdk_event_free ()"><code class="function">gdk_event_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
@@ -634,7 +634,7 @@ an event structure.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>value</p></td>
-<td class="parameter_description"><p> location to store the value found. </p></td>
+<td class="parameter_description"><p>location to store the value found. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -668,7 +668,7 @@ gdk_event_get_button (<em class="parameter"><code>const <a class="link" href="gd
 </tr>
 <tr>
 <td class="parameter_name"><p>button</p></td>
-<td class="parameter_description"><p> location to store mouse button number. </p></td>
+<td class="parameter_description"><p>location to store mouse button number. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -703,7 +703,7 @@ gdk_event_get_click_count (<em class="parameter"><code>const <a class="link" hre
 </tr>
 <tr>
 <td class="parameter_name"><p>click_count</p></td>
-<td class="parameter_description"><p> location to store click count. </p></td>
+<td class="parameter_description"><p>location to store click count. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -739,12 +739,12 @@ gdk_event_get_coords (<em class="parameter"><code>const <a class="link" href="gd
 </tr>
 <tr>
 <td class="parameter_name"><p>x_win</p></td>
-<td class="parameter_description"><p> location to put event window x coordinate. </p></td>
+<td class="parameter_description"><p>location to put event window x coordinate. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>y_win</p></td>
-<td class="parameter_description"><p> location to put event window y coordinate. </p></td>
+<td class="parameter_description"><p>location to put event window y coordinate. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -779,7 +779,7 @@ gdk_event_get_keycode (<em class="parameter"><code>const <a class="link" href="g
 </tr>
 <tr>
 <td class="parameter_name"><p>keycode</p></td>
-<td class="parameter_description"><p> location to store the keycode. </p></td>
+<td class="parameter_description"><p>location to store the keycode. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -814,7 +814,7 @@ gdk_event_get_keyval (<em class="parameter"><code>const <a class="link" href="gd
 </tr>
 <tr>
 <td class="parameter_name"><p>keyval</p></td>
-<td class="parameter_description"><p> location to store the keyval. </p></td>
+<td class="parameter_description"><p>location to store the keyval. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -850,12 +850,12 @@ gdk_event_get_root_coords (<em class="parameter"><code>const <a class="link" hre
 </tr>
 <tr>
 <td class="parameter_name"><p>x_root</p></td>
-<td class="parameter_description"><p> location to put root window x coordinate. </p></td>
+<td class="parameter_description"><p>location to put root window x coordinate. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>y_root</p></td>
-<td class="parameter_description"><p> location to put root window y coordinate. </p></td>
+<td class="parameter_description"><p>location to put root window y coordinate. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -889,7 +889,7 @@ gdk_event_get_scroll_direction (<em class="parameter"><code>const <a class="link
 </tr>
 <tr>
 <td class="parameter_name"><p>direction</p></td>
-<td class="parameter_description"><p> location to store the scroll direction. </p></td>
+<td class="parameter_description"><p>location to store the scroll direction. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -925,12 +925,12 @@ gdk_event_get_scroll_deltas (<em class="parameter"><code>const <a class="link" h
 </tr>
 <tr>
 <td class="parameter_name"><p>delta_x</p></td>
-<td class="parameter_description"><p> return location for X delta. </p></td>
+<td class="parameter_description"><p>return location for X delta. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>delta_y</p></td>
-<td class="parameter_description"><p> return location for Y delta. </p></td>
+<td class="parameter_description"><p>return location for Y delta. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -997,12 +997,12 @@ as if the event had no state field.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p> a <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>state</p></td>
-<td class="parameter_description"><p> return location for state. </p></td>
+<td class="parameter_description"><p>return location for state. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1066,7 +1066,7 @@ gdk_event_get_window (<em class="parameter"><code>const <a class="link" href="gd
 </div>
 <div class="refsect3">
 <a name="gdk-event-get-window.returns"></a><h4>Returns</h4>
-<p> The <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> associated with the event. </p>
+<p>The <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> associated with the event. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
@@ -1124,7 +1124,7 @@ to which the event belongs. Otherwise, return <a href="https://developer.gnome.o
 </div>
 <div class="refsect3">
 <a name="gdk-event-get-event-sequence.returns"></a><h4>Returns</h4>
-<p> the event sequence that the event belongs to. </p>
+<p>the event sequence that the event belongs to. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-4.html#api-index-3.4">3.4</a></p>
@@ -1152,13 +1152,13 @@ motion events from a <a class="link" href="gdk3-Events.html#GDK-MOTION-NOTIFY:CA
 5
 6
 7</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">{</span>
-  <span class="gtkdoc slc">// motion_event handler</span>
-  x <span class="gtkdoc opt">=</span> motion_event<span class="gtkdoc opt">-&gt;</span>x<span class="gtkdoc opt">;</span>
-  y <span class="gtkdoc opt">=</span> motion_event<span class="gtkdoc opt">-&gt;</span>y<span class="gtkdoc opt">;</span>
-  <span class="gtkdoc slc">// handle (x,y) motion</span>
-  <span class="function"><a href="gdk3-Events.html#gdk-event-request-motions">gdk_event_request_motions</a></span> <span class="gtkdoc opt">(</span>motion_event<span class="gtkdoc opt">);</span> <span class="gtkdoc slc">// handles is_hint events</span>
-<span class="gtkdoc opt">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="cbracket">{</span>
+<span class="normal">  </span><span class="comment">// motion_event handler</span>
+<span class="normal">  x </span><span class="symbol">=</span><span class="normal"> motion_event</span><span class="symbol">-&gt;</span><span class="normal">x</span><span class="symbol">;</span>
+<span class="normal">  y </span><span class="symbol">=</span><span class="normal"> motion_event</span><span class="symbol">-&gt;</span><span class="normal">y</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="comment">// handle (x,y) motion</span>
+<span class="normal">  </span><span class="function"><a href="gdk3-Events.html#gdk-event-request-motions">gdk_event_request_motions</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">motion_event</span><span class="symbol">);</span><span class="normal"> </span><span class="comment">// handles is_hint events</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1217,7 +1217,7 @@ Y axis.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>angle</p></td>
-<td class="parameter_description"><p> return location for the relative angle between both events. </p></td>
+<td class="parameter_description"><p>return location for the relative angle between both events. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1262,12 +1262,12 @@ will be returned in <em class="parameter"><code>x</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>x</p></td>
-<td class="parameter_description"><p> return location for the X coordinate of the center. </p></td>
+<td class="parameter_description"><p>return location for the X coordinate of the center. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>y</p></td>
-<td class="parameter_description"><p> return location for the Y coordinate of the center. </p></td>
+<td class="parameter_description"><p>return location for the Y coordinate of the center. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1311,7 +1311,7 @@ gdk_events_get_distance (<em class="parameter"><code><a class="link" href="gdk3-
 </tr>
 <tr>
 <td class="parameter_name"><p>distance</p></td>
-<td class="parameter_description"><p> return location for the distance. </p></td>
+<td class="parameter_description"><p>return location for the distance. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1380,7 +1380,7 @@ gdk_event_get_seat (<em class="parameter"><code>const <a class="link" href="gdk3
 </div>
 <div class="refsect3">
 <a name="gdk-event-get-seat.returns"></a><h4>Returns</h4>
-<p> The <a class="link" href="GdkSeat.html" title="GdkSeat"><span class="type">GdkSeat</span></a> of this event. </p>
+<p>The <a class="link" href="GdkSeat.html" title="GdkSeat"><span class="type">GdkSeat</span></a> of this event. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-20.html#api-index-3.20">3.20</a></p>
@@ -1438,7 +1438,7 @@ gdk_event_handler_set (<em class="parameter"><code><a class="link" href="gdk3-Ev
 <p>Sets the function to call to handle all events from GDK.</p>
 <p>Note that GTK+ uses this to install its own event handler, so it is
 usually not useful for GTK+ applications. (Although an application
-can call this function then call <a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-main-do-event"><code class="function">gtk_main_do_event()</code></a> to pass
+can call this function then call <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-main-do-event"><code class="function">gtk_main_do_event()</code></a> to pass
 events to GTK+.)</p>
 <div class="refsect3">
 <a name="gdk-event-handler-set.parameters"></a><h4>Parameters</h4>
@@ -1493,7 +1493,7 @@ handle all GDK events.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>data</p></td>
-<td class="parameter_description"><p> user data set when the event handler was installed with
+<td class="parameter_description"><p>user data set when the event handler was installed with
 <a class="link" href="gdk3-Events.html#gdk-event-handler-set" title="gdk_event_handler_set ()"><code class="function">gdk_event_handler_set()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
@@ -1601,7 +1601,7 @@ to which <code class="literal">event-&gt;motion.x_root</code> and
 </div>
 <div class="refsect3">
 <a name="gdk-event-get-screen.returns"></a><h4>Returns</h4>
-<p> the screen for the event. </p>
+<p>the screen for the event. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.2</p>
@@ -1630,7 +1630,7 @@ it, else it will return <a href="https://developer.gnome.org/glib/unstable/glib-
 </div>
 <div class="refsect3">
 <a name="gdk-event-get-device.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>a <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -1700,7 +1700,7 @@ return <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.h
 </div>
 <div class="refsect3">
 <a name="gdk-event-get-source-device.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>a <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -1769,7 +1769,7 @@ persistently across runs, see <a class="link" href="GdkDevice.html#gdk-device-to
 </div>
 <div class="refsect3">
 <a name="gdk-event-get-device-tool.returns"></a><h4>Returns</h4>
-<p> The current device tool, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>The current device tool, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
@@ -1797,7 +1797,7 @@ gdk_event_set_device_tool (<em class="parameter"><code><a class="link" href="gdk
 </tr>
 <tr>
 <td class="parameter_name"><p>tool</p></td>
-<td class="parameter_description"><p> tool to set on the event, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>tool to set on the event, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1810,7 +1810,7 @@ gdk_event_set_device_tool (<em class="parameter"><code><a class="link" href="gdk
 <a name="gdk-setting-get"></a><h3>gdk_setting_get ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gdk_setting_get (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);</pre>
+                 <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *value</code></em>);</pre>
 <p>Obtains a desktop-wide setting, such as the double-click time,
 for the default screen. See <a class="link" href="GdkScreen.html#gdk-screen-get-setting" title="gdk_screen_get_setting ()"><code class="function">gdk_screen_get_setting()</code></a>.</p>
 <div class="refsect3">
@@ -2553,6 +2553,6 @@ left button in a left-handed setup.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

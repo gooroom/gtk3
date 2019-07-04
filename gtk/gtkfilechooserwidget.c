@@ -33,7 +33,6 @@
 #include "gtkdragsource.h"
 #include "gtkdragdest.h"
 #include "gtkentry.h"
-#include "gtkexpander.h"
 #include "gtkfilechooserprivate.h"
 #include "gtkfilechooserdialog.h"
 #include "gtkfilechooserembed.h"
@@ -78,7 +77,6 @@
 #include "gtkseparator.h"
 #include "gtkmodelbutton.h"
 #include "gtkgesturelongpress.h"
-#include "gtkdebug.h"
 
 #include <cairo-gobject.h>
 
@@ -2380,25 +2378,6 @@ list_popup_menu_cb (GtkWidget            *widget,
   return TRUE;
 }
 
-static void
-get_selection_modifiers (GtkWidget       *widget,
-                         GdkEventButton  *event,
-                         gboolean        *modify,
-                         gboolean        *extend)
-{
-  GdkModifierType mask;
-
-  *modify = FALSE;
-  *extend = FALSE;
-
-  mask = gtk_widget_get_modifier_mask (widget, GDK_MODIFIER_INTENT_MODIFY_SELECTION);
-  if ((event->state & mask) == mask)
-    *modify = TRUE;
-  mask = gtk_widget_get_modifier_mask (widget, GDK_MODIFIER_INTENT_EXTEND_SELECTION);
-  if ((event->state & mask) == mask)
-    *extend = TRUE;
-}
-
 /* Callback used when a button is pressed on the file list.  We trap button 3 to
  * bring up a popup menu.
  */
@@ -2409,39 +2388,9 @@ list_button_press_event_cb (GtkWidget            *widget,
 {
   GtkFileChooserWidgetPrivate *priv = impl->priv;
   static gboolean in_press = FALSE;
-  GtkTreePath *path;
-  GtkTreeViewColumn *column;
-  GdkDevice *device;
-  gboolean modify, extend, is_touchscreen;
 
   if (in_press)
     return FALSE;
-
-  device = gdk_event_get_source_device ((GdkEvent *) event);
-  is_touchscreen = gtk_simulate_touchscreen () ||
-                   gdk_device_get_source (device) == GDK_SOURCE_TOUCHSCREEN;
-
-  get_selection_modifiers (widget, event, &modify, &extend);
-  if (!is_touchscreen &&
-      !modify && !extend &&
-      event->type == GDK_BUTTON_PRESS &&
-      event->button == GDK_BUTTON_PRIMARY &&
-      gtk_tree_view_get_path_at_pos (GTK_TREE_VIEW (priv->browse_files_tree_view),
-                                     event->x, event->y,
-                                     &path, &column, NULL, NULL))
-    {
-      GtkTreeSelection *selection;
-
-      selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (priv->browse_files_tree_view));
-      if (gtk_tree_selection_path_is_selected (selection, path))
-        {
-          list_row_activated (GTK_TREE_VIEW (priv->browse_files_tree_view), path, column, impl);
-          gtk_tree_path_free (path);
-          return TRUE;
-        }
-
-      gtk_tree_path_free (path);
-    }
 
   if (!gdk_event_triggers_context_menu ((GdkEvent *) event))
     return FALSE;
@@ -3316,13 +3265,11 @@ static gchar *
 gtk_file_chooser_widget_get_subtitle (GtkFileChooserWidget *impl)
 {
   GtkFileChooserWidgetPrivate *priv = impl->priv;
-  gchar *subtitle;
+  gchar *subtitle = NULL;
 
   if (priv->operation_mode == OPERATION_MODE_SEARCH)
     {
       gchar *location;
-
-      subtitle = _("Searching");
 
       location = gtk_places_sidebar_get_location_title (GTK_PLACES_SIDEBAR (priv->places_sidebar));
       if (location)
@@ -3345,6 +3292,9 @@ gtk_file_chooser_widget_get_subtitle (GtkFileChooserWidget *impl)
               g_object_unref (info);
             }
         }
+
+      if (subtitle == NULL)
+        subtitle = g_strdup (_("Searching"));
     }
   else if (priv->operation_mode == OPERATION_MODE_ENTER_LOCATION ||
            (priv->operation_mode == OPERATION_MODE_BROWSE &&
@@ -3354,10 +3304,6 @@ gtk_file_chooser_widget_get_subtitle (GtkFileChooserWidget *impl)
         subtitle = g_strdup (_("Enter location"));
       else
         subtitle = g_strdup (_("Enter location or URL"));
-    }
-  else
-    {
-      subtitle = NULL;
     }
 
   return subtitle;
@@ -7211,19 +7157,6 @@ search_engine_finished_cb (GtkSearchEngine *engine,
     }
 }
 
-/* Displays a generic error when we cannot create a GtkSearchEngine.
- * It would be better if _gtk_search_engine_new() gave us a GError
- * with a better message, but it doesn’t do that right now.
- */
-static void
-search_error_could_not_create_client (GtkFileChooserWidget *impl)
-{
-  error_message (impl,
-                 _("Could not start the search process"),
-                 _("The program was not able to create a connection to the indexer "
-                   "daemon. Please make sure it is running."));
-}
-
 static void
 search_engine_error_cb (GtkSearchEngine *engine,
                         const gchar     *message,
@@ -7349,14 +7282,6 @@ search_start_query (GtkFileChooserWidget *impl,
 
   if (priv->search_engine == NULL)
     priv->search_engine = _gtk_search_engine_new ();
-
-  if (!priv->search_engine)
-    {
-      set_busy_cursor (impl, FALSE);
-      gtk_widget_hide (priv->search_spinner);
-      search_error_could_not_create_client (impl); /* lame; we don't get an error code or anything */
-      return;
-    }
 
   if (!priv->search_query)
     {
@@ -7535,6 +7460,23 @@ recent_idle_cleanup (gpointer data)
   g_free (load_data);
 }
 
+static gboolean
+recent_item_is_private (GtkRecentInfo *info)
+{
+  gboolean is_private = FALSE;
+
+  if (gtk_recent_info_get_private_hint (info))
+    {
+      const gchar *app_name = g_get_application_name ();
+      gchar **recent_apps = gtk_recent_info_get_applications (info, NULL);
+      is_private = !g_strv_contains ((const char *const*) recent_apps,
+                                     app_name);
+      g_strfreev (recent_apps);
+    }
+
+  return is_private;
+}
+
 /* Populates the file system model with the GtkRecentInfo* items
  * in the provided list; frees the items
  */
@@ -7555,6 +7497,9 @@ populate_model_with_recent_items (GtkFileChooserWidget *impl,
     {
       GtkRecentInfo *info = l->data;
       GFile *file;
+
+      if (recent_item_is_private (info))
+        continue;
 
       file = g_file_new_for_uri (gtk_recent_info_get_uri (info));
       _gtk_file_system_model_add_and_query_file (priv->recent_model,

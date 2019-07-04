@@ -1299,7 +1299,7 @@ gtk_tool_item_retrieve_proxy_menu_item (GtkToolItem *tool_item)
  * @menu_item_ids must match ensures that a #GtkToolItem
  * will not inadvertently change a menu item that they did not create.
  *
- * Returns: (transfer none): The #GtkMenuItem passed to
+ * Returns: (transfer none) (nullable): The #GtkMenuItem passed to
  *     gtk_tool_item_set_proxy_menu_item(), if the @menu_item_ids
  *     match.
  *
@@ -1351,11 +1351,13 @@ gtk_tool_item_rebuild_menu (GtkToolItem *tool_item)
  * gtk_tool_item_set_proxy_menu_item:
  * @tool_item: a #GtkToolItem
  * @menu_item_id: a string used to identify @menu_item
- * @menu_item: a #GtkMenuItem to be used in the overflow menu
+ * @menu_item: (nullable): a #GtkMenuItem to use in the overflow menu, or %NULL
  * 
  * Sets the #GtkMenuItem used in the toolbar overflow menu. The
  * @menu_item_id is used to identify the caller of this function and
  * should also be used with gtk_tool_item_get_proxy_menu_item().
+ *
+ * See also #GtkToolItem::create-menu-proxy.
  * 
  * Since: 2.4
  **/

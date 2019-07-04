@@ -195,6 +195,12 @@ static gboolean             cups_printer_get_hard_margins          (GtkPrinter  
 								    gdouble                           *bottom,
 								    gdouble                           *left,
 								    gdouble                           *right);
+static gboolean             cups_printer_get_hard_margins_for_paper_size (GtkPrinter                  *printer,
+									  GtkPaperSize                *paper_size,
+									  gdouble                     *top,
+									  gdouble                     *bottom,
+									  gdouble                     *left,
+									  gdouble                     *right);
 static GtkPrintCapabilities cups_printer_get_capabilities          (GtkPrinter                        *printer);
 static void                 set_option_from_settings               (GtkPrinterOption                  *option,
 								    GtkPrintSettings                  *setting);
@@ -372,6 +378,7 @@ gtk_print_backend_cups_class_init (GtkPrintBackendCupsClass *class)
   backend_class->printer_list_papers = cups_printer_list_papers;
   backend_class->printer_get_default_page_size = cups_printer_get_default_page_size;
   backend_class->printer_get_hard_margins = cups_printer_get_hard_margins;
+  backend_class->printer_get_hard_margins_for_paper_size = cups_printer_get_hard_margins_for_paper_size;
   backend_class->printer_get_capabilities = cups_printer_get_capabilities;
   backend_class->set_password = gtk_print_backend_cups_set_password;
 }
@@ -1899,7 +1906,8 @@ static const char * const printer_attrs[] =
     "ipp-versions-supported",
     "multiple-document-handling-supported",
     "copies-supported",
-    "number-up-supported"
+    "number-up-supported",
+    "device-uri"
   };
 
 /* Attributes we're interested in for printers without PPD */
@@ -1996,11 +2004,13 @@ typedef struct
   int       number_of_covers;
   gchar    *output_bin_default;
   GList    *output_bin_supported;
+  gchar    *original_device_uri;
 } PrinterSetupInfo;
 
 static void
 printer_setup_info_free (PrinterSetupInfo *info)
 {
+  g_free (info->original_device_uri);
   g_free (info->state_msg);
   g_strfreev (info->covers);
   g_slice_free (PrinterSetupInfo, info);
@@ -2376,10 +2386,14 @@ cups_printer_handle_attribute (GtkPrintBackendCups *cups_backend,
 
       info->output_bin_supported = g_list_reverse (info->output_bin_supported);
     }
+  else if (g_strcmp0 (ippGetName (attr), "device-uri") == 0)
+    {
+      info->original_device_uri = g_strdup (ippGetString (attr, 0, NULL));
+    }
   else
     {
       GTK_NOTE (PRINTING,
-		g_print ("CUPS Backend: Attribute %s ignored", ippGetName (attr)));
+		g_print ("CUPS Backend: Attribute %s ignored\n", ippGetName (attr)));
     }
 }
 
@@ -2464,6 +2478,7 @@ cups_create_printer (GtkPrintBackendCups *cups_backend,
 
   cups_printer->default_cover_before = g_strdup (info->default_cover_before);
   cups_printer->default_cover_after = g_strdup (info->default_cover_after);
+  cups_printer->original_device_uri = g_strdup (info->original_device_uri);
 
   if (info->default_number_up > 0)
     cups_printer->default_number_up = info->default_number_up;
@@ -2830,8 +2845,53 @@ typedef struct
   guint                printer_state;
   gchar               *type;
   gchar               *domain;
+  gchar               *UUID;
   GtkPrintBackendCups *backend;
 } AvahiConnectionTestData;
+
+static GtkPrinter *
+find_printer_by_uuid (GtkPrintBackendCups *backend,
+                      const gchar         *UUID)
+{
+  GtkPrinterCups *printer;
+  GtkPrinter     *result = NULL;
+  GList          *printers;
+  GList          *iter;
+  gchar          *printer_uuid;
+
+  printers = gtk_print_backend_get_printer_list (GTK_PRINT_BACKEND (backend));
+  for (iter = printers; iter != NULL; iter = iter->next)
+    {
+      printer = GTK_PRINTER_CUPS (iter->data);
+      if (printer->original_device_uri != NULL)
+        {
+          printer_uuid = g_strrstr (printer->original_device_uri, "uuid=");
+          if (printer_uuid != NULL && strlen (printer_uuid) >= 41)
+            {
+              printer_uuid += 5;
+              printer_uuid = g_strndup (printer_uuid, 36);
+
+#if GLIB_CHECK_VERSION(2, 52, 0)
+              if (g_uuid_string_is_valid (printer_uuid))
+#endif
+                {
+                  if (g_strcmp0 (printer_uuid, UUID) == 0)
+                    {
+                      result = GTK_PRINTER (printer);
+                      g_free (printer_uuid);
+                      break;
+                    }
+                }
+
+              g_free (printer_uuid);
+            }
+        }
+    }
+
+  g_list_free (printers);
+
+  return result;
+}
 
 /*
  *  Create new GtkPrinter from informations included in TXT records.
@@ -2878,6 +2938,10 @@ create_cups_printer_from_avahi_data (AvahiConnectionTestData *data)
   set_info_state_message (info);
 
   printer = gtk_print_backend_find_printer (GTK_PRINT_BACKEND (data->backend), data->printer_name);
+
+  if (printer == NULL && data->UUID != NULL)
+    printer = find_printer_by_uuid (data->backend, data->UUID);
+
   if (printer == NULL)
     {
       printer = cups_create_printer (data->backend, info);
@@ -3079,6 +3143,11 @@ avahi_service_resolver_cb (GObject      *source_object,
                   data->printer_state = g_ascii_strtoull (value, &endptr, 10);
                   if (data->printer_state != 0 || endptr != value)
                     data->got_printer_state = TRUE;
+                }
+              else if (g_strcmp0 (key, "UUID") == 0)
+                {
+                  if (*value != '\0')
+                    data->UUID = g_strdup (value);
                 }
 
               g_clear_pointer (&key, g_free);
@@ -3897,7 +3966,7 @@ cups_request_ppd (GtkPrinter *printer)
   g_io_channel_set_encoding (data->ppd_io, NULL, NULL);
   g_io_channel_set_close_on_unref (data->ppd_io, TRUE);
 
-  data->printer = g_object_ref (printer);
+  data->printer = (GtkPrinterCups *) g_object_ref (printer);
 
   resource = g_strdup_printf ("/printers/%s.ppd",
                               gtk_printer_cups_get_ppd_name (GTK_PRINTER_CUPS (printer)));
@@ -6677,6 +6746,47 @@ cups_printer_get_hard_margins (GtkPrinter *printer,
     }
 
   return result;
+}
+
+static gboolean
+cups_printer_get_hard_margins_for_paper_size (GtkPrinter   *printer,
+					      GtkPaperSize *paper_size,
+					      gdouble      *top,
+					      gdouble      *bottom,
+					      gdouble      *left,
+					      gdouble      *right)
+{
+  ppd_file_t *ppd_file;
+  ppd_size_t *size;
+  const gchar *paper_name;
+  int i;
+
+  ppd_file = gtk_printer_cups_get_ppd (GTK_PRINTER_CUPS (printer));
+  if (ppd_file == NULL)
+    return FALSE;
+
+  paper_name = gtk_paper_size_get_ppd_name (paper_size);
+
+  for (i = 0; i < ppd_file->num_sizes; i++)
+    {
+      size = &ppd_file->sizes[i];
+      if (g_strcmp0(size->name, paper_name) == 0)
+        {
+	   *top = size->length - size->top;
+	   *bottom = size->bottom;
+	   *left = size->left;
+	   *right = size->width - size->right;
+	   return TRUE;
+	}
+    }
+
+  /* Custom size */
+  *left = ppd_file->custom_margins[0];
+  *bottom = ppd_file->custom_margins[1];
+  *right = ppd_file->custom_margins[2];
+  *top = ppd_file->custom_margins[3];
+
+  return TRUE;
 }
 
 static GtkPrintCapabilities

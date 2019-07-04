@@ -1462,9 +1462,13 @@ void
 gtk_menu_shell_select_first (GtkMenuShell *menu_shell,
                              gboolean      search_sensitive)
 {
-  GtkMenuShellPrivate *priv = menu_shell->priv;
+  GtkMenuShellPrivate *priv;
   GtkWidget *to_select = NULL;
   GList *tmp_list;
+
+  g_return_if_fail (GTK_IS_MENU_SHELL (menu_shell));
+
+  priv = menu_shell->priv;
 
   tmp_list = priv->children;
   while (tmp_list)
@@ -1675,7 +1679,7 @@ gtk_real_menu_shell_activate_current (GtkMenuShell *menu_shell,
                                     priv->active_menu_item,
                                     force_hide);
     else
-      _gtk_menu_item_popup_submenu (priv->active_menu_item, FALSE);
+      gtk_menu_shell_select_submenu_first (menu_shell);
   }
 }
 
@@ -1944,6 +1948,7 @@ gtk_menu_shell_set_take_focus (GtkMenuShell *menu_shell,
 
   priv = menu_shell->priv;
 
+  take_focus = !!take_focus;
   if (priv->take_focus != take_focus)
     {
       priv->take_focus = take_focus;

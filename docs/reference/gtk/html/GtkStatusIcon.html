@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="GtkArrow.html" title="GtkArrow">
 <link rel="next" href="GtkThemingEngine.html" title="GtkThemingEngine">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -162,7 +162,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="returnvalue">GIcon</span></a> *
+<span class="returnvalue">GIcon</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkStatusIcon.html#gtk-status-icon-get-gicon" title="gtk_status_icon_get_gicon ()">gtk_status_icon_get_gicon</a> <span class="c_punctuation">()</span>
@@ -186,7 +186,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="returnvalue">GdkScreen</span></a> *
+<a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="returnvalue">GdkScreen</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkStatusIcon.html#gtk-status-icon-get-screen" title="gtk_status_icon_get_screen ()">gtk_status_icon_get_screen</a> <span class="c_punctuation">()</span>
@@ -336,7 +336,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *</td>
+<span class="type">GIcon</span> *</td>
 <td class="property_name"><a class="link" href="GtkStatusIcon.html#GtkStatusIcon--gicon" title="The “gicon” property">gicon</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -364,7 +364,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *</td>
+<a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkStatusIcon.html#GtkStatusIcon--screen" title="The “screen” property">screen</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -490,21 +490,27 @@ message, or something along those lines. The basic idea is that creating an
 icon in the notification area is less annoying than popping up a dialog.</p>
 <p>A <a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> object can be used to display an icon in a “system tray”.
 The icon can have a tooltip, and the user can interact with it by
-activating it or popping up a context menu. Critical information should
-not solely be displayed in a <a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a>, since it may not be
-visible (e.g. when the user doesn’t have a notification area on his panel).
-This can be checked with <a class="link" href="GtkStatusIcon.html#gtk-status-icon-is-embedded" title="gtk_status_icon_is_embedded ()"><code class="function">gtk_status_icon_is_embedded()</code></a>.</p>
+activating it or popping up a context menu.</p>
+<p>It is very important to notice that status icons depend on the existence
+of a notification area being available to the user; you should not use status
+icons as the only way to convey critical information regarding your application,
+as the notification area may not exist on the user's environment, or may have
+been removed. You should always check that a status icon has been embedded into
+a notification area by using <a class="link" href="GtkStatusIcon.html#gtk-status-icon-is-embedded" title="gtk_status_icon_is_embedded ()"><code class="function">gtk_status_icon_is_embedded()</code></a>, and gracefully
+recover if the function returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</p>
 <p>On X11, the implementation follows the
 <a class="ulink" href="http://www.freedesktop.org/wiki/Specifications/systemtray-spec" target="_top">FreeDesktop System Tray Specification</a>.
 Implementations of the “tray” side of this specification can
 be found e.g. in the GNOME 2 and KDE panel applications.</p>
-<p>Note that a GtkStatusIcon is not a widget, but just
-a <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a>. Making it a widget would be impractical, since the system tray
-on Win32 doesn’t allow to embed arbitrary widgets.</p>
+<p>Note that a GtkStatusIcon is not a widget, but just a <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a>. Making it a
+widget would be impractical, since the system tray on Windows doesn’t allow
+to embed arbitrary widgets.</p>
 <p>GtkStatusIcon has been deprecated in 3.14. You should consider using
 notifications or more modern platform-specific APIs instead. GLib provides
-the <a href="https://developer.gnome.org/gio/unstable/GNotification.html#GNotification-struct"><span class="type">GNotification</span></a> API which works well with <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a>. Also see this
-<a class="ulink" href="https://wiki.gnome.org/HowDoI/GNotification" target="_top">HowDoI</a>.</p>
+the <span class="type">GNotification</span> API which works well with <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> on multiple
+platforms and environments, and should be the preferred mechanism to notify
+the users of transient status updates. See this <a class="ulink" href="https://wiki.gnome.org/HowDoI/GNotification" target="_top">HowDoI</a>
+for code examples.</p>
 </div>
 <div class="refsect1">
 <a name="GtkStatusIcon.functions_details"></a><h2>Functions</h2>
@@ -514,7 +520,8 @@ the <a href="https://developer.gnome.org/gio/unstable/GNotification.html#GNotifi
 gtk_status_icon_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_new</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications</p>
 </div>
 <p>Creates an empty status icon object.</p>
 <div class="refsect3">
@@ -530,7 +537,8 @@ gtk_status_icon_new (<em class="parameter"><code><span class="type">void</span><
 gtk_status_icon_new_from_pixbuf (<em class="parameter"><code><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_new_from_pixbuf</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications</p>
 </div>
 <p>Creates a status icon displaying <em class="parameter"><code>pixbuf</code></em>
 . </p>
@@ -564,7 +572,8 @@ space in the notification area, if necessary.</p>
 gtk_status_icon_new_from_file (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *filename</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_new_from_file</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications</p>
 </div>
 <p>Creates a status icon displaying the file <em class="parameter"><code>filename</code></em>
 . </p>
@@ -580,7 +589,7 @@ space in the notification area, if necessary.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>filename</p></td>
-<td class="parameter_description"><p> a filename. </p></td>
+<td class="parameter_description"><p>a filename. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr></tbody>
 </table></div>
@@ -597,8 +606,9 @@ space in the notification area, if necessary.</p>
 <pre class="programlisting"><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="returnvalue">GtkStatusIcon</span></a> *
 gtk_status_icon_new_from_stock (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stock_id</code></em>);</pre>
 <div class="warning">
-<p><code class="literal">gtk_status_icon_new_from_stock</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
-<p>Use <a class="link" href="GtkStatusIcon.html#gtk-status-icon-new-from-icon-name" title="gtk_status_icon_new_from_icon_name ()"><code class="function">gtk_status_icon_new_from_icon_name()</code></a> instead.</p>
+<p><code class="literal">gtk_status_icon_new_from_stock</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications</p>
 </div>
 <p>Creates a status icon displaying a stock icon. Sample stock icon
 names are <a class="link" href="gtk3-Stock-Items.html#GTK-STOCK-OPEN:CAPS" title="GTK_STOCK_OPEN"><span class="type">GTK_STOCK_OPEN</span></a>, <a class="link" href="gtk3-Stock-Items.html#GTK-STOCK-QUIT:CAPS" title="GTK_STOCK_QUIT"><span class="type">GTK_STOCK_QUIT</span></a>. You can register your 
@@ -632,7 +642,8 @@ own stock icon names, see <a class="link" href="gtk3-Themeable-Stock-Images.html
 gtk_status_icon_new_from_icon_name (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *icon_name</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_new_from_icon_name</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications</p>
 </div>
 <p>Creates a status icon displaying an icon from the current icon theme.
 If the current icon theme is changed, the icon will be updated 
@@ -662,12 +673,13 @@ appropriately.</p>
 <div class="refsect2">
 <a name="gtk-status-icon-new-from-gicon"></a><h3>gtk_status_icon_new_from_gicon ()</h3>
 <pre class="programlisting"><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="returnvalue">GtkStatusIcon</span></a> *
-gtk_status_icon_new_from_gicon (<em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *icon</code></em>);</pre>
+gtk_status_icon_new_from_gicon (<em class="parameter"><code><span class="type">GIcon</span> *icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_new_from_gicon</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications</p>
 </div>
-<p>Creates a status icon displaying a <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a>. If the icon is a
+<p>Creates a status icon displaying a <span class="type">GIcon</span>. If the icon is a
 themed icon, it will be updated when the theme changes.</p>
 <div class="refsect3">
 <a name="gtk-status-icon-new-from-gicon.parameters"></a><h4>Parameters</h4>
@@ -679,7 +691,7 @@ themed icon, it will be updated when the theme changes.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>icon</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a></p></td>
+<td class="parameter_description"><p>a <span class="type">GIcon</span></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
@@ -698,7 +710,9 @@ gtk_status_icon_set_from_pixbuf (<em class="parameter"><code><a class="link" hre
                                  <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_set_from_pixbuf</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; you can use <code class="function">g_notification_set_icon()</code>
+  to associate a <span class="type">GIcon</span> with a notification</p>
 </div>
 <p>Makes <em class="parameter"><code>status_icon</code></em>
  display <em class="parameter"><code>pixbuf</code></em>
@@ -720,7 +734,7 @@ See <a class="link" href="GtkStatusIcon.html#gtk-status-icon-new-from-pixbuf" ti
 </tr>
 <tr>
 <td class="parameter_name"><p>pixbuf</p></td>
-<td class="parameter_description"><p> a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -736,7 +750,9 @@ gtk_status_icon_set_from_file (<em class="parameter"><code><a class="link" href=
                                <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *filename</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_set_from_file</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; you can use <code class="function">g_notification_set_icon()</code>
+  to associate a <span class="type">GIcon</span> with a notification</p>
 </div>
 <p>Makes <em class="parameter"><code>status_icon</code></em>
  display the file <em class="parameter"><code>filename</code></em>
@@ -758,7 +774,7 @@ See <a class="link" href="GtkStatusIcon.html#gtk-status-icon-new-from-file" titl
 </tr>
 <tr>
 <td class="parameter_name"><p>filename</p></td>
-<td class="parameter_description"><p> a filename. </p></td>
+<td class="parameter_description"><p>a filename. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> filename]</span></td>
 </tr>
 </tbody>
@@ -812,7 +828,9 @@ gtk_status_icon_set_from_icon_name (<em class="parameter"><code><a class="link" 
                                     <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *icon_name</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_set_from_icon_name</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; you can use <code class="function">g_notification_set_icon()</code>
+  to associate a <span class="type">GIcon</span> with a notification</p>
 </div>
 <p>Makes <em class="parameter"><code>status_icon</code></em>
  display the icon named <em class="parameter"><code>icon_name</code></em>
@@ -848,13 +866,15 @@ See <a class="link" href="GtkStatusIcon.html#gtk-status-icon-new-from-icon-name"
 <a name="gtk-status-icon-set-from-gicon"></a><h3>gtk_status_icon_set_from_gicon ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_status_icon_set_from_gicon (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *icon</code></em>);</pre>
+                                <em class="parameter"><code><span class="type">GIcon</span> *icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_set_from_gicon</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; you can use <code class="function">g_notification_set_icon()</code>
+  to associate a <span class="type">GIcon</span> with a notification</p>
 </div>
 <p>Makes <em class="parameter"><code>status_icon</code></em>
- display the <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a>.
+ display the <span class="type">GIcon</span>.
 See <a class="link" href="GtkStatusIcon.html#gtk-status-icon-new-from-gicon" title="gtk_status_icon_new_from_gicon ()"><code class="function">gtk_status_icon_new_from_gicon()</code></a> for details.</p>
 <div class="refsect3">
 <a name="gtk-status-icon-set-from-gicon.parameters"></a><h4>Parameters</h4>
@@ -887,7 +907,10 @@ See <a class="link" href="GtkStatusIcon.html#gtk-status-icon-new-from-gicon" tit
 gtk_status_icon_get_storage_type (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_get_storage_type</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function, and <span class="type">GNotification</span> only supports <span class="type">GIcon</span>
+  instances</p>
 </div>
 <p>Gets the type of representation being used by the <a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a>
 to store image data. If the <a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> has no image data,
@@ -920,7 +943,9 @@ the return value will be <a class="link" href="GtkImage.html#GTK-IMAGE-EMPTY:CAP
 gtk_status_icon_get_pixbuf (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_get_pixbuf</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function</p>
 </div>
 <p>Gets the <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> being displayed by the <a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a>.
 The storage type of the status icon must be <a class="link" href="GtkImage.html#GTK-IMAGE-EMPTY:CAPS"><code class="literal">GTK_IMAGE_EMPTY</code></a> or
@@ -944,7 +969,7 @@ returned pixbuf.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-status-icon-get-pixbuf.returns"></a><h4>Returns</h4>
-<p> the displayed pixbuf,
+<p>the displayed pixbuf,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the image is empty. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -981,7 +1006,7 @@ be freed or modified.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-status-icon-get-stock.returns"></a><h4>Returns</h4>
-<p> stock id of the displayed stock icon,
+<p>stock id of the displayed stock icon,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the image is empty. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -994,7 +1019,9 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 gtk_status_icon_get_icon_name (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_get_icon_name</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function</p>
 </div>
 <p>Gets the name of the icon being displayed by the <a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a>.
 The storage type of the status icon must be <a class="link" href="GtkImage.html#GTK-IMAGE-EMPTY:CAPS"><code class="literal">GTK_IMAGE_EMPTY</code></a> or
@@ -1018,7 +1045,7 @@ be freed or modified.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-status-icon-get-icon-name.returns"></a><h4>Returns</h4>
-<p> name of the displayed icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the image is empty. </p>
+<p>name of the displayed icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the image is empty. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.10</p>
@@ -1026,17 +1053,19 @@ be freed or modified.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-status-icon-get-gicon"></a><h3>gtk_status_icon_get_gicon ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="returnvalue">GIcon</span></a> *
+<pre class="programlisting"><span class="returnvalue">GIcon</span> *
 gtk_status_icon_get_gicon (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_get_gicon</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function</p>
 </div>
-<p>Retrieves the <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> being displayed by the <a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a>.
+<p>Retrieves the <span class="type">GIcon</span> being displayed by the <a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a>.
 The storage type of the status icon must be <a class="link" href="GtkImage.html#GTK-IMAGE-EMPTY:CAPS"><code class="literal">GTK_IMAGE_EMPTY</code></a> or
 <a class="link" href="GtkImage.html#GTK-IMAGE-GICON:CAPS"><code class="literal">GTK_IMAGE_GICON</code></a> (see <a class="link" href="GtkStatusIcon.html#gtk-status-icon-get-storage-type" title="gtk_status_icon_get_storage_type ()"><code class="function">gtk_status_icon_get_storage_type()</code></a>).
 The caller of this function does not own a reference to the
-returned <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a>.</p>
+returned <span class="type">GIcon</span>.</p>
 <p>If this function fails, <em class="parameter"><code>icon</code></em>
  is left unchanged;</p>
 <div class="refsect3">
@@ -1056,7 +1085,7 @@ returned <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-stru
 </div>
 <div class="refsect3">
 <a name="gtk-status-icon-get-gicon.returns"></a><h4>Returns</h4>
-<p> the displayed icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the image is empty. </p>
+<p>the displayed icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the image is empty. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -1068,7 +1097,10 @@ returned <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-stru
 gtk_status_icon_get_size (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_get_size</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function, as the representation of a notification
+  is left to the platform</p>
 </div>
 <p>Gets the size in pixels that is available for the image. 
 Stock icons and named icons adapt their size automatically
@@ -1103,12 +1135,15 @@ status icon is embedded (see <a class="link" href="GtkStatusIcon.html#gtk-status
 <a name="gtk-status-icon-set-screen"></a><h3>gtk_status_icon_set_screen ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_status_icon_set_screen (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>,
-                            <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+                            <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_set_screen</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function, as GTK typically only has one <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>
+  and notifications are managed by the platform</p>
 </div>
-<p>Sets the <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> where <em class="parameter"><code>status_icon</code></em>
+<p>Sets the <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> where <em class="parameter"><code>status_icon</code></em>
  is displayed; if
 the icon is already mapped, it will be unmapped, and
 then remapped on the new screen.</p>
@@ -1128,7 +1163,7 @@ then remapped on the new screen.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>screen</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -1139,13 +1174,15 @@ then remapped on the new screen.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-status-icon-get-screen"></a><h3>gtk_status_icon_get_screen ()</h3>
-<pre class="programlisting"><a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="returnvalue">GdkScreen</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="returnvalue">GdkScreen</span></a> *
 gtk_status_icon_get_screen (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_get_screen</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function, as notifications are managed by the platform</p>
 </div>
-<p>Returns the <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> associated with <em class="parameter"><code>status_icon</code></em>
+<p>Returns the <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> associated with <em class="parameter"><code>status_icon</code></em>
 .</p>
 <div class="refsect3">
 <a name="gtk-status-icon-get-screen.parameters"></a><h4>Parameters</h4>
@@ -1164,7 +1201,7 @@ gtk_status_icon_get_screen (<em class="parameter"><code><a class="link" href="Gt
 </div>
 <div class="refsect3">
 <a name="gtk-status-icon-get-screen.returns"></a><h4>Returns</h4>
-<p> a <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>. </p>
+<p>a <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.12</p>
@@ -1177,7 +1214,9 @@ gtk_status_icon_set_tooltip_text (<em class="parameter"><code><a class="link" hr
                                   <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_set_tooltip_text</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function</p>
 </div>
 <p>Sets <em class="parameter"><code>text</code></em>
  as the contents of the tooltip.</p>
@@ -1218,7 +1257,9 @@ signal.</p>
 gtk_status_icon_get_tooltip_text (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_get_tooltip_text</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function</p>
 </div>
 <p>Gets the contents of the tooltip for <em class="parameter"><code>status_icon</code></em>
 .</p>
@@ -1239,7 +1280,7 @@ gtk_status_icon_get_tooltip_text (<em class="parameter"><code><a class="link" hr
 </div>
 <div class="refsect3">
 <a name="gtk-status-icon-get-tooltip-text.returns"></a><h4>Returns</h4>
-<p> the tooltip text, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. You should free the
+<p>the tooltip text, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. You should free the
 returned string with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when done. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -1253,7 +1294,9 @@ gtk_status_icon_set_tooltip_markup (<em class="parameter"><code><a class="link" 
                                     <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *markup</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_set_tooltip_markup</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function</p>
 </div>
 <p>Sets <em class="parameter"><code>markup</code></em>
  as the contents of the tooltip, which is marked up with
@@ -1278,7 +1321,7 @@ and of the default handler for the <a class="link" href="GtkStatusIcon.html#GtkS
 </tr>
 <tr>
 <td class="parameter_name"><p>markup</p></td>
-<td class="parameter_description"><p> the contents of the tooltip for <em class="parameter"><code>status_icon</code></em>
+<td class="parameter_description"><p>the contents of the tooltip for <em class="parameter"><code>status_icon</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1294,7 +1337,9 @@ and of the default handler for the <a class="link" href="GtkStatusIcon.html#GtkS
 gtk_status_icon_get_tooltip_markup (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_get_tooltip_markup</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function</p>
 </div>
 <p>Gets the contents of the tooltip for <em class="parameter"><code>status_icon</code></em>
 .</p>
@@ -1315,7 +1360,7 @@ gtk_status_icon_get_tooltip_markup (<em class="parameter"><code><a class="link" 
 </div>
 <div class="refsect3">
 <a name="gtk-status-icon-get-tooltip-markup.returns"></a><h4>Returns</h4>
-<p> the tooltip text, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. You should free the
+<p>the tooltip text, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. You should free the
 returned string with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when done. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -1329,7 +1374,10 @@ gtk_status_icon_set_has_tooltip (<em class="parameter"><code><a class="link" hre
                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> has_tooltip</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_set_has_tooltip</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function, but notifications can display an arbitrary
+  amount of text using <code class="function">g_notification_set_body()</code></p>
 </div>
 <p>Sets the has-tooltip property on <em class="parameter"><code>status_icon</code></em>
  to <em class="parameter"><code>has_tooltip</code></em>
@@ -1367,7 +1415,9 @@ has a tooltip</p></td>
 gtk_status_icon_get_has_tooltip (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_get_has_tooltip</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function</p>
 </div>
 <p>Returns the current value of the has-tooltip property.
 See <a class="link" href="GtkStatusIcon.html#GtkStatusIcon--has-tooltip" title="The “has-tooltip” property"><span class="type">“has-tooltip”</span></a> for more information.</p>
@@ -1401,7 +1451,9 @@ gtk_status_icon_set_title (<em class="parameter"><code><a class="link" href="Gtk
                            <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *title</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_set_title</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; you should use <code class="function">g_notification_set_title()</code>
+  and <code class="function">g_notification_set_body()</code> to present text inside your notification</p>
 </div>
 <p>Sets the title of this tray icon.
 This should be a short, human-readable, localized string 
@@ -1438,7 +1490,9 @@ readers to render the tray icon.</p>
 gtk_status_icon_get_title (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_get_title</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function</p>
 </div>
 <p>Gets the title of this tray icon. See <a class="link" href="GtkStatusIcon.html#gtk-status-icon-set-title" title="gtk_status_icon_set_title ()"><code class="function">gtk_status_icon_set_title()</code></a>.</p>
 <div class="refsect3">
@@ -1470,7 +1524,10 @@ gtk_status_icon_set_name (<em class="parameter"><code><a class="link" href="GtkS
                           <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_set_name</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function, as notifications are associated with a
+  unique application identifier by <span class="type">GApplication</span></p>
 </div>
 <p>Sets the name of this tray icon.
 This should be a string identifying this icon. It is may be
@@ -1508,7 +1565,9 @@ gtk_status_icon_set_visible (<em class="parameter"><code><a class="link" href="G
                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> visible</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_set_visible</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function, as notifications are managed by the platform</p>
 </div>
 <p>Shows or hides a status icon.</p>
 <div class="refsect3">
@@ -1542,7 +1601,9 @@ gtk_status_icon_set_visible (<em class="parameter"><code><a class="link" href="G
 gtk_status_icon_get_visible (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_get_visible</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function</p>
 </div>
 <p>Returns whether the status icon is visible or not. 
 Note that being visible does not guarantee that 
@@ -1576,7 +1637,9 @@ the user can actually see the icon, see also
 gtk_status_icon_is_embedded (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_is_embedded</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function</p>
 </div>
 <p>Returns whether the status icon is embedded in a notification
 area.</p>
@@ -1613,7 +1676,9 @@ gtk_status_icon_position_menu (<em class="parameter"><code><a class="link" href=
                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_position_menu</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; notifications do not have menus,
+  but can have buttons, and actions associated with each button</p>
 </div>
 <p>Menu positioning function to use with <a class="link" href="GtkMenu.html#gtk-menu-popup" title="gtk_menu_popup ()"><code class="function">gtk_menu_popup()</code></a>
 to position <em class="parameter"><code>menu</code></em>
@@ -1635,24 +1700,24 @@ to position <em class="parameter"><code>menu</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>x</p></td>
-<td class="parameter_description"><p> return location for the x position. </p></td>
+<td class="parameter_description"><p>return location for the x position. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>y</p></td>
-<td class="parameter_description"><p> return location for the y position. </p></td>
+<td class="parameter_description"><p>return location for the y position. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>push_in</p></td>
-<td class="parameter_description"><p> whether the first menu item should be offset
+<td class="parameter_description"><p>whether the first menu item should be offset
 (pushed in) to be aligned with the menu popup position
 (only useful for GtkOptionMenu). </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p> the status icon to position the menu on. </p></td>
+<td class="parameter_description"><p>the status icon to position the menu on. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GtkStatusIcon]</span></td>
 </tr>
 </tbody>
@@ -1665,12 +1730,15 @@ to position <em class="parameter"><code>menu</code></em>
 <a name="gtk-status-icon-get-geometry"></a><h3>gtk_status_icon_get_geometry ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_status_icon_get_geometry (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>,
-                              <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> **screen</code></em>,
-                              <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *area</code></em>,
+                              <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> **screen</code></em>,
+                              <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *area</code></em>,
                               <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkOrientation" title="enum GtkOrientation"><span class="type">GtkOrientation</span></a> *orientation</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_get_geometry</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function, as the platform is responsible for the
+  presentation of notifications</p>
 </div>
 <p>Obtains information about the location of the status icon
 on screen. This information can be used to e.g. position 
@@ -1698,19 +1766,19 @@ is embedded in a notification area, see
 </tr>
 <tr>
 <td class="parameter_name"><p>screen</p></td>
-<td class="parameter_description"><p> return location for
+<td class="parameter_description"><p>return location for
 the screen, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the information is not needed. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>area</p></td>
-<td class="parameter_description"><p> return location for the area occupied by
+<td class="parameter_description"><p>return location for the area occupied by
 the status icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>orientation</p></td>
-<td class="parameter_description"><p> return location for the
+<td class="parameter_description"><p>return location for the
 orientation of the panel in which the status icon is embedded,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. A panel at the top or bottom of the screen is
 horizontal, a panel at the left or right is vertical. </p></td>
@@ -1733,10 +1801,12 @@ been filled in</p>
 gtk_status_icon_get_x11_window_id (<em class="parameter"><code><a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_status_icon_get_x11_window_id</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
-<p>Use notifications</p>
+<p>Use <span class="type">GNotification</span> and <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> to
+  provide status notifications; there is no direct replacement
+  for this function</p>
 </div>
-<p>This function is only useful on the X11/freedesktop.org platform.
-It returns a window ID for the widget in the underlying
+<p>This function is only useful on the X11/freedesktop.org platform.</p>
+<p>It returns a window ID for the widget in the underlying
 status icon implementation.  This is useful for the Galago 
 notification service, which can send a window ID in the protocol 
 in order for the server to position notification windows 
@@ -1795,8 +1865,8 @@ underlying X11 Window</p>
 <hr>
 <div class="refsect2">
 <a name="GtkStatusIcon--gicon"></a><h3>The <code class="literal">“gicon”</code> property</h3>
-<pre class="programlisting">  “gicon”                    <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> *</pre>
-<p>The <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> displayed in the <a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a>. For themed icons,
+<pre class="programlisting">  “gicon”                    <span class="type">GIcon</span> *</pre>
+<p>The <span class="type">GIcon</span> displayed in the <a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a>. For themed icons,
 the image will be updated automatically if the theme changes.</p>
 <p>Flags: Read / Write</p>
 <p class="since">Since: 2.14</p>
@@ -1851,7 +1921,7 @@ is embedded.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkStatusIcon--screen"></a><h3>The <code class="literal">“screen”</code> property</h3>
-<pre class="programlisting">  “screen”                   <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *</pre>
+<pre class="programlisting">  “screen”                   <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *</pre>
 <p>The screen where this status icon will be displayed.</p>
 <p>Flags: Read / Write</p>
 </div>
@@ -1982,7 +2052,7 @@ be used by applications and should be wrapped by language bindings.</p>
 <a name="GtkStatusIcon-button-press-event"></a><h3>The <code class="literal">“button-press-event”</code> signal</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 user_function (<a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon,
-               <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>      *event,
+               <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>      *event,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>       user_data)</pre>
 <p>The ::button-press-event signal will be emitted when a button
 (typically from a mouse) is pressed.</p>
@@ -2004,7 +2074,7 @@ and ::popup-menu signals in preference.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p> the <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventButton"><span class="type">GdkEventButton</span></a> which triggered
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventButton"><span class="type">GdkEventButton</span></a> which triggered
 this signal. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> Gdk.EventButton]</span></td>
 </tr>
@@ -2029,7 +2099,7 @@ for the event. <a href="https://developer.gnome.org/glib/unstable/glib-Standard-
 <a name="GtkStatusIcon-button-release-event"></a><h3>The <code class="literal">“button-release-event”</code> signal</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 user_function (<a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon,
-               <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>      *event,
+               <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>      *event,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>       user_data)</pre>
 <p>The ::button-release-event signal will be emitted when a button
 (typically from a mouse) is released.</p>
@@ -2051,7 +2121,7 @@ and ::popup-menu signals in preference.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p> the <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventButton"><span class="type">GdkEventButton</span></a> which triggered
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventButton"><span class="type">GdkEventButton</span></a> which triggered
 this signal. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> Gdk.EventButton]</span></td>
 </tr>
@@ -2216,7 +2286,7 @@ should be shown right now, <a href="https://developer.gnome.org/glib/unstable/gl
 <a name="GtkStatusIcon-scroll-event"></a><h3>The <code class="literal">“scroll-event”</code> signal</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 user_function (<a class="link" href="GtkStatusIcon.html" title="GtkStatusIcon"><span class="type">GtkStatusIcon</span></a> *status_icon,
-               <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>      *event,
+               <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>      *event,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>       user_data)</pre>
 <p>The ::scroll-event signal is emitted when a button in the 4 to 7
 range is pressed. Wheel mice are usually configured to generate
@@ -2238,7 +2308,7 @@ button press events for buttons 4 and 5 when the wheel is turned.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p> the <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventScroll"><span class="type">GdkEventScroll</span></a> which triggered
+<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventScroll"><span class="type">GdkEventScroll</span></a> which triggered
 this signal. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> Gdk.EventScroll]</span></td>
 </tr>
@@ -2305,6 +2375,6 @@ size. Otherwise, GTK+ will scale the icon as necessary.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

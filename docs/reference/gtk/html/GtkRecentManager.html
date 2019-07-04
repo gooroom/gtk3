@@ -8,7 +8,7 @@
 <link rel="up" href="RecentDocuments.html" title="Recently Used Documents">
 <link rel="prev" href="RecentDocuments.html" title="Recently Used Documents">
 <link rel="next" href="GtkRecentChooser.html" title="GtkRecentChooser">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -232,7 +232,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#GAppInfo-struct"><span class="returnvalue">GAppInfo</span></a> *
+<span class="returnvalue">GAppInfo</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkRecentManager.html#gtk-recent-info-create-app-info" title="gtk_recent_info_create_app_info ()">gtk_recent_info_create_app_info</a> <span class="c_punctuation">()</span>
@@ -264,7 +264,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="returnvalue">GIcon</span></a> *
+<span class="returnvalue">GIcon</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkRecentManager.html#gtk-recent-info-get-gicon" title="gtk_recent_info_get_gicon ()">gtk_recent_info_get_gicon</a> <span class="c_punctuation">()</span>
@@ -424,10 +424,10 @@ it is more efficient to use the default manager created by GTK+.</p>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkRecentManager <span class="gtkdoc opt">*</span>manager<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkRecentManager</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">manager</span><span class="symbol">;</span>
 
-manager <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkRecentManager.html#gtk-recent-manager-get-default">gtk_recent_manager_get_default</a></span> <span class="gtkdoc opt">();</span>
-<span class="function"><a href="GtkRecentManager.html#gtk-recent-manager-add-item">gtk_recent_manager_add_item</a></span> <span class="gtkdoc opt">(</span>manager<span class="gtkdoc opt">,</span> file_uri<span class="gtkdoc opt">);</span></pre></td>
+<span class="normal">manager </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkRecentManager.html#gtk-recent-manager-get-default">gtk_recent_manager_get_default</a></span><span class="normal"> </span><span class="symbol">();</span>
+<span class="function"><a href="GtkRecentManager.html#gtk-recent-manager-add-item">gtk_recent_manager_add_item</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">manager</span><span class="symbol">,</span><span class="normal"> file_uri</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -458,22 +458,22 @@ given its URI requires calling <a class="link" href="GtkRecentManager.html#gtk-r
 14
 15
 16</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkRecentManager <span class="gtkdoc opt">*</span>manager<span class="gtkdoc opt">;</span>
-GtkRecentInfo <span class="gtkdoc opt">*</span>info<span class="gtkdoc opt">;</span>
-GError <span class="gtkdoc opt">*</span>error <span class="gtkdoc opt">=</span> NULL<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkRecentManager</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">manager</span><span class="symbol">;</span>
+<span class="usertype">GtkRecentInfo</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">info</span><span class="symbol">;</span>
+<span class="usertype">GError</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">error </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
 
-manager <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkRecentManager.html#gtk-recent-manager-get-default">gtk_recent_manager_get_default</a></span> <span class="gtkdoc opt">();</span>
-info <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkRecentManager.html#gtk-recent-manager-lookup-item">gtk_recent_manager_lookup_item</a></span> <span class="gtkdoc opt">(</span>manager<span class="gtkdoc opt">,</span> file_uri<span class="gtkdoc opt">, &amp;</span>error<span class="gtkdoc opt">);</span>
-<span class="keyword">if</span> <span class="gtkdoc opt">(</span>error<span class="gtkdoc opt">)</span>
-  <span class="gtkdoc opt">{</span>
-    <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Message-Logging.html#g-warning">g_warning</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;Could not find the file: %s&quot;</span><span class="gtkdoc opt">,</span> error<span class="gtkdoc opt">-&gt;</span>message<span class="gtkdoc opt">);</span>
-    <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#g-error-free">g_error_free</a></span> <span class="gtkdoc opt">(</span>error<span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">}</span>
+<span class="normal">manager </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkRecentManager.html#gtk-recent-manager-get-default">gtk_recent_manager_get_default</a></span><span class="normal"> </span><span class="symbol">();</span>
+<span class="normal">info </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkRecentManager.html#gtk-recent-manager-lookup-item">gtk_recent_manager_lookup_item</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">manager</span><span class="symbol">,</span><span class="normal"> file_uri</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">error</span><span class="symbol">);</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error</span><span class="symbol">)</span>
+<span class="normal">  </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Message-Logging.html#g-warning">g_warning</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Could not find the file: %s"</span><span class="symbol">,</span><span class="normal"> error</span><span class="symbol">-&gt;</span><span class="normal">message</span><span class="symbol">);</span>
+<span class="normal">    </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#g-error-free">g_error_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="cbracket">}</span>
 <span class="keyword">else</span>
- <span class="gtkdoc opt">{</span>
-   <span class="gtkdoc slc">// Use the info object</span>
-   <span class="function"><a href="GtkRecentManager.html#gtk-recent-info-unref">gtk_recent_info_unref</a></span> <span class="gtkdoc opt">(</span>info<span class="gtkdoc opt">);</span>
- <span class="gtkdoc opt">}</span></pre></td>
+<span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">   </span><span class="comment">// Use the info object</span>
+<span class="normal">   </span><span class="function"><a href="GtkRecentManager.html#gtk-recent-info-unref">gtk_recent_info_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">info</span><span class="symbol">);</span>
+<span class="normal"> </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -516,7 +516,7 @@ gtk_recent_manager_get_default (<em class="parameter"><code><span class="type">v
 in your application without caring about memory management.</p>
 <div class="refsect3">
 <a name="gtk-recent-manager-get-default.returns"></a><h4>Returns</h4>
-<p> A unique <a class="link" href="GtkRecentManager.html" title="GtkRecentManager"><span class="type">GtkRecentManager</span></a>. Do not ref or
+<p>A unique <a class="link" href="GtkRecentManager.html" title="GtkRecentManager"><span class="type">GtkRecentManager</span></a>. Do not ref or
 unref it. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -656,7 +656,7 @@ list handled by a recent manager.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -701,7 +701,7 @@ like its MIME type, or its display name.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> a return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -709,7 +709,7 @@ like its MIME type, or its display name.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-recent-manager-lookup-item.returns"></a><h4>Returns</h4>
-<p> a <span class="type">GtkRecentInfo</span> containing information
+<p>a <span class="type">GtkRecentInfo</span> containing information
 about the resource pointed by <em class="parameter"><code>uri</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the URI was
 not registered in the recently used resources list. Free with
@@ -789,14 +789,14 @@ by the URIs, but only the URI used in the recently used resources list.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>new_uri</p></td>
-<td class="parameter_description"><p> the new URI of the recently used resource, or
+<td class="parameter_description"><p>the new URI of the recently used resource, or
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to remove the item pointed by <em class="parameter"><code>uri</code></em>
 in the list. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> a return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -831,7 +831,7 @@ gtk_recent_manager_get_items (<em class="parameter"><code><a class="link" href="
 </div>
 <div class="refsect3">
 <a name="gtk-recent-manager-get-items.returns"></a><h4>Returns</h4>
-<p> a list of
+<p>a list of
 newly allocated <a class="link" href="GtkRecentManager.html#GtkRecentInfo" title="GtkRecentInfo"><span class="type">GtkRecentInfo</span></a> objects. Use
 <a class="link" href="GtkRecentManager.html#gtk-recent-info-unref" title="gtk_recent_info_unref ()"><code class="function">gtk_recent_info_unref()</code></a> on each item inside the list, and then
 free the list itself using <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>. </p>
@@ -862,7 +862,7 @@ gtk_recent_manager_purge_items (<em class="parameter"><code><a class="link" href
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> a return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1194,18 +1194,18 @@ storage specification, they will be expanded.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>app_exec</p></td>
-<td class="parameter_description"><p> return location for the string containing
+<td class="parameter_description"><p>return location for the string containing
 the command line. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>count</p></td>
-<td class="parameter_description"><p> return location for the number of times this item was registered. </p></td>
+<td class="parameter_description"><p>return location for the number of times this item was registered. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>time_</p></td>
-<td class="parameter_description"><p> return location for the timestamp this item was last registered
+<td class="parameter_description"><p>return location for the timestamp this item was last registered
 for this application. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
@@ -1246,7 +1246,7 @@ gtk_recent_info_get_applications (<em class="parameter"><code><a class="link" hr
 </tr>
 <tr>
 <td class="parameter_name"><p>length</p></td>
-<td class="parameter_description"><p> return location for the length of the returned list. </p></td>
+<td class="parameter_description"><p>return location for the length of the returned list. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1254,7 +1254,7 @@ gtk_recent_info_get_applications (<em class="parameter"><code><a class="link" hr
 </div>
 <div class="refsect3">
 <a name="gtk-recent-info-get-applications.returns"></a><h4>Returns</h4>
-<p>    a newly allocated <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings.
+<p>a newly allocated <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings.
 Use <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> to free it. </p>
 <p><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=length zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -1330,11 +1330,11 @@ was found,
 <hr>
 <div class="refsect2">
 <a name="gtk-recent-info-create-app-info"></a><h3>gtk_recent_info_create_app_info ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#GAppInfo-struct"><span class="returnvalue">GAppInfo</span></a> *
+<pre class="programlisting"><span class="returnvalue">GAppInfo</span> *
 gtk_recent_info_create_app_info (<em class="parameter"><code><a class="link" href="GtkRecentManager.html#GtkRecentInfo" title="GtkRecentInfo"><span class="type">GtkRecentInfo</span></a> *info</code></em>,
                                  <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *app_name</code></em>,
                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
-<p>Creates a <a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#GAppInfo-struct"><span class="type">GAppInfo</span></a> for the specified <a class="link" href="GtkRecentManager.html#GtkRecentInfo" title="GtkRecentInfo"><span class="type">GtkRecentInfo</span></a></p>
+<p>Creates a <span class="type">GAppInfo</span> for the specified <a class="link" href="GtkRecentManager.html#GtkRecentInfo" title="GtkRecentInfo"><span class="type">GtkRecentInfo</span></a></p>
 <div class="refsect3">
 <a name="gtk-recent-info-create-app-info.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -1351,14 +1351,14 @@ gtk_recent_info_create_app_info (<em class="parameter"><code><a class="link" hre
 </tr>
 <tr>
 <td class="parameter_name"><p>app_name</p></td>
-<td class="parameter_description"><p> the name of the application that should
-be mapped to a <a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#GAppInfo-struct"><span class="type">GAppInfo</span></a>; if <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is used then the default
+<td class="parameter_description"><p>the name of the application that should
+be mapped to a <span class="type">GAppInfo</span>; if <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is used then the default
 application for the MIME type is used. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p> return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>return location for a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1366,10 +1366,10 @@ application for the MIME type is used. </p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-recent-info-create-app-info.returns"></a><h4>Returns</h4>
-<p> the newly created <a href="https://developer.gnome.org/gio/unstable/GAppInfo.html#GAppInfo-struct"><span class="type">GAppInfo</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+<p>the newly created <span class="type">GAppInfo</span>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 In case of error, <em class="parameter"><code>error</code></em>
 will be set either with a
-<a class="link" href="GtkRecentManager.html#GTK-RECENT-MANAGER-ERROR:CAPS" title="GTK_RECENT_MANAGER_ERROR"><code class="literal">GTK_RECENT_MANAGER_ERROR</code></a> or a <a href="https://developer.gnome.org/gio/unstable/gio-GIOError.html#G-IO-ERROR:CAPS"><code class="literal">G_IO_ERROR</code></a>. </p>
+<a class="link" href="GtkRecentManager.html#GTK-RECENT-MANAGER-ERROR:CAPS" title="GTK_RECENT_MANAGER_ERROR"><code class="literal">GTK_RECENT_MANAGER_ERROR</code></a> or a <code class="literal">G_IO_ERROR</code>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -1399,7 +1399,7 @@ length might optionally be <a href="https://developer.gnome.org/glib/unstable/gl
 </tr>
 <tr>
 <td class="parameter_name"><p>length</p></td>
-<td class="parameter_description"><p> return location for the number of groups returned. </p></td>
+<td class="parameter_description"><p>return location for the number of groups returned. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1407,7 +1407,7 @@ length might optionally be <a href="https://developer.gnome.org/glib/unstable/gl
 </div>
 <div class="refsect3">
 <a name="gtk-recent-info-get-groups.returns"></a><h4>Returns</h4>
-<p>  a newly allocated <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> terminated array of strings.
+<p>a newly allocated <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> terminated array of strings.
 Use <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> to free it. </p>
 <p><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=length zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -1483,7 +1483,7 @@ gtk_recent_info_get_icon (<em class="parameter"><code><a class="link" href="GtkR
 </div>
 <div class="refsect3">
 <a name="gtk-recent-info-get-icon.returns"></a><h4>Returns</h4>
-<p> a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> containing the icon,
+<p>a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> containing the icon,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. Use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> when finished using the icon. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -1492,7 +1492,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <hr>
 <div class="refsect2">
 <a name="gtk-recent-info-get-gicon"></a><h3>gtk_recent_info_get_gicon ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="returnvalue">GIcon</span></a> *
+<pre class="programlisting"><span class="returnvalue">GIcon</span> *
 gtk_recent_info_get_gicon (<em class="parameter"><code><a class="link" href="GtkRecentManager.html#GtkRecentInfo" title="GtkRecentInfo"><span class="type">GtkRecentInfo</span></a> *info</code></em>);</pre>
 <p>Retrieves the icon associated to the resource MIME type.</p>
 <div class="refsect3">
@@ -1512,7 +1512,7 @@ gtk_recent_info_get_gicon (<em class="parameter"><code><a class="link" href="Gtk
 </div>
 <div class="refsect3">
 <a name="gtk-recent-info-get-gicon.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/gio/unstable/GIcon.html#GIcon-struct"><span class="type">GIcon</span></a> containing the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+<p>a <span class="type">GIcon</span> containing the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 Use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> when finished using the icon. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -1574,7 +1574,7 @@ it returns the UTF-8 encoded content of <a class="link" href="GtkRecentManager.h
 </div>
 <div class="refsect3">
 <a name="gtk-recent-info-get-uri-display.returns"></a><h4>Returns</h4>
-<p> a newly allocated UTF-8 string containing the
+<p>a newly allocated UTF-8 string containing the
 resource’s URI or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. Use <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when done using it. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -1786,7 +1786,7 @@ is retrieved;</p></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **<em class="structfield"><code><a name="GtkRecentData.groups"></a>groups</code></em>;</p></td>
-<td class="struct_member_description"><p> a vector of strings containing
+<td class="struct_member_description"><p>a vector of strings containing
 groups names;. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
@@ -1945,6 +1945,6 @@ by another application.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

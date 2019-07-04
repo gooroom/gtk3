@@ -22,7 +22,7 @@
 	/>
 	<UserMacro
 		Name="GtkVersion"
-		Value="3.22.11"
+		Value="3.24.5"
 	/>
 	<UserMacro
 		Name="GtkLibtoolCompatibleDllPrefix"
@@ -51,11 +51,19 @@
 		Value="$(GtkSeparateVSDllSuffix)"
 	/>
 	<UserMacro
-		Name="PythonPath"
+		Name="PythonDir"
 		Value="c:\python27"
 	/>
 	<UserMacro
-		Name="PythonPathX64"
-		Value="$(PythonPath).x64"
+		Name="PythonDirX64"
+		Value="$(PythonDir).x64"
+	/>
+	<UserMacro
+		Name="IntrospectPythonParam"
+		Value="PYTHON=$(PythonDir)\python.exe"
+	/>
+	<UserMacro
+		Name="IntrospectPythonParamX64"
+		Value="PYTHON=$(PythonDirX64)\python.exe"
 	/>
 </VisualStudioPropertySheet>

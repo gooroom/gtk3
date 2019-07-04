@@ -8,7 +8,7 @@
 <link rel="up" href="gtkbase.html" title="Part III. GTK+ Core Reference">
 <link rel="prev" href="gtk3-Drag-and-Drop.html" title="Drag and Drop">
 <link rel="next" href="gtk3-Bindings.html" title="Bindings">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -684,12 +684,12 @@ demonstrates a way to do this:</p>
 4
 5
 6</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="gtk3-General.html#gtk-init">gtk_init</a></span> <span class="gtkdoc opt">(&amp;</span>argc<span class="gtkdoc opt">, &amp;</span>argv<span class="gtkdoc opt">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="gtk3-General.html#gtk-init">gtk_init</a></span><span class="normal"> </span><span class="symbol">(&amp;</span><span class="normal">argc</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">argv</span><span class="symbol">);</span>
 
-<span class="gtkdoc slc">// make sure the type is realized</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#g-type-class-unref">g_type_class_unref</a></span> <span class="gtkdoc opt">(</span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#g-type-class-ref">g_type_class_ref</a></span> <span class="gtkdoc opt">(</span>GTK_TYPE_IMAGE_MENU_ITEM<span class="gtkdoc opt">));</span>
+<span class="comment">// make sure the type is realized</span>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#g-type-class-unref">g_type_class_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#g-type-class-ref">g_type_class_ref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">GTK_TYPE_IMAGE_MENU_ITEM</span><span class="symbol">));</span>
 
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-set">g_object_set</a></span> <span class="gtkdoc opt">(</span><span class="function"><a href="GtkSettings.html#gtk-settings-get-default">gtk_settings_get_default</a></span> <span class="gtkdoc opt">(),</span> <span class="string">&quot;gtk-enable-animations&quot;</span><span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-set">g_object_set</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GtkSettings.html#gtk-settings-get-default">gtk_settings_get_default</a></span><span class="normal"> </span><span class="symbol">(),</span><span class="normal"> </span><span class="string">"gtk-enable-animations"</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -711,7 +711,7 @@ gtk_settings_get_default (<em class="parameter"><code><span class="type">void</s
 it if necessary. See <a class="link" href="GtkSettings.html#gtk-settings-get-for-screen" title="gtk_settings_get_for_screen ()"><code class="function">gtk_settings_get_for_screen()</code></a>.</p>
 <div class="refsect3">
 <a name="gtk-settings-get-default.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkSettings.html" title="Settings"><span class="type">GtkSettings</span></a> object. If there is
+<p>a <a class="link" href="GtkSettings.html" title="Settings"><span class="type">GtkSettings</span></a> object. If there is
 no default screen, then returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -720,7 +720,7 @@ no default screen, then returns <a href="https://developer.gnome.org/glib/unstab
 <div class="refsect2">
 <a name="gtk-settings-get-for-screen"></a><h3>gtk_settings_get_for_screen ()</h3>
 <pre class="programlisting"><a class="link" href="GtkSettings.html" title="Settings"><span class="returnvalue">GtkSettings</span></a> *
-gtk_settings_get_for_screen (<em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+gtk_settings_get_for_screen (<em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
 <p>Gets the <a class="link" href="GtkSettings.html" title="Settings"><span class="type">GtkSettings</span></a> object for <em class="parameter"><code>screen</code></em>
 , creating it if necessary.</p>
 <div class="refsect3">
@@ -733,14 +733,14 @@ gtk_settings_get_for_screen (<em class="parameter"><code><a href="http://develop
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>screen</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>.</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
 <a name="gtk-settings-get-for-screen.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkSettings.html" title="Settings"><span class="type">GtkSettings</span></a> object. </p>
+<p>a <a class="link" href="GtkSettings.html" title="Settings"><span class="type">GtkSettings</span></a> object. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.2</p>
@@ -787,7 +787,7 @@ gtk_settings_install_property_parser (<em class="parameter"><code><a href="https
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_rc_property_parse_color (<em class="parameter"><code>const <a href="https://developer.gnome.org/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
                              <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
-                             <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
+                             <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
 <p>A <a class="link" href="GtkStyle.html#GtkRcPropertyParser" title="GtkRcPropertyParser ()"><span class="type">GtkRcPropertyParser</span></a> for use with <a class="link" href="GtkSettings.html#gtk-settings-install-property-parser" title="gtk_settings_install_property_parser ()"><code class="function">gtk_settings_install_property_parser()</code></a>
 or <a class="link" href="GtkWidget.html#gtk-widget-class-install-style-property-parser" title="gtk_widget_class_install_style_property_parser ()"><code class="function">gtk_widget_class_install_style_property_parser()</code></a> which parses a
 color given either by its name or in the form
@@ -815,7 +815,7 @@ between 0 and 1.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>property_value</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> which must hold <span class="type">GdkColor</span> values.</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> which must hold <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> values.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -825,7 +825,7 @@ between 0 and 1.</p>
 <a name="gtk-rc-property-parse-color.returns"></a><h4>Returns</h4>
 <p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>gstring</code></em>
 could be parsed and <em class="parameter"><code>property_value</code></em>
-has been set to the resulting <span class="type">GdkColor</span>.</p>
+has been set to the resulting <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a>.</p>
 </div>
 </div>
 <hr>
@@ -834,7 +834,7 @@ has been set to the resulting <span class="type">GdkColor</span>.</p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_rc_property_parse_enum (<em class="parameter"><code>const <a href="https://developer.gnome.org/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
                             <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
-                            <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
+                            <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
 <p>A <a class="link" href="GtkStyle.html#GtkRcPropertyParser" title="GtkRcPropertyParser ()"><span class="type">GtkRcPropertyParser</span></a> for use with <a class="link" href="GtkSettings.html#gtk-settings-install-property-parser" title="gtk_settings_install_property_parser ()"><code class="function">gtk_settings_install_property_parser()</code></a>
 or <a class="link" href="GtkWidget.html#gtk-widget-class-install-style-property-parser" title="gtk_widget_class_install_style_property_parser ()"><code class="function">gtk_widget_class_install_style_property_parser()</code></a> which parses a single
 enumeration value.</p>
@@ -862,7 +862,7 @@ may be surrounded by parentheses.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>property_value</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> which must hold enum values.</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> which must hold enum values.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -881,7 +881,7 @@ has been set to the resulting <a href="https://developer.gnome.org/gobject/unsta
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_rc_property_parse_flags (<em class="parameter"><code>const <a href="https://developer.gnome.org/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
                              <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
-                             <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
+                             <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
 <p>A <a class="link" href="GtkStyle.html#GtkRcPropertyParser" title="GtkRcPropertyParser ()"><span class="type">GtkRcPropertyParser</span></a> for use with <a class="link" href="GtkSettings.html#gtk-settings-install-property-parser" title="gtk_settings_install_property_parser ()"><code class="function">gtk_settings_install_property_parser()</code></a>
 or <a class="link" href="GtkWidget.html#gtk-widget-class-install-style-property-parser" title="gtk_widget_class_install_style_property_parser ()"><code class="function">gtk_widget_class_install_style_property_parser()</code></a> which parses flags.</p>
 <p>Flags can be specified by their name, their nickname or
@@ -908,7 +908,7 @@ numerically. Multiple flags can be specified in the form
 </tr>
 <tr>
 <td class="parameter_name"><p>property_value</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> which must hold flags values.</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> which must hold flags values.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -927,7 +927,7 @@ has been set to the resulting flags value.</p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_rc_property_parse_requisition (<em class="parameter"><code>const <a href="https://developer.gnome.org/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
                                    <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
-                                   <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
+                                   <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
 <p>A <a class="link" href="GtkStyle.html#GtkRcPropertyParser" title="GtkRcPropertyParser ()"><span class="type">GtkRcPropertyParser</span></a> for use with <a class="link" href="GtkSettings.html#gtk-settings-install-property-parser" title="gtk_settings_install_property_parser ()"><code class="function">gtk_settings_install_property_parser()</code></a>
 or <a class="link" href="GtkWidget.html#gtk-widget-class-install-style-property-parser" title="gtk_widget_class_install_style_property_parser ()"><code class="function">gtk_widget_class_install_style_property_parser()</code></a> which parses a
 requisition in the form
@@ -953,7 +953,7 @@ requisition in the form
 </tr>
 <tr>
 <td class="parameter_name"><p>property_value</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> which must hold boxed values.</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> which must hold boxed values.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -972,7 +972,7 @@ has been set to the resulting <a class="link" href="GtkWidget.html#GtkRequisitio
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_rc_property_parse_border (<em class="parameter"><code>const <a href="https://developer.gnome.org/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
                               <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
+                              <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
 <p>A <a class="link" href="GtkStyle.html#GtkRcPropertyParser" title="GtkRcPropertyParser ()"><span class="type">GtkRcPropertyParser</span></a> for use with <a class="link" href="GtkSettings.html#gtk-settings-install-property-parser" title="gtk_settings_install_property_parser ()"><code class="function">gtk_settings_install_property_parser()</code></a>
 or <a class="link" href="GtkWidget.html#gtk-widget-class-install-style-property-parser" title="gtk_widget_class_install_style_property_parser ()"><code class="function">gtk_widget_class_install_style_property_parser()</code></a> which parses
 borders in the form
@@ -999,7 +999,7 @@ left, right, top and bottom.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>property_value</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> which must hold boxed values.</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> which must hold boxed values.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -1135,7 +1135,7 @@ rc files, or e.g. “XProperty” for other sources.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> <em class="structfield"><code><a name="GtkSettingsValue.value"></a>value</code></em>;</p></td>
+<td class="struct_member_name"><p><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> <em class="structfield"><code><a name="GtkSettingsValue.value"></a>value</code></em>;</p></td>
 <td class="struct_member_description"><p>Valid types are LONG, DOUBLE and STRING corresponding to
 the token parsed, or a GSTRING holding an unparsed statement</p></td>
 <td class="struct_member_annotations"> </td>
@@ -1231,7 +1231,7 @@ the token parsed, or a GSTRING holding an unparsed statement</p></td>
 <a name="GtkSettings--color-hash"></a><h3>The <code class="literal">“color-hash”</code> property</h3>
 <pre class="programlisting">  “color-hash”               <a href="https://developer.gnome.org/glib/unstable/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a> *</pre>
 <p>Holds a hash table representation of the <a class="link" href="GtkSettings.html#GtkSettings--gtk-color-scheme" title="The “gtk-color-scheme” property"><span class="type">“gtk-color-scheme”</span></a>
-setting, mapping color names to <span class="type">GdkColors</span>.</p>
+setting, mapping color names to <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColors</span></a>.</p>
 <p><span class="annotation">[<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span></p>
 <div class="warning">
 <p><code class="literal">GtkSettings:color-hash</code> has been deprecated since version 3.8 and should not be used in newly-written code.</p>
@@ -1343,9 +1343,9 @@ presses the mnemonic activator.</p>
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting">name1<span class="gtkdoc opt">:</span> color1
-name2<span class="gtkdoc opt">:</span> color2
-<span class="gtkdoc opt">...</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">name1</span><span class="symbol">:</span><span class="normal"> color1</span>
+<span class="normal">name2</span><span class="symbol">:</span><span class="normal"> color2</span>
+<span class="symbol">...</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1355,7 +1355,7 @@ name2<span class="gtkdoc opt">:</span> color2
 Color names must be acceptable as identifiers in the
 <a class="link" href="gtk3-Resource-Files.html" title="Resource Files">gtkrc</a> syntax, and
 color specifications must be in the format accepted by
-<code class="function">gdk_color_parse()</code>.</p>
+<a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#gdk-color-parse"><code class="function">gdk_color_parse()</code></a>.</p>
 <p>Note that due to the way the color tables from different sources are
 merged, color specifications will be converted to hexadecimal form
 when getting this property.</p>
@@ -1366,7 +1366,7 @@ by ';' instead of newlines:</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting">name1<span class="gtkdoc opt">:</span> color1<span class="gtkdoc opt">;</span> name2<span class="gtkdoc opt">:</span> color2<span class="gtkdoc opt">; ...</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">name1</span><span class="symbol">:</span><span class="normal"> color1</span><span class="symbol">;</span><span class="normal"> name2</span><span class="symbol">:</span><span class="normal"> color2</span><span class="symbol">;</span><span class="normal"> </span><span class="symbol">...</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1602,7 +1602,7 @@ last char. 600 is a good value for enabling it.</p>
 <pre class="programlisting">  “gtk-error-bell”           <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
 <p>When <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, keyboard navigation and other input-related errors
 will cause a beep. Since the error bell is implemented using
-<a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#gdk-window-beep"><code class="function">gdk_window_beep()</code></a>, the windowing system may offer ways to
+<a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-beep"><code class="function">gdk_window_beep()</code></a>, the windowing system may offer ways to
 configure the error bell in many ways, such as flashing the
 window or similar visual effects.</p>
 <p>Flags: Read / Write</p>
@@ -1731,7 +1731,7 @@ to be present on the used input device.</p>
 <div class="warning">
 <p><code class="literal">GtkSettings:gtk-keynav-cursor-only</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
 <p>Generally, the behavior for touchscreen input should be
-            performed dynamically based on <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#gdk-event-get-source-device"><code class="function">gdk_event_get_source_device()</code></a>.</p>
+            performed dynamically based on <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#gdk-event-get-source-device"><code class="function">gdk_event_get_source_device()</code></a>.</p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
@@ -1817,7 +1817,7 @@ navigation, such as menus, menubars and notebooks.</p>
   control whether or not a <a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMenuItem</span></a> should have an icon or not,
   on a per widget basis. Either use a <a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMenuItem</span></a> with a <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a>
   containing a <a class="link" href="GtkImage.html" title="GtkImage"><span class="type">GtkImage</span></a> and a <a class="link" href="GtkAccelLabel.html" title="GtkAccelLabel"><span class="type">GtkAccelLabel</span></a>, or describe your menus
-  using a <a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenu-struct"><span class="type">GMenu</span></a> XML description</p>
+  using a <span class="type">GMenu</span> XML description</p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
@@ -1860,8 +1860,13 @@ navigation, such as menus, menubars and notebooks.</p>
 <div class="refsect2">
 <a name="GtkSettings--gtk-primary-button-warps-slider"></a><h3>The <code class="literal">“gtk-primary-button-warps-slider”</code> property</h3>
 <pre class="programlisting">  “gtk-primary-button-warps-slider” <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
-<p>Whether a click in a <a class="link" href="GtkRange.html" title="GtkRange"><span class="type">GtkRange</span></a> trough should scroll to the click position or
-scroll by a single page in the respective direction.</p>
+<p>If the value of this setting is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, clicking the primary button in a
+<a class="link" href="GtkRange.html" title="GtkRange"><span class="type">GtkRange</span></a> trough will move the slider, and hence set the range’s value, to
+the point that you clicked. If it is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>, a primary click will cause the
+slider/value to move by the range’s page-size towards the point clicked.</p>
+<p>Whichever action you choose for the primary button, the other action will
+be available by holding Shift and primary-clicking, or (since GTK+ 3.22.25)
+clicking the middle mouse button.</p>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
 <p class="since">Since: <a class="link" href="api-index-3-6.html#api-index-3.6">3.6</a></p>
@@ -1874,7 +1879,7 @@ scroll by a single page in the respective direction.</p>
 dialog. Available print backends depend on the GTK+ installation,
 and may include "file", "cups", "lpr" or "papi".</p>
 <p>Flags: Read / Write</p>
-<p>Default value: "file,cups,cloudprint"</p>
+<p>Default value: "file,cups"</p>
 <p class="since">Since: 2.10</p>
 </div>
 <hr>
@@ -2185,7 +2190,7 @@ functionality.</p>
 <div class="warning">
 <p><code class="literal">GtkSettings:gtk-touchscreen-mode</code> has been deprecated since version 3.4. and should not be used in newly-written code.</p>
 <p>Generally, the behavior for touchscreen input should be
-            performed dynamically based on <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#gdk-event-get-source-device"><code class="function">gdk_event_get_source_device()</code></a>.</p>
+            performed dynamically based on <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#gdk-event-get-source-device"><code class="function">gdk_event_get_source_device()</code></a>.</p>
 </div>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
@@ -2251,6 +2256,6 @@ or hidden until the user starts to use the keyboard.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

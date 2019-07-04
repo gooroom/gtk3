@@ -8,7 +8,7 @@
 <link rel="up" href="NumericEntry.html" title="Numeric and Text Data Entry">
 <link rel="prev" href="GtkScale.html" title="GtkScale">
 <link rel="next" href="GtkSearchEntry.html" title="GtkSearchEntry">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -417,12 +417,16 @@ to the desired number of characters to display in the entry.</p>
 2
 3
 4
-5</pre></td>
-        <td class="listing_code"><pre class="programlisting">spinbutton<span class="gtkdoc opt">.</span>horizontal
-├── entry
-│   ╰── <span class="gtkdoc opt">...</span>
-├── button<span class="gtkdoc opt">.</span>down
-╰── button<span class="gtkdoc opt">.</span>up</pre></td>
+5
+6
+7</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">spinbutton</span><span class="symbol">.</span><span class="normal">horizontal</span>
+<span class="normal">├── undershoot</span><span class="symbol">.</span><span class="normal">left</span>
+<span class="normal">├── undershoot</span><span class="symbol">.</span><span class="normal">right</span>
+<span class="normal">├── entry</span>
+<span class="normal">│   ╰── </span><span class="symbol">...</span>
+<span class="normal">├── button</span><span class="symbol">.</span><span class="normal">down</span>
+<span class="normal">╰── button</span><span class="symbol">.</span><span class="normal">up</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -437,12 +441,16 @@ to the desired number of characters to display in the entry.</p>
 2
 3
 4
-5</pre></td>
-        <td class="listing_code"><pre class="programlisting">spinbutton<span class="gtkdoc opt">.</span>vertical
-├── button<span class="gtkdoc opt">.</span>up
-├── entry
-│   ╰── <span class="gtkdoc opt">...</span>
-╰── button<span class="gtkdoc opt">.</span>down</pre></td>
+5
+6
+7</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">spinbutton</span><span class="symbol">.</span><span class="normal">vertical</span>
+<span class="normal">├── undershoot</span><span class="symbol">.</span><span class="normal">left</span>
+<span class="normal">├── undershoot</span><span class="symbol">.</span><span class="normal">right</span>
+<span class="normal">├── button</span><span class="symbol">.</span><span class="normal">up</span>
+<span class="normal">├── entry</span>
+<span class="normal">│   ╰── </span><span class="symbol">...</span>
+<span class="normal">╰── button</span><span class="symbol">.</span><span class="normal">down</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -488,34 +496,34 @@ the .vertical or .horizontal style class on the main node.</p>
 26
 27
 28</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc slc">// Provides a function to retrieve an integer value from a GtkSpinButton</span>
-<span class="gtkdoc slc">// and creates a spin button to model percentage values.</span>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">// Provides a function to retrieve an integer value from a GtkSpinButton</span>
+<span class="comment">// and creates a spin button to model percentage values.</span>
 
-gint
-<span class="function">grab_int_value</span> <span class="gtkdoc opt">(</span>GtkSpinButton <span class="gtkdoc opt">*</span>button<span class="gtkdoc opt">,</span>
-                gpointer       user_data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  <span class="keyword">return</span> <span class="function"><a href="GtkSpinButton.html#gtk-spin-button-get-value-as-int">gtk_spin_button_get_value_as_int</a></span> <span class="gtkdoc opt">(</span>button<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint">gint</a></span>
+<span class="function">grab_int_value</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkSpinButton</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">button</span><span class="symbol">,</span>
+<span class="normal">                </span><span class="usertype">gpointer</span><span class="normal">       user_data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> </span><span class="function"><a href="GtkSpinButton.html#gtk-spin-button-get-value-as-int">gtk_spin_button_get_value_as_int</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">button</span><span class="symbol">);</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc kwb">void</span>
-<span class="function">create_integer_spin_button</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwb">void</span><span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
+<span class="type">void</span>
+<span class="function">create_integer_spin_button</span><span class="normal"> </span><span class="symbol">(</span><span class="type">void</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
 
-  GtkWidget <span class="gtkdoc opt">*</span>window<span class="gtkdoc opt">, *</span>button<span class="gtkdoc opt">;</span>
-  GtkAdjustment <span class="gtkdoc opt">*</span>adjustment<span class="gtkdoc opt">;</span>
+<span class="normal">  </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">window</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">button</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkAdjustment</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">adjustment</span><span class="symbol">;</span>
 
-  adjustment <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkAdjustment.html#gtk-adjustment-new">gtk_adjustment_new</a></span> <span class="gtkdoc opt">(</span><span class="number">50.0</span><span class="gtkdoc opt">,</span> <span class="number">0.0</span><span class="gtkdoc opt">,</span> <span class="number">100.0</span><span class="gtkdoc opt">,</span> <span class="number">1.0</span><span class="gtkdoc opt">,</span> <span class="number">5.0</span><span class="gtkdoc opt">,</span> <span class="number">0.0</span><span class="gtkdoc opt">);</span>
+<span class="normal">  adjustment </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkAdjustment.html#gtk-adjustment-new">gtk_adjustment_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="number">50.0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">100.0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1.0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">5.0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.0</span><span class="symbol">);</span>
 
-  window <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWindow.html#gtk-window-new">gtk_window_new</a></span> <span class="gtkdoc opt">(</span>GTK_WINDOW_TOPLEVEL<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="GtkContainer.html#gtk-container-set-border-width">gtk_container_set_border_width</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CONTAINER</span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">),</span> <span class="number">5</span><span class="gtkdoc opt">);</span>
+<span class="normal">  window </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWindow.html#gtk-window-new">gtk_window_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="GtkWindow.html#GTK-WINDOW-TOPLEVEL:CAPS">GTK_WINDOW_TOPLEVEL</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkContainer.html#gtk-container-set-border-width">gtk_container_set_border_width</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">),</span><span class="normal"> </span><span class="number">5</span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// creates the spinbutton, with no decimal places</span>
-  button <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkSpinButton.html#gtk-spin-button-new">gtk_spin_button_new</a></span> <span class="gtkdoc opt">(</span>adjustment<span class="gtkdoc opt">,</span> <span class="number">1.0</span><span class="gtkdoc opt">,</span> <span class="number">0</span><span class="gtkdoc opt">);</span>
-  <span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CONTAINER</span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">),</span> button<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="comment">// creates the spinbutton, with no decimal places</span>
+<span class="normal">  button </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkSpinButton.html#gtk-spin-button-new">gtk_spin_button_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">adjustment</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1.0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">),</span><span class="normal"> button</span><span class="symbol">);</span>
 
-  <span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -556,33 +564,33 @@ gint
 25
 26
 27</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc slc">// Provides a function to retrieve a floating point value from a</span>
-<span class="gtkdoc slc">// GtkSpinButton, and creates a high precision spin button.</span>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">// Provides a function to retrieve a floating point value from a</span>
+<span class="comment">// GtkSpinButton, and creates a high precision spin button.</span>
 
-gfloat
-<span class="function">grab_float_value</span> <span class="gtkdoc opt">(</span>GtkSpinButton <span class="gtkdoc opt">*</span>button<span class="gtkdoc opt">,</span>
-                  gpointer       user_data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  <span class="keyword">return</span> <span class="function"><a href="GtkSpinButton.html#gtk-spin-button-get-value">gtk_spin_button_get_value</a></span> <span class="gtkdoc opt">(</span>button<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat">gfloat</a></span>
+<span class="function">grab_float_value</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkSpinButton</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">button</span><span class="symbol">,</span>
+<span class="normal">                  </span><span class="usertype">gpointer</span><span class="normal">       user_data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> </span><span class="function"><a href="GtkSpinButton.html#gtk-spin-button-get-value">gtk_spin_button_get_value</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">button</span><span class="symbol">);</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc kwb">void</span>
-<span class="function">create_floating_spin_button</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwb">void</span><span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkWidget <span class="gtkdoc opt">*</span>window<span class="gtkdoc opt">, *</span>button<span class="gtkdoc opt">;</span>
-  GtkAdjustment <span class="gtkdoc opt">*</span>adjustment<span class="gtkdoc opt">;</span>
+<span class="type">void</span>
+<span class="function">create_floating_spin_button</span><span class="normal"> </span><span class="symbol">(</span><span class="type">void</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">window</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">button</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkAdjustment</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">adjustment</span><span class="symbol">;</span>
 
-  adjustment <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkAdjustment.html#gtk-adjustment-new">gtk_adjustment_new</a></span> <span class="gtkdoc opt">(</span><span class="number">2.500</span><span class="gtkdoc opt">,</span> <span class="number">0.0</span><span class="gtkdoc opt">,</span> <span class="number">5.0</span><span class="gtkdoc opt">,</span> <span class="number">0.001</span><span class="gtkdoc opt">,</span> <span class="number">0.1</span><span class="gtkdoc opt">,</span> <span class="number">0.0</span><span class="gtkdoc opt">);</span>
+<span class="normal">  adjustment </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkAdjustment.html#gtk-adjustment-new">gtk_adjustment_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="number">2.500</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">5.0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.001</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.1</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.0</span><span class="symbol">);</span>
 
-  window <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWindow.html#gtk-window-new">gtk_window_new</a></span> <span class="gtkdoc opt">(</span>GTK_WINDOW_TOPLEVEL<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="GtkContainer.html#gtk-container-set-border-width">gtk_container_set_border_width</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CONTAINER</span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">),</span> <span class="number">5</span><span class="gtkdoc opt">);</span>
+<span class="normal">  window </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWindow.html#gtk-window-new">gtk_window_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="GtkWindow.html#GTK-WINDOW-TOPLEVEL:CAPS">GTK_WINDOW_TOPLEVEL</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkContainer.html#gtk-container-set-border-width">gtk_container_set_border_width</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">),</span><span class="normal"> </span><span class="number">5</span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// creates the spinbutton, with three decimal places</span>
-  button <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkSpinButton.html#gtk-spin-button-new">gtk_spin_button_new</a></span> <span class="gtkdoc opt">(</span>adjustment<span class="gtkdoc opt">,</span> <span class="number">0.001</span><span class="gtkdoc opt">,</span> <span class="number">3</span><span class="gtkdoc opt">);</span>
-  <span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CONTAINER</span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">),</span> button<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="comment">// creates the spinbutton, with three decimal places</span>
+<span class="normal">  button </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkSpinButton.html#gtk-spin-button-new">gtk_spin_button_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">adjustment</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.001</span><span class="symbol">,</span><span class="normal"> </span><span class="number">3</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">),</span><span class="normal"> button</span><span class="symbol">);</span>
 
-  <span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span> <span class="gtkdoc opt">(</span>window<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -602,8 +610,7 @@ gtk_spin_button_configure (<em class="parameter"><code><a class="link" href="Gtk
                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> climb_rate</code></em>,
                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> digits</code></em>);</pre>
 <p>Changes the properties of an existing spin button. The adjustment,
-climb rate, and number of decimal places are all changed accordingly,
-after this function call.</p>
+climb rate, and number of decimal places are updated accordingly.</p>
 <div class="refsect3">
 <a name="gtk-spin-button-configure.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -620,8 +627,9 @@ after this function call.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>adjustment</p></td>
-<td class="parameter_description"><p>  a <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> to replace the spin button’s
+existing adjustment, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to leave its current adjustment unchanged. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>climb_rate</p></td>
@@ -656,14 +664,14 @@ gtk_spin_button_new (<em class="parameter"><code><a class="link" href="GtkAdjust
 <tbody>
 <tr>
 <td class="parameter_name"><p>adjustment</p></td>
-<td class="parameter_description"><p> the <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> object that this spin
+<td class="parameter_description"><p>the <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> object that this spin
 button should use, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>climb_rate</p></td>
-<td class="parameter_description"><p>specifies how much the spin button changes when an arrow
-is clicked on</p></td>
+<td class="parameter_description"><p>specifies by how much the rate of change in the value will
+accelerate if you continue to hold down an up/down button or arrow key</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -783,7 +791,7 @@ gtk_spin_button_get_adjustment (<em class="parameter"><code><a class="link" href
 </div>
 <div class="refsect3">
 <a name="gtk-spin-button-get-adjustment.returns"></a><h4>Returns</h4>
-<p> the <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> of <em class="parameter"><code>spin_button</code></em>
+<p>the <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> of <em class="parameter"><code>spin_button</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1194,12 +1202,12 @@ gtk_spin_button_get_increments (<em class="parameter"><code><a class="link" href
 </tr>
 <tr>
 <td class="parameter_name"><p>step</p></td>
-<td class="parameter_description"><p> location to store step increment, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store step increment, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>page</p></td>
-<td class="parameter_description"><p> location to store page increment, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store page increment, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1259,12 +1267,12 @@ See <a class="link" href="GtkSpinButton.html#gtk-spin-button-set-range" title="g
 </tr>
 <tr>
 <td class="parameter_name"><p>min</p></td>
-<td class="parameter_description"><p> location to store minimum allowed value, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store minimum allowed value, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>max</p></td>
-<td class="parameter_description"><p> location to store maximum allowed value, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>location to store maximum allowed value, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1514,7 +1522,7 @@ signal in case of conversion failure.</p>
 <div class="refsect2">
 <a name="GtkSpinButton--climb-rate"></a><h3>The <code class="literal">“climb-rate”</code> property</h3>
 <pre class="programlisting">  “climb-rate”               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a></pre>
-<p>The acceleration rate when you hold down a button.</p>
+<p>The acceleration rate when you hold down a button or key.</p>
 <p>Flags: Read / Write</p>
 <p>Allowed values: &gt;= 0</p>
 <p>Default value: 0</p>
@@ -1574,7 +1582,7 @@ signal in case of conversion failure.</p>
 <div class="refsect2">
 <a name="GtkSpinButton--s-shadow-type"></a><h3>The <code class="literal">“shadow-type”</code> style property</h3>
 <pre class="programlisting">  “shadow-type”              <a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a></pre>
-<p>Style of bevel around the sping button.</p>
+<p>Style of bevel around the spin button.</p>
 <div class="warning">
 <p><code class="literal">GtkSpinButton:shadow-type</code> has been deprecated since version 3.20 and should not be used in newly-written code.</p>
 <p>Use CSS to determine the style of the border;
@@ -1658,7 +1666,7 @@ the entry and set <em class="parameter"><code>new_value</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>new_value</p></td>
-<td class="parameter_description"><p> return location for the new value. </p></td>
+<td class="parameter_description"><p>return location for the new value. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> double]</span></td>
 </tr>
 <tr>
@@ -1705,23 +1713,23 @@ of the value that is displayed in the spin buttons entry.</p>
 15
 16
 17</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc slc">// show leading zeros</span>
-<span class="gtkdoc kwb">static</span> gboolean
-<span class="function">on_output</span> <span class="gtkdoc opt">(</span>GtkSpinButton <span class="gtkdoc opt">*</span>spin<span class="gtkdoc opt">,</span>
-           gpointer       data<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-   GtkAdjustment <span class="gtkdoc opt">*</span>adjustment<span class="gtkdoc opt">;</span>
-   gchar <span class="gtkdoc opt">*</span>text<span class="gtkdoc opt">;</span>
-   <span class="gtkdoc kwb">int</span> value<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">// show leading zeros</span>
+<span class="keyword">static</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean">gboolean</a></span>
+<span class="function">on_output</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkSpinButton</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">spin</span><span class="symbol">,</span>
+<span class="normal">           </span><span class="usertype">gpointer</span><span class="normal">       data</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">   </span><span class="usertype">GtkAdjustment</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">adjustment</span><span class="symbol">;</span>
+<span class="normal">   </span><span class="usertype">gchar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">text</span><span class="symbol">;</span>
+<span class="normal">   </span><span class="type">int</span><span class="normal"> value</span><span class="symbol">;</span>
 
-   adjustment <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkSpinButton.html#gtk-spin-button-get-adjustment">gtk_spin_button_get_adjustment</a></span> <span class="gtkdoc opt">(</span>spin<span class="gtkdoc opt">);</span>
-   value <span class="gtkdoc opt">= (</span><span class="gtkdoc kwb">int</span><span class="gtkdoc opt">)</span><span class="function"><a href="GtkAdjustment.html#gtk-adjustment-get-value">gtk_adjustment_get_value</a></span> <span class="gtkdoc opt">(</span>adjustment<span class="gtkdoc opt">);</span>
-   text <span class="gtkdoc opt">=</span> <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strdup-printf">g_strdup_printf</a></span> <span class="gtkdoc opt">(</span><span class="string">&quot;%02d&quot;</span><span class="gtkdoc opt">,</span> value<span class="gtkdoc opt">);</span>
-   <span class="function"><a href="GtkEntry.html#gtk-entry-set-text">gtk_entry_set_text</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_ENTRY</span> <span class="gtkdoc opt">(</span>spin<span class="gtkdoc opt">),</span> text<span class="gtkdoc opt">);</span>
-   <span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span> <span class="gtkdoc opt">(</span>text<span class="gtkdoc opt">);</span>
+<span class="normal">   adjustment </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkSpinButton.html#gtk-spin-button-get-adjustment">gtk_spin_button_get_adjustment</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">spin</span><span class="symbol">);</span>
+<span class="normal">   value </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="type">int</span><span class="symbol">)</span><span class="function"><a href="GtkAdjustment.html#gtk-adjustment-get-value">gtk_adjustment_get_value</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">adjustment</span><span class="symbol">);</span>
+<span class="normal">   text </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strdup-printf">g_strdup_printf</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"%02d"</span><span class="symbol">,</span><span class="normal"> value</span><span class="symbol">);</span>
+<span class="normal">   </span><span class="function"><a href="GtkEntry.html#gtk-entry-set-text">gtk_entry_set_text</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_ENTRY</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">spin</span><span class="symbol">),</span><span class="normal"> text</span><span class="symbol">);</span>
+<span class="normal">   </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">text</span><span class="symbol">);</span>
 
-   <span class="keyword">return</span> TRUE<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">   </span><span class="keyword">return</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1829,6 +1837,6 @@ from its maximum to minimum value or vice-versa.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

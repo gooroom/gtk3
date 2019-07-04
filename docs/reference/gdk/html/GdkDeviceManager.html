@@ -8,7 +8,7 @@
 <link rel="up" href="rn02.html" title="Deprecated">
 <link rel="prev" href="gdk3-Colors.html" title="Colors">
 <link rel="next" href="api-index-full.html" title="Index of all symbols">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -164,7 +164,7 @@ to a compatibility mode in which it will emit just one enter/leave
 event pair for all devices on a window. To enable per-device
 enter/leave events and other multi-pointer interaction features,
 <a class="link" href="gdk3-Windows.html#gdk-window-set-support-multidevice" title="gdk_window_set_support_multidevice ()"><code class="function">gdk_window_set_support_multidevice()</code></a> must be called on
-<a href="gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindows</span></a> (or <a href="http://developer.gnome.org/gtk4/GtkWidget.html#gtk-widget-set-support-multidevice"><code class="function">gtk_widget_set_support_multidevice()</code></a> on widgets).
+<a href="gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindows</span></a> (or <a href="https://developer.gnome.org/gtk3/GtkWidget.html#gtk-widget-set-support-multidevice"><code class="function">gtk_widget_set_support_multidevice()</code></a> on widgets).
 window. See the <a class="link" href="gdk3-Windows.html#gdk-window-set-support-multidevice" title="gdk_window_set_support_multidevice ()"><code class="function">gdk_window_set_support_multidevice()</code></a> documentation
 for more information.</p>
 <p>On X11, multi-device support is implemented through XInput 2.
@@ -209,22 +209,22 @@ be “floating”, which means they are not attached to any virtual device.</p>
 14
 15
 16</pre></td>
-        <td class="listing_code"><pre class="programlisting">carlos&#64;sacarino<span class="gtkdoc opt">:~</span>$ xinput list
-⎡ Virtual core pointer                          id<span class="gtkdoc opt">=</span><span class="number">2</span>    <span class="gtkdoc opt">[</span>master <span class="function">pointer</span>  <span class="gtkdoc opt">(</span><span class="number">3</span><span class="gtkdoc opt">)]</span>
-⎜   ↳ Virtual core XTEST pointer                id<span class="gtkdoc opt">=</span><span class="number">4</span>    <span class="gtkdoc opt">[</span>slave  <span class="function">pointer</span>  <span class="gtkdoc opt">(</span><span class="number">2</span><span class="gtkdoc opt">)]</span>
-⎜   ↳ Wacom ISDv4 E6 Pen stylus                 id<span class="gtkdoc opt">=</span><span class="number">10</span>   <span class="gtkdoc opt">[</span>slave  <span class="function">pointer</span>  <span class="gtkdoc opt">(</span><span class="number">2</span><span class="gtkdoc opt">)]</span>
-⎜   ↳ Wacom ISDv4 E6 Finger touch               id<span class="gtkdoc opt">=</span><span class="number">11</span>   <span class="gtkdoc opt">[</span>slave  <span class="function">pointer</span>  <span class="gtkdoc opt">(</span><span class="number">2</span><span class="gtkdoc opt">)]</span>
-⎜   ↳ SynPS<span class="gtkdoc opt">/</span><span class="number">2</span> Synaptics TouchPad                id<span class="gtkdoc opt">=</span><span class="number">13</span>   <span class="gtkdoc opt">[</span>slave  <span class="function">pointer</span>  <span class="gtkdoc opt">(</span><span class="number">2</span><span class="gtkdoc opt">)]</span>
-⎜   ↳ TPPS<span class="gtkdoc opt">/</span><span class="number">2</span> IBM TrackPoint                     id<span class="gtkdoc opt">=</span><span class="number">14</span>   <span class="gtkdoc opt">[</span>slave  <span class="function">pointer</span>  <span class="gtkdoc opt">(</span><span class="number">2</span><span class="gtkdoc opt">)]</span>
-⎜   ↳ Wacom ISDv4 E6 Pen eraser                 id<span class="gtkdoc opt">=</span><span class="number">16</span>   <span class="gtkdoc opt">[</span>slave  <span class="function">pointer</span>  <span class="gtkdoc opt">(</span><span class="number">2</span><span class="gtkdoc opt">)]</span>
-⎣ Virtual core keyboard                         id<span class="gtkdoc opt">=</span><span class="number">3</span>    <span class="gtkdoc opt">[</span>master <span class="function">keyboard</span> <span class="gtkdoc opt">(</span><span class="number">2</span><span class="gtkdoc opt">)]</span>
-    ↳ Virtual core XTEST keyboard               id<span class="gtkdoc opt">=</span><span class="number">5</span>    <span class="gtkdoc opt">[</span>slave  <span class="function">keyboard</span> <span class="gtkdoc opt">(</span><span class="number">3</span><span class="gtkdoc opt">)]</span>
-    ↳ Power Button                              id<span class="gtkdoc opt">=</span><span class="number">6</span>    <span class="gtkdoc opt">[</span>slave  <span class="function">keyboard</span> <span class="gtkdoc opt">(</span><span class="number">3</span><span class="gtkdoc opt">)]</span>
-    ↳ Video Bus                                 id<span class="gtkdoc opt">=</span><span class="number">7</span>    <span class="gtkdoc opt">[</span>slave  <span class="function">keyboard</span> <span class="gtkdoc opt">(</span><span class="number">3</span><span class="gtkdoc opt">)]</span>
-    ↳ Sleep Button                              id<span class="gtkdoc opt">=</span><span class="number">8</span>    <span class="gtkdoc opt">[</span>slave  <span class="function">keyboard</span> <span class="gtkdoc opt">(</span><span class="number">3</span><span class="gtkdoc opt">)]</span>
-    ↳ Integrated Camera                         id<span class="gtkdoc opt">=</span><span class="number">9</span>    <span class="gtkdoc opt">[</span>slave  <span class="function">keyboard</span> <span class="gtkdoc opt">(</span><span class="number">3</span><span class="gtkdoc opt">)]</span>
-    ↳ AT Translated Set <span class="number">2</span> keyboard              id<span class="gtkdoc opt">=</span><span class="number">12</span>   <span class="gtkdoc opt">[</span>slave  <span class="function">keyboard</span> <span class="gtkdoc opt">(</span><span class="number">3</span><span class="gtkdoc opt">)]</span>
-    ↳ ThinkPad Extra Buttons                    id<span class="gtkdoc opt">=</span><span class="number">15</span>   <span class="gtkdoc opt">[</span>slave  <span class="function">keyboard</span> <span class="gtkdoc opt">(</span><span class="number">3</span><span class="gtkdoc opt">)]</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">carlos@sacarino</span><span class="symbol">:~</span><span class="normal">$ xinput list</span>
+<span class="normal">⎡ Virtual core </span><span class="usertype">pointer</span><span class="normal">                          id</span><span class="symbol">=</span><span class="number">2</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">master</span><span class="normal"> </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
+<span class="normal">⎜   ↳ Virtual core XTEST </span><span class="usertype">pointer</span><span class="normal">                id</span><span class="symbol">=</span><span class="number">4</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
+<span class="normal">⎜   ↳ Wacom ISDv4 E6 Pen </span><span class="usertype">stylus</span><span class="normal">                 id</span><span class="symbol">=</span><span class="number">10</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
+<span class="normal">⎜   ↳ Wacom ISDv4 E6 Finger </span><span class="usertype">touch</span><span class="normal">               id</span><span class="symbol">=</span><span class="number">11</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
+<span class="normal">⎜   ↳ SynPS</span><span class="symbol">/</span><span class="number">2</span><span class="normal"> Synaptics </span><span class="usertype">TouchPad</span><span class="normal">                id</span><span class="symbol">=</span><span class="number">13</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
+<span class="normal">⎜   ↳ TPPS</span><span class="symbol">/</span><span class="number">2</span><span class="normal"> IBM </span><span class="usertype">TrackPoint</span><span class="normal">                     id</span><span class="symbol">=</span><span class="number">14</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
+<span class="normal">⎜   ↳ Wacom ISDv4 E6 Pen </span><span class="usertype">eraser</span><span class="normal">                 id</span><span class="symbol">=</span><span class="number">16</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
+<span class="normal">⎣ Virtual core </span><span class="usertype">keyboard</span><span class="normal">                         id</span><span class="symbol">=</span><span class="number">3</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">master</span><span class="normal"> </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
+<span class="normal">    ↳ Virtual core XTEST </span><span class="usertype">keyboard</span><span class="normal">               id</span><span class="symbol">=</span><span class="number">5</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
+<span class="normal">    ↳ Power </span><span class="usertype">Button</span><span class="normal">                              id</span><span class="symbol">=</span><span class="number">6</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
+<span class="normal">    ↳ Video </span><span class="usertype">Bus</span><span class="normal">                                 id</span><span class="symbol">=</span><span class="number">7</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
+<span class="normal">    ↳ Sleep </span><span class="usertype">Button</span><span class="normal">                              id</span><span class="symbol">=</span><span class="number">8</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
+<span class="normal">    ↳ Integrated </span><span class="usertype">Camera</span><span class="normal">                         id</span><span class="symbol">=</span><span class="number">9</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
+<span class="normal">    ↳ AT Translated Set </span><span class="number">2</span><span class="normal"> </span><span class="usertype">keyboard</span><span class="normal">              id</span><span class="symbol">=</span><span class="number">12</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
+<span class="normal">    ↳ ThinkPad Extra </span><span class="usertype">Buttons</span><span class="normal">                    id</span><span class="symbol">=</span><span class="number">15</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -278,8 +278,8 @@ written code.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gdk_disable_multidevice (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Disables multidevice support in GDK. This call must happen prior
-to <a class="link" href="GdkDisplay.html#gdk-display-open" title="gdk_display_open ()"><code class="function">gdk_display_open()</code></a>, <a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-init"><code class="function">gtk_init()</code></a>, <a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-init-with-args"><code class="function">gtk_init_with_args()</code></a> or
-<a href="http://developer.gnome.org/gtk4/gtk4-General.html#gtk-init-check"><code class="function">gtk_init_check()</code></a> in order to take effect.</p>
+to <a class="link" href="GdkDisplay.html#gdk-display-open" title="gdk_display_open ()"><code class="function">gdk_display_open()</code></a>, <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a>, <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init-with-args"><code class="function">gtk_init_with_args()</code></a> or
+<a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init-check"><code class="function">gtk_init_check()</code></a> in order to take effect.</p>
 <p>Most common GTK+ applications won’t ever need to call this. Only
 applications that do mixed GDK/Xlib calls could want to disable
 multidevice support if such Xlib code deals with input devices in
@@ -310,9 +310,9 @@ gdk_device_manager_get_display (<em class="parameter"><code><a class="link" href
 </div>
 <div class="refsect3">
 <a name="gdk-device-manager-get-display.returns"></a><h4>Returns</h4>
-<p> the <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> to which
+<p>the <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> to which
 <em class="parameter"><code>device_manager</code></em>
-is associated to, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><span class="type">NULL</span></a>. This memory is
+is associated to, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. This memory is
 owned by GDK and must not be freed or unreferenced. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -357,7 +357,7 @@ gdk_device_manager_list_devices (<em class="parameter"><code><a class="link" hre
 </div>
 <div class="refsect3">
 <a name="gdk-device-manager-list-devices.returns"></a><h4>Returns</h4>
-<p> a list of
+<p>a list of
 <a href="GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevices</span></a>. The returned list must be
 freed with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>. The list elements are owned by
 GTK+ and must not be freed or unreffed. </p>
@@ -396,7 +396,7 @@ and there aren’t other means to get a meaningful <a class="link" href="GdkDevi
 </div>
 <div class="refsect3">
 <a name="gdk-device-manager-get-client-pointer.returns"></a><h4>Returns</h4>
-<p> The client pointer. This memory is
+<p>The client pointer. This memory is
 owned by GDK and must not be freed or unreferenced. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -550,6 +550,6 @@ is unplugged.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

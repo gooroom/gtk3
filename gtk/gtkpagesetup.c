@@ -796,7 +796,7 @@ enum_to_string (GType type,
  * gtk_page_setup_to_key_file:
  * @setup: a #GtkPageSetup
  * @key_file: the #GKeyFile to save the page setup to
- * @group_name: the group to add the settings to in @key_file, 
+ * @group_name: (nullable): the group to add the settings to in @key_file,
  *      or %NULL to use the default name “Page Setup”
  * 
  * This function adds the page setup from @setup to @key_file.
@@ -902,8 +902,11 @@ gtk_page_setup_new_from_gvariant (GVariant *variant)
   setup = gtk_page_setup_new ();
 
   paper_size = gtk_paper_size_new_from_gvariant (variant);
-  gtk_page_setup_set_paper_size (setup, paper_size);
-  gtk_paper_size_free (paper_size);
+  if (paper_size)
+    {
+      gtk_page_setup_set_paper_size (setup, paper_size);
+      gtk_paper_size_free (paper_size);
+    }
 
   if (g_variant_lookup (variant, "MarginTop", "d", &margin))
     gtk_page_setup_set_top_margin (setup, margin, GTK_UNIT_MM);

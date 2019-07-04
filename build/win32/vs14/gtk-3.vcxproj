@@ -164,46 +164,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\..\gtk\gtkdbusinterfaces.xml">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating GTK+ DBus Sources...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(GenerateGtkDbusBuiltSources)</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\gtk\gtkdbusgenerated.c;..\..\..\gtk\gtkdbusgenerated.h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating GTK+ DBus Sources...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(GenerateGtkDbusBuiltSourcesX64)</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\gtk\gtkdbusgenerated.c;..\..\..\gtk\gtkdbusgenerated.h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating GTK+ DBus Sources...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(GenerateGtkDbusBuiltSources)</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\gtk\gtkdbusgenerated.c;..\..\..\gtk\gtkdbusgenerated.h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating GTK+ DBus Sources...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(GenerateGtkDbusBuiltSourcesX64)</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\gtk\gtkdbusgenerated.c;..\..\..\gtk\gtkdbusgenerated.h;%(Outputs)</Outputs>
+      <Message>Generating GTK+ DBus Sources...</Message>
+      <Command>$(GenerateGtkDbusBuiltSources)</Command>
+      <Outputs>..\..\..\gtk\gtkdbusgenerated.c;..\..\..\gtk\gtkdbusgenerated.h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="..\..\..\gtk\gtk-win32.rc.body">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Copying GTK+ Win32 Version Resource...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(CopyGtkWin32RC)</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\gtk\gtk-win32.rc;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Copying GTK+ Win32 Version Resource...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(CopyGtkWin32RC)</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\gtk\gtk-win32.rc;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Copying GTK+ Win32 Version Resource...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(CopyGtkWin32RC)</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\gtk\gtk-win32.rc;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Copying GTK+ Win32 Version Resource...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(CopyGtkWin32RC)</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\gtk\gtk-win32.rc;%(Outputs)</Outputs>
+      <Message>Copying GTK+ Win32 Version Resource...</Message>
+      <Command>$(CopyGtkWin32RC)</Command>
+      <Outputs>..\..\..\gtk\gtk-win32.rc;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="..\..\..\gtk\libgtk3.manifest.in">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating GTK+ Win32 Manifest...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(GenerateGtkWin32Manifest)</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\gtk\libgtk3.manifest;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating GTK+ Win32 Manifest...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(GenerateGtkWin32Manifest)</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\gtk\libgtk3.manifest;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating GTK+ Win32 Manifest...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(GenerateGtkWin32Manifest)</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\gtk\libgtk3.manifest;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating GTK+ Win32 Manifest...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(GenerateGtkWin32Manifest)</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\gtk\libgtk3.manifest;%(Outputs)</Outputs>
+      <Message>Generating GTK+ Win32 Manifest...</Message>
+      <Command>$(GenerateGtkWin32Manifest)</Command>
+      <Outputs>..\..\..\gtk\libgtk3.manifest;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\gentypefuncs.py">
+      <Message>Generating ..\..\..\gtk\gtktypefuncs.c</Message>
+      <Command>$(GenerateTypeFuncs)</Command>
+      <Outputs>..\..\..\gtk\gtktypefuncs.c</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -402,6 +380,10 @@
    <ClCompile Include="..\..\..\gtk\gtkcolorchooserwidget.c" />
    <ClCompile Include="..\..\..\gtk\gtkcolorchooserdialog.c" />
    <ClCompile Include="..\..\..\gtk\gtkcoloreditor.c" />
+   <ClCompile Include="..\..\..\gtk\gtkcolorpicker.c" />
+   <ClCompile Include="..\..\..\gtk\gtkcolorpickerkwin.c" />
+   <ClCompile Include="..\..\..\gtk\gtkcolorpickerportal.c" />
+   <ClCompile Include="..\..\..\gtk\gtkcolorpickershell.c" />
    <ClCompile Include="..\..\..\gtk\gtkcolorplane.c" />
    <ClCompile Include="..\..\..\gtk\gtkcolorscale.c" />
    <ClCompile Include="..\..\..\gtk\gtkcolorswatch.c" />
@@ -482,11 +464,16 @@
    <ClCompile Include="..\..\..\gtk\gtkdragsource.c" />
    <ClCompile Include="..\..\..\gtk\gtkdrawingarea.c" />
    <ClCompile Include="..\..\..\gtk\gtkeditable.c" />
+   <ClCompile Include="..\..\..\gtk\gtkemojichooser.c" />
+   <ClCompile Include="..\..\..\gtk\gtkemojicompletion.c" />
    <ClCompile Include="..\..\..\gtk\gtkentry.c" />
    <ClCompile Include="..\..\..\gtk\gtkentrybuffer.c" />
    <ClCompile Include="..\..\..\gtk\gtkentrycompletion.c" />
    <ClCompile Include="..\..\..\gtk\gtkeventbox.c" />
    <ClCompile Include="..\..\..\gtk\gtkeventcontroller.c" />
+   <ClCompile Include="..\..\..\gtk\gtkeventcontrollerkey.c" />
+   <ClCompile Include="..\..\..\gtk\gtkeventcontrollermotion.c" />
+   <ClCompile Include="..\..\..\gtk\gtkeventcontrollerscroll.c" />
    <ClCompile Include="..\..\..\gtk\gtkexpander.c" />
    <ClCompile Include="..\..\..\gtk\gtkfilechooser.c" />
    <ClCompile Include="..\..\..\gtk\gtkfilechooserbutton.c" />
@@ -516,6 +503,7 @@
    <ClCompile Include="..\..\..\gtk\gtkgesturepan.c" />
    <ClCompile Include="..\..\..\gtk\gtkgesturerotate.c" />
    <ClCompile Include="..\..\..\gtk\gtkgesturesingle.c" />
+   <ClCompile Include="..\..\..\gtk\gtkgesturestylus.c" />
    <ClCompile Include="..\..\..\gtk\gtkgestureswipe.c" />
    <ClCompile Include="..\..\..\gtk\gtkgesturezoom.c" />
    <ClCompile Include="..\..\..\gtk\gtkglarea.c" />
@@ -547,7 +535,6 @@
    <ClCompile Include="..\..\..\gtk\gtklockbutton.c" />
    <ClCompile Include="..\..\..\gtk\gtkmain.c" />
    <ClCompile Include="..\..\..\gtk\gtkmagnifier.c" />
-   <ClCompile Include="..\..\..\gtk\gtkmarshalers.c" />
    <ClCompile Include="..\..\..\gtk\gtkmenu.c" />
    <ClCompile Include="..\..\..\gtk\gtkmenubar.c" />
    <ClCompile Include="..\..\..\gtk\gtkmenubutton.c" />
@@ -584,7 +571,6 @@
    <ClCompile Include="..\..\..\gtk\gtkprintsettings.c" />
    <ClCompile Include="..\..\..\gtk\gtkprintutils.c" />
    <ClCompile Include="..\..\..\gtk\gtkprivate.c" />
-   <ClCompile Include="..\..\..\gtk\gtkprivatetypebuiltins.c" />
    <ClCompile Include="..\..\..\gtk\gtkprogressbar.c" />
    <ClCompile Include="..\..\..\gtk\gtkprogresstracker.c" />
    <ClCompile Include="..\..\..\gtk\gtkpixelcache.c" />
@@ -607,7 +593,6 @@
    <ClCompile Include="..\..\..\gtk\gtkrenderbackground.c" />
    <ClCompile Include="..\..\..\gtk\gtkrenderborder.c" />
    <ClCompile Include="..\..\..\gtk\gtkrendericon.c" />
-   <ClCompile Include="..\..\..\gtk\gtkresources.c" />
    <ClCompile Include="..\..\..\gtk\gtkrevealer.c" />
    <ClCompile Include="..\..\..\gtk\gtkroundedbox.c" />
    <ClCompile Include="..\..\..\gtk\gtkscale.c" />
@@ -683,7 +668,6 @@
    <ClCompile Include="..\..\..\gtk\gtktreestore.c" />
    <ClCompile Include="..\..\..\gtk\gtktreeview.c" />
    <ClCompile Include="..\..\..\gtk\gtktreeviewcolumn.c" />
-   <ClCompile Include="..\..\..\gtk\gtktypebuiltins.c" />
    <ClCompile Include="..\..\..\gtk\gtkutils.c" />
    <ClCompile Include="..\..\..\gtk\gtkvolumebutton.c" />
    <ClCompile Include="..\..\..\gtk\gtkviewport.c" />
@@ -694,6 +678,8 @@
    <ClCompile Include="..\..\..\gtk\gtkwin32draw.c" />
    <ClCompile Include="..\..\..\gtk\gtkwin32theme.c" />
    <ClCompile Include="..\..\..\gtk\gdkpixbufutils.c" />
+   <ClCompile Include="..\..\..\gtk\language-names.c" />
+   <ClCompile Include="..\..\..\gtk\script-names.c" />
    <ClCompile Include="..\..\..\gtk\gtkclipboard.c" />
    <ClCompile Include="..\..\..\gtk\gtkdnd.c" />
    <ClCompile Include="..\..\..\gtk\gtkdragdest.c" />
@@ -705,6 +691,10 @@
    <ClCompile Include="..\..\..\gtk\gtkwin32embedwidget.c" />
    <ClCompile Include="..\..\..\gtk\gtkmountoperation-stub.c" />
    <ClCompile Include="..\..\..\gtk\gtkdbusgenerated.c" />
+   <ClCompile Include="..\..\..\gtk\gtkresources.c" />
+   <ClCompile Include="..\..\..\gtk\gtktypebuiltins.c" />
+   <ClCompile Include="..\..\..\gtk\gtkmarshalers.c" />
+   <ClCompile Include="..\..\..\gtk\gtkprivatetypebuiltins.c" />
     <ClCompile Include="..\..\..\modules\input\gtkimcontextime.c" />
     <ClCompile Include="..\..\..\modules\input\gtkimcontextmultipress.c" />
     <ClCompile Include="..\..\..\modules\input\gtkimcontextthai.c" />

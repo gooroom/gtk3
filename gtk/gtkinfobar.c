@@ -75,18 +75,19 @@
  * by using gtk_info_bar_set_message_type(). GTK+ may use the message type
  * to determine how the message is displayed.
  *
- * A simple example for using a GtkInfoBar:
+ * A simple example for using a #GtkInfoBar:
  * |[<!-- language="C" -->
- * // set up info bar
- * GtkWidget *widget;
+ * GtkWidget *widget, *message_label, *content_area;
+ * GtkWidget *grid;
  * GtkInfoBar *bar;
  *
+ * // set up info bar
  * widget = gtk_info_bar_new ();
- * bar = GTK_INFO_BAR (bar);
+ * bar = GTK_INFO_BAR (widget);
+ * grid = gtk_grid_new ();
  *
  * gtk_widget_set_no_show_all (widget, TRUE);
  * message_label = gtk_label_new ("");
- * gtk_widget_show (message_label);
  * content_area = gtk_info_bar_get_content_area (bar);
  * gtk_container_add (GTK_CONTAINER (content_area),
  *                    message_label);
@@ -101,10 +102,10 @@
  *                  widget,
  *                  0, 2, 1, 1);
  *
- * ...
+ * // ...
  *
  * // show an error message
- * gtk_label_set_text (GTK_LABEL (message_label), message);
+ * gtk_label_set_text (GTK_LABEL (message_label), "An error occurred!");
  * gtk_info_bar_set_message_type (bar,
  *                                GTK_MESSAGE_ERROR);
  * gtk_widget_show (bar);
@@ -132,7 +133,9 @@ enum
 {
   PROP_0,
   PROP_MESSAGE_TYPE,
-  PROP_SHOW_CLOSE_BUTTON
+  PROP_SHOW_CLOSE_BUTTON,
+  PROP_REVEALED,
+  LAST_PROP
 };
 
 struct _GtkInfoBarPrivate
@@ -160,6 +163,7 @@ enum
   LAST_SIGNAL
 };
 
+static GParamSpec *props[LAST_PROP] = { NULL, };
 static guint signals[LAST_SIGNAL];
 
 #define ACTION_AREA_DEFAULT_BORDER 5
@@ -210,6 +214,9 @@ gtk_info_bar_set_property (GObject      *object,
     case PROP_SHOW_CLOSE_BUTTON:
       gtk_info_bar_set_show_close_button (info_bar, g_value_get_boolean (value));
       break;
+    case PROP_REVEALED:
+      gtk_info_bar_set_revealed (info_bar, g_value_get_boolean (value));
+      break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
       break;
@@ -231,6 +238,9 @@ gtk_info_bar_get_property (GObject    *object,
       break;
     case PROP_SHOW_CLOSE_BUTTON:
       g_value_set_boolean (value, gtk_info_bar_get_show_close_button (info_bar));
+      break;
+    case PROP_REVEALED:
+      g_value_set_boolean (value, gtk_info_bar_get_revealed (info_bar));
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -301,36 +311,6 @@ gtk_info_bar_close (GtkInfoBar *info_bar)
 }
 
 static void
-gtk_info_bar_show (GtkWidget *widget)
-{
-  GtkInfoBarPrivate *priv = GTK_INFO_BAR (widget)->priv;
-
-  GTK_WIDGET_CLASS (gtk_info_bar_parent_class)->show (widget);
-
-  gtk_revealer_set_reveal_child (GTK_REVEALER (priv->revealer), TRUE);
-}
-
-static void
-child_revealed (GObject *object, GParamSpec *pspec, gpointer data)
-{
-  GtkWidget *widget = data;
-
-  GTK_WIDGET_CLASS (gtk_info_bar_parent_class)->hide (widget);
-  g_signal_handlers_disconnect_by_func (object, child_revealed, widget);
-  g_object_notify (G_OBJECT (widget), "visible");
-}
-
-static void
-gtk_info_bar_hide (GtkWidget *widget)
-{
-  GtkInfoBarPrivate *priv = GTK_INFO_BAR (widget)->priv;
-
-  g_signal_connect_object (priv->revealer, "notify::child-revealed",
-                           G_CALLBACK (child_revealed), widget, 0);
-  gtk_revealer_set_reveal_child (GTK_REVEALER (priv->revealer), FALSE);
-}
-
-static void
 gtk_info_bar_class_init (GtkInfoBarClass *klass)
 {
   GtkWidgetClass *widget_class;
@@ -343,9 +323,6 @@ gtk_info_bar_class_init (GtkInfoBarClass *klass)
   object_class->get_property = gtk_info_bar_get_property;
   object_class->set_property = gtk_info_bar_set_property;
 
-  widget_class->show = gtk_info_bar_show;
-  widget_class->hide = gtk_info_bar_hide;
-
   klass->close = gtk_info_bar_close;
 
   /**
@@ -357,14 +334,13 @@ gtk_info_bar_class_init (GtkInfoBarClass *klass)
    *
    * Since: 2.18
    */
-  g_object_class_install_property (object_class,
-                                   PROP_MESSAGE_TYPE,
-                                   g_param_spec_enum ("message-type",
-                                                      P_("Message Type"),
-                                                      P_("The type of message"),
-                                                      GTK_TYPE_MESSAGE_TYPE,
-                                                      GTK_MESSAGE_INFO,
-                                                      GTK_PARAM_READWRITE|G_PARAM_CONSTRUCT|G_PARAM_EXPLICIT_NOTIFY));
+  props[PROP_MESSAGE_TYPE] =
+    g_param_spec_enum ("message-type",
+                       P_("Message Type"),
+                       P_("The type of message"),
+                       GTK_TYPE_MESSAGE_TYPE,
+                       GTK_MESSAGE_INFO,
+                       GTK_PARAM_READWRITE|G_PARAM_CONSTRUCT|G_PARAM_EXPLICIT_NOTIFY);
 
   /**
    * GtkInfoBar:show-close-button:
@@ -373,13 +349,22 @@ gtk_info_bar_class_init (GtkInfoBarClass *klass)
    *
    * Since: 3.10
    */
-  g_object_class_install_property (object_class,
-                                   PROP_SHOW_CLOSE_BUTTON,
-                                   g_param_spec_boolean ("show-close-button",
-                                                         P_("Show Close Button"),
-                                                         P_("Whether to include a standard close button"),
-                                                         FALSE,
-                                                         GTK_PARAM_READWRITE|G_PARAM_CONSTRUCT|G_PARAM_EXPLICIT_NOTIFY));
+  props[PROP_SHOW_CLOSE_BUTTON] =
+    g_param_spec_boolean ("show-close-button",
+                          P_("Show Close Button"),
+                          P_("Whether to include a standard close button"),
+                          FALSE,
+                          GTK_PARAM_READWRITE|G_PARAM_CONSTRUCT|G_PARAM_EXPLICIT_NOTIFY);
+
+  props[PROP_REVEALED] =
+    g_param_spec_boolean ("revealed",
+                          P_("Reveal"),
+                          P_("Controls whether the action bar shows its contents or not"),
+                          TRUE,
+                          GTK_PARAM_READWRITE|G_PARAM_EXPLICIT_NOTIFY);
+
+  g_object_class_install_properties (object_class, LAST_PROP, props);
+
   /**
    * GtkInfoBar::response:
    * @info_bar: the object on which the signal is emitted
@@ -1194,7 +1179,7 @@ gtk_info_bar_set_message_type (GtkInfoBar     *info_bar,
       if (type_class[priv->message_type])
         gtk_style_context_add_class (context, type_class[priv->message_type]);
 
-      g_object_notify (G_OBJECT (info_bar), "message-type");
+      g_object_notify_by_pspec (G_OBJECT (info_bar), props[PROP_MESSAGE_TYPE]);
     }
 }
 
@@ -1237,7 +1222,7 @@ gtk_info_bar_set_show_close_button (GtkInfoBar *info_bar,
     {
       info_bar->priv->show_close_button = setting;
       gtk_widget_set_visible (info_bar->priv->close_button, setting);
-      g_object_notify (G_OBJECT (info_bar), "show-close-button");
+      g_object_notify_by_pspec (G_OBJECT (info_bar), props[PROP_SHOW_CLOSE_BUTTON]);
     }
 }
 
@@ -1257,4 +1242,51 @@ gtk_info_bar_get_show_close_button (GtkInfoBar *info_bar)
   g_return_val_if_fail (GTK_IS_INFO_BAR (info_bar), FALSE);
 
   return info_bar->priv->show_close_button;
+}
+
+/**
+ * gtk_info_bar_set_revealed:
+ * @info_bar: a #GtkInfoBar
+ * @revealed: The new value of the property
+ *
+ * Sets the GtkInfoBar:revealed property to @revealed. This will cause
+ * @info_bar to show up with a slide-in transition.
+ *
+ * Note that this property does not automatically show @info_bar and thus won’t
+ * have any effect if it is invisible.
+ *
+ * Since: 3.22.29
+ */
+void
+gtk_info_bar_set_revealed (GtkInfoBar *info_bar,
+                           gboolean    revealed)
+{
+  GtkInfoBarPrivate *priv = gtk_info_bar_get_instance_private (info_bar);
+
+  g_return_if_fail (GTK_IS_INFO_BAR (info_bar));
+
+  revealed = !!revealed;
+  if (revealed != gtk_revealer_get_reveal_child (GTK_REVEALER (priv->revealer)))
+    {
+      gtk_revealer_set_reveal_child (GTK_REVEALER (priv->revealer), revealed);
+      g_object_notify_by_pspec (G_OBJECT (info_bar), props[PROP_REVEALED]);
+    }
+}
+
+/**
+ * gtk_info_bar_get_revealed:
+ * @info_bar: a #GtkInfoBar
+ *
+ * Returns: the current value of the GtkInfoBar:revealed property.
+ *
+ * Since: 3.22.29
+ */
+gboolean
+gtk_info_bar_get_revealed (GtkInfoBar *info_bar)
+{
+  GtkInfoBarPrivate *priv = gtk_info_bar_get_instance_private (info_bar);
+
+  g_return_val_if_fail (GTK_IS_INFO_BAR (info_bar), FALSE);
+
+  return gtk_revealer_get_reveal_child (GTK_REVEALER (priv->revealer));
 }

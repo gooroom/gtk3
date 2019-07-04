@@ -8,7 +8,7 @@
 <link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
 <link rel="prev" href="GtkCellView.html" title="GtkCellView">
 <link rel="next" href="GtkTreeSortable.html" title="GtkTreeSortable">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -558,7 +558,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<span class="returnvalue">cairo_surface_t</span> *
+<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="returnvalue">cairo_surface_t</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkIconView.html#gtk-icon-view-create-drag-icon" title="gtk_icon_view_create_drag_icon ()">gtk_icon_view_create_drag_icon</a> <span class="c_punctuation">()</span>
@@ -682,7 +682,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<span class="type">GdkColor</span> *</td>
+<a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkIconView.html#GtkIconView--s-selection-box-color" title="The “selection-box-color” style property">selection-box-color</a></td>
 <td class="property_flags">Read</td>
 </tr>
@@ -800,8 +800,8 @@ ignore the tree’s branches.</p>
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting">iconview<span class="gtkdoc opt">.</span>view
-╰── <span class="gtkdoc opt">[</span>rubberband<span class="gtkdoc opt">]</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">iconview</span><span class="symbol">.</span><span class="normal">view</span>
+<span class="normal">╰── </span><span class="symbol">[</span><span class="normal">rubberband</span><span class="symbol">]</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -843,7 +843,7 @@ selected rows.  It will be called on every selected row in the view.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>data</p></td>
-<td class="parameter_description"><p> user data. </p></td>
+<td class="parameter_description"><p>user data. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -947,7 +947,7 @@ it will unset the old model.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>model</p></td>
-<td class="parameter_description"><p> The model. </p></td>
+<td class="parameter_description"><p>The model. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -979,7 +979,7 @@ model is unset.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-view-get-model.returns"></a><h4>Returns</h4>
-<p> A <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none is
+<p>A <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none is
 currently being used. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1216,7 +1216,7 @@ widget coordinates to bin_window coordinates.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-view-get-path-at-pos.returns"></a><h4>Returns</h4>
-<p> The <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> corresponding
+<p>The <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> corresponding
 to the icon or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no icon exists at that position. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -1265,16 +1265,16 @@ widget coordinates to bin_window coordinates.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>path</p></td>
-<td class="parameter_description"><p> Return location for the path, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>Return location for the path, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>cell</p></td>
-<td class="parameter_description"><p> Return location for the renderer
+<td class="parameter_description"><p>Return location for the renderer
 responsible for the cell at (<em class="parameter"><code>x</code></em>
 , <em class="parameter"><code>y</code></em>
 ), or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
-<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -1323,12 +1323,12 @@ as expected by e.g. <a class="link" href="GtkIconView.html#gtk-icon-view-get-pat
 </tr>
 <tr>
 <td class="parameter_name"><p>bx</p></td>
-<td class="parameter_description"><p> return location for bin_window X coordinate. </p></td>
+<td class="parameter_description"><p>return location for bin_window X coordinate. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>by</p></td>
-<td class="parameter_description"><p> return location for bin_window Y coordinate. </p></td>
+<td class="parameter_description"><p>return location for bin_window Y coordinate. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1376,7 +1376,7 @@ Please note that editing can only happen when the widget is realized.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>cell</p></td>
-<td class="parameter_description"><p> One of the cell renderers of <em class="parameter"><code>icon_view</code></em>
+<td class="parameter_description"><p>One of the cell renderers of <em class="parameter"><code>icon_view</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1421,13 +1421,13 @@ If no cell currently has focus, then *<em class="parameter"><code>cell</code></e
 </tr>
 <tr>
 <td class="parameter_name"><p>path</p></td>
-<td class="parameter_description"><p> Return location for the current
+<td class="parameter_description"><p>Return location for the current
 cursor path, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>cell</p></td>
-<td class="parameter_description"><p> Return location the current
+<td class="parameter_description"><p>Return location the current
 focus cell, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></td>
 </tr>
@@ -1465,7 +1465,7 @@ selection cannot be modified from within this function.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>func</p></td>
-<td class="parameter_description"><p> The function to call for each selected icon. </p></td>
+<td class="parameter_description"><p>The function to call for each selected icon. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -2085,7 +2085,7 @@ gtk_icon_view_get_activate_on_single_click
 gtk_icon_view_get_cell_rect (<em class="parameter"><code><a class="link" href="GtkIconView.html" title="GtkIconView"><span class="type">GtkIconView</span></a> *icon_view</code></em>,
                              <em class="parameter"><code><a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> *path</code></em>,
                              <em class="parameter"><code><a class="link" href="GtkCellRenderer.html" title="GtkCellRenderer"><span class="type">GtkCellRenderer</span></a> *cell</code></em>,
-                             <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *rect</code></em>);</pre>
+                             <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *rect</code></em>);</pre>
 <p>Fills the bounding rectangle in widget coordinates for the cell specified by
 <em class="parameter"><code>path</code></em>
  and <em class="parameter"><code>cell</code></em>
@@ -2114,12 +2114,12 @@ gtk_icon_view_get_cell_rect (<em class="parameter"><code><a class="link" href="G
 </tr>
 <tr>
 <td class="parameter_name"><p>cell</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkCellRenderer.html" title="GtkCellRenderer"><span class="type">GtkCellRenderer</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkCellRenderer.html" title="GtkCellRenderer"><span class="type">GtkCellRenderer</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>rect</p></td>
-<td class="parameter_description"><p> rectangle to fill with cell rect. </p></td>
+<td class="parameter_description"><p>rectangle to fill with cell rect. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2249,7 +2249,7 @@ To do this, you can use <a class="link" href="GtkTreeModel.html#gtk-tree-row-ref
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free-full">g_list_free_full</a></span> <span class="gtkdoc opt">(</span>list<span class="gtkdoc opt">, (</span>GDestroyNotify<span class="gtkdoc opt">)</span> gtk_tree_path_free<span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free-full">g_list_free_full</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">list</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Datasets.html#GDestroyNotify">GDestroyNotify</a></span><span class="symbol">)</span><span class="normal"> <a href="GtkTreeModel.html#gtk-tree-path-free">gtk_tree_path_free</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -2273,7 +2273,7 @@ To do this, you can use <a class="link" href="GtkTreeModel.html#gtk-tree-row-ref
 </div>
 <div class="refsect3">
 <a name="gtk-icon-view-get-selected-items.returns"></a><h4>Returns</h4>
-<p> A <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> containing a <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> for each selected row. </p>
+<p>A <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> containing a <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> for each selected row. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkTreePath][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.6</p>
@@ -2456,13 +2456,13 @@ Note that there may be invisible paths in between.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>start_path</p></td>
-<td class="parameter_description"><p> Return location for start of region,
+<td class="parameter_description"><p>Return location for start of region,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>end_path</p></td>
-<td class="parameter_description"><p> Return location for end of region, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>Return location for end of region, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2557,7 +2557,7 @@ the item pointed to by <em class="parameter"><code>path</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>cell</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkCellRenderer.html" title="GtkCellRenderer"><span class="type">GtkCellRenderer</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkCellRenderer.html" title="GtkCellRenderer"><span class="type">GtkCellRenderer</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2612,12 +2612,12 @@ to be relative to <em class="parameter"><code>icon_view</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>x</p></td>
-<td class="parameter_description"><p> the x coordinate (relative to widget coordinates). </p></td>
+<td class="parameter_description"><p>the x coordinate (relative to widget coordinates). </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>y</p></td>
-<td class="parameter_description"><p> the y coordinate (relative to widget coordinates). </p></td>
+<td class="parameter_description"><p>the y coordinate (relative to widget coordinates). </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -2627,18 +2627,18 @@ to be relative to <em class="parameter"><code>icon_view</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>model</p></td>
-<td class="parameter_description"><p> a pointer to receive a
+<td class="parameter_description"><p>a pointer to receive a
 <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>path</p></td>
-<td class="parameter_description"><p> a pointer to receive a <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a pointer to receive a <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>iter</p></td>
-<td class="parameter_description"><p> a pointer to receive a <a class="link" href="GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a pointer to receive a <a class="link" href="GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2803,10 +2803,10 @@ displayed. Column numbers start at 0.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_icon_view_enable_model_drag_source
                                (<em class="parameter"><code><a class="link" href="GtkIconView.html" title="GtkIconView"><span class="type">GtkIconView</span></a> *icon_view</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> start_button_mask</code></em>,
+                                <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> start_button_mask</code></em>,
                                 <em class="parameter"><code>const <a class="link" href="gtk3-Selections.html#GtkTargetEntry" title="struct GtkTargetEntry"><span class="type">GtkTargetEntry</span></a> *targets</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_targets</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Drag-and-Drop.html#GdkDragAction"><span class="type">GdkDragAction</span></a> actions</code></em>);</pre>
+                                <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Drag-and-Drop.html#GdkDragAction"><span class="type">GdkDragAction</span></a> actions</code></em>);</pre>
 <p>Turns <em class="parameter"><code>icon_view</code></em>
  into a drag source for automatic DND. Calling this
 method sets <a class="link" href="GtkIconView.html#GtkIconView--reorderable" title="The “reorderable” property"><span class="type">“reorderable”</span></a> to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</p>
@@ -2831,7 +2831,7 @@ method sets <a class="link" href="GtkIconView.html#GtkIconView--reorderable" tit
 </tr>
 <tr>
 <td class="parameter_name"><p>targets</p></td>
-<td class="parameter_description"><p> the table of targets that the drag will
+<td class="parameter_description"><p>the table of targets that the drag will
 support. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_targets]</span></td>
 </tr>
@@ -2859,7 +2859,7 @@ widget</p></td>
 gtk_icon_view_enable_model_drag_dest (<em class="parameter"><code><a class="link" href="GtkIconView.html" title="GtkIconView"><span class="type">GtkIconView</span></a> *icon_view</code></em>,
                                       <em class="parameter"><code>const <a class="link" href="gtk3-Selections.html#GtkTargetEntry" title="struct GtkTargetEntry"><span class="type">GtkTargetEntry</span></a> *targets</code></em>,
                                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_targets</code></em>,
-                                      <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Drag-and-Drop.html#GdkDragAction"><span class="type">GdkDragAction</span></a> actions</code></em>);</pre>
+                                      <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Drag-and-Drop.html#GdkDragAction"><span class="type">GdkDragAction</span></a> actions</code></em>);</pre>
 <p>Turns <em class="parameter"><code>icon_view</code></em>
  into a drop destination for automatic DND. Calling this
 method sets <a class="link" href="GtkIconView.html#GtkIconView--reorderable" title="The “reorderable” property"><span class="type">“reorderable”</span></a> to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</p>
@@ -2879,7 +2879,7 @@ method sets <a class="link" href="GtkIconView.html#GtkIconView--reorderable" tit
 </tr>
 <tr>
 <td class="parameter_name"><p>targets</p></td>
-<td class="parameter_description"><p> the table of targets that the drag will
+<td class="parameter_description"><p>the table of targets that the drag will
 support. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_targets]</span></td>
 </tr>
@@ -3042,7 +3042,7 @@ gtk_icon_view_set_drag_dest_item (<em class="parameter"><code><a class="link" hr
 </tr>
 <tr>
 <td class="parameter_name"><p>path</p></td>
-<td class="parameter_description"><p> The path of the item to highlight, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>The path of the item to highlight, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -3079,13 +3079,13 @@ gtk_icon_view_get_drag_dest_item (<em class="parameter"><code><a class="link" hr
 </tr>
 <tr>
 <td class="parameter_name"><p>path</p></td>
-<td class="parameter_description"><p> Return location for the path of
+<td class="parameter_description"><p>Return location for the path of
 the highlighted item, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>pos</p></td>
-<td class="parameter_description"><p> Return location for the drop position, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>Return location for the drop position, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -3129,13 +3129,13 @@ gtk_icon_view_get_dest_item_at_pos (<em class="parameter"><code><a class="link" 
 </tr>
 <tr>
 <td class="parameter_name"><p>path</p></td>
-<td class="parameter_description"><p> Return location for the path of the item,
+<td class="parameter_description"><p>Return location for the path of the item,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>pos</p></td>
-<td class="parameter_description"><p> Return location for the drop position, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>Return location for the drop position, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -3150,10 +3150,10 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <hr>
 <div class="refsect2">
 <a name="gtk-icon-view-create-drag-icon"></a><h3>gtk_icon_view_create_drag_icon ()</h3>
-<pre class="programlisting"><span class="returnvalue">cairo_surface_t</span> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="returnvalue">cairo_surface_t</span></a> *
 gtk_icon_view_create_drag_icon (<em class="parameter"><code><a class="link" href="GtkIconView.html" title="GtkIconView"><span class="type">GtkIconView</span></a> *icon_view</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> *path</code></em>);</pre>
-<p>Creates a <span class="type">cairo_surface_t</span> representation of the item at <em class="parameter"><code>path</code></em>
+<p>Creates a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a> representation of the item at <em class="parameter"><code>path</code></em>
 .  
 This image is used for a drag icon.</p>
 <div class="refsect3">
@@ -3181,7 +3181,7 @@ This image is used for a drag icon.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-icon-view-create-drag-icon.returns"></a><h4>Returns</h4>
-<p> a newly-allocated surface of the drag icon. </p>
+<p>a newly-allocated surface of the drag icon. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.8</p>
@@ -3467,7 +3467,7 @@ property are both set to -1, no texts are displayed.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkIconView--s-selection-box-color"></a><h3>The <code class="literal">“selection-box-color”</code> style property</h3>
-<pre class="programlisting">  “selection-box-color”      <span class="type">GdkColor</span> *</pre>
+<pre class="programlisting">  “selection-box-color”      <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *</pre>
 <p>The color of the selection box.</p>
 <div class="warning">
 <p><code class="literal">GtkIconView:selection-box-color</code> has been deprecated since version 3.20 and should not be used in newly-written code.</p>
@@ -3799,6 +3799,6 @@ programmatically.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

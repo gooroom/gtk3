@@ -60,7 +60,8 @@ struct _GtkContainer
  * @add: Signal emitted when a widget is added to container.
  * @remove: Signal emitted when a widget is removed from container.
  * @check_resize: Signal emitted when a size recalculation is needed.
- * @forall: Invokes callback on each child of container.
+ * @forall: Invokes callback on each child of container. The callback handler
+ *    may remove the child.
  * @set_focus_child: Sets the focused child of container.
  * @child_type: Returns the type of the children supported by the container.
  * @composite_name: Gets a widget’s composite name. Deprecated: 3.10.
@@ -172,13 +173,13 @@ void     gtk_container_propagate_draw   (GtkContainer   *container,
 					 GtkWidget      *child,
 					 cairo_t        *cr);
 
-GDK_AVAILABLE_IN_ALL
+GDK_DEPRECATED_IN_3_24
 void     gtk_container_set_focus_chain  (GtkContainer   *container,
                                          GList          *focusable_widgets);
-GDK_AVAILABLE_IN_ALL
+GDK_DEPRECATED_IN_3_24
 gboolean gtk_container_get_focus_chain  (GtkContainer   *container,
 					 GList         **focusable_widgets);
-GDK_AVAILABLE_IN_ALL
+GDK_DEPRECATED_IN_3_24
 void     gtk_container_unset_focus_chain (GtkContainer  *container);
 
 #define GTK_IS_RESIZE_CONTAINER(widget) (GTK_IS_CONTAINER (widget) && \

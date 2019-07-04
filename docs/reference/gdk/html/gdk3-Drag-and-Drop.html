@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Selections.html" title="Selections">
 <link rel="next" href="gdk3-Properties-and-Atoms.html" title="Properties and Atoms">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -357,7 +357,7 @@ gdk_drag_get_selection (<em class="parameter"><code><a class="link" href="gdk3-D
 </div>
 <div class="refsect3">
 <a name="gdk-drag-get-selection.returns"></a><h4>Returns</h4>
-<p> the selection atom, or <a class="link" href="gdk3-Properties-and-Atoms.html#GDK-NONE:CAPS" title="GDK_NONE"><code class="literal">GDK_NONE</code></a>. </p>
+<p>the selection atom, or <a class="link" href="gdk3-Properties-and-Atoms.html#GDK-NONE:CAPS" title="GDK_NONE"><code class="literal">GDK_NONE</code></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -559,12 +559,12 @@ should be ignored, since it is put up by the drag source as an icon</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>dest_window</p></td>
-<td class="parameter_description"><p> location to store the destination window in. </p></td>
+<td class="parameter_description"><p>location to store the destination window in. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>protocol</p></td>
-<td class="parameter_description"><p> location to store the DND protocol in. </p></td>
+<td class="parameter_description"><p>location to store the DND protocol in. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -599,7 +599,7 @@ begin a drag with a different device.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>targets</p></td>
-<td class="parameter_description"><p> the offered targets,
+<td class="parameter_description"><p>the offered targets,
 as list of <a href="gdk3-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtoms</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GdkAtom]</span></td>
 </tr>
@@ -608,7 +608,7 @@ as list of <a href="gdk3-Properties-and-Atoms.html#GdkAtom"><span class="type">G
 </div>
 <div class="refsect3">
 <a name="gdk-drag-begin.returns"></a><h4>Returns</h4>
-<p> a newly created <a class="link" href="gdk3-Drag-and-Drop.html#GdkDragContext"><span class="type">GdkDragContext</span></a>. </p>
+<p>a newly created <a class="link" href="gdk3-Drag-and-Drop.html#GdkDragContext"><span class="type">GdkDragContext</span></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -642,7 +642,7 @@ gdk_drag_begin_for_device (<em class="parameter"><code><a class="link" href="gdk
 </tr>
 <tr>
 <td class="parameter_name"><p>targets</p></td>
-<td class="parameter_description"><p> the offered targets,
+<td class="parameter_description"><p>the offered targets,
 as list of <a href="gdk3-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtoms</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GdkAtom]</span></td>
 </tr>
@@ -651,7 +651,7 @@ as list of <a href="gdk3-Properties-and-Atoms.html#GdkAtom"><span class="type">G
 </div>
 <div class="refsect3">
 <a name="gdk-drag-begin-for-device.returns"></a><h4>Returns</h4>
-<p> a newly created <a class="link" href="gdk3-Drag-and-Drop.html#GdkDragContext"><span class="type">GdkDragContext</span></a>. </p>
+<p>a newly created <a class="link" href="gdk3-Drag-and-Drop.html#GdkDragContext"><span class="type">GdkDragContext</span></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -687,7 +687,7 @@ gdk_drag_begin_from_point (<em class="parameter"><code><a class="link" href="gdk
 </tr>
 <tr>
 <td class="parameter_name"><p>targets</p></td>
-<td class="parameter_description"><p> the offered targets,
+<td class="parameter_description"><p>the offered targets,
 as list of <a href="gdk3-Properties-and-Atoms.html#GdkAtom"><span class="type">GdkAtoms</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GdkAtom]</span></td>
 </tr>
@@ -706,7 +706,7 @@ as list of <a href="gdk3-Properties-and-Atoms.html#GdkAtom"><span class="type">G
 </div>
 <div class="refsect3">
 <a name="gdk-drag-begin-from-point.returns"></a><h4>Returns</h4>
-<p> a newly created <a class="link" href="gdk3-Drag-and-Drop.html#GdkDragContext"><span class="type">GdkDragContext</span></a>. </p>
+<p>a newly created <a class="link" href="gdk3-Drag-and-Drop.html#GdkDragContext"><span class="type">GdkDragContext</span></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-20.html#api-index-3.20">3.20</a></p>
@@ -911,7 +911,7 @@ gdk_window_get_drag_protocol (<em class="parameter"><code><a class="link" href="
 </tr>
 <tr>
 <td class="parameter_name"><p>target</p></td>
-<td class="parameter_description"><p> location of the window
+<td class="parameter_description"><p>location of the window
 where the drop should happen. This may be <em class="parameter"><code>window</code></em>
 or a proxy window,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>window</code></em>
@@ -1032,7 +1032,7 @@ gdk_drag_context_list_targets (<em class="parameter"><code><a class="link" href=
 </div>
 <div class="refsect3">
 <a name="gdk-drag-context-list-targets.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of targets. </p>
+<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of targets. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GdkAtom]</span></p>
 </div>
 <p class="since">Since: 2.22</p>
@@ -1060,7 +1060,7 @@ gdk_drag_context_get_device (<em class="parameter"><code><a class="link" href="g
 </div>
 <div class="refsect3">
 <a name="gdk-drag-context-get-device.returns"></a><h4>Returns</h4>
-<p> The <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> associated to <em class="parameter"><code>context</code></em>
+<p>The <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> associated to <em class="parameter"><code>context</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1121,7 +1121,7 @@ gdk_drag_context_get_source_window (<em class="parameter"><code><a class="link" 
 </div>
 <div class="refsect3">
 <a name="gdk-drag-context-get-source-window.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. </p>
+<p>a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.22</p>
@@ -1131,7 +1131,7 @@ gdk_drag_context_get_source_window (<em class="parameter"><code><a class="link" 
 <a name="gdk-drag-context-get-dest-window"></a><h3>gdk_drag_context_get_dest_window ()</h3>
 <pre class="programlisting"><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *
 gdk_drag_context_get_dest_window (<em class="parameter"><code><a class="link" href="gdk3-Drag-and-Drop.html#GdkDragContext"><span class="type">GdkDragContext</span></a> *context</code></em>);</pre>
-<p>Returns the destination windw for the DND operation.</p>
+<p>Returns the destination window for the DND operation.</p>
 <div class="refsect3">
 <a name="gdk-drag-context-get-dest-window.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -1149,7 +1149,7 @@ gdk_drag_context_get_dest_window (<em class="parameter"><code><a class="link" hr
 </div>
 <div class="refsect3">
 <a name="gdk-drag-context-get-dest-window.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. </p>
+<p>a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -1159,7 +1159,7 @@ gdk_drag_context_get_dest_window (<em class="parameter"><code><a class="link" hr
 <a name="gdk-drag-context-get-protocol"></a><h3>gdk_drag_context_get_protocol ()</h3>
 <pre class="programlisting"><a class="link" href="gdk3-Drag-and-Drop.html#GdkDragProtocol" title="enum GdkDragProtocol"><span class="returnvalue">GdkDragProtocol</span></a>
 gdk_drag_context_get_protocol (<em class="parameter"><code><a class="link" href="gdk3-Drag-and-Drop.html#GdkDragContext"><span class="type">GdkDragContext</span></a> *context</code></em>);</pre>
-<p>Returns the drag protocol thats used by this context.</p>
+<p>Returns the drag protocol that is used by this context.</p>
 <div class="refsect3">
 <a name="gdk-drag-context-get-protocol.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -1210,7 +1210,7 @@ the drag operation is over.</p>
 </div>
 <div class="refsect3">
 <a name="gdk-drag-context-get-drag-window.returns"></a><h4>Returns</h4>
-<p> the drag window, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the drag window, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-20.html#api-index-3.20">3.20</a></p>
@@ -1661,6 +1661,6 @@ for more information.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

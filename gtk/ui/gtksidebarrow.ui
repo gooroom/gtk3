@@ -22,8 +22,8 @@
               <object class="GtkBox">
                 <property name="visible">1</property>
                 <child>
-                  <object class="GtkImage" id="icon_widget">
-                    <property name="visible">1</property>
+                  <object class="GtkImage" id="start_icon_widget">
+                    <property name="visible">True</property>
                     <style>
                       <class name="sidebar-icon"/>
                     </style>
@@ -40,12 +40,25 @@
                   </object>
                 </child>
                 <child>
+                  <object class="GtkImage" id="end_icon_widget">
+                    <property name="visible">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="halign">end</property>
+                    <property name="valign">center</property>
+                    <property name="no-show-all">1</property>
+                    <style>
+                      <class name="sidebar-icon"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
                   <object class="GtkButton" id="eject_button">
                     <property name="visible">1</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="margin-start">4px</property>
                     <property name="no-show-all">1</property>
+                    <property name="tooltip-text" translatable="yes">Unmount</property>
                     <child>
                       <object class="GtkImage">
                         <property name="visible">1</property>
@@ -59,6 +72,15 @@
                     </style>
                   </object>
                 </child>
+                <child>
+                  <object class="GtkSpinner" id="busy_spinner">
+                    <property name="active">1</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="margin-start">4px</property>
+                    <property name="no-show-all">1</property>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
@@ -66,13 +88,4 @@
       </object>
     </child>
   </template>
-  <!-- We need it to not make the row smaller when the eject button is hidden -->
-  <object class="GtkSizeGroup">
-    <property name="mode">vertical</property>
-    <widgets>
-      <widget name="eject_button"/>
-      <widget name="label_widget"/>
-      <widget name="icon_widget"/>
-    </widgets>
-  </object>
 </interface>

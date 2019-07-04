@@ -8,7 +8,7 @@
 <link rel="up" href="LayoutContainers.html" title="Layout Containers">
 <link rel="prev" href="GtkActionBar.html" title="GtkActionBar">
 <link rel="next" href="GtkOverlay.html" title="GtkOverlay">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -271,7 +271,7 @@ GtkHeaderBar implements
 </div>
 <div class="refsect1">
 <a name="GtkHeaderBar.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -286,6 +286,9 @@ currently set. If a subtitle is not needed, the space reservation
 can be turned off with <a class="link" href="GtkHeaderBar.html#gtk-header-bar-set-has-subtitle" title="gtk_header_bar_set_has_subtitle ()"><code class="function">gtk_header_bar_set_has_subtitle()</code></a>.</p>
 <p>GtkHeaderBar can add typical window frame controls, such as minimize,
 maximize and close buttons, or the window icon.</p>
+<p>For these reasons, GtkHeaderBar is the natural choice for use as the custom
+titlebar widget of a <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> (see <a class="link" href="GtkWindow.html#gtk-window-set-titlebar" title="gtk_window_set_titlebar ()"><code class="function">gtk_window_set_titlebar()</code></a>), as it gives
+features typical of titlebars while allowing the addition of child widgets.</p>
 </div>
 <div class="refsect1">
 <a name="GtkHeaderBar.functions_details"></a><h2>Functions</h2>
@@ -325,7 +328,7 @@ application name.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>title</p></td>
-<td class="parameter_description"><p> a title, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a title, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -356,7 +359,7 @@ gtk_header_bar_get_title (<em class="parameter"><code><a class="link" href="GtkH
 </div>
 <div class="refsect3">
 <a name="gtk-header-bar-get-title.returns"></a><h4>Returns</h4>
-<p> the title of the header, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none has
+<p>the title of the header, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none has
 been set explicitly. The returned string is owned by the widget
 and must not be modified or freed. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
@@ -390,7 +393,7 @@ even if none is currently set. If this is not desired, set the
 </tr>
 <tr>
 <td class="parameter_name"><p>subtitle</p></td>
-<td class="parameter_description"><p> a subtitle, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a subtitle, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -421,7 +424,7 @@ gtk_header_bar_get_subtitle (<em class="parameter"><code><a class="link" href="G
 </div>
 <div class="refsect3">
 <a name="gtk-header-bar-get-subtitle.returns"></a><h4>Returns</h4>
-<p> the subtitle of the header, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none has
+<p>the subtitle of the header, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none has
 been set explicitly. The returned string is owned by the widget
 and must not be modified or freed. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
@@ -519,7 +522,7 @@ label to be visible again.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>title_widget</p></td>
-<td class="parameter_description"><p> a custom widget to use for a title. </p></td>
+<td class="parameter_description"><p>a custom widget to use for a title. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -551,7 +554,7 @@ gtk_header_bar_get_custom_title (<em class="parameter"><code><a class="link" hre
 </div>
 <div class="refsect3">
 <a name="gtk-header-bar-get-custom-title.returns"></a><h4>Returns</h4>
-<p> the custom title widget
+<p>the custom title widget
 of the header, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none has been set explicitly. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -653,7 +656,7 @@ including close, maximize, and minimize.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>setting</p></td>
-<td class="parameter_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to show standard widow decorations</p></td>
+<td class="parameter_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to show standard window decorations</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -725,7 +728,7 @@ on the left, and minimize, maximize and close buttons on the right.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>layout</p></td>
-<td class="parameter_description"><p> a decoration layout, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to
+<td class="parameter_description"><p>a decoration layout, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to
 unset the layout. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -873,6 +876,6 @@ shown if the window can't be closed).</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

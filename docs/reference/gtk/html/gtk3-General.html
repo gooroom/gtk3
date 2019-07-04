@@ -8,7 +8,7 @@
 <link rel="up" href="gtkbase.html" title="Part III. GTK+ Core Reference">
 <link rel="prev" href="gtkbase.html" title="Part III. GTK+ Core Reference">
 <link rel="next" href="gtk3-Feature-Test-Macros.html" title="Version Information">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -49,7 +49,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#PangoLanguage-struct"><span class="returnvalue">PangoLanguage</span></a> *
+<a href="/usr/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#PangoLanguage-struct"><span class="returnvalue">PangoLanguage</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-General.html#gtk-get-default-language" title="gtk_get_default_language ()">gtk_get_default_language</a> <span class="c_punctuation">()</span>
@@ -257,7 +257,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="returnvalue">GdkEvent</span></a> *
+<a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="returnvalue">GdkEvent</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-General.html#gtk-get-current-event" title="gtk_get_current_event ()">gtk_get_current_event</a> <span class="c_punctuation">()</span>
@@ -281,7 +281,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="returnvalue">GdkDevice</span></a> *
+<a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="returnvalue">GdkDevice</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-General.html#gtk-get-current-event-device" title="gtk_get_current_event_device ()">gtk_get_current_event_device</a> <span class="c_punctuation">()</span>
@@ -377,33 +377,35 @@ main loop and await more user input.</p>
 23
 24
 25
-26</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">int</span>
-<span class="function">main</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwb">int</span> argc<span class="gtkdoc opt">,</span> <span class="gtkdoc kwb">char</span> <span class="gtkdoc opt">**</span>argv<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  <span class="gtkdoc slc">// Initialize i18n support with bindtextdomain(), etc.</span>
+26
+27</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="type">int</span>
+<span class="function">main</span><span class="normal"> </span><span class="symbol">(</span><span class="type">int</span><span class="normal"> argc</span><span class="symbol">,</span><span class="normal"> </span><span class="type">char</span><span class="normal"> </span><span class="symbol">**</span><span class="normal">argv</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal"> </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">mainwin</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="comment">// Initialize i18n support with bindtextdomain(), etc.</span>
 
-  <span class="gtkdoc opt">...</span>
+<span class="normal">  </span><span class="comment">// ...</span>
 
-  <span class="gtkdoc slc">// Initialize the widget set</span>
-  <span class="function"><a href="gtk3-General.html#gtk-init">gtk_init</a></span> <span class="gtkdoc opt">(&amp;</span>argc<span class="gtkdoc opt">, &amp;</span>argv<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="comment">// Initialize the widget set</span>
+<span class="normal">  </span><span class="function"><a href="gtk3-General.html#gtk-init">gtk_init</a></span><span class="normal"> </span><span class="symbol">(&amp;</span><span class="normal">argc</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">argv</span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// Create the main window</span>
-  mainwin <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWindow.html#gtk-window-new">gtk_window_new</a></span> <span class="gtkdoc opt">(</span>GTK_WINDOW_TOPLEVEL<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="comment">// Create the main window</span>
+<span class="normal">  mainwin </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWindow.html#gtk-window-new">gtk_window_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="GtkWindow.html#GTK-WINDOW-TOPLEVEL:CAPS">GTK_WINDOW_TOPLEVEL</a></span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// Set up our GUI elements</span>
+<span class="normal">  </span><span class="comment">// Set up our GUI elements</span>
 
-  <span class="gtkdoc opt">...</span>
+<span class="normal">  </span><span class="comment">// ...</span>
 
-  <span class="gtkdoc slc">// Show the application window</span>
-  <span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span> <span class="gtkdoc opt">(</span>mainwin<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="comment">// Show the application window</span>
+<span class="normal">  </span><span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">mainwin</span><span class="symbol">);</span>
 
-  <span class="gtkdoc slc">// Enter the main event loop, and wait for user interaction</span>
-  <span class="function"><a href="gtk3-General.html#gtk-main">gtk_main</a></span> <span class="gtkdoc opt">();</span>
+<span class="normal">  </span><span class="comment">// Enter the main event loop, and wait for user interaction</span>
+<span class="normal">  </span><span class="function"><a href="gtk3-General.html#gtk-main">gtk_main</a></span><span class="normal"> </span><span class="symbol">();</span>
 
-  <span class="gtkdoc slc">// The user lost interest</span>
-  <span class="keyword">return</span> <span class="number">0</span><span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="comment">// The user lost interest</span>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> </span><span class="number">0</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -431,18 +433,18 @@ you wanted to set different values for different locale categories.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-get-default-language"></a><h3>gtk_get_default_language ()</h3>
-<pre class="programlisting"><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#PangoLanguage-struct"><span class="returnvalue">PangoLanguage</span></a> *
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#PangoLanguage-struct"><span class="returnvalue">PangoLanguage</span></a> *
 gtk_get_default_language (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
-<p>Returns the <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#PangoLanguage-struct"><span class="type">PangoLanguage</span></a> for the default language currently in
+<p>Returns the <a href="/usr/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#PangoLanguage-struct"><span class="type">PangoLanguage</span></a> for the default language currently in
 effect. (Note that this can change over the life of an
 application.) The default language is derived from the current
 locale. It determines, for example, whether GTK+ uses the
 right-to-left or left-to-right text direction.</p>
-<p>This function is equivalent to <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#pango-language-get-default"><code class="function">pango_language_get_default()</code></a>.
+<p>This function is equivalent to <a href="/usr/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#pango-language-get-default"><code class="function">pango_language_get_default()</code></a>.
 See that function for details.</p>
 <div class="refsect3">
 <a name="gtk-get-default-language.returns"></a><h4>Returns</h4>
-<p> the default language as a <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#PangoLanguage-struct"><span class="type">PangoLanguage</span></a>,
+<p>the default language as a <a href="/usr/share/gtk-doc/html/pango/pango-Scripts-and-Languages.html#PangoLanguage-struct"><span class="type">PangoLanguage</span></a>,
 must not be freed. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -471,9 +473,9 @@ you can use it to update the default text direction as follows:</p>
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function">setlocale</span> <span class="gtkdoc opt">(</span>LC_ALL<span class="gtkdoc opt">,</span> new_locale<span class="gtkdoc opt">);</span>
-direction <span class="gtkdoc opt">=</span> <span class="function"><a href="gtk3-General.html#gtk-get-locale-direction">gtk_get_locale_direction</a></span> <span class="gtkdoc opt">();</span>
-<span class="function"><a href="GtkWidget.html#gtk-widget-set-default-direction">gtk_widget_set_default_direction</a></span> <span class="gtkdoc opt">(</span>direction<span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function">setlocale</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">LC_ALL</span><span class="symbol">,</span><span class="normal"> new_locale</span><span class="symbol">);</span>
+<span class="normal">direction </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gtk3-General.html#gtk-get-locale-direction">gtk_get_locale_direction</a></span><span class="normal"> </span><span class="symbol">();</span>
+<span class="function"><a href="GtkWidget.html#gtk-widget-set-default-direction">gtk_widget_set_default_direction</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">direction</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -494,7 +496,7 @@ gtk_parse_args (<em class="parameter"><code><span class="type">int</span> *argc<
                 <em class="parameter"><code><span class="type">char</span> ***argv</code></em>);</pre>
 <p>Parses command line arguments, and initializes global
 attributes of GTK+, but does not actually open a connection
-to a display. (See <a href="http://developer.gnome.org/gdk3/GdkDisplay.html#gdk-display-open"><code class="function">gdk_display_open()</code></a>, <a href="http://developer.gnome.org/gdk3/gdk4-General.html#gdk-get-display-arg-name"><code class="function">gdk_get_display_arg_name()</code></a>)</p>
+to a display. (See <a href="https://developer.gnome.org/gdk3/GdkDisplay.html#gdk-display-open"><code class="function">gdk_display_open()</code></a>, <a href="https://developer.gnome.org/gdk3/gdk3-General.html#gdk-get-display-arg-name"><code class="function">gdk_get_display_arg_name()</code></a>)</p>
 <p>Any arguments used by GTK+ or GDK are removed from the array and
 <em class="parameter"><code>argc</code></em>
  and <em class="parameter"><code>argv</code></em>
@@ -515,12 +517,12 @@ for specialized use cases.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>argc</p></td>
-<td class="parameter_description"><p> a pointer to the number of command line arguments. </p></td>
+<td class="parameter_description"><p>a pointer to the number of command line arguments. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>argv</p></td>
-<td class="parameter_description"><p> a pointer to the array of
+<td class="parameter_description"><p>a pointer to the array of
 command line arguments. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=argc][<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>]</span></td>
 </tr>
@@ -580,7 +582,7 @@ similar things.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>argc</p></td>
-<td class="parameter_description"><p> Address of the <code class="literal">argc</code> parameter of
+<td class="parameter_description"><p>Address of the <code class="literal">argc</code> parameter of
 your <code class="function">main()</code> function (or 0 if <em class="parameter"><code>argv</code></em>
 is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>). This will be changed if
 any arguments were handled. </p></td>
@@ -588,7 +590,7 @@ any arguments were handled. </p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>argv</p></td>
-<td class="parameter_description"><p> Address of the
+<td class="parameter_description"><p>Address of the
 <code class="literal">argv</code> parameter of <code class="function">main()</code>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. Any options
 understood by GTK+ are stripped before return. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=argc][<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
@@ -604,8 +606,9 @@ understood by GTK+ are stripped before return. </p></td>
 gtk_init_check (<em class="parameter"><code><span class="type">int</span> *argc</code></em>,
                 <em class="parameter"><code><span class="type">char</span> ***argv</code></em>);</pre>
 <p>This function does the same work as <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> with only a single
-change: It does not terminate the program if the windowing system
-can’t be initialized. Instead it returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> on failure.</p>
+change: It does not terminate the program if the commandline
+arguments couldn’t be parsed or the windowing system can’t be
+initialized. Instead it returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> on failure.</p>
 <p>This way the application can fall back to some other means of
 communication with the user - for example a curses or command line
 interface.</p>
@@ -620,7 +623,7 @@ interface.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>argc</p></td>
-<td class="parameter_description"><p> Address of the <code class="literal">argc</code> parameter of
+<td class="parameter_description"><p>Address of the <code class="literal">argc</code> parameter of
 your <code class="function">main()</code> function (or 0 if <em class="parameter"><code>argv</code></em>
 is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>). This will be changed if
 any arguments were handled. </p></td>
@@ -628,7 +631,7 @@ any arguments were handled. </p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>argv</p></td>
-<td class="parameter_description"><p> Address of the
+<td class="parameter_description"><p>Address of the
 <code class="literal">argv</code> parameter of <code class="function">main()</code>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. Any options
 understood by GTK+ are stripped before return. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=argc][<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
@@ -638,8 +641,9 @@ understood by GTK+ are stripped before return. </p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-init-check.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the windowing system has been successfully
-initialized, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise</p>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the commandline arguments (if any) were valid and
+the windowing system has been successfully initialized, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>
+otherwise</p>
 </div>
 </div>
 <hr>
@@ -668,7 +672,7 @@ be terminated after writing out the help output.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>argc</p></td>
-<td class="parameter_description"><p> Address of the <code class="literal">argc</code> parameter of
+<td class="parameter_description"><p>Address of the <code class="literal">argc</code> parameter of
 your <code class="function">main()</code> function (or 0 if <em class="parameter"><code>argv</code></em>
 is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>). This will be changed if
 any arguments were handled. </p></td>
@@ -676,27 +680,27 @@ any arguments were handled. </p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>argv</p></td>
-<td class="parameter_description"><p> Address of the
+<td class="parameter_description"><p>Address of the
 <code class="literal">argv</code> parameter of <code class="function">main()</code>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. Any options
 understood by GTK+ are stripped before return. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=argc][<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>parameter_string</p></td>
-<td class="parameter_description"><p> a string which is displayed in
+<td class="parameter_description"><p>a string which is displayed in
 the first line of <code class="literal">--help</code> output, after
 <code class="literal">programname [OPTION...]</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>entries</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array
 of <a href="https://developer.gnome.org/glib/unstable/glib-Commandline-option-parser.html#GOptionEntry"><span class="type">GOptionEntrys</span></a> describing the options of your program. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>translation_domain</p></td>
-<td class="parameter_description"><p> a translation domain to use for translating
+<td class="parameter_description"><p>a translation domain to use for translating
 the <code class="literal">--help</code> output for the options in <em class="parameter"><code>entries</code></em>
 and the <em class="parameter"><code>parameter_string</code></em>
 with <code class="function">gettext()</code>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
@@ -712,8 +716,9 @@ with <code class="function">gettext()</code>, or <a href="https://developer.gnom
 </div>
 <div class="refsect3">
 <a name="gtk-init-with-args.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the windowing system has been successfully
-initialized, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise</p>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the commandline arguments (if any) were valid and
+if the windowing system has been successfully initialized,
+<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise</p>
 </div>
 <p class="since">Since: 2.6</p>
 </div>
@@ -745,7 +750,7 @@ when parsing the commandline arguments</p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-get-option-group.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Commandline-option-parser.html#GOptionGroup"><span class="type">GOptionGroup</span></a> for the commandline
+<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Commandline-option-parser.html#GOptionGroup"><span class="type">GOptionGroup</span></a> for the commandline
 arguments recognized by GTK+. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -771,12 +776,12 @@ while doing some time intensive computation.</p>
 4
 5
 6</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc slc">// computation going on...</span>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">// computation going on...</span>
 
-<span class="keyword">while</span> <span class="gtkdoc opt">(</span><span class="function"><a href="gtk3-General.html#gtk-events-pending">gtk_events_pending</a></span> <span class="gtkdoc opt">())</span>
-  <span class="function"><a href="gtk3-General.html#gtk-main-iteration">gtk_main_iteration</a></span> <span class="gtkdoc opt">();</span>
+<span class="keyword">while</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="gtk3-General.html#gtk-events-pending">gtk_events_pending</a></span><span class="normal"> </span><span class="symbol">())</span>
+<span class="normal">  </span><span class="function"><a href="gtk3-General.html#gtk-main-iteration">gtk_main_iteration</a></span><span class="normal"> </span><span class="symbol">();</span>
 
-<span class="gtkdoc slc">// ...computation continued</span></pre></td>
+<span class="comment">// ...computation continued</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -868,7 +873,7 @@ innermost mainloop</p>
 <div class="refsect2">
 <a name="gtk-main-do-event"></a><h3>gtk_main_do_event ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-gtk_main_do_event (<em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
+gtk_main_do_event (<em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
 <p>Processes a single GDK event.</p>
 <p>This is public only to allow filtering of events between GDK and GTK+.
 You will not usually need to call this function directly.</p>
@@ -939,12 +944,12 @@ This function is called after loading the module.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>argc</p></td>
-<td class="parameter_description"><p> GTK+ always passes <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for this argument. </p></td>
+<td class="parameter_description"><p>GTK+ always passes <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for this argument. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>argv</p></td>
-<td class="parameter_description"><p> GTK+ always passes <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for this argument. </p></td>
+<td class="parameter_description"><p>GTK+ always passes <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for this argument. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=argc]</span></td>
 </tr>
 </tbody>
@@ -955,7 +960,7 @@ This function is called after loading the module.</p>
 <div class="refsect2">
 <a name="GtkModuleDisplayInitFunc"></a><h3>GtkModuleDisplayInitFunc ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-<span class="c_punctuation">(</span>*GtkModuleDisplayInitFunc<span class="c_punctuation">)</span> (<em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a> *display</code></em>);</pre>
+<span class="c_punctuation">(</span>*GtkModuleDisplayInitFunc<span class="c_punctuation">)</span> (<em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a> *display</code></em>);</pre>
 <p>A multihead-aware GTK+ module may have a <code class="function">gtk_module_display_init()</code> function
 with this prototype. GTK+ calls this function for each opened display.</p>
 <div class="refsect3">
@@ -968,7 +973,7 @@ with this prototype. GTK+ calls this function for each opened display.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>display</p></td>
-<td class="parameter_description"><p>an open <a href="http://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a></p></td>
+<td class="parameter_description"><p>an open <a href="https://developer.gnome.org/gdk3/GdkDisplay.html#GdkDisplay-struct"><span class="type">GdkDisplay</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
@@ -1021,37 +1026,37 @@ a reaction from clicking the close icon of the window...</p>
 29
 30
 31</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc ppc">#include &lt;gtk/gtk.h&gt;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="preproc">#include</span><span class="normal"> </span><span class="string">&lt;gtk/gtk.h&gt;</span>
 
-<span class="gtkdoc kwb">int</span>
-<span class="function">main</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwb">int</span> argc<span class="gtkdoc opt">,</span> <span class="gtkdoc kwb">char</span> <span class="gtkdoc opt">**</span>argv<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">{</span>
-  GtkWidget <span class="gtkdoc opt">*</span>win<span class="gtkdoc opt">, *</span>but<span class="gtkdoc opt">;</span>
-  <span class="gtkdoc kwb">const char</span> <span class="gtkdoc opt">*</span>text <span class="gtkdoc opt">=</span> <span class="string">&quot;Close yourself. I mean it!&quot;</span><span class="gtkdoc opt">;</span>
+<span class="type">int</span>
+<span class="function">main</span><span class="normal"> </span><span class="symbol">(</span><span class="type">int</span><span class="normal"> argc</span><span class="symbol">,</span><span class="normal"> </span><span class="type">char</span><span class="normal"> </span><span class="symbol">**</span><span class="normal">argv</span><span class="symbol">)</span>
+<span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">win</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">but</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="keyword">const</span><span class="normal"> </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">text </span><span class="symbol">=</span><span class="normal"> </span><span class="string">"Close yourself. I mean it!"</span><span class="symbol">;</span>
 
-  <span class="function"><a href="gtk3-General.html#gtk-init">gtk_init</a></span> <span class="gtkdoc opt">(&amp;</span>argc<span class="gtkdoc opt">, &amp;</span>argv<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="gtk3-General.html#gtk-init">gtk_init</a></span><span class="normal"> </span><span class="symbol">(&amp;</span><span class="normal">argc</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">argv</span><span class="symbol">);</span>
 
-  win <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkWindow.html#gtk-window-new">gtk_window_new</a></span> <span class="gtkdoc opt">(</span>GTK_WINDOW_TOPLEVEL<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>win<span class="gtkdoc opt">,</span>
-                    <span class="string">&quot;delete-event&quot;</span><span class="gtkdoc opt">,</span>
-                    <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>gtk_true<span class="gtkdoc opt">),</span>
-                    NULL<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>win<span class="gtkdoc opt">,</span> <span class="string">&quot;destroy&quot;</span><span class="gtkdoc opt">,</span>
-                    <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>gtk_main_quit<span class="gtkdoc opt">),</span>
-                    NULL<span class="gtkdoc opt">);</span>
+<span class="normal">  win </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWindow.html#gtk-window-new">gtk_window_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="GtkWindow.html#GTK-WINDOW-TOPLEVEL:CAPS">GTK_WINDOW_TOPLEVEL</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">win</span><span class="symbol">,</span>
+<span class="normal">                    </span><span class="string">"delete-event"</span><span class="symbol">,</span>
+<span class="normal">                    </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="gtk3-General.html#gtk-true">gtk_true</a></span><span class="symbol">),</span>
+<span class="normal">                    <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">win</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"destroy"</span><span class="symbol">,</span>
+<span class="normal">                    </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="gtk3-General.html#gtk-main-quit">gtk_main_quit</a></span><span class="symbol">),</span>
+<span class="normal">                    <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 
-  but <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkButton.html#gtk-button-new-with-label">gtk_button_new_with_label</a></span> <span class="gtkdoc opt">(</span>text<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect-swapped">g_signal_connect_swapped</a></span> <span class="gtkdoc opt">(</span>but<span class="gtkdoc opt">,</span> <span class="string">&quot;clicked&quot;</span><span class="gtkdoc opt">,</span>
-                            <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>gtk_object_destroy<span class="gtkdoc opt">),</span>
-                            win<span class="gtkdoc opt">);</span>
-  <span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_CONTAINER</span> <span class="gtkdoc opt">(</span>win<span class="gtkdoc opt">),</span> but<span class="gtkdoc opt">);</span>
+<span class="normal">  but </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkButton.html#gtk-button-new-with-label">gtk_button_new_with_label</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">text</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect-swapped">g_signal_connect_swapped</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">but</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"clicked"</span><span class="symbol">,</span>
+<span class="normal">                            </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gtk_object_destroy</span><span class="symbol">),</span>
+<span class="normal">                            win</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">win</span><span class="symbol">),</span><span class="normal"> but</span><span class="symbol">);</span>
 
-  <span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span> <span class="gtkdoc opt">(</span>win<span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">win</span><span class="symbol">);</span>
 
-  <span class="function"><a href="gtk3-General.html#gtk-main">gtk_main</a></span> <span class="gtkdoc opt">();</span>
+<span class="normal">  </span><span class="function"><a href="gtk3-General.html#gtk-main">gtk_main</a></span><span class="normal"> </span><span class="symbol">();</span>
 
-  <span class="keyword">return</span> <span class="number">0</span><span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> </span><span class="number">0</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1114,7 +1119,7 @@ gtk_grab_get_current (<em class="parameter"><code><span class="type">void</span>
 <p>Queries the current grab of the default window group.</p>
 <div class="refsect3">
 <a name="gtk-grab-get-current.returns"></a><h4>Returns</h4>
-<p> The widget which currently
+<p>The widget which currently
 has the grab or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no grab is active. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -1150,7 +1155,7 @@ gtk_grab_remove (<em class="parameter"><code><a class="link" href="GtkWidget.htm
 <a name="gtk-device-grab-add"></a><h3>gtk_device_grab_add ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_device_grab_add (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                     <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> *device</code></em>,
+                     <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> *device</code></em>,
                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> block_others</code></em>);</pre>
 <p>Adds a GTK+ grab on <em class="parameter"><code>device</code></em>
 , so all the events on <em class="parameter"><code>device</code></em>
@@ -1177,7 +1182,7 @@ unable to interact with <em class="parameter"><code>widget</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>device</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> to grab on.</p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> to grab on.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1196,7 +1201,7 @@ unable to interact with <em class="parameter"><code>widget</code></em>
 <a name="gtk-device-grab-remove"></a><h3>gtk_device_grab_remove ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_device_grab_remove (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                        <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> *device</code></em>);</pre>
+                        <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> *device</code></em>);</pre>
 <p>Removes a device grab from the given widget.</p>
 <p>You have to pair calls to <a class="link" href="gtk3-General.html#gtk-device-grab-add" title="gtk_device_grab_add ()"><code class="function">gtk_device_grab_add()</code></a> and
 <a class="link" href="gtk3-General.html#gtk-device-grab-remove" title="gtk_device_grab_remove ()"><code class="function">gtk_device_grab_remove()</code></a>.</p>
@@ -1216,7 +1221,7 @@ gtk_device_grab_remove (<em class="parameter"><code><a class="link" href="GtkWid
 </tr>
 <tr>
 <td class="parameter_name"><p>device</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -1254,7 +1259,7 @@ key events before delivering them normally.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>func_data</p></td>
-<td class="parameter_description"><p> data to pass to <em class="parameter"><code>snooper</code></em>
+<td class="parameter_description"><p>data to pass to <em class="parameter"><code>snooper</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
@@ -1272,7 +1277,7 @@ key events before delivering them normally.</p>
 <a name="GtkKeySnoopFunc"></a><h3>GtkKeySnoopFunc ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
 <span class="c_punctuation">(</span>*GtkKeySnoopFunc<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *grab_widget</code></em>,
-                    <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventKey"><span class="type">GdkEventKey</span></a> *event</code></em>,
+                    <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventKey"><span class="type">GdkEventKey</span></a> *event</code></em>,
                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> func_data</code></em>);</pre>
 <p>Key snooper functions are called before normal event delivery.
 They can be used to implement custom key event handling.</p>
@@ -1297,7 +1302,7 @@ They can be used to implement custom key event handling.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>func_data</p></td>
-<td class="parameter_description"><p> data supplied to <a class="link" href="gtk3-General.html#gtk-key-snooper-install" title="gtk_key_snooper_install ()"><code class="function">gtk_key_snooper_install()</code></a>. </p></td>
+<td class="parameter_description"><p>data supplied to <a class="link" href="gtk3-General.html#gtk-key-snooper-install" title="gtk_key_snooper_install ()"><code class="function">gtk_key_snooper_install()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1339,17 +1344,17 @@ gtk_key_snooper_remove (<em class="parameter"><code><a href="https://developer.g
 <hr>
 <div class="refsect2">
 <a name="gtk-get-current-event"></a><h3>gtk_get_current_event ()</h3>
-<pre class="programlisting"><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="returnvalue">GdkEvent</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="returnvalue">GdkEvent</span></a> *
 gtk_get_current_event (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Obtains a copy of the event currently being processed by GTK+.</p>
 <p>For example, if you are handling a <a class="link" href="GtkButton.html#GtkButton-clicked" title="The “clicked” signal"><span class="type">“clicked”</span></a> signal,
-the current event will be the <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEventButton"><span class="type">GdkEventButton</span></a> that triggered
+the current event will be the <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEventButton"><span class="type">GdkEventButton</span></a> that triggered
 the ::clicked signal.</p>
 <div class="refsect3">
 <a name="gtk-get-current-event.returns"></a><h4>Returns</h4>
-<p> a copy of the current event, or
+<p>a copy of the current event, or
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is no current event. The returned event must be
-freed with <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#gdk-event-free"><code class="function">gdk_event_free()</code></a>. </p>
+freed with <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#gdk-event-free"><code class="function">gdk_event_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 </div>
@@ -1359,18 +1364,18 @@ freed with <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#gdk-event-f
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>
 gtk_get_current_event_time (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>If there is a current event and it has a timestamp,
-return that timestamp, otherwise return <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-CURRENT-TIME:CAPS"><code class="literal">GDK_CURRENT_TIME</code></a>.</p>
+return that timestamp, otherwise return <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-CURRENT-TIME:CAPS"><code class="literal">GDK_CURRENT_TIME</code></a>.</p>
 <div class="refsect3">
 <a name="gtk-get-current-event-time.returns"></a><h4>Returns</h4>
 <p> the timestamp from the current event,
-or <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-CURRENT-TIME:CAPS"><code class="literal">GDK_CURRENT_TIME</code></a>.</p>
+or <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-CURRENT-TIME:CAPS"><code class="literal">GDK_CURRENT_TIME</code></a>.</p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-get-current-event-state"></a><h3>gtk_get_current_event_state ()</h3>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-gtk_get_current_event_state (<em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> *state</code></em>);</pre>
+gtk_get_current_event_state (<em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> *state</code></em>);</pre>
 <p>If there is a current event and it has a state field, place
 that state field in <em class="parameter"><code>state</code></em>
  and return <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, otherwise return
@@ -1385,7 +1390,7 @@ that state field in <em class="parameter"><code>state</code></em>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>state</p></td>
-<td class="parameter_description"><p> a location to store the state of the current event. </p></td>
+<td class="parameter_description"><p>a location to store the state of the current event. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr></tbody>
 </table></div>
@@ -1399,13 +1404,13 @@ had a state field</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-get-current-event-device"></a><h3>gtk_get_current_event_device ()</h3>
-<pre class="programlisting"><a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="returnvalue">GdkDevice</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="returnvalue">GdkDevice</span></a> *
 gtk_get_current_event_device (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>If there is a current event and it has a device, return that
 device, otherwise return <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
 <div class="refsect3">
 <a name="gtk-get-current-event-device.returns"></a><h4>Returns</h4>
-<p> a <a href="http://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>a <a href="https://developer.gnome.org/gdk3/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 </div>
@@ -1413,7 +1418,7 @@ device, otherwise return <a href="https://developer.gnome.org/glib/unstable/glib
 <div class="refsect2">
 <a name="gtk-get-event-widget"></a><h3>gtk_get_event_widget ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
-gtk_get_event_widget (<em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
+gtk_get_event_widget (<em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
 <p>If <em class="parameter"><code>event</code></em>
  is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> or the event was not associated with any widget,
 returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, otherwise returns the widget that received the event
@@ -1428,14 +1433,14 @@ originally.</p>
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="refsect3">
 <a name="gtk-get-event-widget.returns"></a><h4>Returns</h4>
-<p> the widget that originally
+<p>the widget that originally
 received <em class="parameter"><code>event</code></em>
 , or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
@@ -1446,7 +1451,7 @@ received <em class="parameter"><code>event</code></em>
 <a name="gtk-propagate-event"></a><h3>gtk_propagate_event ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_propagate_event (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                     <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
+                     <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
 <p>Sends an event to a widget, propagating the event to parent widgets
 if the event remains unhandled.</p>
 <p>Events received by GTK+ from GDK normally begin in <a class="link" href="gtk3-General.html#gtk-main-do-event" title="gtk_main_do_event ()"><code class="function">gtk_main_do_event()</code></a>.
@@ -1460,7 +1465,7 @@ higher-level, and <a class="link" href="gtk3-General.html#gtk-main-do-event" tit
 <p>All that said, you most likely don’t want to use any of these
 functions; synthesizing events is rarely needed. There are almost
 certainly better ways to achieve your goals. For example, use
-<a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#gdk-window-invalidate-rect"><code class="function">gdk_window_invalidate_rect()</code></a> or <a class="link" href="GtkWidget.html#gtk-widget-queue-draw" title="gtk_widget_queue_draw ()"><code class="function">gtk_widget_queue_draw()</code></a> instead
+<a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-invalidate-rect"><code class="function">gdk_window_invalidate_rect()</code></a> or <a class="link" href="GtkWidget.html#gtk-widget-queue-draw" title="gtk_widget_queue_draw ()"><code class="function">gtk_widget_queue_draw()</code></a> instead
 of making up expose events.</p>
 <div class="refsect3">
 <a name="gtk-propagate-event.parameters"></a><h4>Parameters</h4>
@@ -1494,7 +1499,7 @@ of making up expose events.</p>
 </pre>
 <p>Use this priority for functionality related to size allocation.</p>
 <p>It is used internally by GTK+ to compute the sizes of widgets.
-This priority is higher than <a href="http://developer.gnome.org/gdk3/gdk4-Events.html#GDK-PRIORITY-REDRAW:CAPS"><code class="literal">GDK_PRIORITY_REDRAW</code></a> to avoid
+This priority is higher than <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-PRIORITY-REDRAW:CAPS"><code class="literal">GDK_PRIORITY_REDRAW</code></a> to avoid
 resizing a widget which was just redrawn.</p>
 </div>
 </div>
@@ -1505,6 +1510,6 @@ resizing a widget which was just redrawn.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

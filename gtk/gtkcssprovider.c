@@ -44,6 +44,7 @@
 #include "gtkmarshalers.h"
 #include "gtkprivate.h"
 #include "gtkintl.h"
+#include "gtkutilsprivate.h"
 #include "gtkversion.h"
 
 /**
@@ -63,9 +64,9 @@
  * In addition, certain files will be read when GTK+ is initialized. First, the
  * file `$XDG_CONFIG_HOME/gtk-3.0/gtk.css` is loaded if it exists. Then, GTK+
  * loads the first existing file among
- * `XDG_DATA_HOME/themes/theme-name/gtk-VERSION/gtk.css`,
- * `$HOME/.themes/theme-name/gtk-VERSION/gtk.css`,
- * `$XDG_DATA_DIRS/themes/theme-name/gtk-VERSION/gtk.css` and
+ * `XDG_DATA_HOME/themes/THEME/gtk-VERSION/gtk.css`,
+ * `$HOME/.themes/THEME/gtk-VERSION/gtk.css`,
+ * `$XDG_DATA_DIRS/themes/THEME/gtk-VERSION/gtk.css` and
  * `DATADIR/share/themes/THEME/gtk-VERSION/gtk.css`, where `THEME` is the name of
  * the current theme (see the #GtkSettings:gtk-theme-name setting), `DATADIR`
  * is the prefix configured when GTK+ was compiled (unless overridden by the
@@ -1722,9 +1723,9 @@ gtk_css_provider_load_internal (GtkCssProvider *css_provider,
                                 const char     *text,
                                 GError        **error)
 {
+  GBytes *free_bytes = NULL;
   GtkCssScanner *scanner;
   gulong error_handler;
-  char *free_data = NULL;
 
   if (error)
     error_handler = g_signal_connect (css_provider,
@@ -1738,11 +1739,11 @@ gtk_css_provider_load_internal (GtkCssProvider *css_provider,
     {
       GError *load_error = NULL;
 
-      if (g_file_load_contents (file, NULL,
-                                &free_data, NULL,
-                                NULL, &load_error))
+      free_bytes = gtk_file_load_bytes (file, NULL, &load_error);
+
+      if (free_bytes != NULL)
         {
-          text = free_data;
+          text = g_bytes_get_data (free_bytes, NULL);
         }
       else
         {
@@ -1791,7 +1792,8 @@ gtk_css_provider_load_internal (GtkCssProvider *css_provider,
         gtk_css_provider_postprocess (css_provider);
     }
 
-  g_free (free_data);
+  if (free_bytes)
+    g_bytes_unref (free_bytes);
 
   if (error)
     {
@@ -1970,6 +1972,8 @@ gtk_css_provider_load_from_resource (GtkCssProvider *css_provider,
  *
  * Returns: (transfer none): The provider used for fallback styling.
  *          This memory is owned by GTK+, and you must not free it.
+ *
+ * Deprecated: 3.24: Use gtk_css_provider_new() instead.
  **/
 GtkCssProvider *
 gtk_css_provider_get_default (void)

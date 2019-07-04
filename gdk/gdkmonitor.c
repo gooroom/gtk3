@@ -32,8 +32,8 @@
  *
  * GdkMonitor objects represent the individual outputs that are
  * associated with a #GdkDisplay. GdkDisplay has APIs to enumerate
- * monitors with gdk_display_get_monitors() and to find particular
- * monitors with gdk_display_get_primary_monitor() or
+ * monitors with gdk_display_get_n_monitors() and gdk_display_get_monitor(), and
+ * to find particular monitors with gdk_display_get_primary_monitor() or
  * gdk_display_get_monitor_at_window().
  *
  * GdkMonitor was introduced in GTK+ 3.22 and supersedes earlier
@@ -267,7 +267,7 @@ gdk_monitor_get_display (GdkMonitor *monitor)
 /**
  * gdk_monitor_get_geometry:
  * @monitor: a #GdkMonitor
- * @geometry: (out): a #GdkRectangle to be filled wiht the monitor geometry
+ * @geometry: (out): a #GdkRectangle to be filled with the monitor geometry
  *
  * Retrieves the size and position of an individual monitor within the
  * display coordinate space. The returned geometry is in  ”application pixels”,
@@ -404,7 +404,7 @@ gdk_monitor_get_model (GdkMonitor *monitor)
 int
 gdk_monitor_get_scale_factor (GdkMonitor *monitor)
 {
-  g_return_val_if_fail (GDK_IS_MONITOR (monitor), 0);
+  g_return_val_if_fail (GDK_IS_MONITOR (monitor), 1);
 
   return monitor->scale_factor;
 }

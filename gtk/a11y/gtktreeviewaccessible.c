@@ -469,7 +469,7 @@ gtk_tree_view_accessible_ref_child (AtkObject *obj,
   if (cell == NULL)
     cell = create_cell (tree_view, accessible, tree, node, tv_col);
 
-  return g_object_ref (cell);
+  return ATK_OBJECT (g_object_ref (cell));
 }
 
 static AtkStateSet*
@@ -562,7 +562,7 @@ gtk_tree_view_accessible_ref_accessible_at_point (AtkComponent *component,
   if (cell == NULL)
     cell = create_cell (tree_view, GTK_TREE_VIEW_ACCESSIBLE (component), tree, node, column);
 
-  return g_object_ref (cell);
+  return ATK_OBJECT (g_object_ref (cell));
 }
 
 static void
@@ -1174,11 +1174,12 @@ gtk_tree_view_accessible_grab_cell_focus (GtkCellAccessibleParent *parent,
       if (gtk_widget_is_toplevel (toplevel))
         {
 #ifdef GDK_WINDOWING_X11
-          gtk_window_present_with_time (GTK_WINDOW (toplevel),
-                                        gdk_x11_get_server_time (gtk_widget_get_window (widget)));
-#else
-          gtk_window_present (GTK_WINDOW (toplevel));
+          if (GDK_IS_X11_DISPLAY (gtk_widget_get_display (toplevel)))
+            gtk_window_present_with_time (GTK_WINDOW (toplevel),
+                                          gdk_x11_get_server_time (gtk_widget_get_window (widget)));
+          else
 #endif
+            gtk_window_present (GTK_WINDOW (toplevel));
         }
 
       return TRUE;
@@ -1392,6 +1393,56 @@ gtk_tree_view_accessible_update_relationset (GtkCellAccessibleParent *parent,
 }
 
 static void
+gtk_tree_view_accessible_get_cell_position (GtkCellAccessibleParent *parent,
+                                            GtkCellAccessible       *cell,
+                                            gint                    *row,
+                                            gint                    *column)
+{
+  GtkWidget *widget;
+  GtkTreeView *tree_view;
+  GtkTreeViewAccessibleCellInfo *cell_info;
+  GtkTreeViewAccessible *accessible;
+
+  widget = gtk_accessible_get_widget (GTK_ACCESSIBLE (parent));
+  if (widget == NULL)
+    return;
+
+  tree_view = GTK_TREE_VIEW (widget);
+  accessible = GTK_TREE_VIEW_ACCESSIBLE (parent);
+  cell_info = find_cell_info (accessible, cell);
+  if (!cell_info)
+    return;
+
+  if (row)
+    (*row) = _gtk_rbtree_node_get_index (cell_info->tree, cell_info->node);
+  if (column)
+    (*column) = get_column_number (tree_view, cell_info->cell_col_ref);
+}
+
+static GPtrArray *
+gtk_tree_view_accessible_get_column_header_cells (GtkCellAccessibleParent *parent,
+                                                  GtkCellAccessible       *cell)
+{
+  GtkWidget *widget;
+  GtkTreeViewAccessibleCellInfo *cell_info;
+  GtkTreeViewAccessible *accessible;
+  GPtrArray *array;
+
+  widget = gtk_accessible_get_widget (GTK_ACCESSIBLE (parent));
+  if (widget == NULL)
+    return NULL;
+
+  accessible = GTK_TREE_VIEW_ACCESSIBLE (parent);
+  cell_info = find_cell_info (accessible, cell);
+  if (!cell_info)
+    return NULL;
+
+  array = g_ptr_array_new_full (1, g_object_unref);
+  g_ptr_array_add (array, g_object_ref (get_header_from_column ( (cell_info->cell_col_ref))));
+  return array;
+}
+
+static void
 gtk_cell_accessible_parent_interface_init (GtkCellAccessibleParentIface *iface)
 {
   iface->get_cell_extents = gtk_tree_view_accessible_get_cell_extents;
@@ -1403,6 +1454,8 @@ gtk_cell_accessible_parent_interface_init (GtkCellAccessibleParentIface *iface)
   iface->activate = gtk_tree_view_accessible_activate;
   iface->edit = gtk_tree_view_accessible_edit;
   iface->update_relationset = gtk_tree_view_accessible_update_relationset;
+  iface->get_cell_position = gtk_tree_view_accessible_get_cell_position;
+  iface->get_column_header_cells = gtk_tree_view_accessible_get_column_header_cells;
 }
 
 void
@@ -1890,7 +1943,7 @@ static GtkTreeViewColumn *
 get_effective_focus_column (GtkTreeView       *treeview,
                             GtkTreeViewColumn *column)
 {
-  if (column == NULL)
+  if (column == NULL && get_n_columns (treeview) > 0)
     column = get_visible_column (treeview, 0);
 
   return column;

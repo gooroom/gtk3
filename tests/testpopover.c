@@ -47,11 +47,16 @@ main (int argc, char *argv[])
   GtkWidget *label;
   GtkWidget *check;
   GtkWidget *combo;
+  GtkWidget *header_bar;
 
   gtk_init (&argc, &argv);
 
   win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_default_size (GTK_WINDOW (win), 400, 600);
+  header_bar = gtk_header_bar_new ();
+  gtk_header_bar_set_show_close_button (GTK_HEADER_BAR (header_bar), TRUE);
+  gtk_window_set_titlebar (GTK_WINDOW (win), header_bar);
+  gtk_window_set_title (GTK_WINDOW (win), "Test GtkPopover");
   actions = g_simple_action_group_new ();
   g_action_map_add_action_entries (G_ACTION_MAP (actions), entries, G_N_ELEMENTS (entries), NULL);
 
@@ -95,21 +100,19 @@ main (int argc, char *argv[])
   gtk_menu_button_set_popover (GTK_MENU_BUTTON (button2), popover2);
 
   g_object_set (box, "margin", 10, NULL);
-  gtk_widget_set_halign (box, GTK_ALIGN_END);
-  gtk_widget_set_valign (box, GTK_ALIGN_START);
   gtk_overlay_add_overlay (GTK_OVERLAY (overlay), box);
 
   label = gtk_label_new ("Popover hexpand");
   check = gtk_check_button_new ();
-  g_object_bind_property (check, "active", popover, "hexpand", G_BINDING_DEFAULT);
-  g_object_bind_property (check, "active", popover2, "hexpand", G_BINDING_DEFAULT);
+  g_object_bind_property (check, "active", popover, "hexpand", G_BINDING_SYNC_CREATE);
+  g_object_bind_property (check, "active", popover2, "hexpand", G_BINDING_SYNC_CREATE);
   gtk_grid_attach (GTK_GRID (grid), label , 1, 1, 1, 1);
   gtk_grid_attach (GTK_GRID (grid), check, 2, 1, 1, 1);
 
   label = gtk_label_new ("Popover vexpand");
   check = gtk_check_button_new ();
-  g_object_bind_property (check, "active", popover, "vexpand", G_BINDING_DEFAULT);
-  g_object_bind_property (check, "active", popover2, "vexpand", G_BINDING_DEFAULT);
+  g_object_bind_property (check, "active", popover, "vexpand", G_BINDING_SYNC_CREATE);
+  g_object_bind_property (check, "active", popover2, "vexpand", G_BINDING_SYNC_CREATE);
   gtk_grid_attach (GTK_GRID (grid), label , 1, 2, 1, 1);
   gtk_grid_attach (GTK_GRID (grid), check, 2, 2, 1, 1);
 
@@ -119,9 +122,9 @@ main (int argc, char *argv[])
   gtk_combo_box_text_append (GTK_COMBO_BOX_TEXT (combo), "down", "Down");
   gtk_combo_box_text_append (GTK_COMBO_BOX_TEXT (combo), "left", "Left");
   gtk_combo_box_text_append (GTK_COMBO_BOX_TEXT (combo), "right", "Right");
-
-  g_object_bind_property (combo, "active", button, "direction", G_BINDING_DEFAULT);
-  g_object_bind_property (combo, "active", button2, "direction", G_BINDING_DEFAULT);
+  gtk_combo_box_set_active (GTK_COMBO_BOX (combo), 1);
+  g_object_bind_property (combo, "active", button, "direction", G_BINDING_SYNC_CREATE);
+  g_object_bind_property (combo, "active", button2, "direction", G_BINDING_SYNC_CREATE);
   gtk_grid_attach (GTK_GRID (grid), label , 1, 3, 1, 1);
   gtk_grid_attach (GTK_GRID (grid), combo, 2, 3, 1, 1);
 
@@ -131,7 +134,8 @@ main (int argc, char *argv[])
   gtk_combo_box_text_append (GTK_COMBO_BOX_TEXT (combo), "start", "Start");
   gtk_combo_box_text_append (GTK_COMBO_BOX_TEXT (combo), "end", "End");
   gtk_combo_box_text_append (GTK_COMBO_BOX_TEXT (combo), "center", "Center");
-  g_object_bind_property (combo, "active", box, "halign", G_BINDING_DEFAULT);
+  gtk_combo_box_set_active (GTK_COMBO_BOX (combo), 2);
+  g_object_bind_property (combo, "active", box, "halign", G_BINDING_SYNC_CREATE);
   gtk_grid_attach (GTK_GRID (grid), label , 1, 4, 1, 1);
   gtk_grid_attach (GTK_GRID (grid), combo, 2, 4, 1, 1);
 
@@ -141,7 +145,8 @@ main (int argc, char *argv[])
   gtk_combo_box_text_append (GTK_COMBO_BOX_TEXT (combo), "start", "Start");
   gtk_combo_box_text_append (GTK_COMBO_BOX_TEXT (combo), "end", "End");
   gtk_combo_box_text_append (GTK_COMBO_BOX_TEXT (combo), "center", "Center");
-  g_object_bind_property (combo, "active", box, "valign", G_BINDING_DEFAULT);
+  gtk_combo_box_set_active (GTK_COMBO_BOX (combo), 1);
+  g_object_bind_property (combo, "active", box, "valign", G_BINDING_SYNC_CREATE);
   gtk_grid_attach (GTK_GRID (grid), label , 1, 5, 1, 1);
   gtk_grid_attach (GTK_GRID (grid), combo, 2, 5, 1, 1);
 

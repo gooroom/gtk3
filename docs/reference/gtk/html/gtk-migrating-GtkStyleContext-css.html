@@ -8,7 +8,7 @@
 <link rel="up" href="gtk-migrating-GtkStyleContext.html" title="Theming changes">
 <link rel="prev" href="gtk-migrating-GtkStyleContext-parser-extensions.html" title="Extending the CSS parser">
 <link rel="next" href="gtk-migrating-GtkStyleContext-checklist.html" title="A checklist for widgets">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -114,82 +114,82 @@
 74
 75
 76</pre></td>
-        <td class="listing_code"><pre class="programlisting">style <span class="string">&quot;default&quot;</span> <span class="gtkdoc opt">{</span>
-        xthickness <span class="gtkdoc opt">=</span> <span class="number">1</span>
-        ythickness <span class="gtkdoc opt">=</span> <span class="number">1</span>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">style </span><span class="string">"default"</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        xthickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">1</span>
+<span class="normal">        ythickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">1</span>
 
-        GtkButton<span class="gtkdoc opt">::</span>child<span class="gtkdoc opt">-</span>displacement<span class="gtkdoc opt">-</span>x <span class="gtkdoc opt">=</span> <span class="number">1</span>
-        GtkButton<span class="gtkdoc opt">::</span>child<span class="gtkdoc opt">-</span>displacement<span class="gtkdoc opt">-</span>y <span class="gtkdoc opt">=</span> <span class="number">1</span>
-        GtkCheckButton<span class="gtkdoc opt">::</span>indicator<span class="gtkdoc opt">-</span>size <span class="gtkdoc opt">=</span> <span class="number">14</span>
+<span class="normal">        <a href="GtkButton.html#GtkButton-struct">GtkButton</a></span><span class="symbol">::</span><span class="normal">child</span><span class="symbol">-</span><span class="normal">displacement</span><span class="symbol">-</span><span class="normal">x </span><span class="symbol">=</span><span class="normal"> </span><span class="number">1</span>
+<span class="normal">        <a href="GtkButton.html#GtkButton-struct">GtkButton</a></span><span class="symbol">::</span><span class="normal">child</span><span class="symbol">-</span><span class="normal">displacement</span><span class="symbol">-</span><span class="normal">y </span><span class="symbol">=</span><span class="normal"> </span><span class="number">1</span>
+<span class="normal">        <a href="GtkCheckButton.html#GtkCheckButton-struct">GtkCheckButton</a></span><span class="symbol">::</span><span class="normal">indicator</span><span class="symbol">-</span><span class="normal">size </span><span class="symbol">=</span><span class="normal"> </span><span class="number">14</span>
 
-        bg<span class="gtkdoc opt">[</span>NORMAL<span class="gtkdoc opt">]        =</span> &#64;bg_color
-        bg<span class="gtkdoc opt">[</span>PRELIGHT<span class="gtkdoc opt">]      =</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span><span class="number">1.02</span><span class="gtkdoc opt">,</span> &#64;bg_color<span class="gtkdoc opt">)</span>
-        bg<span class="gtkdoc opt">[</span>SELECTED<span class="gtkdoc opt">]      =</span> &#64;selected_bg_color
-        bg<span class="gtkdoc opt">[</span>INSENSITIVE<span class="gtkdoc opt">]   =</span> &#64;bg_color
-        bg<span class="gtkdoc opt">[</span>ACTIVE<span class="gtkdoc opt">]        =</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span><span class="number">0.9</span><span class="gtkdoc opt">,</span> &#64;bg_color<span class="gtkdoc opt">)</span>
+<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> @bg_color</span>
+<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">PRELIGHT</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">1.02</span><span class="symbol">,</span><span class="normal"> @bg_color</span><span class="symbol">)</span>
+<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">SELECTED</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> @selected_bg_color</span>
+<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">INSENSITIVE</span><span class="symbol">]</span><span class="normal">   </span><span class="symbol">=</span><span class="normal"> @bg_color</span>
+<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">ACTIVE</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.9</span><span class="symbol">,</span><span class="normal"> @bg_color</span><span class="symbol">)</span>
 
-        fg<span class="gtkdoc opt">[</span>NORMAL<span class="gtkdoc opt">]        =</span> &#64;fg_color
-        fg<span class="gtkdoc opt">[</span>PRELIGHT<span class="gtkdoc opt">]      =</span> &#64;fg_color
-        fg<span class="gtkdoc opt">[</span>SELECTED<span class="gtkdoc opt">]      =</span> &#64;selected_fg_color
-        fg<span class="gtkdoc opt">[</span>INSENSITIVE<span class="gtkdoc opt">]   =</span> <span class="function">darker</span> <span class="gtkdoc opt">(</span>&#64;bg_color<span class="gtkdoc opt">)</span>
-        fg<span class="gtkdoc opt">[</span>ACTIVE<span class="gtkdoc opt">]        =</span> &#64;fg_color
+<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> @fg_color</span>
+<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">PRELIGHT</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> @fg_color</span>
+<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">SELECTED</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> @selected_fg_color</span>
+<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">INSENSITIVE</span><span class="symbol">]</span><span class="normal">   </span><span class="symbol">=</span><span class="normal"> </span><span class="function">darker</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">)</span>
+<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">ACTIVE</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> @fg_color</span>
 
-        text<span class="gtkdoc opt">[</span>NORMAL<span class="gtkdoc opt">]      =</span> &#64;text_color
-        text<span class="gtkdoc opt">[</span>PRELIGHT<span class="gtkdoc opt">]    =</span> &#64;text_color
-        text<span class="gtkdoc opt">[</span>SELECTED<span class="gtkdoc opt">]    =</span> &#64;selected_fg_color
-        text<span class="gtkdoc opt">[</span>INSENSITIVE<span class="gtkdoc opt">] =</span> <span class="function">darker</span> <span class="gtkdoc opt">(</span>&#64;bg_color<span class="gtkdoc opt">)</span>
-        text<span class="gtkdoc opt">[</span>ACTIVE<span class="gtkdoc opt">]      =</span> &#64;selected_fg_color
+<span class="normal">        text</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> @text_color</span>
+<span class="normal">        text</span><span class="symbol">[</span><span class="normal">PRELIGHT</span><span class="symbol">]</span><span class="normal">    </span><span class="symbol">=</span><span class="normal"> @text_color</span>
+<span class="normal">        text</span><span class="symbol">[</span><span class="normal">SELECTED</span><span class="symbol">]</span><span class="normal">    </span><span class="symbol">=</span><span class="normal"> @selected_fg_color</span>
+<span class="normal">        text</span><span class="symbol">[</span><span class="normal">INSENSITIVE</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="function">darker</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">)</span>
+<span class="normal">        text</span><span class="symbol">[</span><span class="normal">ACTIVE</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> @selected_fg_color</span>
 
-        base<span class="gtkdoc opt">[</span>NORMAL<span class="gtkdoc opt">]      =</span> &#64;base_color
-        base<span class="gtkdoc opt">[</span>PRELIGHT<span class="gtkdoc opt">]    =</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span><span class="number">0.95</span><span class="gtkdoc opt">,</span> &#64;bg_color<span class="gtkdoc opt">)</span>
-        base<span class="gtkdoc opt">[</span>SELECTED<span class="gtkdoc opt">]    =</span> &#64;selected_bg_color
-        base<span class="gtkdoc opt">[</span>INSENSITIVE<span class="gtkdoc opt">] =</span> &#64;bg_color
-        base<span class="gtkdoc opt">[</span>ACTIVE<span class="gtkdoc opt">]      =</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span><span class="number">0.9</span><span class="gtkdoc opt">,</span> &#64;selected_bg_color<span class="gtkdoc opt">)</span>
+<span class="normal">        base</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> @base_color</span>
+<span class="normal">        base</span><span class="symbol">[</span><span class="normal">PRELIGHT</span><span class="symbol">]</span><span class="normal">    </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.95</span><span class="symbol">,</span><span class="normal"> @bg_color</span><span class="symbol">)</span>
+<span class="normal">        base</span><span class="symbol">[</span><span class="normal">SELECTED</span><span class="symbol">]</span><span class="normal">    </span><span class="symbol">=</span><span class="normal"> @selected_bg_color</span>
+<span class="normal">        base</span><span class="symbol">[</span><span class="normal">INSENSITIVE</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> @bg_color</span>
+<span class="normal">        base</span><span class="symbol">[</span><span class="normal">ACTIVE</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.9</span><span class="symbol">,</span><span class="normal"> @selected_bg_color</span><span class="symbol">)</span>
 
-        engine <span class="string">&quot;clearlooks&quot;</span> <span class="gtkdoc opt">{</span>
-                colorize_scrollbar <span class="gtkdoc opt">=</span> TRUE
-                style <span class="gtkdoc opt">=</span> CLASSIC
-        <span class="gtkdoc opt">}</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">        engine </span><span class="string">"clearlooks"</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                colorize_scrollbar </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span>
+<span class="normal">                style </span><span class="symbol">=</span><span class="normal"> CLASSIC</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="cbracket">}</span>
 
-style <span class="string">&quot;tooltips&quot;</span> <span class="gtkdoc opt">{</span>
-        xthickness <span class="gtkdoc opt">=</span> <span class="number">4</span>
-        ythickness <span class="gtkdoc opt">=</span> <span class="number">4</span>
+<span class="normal">style </span><span class="string">"tooltips"</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        xthickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">4</span>
+<span class="normal">        ythickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">4</span>
 
-        bg<span class="gtkdoc opt">[</span>NORMAL<span class="gtkdoc opt">]        =</span> &#64;tooltip_bg_color
-        fg<span class="gtkdoc opt">[</span>NORMAL<span class="gtkdoc opt">]        =</span> &#64;tooltip_fg_color
-<span class="gtkdoc opt">}</span>
+<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> @tooltip_bg_color</span>
+<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> @tooltip_fg_color</span>
+<span class="cbracket">}</span>
 
-style <span class="string">&quot;button&quot;</span> <span class="gtkdoc opt">{</span>
-        xthickness <span class="gtkdoc opt">=</span> <span class="number">3</span>
-        ythickness <span class="gtkdoc opt">=</span> <span class="number">3</span>
+<span class="normal">style </span><span class="string">"button"</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        xthickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">3</span>
+<span class="normal">        ythickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">3</span>
 
-        bg<span class="gtkdoc opt">[</span>NORMAL<span class="gtkdoc opt">]        =</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span><span class="number">1.04</span><span class="gtkdoc opt">,</span> &#64;bg_color<span class="gtkdoc opt">)</span>
-        bg<span class="gtkdoc opt">[</span>PRELIGHT<span class="gtkdoc opt">]      =</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span><span class="number">1.06</span><span class="gtkdoc opt">,</span> &#64;bg_color<span class="gtkdoc opt">)</span>
-        bg<span class="gtkdoc opt">[</span>ACTIVE<span class="gtkdoc opt">]        =</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span><span class="number">0.85</span><span class="gtkdoc opt">,</span> &#64;bg_color<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">1.04</span><span class="symbol">,</span><span class="normal"> @bg_color</span><span class="symbol">)</span>
+<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">PRELIGHT</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">1.06</span><span class="symbol">,</span><span class="normal"> @bg_color</span><span class="symbol">)</span>
+<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">ACTIVE</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.85</span><span class="symbol">,</span><span class="normal"> @bg_color</span><span class="symbol">)</span>
+<span class="cbracket">}</span>
 
-style <span class="string">&quot;entry&quot;</span> <span class="gtkdoc opt">{</span>
-        xthickness <span class="gtkdoc opt">=</span> <span class="number">3</span>
-        ythickness <span class="gtkdoc opt">=</span> <span class="number">3</span>
+<span class="normal">style </span><span class="string">"entry"</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        xthickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">3</span>
+<span class="normal">        ythickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">3</span>
 
-        bg<span class="gtkdoc opt">[</span>SELECTED<span class="gtkdoc opt">] =</span> <span class="function">mix</span> <span class="gtkdoc opt">(</span><span class="number">0.4</span><span class="gtkdoc opt">,</span> &#64;selected_bg_color<span class="gtkdoc opt">,</span> &#64;base_color<span class="gtkdoc opt">)</span>
-        fg<span class="gtkdoc opt">[</span>SELECTED<span class="gtkdoc opt">] =</span> &#64;text_color
+<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">SELECTED</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="function">mix</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.4</span><span class="symbol">,</span><span class="normal"> @selected_bg_color</span><span class="symbol">,</span><span class="normal"> @base_color</span><span class="symbol">)</span>
+<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">SELECTED</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> @text_color</span>
 
-        engine <span class="string">&quot;clearlooks&quot;</span> <span class="gtkdoc opt">{</span>
-                focus_color <span class="gtkdoc opt">=</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span><span class="number">0.65</span><span class="gtkdoc opt">,</span> &#64;selected_bg_color<span class="gtkdoc opt">)</span>
-        <span class="gtkdoc opt">}</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">        engine </span><span class="string">"clearlooks"</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                focus_color </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.65</span><span class="symbol">,</span><span class="normal"> @selected_bg_color</span><span class="symbol">)</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="cbracket">}</span>
 
-style <span class="string">&quot;other&quot;</span> <span class="gtkdoc opt">{</span>
-        bg<span class="gtkdoc opt">[</span>NORMAL<span class="gtkdoc opt">] =</span> <span class="gtkdoc ppc">#fff;</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">style </span><span class="string">"other"</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> #fff</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc kwc">class</span> <span class="string">&quot;GtkWidget&quot;</span> style <span class="string">&quot;default&quot;</span>
-<span class="gtkdoc kwc">class</span> <span class="string">&quot;GtkEntry&quot;</span> style <span class="string">&quot;entry&quot;</span>
-widget_class <span class="string">&quot;*&lt;GtkButton&gt;&quot;</span> style <span class="string">&quot;button&quot;</span>
-widget <span class="string">&quot;gtk-tooltip*&quot;</span> style <span class="string">&quot;tooltips&quot;</span>
-widget_class <span class="string">&quot;window-name.*.GtkButton&quot;</span> style <span class="string">&quot;other&quot;</span></pre></td>
+<span class="normal">class </span><span class="string">"GtkWidget"</span><span class="normal"> style </span><span class="string">"default"</span>
+<span class="normal">class </span><span class="string">"GtkEntry"</span><span class="normal"> style </span><span class="string">"entry"</span>
+<span class="normal">widget_class </span><span class="string">"*&lt;GtkButton&gt;"</span><span class="normal"> style </span><span class="string">"button"</span>
+<span class="normal">widget </span><span class="string">"gtk-tooltip*"</span><span class="normal"> style </span><span class="string">"tooltips"</span>
+<span class="normal">widget_class </span><span class="string">"window-name.*.GtkButton"</span><span class="normal"> style </span><span class="string">"other"</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -273,74 +273,74 @@ widget_class <span class="string">&quot;window-name.*.GtkButton&quot;</span> sty
 66
 67
 68</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">* {</span>
-  padding<span class="gtkdoc opt">:</span> <span class="number">1</span><span class="gtkdoc opt">;</span>
-  <span class="gtkdoc opt">-</span>GtkButton<span class="gtkdoc opt">-</span>child<span class="gtkdoc opt">-</span>displacement<span class="gtkdoc opt">-</span>x<span class="gtkdoc opt">:</span> <span class="number">1</span><span class="gtkdoc opt">;</span>
-  <span class="gtkdoc opt">-</span>GtkButton<span class="gtkdoc opt">-</span>child<span class="gtkdoc opt">-</span>displacement<span class="gtkdoc opt">-</span>y<span class="gtkdoc opt">:</span> <span class="number">1</span><span class="gtkdoc opt">;</span>
-  <span class="gtkdoc opt">-</span>GtkCheckButton<span class="gtkdoc opt">-</span>indicator<span class="gtkdoc opt">-</span>size<span class="gtkdoc opt">:</span> <span class="number">14</span><span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">*</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">  padding</span><span class="symbol">:</span><span class="normal"> </span><span class="number">1</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal"><a href="GtkButton.html#GtkButton-struct">GtkButton</a></span><span class="symbol">-</span><span class="normal">child</span><span class="symbol">-</span><span class="normal">displacement</span><span class="symbol">-</span><span class="normal">x</span><span class="symbol">:</span><span class="normal"> </span><span class="number">1</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal"><a href="GtkButton.html#GtkButton-struct">GtkButton</a></span><span class="symbol">-</span><span class="normal">child</span><span class="symbol">-</span><span class="normal">displacement</span><span class="symbol">-</span><span class="normal">y</span><span class="symbol">:</span><span class="normal"> </span><span class="number">1</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal"><a href="GtkCheckButton.html#GtkCheckButton-struct">GtkCheckButton</a></span><span class="symbol">-</span><span class="normal">indicator</span><span class="symbol">-</span><span class="normal">size</span><span class="symbol">:</span><span class="normal"> </span><span class="number">14</span><span class="symbol">;</span>
 
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> &#64;bg_color<span class="gtkdoc opt">;</span>
-  color<span class="gtkdoc opt">:</span> &#64;fg_color<span class="gtkdoc opt">;</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> @bg_color</span><span class="symbol">;</span>
+<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> @fg_color</span><span class="symbol">;</span>
 
-  <span class="gtkdoc opt">-</span>Clearlooks<span class="gtkdoc opt">-</span>colorize<span class="gtkdoc opt">-</span>scrollbar<span class="gtkdoc opt">:</span> <span class="keyword">true</span><span class="gtkdoc opt">;</span>
-  <span class="gtkdoc opt">-</span>Clearlooks<span class="gtkdoc opt">-</span>style<span class="gtkdoc opt">:</span> classic<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal">Clearlooks</span><span class="symbol">-</span><span class="normal">colorize</span><span class="symbol">-</span><span class="normal">scrollbar</span><span class="symbol">:</span><span class="normal"> true</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal">Clearlooks</span><span class="symbol">-</span><span class="normal">style</span><span class="symbol">:</span><span class="normal"> classic</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc opt">*:</span>hover <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span>&#64;bg_color<span class="gtkdoc opt">,</span> <span class="number">1.02</span><span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span>
+<span class="symbol">*:</span><span class="normal">hover </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1.02</span><span class="symbol">);</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc opt">*:</span>selected <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> &#64;selected_bg_color<span class="gtkdoc opt">;</span>
-  color<span class="gtkdoc opt">:</span> &#64;selected_fg_color<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span>
+<span class="symbol">*:</span><span class="normal">selected </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> @selected_bg_color</span><span class="symbol">;</span>
+<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> @selected_fg_color</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc opt">*:</span>insensitive <span class="gtkdoc opt">{</span>
-  color<span class="gtkdoc opt">:</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span>&#64;bg_color<span class="gtkdoc opt">,</span> <span class="number">0.7</span><span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span>
+<span class="symbol">*:</span><span class="normal">insensitive </span><span class="cbracket">{</span>
+<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.7</span><span class="symbol">);</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc opt">*:</span>active <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span>&#64;bg_color<span class="gtkdoc opt">,</span> <span class="number">0.9</span><span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span>
+<span class="symbol">*:</span><span class="normal">active </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.9</span><span class="symbol">);</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc opt">.</span>tooltip <span class="gtkdoc opt">{</span>
-  padding<span class="gtkdoc opt">:</span> <span class="number">4</span><span class="gtkdoc opt">;</span>
+<span class="symbol">.</span><span class="normal">tooltip </span><span class="cbracket">{</span>
+<span class="normal">  padding</span><span class="symbol">:</span><span class="normal"> </span><span class="number">4</span><span class="symbol">;</span>
 
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> &#64;tooltip_bg_color<span class="gtkdoc opt">;</span>
-  color<span class="gtkdoc opt">:</span> &#64;tooltip_fg_color<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> @tooltip_bg_color</span><span class="symbol">;</span>
+<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> @tooltip_fg_color</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc opt">.</span>button <span class="gtkdoc opt">{</span>
-  padding<span class="gtkdoc opt">:</span> <span class="number">3</span><span class="gtkdoc opt">;</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span>&#64;bg_color<span class="gtkdoc opt">,</span> <span class="number">1.04</span><span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span>
+<span class="symbol">.</span><span class="normal">button </span><span class="cbracket">{</span>
+<span class="normal">  padding</span><span class="symbol">:</span><span class="normal"> </span><span class="number">3</span><span class="symbol">;</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1.04</span><span class="symbol">);</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc opt">.</span>button<span class="gtkdoc opt">:</span>hover <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span>&#64;bg_color<span class="gtkdoc opt">,</span> <span class="number">1.06</span><span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span>
+<span class="symbol">.</span><span class="normal">button</span><span class="symbol">:</span><span class="normal">hover </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1.06</span><span class="symbol">);</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc opt">.</span>button<span class="gtkdoc opt">:</span>active <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span>&#64;bg_color<span class="gtkdoc opt">,</span> <span class="number">0.85</span><span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span>
+<span class="symbol">.</span><span class="normal">button</span><span class="symbol">:</span><span class="normal">active </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.85</span><span class="symbol">);</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc opt">.</span>entry <span class="gtkdoc opt">{</span>
-  padding<span class="gtkdoc opt">:</span> <span class="number">3</span><span class="gtkdoc opt">;</span>
+<span class="symbol">.</span><span class="normal">entry </span><span class="cbracket">{</span>
+<span class="normal">  padding</span><span class="symbol">:</span><span class="normal"> </span><span class="number">3</span><span class="symbol">;</span>
 
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> &#64;base_color<span class="gtkdoc opt">;</span>
-  color<span class="gtkdoc opt">:</span> &#64;text_color<span class="gtkdoc opt">;</span>
-<span class="gtkdoc opt">}</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> @base_color</span><span class="symbol">;</span>
+<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> @text_color</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
 
-<span class="gtkdoc opt">.</span>entry<span class="gtkdoc opt">:</span>selected <span class="gtkdoc opt">{</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="function">mix</span> <span class="gtkdoc opt">(</span>&#64;selected_bg_color<span class="gtkdoc opt">,</span> &#64;base_color<span class="gtkdoc opt">,</span> <span class="number">0.4</span><span class="gtkdoc opt">);</span>
-  <span class="gtkdoc opt">-</span>Clearlooks<span class="gtkdoc opt">-</span>focus<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="function">shade</span> <span class="gtkdoc opt">(</span><span class="number">0.65</span><span class="gtkdoc opt">,</span> &#64;selected_bg_color<span class="gtkdoc opt">)</span>
-<span class="gtkdoc opt">}</span>
+<span class="symbol">.</span><span class="normal">entry</span><span class="symbol">:</span><span class="normal">selected </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">mix</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@selected_bg_color</span><span class="symbol">,</span><span class="normal"> @base_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.4</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="symbol">-</span><span class="normal">Clearlooks</span><span class="symbol">-</span><span class="normal">focus</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.65</span><span class="symbol">,</span><span class="normal"> @selected_bg_color</span><span class="symbol">)</span>
+<span class="cbracket">}</span>
 
 <span class="comment">/* The latter selector is an specification of the first,</span>
 <span class="comment">   since any widget may use the same classes or names */</span>
-<span class="gtkdoc ppc">#window-name .button,</span>
-GtkWindow<span class="gtkdoc ppc">#window-name GtkButton.button {</span>
-  background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#fff;</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="preproc">#window</span><span class="symbol">-</span><span class="normal">name </span><span class="symbol">.</span><span class="normal">button</span><span class="symbol">,</span>
+<span class="normal">GtkWindow#window</span><span class="symbol">-</span><span class="usertype">name</span><span class="normal"> <a href="GtkButton.html#GtkButton-struct">GtkButton</a></span><span class="symbol">.</span><span class="normal">button </span><span class="cbracket">{</span>
+<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #fff</span><span class="symbol">;</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -374,18 +374,18 @@ GtkWindow<span class="gtkdoc ppc">#window-name GtkButton.button {</span>
 3
 4
 5</pre></td>
-        <td class="listing_code"><pre class="programlisting">GdkColor <span class="gtkdoc opt">*</span>color1<span class="gtkdoc opt">;</span>
-GdkColor color2<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkColor</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">color1</span><span class="symbol">;</span>
+<span class="usertype">GdkColor</span><span class="normal"> color2</span><span class="symbol">;</span>
 
-color1 <span class="gtkdoc opt">= &amp;</span>style<span class="gtkdoc opt">-&gt;</span>bg<span class="gtkdoc opt">[</span>GTK_STATE_PRELIGHT<span class="gtkdoc opt">];</span>
-<span class="function"><a href="GtkStyle.html#gtk-style-lookup-color">gtk_style_lookup_color</a></span> <span class="gtkdoc opt">(</span>style<span class="gtkdoc opt">,</span> <span class="string">&quot;focus_color&quot;</span><span class="gtkdoc opt">, &amp;</span>color2<span class="gtkdoc opt">);</span></pre></td>
+<span class="normal">color1 </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">style</span><span class="symbol">-&gt;</span><span class="normal">bg</span><span class="symbol">[</span><span class="normal"><a href="GtkWidget.html#GTK-STATE-PRELIGHT:CAPS">GTK_STATE_PRELIGHT</a></span><span class="symbol">];</span>
+<span class="function"><a href="GtkStyle.html#gtk-style-lookup-color">gtk_style_lookup_color</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">style</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"focus_color"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">color2</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
 </div>
 
 <p>
-      With <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a>, you generally use <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> instead of <span class="type">GdkColor</span>
+      With <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a>, you generally use <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> instead of <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a>
       and the code looks like this:
       </p>
 <div class="informalexample">
@@ -403,17 +403,17 @@ color1 <span class="gtkdoc opt">= &amp;</span>style<span class="gtkdoc opt">-&gt
 9
 10
 11</pre></td>
-        <td class="listing_code"><pre class="programlisting">GdkRGBA <span class="gtkdoc opt">*</span>color1<span class="gtkdoc opt">;</span>
-GdkRGBA  color2<span class="gtkdoc opt">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkRGBA</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">color1</span><span class="symbol">;</span>
+<span class="usertype">GdkRGBA</span><span class="normal">  color2</span><span class="symbol">;</span>
 
-<span class="function"><a href="GtkStyleContext.html#gtk-style-context-get">gtk_style_context_get</a></span> <span class="gtkdoc opt">(</span>context<span class="gtkdoc opt">,</span> GTK_STATE_FLAG_PRELIGHT<span class="gtkdoc opt">,</span>
-                       <span class="string">&quot;background-color&quot;</span><span class="gtkdoc opt">, &amp;</span>color1<span class="gtkdoc opt">,</span>
-                       NULL<span class="gtkdoc opt">);</span>
-<span class="function"><a href="GtkStyleContext.html#gtk-style-context-lookup-color">gtk_style_context_lookup_color</a></span> <span class="gtkdoc opt">(</span>context<span class="gtkdoc opt">,</span> <span class="string">&quot;focus_color&quot;</span><span class="gtkdoc opt">, &amp;</span>color2<span class="gtkdoc opt">);</span>
+<span class="function"><a href="GtkStyleContext.html#gtk-style-context-get">gtk_style_context_get</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> <a href="gtk3-Standard-Enumerations.html#GTK-STATE-FLAG-PRELIGHT:CAPS">GTK_STATE_FLAG_PRELIGHT</a></span><span class="symbol">,</span>
+<span class="normal">                       </span><span class="string">"background-color"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">color1</span><span class="symbol">,</span>
+<span class="normal">                       <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="function"><a href="GtkStyleContext.html#gtk-style-context-lookup-color">gtk_style_context_lookup_color</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"focus_color"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">color2</span><span class="symbol">);</span>
 
-<span class="gtkdoc opt">...</span>
+<span class="symbol">...</span>
 
-<span class="function"><a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#gdk-rgba-free">gdk_rgba_free</a></span> <span class="gtkdoc opt">(</span>color1<span class="gtkdoc opt">);</span></pre></td>
+<span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#gdk-rgba-free">gdk_rgba_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">color1</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -427,10 +427,10 @@ GdkRGBA  color2<span class="gtkdoc opt">;</span>
     </p>
 <p>
       It is worth mentioning that the new file format does not support
-      custom keybindings nor stock icon mappings as the RC format did.
+      stock icon mappings as the RC format did.
     </p>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

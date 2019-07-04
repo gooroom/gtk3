@@ -31,14 +31,6 @@ gboolean         gdk_display_get_debug_updates (GdkDisplay *display);
 void             gdk_display_set_debug_updates (GdkDisplay *display,
                                                 gboolean    debug_updates);
 
-void            gdk_window_move_to_rect         (GdkWindow          *window,
-                                                 const GdkRectangle *rect,
-                                                 GdkGravity          rect_anchor,
-                                                 GdkGravity          window_anchor,
-                                                 GdkAnchorHints      anchor_hints,
-                                                 gint                rect_anchor_dx,
-                                                 gint                rect_anchor_dy);
-
 typedef struct {
   /* add all private functions here, initialize them in gdk-private.c */
   gboolean (* gdk_device_grab_info) (GdkDisplay  *display,
@@ -64,17 +56,12 @@ typedef struct {
   gboolean         (* gdk_display_get_debug_updates) (GdkDisplay *display);
   void             (* gdk_display_set_debug_updates) (GdkDisplay *display,
                                                       gboolean    debug_updates);
-
-  void (* gdk_window_move_to_rect) (GdkWindow          *window,
-                                    const GdkRectangle *rect,
-                                    GdkGravity          rect_anchor,
-                                    GdkGravity          window_anchor,
-                                    GdkAnchorHints      anchor_hints,
-                                    gint                rect_anchor_dx,
-                                    gint                rect_anchor_dy);
 } GdkPrivateVTable;
 
 GDK_AVAILABLE_IN_ALL
 GdkPrivateVTable *      gdk__private__  (void);
+
+gboolean gdk_running_in_sandbox (void);
+gboolean gdk_should_use_portal (void);
 
 #endif /* __GDK__PRIVATE_H__ */

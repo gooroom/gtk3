@@ -8,7 +8,7 @@
 <link rel="up" href="Application.html" title="Application support">
 <link rel="prev" href="Application.html" title="Application support">
 <link rel="next" href="GtkApplicationWindow.html" title="GtkApplicationWindow">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -125,7 +125,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="returnvalue">GMenuModel</span></a> *
+<span class="returnvalue">GMenuModel</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkApplication.html#gtk-application-get-app-menu" title="gtk_application_get_app_menu ()">gtk_application_get_app_menu</a> <span class="c_punctuation">()</span>
@@ -141,7 +141,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="returnvalue">GMenuModel</span></a> *
+<span class="returnvalue">GMenuModel</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkApplication.html#gtk-application-get-menubar" title="gtk_application_get_menubar ()">gtk_application_get_menubar</a> <span class="c_punctuation">()</span>
@@ -157,7 +157,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenu-struct"><span class="returnvalue">GMenu</span></a> *
+<span class="returnvalue">GMenu</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkApplication.html#gtk-application-get-menu-by-id" title="gtk_application_get_menu_by_id ()">gtk_application_get_menu_by_id</a> <span class="c_punctuation">()</span>
@@ -231,13 +231,13 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> *</td>
+<span class="type">GMenuModel</span> *</td>
 <td class="property_name"><a class="link" href="GtkApplication.html#GtkApplication--app-menu" title="The “app-menu” property">app-menu</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> *</td>
+<span class="type">GMenuModel</span> *</td>
 <td class="property_name"><a class="link" href="GtkApplication.html#GtkApplication--menubar" title="The “menubar” property">menubar</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -245,6 +245,11 @@
 <td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
 <td class="property_name"><a class="link" href="GtkApplication.html#GtkApplication--register-session" title="The “register-session” property">register-session</a></td>
 <td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_name"><a class="link" href="GtkApplication.html#GtkApplication--screensaver-active" title="The “screensaver-active” property">screensaver-active</a></td>
+<td class="property_flags">Read</td>
 </tr>
 </tbody>
 </table></div>
@@ -297,7 +302,7 @@
 <div class="refsect1">
 <a name="GtkApplication.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gio/unstable/GApplication.html#GApplication-struct">GApplication</a>
+    <span class="lineart">╰──</span> GApplication
         <span class="lineart">╰──</span> GtkApplication
 </pre>
 </div>
@@ -305,11 +310,11 @@
 <a name="GtkApplication.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
 <p>
 GtkApplication implements
- <a href="https://developer.gnome.org/gio/unstable/GActionGroup.html#GActionGroup-struct">GActionGroup</a> and  <a href="https://developer.gnome.org/gio/unstable/GActionMap.html#GActionMap-struct">GActionMap</a>.</p>
+ GActionGroup and  GActionMap.</p>
 </div>
 <div class="refsect1">
 <a name="GtkApplication.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -329,14 +334,14 @@ lock when invoking actions that arrive from other processes.  The GDK
 lock is not touched for local action invocations.  In order to have
 actions invoked in a predictable context it is therefore recommended
 that the GDK lock be held while invoking actions locally with
-<a href="https://developer.gnome.org/gio/unstable/GActionGroup.html#g-action-group-activate-action"><code class="function">g_action_group_activate_action()</code></a>.  The same applies to actions
+<code class="function">g_action_group_activate_action()</code>.  The same applies to actions
 associated with <a class="link" href="GtkApplicationWindow.html" title="GtkApplicationWindow"><span class="type">GtkApplicationWindow</span></a> and to the “activate” and
-“open” <a href="https://developer.gnome.org/gio/unstable/GApplication.html#GApplication-struct"><span class="type">GApplication</span></a> methods.</p>
+“open” <span class="type">GApplication</span> methods.</p>
 <div class="refsect3">
 <a name="automatic-resources"></a><h4>Automatic resources</h4>
 <p><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> will automatically load menus from the <a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a>
 resource located at "gtk/menus.ui", relative to the application's
-resource base path (see <a href="https://developer.gnome.org/gio/unstable/GApplication.html#g-application-set-resource-base-path"><code class="function">g_application_set_resource_base_path()</code></a>).  The
+resource base path (see <code class="function">g_application_set_resource_base_path()</code>).  The
 menu with the ID "app-menu" is taken as the application's app menu
 and the menu with the ID "menubar" is taken as the application's
 menubar.  Additional menus (most interesting submenus) can be named
@@ -389,14 +394,14 @@ session while inhibitors are present.</p>
 <a name="gtk-application-new"></a><h3>gtk_application_new ()</h3>
 <pre class="programlisting"><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="returnvalue">GtkApplication</span></a> *
 gtk_application_new (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *application_id</code></em>,
-                     <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GApplication.html#GApplicationFlags"><span class="type">GApplicationFlags</span></a> flags</code></em>);</pre>
+                     <em class="parameter"><code><span class="type">GApplicationFlags</span> flags</code></em>);</pre>
 <p>Creates a new <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> instance.</p>
 <p>When using <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a>, it is not necessary to call <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a>
 manually. It is called as soon as the application gets registered as
 the primary instance.</p>
 <p>Concretely, <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> is called in the default handler for the
-<a href="https://developer.gnome.org/gio/unstable/GApplication.html#GApplication-startup"><span class="type">“startup”</span></a> signal. Therefore, <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> subclasses should
-chain up in their <a href="https://developer.gnome.org/gio/unstable/GApplication.html#GApplication-startup"><span class="type">“startup”</span></a> handler before using any GTK+ API.</p>
+<span class="type">“startup”</span> signal. Therefore, <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> subclasses should
+chain up in their <span class="type">“startup”</span> handler before using any GTK+ API.</p>
 <p>Note that commandline arguments are not passed to <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a>.
 All GTK+ functionality that is available via commandline arguments
 can also be achieved by setting suitable environment variables
@@ -405,7 +410,7 @@ problem. If you absolutely must support GTK+ commandline arguments,
 you can explicitly call <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> before creating the application
 instance.</p>
 <p>If non-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the application ID must be valid.  See
-<a href="https://developer.gnome.org/gio/unstable/GApplication.html#g-application-id-is-valid"><code class="function">g_application_id_is_valid()</code></a>.</p>
+<code class="function">g_application_id_is_valid()</code>.</p>
 <p>If no application ID is given then some features (most notably application 
 uniqueness) will be disabled. A null application ID is only allowed with 
 GTK+ 3.6 or later.</p>
@@ -420,7 +425,7 @@ GTK+ 3.6 or later.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>application_id</p></td>
-<td class="parameter_description"><p> The application ID. </p></td>
+<td class="parameter_description"><p>The application ID. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -448,7 +453,7 @@ gtk_application_add_window (<em class="parameter"><code><a class="link" href="Gt
 <p>This call can only happen after the <em class="parameter"><code>application</code></em>
  has started;
 typically, you should add new application windows in response
-to the emission of the <a href="https://developer.gnome.org/gio/unstable/GApplication.html#GApplication-activate"><span class="type">“activate”</span></a> signal.</p>
+to the emission of the <span class="type">“activate”</span> signal.</p>
 <p>This call is equivalent to setting the <a class="link" href="GtkWindow.html#GtkWindow--application" title="The “application” property"><span class="type">“application”</span></a>
 property of <em class="parameter"><code>window</code></em>
  to <em class="parameter"><code>application</code></em>
@@ -553,7 +558,7 @@ deletion.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-application-get-windows.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>. </p>
+<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkWindow][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -591,7 +596,7 @@ gtk_application_get_window_by_id (<em class="parameter"><code><a class="link" hr
 </div>
 <div class="refsect3">
 <a name="gtk-application-get-window-by-id.returns"></a><h4>Returns</h4>
-<p> the window with ID <em class="parameter"><code>id</code></em>
+<p>the window with ID <em class="parameter"><code>id</code></em>
 , or
 <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is no window with this ID. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -625,8 +630,9 @@ recently-focused window within this application.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-application-get-active-window.returns"></a><h4>Returns</h4>
-<p> the active window. </p>
-<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+<p>the active window, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
+there isn't one. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-6.html#api-index-3.6">3.6</a></p>
 </div>
@@ -673,7 +679,7 @@ this window to find out more about why the action is inhibited.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>window</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -683,7 +689,7 @@ this window to find out more about why the action is inhibited.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>reason</p></td>
-<td class="parameter_description"><p> a short, human-readable string that explains
+<td class="parameter_description"><p>a short, human-readable string that explains
 why these operations are inhibited. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -740,6 +746,8 @@ gtk_application_is_inhibited (<em class="parameter"><code><a class="link" href="
 <p>Determines if any of the actions specified in <em class="parameter"><code>flags</code></em>
  are
 currently inhibited (possibly by another application).</p>
+<p>Note that this information may not be available (for example
+when the application is running in a sandbox).</p>
 <div class="refsect3">
 <a name="gtk-application-is-inhibited.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -826,7 +834,7 @@ replaced with your own.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-application-get-app-menu"></a><h3>gtk_application_get_app_menu ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="returnvalue">GMenuModel</span></a> *
+<pre class="programlisting"><span class="returnvalue">GMenuModel</span> *
 gtk_application_get_app_menu (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>);</pre>
 <p>Returns the menu model that has been set with
 <a class="link" href="GtkApplication.html#gtk-application-set-app-menu" title="gtk_application_set_app_menu ()"><code class="function">gtk_application_set_app_menu()</code></a>.</p>
@@ -847,7 +855,7 @@ gtk_application_get_app_menu (<em class="parameter"><code><a class="link" href="
 </div>
 <div class="refsect3">
 <a name="gtk-application-get-app-menu.returns"></a><h4>Returns</h4>
-<p> the application menu of <em class="parameter"><code>application</code></em>
+<p>the application menu of <em class="parameter"><code>application</code></em>
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no application menu has been set. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -858,11 +866,11 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <a name="gtk-application-set-app-menu"></a><h3>gtk_application_set_app_menu ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_application_set_app_menu (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> *app_menu</code></em>);</pre>
+                              <em class="parameter"><code><span class="type">GMenuModel</span> *app_menu</code></em>);</pre>
 <p>Sets or unsets the application menu for <em class="parameter"><code>application</code></em>
 .</p>
 <p>This can only be done in the primary instance of the application,
-after it has been registered.  <a href="https://developer.gnome.org/gio/unstable/GApplication.html#GApplication-startup"><span class="type">“startup”</span></a> is a good place
+after it has been registered.  <span class="type">“startup”</span> is a good place
 to call this.</p>
 <p>The application menu is a single menu containing items that typically
 impact the application as a whole, rather than acting on a specific
@@ -871,7 +879,7 @@ window or document.  For example, you would expect to see
 “Print”.</p>
 <p>If supported, the application menu will be rendered by the desktop
 environment.</p>
-<p>Use the base <a href="https://developer.gnome.org/gio/unstable/GActionMap.html#GActionMap-struct"><span class="type">GActionMap</span></a> interface to add actions, to respond to the user
+<p>Use the base <span class="type">GActionMap</span> interface to add actions, to respond to the user
 selecting these menu items.</p>
 <div class="refsect3">
 <a name="gtk-application-set-app-menu.parameters"></a><h4>Parameters</h4>
@@ -889,7 +897,7 @@ selecting these menu items.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>app_menu</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <span class="type">GMenuModel</span>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -900,7 +908,7 @@ selecting these menu items.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-application-get-menubar"></a><h3>gtk_application_get_menubar ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="returnvalue">GMenuModel</span></a> *
+<pre class="programlisting"><span class="returnvalue">GMenuModel</span> *
 gtk_application_get_menubar (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>);</pre>
 <p>Returns the menu model that has been set with
 <a class="link" href="GtkApplication.html#gtk-application-set-menubar" title="gtk_application_set_menubar ()"><code class="function">gtk_application_set_menubar()</code></a>.</p>
@@ -921,7 +929,7 @@ gtk_application_get_menubar (<em class="parameter"><code><a class="link" href="G
 </div>
 <div class="refsect3">
 <a name="gtk-application-get-menubar.returns"></a><h4>Returns</h4>
-<p> the menubar for windows of <em class="parameter"><code>application</code></em>
+<p>the menubar for windows of <em class="parameter"><code>application</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -932,12 +940,12 @@ gtk_application_get_menubar (<em class="parameter"><code><a class="link" href="G
 <a name="gtk-application-set-menubar"></a><h3>gtk_application_set_menubar ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_application_set_menubar (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
-                             <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> *menubar</code></em>);</pre>
+                             <em class="parameter"><code><span class="type">GMenuModel</span> *menubar</code></em>);</pre>
 <p>Sets or unsets the menubar for windows of <em class="parameter"><code>application</code></em>
 .</p>
 <p>This is a menubar in the traditional sense.</p>
 <p>This can only be done in the primary instance of the application,
-after it has been registered.  <a href="https://developer.gnome.org/gio/unstable/GApplication.html#GApplication-startup"><span class="type">“startup”</span></a> is a good place
+after it has been registered.  <span class="type">“startup”</span> is a good place
 to call this.</p>
 <p>Depending on the desktop environment, this may appear at the top of
 each window, or at the top of the screen.  In some environments, if
@@ -946,7 +954,7 @@ menu will be presented as if it were the first item of the menubar.
 Other environments treat the two as completely separate — for example,
 the application menu may be rendered by the desktop shell while the
 menubar (if set) remains in each individual window.</p>
-<p>Use the base <a href="https://developer.gnome.org/gio/unstable/GActionMap.html#GActionMap-struct"><span class="type">GActionMap</span></a> interface to add actions, to respond to the
+<p>Use the base <span class="type">GActionMap</span> interface to add actions, to respond to the
 user selecting these menu items.</p>
 <div class="refsect3">
 <a name="gtk-application-set-menubar.parameters"></a><h4>Parameters</h4>
@@ -964,7 +972,7 @@ user selecting these menu items.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>menubar</p></td>
-<td class="parameter_description"><p> a <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <span class="type">GMenuModel</span>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -975,7 +983,7 @@ user selecting these menu items.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-application-get-menu-by-id"></a><h3>gtk_application_get_menu_by_id ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gio/unstable/GMenu.html#GMenu-struct"><span class="returnvalue">GMenu</span></a> *
+<pre class="programlisting"><span class="returnvalue">GMenu</span> *
 gtk_application_get_menu_by_id (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id</code></em>);</pre>
 <p>Gets a menu from automatically loaded resources.
@@ -1005,7 +1013,7 @@ for more information.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-application-get-menu-by-id.returns"></a><h4>Returns</h4>
-<p> Gets the menu with the
+<p>Gets the menu with the
 given id from the automatically loaded resources. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -1036,7 +1044,7 @@ in the app menu, i.e. actions that have been added to the application
 are referred to with an “app.” prefix, and window-specific actions
 with a “win.” prefix.</p>
 <p>GtkApplication also extracts accelerators out of “accel” attributes
-in the <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModels</span></a> passed to <a class="link" href="GtkApplication.html#gtk-application-set-app-menu" title="gtk_application_set_app_menu ()"><code class="function">gtk_application_set_app_menu()</code></a> and
+in the <span class="type">GMenuModels</span> passed to <a class="link" href="GtkApplication.html#gtk-application-set-app-menu" title="gtk_application_set_app_menu ()"><code class="function">gtk_application_set_app_menu()</code></a> and
 <a class="link" href="GtkApplication.html#gtk-application-set-menubar" title="gtk_application_set_menubar ()"><code class="function">gtk_application_set_menubar()</code></a>, which is usually more convenient
 than calling this function for each accelerator.</p>
 <div class="refsect3">
@@ -1065,7 +1073,7 @@ than calling this function for each accelerator.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>parameter</p></td>
-<td class="parameter_description"><p> parameter to pass when activating the action,
+<td class="parameter_description"><p>parameter to pass when activating the action,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the action does not accept an activation parameter. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1108,7 +1116,7 @@ with <a class="link" href="GtkApplication.html#gtk-application-add-accelerator" 
 </tr>
 <tr>
 <td class="parameter_name"><p>parameter</p></td>
-<td class="parameter_description"><p> parameter to pass when activating the action,
+<td class="parameter_description"><p>parameter to pass when activating the action,
 or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the action does not accept an activation parameter. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1142,7 +1150,7 @@ See <a class="link" href="GtkApplication.html#gtk-application-set-accels-for-act
 </div>
 <div class="refsect3">
 <a name="gtk-application-list-action-descriptions.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings,
+<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings,
 free with <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> when done. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -1181,7 +1189,7 @@ and target to obtain accelerators for</p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-application-get-accels-for-action.returns"></a><h4>Returns</h4>
-<p> accelerators for <em class="parameter"><code>detailed_action_name</code></em>
+<p>accelerators for <em class="parameter"><code>detailed_action_name</code></em>
 , as
 a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array. Free with <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> when no longer needed. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -1203,8 +1211,8 @@ accelerator, which may be displayed in the UI.</p>
 array for <em class="parameter"><code>accels</code></em>
 .</p>
 <p>For the <em class="parameter"><code>detailed_action_name</code></em>
-, see <a href="https://developer.gnome.org/gio/unstable/GAction.html#g-action-parse-detailed-name"><code class="function">g_action_parse_detailed_name()</code></a> and
-<a href="https://developer.gnome.org/gio/unstable/GAction.html#g-action-print-detailed-name"><code class="function">g_action_print_detailed_name()</code></a>.</p>
+, see <code class="function">g_action_parse_detailed_name()</code> and
+<code class="function">g_action_print_detailed_name()</code>.</p>
 <div class="refsect3">
 <a name="gtk-application-set-accels-for-action.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -1227,7 +1235,7 @@ and target to associate accelerators with</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>accels</p></td>
-<td class="parameter_description"><p> a list of accelerators in the format
+<td class="parameter_description"><p>a list of accelerators in the format
 understood by <a class="link" href="gtk3-Keyboard-Accelerators.html#gtk-accelerator-parse" title="gtk_accelerator_parse ()"><code class="function">gtk_accelerator_parse()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
@@ -1279,7 +1287,7 @@ If you are unsure, check it with <a class="link" href="gtk3-Keyboard-Accelerator
 </div>
 <div class="refsect3">
 <a name="gtk-application-get-actions-for-accel.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of actions for <em class="parameter"><code>accel</code></em>
+<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of actions for <em class="parameter"><code>accel</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -1392,14 +1400,14 @@ explicitly through <a class="link" href="GtkApplication.html#gtk-application-rem
 <hr>
 <div class="refsect2">
 <a name="GtkApplication--app-menu"></a><h3>The <code class="literal">“app-menu”</code> property</h3>
-<pre class="programlisting">  “app-menu”                 <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> *</pre>
+<pre class="programlisting">  “app-menu”                 <span class="type">GMenuModel</span> *</pre>
 <p>The GMenuModel for the application menu.</p>
 <p>Flags: Read / Write</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkApplication--menubar"></a><h3>The <code class="literal">“menubar”</code> property</h3>
-<pre class="programlisting">  “menubar”                  <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> *</pre>
+<pre class="programlisting">  “menubar”                  <span class="type">GMenuModel</span> *</pre>
 <p>The GMenuModel for the menubar.</p>
 <p>Flags: Read / Write</p>
 </div>
@@ -1411,6 +1419,18 @@ explicitly through <a class="link" href="GtkApplication.html#gtk-application-rem
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
 <p class="since">Since: <a class="link" href="api-index-3-4.html#api-index-3.4">3.4</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkApplication--screensaver-active"></a><h3>The <code class="literal">“screensaver-active”</code> property</h3>
+<pre class="programlisting">  “screensaver-active”       <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<p>This property is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if GTK+ believes that the screensaver is
+currently active. GTK+ only tracks session state (including this)
+when <span class="type">“register-session”</span> is set to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.</p>
+<p>Tracking the screensaver state is supported on Linux.</p>
+<p>Flags: Read</p>
+<p>Default value: FALSE</p>
+<p class="since">Since: <a class="link" href="api-index-3-24.html#api-index-3.24">3.24</a></p>
 </div>
 </div>
 <div class="refsect1">
@@ -1498,6 +1518,6 @@ through <a class="link" href="GtkApplication.html#gtk-application-remove-window"
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

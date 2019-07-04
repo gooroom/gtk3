@@ -8,7 +8,7 @@
 <link rel="up" href="AbstractObjects.html" title="Abstract Base Classes">
 <link rel="prev" href="GtkBin.html" title="GtkBin">
 <link rel="next" href="GtkRange.html" title="GtkRange">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -318,7 +318,7 @@ item list.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>child</p></td>
-<td class="parameter_description"><p> The <a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMenuItem</span></a> to add. </p></td>
+<td class="parameter_description"><p>The <a class="link" href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMenuItem</span></a> to add. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> Gtk.MenuItem]</span></td>
 </tr>
 </tbody>
@@ -599,7 +599,7 @@ work if the focus is on some toplevel owned by the onscreen keyboard.</p>
  set to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>
 should not display mnemonics or accelerators, since it cannot be
 guaranteed that they will work.</p>
-<p>See also <code class="function">gdk_keyboard_grab()</code></p>
+<p>See also <a href="https://developer.gnome.org/gdk3/gdk3-General.html#gdk-keyboard-grab"><code class="function">gdk_keyboard_grab()</code></a></p>
 <div class="refsect3">
 <a name="gtk-menu-shell-set-take-focus.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -675,7 +675,7 @@ gtk_menu_shell_get_selected_item (<em class="parameter"><code><a class="link" hr
 </div>
 <div class="refsect3">
 <a name="gtk-menu-shell-get-selected-item.returns"></a><h4>Returns</h4>
-<p> the currently selected item. </p>
+<p>the currently selected item. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -705,7 +705,7 @@ from which it was opened up.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-menu-shell-get-parent-shell.returns"></a><h4>Returns</h4>
-<p> the parent <a class="link" href="GtkMenuShell.html" title="GtkMenuShell"><span class="type">GtkMenuShell</span></a>. </p>
+<p>the parent <a class="link" href="GtkMenuShell.html" title="GtkMenuShell"><span class="type">GtkMenuShell</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -715,10 +715,10 @@ from which it was opened up.</p>
 <a name="gtk-menu-shell-bind-model"></a><h3>gtk_menu_shell_bind_model ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_menu_shell_bind_model (<em class="parameter"><code><a class="link" href="GtkMenuShell.html" title="GtkMenuShell"><span class="type">GtkMenuShell</span></a> *menu_shell</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> *model</code></em>,
+                           <em class="parameter"><code><span class="type">GMenuModel</span> *model</code></em>,
                            <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *action_namespace</code></em>,
                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> with_separators</code></em>);</pre>
-<p>Establishes a binding between a <a class="link" href="GtkMenuShell.html" title="GtkMenuShell"><span class="type">GtkMenuShell</span></a> and a <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a>.</p>
+<p>Establishes a binding between a <a class="link" href="GtkMenuShell.html" title="GtkMenuShell"><span class="type">GtkMenuShell</span></a> and a <span class="type">GMenuModel</span>.</p>
 <p>The contents of <em class="parameter"><code>shell</code></em>
  are removed and then refilled with menu items
 according to <em class="parameter"><code>model</code></em>
@@ -752,10 +752,10 @@ to attach your own action group to the widget hierarchy using
 <a class="link" href="GtkWidget.html#gtk-widget-insert-action-group" title="gtk_widget_insert_action_group ()"><code class="function">gtk_widget_insert_action_group()</code></a>.  As an example, if you created a
 group with a “quit” action and inserted it with the name “mygroup”
 then you would use the action name “mygroup.quit” in your
-<a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a>.</p>
+<span class="type">GMenuModel</span>.</p>
 <p>For most cases you are probably better off using
 <a class="link" href="GtkMenu.html#gtk-menu-new-from-model" title="gtk_menu_new_from_model ()"><code class="function">gtk_menu_new_from_model()</code></a> or <a class="link" href="GtkMenuBar.html#gtk-menu-bar-new-from-model" title="gtk_menu_bar_new_from_model ()"><code class="function">gtk_menu_bar_new_from_model()</code></a> or just
-directly passing the <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> to <a class="link" href="GtkApplication.html#gtk-application-set-app-menu" title="gtk_application_set_app_menu ()"><code class="function">gtk_application_set_app_menu()</code></a> or
+directly passing the <span class="type">GMenuModel</span> to <a class="link" href="GtkApplication.html#gtk-application-set-app-menu" title="gtk_application_set_app_menu ()"><code class="function">gtk_application_set_app_menu()</code></a> or
 <a class="link" href="GtkApplication.html#gtk-application-set-menubar" title="gtk_application_set_menubar ()"><code class="function">gtk_application_set_menubar()</code></a>.</p>
 <div class="refsect3">
 <a name="gtk-menu-shell-bind-model.parameters"></a><h4>Parameters</h4>
@@ -773,13 +773,13 @@ directly passing the <a href="https://developer.gnome.org/gio/unstable/GMenuMode
 </tr>
 <tr>
 <td class="parameter_name"><p>model</p></td>
-<td class="parameter_description"><p> the <a href="https://developer.gnome.org/gio/unstable/GMenuModel.html#GMenuModel-struct"><span class="type">GMenuModel</span></a> to bind to or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to remove
+<td class="parameter_description"><p>the <span class="type">GMenuModel</span> to bind to or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to remove
 binding. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>action_namespace</p></td>
-<td class="parameter_description"><p> the namespace for actions in <em class="parameter"><code>model</code></em>
+<td class="parameter_description"><p>the namespace for actions in <em class="parameter"><code>model</code></em>
 . </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -1167,6 +1167,6 @@ completed within a menu shell.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

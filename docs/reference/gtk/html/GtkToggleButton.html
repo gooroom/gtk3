@@ -8,7 +8,7 @@
 <link rel="up" href="ButtonWidgets.html" title="Buttons and Toggles">
 <link rel="prev" href="GtkRadioButton.html" title="GtkRadioButton">
 <link rel="next" href="GtkLinkButton.html" title="GtkLinkButton">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -260,40 +260,46 @@ it from a plain <a class="link" href="GtkButton.html" title="GtkButton"><span cl
 30
 31
 32
-33</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc kwb">void</span> <span class="function">make_toggles</span> <span class="gtkdoc opt">(</span><span class="gtkdoc kwb">void</span><span class="gtkdoc opt">) {</span>
-   GtkWidget <span class="gtkdoc opt">*</span>dialog<span class="gtkdoc opt">, *</span>toggle1<span class="gtkdoc opt">, *</span>toggle2<span class="gtkdoc opt">;</span>
-   GtkWidget <span class="gtkdoc opt">*</span>content_area<span class="gtkdoc opt">;</span>
-   <span class="gtkdoc kwb">const char</span> <span class="gtkdoc opt">*</span>text<span class="gtkdoc opt">;</span>
+33
+34
+35
+36</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">output_state</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkToggleButton</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">source</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">gpointer</span><span class="normal"> user_data</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">  </span><span class="function">printf</span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Active: %d</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="GtkToggleButton.html#gtk-toggle-button-get-active">gtk_toggle_button_get_active</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">source</span><span class="symbol">));</span>
+<span class="cbracket">}</span>
 
-   dialog <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkDialog.html#gtk-dialog-new">gtk_dialog_new</a></span> <span class="gtkdoc opt">(</span>text<span class="gtkdoc opt">);</span>
-   content_area <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkDialog.html#gtk-dialog-get-content-area">gtk_dialog_get_content_area</a></span> <span class="gtkdoc opt">();</span>
+<span class="type">void</span><span class="normal"> </span><span class="function">make_toggles</span><span class="normal"> </span><span class="symbol">(</span><span class="type">void</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">  </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">window</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">toggle1</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">toggle2</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">box</span><span class="symbol">;</span>
+<span class="normal">  </span><span class="keyword">const</span><span class="normal"> </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">text</span><span class="symbol">;</span>
 
-   text <span class="gtkdoc opt">=</span> <span class="string">&quot;Hi, i’m a toggle button.&quot;</span><span class="gtkdoc opt">;</span>
-   toggle1 <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkToggleButton.html#gtk-toggle-button-new-with-label">gtk_toggle_button_new_with_label</a></span> <span class="gtkdoc opt">(</span>text<span class="gtkdoc opt">);</span>
+<span class="normal">  window </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWindow.html#gtk-window-new">gtk_window_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="GtkWindow.html#GTK-WINDOW-TOPLEVEL:CAPS">GTK_WINDOW_TOPLEVEL</a></span><span class="symbol">);</span>
+<span class="normal">  box </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkBox.html#gtk-box-new">gtk_box_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="gtk3-Standard-Enumerations.html#GTK-ORIENTATION-VERTICAL:CAPS">GTK_ORIENTATION_VERTICAL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="number">12</span><span class="symbol">);</span>
 
-   <span class="gtkdoc slc">// Makes this toggle button invisible</span>
-   <span class="function"><a href="GtkToggleButton.html#gtk-toggle-button-set-mode">gtk_toggle_button_set_mode</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_TOGGLE_BUTTON</span> <span class="gtkdoc opt">(</span>toggle1<span class="gtkdoc opt">),</span>
-                               TRUE<span class="gtkdoc opt">);</span>
+<span class="normal">  text </span><span class="symbol">=</span><span class="normal"> </span><span class="string">"Hi, I’m a toggle button."</span><span class="symbol">;</span>
+<span class="normal">  toggle1 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkToggleButton.html#gtk-toggle-button-new-with-label">gtk_toggle_button_new_with_label</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">text</span><span class="symbol">);</span>
 
-   <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>toggle1<span class="gtkdoc opt">,</span> <span class="string">&quot;toggled&quot;</span><span class="gtkdoc opt">,</span>
-                     <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>output_state<span class="gtkdoc opt">),</span>
-                     NULL<span class="gtkdoc opt">);</span>
-   <span class="function"><a href="GtkBox.html#gtk-box-pack-start">gtk_box_pack_start</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_BOX</span> <span class="gtkdoc opt">(</span>content_area<span class="gtkdoc opt">),</span>
-                       toggle1<span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">,</span> <span class="number">2</span><span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="comment">// Makes this toggle button invisible</span>
+<span class="normal">  </span><span class="function"><a href="GtkToggleButton.html#gtk-toggle-button-set-mode">gtk_toggle_button_set_mode</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TOGGLE_BUTTON</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">toggle1</span><span class="symbol">),</span>
+<span class="normal">                              <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">);</span>
 
-   text <span class="gtkdoc opt">=</span> <span class="string">&quot;Hi, i’m a toggle button.&quot;</span><span class="gtkdoc opt">;</span>
-   toggle2 <span class="gtkdoc opt">=</span> <span class="function"><a href="GtkToggleButton.html#gtk-toggle-button-new-with-label">gtk_toggle_button_new_with_label</a></span> <span class="gtkdoc opt">(</span>text<span class="gtkdoc opt">);</span>
-   <span class="function"><a href="GtkToggleButton.html#gtk-toggle-button-set-mode">gtk_toggle_button_set_mode</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_TOGGLE_BUTTON</span> <span class="gtkdoc opt">(</span>toggle2<span class="gtkdoc opt">),</span>
-                               FALSE<span class="gtkdoc opt">);</span>
-   <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span> <span class="gtkdoc opt">(</span>toggle2<span class="gtkdoc opt">,</span> <span class="string">&quot;toggled&quot;</span><span class="gtkdoc opt">,</span>
-                     <span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span> <span class="gtkdoc opt">(</span>output_state<span class="gtkdoc opt">),</span>
-                     NULL<span class="gtkdoc opt">);</span>
-   <span class="function"><a href="GtkBox.html#gtk-box-pack-start">gtk_box_pack_start</a></span> <span class="gtkdoc opt">(</span><span class="function">GTK_BOX</span> <span class="gtkdoc opt">(</span>content_area<span class="gtkdoc opt">),</span>
-                       toggle2<span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">,</span> FALSE<span class="gtkdoc opt">,</span> <span class="number">2</span><span class="gtkdoc opt">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">toggle1</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"toggled"</span><span class="symbol">,</span>
+<span class="normal">                    </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">output_state</span><span class="symbol">),</span>
+<span class="normal">                    <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">box</span><span class="symbol">),</span><span class="normal"> toggle1</span><span class="symbol">);</span>
 
-   <span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span> <span class="gtkdoc opt">(</span>dialog<span class="gtkdoc opt">);</span>
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">  text </span><span class="symbol">=</span><span class="normal"> </span><span class="string">"Hi, I’m a toggle button."</span><span class="symbol">;</span>
+<span class="normal">  toggle2 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkToggleButton.html#gtk-toggle-button-new-with-label">gtk_toggle_button_new_with_label</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">text</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkToggleButton.html#gtk-toggle-button-set-mode">gtk_toggle_button_set_mode</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TOGGLE_BUTTON</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">toggle2</span><span class="symbol">),</span>
+<span class="normal">                              <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">toggle2</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"toggled"</span><span class="symbol">,</span>
+<span class="normal">                    </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">output_state</span><span class="symbol">),</span>
+<span class="normal">                    <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">box</span><span class="symbol">),</span><span class="normal"> toggle2</span><span class="symbol">);</span>
+
+<span class="normal">  </span><span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">),</span><span class="normal"> box</span><span class="symbol">);</span>
+<span class="normal">  </span><span class="function"><a href="GtkWidget.html#gtk-widget-show-all">gtk_widget_show_all</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">);</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -659,6 +665,6 @@ user_function (<a class="link" href="GtkToggleButton.html" title="GtkToggleButto
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

@@ -35,9 +35,8 @@ struct _GdkQuartzScreen
 
   gint width;
   gint height;
-
-  int n_screens;
-  GdkRectangle *screen_rects;
+  gint mm_width;
+  gint mm_height;
 
   guint screen_changed_id;
 

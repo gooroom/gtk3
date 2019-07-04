@@ -9,9 +9,9 @@
 # set GTK_BINARY_AGE and GTK_INTERFACE_AGE to 0.
 
 m4_define([gtk_major_version], [3])
-m4_define([gtk_minor_version], [22])
-m4_define([gtk_micro_version], [11])
-m4_define([gtk_interface_age], [11])
+m4_define([gtk_minor_version], [24])
+m4_define([gtk_micro_version], [5])
+m4_define([gtk_interface_age], [1])
 m4_define([gtk_binary_age],
           [m4_eval(100 * gtk_minor_version + gtk_micro_version)])
 m4_define([gtk_version],
@@ -42,7 +42,7 @@ m4_define([gtk_binary_version], [3.0.0])
 
 # required versions of other packages
 m4_define([glib_required_major], [2])
-m4_define([glib_required_minor], [49])
+m4_define([glib_required_minor], [53])
 m4_define([glib_required_micro], [4])
 m4_define([glib_required_version],
           [glib_required_major.glib_required_minor.glib_required_micro])
@@ -54,16 +54,18 @@ m4_define([glib_min_required_version], m4_join([_], [GLIB_VERSION], glib_require
 m4_define([glib_max_allowed_version], m4_join([_], [GLIB_VERSION], glib_required_major, glib_max_allowed_minor))
 GLIB_VERSION_CFLAGS="-DGLIB_MIN_REQUIRED_VERSION=glib_min_required_version -DGLIB_MAX_ALLOWED_VERSION=glib_max_allowed_version"
 
-m4_define([pango_required_version], [1.37.3])
+m4_define([pango_required_version], [1.41.0])
+m4_define([fribidi_required_version], [0.19.7])
 m4_define([atk_required_version], [2.15.1])
 m4_define([cairo_required_version], [1.14.0])
 m4_define([gdk_pixbuf_required_version], [2.30.0])
 m4_define([introspection_required_version], [1.39.0])
 m4_define([wayland_required_version], [1.9.91])
-m4_define([wayland_protocols_required_version], [1.7])
+m4_define([wayland_protocols_required_version], [1.12])
 m4_define([mirclient_required_version], [0.22.0])
 m4_define([mircookie_required_version], [0.17.0])
-m4_define([epoxy_required_version], [1.0])
+m4_define([epoxy_required_version], [1.4])
+m4_define([cloudproviders_required_version], [0.2.5])
 GLIB_REQUIRED_VERSION=glib_required_version
 PANGO_REQUIRED_VERSION=pango_required_version
 ATK_REQUIRED_VERSION=atk_required_version
@@ -81,7 +83,7 @@ AC_SUBST(INTROSPECTION_REQUIRED_VERSION)
 # Save this value here, since automake will set cflags later
 cflags_set=${CFLAGS+set}
 
-AM_INIT_AUTOMAKE([1.11 -Wall no-define -Wno-portability tar-ustar no-dist-gzip dist-xz])
+AM_INIT_AUTOMAKE([1.11 -Wall subdir-objects no-define -Wno-portability tar-ustar no-dist-gzip dist-xz])
 AM_MAINTAINER_MODE([enable])
 
 # Support silent build rules. Disable
@@ -346,6 +348,11 @@ AC_ARG_ENABLE(mir-backend,
                               [enable the Mir gdk backend])],
 			      [backend_set=yes])
 
+AC_ARG_ENABLE(cloudproviders,
+              [AS_HELP_STRING([--enable-cloudproviders],
+                              [enable libcloudproviders integration])],
+                              [cloudproviders_set=yes])
+
 if test -z "$backend_set"; then
   if test "$platform_win32" = yes; then
     enable_win32_backend=yes
@@ -403,7 +410,7 @@ if test "x$enable_quartz_backend" = xyes; then
   backend_immodules="$backend_immodules,quartz"
   GDK_WINDOWING="$GDK_WINDOWING
 #define GDK_WINDOWING_QUARTZ"
-  GDK_EXTRA_LIBS="$GDK_EXTRA_LIBS -framework Cocoa"
+  GDK_EXTRA_LIBS="$GDK_EXTRA_LIBS -Wl,-framework,Cocoa"
   DISABLE_ON_QUARTZ='%'
   AM_CONDITIONAL(USE_QUARTZ, true)
   if test "x$quartz_relocation" = xyes; then
@@ -453,10 +460,11 @@ if test "$enable_wayland_backend" = "yes"; then
   GDK_BACKENDS="$GDK_BACKENDS wayland"
   GDK_WINDOWING="$GDK_WINDOWING
 #define GDK_WINDOWING_WAYLAND"
+  backend_immodules="$backend_immodules,wayland"
   WAYLAND_PACKAGES="$WAYLAND_DEPENDENCIES"
   AC_PATH_PROG([WAYLAND_SCANNER],[wayland-scanner],[no])
   AS_IF([test "x$WAYLAND_SCANNER" = "xno"],
-    AC_MSG_ERROR([Could not find wayland-scanner in your PATH, required for parsing wayland extension protocols]))
+    [AC_MSG_ERROR([Could not find wayland-scanner in your PATH, required for parsing wayland extension protocols])])
   AC_SUBST([WAYLAND_SCANNER])
 
   AM_CONDITIONAL(USE_WAYLAND, true)
@@ -578,6 +586,7 @@ PKG_CHECK_MODULES(BASE_DEPENDENCIES,
   [glib-2.0 >= glib_required_version dnl
    atk >= atk_required_version dnl
    pango >= pango_required_version dnl
+   fribidi >= fribidi_required_version dnl
    cairo >= cairo_required_version dnl
    cairo-gobject >= cairo_required_version dnl
    gdk-pixbuf-2.0 >= gdk_pixbuf_required_version])
@@ -812,7 +821,13 @@ LIBS=$gtk_save_LIBS
 
 AC_CHECK_HEADERS(linux/memfd.h,
                  AC_DEFINE(HAVE_LINUX_MEMFD_H, 1,
-                           [Define to 1 if memfd.h is available]))
+                           [Define to 1 if linux/memfd.h is available]))
+AC_CHECK_HEADERS(linux/input.h,
+                 AC_DEFINE(HAVE_LINUX_INPUT_H, 1,
+                           [Define to 1 if linux/input.h is available]))
+AC_CHECK_HEADERS(dev/evdev/input.h,
+                 AC_DEFINE(HAVE_DEV_EVDEV_INPUT_H, 1,
+                           [Define to 1 if dev/evdev/input.h is available]))
 AC_CHECK_HEADERS(sys/mman.h,
                  AC_DEFINE(HAVE_SYS_MMAN_H, 1,
                            [Define to 1 if mman.h is available]))
@@ -863,9 +878,10 @@ AC_CHECK_FUNCS(mallinfo)
 AC_CHECK_FUNCS(getresuid)
 AC_TYPE_UID_T
 
-# Check for round(), rint(), isnan(), isinf() and nearbyint()
+# Check for round(), rint(), isnan() and isinf()
+# Check for log2(), exp2(), nearbyint() and trunc()
 AC_CHECK_LIB(m,round,,)
-AC_CHECK_FUNCS(round rint nearbyint sincos exp2 log2)
+AC_CHECK_FUNCS(round rint nearbyint sincos exp2 log2 trunc)
 AC_CHECK_DECLS([isnan, isinf], [], [], [[#include <math.h>]])
 
 # Checks for gdkspawn
@@ -984,6 +1000,7 @@ AM_CONDITIONAL(INCLUDE_IM_TI_ER, [test x"$INCLUDE_ti_er" = xyes])
 AM_CONDITIONAL(INCLUDE_IM_TI_ET, [test x"$INCLUDE_ti_et" = xyes])
 AM_CONDITIONAL(INCLUDE_IM_VIQR, [test x"$INCLUDE_viqr" = xyes])
 AM_CONDITIONAL(INCLUDE_IM_XIM, [test x"$INCLUDE_xim" = xyes])
+AM_CONDITIONAL(INCLUDE_IM_WAYLAND, [test x"$INCLUDE_wayland" = xyes])
 
 # Checks to see whether we should include mediaLib
 # support.
@@ -1341,11 +1358,26 @@ else
         LIBS="$gtk_save_LIBS"
 fi
 
+# Check for libcloudproviders
+
+CLOUDPROVIDER_PACKAGES=""
+if test "x$cloudproviders_set" = "xyes"; then
+  CLOUDPROVIDER_PACKAGES="cloudproviders >= cloudproviders_required_version"
+  if $PKG_CONFIG --exists $CLOUDPROVIDER_PACKAGES ; then
+    AC_DEFINE(HAVE_CLOUDPROVIDERS, [1],
+              [Define if libcloudproviders is available]
+              )
+  else
+    AC_MSG_ERROR([
+*** libcloudproviders not found.])
+  fi
+fi
+
 CFLAGS="$saved_cflags"
 LDFLAGS="$saved_ldflags"
 
 GDK_PACKAGES="$PANGO_PACKAGES gdk-pixbuf-2.0 >= gdk_pixbuf_required_version cairo >= cairo_required_version cairo-gobject >= cairo_required_version"
-GDK_PRIVATE_PACKAGES="$GDK_GIO_PACKAGE $X_PACKAGES $WAYLAND_PACKAGES $MIR_PACKAGES $cairo_backends epoxy >= epoxy_required_version"
+GDK_PRIVATE_PACKAGES="$GDK_GIO_PACKAGE $X_PACKAGES $WAYLAND_PACKAGES $MIR_PACKAGES $cairo_backends epoxy >= epoxy_required_version $CLOUDPROVIDER_PACKAGES"
 
 PKG_CHECK_MODULES(GDK_DEP, $GDK_PACKAGES $GDK_PRIVATE_PACKAGES)
 GDK_DEP_LIBS="$GDK_EXTRA_LIBS $GDK_DEP_LIBS $MATH_LIB"
@@ -1397,6 +1429,22 @@ if test x"$os_win32" = xyes; then
   GTK_EXTRA_CFLAGS="$msnative_struct"
 fi
 
+##################################################
+# Check for harfbuzz and pangoft2
+##################################################
+
+PKG_CHECK_MODULES(GTK_FONT_CHOOSER_WIDGET,
+                  harfbuzz >= 0.9 pangoft2,
+                  build_font_demo=yes,
+                  build_font_demo=no)
+AM_CONDITIONAL(BUILD_FONT_DEMO, [ test "x$build_font_demo" = xyes ])
+if test "x$build_font_demo" = xyes; then
+  AC_DEFINE([HAVE_HARFBUZZ], 1, [defines whether we have HarfBuzz])
+  AC_DEFINE([HAVE_PANGOFT], 1, [defines whether we have pangoft2])
+  GTK_DEP_CFLAGS="$GTK_DEP_CFLAGS $GTK_FONT_CHOOSER_WIDGET_CFLAGS"
+  GTK_DEP_LIBS="$GTK_DEP_LIBS $GTK_FONT_CHOOSER_WIDGET_LIBS"
+fi
+
 if $PKG_CONFIG --exists x11; then
   X11_PREFIX="`$PKG_CONFIG --variable=prefix x11`"
 elif test x"$prefix" != xNONE; then
@@ -1405,10 +1453,48 @@ else
   X11_PREFIX="$ac_default_prefix"
 fi
 
+AC_ARG_ENABLE(win32-gles,
+              [AS_HELP_STRING([--enable-win32-gles],
+                              [enable OpenGL ES rendering in Win32 backend, disabled by default])],
+                              [win32_gles=yes],
+                              [win32_gles=no])
+
+if test x"$enable_win32_backend" = xyes; then
+  AC_MSG_CHECKING(WGL support in epoxy)
+  WGL_SUPPORT="`$PKG_CONFIG --variable=epoxy_has_wgl epoxy`"
+  if test x"$WGL_SUPPORT" = x1; then
+    AC_MSG_RESULT([supported])
+  else
+    AC_MSG_ERROR([
+*** epoxy was not built with WGL support or epoxy version is too old.
+*** WGL support in epoxy is enabled by default for all Windows builds,
+*** and is used by GTK+ uncondititonally. If it is not there, then
+*** something is very wrong.
+])
+  fi
+  if test x"$win32_gles" = xyes; then
+    AC_MSG_CHECKING(EGL support in epoxy)
+    EGL_SUPPORT="`$PKG_CONFIG --variable=epoxy_has_egl epoxy`"
+    if test x"$EGL_SUPPORT" = x1; then
+      AC_MSG_RESULT([supported])
+    else
+      AC_MSG_ERROR([
+*** epoxy was not built with EGL support or epoxy version is too old.
+*** EGL support in epoxy is disabled by default in Windows builds,
+*** you might need to rebuild epoxy with explicit --enable-egl=yes.
+*** EGL support is needed for OpenGL ES rendering.
+])
+    fi
+  fi
+fi
+
+AM_CONDITIONAL(WIN32_GLES, test x"$platform_win32" = xyes -a x"$win32_gles" = xyes)
+
 GLIB_PREFIX="`$PKG_CONFIG --variable=prefix glib-2.0`"
 ATK_PREFIX="`$PKG_CONFIG --variable=prefix atk`"
 PANGO_PREFIX="`$PKG_CONFIG --variable=prefix pango`"
 CAIRO_PREFIX="`$PKG_CONFIG --variable=prefix cairo`"
+ISO_CODES_PREFIX="`$PKG_CONFIG --variable=prefix iso-codes`"
 
 AC_SUBST(GTK_PACKAGES)
 AC_SUBST(GTK_PRIVATE_PACKAGES)
@@ -1422,6 +1508,7 @@ AC_SUBST(GLIB_PREFIX)
 AC_SUBST(ATK_PREFIX)
 AC_SUBST(PANGO_PREFIX)
 AC_SUBST(CAIRO_PREFIX)
+AC_SUBST(ISO_CODES_PREFIX)
 
 AC_SUBST(GTK_DEBUG_FLAGS)
 AC_SUBST(GTK_XIM_FLAGS)
@@ -1710,15 +1797,6 @@ fi
 AM_CONDITIONAL(HAVE_COLORD, test "x$have_colord" = "xyes")
 
 ##################################################
-# Check for harfbuzz and pangoft2
-##################################################
-
-PKG_CHECK_MODULES(FONTDEMO, harfbuzz >= 0.9 pangoft2, build_font_demo=yes, build_font_demo=no)
-AC_SUBST(FONTDEMO_CFLAGS)
-AC_SUBST(FONTDEMO_LIBS)
-AM_CONDITIONAL(BUILD_FONT_DEMO, [ test "x$build_font_demo" = xyes ])
-
-##################################################
 # Checks for gtk-doc and docbook-tools
 ##################################################
 
@@ -1799,7 +1877,7 @@ case "$host" in
     SAVED_CFLAGS="${CFLAGS}"
     CFLAGS="-fvisibility=hidden"
     AC_MSG_CHECKING([for -fvisibility=hidden compiler flag])
-    AC_TRY_COMPILE([], [int main (void) { return 0; }],
+    AC_TRY_COMPILE([], [return 0],
                    AC_MSG_RESULT(yes)
                    enable_fvisibility_hidden=yes,
                    AC_MSG_RESULT(no)
@@ -1814,6 +1892,14 @@ case "$host" in
     ;;
 esac
 AC_SUBST(GDK_HIDDEN_VISIBILITY_CFLAGS)
+
+##################################################
+# Theming
+##################################################
+
+AC_PATH_PROG([SASSC], [sassc])
+AC_ARG_VAR(SASSC)
+AM_CONDITIONAL([REBUILD_SCSS], [test "x$SASSC" != x])
 
 ##################################################
 # Output commands
@@ -1872,8 +1958,7 @@ AC_ARG_ENABLE(Bsymbolic,
               [SAVED_LDFLAGS="${LDFLAGS}"
                AC_MSG_CHECKING([for -Bsymbolic-functions linker flag])
                LDFLAGS=-Wl,-Bsymbolic-functions
-               AC_LINK_IFELSE([AC_LANG_PROGRAM([[]],
-                                               [[int main (void) { return 0; }]])],
+               AC_LINK_IFELSE([AC_LANG_PROGRAM([[]], [[return 0]])],
                               [AC_MSG_RESULT(yes)
                                enable_Bsymbolic=yes],
                               [AC_MSG_RESULT(no)

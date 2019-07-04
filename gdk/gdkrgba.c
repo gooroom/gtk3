@@ -55,7 +55,7 @@ G_DEFINE_BOXED_TYPE (GdkRGBA, gdk_rgba,
  *   1.0 for opaque
  *
  * A #GdkRGBA is used to represent a (possibly translucent)
- * color, in a way that is compatible with cairos notion of color.
+ * color, in a way that is compatible with cairo’s notion of color.
  */
 
 /**
@@ -149,8 +149,8 @@ parse_rgb_value (const gchar  *str,
  * - A RGBA color in the form “rgba(r,g,b,a)”
  *
  * Where “r”, “g”, “b” and “a” are respectively the red, green, blue and
- * alpha color values. In the last two cases, r g and b are either integers
- * in the range 0 to 255 or precentage values in the range 0% to 100%, and
+ * alpha color values. In the last two cases, “r”, “g”, and “b” are either integers
+ * in the range 0 to 255 or percentage values in the range 0% to 100%, and
  * a is a floating point value in the range 0 to 1.
  *
  * Returns: %TRUE if the parsing succeeded
@@ -333,18 +333,18 @@ gdk_rgba_equal (gconstpointer p1,
  * @rgba: a #GdkRGBA
  *
  * Returns a textual specification of @rgba in the form
- * `rgb (r, g, b)` or
- * `rgba (r, g, b, a)`,
+ * `rgb(r,g,b)` or
+ * `rgba(r g,b,a)`,
  * where “r”, “g”, “b” and “a” represent the red, green,
- * blue and alpha values respectively. r, g, and b are
- * represented as integers in the range 0 to 255, and a
- * is represented as floating point value in the range 0 to 1.
+ * blue and alpha values respectively. “r”, “g”, and “b” are
+ * represented as integers in the range 0 to 255, and “a”
+ * is represented as a floating point value in the range 0 to 1.
  *
- * These string forms are string forms those supported by
+ * These string forms are string forms that are supported by
  * the CSS3 colors module, and can be parsed by gdk_rgba_parse().
  *
  * Note that this string representation may lose some
- * precision, since r, g and b are represented as 8-bit
+ * precision, since “r”, “g” and “b” are represented as 8-bit
  * integers. If this is a concern, you should use a
  * different representation.
  *

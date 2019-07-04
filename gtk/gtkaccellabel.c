@@ -47,7 +47,7 @@
  * @See_also: #GtkAccelGroup
  *
  * The #GtkAccelLabel widget is a subclass of #GtkLabel that also displays an
- * accelerator key on the right of the label text, e.g. “Ctl+S”.
+ * accelerator key on the right of the label text, e.g. “Ctrl+S”.
  * It is commonly used in menus to show the keyboard short-cuts for commands.
  *
  * The accelerator key to display is typically not set explicitly (although it
@@ -56,10 +56,10 @@
  * set by calling gtk_accel_label_set_accel_widget().
  *
  * For example, a #GtkMenuItem widget may have an accelerator added to emit
- * the “activate” signal when the “Ctl+S” key combination is pressed.
+ * the “activate” signal when the “Ctrl+S” key combination is pressed.
  * A #GtkAccelLabel is created and added to the #GtkMenuItem, and
  * gtk_accel_label_set_accel_widget() is called with the #GtkMenuItem as the
- * second argument. The #GtkAccelLabel will now display “Ctl+S” after its label.
+ * second argument. The #GtkAccelLabel will now display “Ctrl+S” after its label.
  *
  * Note that creating a #GtkMenuItem with gtk_menu_item_new_with_label() (or
  * one of the similar functions for #GtkCheckMenuItem and #GtkRadioMenuItem)
@@ -74,6 +74,8 @@
  * ## Creating a simple menu item with an accelerator key.
  *
  * |[<!-- language="C" -->
+ *   GtkWidget *window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+ *   GtkWidget *menu = gtk_menu_new ();
  *   GtkWidget *save_item;
  *   GtkAccelGroup *accel_group;
  *
@@ -528,15 +530,17 @@ accel_widget_weak_ref_cb (GtkAccelLabel *accel_label,
 /**
  * gtk_accel_label_set_accel_widget:
  * @accel_label: a #GtkAccelLabel
- * @accel_widget: the widget to be monitored.
+ * @accel_widget: (nullable): the widget to be monitored, or %NULL
  *
- * Sets the widget to be monitored by this accelerator label.
+ * Sets the widget to be monitored by this accelerator label. Passing %NULL for
+ * @accel_widget will dissociate @accel_label from its current widget, if any.
  */
 void
 gtk_accel_label_set_accel_widget (GtkAccelLabel *accel_label,
                                   GtkWidget     *accel_widget)
 {
   g_return_if_fail (GTK_IS_ACCEL_LABEL (accel_label));
+
   if (accel_widget)
     g_return_if_fail (GTK_IS_WIDGET (accel_widget));
 
@@ -551,7 +555,9 @@ gtk_accel_label_set_accel_widget (GtkAccelLabel *accel_label,
           g_object_weak_unref (G_OBJECT (accel_label->priv->accel_widget),
                                (GWeakNotify) accel_widget_weak_ref_cb, accel_label);
         }
+
       accel_label->priv->accel_widget = accel_widget;
+
       if (accel_label->priv->accel_widget)
         {
           g_object_weak_ref (G_OBJECT (accel_label->priv->accel_widget),
@@ -561,6 +567,7 @@ gtk_accel_label_set_accel_widget (GtkAccelLabel *accel_label,
                                    accel_label, G_CONNECT_SWAPPED);
           refetch_widget_accel_closure (accel_label);
         }
+
       g_object_notify_by_pspec (G_OBJECT (accel_label), props[PROP_ACCEL_WIDGET]);
     }
 }
@@ -587,16 +594,20 @@ check_accel_changed (GtkAccelGroup  *accel_group,
 /**
  * gtk_accel_label_set_accel_closure:
  * @accel_label: a #GtkAccelLabel
- * @accel_closure: the closure to monitor for accelerator changes.
+ * @accel_closure: (nullable): the closure to monitor for accelerator changes,
+ * or %NULL
  *
  * Sets the closure to be monitored by this accelerator label. The closure
  * must be connected to an accelerator group; see gtk_accel_group_connect().
+ * Passing %NULL for @accel_closure will dissociate @accel_label from its
+ * current closure, if any.
  **/
 void
 gtk_accel_label_set_accel_closure (GtkAccelLabel *accel_label,
 				   GClosure      *accel_closure)
 {
   g_return_if_fail (GTK_IS_ACCEL_LABEL (accel_label));
+
   if (accel_closure)
     g_return_if_fail (gtk_accel_group_from_accel_closure (accel_closure) != NULL);
 
@@ -610,7 +621,9 @@ gtk_accel_label_set_accel_closure (GtkAccelLabel *accel_label,
 	  accel_label->priv->accel_group = NULL;
 	  g_closure_unref (accel_label->priv->accel_closure);
 	}
+
       accel_label->priv->accel_closure = accel_closure;
+
       if (accel_label->priv->accel_closure)
 	{
 	  g_closure_ref (accel_label->priv->accel_closure);
@@ -619,6 +632,7 @@ gtk_accel_label_set_accel_closure (GtkAccelLabel *accel_label,
 				   G_CALLBACK (check_accel_changed),
 				   accel_label, 0);
 	}
+
       gtk_accel_label_reset (accel_label);
       g_object_notify_by_pspec (G_OBJECT (accel_label), props[PROP_ACCEL_CLOSURE]);
     }
@@ -864,7 +878,7 @@ _gtk_accel_label_class_get_accelerator_label (GtkAccelLabelClass *klass,
     }
   
   ch = gdk_keyval_to_unicode (accelerator_key);
-  if (ch && ch < 0x80 && (g_unichar_isgraph (ch) || ch == ' '))
+  if (ch && (ch == ' ' || g_unichar_isgraph (ch)))
     {
       if (seen_mod)
         g_string_append (gstring, klass->mod_separator);

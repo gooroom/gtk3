@@ -6,9 +6,9 @@
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="theming.html" title="Part IV. Theming in GTK+">
-<link rel="prev" href="chap-css-properties.html" title="GTK+ CSS">
+<link rel="prev" href="chap-css-properties.html" title="GTK+ CSS Properties">
 <link rel="next" href="GtkCssProvider.html" title="GtkCssProvider">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -115,7 +115,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="returnvalue">GdkScreen</span></a> *
+<a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="returnvalue">GdkScreen</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkStyleContext.html#gtk-style-context-get-screen" title="gtk_style_context_get_screen ()">gtk_style_context_get_screen</a> <span class="c_punctuation">()</span>
@@ -123,7 +123,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="http://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="returnvalue">GdkFrameClock</span></a> *
+<a href="https://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="returnvalue">GdkFrameClock</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkStyleContext.html#gtk-style-context-get-frame-clock" title="gtk_style_context_get_frame_clock ()">gtk_style_context_get_frame_clock</a> <span class="c_punctuation">()</span>
@@ -226,7 +226,7 @@
 </td>
 </tr>
 <tr>
-<td class="function_type">const <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="returnvalue">PangoFontDescription</span></a> *
+<td class="function_type">const <a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="returnvalue">PangoFontDescription</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkStyleContext.html#gtk-style-context-get-font" title="gtk_style_context_get_font ()">gtk_style_context_get_font</a> <span class="c_punctuation">()</span>
@@ -691,7 +691,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="http://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a> *</td>
+<a href="https://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkStyleContext.html#GtkStyleContext--paint-clock" title="The “paint-clock” property">paint-clock</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -703,7 +703,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *</td>
+<a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkStyleContext.html#GtkStyleContext--screen" title="The “screen” property">screen</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -1154,7 +1154,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkStyleContext.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-Boxed-Types.html">GBoxed</a>
+<pre class="screen">    <a href="/usr/share/gtk-doc/html/gobject/gobject-Boxed-Types.html">GBoxed</a>
     <span class="lineart">╰──</span> GtkBorder
     <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
     <span class="lineart">╰──</span> GtkStyleContext
@@ -1177,15 +1177,12 @@ can be either attached explicitly to the context through
 combination of all providers’ information in priority order.</p>
 <p>For GTK+ widgets, any <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> returned by
 <a class="link" href="GtkWidget.html#gtk-widget-get-style-context" title="gtk_widget_get_style_context ()"><code class="function">gtk_widget_get_style_context()</code></a> will already have a <a class="link" href="gtk3-GtkWidgetPath.html#GtkWidgetPath" title="GtkWidgetPath"><span class="type">GtkWidgetPath</span></a>, a
-<a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> and RTL/LTR information set. The style context will also be
+<a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> and RTL/LTR information set. The style context will also be
 updated automatically if any of these settings change on the widget.</p>
 <p>If you are using the theming layer standalone, you will need to set a
 widget path and a screen yourself to the created style context through
-<a class="link" href="GtkStyleContext.html#gtk-style-context-set-path" title="gtk_style_context_set_path ()"><code class="function">gtk_style_context_set_path()</code></a> and <a class="link" href="GtkStyleContext.html#gtk-style-context-set-screen" title="gtk_style_context_set_screen ()"><code class="function">gtk_style_context_set_screen()</code></a>, as well
-as updating the context yourself using <a class="link" href="GtkStyleContext.html#gtk-style-context-invalidate" title="gtk_style_context_invalidate ()"><code class="function">gtk_style_context_invalidate()</code></a>
-whenever any of the conditions change, such as a change in the
-<a class="link" href="GtkSettings.html#GtkSettings--gtk-theme-name" title="The “gtk-theme-name” property"><span class="type">“gtk-theme-name”</span></a> setting or a hierarchy change in the rendered
-widget. See the “Foreign drawing“ example in gtk3-demo.</p>
+<a class="link" href="GtkStyleContext.html#gtk-style-context-set-path" title="gtk_style_context_set_path ()"><code class="function">gtk_style_context_set_path()</code></a> and possibly <a class="link" href="GtkStyleContext.html#gtk-style-context-set-screen" title="gtk_style_context_set_screen ()"><code class="function">gtk_style_context_set_screen()</code></a>. See
+the “Foreign drawing“ example in gtk3-demo.</p>
 <div class="refsect2">
 <a name="gtkstylecontext-classes"></a><h3>Style Classes</h3>
 <p>Widgets can add style classes to their context, which can be used to associate
@@ -1293,7 +1290,7 @@ between <a class="link" href="GtkStyleProvider.html#GTK-STYLE-PROVIDER-PRIORITY-
 <a name="gtk-style-context-add-provider-for-screen"></a><h3>gtk_style_context_add_provider_for_screen ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_context_add_provider_for_screen
-                               (<em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>,
+                               (<em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkStyleProvider.html" title="GtkStyleProvider"><span class="type">GtkStyleProvider</span></a> *provider</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> priority</code></em>);</pre>
 <p>Adds a global style provider to <em class="parameter"><code>screen</code></em>
@@ -1316,7 +1313,7 @@ over another added through this function.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>screen</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1462,7 +1459,7 @@ See that function for details.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-style-context-get-parent.returns"></a><h4>Returns</h4>
-<p> the parent context or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the parent context or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-4.html#api-index-3.4">3.4</a></p>
@@ -1490,7 +1487,7 @@ gtk_style_context_get_path (<em class="parameter"><code><a class="link" href="Gt
 </div>
 <div class="refsect3">
 <a name="gtk-style-context-get-path.returns"></a><h4>Returns</h4>
-<p> A <a class="link" href="gtk3-GtkWidgetPath.html#GtkWidgetPath" title="GtkWidgetPath"><span class="type">GtkWidgetPath</span></a>. </p>
+<p>A <a class="link" href="gtk3-GtkWidgetPath.html#GtkWidgetPath" title="GtkWidgetPath"><span class="type">GtkWidgetPath</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -1502,11 +1499,11 @@ gtk_style_context_get_path (<em class="parameter"><code><a class="link" href="Gt
 gtk_style_context_get_property (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property</code></em>,
                                 <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkStateFlags" title="enum GtkStateFlags"><span class="type">GtkStateFlags</span></a> state</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);</pre>
+                                <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *value</code></em>);</pre>
 <p>Gets a style property from <em class="parameter"><code>context</code></em>
  for the given state.</p>
 <p>Note that not all CSS properties that are supported by GTK+ can be
-retrieved in this way, since they may not be representable as <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a>.
+retrieved in this way, since they may not be representable as <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a>.
 GTK+ defines macros for a number of properties that can be used
 with this function.</p>
 <p>Note that passing a state other than the current state of <em class="parameter"><code>context</code></em>
@@ -1542,7 +1539,7 @@ to free any allocated memory.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>value</p></td>
-<td class="parameter_description"><p>  return location for the style property value. </p></td>
+<td class="parameter_description"><p>return location for the style property value. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1553,9 +1550,9 @@ to free any allocated memory.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-style-context-get-screen"></a><h3>gtk_style_context_get_screen ()</h3>
-<pre class="programlisting"><a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="returnvalue">GdkScreen</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="returnvalue">GdkScreen</span></a> *
 gtk_style_context_get_screen (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>);</pre>
-<p>Returns the <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> to which <em class="parameter"><code>context</code></em>
+<p>Returns the <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> to which <em class="parameter"><code>context</code></em>
  is attached.</p>
 <div class="refsect3">
 <a name="gtk-style-context-get-screen.parameters"></a><h4>Parameters</h4>
@@ -1574,16 +1571,16 @@ gtk_style_context_get_screen (<em class="parameter"><code><a class="link" href="
 </div>
 <div class="refsect3">
 <a name="gtk-style-context-get-screen.returns"></a><h4>Returns</h4>
-<p> a <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>. </p>
+<p>a <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-style-context-get-frame-clock"></a><h3>gtk_style_context_get_frame_clock ()</h3>
-<pre class="programlisting"><a href="http://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="returnvalue">GdkFrameClock</span></a> *
+<pre class="programlisting"><a href="https://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="returnvalue">GdkFrameClock</span></a> *
 gtk_style_context_get_frame_clock (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>);</pre>
-<p>Returns the <a href="http://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a> to which <em class="parameter"><code>context</code></em>
+<p>Returns the <a href="https://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a> to which <em class="parameter"><code>context</code></em>
  is attached.</p>
 <div class="refsect3">
 <a name="gtk-style-context-get-frame-clock.parameters"></a><h4>Parameters</h4>
@@ -1602,7 +1599,7 @@ gtk_style_context_get_frame_clock (<em class="parameter"><code><a class="link" h
 </div>
 <div class="refsect3">
 <a name="gtk-style-context-get-frame-clock.returns"></a><h4>Returns</h4>
-<p> a <a href="http://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<p>a <a href="https://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 if <em class="parameter"><code>context</code></em>
 does not have an attached frame clock. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1679,7 +1676,7 @@ current style.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_context_get_style_property (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
                                       <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
-                                      <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);</pre>
+                                      <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *value</code></em>);</pre>
 <p>Gets the value for a widget style property.</p>
 <p>When <em class="parameter"><code>value</code></em>
  is no longer needed, <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#g-value-unset"><code class="function">g_value_unset()</code></a> must be called
@@ -1827,7 +1824,7 @@ always return <a href="https://developer.gnome.org/glib/unstable/glib-Standard-M
 </div>
 <div class="refsect3">
 <a name="gtk-style-context-get-section.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> or the section where a value
+<p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> or the section where a value
 for <em class="parameter"><code>property</code></em>
 was defined. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -1839,7 +1836,7 @@ was defined. </p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_context_get_color (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
                              <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkStateFlags" title="enum GtkStateFlags"><span class="type">GtkStateFlags</span></a> state</code></em>,
-                             <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *color</code></em>);</pre>
+                             <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *color</code></em>);</pre>
 <p>Gets the foreground color for a given state.</p>
 <p>See <a class="link" href="GtkStyleContext.html#gtk-style-context-get-property" title="gtk_style_context_get_property ()"><code class="function">gtk_style_context_get_property()</code></a> and
 <a class="link" href="GtkStyleContext.html#GTK-STYLE-PROPERTY-COLOR:CAPS" title="GTK_STYLE_PROPERTY_COLOR"><span class="type">GTK_STYLE_PROPERTY_COLOR</span></a> for details.</p>
@@ -1864,7 +1861,7 @@ gtk_style_context_get_color (<em class="parameter"><code><a class="link" href="G
 </tr>
 <tr>
 <td class="parameter_name"><p>color</p></td>
-<td class="parameter_description"><p> return value for the foreground color. </p></td>
+<td class="parameter_description"><p>return value for the foreground color. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1879,7 +1876,7 @@ gtk_style_context_get_color (<em class="parameter"><code><a class="link" href="G
 gtk_style_context_get_background_color
                                (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
                                 <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkStateFlags" title="enum GtkStateFlags"><span class="type">GtkStateFlags</span></a> state</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *color</code></em>);</pre>
+                                <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *color</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_style_context_get_background_color</code> has been deprecated since version 3.16 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-background" title="gtk_render_background ()"><code class="function">gtk_render_background()</code></a> instead.</p>
@@ -1913,7 +1910,7 @@ style classes to modify the color to be rendered.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>color</p></td>
-<td class="parameter_description"><p> return value for the background color. </p></td>
+<td class="parameter_description"><p>return value for the background color. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1927,7 +1924,7 @@ style classes to modify the color to be rendered.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_context_get_border_color (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
                                     <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkStateFlags" title="enum GtkStateFlags"><span class="type">GtkStateFlags</span></a> state</code></em>,
-                                    <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *color</code></em>);</pre>
+                                    <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *color</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_style_context_get_border_color</code> has been deprecated since version 3.16 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-frame" title="gtk_render_frame ()"><code class="function">gtk_render_frame()</code></a> instead.</p>
@@ -1954,7 +1951,7 @@ gtk_style_context_get_border_color (<em class="parameter"><code><a class="link" 
 </tr>
 <tr>
 <td class="parameter_name"><p>color</p></td>
-<td class="parameter_description"><p> return value for the border color. </p></td>
+<td class="parameter_description"><p>return value for the border color. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1993,7 +1990,7 @@ gtk_style_context_get_border (<em class="parameter"><code><a class="link" href="
 </tr>
 <tr>
 <td class="parameter_name"><p>border</p></td>
-<td class="parameter_description"><p> return value for the border settings. </p></td>
+<td class="parameter_description"><p>return value for the border settings. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2032,7 +2029,7 @@ for details.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>padding</p></td>
-<td class="parameter_description"><p> return value for the padding settings. </p></td>
+<td class="parameter_description"><p>return value for the padding settings. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2071,7 +2068,7 @@ for details.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>margin</p></td>
-<td class="parameter_description"><p> return value for the margin settings. </p></td>
+<td class="parameter_description"><p>return value for the margin settings. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2082,7 +2079,7 @@ for details.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-style-context-get-font"></a><h3>gtk_style_context_get_font ()</h3>
-<pre class="programlisting">const <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="returnvalue">PangoFontDescription</span></a> *
+<pre class="programlisting">const <a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="returnvalue">PangoFontDescription</span></a> *
 gtk_style_context_get_font (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
                             <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkStateFlags" title="enum GtkStateFlags"><span class="type">GtkStateFlags</span></a> state</code></em>);</pre>
 <div class="warning">
@@ -2117,7 +2114,7 @@ object is const and will remain valid until the
 </div>
 <div class="refsect3">
 <a name="gtk-style-context-get-font.returns"></a><h4>Returns</h4>
-<p> the <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a> for the given
+<p>the <a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a> for the given
 state.  This object is owned by GTK+ and should not be
 freed. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
@@ -2196,7 +2193,7 @@ it’s being unset.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>progress</p></td>
-<td class="parameter_description"><p> return location for the transition progress. </p></td>
+<td class="parameter_description"><p>return location for the transition progress. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2215,7 +2212,7 @@ it’s being unset.</p>
 <pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
 gtk_style_context_lookup_color (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *color_name</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *color</code></em>);</pre>
+                                <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *color</code></em>);</pre>
 <p>Looks up and resolves a color name in the <em class="parameter"><code>context</code></em>
  color map.</p>
 <div class="refsect3">
@@ -2239,7 +2236,7 @@ gtk_style_context_lookup_color (<em class="parameter"><code><a class="link" href
 </tr>
 <tr>
 <td class="parameter_name"><p>color</p></td>
-<td class="parameter_description"><p> Return location for the looked up color. </p></td>
+<td class="parameter_description"><p>Return location for the looked up color. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2290,7 +2287,7 @@ the default icon factory, returning an icon set if found, otherwise
 </div>
 <div class="refsect3">
 <a name="gtk-style-context-lookup-icon-set.returns"></a><h4>Returns</h4>
-<p> The looked up <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSet"><code class="literal">GtkIconSet</code></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>The looked up <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSet"><code class="literal">GtkIconSet</code></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -2299,7 +2296,7 @@ the default icon factory, returning an icon set if found, otherwise
 <a name="gtk-style-context-notify-state-change"></a><h3>gtk_style_context_notify_state_change ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_context_notify_state_change (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                                       <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>,
+                                       <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>,
                                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> region_id</code></em>,
                                        <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state</code></em>,
                                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> state_value</code></em>);</pre>
@@ -2334,11 +2331,11 @@ the prelight state:</p>
 3
 4
 5</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="GtkStyleContext.html#gtk-style-context-notify-state-change">gtk_style_context_notify_state_change</a></span> <span class="gtkdoc opt">(</span>context<span class="gtkdoc opt">,</span>
-                                       <span class="function"><a href="GtkWidget.html#gtk-widget-get-window">gtk_widget_get_window</a></span> <span class="gtkdoc opt">(</span>widget<span class="gtkdoc opt">),</span>
-                                       NULL<span class="gtkdoc opt">,</span>
-                                       GTK_STATE_PRELIGHT<span class="gtkdoc opt">,</span>
-                                       button<span class="gtkdoc opt">-&gt;</span>in_button<span class="gtkdoc opt">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="GtkStyleContext.html#gtk-style-context-notify-state-change">gtk_style_context_notify_state_change</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span>
+<span class="normal">                                       </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-window">gtk_widget_get_window</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">),</span>
+<span class="normal">                                       <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span>
+<span class="normal">                                       <a href="GtkWidget.html#GTK-STATE-PRELIGHT:CAPS">GTK_STATE_PRELIGHT</a></span><span class="symbol">,</span>
+<span class="normal">                                       button</span><span class="symbol">-&gt;</span><span class="normal">in_button</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -2358,14 +2355,14 @@ the prelight state:</p>
 6
 7
 8</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkButton <span class="gtkdoc opt">{</span>
-    background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#f00</span>
-<span class="gtkdoc opt">}</span>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">button </span><span class="cbracket">{</span>
+<span class="normal">    background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #f00</span>
+<span class="cbracket">}</span>
 
-GtkButton<span class="gtkdoc opt">:</span>hover <span class="gtkdoc opt">{</span>
-    background<span class="gtkdoc opt">-</span>color<span class="gtkdoc opt">:</span> <span class="gtkdoc ppc">#fff;</span>
-    transition<span class="gtkdoc opt">:</span> <span class="number">200</span>ms linear
-<span class="gtkdoc opt">}</span></pre></td>
+<span class="normal">button</span><span class="symbol">:</span><span class="normal">hover </span><span class="cbracket">{</span>
+<span class="normal">    background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #fff</span><span class="symbol">;</span>
+<span class="normal">    transition</span><span class="symbol">:</span><span class="normal"> 200ms linear</span>
+<span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -2394,12 +2391,12 @@ is why the style places the transition under the :hover pseudo-class.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>window</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>region_id</p></td>
-<td class="parameter_description"><p> animatable region to notify on, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+<td class="parameter_description"><p>animatable region to notify on, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 See <a class="link" href="GtkStyleContext.html#gtk-style-context-push-animatable-region" title="gtk_style_context_push_animatable_region ()"><code class="function">gtk_style_context_push_animatable_region()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -2532,7 +2529,7 @@ animatable regions.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>region_id</p></td>
-<td class="parameter_description"><p> animatable region to stop, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+<td class="parameter_description"><p>animatable region to stop, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 See <a class="link" href="GtkStyleContext.html#gtk-style-context-push-animatable-region" title="gtk_style_context_push_animatable_region ()"><code class="function">gtk_style_context_push_animatable_region()</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
@@ -2546,14 +2543,14 @@ See <a class="link" href="GtkStyleContext.html#gtk-style-context-push-animatable
 <a name="gtk-style-context-scroll-animations"></a><h3>gtk_style_context_scroll_animations ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_context_scroll_animations (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                                     <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>,
+                                     <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>,
                                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> dx</code></em>,
                                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> dy</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_style_context_scroll_animations</code> has been deprecated since version 3.6 and should not be used in newly-written code.</p>
 <p>This function does nothing.</p>
 </div>
-<p>This function is analogous to <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#gdk-window-scroll"><code class="function">gdk_window_scroll()</code></a>, and
+<p>This function is analogous to <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-scroll"><code class="function">gdk_window_scroll()</code></a>, and
 should be called together with it so the invalidation
 areas for any ongoing animation are scrolled together
 with it.</p>
@@ -2573,7 +2570,7 @@ with it.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>window</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> used previously in
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> used previously in
 <a class="link" href="GtkStyleContext.html#gtk-style-context-notify-state-change" title="gtk_style_context_notify_state_change ()"><code class="function">gtk_style_context_notify_state_change()</code></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
@@ -2630,7 +2627,7 @@ gtk_style_context_remove_provider (<em class="parameter"><code><a class="link" h
 <a name="gtk-style-context-remove-provider-for-screen"></a><h3>gtk_style_context_remove_provider_for_screen ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_context_remove_provider_for_screen
-                               (<em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>,
+                               (<em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkStyleProvider.html" title="GtkStyleProvider"><span class="type">GtkStyleProvider</span></a> *provider</code></em>);</pre>
 <p>Removes <em class="parameter"><code>provider</code></em>
  from the global style providers list in <em class="parameter"><code>screen</code></em>
@@ -2646,7 +2643,7 @@ gtk_style_context_remove_provider_for_screen
 <tbody>
 <tr>
 <td class="parameter_name"><p>screen</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -2663,9 +2660,9 @@ gtk_style_context_remove_provider_for_screen
 <div class="refsect2">
 <a name="gtk-style-context-reset-widgets"></a><h3>gtk_style_context_reset_widgets ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-gtk_style_context_reset_widgets (<em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+gtk_style_context_reset_widgets (<em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
 <p>This function recomputes the styles for all widgets under a particular
-<a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>. This is useful when some global parameter has changed that
+<a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a>. This is useful when some global parameter has changed that
 affects the appearance of all widgets, because when a widget gets a new
 style, it will both redraw and recompute any cached information about
 its appearance. As an example, it is used when the color scheme changes
@@ -2680,7 +2677,7 @@ in the related <a class="link" href="GtkSettings.html" title="Settings"><span cl
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>screen</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr></tbody>
 </table></div>
@@ -2692,7 +2689,7 @@ in the related <a class="link" href="GtkSettings.html" title="Settings"><span cl
 <a name="gtk-style-context-set-background"></a><h3>gtk_style_context_set_background ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_context_set_background (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                                  <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>);</pre>
+                                  <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_style_context_set_background</code> has been deprecated since version 3.18 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-background" title="gtk_render_background ()"><code class="function">gtk_render_background()</code></a> instead.
@@ -2720,7 +2717,7 @@ color specified in <em class="parameter"><code>context</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>window</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/gdk4-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -2889,7 +2886,7 @@ of properties.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p> the new parent or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>the new parent or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -2950,7 +2947,7 @@ class, would be matched by:</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting">entry<span class="gtkdoc opt">.</span>search <span class="gtkdoc opt">{ ... }</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">entry</span><span class="symbol">.</span><span class="normal">search </span><span class="cbracket">{</span><span class="normal"> </span><span class="symbol">...</span><span class="normal"> </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -2964,7 +2961,7 @@ matched by:</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc opt">.</span>search <span class="gtkdoc opt">{ ... }</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="symbol">.</span><span class="normal">search </span><span class="cbracket">{</span><span class="normal"> </span><span class="symbol">...</span><span class="normal"> </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -3091,7 +3088,7 @@ gtk_style_context_list_classes (<em class="parameter"><code><a class="link" href
 </div>
 <div class="refsect3">
 <a name="gtk-style-context-list-classes.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of
+<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of
 strings with the currently defined classes. The contents
 of the list are owned by GTK+, but you must free the list
 itself with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a> when you are done with it. </p>
@@ -3118,7 +3115,7 @@ region, would be matched by:</p>
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkTreeView row <span class="gtkdoc opt">{ ... }</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">treeview</span><span class="normal"> row </span><span class="cbracket">{</span><span class="normal"> </span><span class="symbol">...</span><span class="normal"> </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -3134,8 +3131,8 @@ following rules:</p>
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting">GtkTreeView row<span class="gtkdoc opt">:</span>nth<span class="gtkdoc opt">-</span><span class="function">child</span><span class="gtkdoc opt">(</span>even<span class="gtkdoc opt">) { ... }</span>
-GtkTreeView row<span class="gtkdoc opt">:</span>nth<span class="gtkdoc opt">-</span><span class="function">child</span><span class="gtkdoc opt">(</span>odd<span class="gtkdoc opt">) { ... }</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">treeview</span><span class="normal"> row</span><span class="symbol">:</span><span class="normal">nth</span><span class="symbol">-</span><span class="function">child</span><span class="symbol">(</span><span class="normal">even</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> </span><span class="symbol">...</span><span class="normal"> </span><span class="cbracket">}</span>
+<span class="usertype">treeview</span><span class="normal"> row</span><span class="symbol">:</span><span class="normal">nth</span><span class="symbol">-</span><span class="function">child</span><span class="symbol">(</span><span class="normal">odd</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> </span><span class="symbol">...</span><span class="normal"> </span><span class="cbracket">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -3241,7 +3238,7 @@ affecting the region.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>flags_return</p></td>
-<td class="parameter_description"><p> return location for region flags. </p></td>
+<td class="parameter_description"><p>return location for region flags. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -3278,7 +3275,7 @@ gtk_style_context_list_regions (<em class="parameter"><code><a class="link" href
 </div>
 <div class="refsect3">
 <a name="gtk-style-context-list-regions.returns"></a><h4>Returns</h4>
-<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of
+<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of
 strings with the currently defined regions. The contents
 of the list are owned by GTK+, but you must free the list
 itself with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a> when you are done with it. </p>
@@ -3291,11 +3288,11 @@ itself with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linke
 <a name="gtk-style-context-set-screen"></a><h3>gtk_style_context_set_screen ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_context_set_screen (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                              <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+                              <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
 <p>Attaches <em class="parameter"><code>context</code></em>
  to the given screen.</p>
 <p>The screen is used to add style information from “global” style
-providers, such as the screens <a class="link" href="GtkSettings.html" title="Settings"><span class="type">GtkSettings</span></a> instance.</p>
+providers, such as the screen’s <a class="link" href="GtkSettings.html" title="Settings"><span class="type">GtkSettings</span></a> instance.</p>
 <p>If you are using a <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> returned from
 <a class="link" href="GtkWidget.html#gtk-widget-get-style-context" title="gtk_widget_get_style_context ()"><code class="function">gtk_widget_get_style_context()</code></a>, you do not need to
 call this yourself.</p>
@@ -3315,7 +3312,7 @@ call this yourself.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>screen</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -3328,7 +3325,7 @@ call this yourself.</p>
 <a name="gtk-style-context-set-frame-clock"></a><h3>gtk_style_context_set_frame_clock ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_context_set_frame_clock (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                                   <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a> *frame_clock</code></em>);</pre>
+                                   <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a> *frame_clock</code></em>);</pre>
 <p>Attaches <em class="parameter"><code>context</code></em>
  to the given frame clock.</p>
 <p>The frame clock is used for the timing of animations.</p>
@@ -3346,12 +3343,12 @@ call this yourself.</p>
 <tbody>
 <tr>
 <td class="parameter_name"><p>context</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>frame_clock</p></td>
-<td class="parameter_description"><p>a <a href="http://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a></p></td>
+<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -3500,7 +3497,7 @@ gtk_border_new (<em class="parameter"><code><span class="type">void</span></code
 <p>Allocates a new <a class="link" href="GtkStyleContext.html#GtkBorder-struct" title="struct GtkBorder"><span class="type">GtkBorder</span></a> and initializes its elements to zero.</p>
 <div class="refsect3">
 <a name="gtk-border-new.returns"></a><h4>Returns</h4>
-<p> a newly allocated <a class="link" href="GtkStyleContext.html#GtkBorder-struct" title="struct GtkBorder"><span class="type">GtkBorder</span></a>.
+<p>a newly allocated <a class="link" href="GtkStyleContext.html#GtkBorder-struct" title="struct GtkBorder"><span class="type">GtkBorder</span></a>.
 Free with <a class="link" href="GtkStyleContext.html#gtk-border-free" title="gtk_border_free ()"><code class="function">gtk_border_free()</code></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -3529,7 +3526,7 @@ gtk_border_copy (<em class="parameter"><code>const <a class="link" href="GtkStyl
 </div>
 <div class="refsect3">
 <a name="gtk-border-copy.returns"></a><h4>Returns</h4>
-<p> a copy of <em class="parameter"><code>border_</code></em>
+<p>a copy of <em class="parameter"><code>border_</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -3561,7 +3558,7 @@ gtk_border_free (<em class="parameter"><code><a class="link" href="GtkStyleConte
 <a name="gtk-render-arrow"></a><h3>gtk_render_arrow ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_arrow (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                  <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> angle</code></em>,
                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
@@ -3586,7 +3583,7 @@ gtk_render_arrow (<em class="parameter"><code><a class="link" href="GtkStyleCont
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -3619,7 +3616,7 @@ gtk_render_arrow (<em class="parameter"><code><a class="link" href="GtkStyleCont
 <a name="gtk-render-background"></a><h3>gtk_render_background ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_background (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                       <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                       <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> width</code></em>,
@@ -3644,7 +3641,7 @@ gtk_render_background (<em class="parameter"><code><a class="link" href="GtkStyl
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -3681,7 +3678,7 @@ gtk_render_background_get_clip (<em class="parameter"><code><a class="link" href
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> width</code></em>,
                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> height</code></em>,
-                                <em class="parameter"><code><a href="http://developer.gnome.org/gdk3/gdk4-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *out_clip</code></em>);</pre>
+                                <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *out_clip</code></em>);</pre>
 <p>Returns the area that will be affected (i.e. drawn to) when
 calling <a class="link" href="GtkStyleContext.html#gtk-render-background" title="gtk_render_background ()"><code class="function">gtk_render_background()</code></a> for the given <em class="parameter"><code>context</code></em>
  and
@@ -3722,7 +3719,7 @@ rectangle.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>out_clip</p></td>
-<td class="parameter_description"><p> return location for the clip. </p></td>
+<td class="parameter_description"><p>return location for the clip. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -3735,7 +3732,7 @@ rectangle.</p>
 <a name="gtk-render-check"></a><h3>gtk_render_check ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_check (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                  <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> width</code></em>,
@@ -3762,7 +3759,7 @@ should be marked as undefined.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -3795,7 +3792,7 @@ should be marked as undefined.</p>
 <a name="gtk-render-expander"></a><h3>gtk_render_expander ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_expander (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                     <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                     <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> width</code></em>,
@@ -3825,7 +3822,7 @@ determines whether the expander is collapsed or expanded.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -3858,7 +3855,7 @@ determines whether the expander is collapsed or expanded.</p>
 <a name="gtk-render-extension"></a><h3>gtk_render_extension ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_extension (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                      <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                      <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> width</code></em>,
@@ -3890,7 +3887,7 @@ connects to is defined by <em class="parameter"><code>gap_side</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -3928,7 +3925,7 @@ connects to is defined by <em class="parameter"><code>gap_side</code></em>
 <a name="gtk-render-focus"></a><h3>gtk_render_focus ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_focus (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                  <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> width</code></em>,
@@ -3956,7 +3953,7 @@ gtk_render_focus (<em class="parameter"><code><a class="link" href="GtkStyleCont
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -3989,7 +3986,7 @@ gtk_render_focus (<em class="parameter"><code><a class="link" href="GtkStyleCont
 <a name="gtk-render-frame"></a><h3>gtk_render_frame ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_frame (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                  <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> width</code></em>,
@@ -4018,7 +4015,7 @@ gtk_render_frame (<em class="parameter"><code><a class="link" href="GtkStyleCont
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -4051,7 +4048,7 @@ gtk_render_frame (<em class="parameter"><code><a class="link" href="GtkStyleCont
 <a name="gtk-render-frame-gap"></a><h3>gtk_render_frame_gap ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_frame_gap (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                      <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                      <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> width</code></em>,
@@ -4059,6 +4056,11 @@ gtk_render_frame_gap (<em class="parameter"><code><a class="link" href="GtkStyle
                       <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkPositionType" title="enum GtkPositionType"><span class="type">GtkPositionType</span></a> gap_side</code></em>,
                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> xy0_gap</code></em>,
                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> xy1_gap</code></em>);</pre>
+<div class="warning">
+<p><code class="literal">gtk_render_frame_gap</code> has been deprecated since version 3.24 and should not be used in newly-written code.</p>
+<p>Use <a class="link" href="GtkStyleContext.html#gtk-render-frame" title="gtk_render_frame ()"><code class="function">gtk_render_frame()</code></a> instead. Themes can create gaps
+    by omitting borders via CSS.</p>
+</div>
 <p>Renders a frame around the rectangle defined by (<em class="parameter"><code>x</code></em>
 , <em class="parameter"><code>y</code></em>
 , <em class="parameter"><code>width</code></em>
@@ -4087,7 +4089,7 @@ for <a class="link" href="gtk3-Standard-Enumerations.html#GTK-POS-TOP:CAPS"><cod
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -4137,7 +4139,7 @@ for <a class="link" href="gtk3-Standard-Enumerations.html#GTK-POS-TOP:CAPS"><cod
 <a name="gtk-render-handle"></a><h3>gtk_render_handle ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_handle (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                   <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                   <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> width</code></em>,
@@ -4167,7 +4169,7 @@ determined by <em class="parameter"><code>x</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -4200,10 +4202,10 @@ determined by <em class="parameter"><code>x</code></em>
 <a name="gtk-render-layout"></a><h3>gtk_render_layout ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_layout (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                   <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                   <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
-                   <em class="parameter"><code><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> *layout</code></em>);</pre>
+                   <em class="parameter"><code><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> *layout</code></em>);</pre>
 <p>Renders <em class="parameter"><code>layout</code></em>
  on the coordinates <em class="parameter"><code>x</code></em>
 , <em class="parameter"><code>y</code></em>
@@ -4224,7 +4226,7 @@ gtk_render_layout (<em class="parameter"><code><a class="link" href="GtkStyleCon
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -4239,7 +4241,7 @@ gtk_render_layout (<em class="parameter"><code><a class="link" href="GtkStyleCon
 </tr>
 <tr>
 <td class="parameter_name"><p>layout</p></td>
-<td class="parameter_description"><p>the <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> to render</p></td>
+<td class="parameter_description"><p>the <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> to render</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -4252,7 +4254,7 @@ gtk_render_layout (<em class="parameter"><code><a class="link" href="GtkStyleCon
 <a name="gtk-render-line"></a><h3>gtk_render_line ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_line (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                 <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                 <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x0</code></em>,
                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y0</code></em>,
                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x1</code></em>,
@@ -4274,7 +4276,7 @@ gtk_render_line (<em class="parameter"><code><a class="link" href="GtkStyleConte
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -4307,7 +4309,7 @@ gtk_render_line (<em class="parameter"><code><a class="link" href="GtkStyleConte
 <a name="gtk-render-option"></a><h3>gtk_render_option ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_option (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                   <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                   <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> width</code></em>,
@@ -4333,7 +4335,7 @@ state will determine whether the option is on or off, and
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -4366,7 +4368,7 @@ state will determine whether the option is on or off, and
 <a name="gtk-render-slider"></a><h3>gtk_render_slider ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_slider (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                   <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                   <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> width</code></em>,
@@ -4398,7 +4400,7 @@ or horizontal.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -4436,7 +4438,7 @@ or horizontal.</p>
 <a name="gtk-render-activity"></a><h3>gtk_render_activity ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_activity (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                     <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                     <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> width</code></em>,
@@ -4460,7 +4462,7 @@ activity going on.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -4524,7 +4526,7 @@ in a pixbuf.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>size</p></td>
-<td class="parameter_description"><p> the size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>) to render the icon at.
+<td class="parameter_description"><p>the size (<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a>) to render the icon at.
 A size of <code class="literal">(GtkIconSize) -1</code> means render at the size of the source
 and don’t scale. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> int]</span></td>
@@ -4534,7 +4536,7 @@ and don’t scale. </p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-render-icon-pixbuf.returns"></a><h4>Returns</h4>
-<p> a newly-created <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> containing the rendered icon. </p>
+<p>a newly-created <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> containing the rendered icon. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -4544,8 +4546,8 @@ and don’t scale. </p></td>
 <a name="gtk-render-icon-surface"></a><h3>gtk_render_icon_surface ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_icon_surface (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                         <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
-                         <em class="parameter"><code><span class="type">cairo_surface_t</span> *surface</code></em>,
+                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a> *surface</code></em>,
                          <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                          <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>);</pre>
 <p>Renders the icon in <em class="parameter"><code>surface</code></em>
@@ -4568,12 +4570,12 @@ gtk_render_icon_surface (<em class="parameter"><code><a class="link" href="GtkSt
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>surface</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_surface_t</span> containing the icon to draw</p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a> containing the icon to draw</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -4598,7 +4600,7 @@ gtk_render_icon_surface (<em class="parameter"><code><a class="link" href="GtkSt
 <a name="gtk-render-icon"></a><h3>gtk_render_icon ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_icon (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                 <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                 <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                  <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>,
                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>);</pre>
@@ -4628,7 +4630,7 @@ already have a Cairo surface.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -4658,12 +4660,12 @@ already have a Cairo surface.</p>
 <a name="gtk-render-insertion-cursor"></a><h3>gtk_render_insertion_cursor ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_render_insertion_cursor (<em class="parameter"><code><a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *context</code></em>,
-                             <em class="parameter"><code><span class="type">cairo_t</span> *cr</code></em>,
+                             <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>,
-                             <em class="parameter"><code><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> *layout</code></em>,
+                             <em class="parameter"><code><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> *layout</code></em>,
                              <em class="parameter"><code><span class="type">int</span> index</code></em>,
-                             <em class="parameter"><code><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PangoDirection"><span class="type">PangoDirection</span></a> direction</code></em>);</pre>
+                             <em class="parameter"><code><a href="/usr/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PangoDirection"><span class="type">PangoDirection</span></a> direction</code></em>);</pre>
 <p>Draws a text caret on <em class="parameter"><code>cr</code></em>
  at the specified index of <em class="parameter"><code>layout</code></em>
 .</p>
@@ -4683,7 +4685,7 @@ gtk_render_insertion_cursor (<em class="parameter"><code><a class="link" href="G
 </tr>
 <tr>
 <td class="parameter_name"><p>cr</p></td>
-<td class="parameter_description"><p>a <span class="type">cairo_t</span></p></td>
+<td class="parameter_description"><p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -4698,17 +4700,17 @@ gtk_render_insertion_cursor (<em class="parameter"><code><a class="link" href="G
 </tr>
 <tr>
 <td class="parameter_name"><p>layout</p></td>
-<td class="parameter_description"><p>the <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> of the text</p></td>
+<td class="parameter_description"><p>the <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> of the text</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>index</p></td>
-<td class="parameter_description"><p>the index in the <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a></p></td>
+<td class="parameter_description"><p>the index in the <a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
 <td class="parameter_name"><p>direction</p></td>
-<td class="parameter_description"><p>the <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PangoDirection"><span class="type">PangoDirection</span></a> of the text</p></td>
+<td class="parameter_description"><p>the <a href="/usr/share/gtk-doc/html/pango/pango-Bidirectional-Text.html#PangoDirection"><span class="type">PangoDirection</span></a> of the text</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -4723,14 +4725,14 @@ gtk_render_insertion_cursor (<em class="parameter"><code><a class="link" href="G
 <a name="GTK-STYLE-PROPERTY-BACKGROUND-COLOR:CAPS"></a><h3>GTK_STYLE_PROPERTY_BACKGROUND_COLOR</h3>
 <pre class="programlisting">#define GTK_STYLE_PROPERTY_BACKGROUND_COLOR "background-color"
 </pre>
-<p>A property holding the background color of rendered elements as a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a>.</p>
+<p>A property holding the background color of rendered elements as a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a>.</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GTK-STYLE-PROPERTY-COLOR:CAPS"></a><h3>GTK_STYLE_PROPERTY_COLOR</h3>
 <pre class="programlisting">#define GTK_STYLE_PROPERTY_COLOR "color"
 </pre>
-<p>A property holding the foreground color of rendered elements as a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a>.</p>
+<p>A property holding the foreground color of rendered elements as a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a>.</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -4738,7 +4740,7 @@ gtk_render_insertion_cursor (<em class="parameter"><code><a class="link" href="G
 <pre class="programlisting">#define GTK_STYLE_PROPERTY_FONT "font"
 </pre>
 <p>A property holding the font properties used when rendering text
-as a <a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a>.</p>
+as a <a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a>.</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -4792,14 +4794,14 @@ requesting size</p>
 <a name="GTK-STYLE-PROPERTY-BORDER-COLOR:CAPS"></a><h3>GTK_STYLE_PROPERTY_BORDER_COLOR</h3>
 <pre class="programlisting">#define GTK_STYLE_PROPERTY_BORDER_COLOR "border-color"
 </pre>
-<p>A property holding the element’s border color as a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a>.</p>
+<p>A property holding the element’s border color as a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a>.</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GTK-STYLE-PROPERTY-BACKGROUND-IMAGE:CAPS"></a><h3>GTK_STYLE_PROPERTY_BACKGROUND_IMAGE</h3>
 <pre class="programlisting">#define GTK_STYLE_PROPERTY_BACKGROUND_IMAGE "background-image"
 </pre>
-<p>A property holding the element’s background as a <span class="type">cairo_pattern_t</span>.</p>
+<p>A property holding the element’s background as a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-t"><span class="type">cairo_pattern_t</span></a>.</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -5901,7 +5903,7 @@ that can be of different width on each side.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkStyleContext--paint-clock"></a><h3>The <code class="literal">“paint-clock”</code> property</h3>
-<pre class="programlisting">  “paint-clock”              <a href="http://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a> *</pre>
+<pre class="programlisting">  “paint-clock”              <a href="https://developer.gnome.org/gdk3/GdkFrameClock.html#GdkFrameClock-struct"><span class="type">GdkFrameClock</span></a> *</pre>
 <p>The associated GdkFrameClock.</p>
 <p>Flags: Read / Write</p>
 </div>
@@ -5917,7 +5919,7 @@ for details.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkStyleContext--screen"></a><h3>The <code class="literal">“screen”</code> property</h3>
-<pre class="programlisting">  “screen”                   <a href="http://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *</pre>
+<pre class="programlisting">  “screen”                   <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *</pre>
 <p>The associated GdkScreen.</p>
 <p>Flags: Read / Write</p>
 </div>
@@ -5927,7 +5929,7 @@ for details.</p>
 <div class="refsect2">
 <a name="GtkStyleContext-changed"></a><h3>The <code class="literal">“changed”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-user_function (<a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *arg0,
+user_function (<a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *stylecontext,
                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>         user_data)</pre>
 <p>The ::changed signal is emitted when there is a change in the
 <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a>.</p>
@@ -5955,6 +5957,6 @@ user_function (<a class="link" href="GtkStyleContext.html" title="GtkStyleContex
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
 <link rel="prev" href="gtk3-GtkTreeView-drag-and-drop.html" title="GtkTreeView drag-and-drop">
 <link rel="next" href="GtkIconView.html" title="GtkIconView">
-<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -190,13 +190,13 @@
 </tr>
 <tr>
 <td class="property_type">
-<span class="type">GdkColor</span> *</td>
+<a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkCellView.html#GtkCellView--background-gdk" title="The “background-gdk” property">background-gdk</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
 <td class="property_type">
-<a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</td>
+<a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkCellView.html#GtkCellView--background-rgba" title="The “background-rgba” property">background-rgba</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -462,7 +462,7 @@ set, it will remove it before setting the new model.  If <em class="parameter"><
 </tr>
 <tr>
 <td class="parameter_name"><p>model</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -495,7 +495,7 @@ returned.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-cell-view-get-model.returns"></a><h4>Returns</h4>
-<p> a <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a> used or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>a <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a> used or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.16</p>
@@ -528,7 +528,7 @@ the <a class="link" href="GtkCellView.html" title="GtkCellView"><span class="typ
 </tr>
 <tr>
 <td class="parameter_name"><p>path</p></td>
-<td class="parameter_description"><p> a <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to unset. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to unset. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -561,7 +561,7 @@ displayed row. If no row is currently displayed,
 </div>
 <div class="refsect3">
 <a name="gtk-cell-view-get-displayed-row.returns"></a><h4>Returns</h4>
-<p> the currently displayed row or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>the currently displayed row or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.6</p>
@@ -606,7 +606,7 @@ the model row pointed to by <em class="parameter"><code>path</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>requisition</p></td>
-<td class="parameter_description"><p> return location for the size. </p></td>
+<td class="parameter_description"><p>return location for the size. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -623,7 +623,7 @@ the model row pointed to by <em class="parameter"><code>path</code></em>
 <a name="gtk-cell-view-set-background-color"></a><h3>gtk_cell_view_set_background_color ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_cell_view_set_background_color (<em class="parameter"><code><a class="link" href="GtkCellView.html" title="GtkCellView"><span class="type">GtkCellView</span></a> *cell_view</code></em>,
-                                    <em class="parameter"><code>const <span class="type">GdkColor</span> *color</code></em>);</pre>
+                                    <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *color</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_cell_view_set_background_color</code> has been deprecated since version 3.4 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkCellView.html#gtk-cell-view-set-background-rgba" title="gtk_cell_view_set_background_rgba ()"><code class="function">gtk_cell_view_set_background_rgba()</code></a> instead.</p>
@@ -659,7 +659,7 @@ gtk_cell_view_set_background_color (<em class="parameter"><code><a class="link" 
 <a name="gtk-cell-view-set-background-rgba"></a><h3>gtk_cell_view_set_background_rgba ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_cell_view_set_background_rgba (<em class="parameter"><code><a class="link" href="GtkCellView.html" title="GtkCellView"><span class="type">GtkCellView</span></a> *cell_view</code></em>,
-                                   <em class="parameter"><code>const <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *rgba</code></em>);</pre>
+                                   <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *rgba</code></em>);</pre>
 <p>Sets the background color of <em class="parameter"><code>cell_view</code></em>
 .</p>
 <div class="refsect3">
@@ -858,8 +858,8 @@ the entire <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span c
 <hr>
 <div class="refsect2">
 <a name="GtkCellView--background-gdk"></a><h3>The <code class="literal">“background-gdk”</code> property</h3>
-<pre class="programlisting">  “background-gdk”           <span class="type">GdkColor</span> *</pre>
-<p>The background color as a <span class="type">GdkColor</span></p>
+<pre class="programlisting">  “background-gdk”           <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *</pre>
+<p>The background color as a <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p>
 <div class="warning">
 <p><code class="literal">GtkCellView:background-gdk</code> has been deprecated since version 3.4 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkCellView.html#GtkCellView--background-rgba" title="The “background-rgba” property"><span class="type">“background-rgba”</span></a> instead.</p>
@@ -869,8 +869,8 @@ the entire <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span c
 <hr>
 <div class="refsect2">
 <a name="GtkCellView--background-rgba"></a><h3>The <code class="literal">“background-rgba”</code> property</h3>
-<pre class="programlisting">  “background-rgba”          <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</pre>
-<p>The background color as a <a href="http://developer.gnome.org/gdk3/gdk4-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a></p>
+<pre class="programlisting">  “background-rgba”          <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</pre>
+<p>The background color as a <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a></p>
 <p>Flags: Read / Write</p>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
 </div>
@@ -942,6 +942,6 @@ are selected).</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.25.1</div>
+<hr>Generated by GTK-Doc V1.29</div>
 </body>
 </html>
