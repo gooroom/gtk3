@@ -1,0 +1,125 @@
+From 3d2b4da489c819a096b3e70560bc7f229f4f10d4 Mon Sep 17 00:00:00 2001
+From: donghun <donghun@gooroom.kr>
+Date: Fri, 13 Dec 2019 11:04:17 +0900
+Subject: [PATCH] Fixed Hangul input error in block state
+
+Change-Id: Ifdbee5c8914ebd6ed5dec017e1bf539e4324ac2e
+---
+ gtk/gtkentry.c    | 21 +++++++++++++++++++--
+ gtk/gtktextview.c | 23 ++++++++++++++++++++---
+ 2 files changed, 39 insertions(+), 5 deletions(-)
+
+diff --git a/gtk/gtkentry.c b/gtk/gtkentry.c
+index 3950398..fba2538 100644
+--- a/gtk/gtkentry.c
++++ b/gtk/gtkentry.c
+@@ -569,6 +569,8 @@ static void remove_capslock_feedback     (GtkEntry        *entry);
+ static void     gtk_entry_commit_cb               (GtkIMContext *context,
+ 						   const gchar  *str,
+ 						   GtkEntry     *entry);
++static void     gtk_entry_preedit_start_cb      (GtkIMContext *context,
++						   GtkEntry     *entry);
+ static void     gtk_entry_preedit_changed_cb      (GtkIMContext *context,
+ 						   GtkEntry     *entry);
+ static gboolean gtk_entry_retrieve_surrounding_cb (GtkIMContext *context,
+@@ -2812,6 +2814,8 @@ gtk_entry_init (GtkEntry *entry)
+ 
+   g_signal_connect (priv->im_context, "commit",
+ 		    G_CALLBACK (gtk_entry_commit_cb), entry);
++  g_signal_connect (priv->im_context, "preedit-start",
++		    G_CALLBACK (gtk_entry_preedit_start_cb), entry);
+   g_signal_connect (priv->im_context, "preedit-changed",
+ 		    G_CALLBACK (gtk_entry_preedit_changed_cb), entry);
+   g_signal_connect (priv->im_context, "retrieve-surrounding",
+@@ -6004,7 +6008,7 @@ gtk_entry_delete_cb (GtkEntry *entry)
+   if (priv->editable)
+     {
+       if (gtk_editable_get_selection_bounds (editable, &start, &end))
+-	gtk_editable_delete_text (editable, start, end);
++        gtk_editable_delete_text (editable, start, end);
+     }
+ }
+ 
+@@ -6075,6 +6079,20 @@ gtk_entry_commit_cb (GtkIMContext *context,
+     gtk_entry_enter_text (entry, str);
+ }
+ 
++static void
++gtk_entry_preedit_start_cb (GtkIMContext *context,
++			      GtkEntry     *entry)
++{
++  GtkEntryPrivate *priv = entry->priv;
++  GtkEditable *editable = GTK_EDITABLE (entry);
++  gint start, end;
++  if (priv->editable)
++    {
++      if (gtk_editable_get_selection_bounds (editable, &start, &end))
++        gtk_entry_commit_cb (context,"",entry);
++    }
++}
++
+ static void 
+ gtk_entry_preedit_changed_cb (GtkIMContext *context,
+ 			      GtkEntry     *entry)
+@@ -6127,7 +6145,6 @@ gtk_entry_delete_surrounding_cb (GtkIMContext *slave,
+     gtk_editable_delete_text (GTK_EDITABLE (entry),
+                               priv->current_pos + offset,
+                               priv->current_pos + offset + n_chars);
+-
+   return TRUE;
+ }
+ 
+diff --git a/gtk/gtktextview.c b/gtk/gtktextview.c
+index 9aab0af..6b1dd1b 100644
+--- a/gtk/gtktextview.c
++++ b/gtk/gtktextview.c
+@@ -534,6 +534,8 @@ static void     gtk_text_view_commit_handler               (GtkIMContext  *conte
+ 							    GtkTextView   *text_view);
+ static void     gtk_text_view_commit_text                  (GtkTextView   *text_view,
+                                                             const gchar   *text);
++static void     gtk_text_view_preedit_start_handler      (GtkIMContext  *context,
++							    GtkTextView   *text_view);
+ static void     gtk_text_view_preedit_changed_handler      (GtkIMContext  *context,
+ 							    GtkTextView   *text_view);
+ static gboolean gtk_text_view_retrieve_surrounding_handler (GtkIMContext  *context,
+@@ -1748,12 +1750,14 @@ gtk_text_view_init (GtkTextView *text_view)
+ 
+   g_signal_connect (priv->im_context, "commit",
+                     G_CALLBACK (gtk_text_view_commit_handler), text_view);
++  g_signal_connect (priv->im_context, "preedit-start",
++                    G_CALLBACK (gtk_text_view_preedit_start_handler), text_view);
+   g_signal_connect (priv->im_context, "preedit-changed",
+- 		    G_CALLBACK (gtk_text_view_preedit_changed_handler), text_view);
++                    G_CALLBACK (gtk_text_view_preedit_changed_handler), text_view);
+   g_signal_connect (priv->im_context, "retrieve-surrounding",
+- 		    G_CALLBACK (gtk_text_view_retrieve_surrounding_handler), text_view);
++                    G_CALLBACK (gtk_text_view_retrieve_surrounding_handler), text_view);
+   g_signal_connect (priv->im_context, "delete-surrounding",
+- 		    G_CALLBACK (gtk_text_view_delete_surrounding_handler), text_view);
++                    G_CALLBACK (gtk_text_view_delete_surrounding_handler), text_view);
+ 
+   priv->cursor_visible = TRUE;
+ 
+@@ -9121,6 +9125,19 @@ gtk_text_view_commit_text (GtkTextView   *text_view,
+                                       gtk_text_buffer_get_insert (get_buffer (text_view)));
+ }
+ 
++static void
++gtk_text_view_preedit_start_handler (GtkIMContext *context,
++				       GtkTextView  *text_view)
++{
++  gboolean has_selection;
++  has_selection = gtk_text_buffer_get_selection_bounds (get_buffer (text_view), NULL, NULL);
++
++  if (has_selection)
++    {
++      gtk_text_view_commit_text (text_view, "");
++    }
++}
++
+ static void
+ gtk_text_view_preedit_changed_handler (GtkIMContext *context,
+ 				       GtkTextView  *text_view)
+-- 
+2.20.1
+
