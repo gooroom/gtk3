@@ -1,0 +1,44 @@
+From 9597e6d5018e1ea12c3bfd300fd40a732e5b734d Mon Sep 17 00:00:00 2001
+From: donghun <donghun@gooroom.kr>
+Date: Wed, 22 Jan 2020 13:20:56 +0900
+Subject: [PATCH] Fixed rename button activation error in FileChooserWidget
+
+Change-Id: I57301b251fc27af2cce929405e3eec94bbfbaea9
+---
+ gtk/gtkfilechooserwidget.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/gtk/gtkfilechooserwidget.c b/gtk/gtkfilechooserwidget.c
+index 4e9ef2f..dd6faf3 100644
+--- a/gtk/gtkfilechooserwidget.c
++++ b/gtk/gtkfilechooserwidget.c
+@@ -1078,7 +1078,8 @@ check_valid_child_name (GtkFileChooserWidget *impl,
+         }
+       else if (original && g_file_equal (original, file))
+         {
+-          gtk_widget_set_sensitive (button, TRUE);
++          gtk_widget_set_sensitive (button, FALSE);
++          gtk_label_set_text (GTK_LABEL (error_label), _("A file with that name already exists"));
+           g_object_unref (file);
+         }
+       else
+@@ -1116,6 +1117,7 @@ check_valid_child_name (GtkFileChooserWidget *impl,
+                                        name_exists_get_info_cb,
+                                        data);
+ 
++          gtk_widget_set_sensitive (button, TRUE);
+           g_object_unref (file);
+         }
+     }
+@@ -1639,6 +1641,8 @@ rename_selected_cb (GtkTreeModel *model,
+   gtk_entry_set_text (GTK_ENTRY(priv->rename_file_name_entry), filename);
+   g_free (filename);
+ 
++  gtk_widget_set_sensitive (priv->rename_file_rename_button, FALSE);
++
+   gtk_popover_set_pointing_to (GTK_POPOVER (priv->rename_file_popover), &rect);
+   gtk_popover_popup (GTK_POPOVER (priv->rename_file_popover));
+   gtk_widget_grab_focus (priv->rename_file_popover);
+-- 
+2.20.1
+

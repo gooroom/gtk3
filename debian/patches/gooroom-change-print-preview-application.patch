@@ -1,0 +1,28 @@
+From 1daf1b6dd7e3a83ad7506a64773a4b96f2ba06e1 Mon Sep 17 00:00:00 2001
+From: donghun <donghun@gooroom.kr>
+Date: Wed, 22 Jan 2020 13:26:39 +0900
+Subject: [PATCH] Change print preview application (evince application to
+ default browser)
+
+Change-Id: Icc5993df828ae0ea69e8b0ff319f010e02d72a2e
+---
+ gtk/gtksettings.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/gtk/gtksettings.c b/gtk/gtksettings.c
+index 571ae11..711a7a9 100644
+--- a/gtk/gtksettings.c
++++ b/gtk/gtksettings.c
+@@ -61,7 +61,8 @@
+ #ifdef GDK_WINDOWING_QUARTZ
+ #define PRINT_PREVIEW_COMMAND "open -a /Applications/Preview.app %f"
+ #else
+-#define PRINT_PREVIEW_COMMAND "evince --unlink-tempfile --preview --print-settings %s %f"
++#define PRINT_PREVIEW_COMMAND "xdg-open %f"
++//#define PRINT_PREVIEW_COMMAND "evince --unlink-tempfile --preview --print-settings %s %f"
+ #endif
+ 
+ /**
+-- 
+2.20.1
+
