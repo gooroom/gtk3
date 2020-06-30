@@ -1,0 +1,13 @@
+diff --git a/gtk/gtkfontchooserwidget.c b/gtk/gtkfontchooserwidget.c
+index b858d92..bc41288 100644
+--- a/gtk/gtkfontchooserwidget.c
++++ b/gtk/gtkfontchooserwidget.c
+@@ -615,7 +615,7 @@ gtk_font_chooser_widget_update_preview_attributes (GtkFontChooserWidget *fontcho
+   attrs = pango_attr_list_new ();
+ 
+   /* Prevent font fallback */
+-  pango_attr_list_insert (attrs, pango_attr_fallback_new (FALSE));
++  pango_attr_list_insert (attrs, pango_attr_fallback_new (TRUE));
+ 
+   /* Force current font and features */
+   pango_attr_list_insert (attrs, pango_attr_font_desc_new (priv->font_desc));
