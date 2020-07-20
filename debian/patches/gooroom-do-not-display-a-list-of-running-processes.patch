@@ -1,0 +1,97 @@
+From d801099fdec62867244a941b6241dc93264a0de0 Mon Sep 17 00:00:00 2001
+From: donghun <donghun@gooroom.kr>
+Date: Mon, 20 Jul 2020 18:20:55 +0900
+Subject: [PATCH] Do not display a list of running processes in the Force Quit
+ dialog when unmounting
+
+Change-Id: I5f042749752a2d0189079ed0ab2ff7ef79e8e815
+---
+ gtk/gtkmountoperation.c | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+
+diff --git a/gtk/gtkmountoperation.c b/gtk/gtkmountoperation.c
+index 8ca5c55..fbe817c 100644
+--- a/gtk/gtkmountoperation.c
++++ b/gtk/gtkmountoperation.c
+@@ -129,6 +129,7 @@ struct _GtkMountOperationPrivate {
+ 
+   /* for the show-processes dialog */
+   GtkWidget *process_tree_view;
++  GtkWidget *process_scrolled_window;
+   GtkListStore *process_list_store;
+ };
+ 
+@@ -1469,7 +1470,6 @@ create_show_processes_dialog (GtkMountOperation *op,
+   gtk_tree_view_append_column (GTK_TREE_VIEW (tree_view), column);
+   gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (tree_view), FALSE);
+ 
+-
+   scrolled_window = gtk_scrolled_window_new (NULL, NULL);
+   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
+                                   GTK_POLICY_NEVER,
+@@ -1485,7 +1485,6 @@ create_show_processes_dialog (GtkMountOperation *op,
+   g_signal_connect (tree_view, "button-press-event",
+                     G_CALLBACK (on_button_press_event_for_process_tree_view),
+                     op);
+-
+   list_store = gtk_list_store_new (3,
+                                    GDK_TYPE_PIXBUF,
+                                    G_TYPE_STRING,
+@@ -1495,6 +1494,7 @@ create_show_processes_dialog (GtkMountOperation *op,
+ 
+   priv->process_list_store = list_store;
+   priv->process_tree_view = tree_view;
++  priv->process_scrolled_window = scrolled_window;
+   /* set pointers to NULL when dialog goes away */
+   g_object_add_weak_pointer (G_OBJECT (priv->process_list_store), (gpointer *) &priv->process_list_store);
+   g_object_add_weak_pointer (G_OBJECT (priv->process_tree_view), (gpointer *) &priv->process_tree_view);
+@@ -1578,6 +1578,7 @@ gtk_mount_operation_show_processes_do_gtk (GtkMountOperation *op,
+                                            GArray            *processes,
+                                            const char        *choices[])
+ {
++  gboolean processes_visible;
+   GtkMountOperationPrivate *priv;
+   GtkWidget *dialog = NULL;
+ 
+@@ -1587,6 +1588,7 @@ gtk_mount_operation_show_processes_do_gtk (GtkMountOperation *op,
+   g_return_if_fail (choices != NULL);
+ 
+   priv = op->priv;
++  processes_visible = processes->len == 0 ? FALSE : TRUE;
+ 
+   if (priv->process_list_store == NULL)
+     {
+@@ -1595,7 +1597,6 @@ gtk_mount_operation_show_processes_do_gtk (GtkMountOperation *op,
+     }
+ 
+   /* otherwise, we're showing the dialog, assume messages+choices hasn't changed */
+-
+   update_process_list_store (op,
+                              priv->process_list_store,
+                              processes);
+@@ -1603,17 +1604,20 @@ gtk_mount_operation_show_processes_do_gtk (GtkMountOperation *op,
+   if (dialog != NULL)
+     {
+       gtk_widget_show_all (dialog);
++
++      if (!processes_visible)
++        {
++          gtk_widget_hide (priv->process_scrolled_window);
++        }
+     }
+ }
+ 
+-
+ static void
+ gtk_mount_operation_show_processes (GMountOperation *op,
+                                     const char      *message,
+                                     GArray          *processes,
+                                     const char      *choices[])
+ {
+-
+   GtkMountOperation *operation;
+   gboolean use_gtk;
+ 
+-- 
+2.20.1
+
