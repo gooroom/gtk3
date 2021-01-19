@@ -1,0 +1,53 @@
+From 13062d2ca7f3f15881965f99477ffbca62e5e843 Mon Sep 17 00:00:00 2001
+From: donghun <donghun@gooroom.kr>
+Date: Tue, 19 Jan 2021 12:17:25 +0900
+Subject: [PATCH] [Bug:3156]fixed emoji search error
+
+Change-Id: Icaceb524cfa9ce301748a55f0fa0c9e67d6da000
+---
+ gtk/gtkemojichooser.c | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/gtk/gtkemojichooser.c b/gtk/gtkemojichooser.c
+index 6efb056..9c67e00 100644
+--- a/gtk/gtkemojichooser.c
++++ b/gtk/gtkemojichooser.c
+@@ -417,9 +417,11 @@ add_emoji (GtkWidget    *box,
+   g_object_set_data_full (G_OBJECT (child), "emoji-data",
+                           g_variant_ref (item),
+                           (GDestroyNotify)g_variant_unref);
++  g_object_set_data_full (G_OBJECT (child), "emoji-label",
++                          g_strdup (text),
++                          (GDestroyNotify)g_free);
+   if (modifier != 0)
+     g_object_set_data (G_OBJECT (child), "modifier", GUINT_TO_POINTER (modifier));
+-
+   ebox = gtk_event_box_new ();
+   gtk_widget_add_events (ebox, GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK);
+   g_signal_connect (ebox, "enter-notify-event", G_CALLBACK (update_hover), FALSE);
+@@ -535,6 +537,7 @@ filter_func (GtkFlowBoxChild *child,
+   GtkEmojiChooser *chooser;
+   GVariant *emoji_data;
+   const char *text;
++  const char *label;
+   const char *name;
+   gboolean res;
+ 
+@@ -552,6 +555,14 @@ filter_func (GtkFlowBoxChild *child,
+ 
+   g_variant_get_child (emoji_data, 1, "&s", &name);
+   res = g_str_match_string (text, name, TRUE);
++  if (!res)
++    {
++      label = (char*)g_object_get_data (G_OBJECT (child), "emoji-label");
++      if (g_strcmp0 (text, label) == 0)
++        res = TRUE;
++      else
++        res = FALSE;
++    }
+ 
+ out:
+   if (res)
+-- 
+2.20.1
+
