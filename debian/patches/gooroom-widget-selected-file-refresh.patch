@@ -1,0 +1,25 @@
+From a655d167b9ea2367665f8ae69b4b92cb26d66da5 Mon Sep 17 00:00:00 2001
+From: Haru <byunghui.jeun@gooroom.kr>
+Date: Thu, 11 Mar 2021 19:15:45 +0900
+Subject: [PATCH] [Bug:3313] GtkFileChooserWidget Selected File Refresh.
+
+---
+ gtk/gtkfilechooserwidget.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/gtk/gtkfilechooserwidget.c b/gtk/gtkfilechooserwidget.c
+index a9e7527..a9318b8 100644
+--- a/gtk/gtkfilechooserwidget.c
++++ b/gtk/gtkfilechooserwidget.c
+@@ -2811,6 +2811,8 @@ places_sidebar_show_other_locations_with_flags_cb (GtkPlacesSidebar     *sidebar
+ 
+   update_preview_widget_visibility (impl);
+ 
++  gtk_file_chooser_widget_unselect_all (GTK_FILE_CHOOSER (impl));
++
+   operation_mode_set (impl, OPERATION_MODE_OTHER_LOCATIONS);
+ }
+ 
+-- 
+2.20.1
+
