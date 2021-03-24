@@ -1,0 +1,80 @@
+diff --git a/gtk/gtkprinteroptionwidget.c b/gtk/gtkprinteroptionwidget.c
+index 47579a6..2d969c9 100644
+--- a/gtk/gtkprinteroptionwidget.c
++++ b/gtk/gtkprinteroptionwidget.c
+@@ -330,7 +330,7 @@ combo_box_append (GtkWidget   *combo,
+ 
+   gtk_list_store_append (store, &iter);
+   gtk_list_store_set (store, &iter,
+-		      NAME_COLUMN, display_text,
++		      NAME_COLUMN, _(display_text),
+ 		      VALUE_COLUMN, value,
+ 		      -1);
+ }
+@@ -773,7 +773,7 @@ construct_widgets (GtkPrinterOptionWidget *widget)
+   else switch (source->type)
+     {
+     case GTK_PRINTER_OPTION_TYPE_BOOLEAN:
+-      priv->check = gtk_check_button_new_with_mnemonic (source->display_text);
++      priv->check = gtk_check_button_new_with_mnemonic (_(source->display_text));
+       g_signal_connect (priv->check, "toggled", G_CALLBACK (check_toggled_cb), widget);
+       gtk_widget_show (priv->check);
+       gtk_box_pack_start (GTK_BOX (widget), priv->check, TRUE, TRUE, 0);
+@@ -811,7 +811,7 @@ construct_widgets (GtkPrinterOptionWidget *widget)
+       gtk_box_pack_start (GTK_BOX (widget), priv->combo, TRUE, TRUE, 0);
+       g_signal_connect (priv->combo, "changed", G_CALLBACK (combo_changed_cb), widget);
+ 
+-      text = g_strdup_printf ("%s:", source->display_text);
++      text = g_strdup_printf ("%s:", _(source->display_text));
+       priv->label = gtk_label_new_with_mnemonic (text);
+       g_free (text);
+       gtk_widget_show (priv->label);
+@@ -837,7 +837,7 @@ construct_widgets (GtkPrinterOptionWidget *widget)
+ 
+       if (source->display_text)
+ 	{
+-	  text = g_strdup_printf ("%s:", source->display_text);
++	  text = g_strdup_printf ("%s:", _(source->display_text));
+ 	  priv->label = gtk_label_new_with_mnemonic (text);
+           gtk_widget_set_valign (priv->label, GTK_ALIGN_BASELINE);
+ 	  g_free (text);
+@@ -853,7 +853,7 @@ construct_widgets (GtkPrinterOptionWidget *widget)
+       gtk_box_pack_start (GTK_BOX (widget), priv->entry, TRUE, TRUE, 0);
+       g_signal_connect (priv->entry, "changed", G_CALLBACK (entry_changed_cb), widget);
+ 
+-      text = g_strdup_printf ("%s:", source->display_text);
++      text = g_strdup_printf ("%s:", _(source->display_text));
+       priv->label = gtk_label_new_with_mnemonic (text);
+       g_free (text);
+       gtk_widget_show (priv->label);
+@@ -866,7 +866,7 @@ construct_widgets (GtkPrinterOptionWidget *widget)
+       gtk_box_pack_start (GTK_BOX (widget), priv->button, TRUE, TRUE, 0);
+       g_signal_connect (priv->button, "clicked", G_CALLBACK (filesave_choose_cb), widget);
+ 
+-      text = g_strdup_printf ("%s:", source->display_text);
++      text = g_strdup_printf ("%s:", _(source->display_text));
+       priv->label = gtk_label_new_with_mnemonic (text);
+       g_free (text);
+       gtk_widget_show (priv->label);
+@@ -879,7 +879,7 @@ construct_widgets (GtkPrinterOptionWidget *widget)
+       gtk_widget_show (priv->info_label);
+       gtk_box_pack_start (GTK_BOX (widget), priv->info_label, FALSE, TRUE, 0);
+ 
+-      text = g_strdup_printf ("%s:", source->display_text);
++      text = g_strdup_printf ("%s:", _(source->display_text));
+       priv->label = gtk_label_new_with_mnemonic (text);
+       g_free (text);
+       gtk_widget_show (priv->label);
+diff --git a/gtk/gtkprintunixdialog.c b/gtk/gtkprintunixdialog.c
+index 7259999..0814a05 100644
+--- a/gtk/gtkprintunixdialog.c
++++ b/gtk/gtkprintunixdialog.c
+@@ -1298,7 +1298,7 @@ wrap_in_frame (const gchar *label,
+   gtk_widget_set_valign (label_widget, GTK_ALIGN_CENTER);
+   gtk_widget_show (label_widget);
+ 
+-  bold_text = g_markup_printf_escaped ("<b>%s</b>", label);
++  bold_text = g_markup_printf_escaped ("<b>%s</b>", _(label));
+   gtk_label_set_markup (GTK_LABEL (label_widget), bold_text);
+   g_free (bold_text);
+ 
