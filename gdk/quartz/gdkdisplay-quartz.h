@@ -25,6 +25,7 @@
 #include "gdkwindow.h"
 #include "gdkinternals.h"
 #include "gdkmain.h"
+#include "gdkinternal-quartz.h"
 
 G_BEGIN_DECLS
 
@@ -32,7 +33,9 @@ G_BEGIN_DECLS
 struct _GdkQuartzDisplay
 {
   GdkDisplay parent_instance;
-  GHashTable *monitors;
+  NSRect geometry; /* In AppKit coordinates. */
+  NSSize size; /* Aggregate size of displays in millimeters. */
+  GPtrArray *monitors;
 };
 
 struct _GdkQuartzDisplayClass

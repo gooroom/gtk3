@@ -38,7 +38,9 @@ libgdk_quartz_la_SOURCES =    	\
 	gdkglcontext-quartz.c	\
 	gdkglcontext-quartz.h	\
 	gdkglobals-quartz.c	\
+	gdkinternal-quartz.h	\
 	gdkkeys-quartz.c	\
+	gdkkeys-quartz.h	\
 	gdkmonitor-quartz.c     \
 	gdkmonitor-quartz.h     \
 	gdkprivate-quartz.h	\
@@ -58,12 +60,14 @@ libgdkinclude_HEADERS = 	\
 	gdkquartz.h
 
 libgdkquartzinclude_HEADERS =		\
+	gdkquartz-gtk-only.h            \
 	gdkquartzcursor.h		\
 	gdkquartzdevice-core.h		\
 	gdkquartzdevicemanager-core.h	\
 	gdkquartzdisplay.h		\
 	gdkquartzdisplaymanager.h	\
 	gdkquartzdnd.h			\
+	gdkquartzglcontext.h		\
 	gdkquartzkeys.h			\
 	gdkquartzmonitor.h		\
 	gdkquartzscreen.h		\
@@ -71,5 +75,7 @@ libgdkquartzinclude_HEADERS =		\
 	gdkquartzvisual.h		\
 	gdkquartzwindow.h
 
+EXTRA_DIST += \
+	meson.build
 
 -include $(top_srcdir)/git.mk

@@ -8,7 +8,7 @@
 <link rel="up" href="ScrollingWidgets.html" title="Scrolling">
 <link rel="prev" href="ScrollingWidgets.html" title="Scrolling">
 <link rel="next" href="GtkScrolledWindow.html" title="GtkScrolledWindow">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GtkScrollbar.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="function_type">
@@ -61,32 +61,32 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkScrollbar.html#GtkScrollbar--s-fixed-slider-length" title="The “fixed-slider-length” style property">fixed-slider-length</a></td>
 <td class="property_flags">Read</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkScrollbar.html#GtkScrollbar--s-has-backward-stepper" title="The “has-backward-stepper” style property">has-backward-stepper</a></td>
 <td class="property_flags">Read</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkScrollbar.html#GtkScrollbar--s-has-forward-stepper" title="The “has-forward-stepper” style property">has-forward-stepper</a></td>
 <td class="property_flags">Read</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkScrollbar.html#GtkScrollbar--s-has-secondary-backward-stepper" title="The “has-secondary-backward-stepper” style property">has-secondary-backward-stepper</a></td>
 <td class="property_flags">Read</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkScrollbar.html#GtkScrollbar--s-has-secondary-forward-stepper" title="The “has-secondary-forward-stepper” style property">has-secondary-forward-stepper</a></td>
 <td class="property_flags">Read</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td class="property_type"><span class="type">int</span></td>
 <td class="property_name"><a class="link" href="GtkScrollbar.html#GtkScrollbar--s-min-slider-length" title="The “min-slider-length” style property">min-slider-length</a></td>
 <td class="property_flags">Read</td>
 </tr>
@@ -97,8 +97,8 @@
 <a name="GtkScrollbar.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="datatype_keyword">struct</td>
@@ -108,8 +108,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkScrollbar.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkRange.html" title="GtkRange">GtkRange</a>
                 <span class="lineart">╰──</span> GtkScrollbar
@@ -155,14 +155,14 @@ stepper buttons) or by a page (using e.g. the Page Down/Up keys).</p>
 6
 7
 8</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="normal">scrollbar</span><span class="symbol">[.</span><span class="normal">fine</span><span class="symbol">-</span><span class="normal">tune</span><span class="symbol">]</span>
-<span class="normal">╰── contents</span>
-<span class="normal">    ├── </span><span class="symbol">[</span><span class="normal">button</span><span class="symbol">.</span><span class="normal">up</span><span class="symbol">]</span>
-<span class="normal">    ├── </span><span class="symbol">[</span><span class="normal">button</span><span class="symbol">.</span><span class="normal">down</span><span class="symbol">]</span>
-<span class="normal">    ├── trough</span>
-<span class="normal">    │   ╰── slider</span>
-<span class="normal">    ├── </span><span class="symbol">[</span><span class="normal">button</span><span class="symbol">.</span><span class="normal">up</span><span class="symbol">]</span>
-<span class="normal">    ╰── </span><span class="symbol">[</span><span class="normal">button</span><span class="symbol">.</span><span class="normal">down</span><span class="symbol">]</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">scrollbar</span><span class="p">[.</span><span class="n">fine</span><span class="o">-</span><span class="n">tune</span><span class="p">]</span>
+<span class="err">╰──</span> <span class="n">contents</span>
+    <span class="err">├──</span> <span class="p">[</span><span class="n">button</span><span class="p">.</span><span class="n">up</span><span class="p">]</span>
+    <span class="err">├──</span> <span class="p">[</span><span class="n">button</span><span class="p">.</span><span class="n">down</span><span class="p">]</span>
+    <span class="err">├──</span> <span class="n">trough</span>
+    <span class="err">│</span>   <span class="err">╰──</span> <span class="n">slider</span>
+    <span class="err">├──</span> <span class="p">[</span><span class="n">button</span><span class="p">.</span><span class="n">up</span><span class="p">]</span>
+    <span class="err">╰──</span> <span class="p">[</span><span class="n">button</span><span class="p">.</span><span class="n">down</span><span class="p">]</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -205,7 +205,7 @@ gtk_scrollbar_new (<em class="parameter"><code><a class="link" href="gtk3-Standa
 </tr>
 <tr>
 <td class="parameter_name"><p>adjustment</p></td>
-<td class="parameter_description"><p>the <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> to use, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to create a new adjustment. </p></td>
+<td class="parameter_description"><p>the <a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> to use, or <code class="literal">NULL</code> to create a new adjustment. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -229,53 +229,59 @@ gtk_scrollbar_new (<em class="parameter"><code><a class="link" href="gtk3-Standa
 <a name="GtkScrollbar.style-property-details"></a><h2>Style Property Details</h2>
 <div class="refsect2">
 <a name="GtkScrollbar--s-fixed-slider-length"></a><h3>The <code class="literal">“fixed-slider-length”</code> style property</h3>
-<pre class="programlisting">  “fixed-slider-length”      <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “fixed-slider-length”      <span class="type">gboolean</span></pre>
 <p>Don't change slider size, just lock it to the minimum length.</p>
+<p>Owner: GtkScrollbar</p>
 <p>Flags: Read</p>
 <p>Default value: FALSE</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkScrollbar--s-has-backward-stepper"></a><h3>The <code class="literal">“has-backward-stepper”</code> style property</h3>
-<pre class="programlisting">  “has-backward-stepper”     <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “has-backward-stepper”     <span class="type">gboolean</span></pre>
 <p>Display the standard backward arrow button.</p>
+<p>Owner: GtkScrollbar</p>
 <p>Flags: Read</p>
 <p>Default value: TRUE</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkScrollbar--s-has-forward-stepper"></a><h3>The <code class="literal">“has-forward-stepper”</code> style property</h3>
-<pre class="programlisting">  “has-forward-stepper”      <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “has-forward-stepper”      <span class="type">gboolean</span></pre>
 <p>Display the standard forward arrow button.</p>
+<p>Owner: GtkScrollbar</p>
 <p>Flags: Read</p>
 <p>Default value: TRUE</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkScrollbar--s-has-secondary-backward-stepper"></a><h3>The <code class="literal">“has-secondary-backward-stepper”</code> style property</h3>
-<pre class="programlisting">  “has-secondary-backward-stepper” <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “has-secondary-backward-stepper” <span class="type">gboolean</span></pre>
 <p>Display a second backward arrow button on the opposite end of the scrollbar.</p>
+<p>Owner: GtkScrollbar</p>
 <p>Flags: Read</p>
 <p>Default value: FALSE</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkScrollbar--s-has-secondary-forward-stepper"></a><h3>The <code class="literal">“has-secondary-forward-stepper”</code> style property</h3>
-<pre class="programlisting">  “has-secondary-forward-stepper” <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “has-secondary-forward-stepper” <span class="type">gboolean</span></pre>
 <p>Display a second forward arrow button on the opposite end of the scrollbar.</p>
+<p>Owner: GtkScrollbar</p>
 <p>Flags: Read</p>
 <p>Default value: FALSE</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkScrollbar--s-min-slider-length"></a><h3>The <code class="literal">“min-slider-length”</code> style property</h3>
-<pre class="programlisting">  “min-slider-length”        <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></pre>
+<pre class="programlisting">  “min-slider-length”        <span class="type">int</span></pre>
 <p>Minimum length of scrollbar slider.</p>
 <div class="warning">
 <p><code class="literal">GtkScrollbar:min-slider-length</code> has been deprecated since version 3.20 and should not be used in newly-written code.</p>
 <p>Use min-height/min-width CSS properties on the slider
   element instead. The value of this style property is ignored.</p>
 </div>
+<p>Owner: GtkScrollbar</p>
 <p>Flags: Read</p>
 <p>Allowed values: &gt;= 0</p>
 <p>Default value: 21</p>
@@ -287,6 +293,6 @@ gtk_scrollbar_new (<em class="parameter"><code><a class="link" href="gtk3-Standa
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

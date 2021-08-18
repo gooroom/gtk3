@@ -34,6 +34,8 @@
 #include <gdk/wayland/xdg-foreign-unstable-v1-client-protocol.h>
 #include <gdk/wayland/keyboard-shortcuts-inhibit-unstable-v1-client-protocol.h>
 #include <gdk/wayland/server-decoration-client-protocol.h>
+#include <gdk/wayland/xdg-output-unstable-v1-client-protocol.h>
+#include <gdk/wayland/primary-selection-unstable-v1-client-protocol.h>
 
 #include <glib.h>
 #include <gdk/gdkkeys.h>
@@ -47,7 +49,7 @@
 
 G_BEGIN_DECLS
 
-#define GDK_WAYLAND_MAX_THEME_SCALE 3
+#define GDK_WAYLAND_MAX_THEME_SCALE 4
 #define GDK_WAYLAND_THEME_SCALES_COUNT GDK_WAYLAND_MAX_THEME_SCALE
 
 #define GDK_ZWP_POINTER_GESTURES_V1_VERSION 1
@@ -87,12 +89,15 @@ struct _GdkWaylandDisplay
   struct wl_data_device_manager *data_device_manager;
   struct wl_subcompositor *subcompositor;
   struct zwp_pointer_gestures_v1 *pointer_gestures;
-  struct gtk_primary_selection_device_manager *primary_selection_manager;
+  struct gtk_primary_selection_device_manager *gtk_primary_selection_manager;
+  struct zwp_primary_selection_device_manager_v1 *zwp_primary_selection_manager_v1;
   struct zwp_tablet_manager_v2 *tablet_manager;
   struct zxdg_exporter_v1 *xdg_exporter;
   struct zxdg_importer_v1 *xdg_importer;
   struct zwp_keyboard_shortcuts_inhibit_manager_v1 *keyboard_shortcuts_inhibit;
   struct org_kde_kwin_server_decoration_manager *server_decoration_manager;
+  struct zxdg_output_manager_v1 *xdg_output_manager;
+  uint32_t xdg_output_version;
 
   GList *async_roundtrips;
 
@@ -119,6 +124,7 @@ struct _GdkWaylandDisplay
   int seat_version;
   int data_device_manager_version;
   int gtk_shell_version;
+  int xdg_output_manager_version;
 
   uint32_t server_decoration_mode;
 

@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="GtkHBox.html" title="GtkHBox">
 <link rel="next" href="GtkHButtonBox.html" title="GtkHButtonBox">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -37,8 +37,8 @@
 <a name="GtkVBox.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="function_type">
@@ -54,8 +54,8 @@
 <a name="GtkVBox.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="datatype_keyword">struct</td>
@@ -65,8 +65,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkVBox.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                 <span class="lineart">╰──</span> <a class="link" href="GtkBox.html" title="GtkBox">GtkBox</a>
@@ -90,38 +90,39 @@ GtkVBox implements
 <p>Use the <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> packing interface to determine the arrangement,
 spacing, height, and alignment of <a class="link" href="GtkVBox.html" title="GtkVBox"><span class="type">GtkVBox</span></a> children.</p>
 <p>All children are allocated the same width.</p>
-<p>GtkVBox has been deprecated. You can use <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> instead, which is a
-very quick and easy change. If you have derived your own classes from
-GtkVBox, you can simply change the inheritance to derive directly
-from <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a>, and set the <a class="link" href="gtk3-Orientable.html#GtkOrientable--orientation" title="The “orientation” property"><span class="type">“orientation”</span></a> property to
-<a class="link" href="gtk3-Standard-Enumerations.html#GTK-ORIENTATION-VERTICAL:CAPS"><code class="literal">GTK_ORIENTATION_VERTICAL</code></a> in your instance init function, with a
-call like:</p>
+<p>GtkVBox has been deprecated. You can use <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> with a <a class="link" href="gtk3-Orientable.html#GtkOrientable--orientation" title="The “orientation” property"><span class="type">“orientation”</span></a>
+set to <a class="link" href="gtk3-Standard-Enumerations.html#GTK-ORIENTATION-VERTICAL:CAPS"><code class="literal">GTK_ORIENTATION_VERTICAL</code></a> instead when calling <a class="link" href="GtkBox.html#gtk-box-new" title="gtk_box_new ()"><code class="function">gtk_box_new()</code></a>,
+which is a very quick and easy change.</p>
+<p>If you have derived your own classes from GtkVBox, you can change the
+inheritance to derive directly from <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a>, and set the <a class="link" href="gtk3-Orientable.html#GtkOrientable--orientation" title="The “orientation” property"><span class="type">“orientation”</span></a>
+property to <a class="link" href="gtk3-Standard-Enumerations.html#GTK-ORIENTATION-VERTICAL:CAPS"><code class="literal">GTK_ORIENTATION_VERTICAL</code></a> in your instance init function,
+with a call like:</p>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="gtk3-Orientable.html#gtk-orientable-set-orientation">gtk_orientable_set_orientation</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_ORIENTABLE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">),</span>
-<span class="normal">                                <a href="gtk3-Standard-Enumerations.html#GTK-ORIENTATION-VERTICAL:CAPS">GTK_ORIENTATION_VERTICAL</a></span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">gtk_orientable_set_orientation</span> <span class="p">(</span><span class="n">GTK_ORIENTABLE</span> <span class="p">(</span><span class="n">object</span><span class="p">),</span>
+                                <span class="n">GTK_ORIENTATION_VERTICAL</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<p>
-If you don’t need first-child or last-child styling and want your code
-to be future-proof, the recommendation is to switch to <a class="link" href="GtkGrid.html" title="GtkGrid"><span class="type">GtkGrid</span></a> instead
-of nested boxes. For more information about migrating to <a class="link" href="GtkGrid.html" title="GtkGrid"><span class="type">GtkGrid</span></a>,
-see <a class="link" href="gtk-migrating-GtkGrid.html" title="Migrating from other containers to GtkGrid">Migrating from other containers to GtkGrid</a>.</p>
+<p></p>
+<p>If you have a grid-like layout composed of nested boxes, and you don’t
+need first-child or last-child styling, the recommendation is to switch
+to <a class="link" href="GtkGrid.html" title="GtkGrid"><span class="type">GtkGrid</span></a>. For more information about migrating to <a class="link" href="GtkGrid.html" title="GtkGrid"><span class="type">GtkGrid</span></a>, see
+<a class="link" href="gtk-migrating-GtkGrid.html" title="Migrating from other containers to GtkGrid">Migrating from other containers to GtkGrid</a>.</p>
 </div>
 <div class="refsect1">
 <a name="GtkVBox.functions_details"></a><h2>Functions</h2>
 <div class="refsect2">
 <a name="gtk-vbox-new"></a><h3>gtk_vbox_new ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
-gtk_vbox_new (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> homogeneous</code></em>,
-              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> spacing</code></em>);</pre>
+gtk_vbox_new (<em class="parameter"><code><span class="type">gboolean</span> homogeneous</code></em>,
+              <em class="parameter"><code><span class="type">gint</span> spacing</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_vbox_new</code> has been deprecated since version 3.2 and should not be used in newly-written code.</p>
 <p>You can use <a class="link" href="GtkBox.html#gtk-box-new" title="gtk_box_new ()"><code class="function">gtk_box_new()</code></a> with <a class="link" href="gtk3-Standard-Enumerations.html#GTK-ORIENTATION-VERTICAL:CAPS"><code class="literal">GTK_ORIENTATION_VERTICAL</code></a> instead,
@@ -141,7 +142,7 @@ gtk_vbox_new (<em class="parameter"><code><a href="https://developer.gnome.org/g
 <tbody>
 <tr>
 <td class="parameter_name"><p>homogeneous</p></td>
-<td class="parameter_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if all children are to be given equal space allotments.</p></td>
+<td class="parameter_description"><p><code class="literal">TRUE</code> if all children are to be given equal space allotments.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -171,6 +172,6 @@ gtk_vbox_new (<em class="parameter"><code><a href="https://developer.gnome.org/g
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

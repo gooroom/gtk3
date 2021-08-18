@@ -24,6 +24,7 @@
 #include "gtkactionobservable.h"
 #include "gtkactionobserver.h"
 #include "gtkintl.h"
+#include "gtkmarshalers.h"
 
 #include <string.h>
 
@@ -633,8 +634,16 @@ gtk_action_muxer_class_init (GObjectClass *class)
   class->finalize = gtk_action_muxer_finalize;
   class->dispose = gtk_action_muxer_dispose;
 
-  accel_signal = g_signal_new (I_("primary-accel-changed"), GTK_TYPE_ACTION_MUXER, G_SIGNAL_RUN_LAST,
-                               0, NULL, NULL, NULL, G_TYPE_NONE, 2, G_TYPE_STRING, G_TYPE_STRING);
+  accel_signal = g_signal_new (I_("primary-accel-changed"),
+                               GTK_TYPE_ACTION_MUXER,
+                               G_SIGNAL_RUN_LAST,
+                               0,
+                               NULL, NULL,
+                               _gtk_marshal_VOID__STRING_STRING,
+                               G_TYPE_NONE, 2, G_TYPE_STRING, G_TYPE_STRING);
+  g_signal_set_va_marshaller (accel_signal,
+                              G_TYPE_FROM_CLASS (class),
+                              _gtk_marshal_VOID__STRING_STRINGv);
 
   properties[PROP_PARENT] = g_param_spec_object ("parent", "Parent",
                                                  "The parent muxer",
@@ -674,12 +683,14 @@ gtk_action_muxer_insert (GtkActionMuxer *muxer,
   Group *group;
   gint i;
 
+  g_object_ref (action_group);
+
   /* TODO: diff instead of ripout and replace */
   gtk_action_muxer_remove (muxer, prefix);
 
   group = g_slice_new (Group);
   group->muxer = muxer;
-  group->group = g_object_ref (action_group);
+  group->group = action_group;
   group->prefix = g_strdup (prefix);
 
   g_hash_table_insert (muxer->groups, group->prefix, group);
@@ -733,10 +744,32 @@ gtk_action_muxer_remove (GtkActionMuxer *muxer,
     }
 }
 
+static void
+gtk_action_muxer_append_prefixes (gpointer key,
+                                  gpointer value,
+                                  gpointer user_data)
+{
+  const gchar *prefix = key;
+  GArray *prefixes= user_data;
+
+  g_array_append_val (prefixes, prefix);
+}
+
 const gchar **
 gtk_action_muxer_list_prefixes (GtkActionMuxer *muxer)
 {
-  return (const gchar **) g_hash_table_get_keys_as_array (muxer->groups, NULL);
+  GArray *prefixes;
+
+  prefixes = g_array_new (TRUE, FALSE, sizeof (gchar *));
+
+  for ( ; muxer != NULL; muxer = muxer->parent)
+    {
+      g_hash_table_foreach (muxer->groups,
+                            gtk_action_muxer_append_prefixes,
+                            prefixes);
+    }
+
+  return (const gchar **)(void *) g_array_free (prefixes, FALSE);
 }
 
 GActionGroup *
@@ -745,10 +778,13 @@ gtk_action_muxer_lookup (GtkActionMuxer *muxer,
 {
   Group *group;
 
-  group = g_hash_table_lookup (muxer->groups, prefix);
+  for ( ; muxer != NULL; muxer = muxer->parent)
+    {
+      group = g_hash_table_lookup (muxer->groups, prefix);
 
-  if (group != NULL)
-    return group->group;
+      if (group != NULL)
+        return group->group;
+    }
 
   return NULL;
 }

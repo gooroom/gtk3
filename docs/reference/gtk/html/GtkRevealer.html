@@ -8,7 +8,7 @@
 <link rel="up" href="LayoutContainers.html" title="Layout Containers">
 <link rel="prev" href="GtkGrid.html" title="GtkGrid">
 <link rel="next" href="GtkListBox.html" title="GtkListBox">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GtkRevealer.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -52,7 +52,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkRevealer.html#gtk-revealer-get-reveal-child" title="gtk_revealer_get_reveal_child ()">gtk_revealer_get_reveal_child</a> <span class="c_punctuation">()</span>
@@ -68,7 +68,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkRevealer.html#gtk-revealer-get-child-revealed" title="gtk_revealer_get_child_revealed ()">gtk_revealer_get_child_revealed</a> <span class="c_punctuation">()</span>
@@ -76,7 +76,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<span class="returnvalue">guint</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkRevealer.html#gtk-revealer-get-transition-duration" title="gtk_revealer_get_transition_duration ()">gtk_revealer_get_transition_duration</a> <span class="c_punctuation">()</span>
@@ -119,17 +119,17 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkRevealer.html#GtkRevealer--child-revealed" title="The “child-revealed” property">child-revealed</a></td>
 <td class="property_flags">Read</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkRevealer.html#GtkRevealer--reveal-child" title="The “reveal-child” property">reveal-child</a></td>
 <td class="property_flags">Read / Write / Construct</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a></td>
+<td class="property_type"><span class="type">guint</span></td>
 <td class="property_name"><a class="link" href="GtkRevealer.html#GtkRevealer--transition-duration" title="The “transition-duration” property">transition-duration</a></td>
 <td class="property_flags">Read / Write / Construct</td>
 </tr>
@@ -145,8 +145,8 @@
 <a name="GtkRevealer.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -166,8 +166,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkRevealer.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                 <span class="lineart">╰──</span> <a class="link" href="GtkBin.html" title="GtkBin">GtkBin</a>
@@ -182,7 +182,7 @@ GtkRevealer implements
 </div>
 <div class="refsect1">
 <a name="GtkRevealer.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -215,11 +215,11 @@ gtk_revealer_new (<em class="parameter"><code><span class="type">void</span></co
 <hr>
 <div class="refsect2">
 <a name="gtk-revealer-get-reveal-child"></a><h3>gtk_revealer_get_reveal_child ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_revealer_get_reveal_child (<em class="parameter"><code><a class="link" href="GtkRevealer.html" title="GtkRevealer"><span class="type">GtkRevealer</span></a> *revealer</code></em>);</pre>
 <p>Returns whether the child is currently
 revealed. See <a class="link" href="GtkRevealer.html#gtk-revealer-set-reveal-child" title="gtk_revealer_set_reveal_child ()"><code class="function">gtk_revealer_set_reveal_child()</code></a>.</p>
-<p>This function returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> as soon as the transition
+<p>This function returns <code class="literal">TRUE</code> as soon as the transition
 is to the revealed state is started. To learn whether
 the child is fully revealed (ie the transition is completed),
 use <a class="link" href="GtkRevealer.html#gtk-revealer-get-child-revealed" title="gtk_revealer_get_child_revealed ()"><code class="function">gtk_revealer_get_child_revealed()</code></a>.</p>
@@ -240,7 +240,7 @@ use <a class="link" href="GtkRevealer.html#gtk-revealer-get-child-revealed" titl
 </div>
 <div class="refsect3">
 <a name="gtk-revealer-get-reveal-child.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the child is revealed.</p>
+<p> <code class="literal">TRUE</code> if the child is revealed.</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
@@ -249,7 +249,7 @@ use <a class="link" href="GtkRevealer.html#gtk-revealer-get-child-revealed" titl
 <a name="gtk-revealer-set-reveal-child"></a><h3>gtk_revealer_set_reveal_child ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_revealer_set_reveal_child (<em class="parameter"><code><a class="link" href="GtkRevealer.html" title="GtkRevealer"><span class="type">GtkRevealer</span></a> *revealer</code></em>,
-                               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> reveal_child</code></em>);</pre>
+                               <em class="parameter"><code><span class="type">gboolean</span> reveal_child</code></em>);</pre>
 <p>Tells the <a class="link" href="GtkRevealer.html" title="GtkRevealer"><span class="type">GtkRevealer</span></a> to reveal or conceal its child.</p>
 <p>The transition will be animated with the current
 transition type of <em class="parameter"><code>revealer</code></em>
@@ -270,7 +270,7 @@ transition type of <em class="parameter"><code>revealer</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>reveal_child</p></td>
-<td class="parameter_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to reveal the child</p></td>
+<td class="parameter_description"><p><code class="literal">TRUE</code> to reveal the child</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -281,7 +281,7 @@ transition type of <em class="parameter"><code>revealer</code></em>
 <hr>
 <div class="refsect2">
 <a name="gtk-revealer-get-child-revealed"></a><h3>gtk_revealer_get_child_revealed ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_revealer_get_child_revealed (<em class="parameter"><code><a class="link" href="GtkRevealer.html" title="GtkRevealer"><span class="type">GtkRevealer</span></a> *revealer</code></em>);</pre>
 <p>Returns whether the child is fully revealed, in other words whether
 the transition to the revealed state is completed.</p>
@@ -302,14 +302,14 @@ the transition to the revealed state is completed.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-revealer-get-child-revealed.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the child is fully revealed</p>
+<p> <code class="literal">TRUE</code> if the child is fully revealed</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-revealer-get-transition-duration"></a><h3>gtk_revealer_get_transition_duration ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<pre class="programlisting"><span class="returnvalue">guint</span>
 gtk_revealer_get_transition_duration (<em class="parameter"><code><a class="link" href="GtkRevealer.html" title="GtkRevealer"><span class="type">GtkRevealer</span></a> *revealer</code></em>);</pre>
 <p>Returns the amount of time (in milliseconds) that
 transitions will take.</p>
@@ -339,7 +339,7 @@ transitions will take.</p>
 <a name="gtk-revealer-set-transition-duration"></a><h3>gtk_revealer_set_transition_duration ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_revealer_set_transition_duration (<em class="parameter"><code><a class="link" href="GtkRevealer.html" title="GtkRevealer"><span class="type">GtkRevealer</span></a> *revealer</code></em>,
-                                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> duration</code></em>);</pre>
+                                      <em class="parameter"><code><span class="type">guint</span> duration</code></em>);</pre>
 <p>Sets the duration that transitions will take.</p>
 <div class="refsect3">
 <a name="gtk-revealer-set-transition-duration.parameters"></a><h4>Parameters</h4>
@@ -520,24 +520,27 @@ when the child of a <a class="link" href="GtkRevealer.html" title="GtkRevealer">
 <a name="GtkRevealer.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkRevealer--child-revealed"></a><h3>The <code class="literal">“child-revealed”</code> property</h3>
-<pre class="programlisting">  “child-revealed”           <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “child-revealed”           <span class="type">gboolean</span></pre>
 <p>Whether the child is revealed and the animation target reached.</p>
+<p>Owner: GtkRevealer</p>
 <p>Flags: Read</p>
 <p>Default value: FALSE</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkRevealer--reveal-child"></a><h3>The <code class="literal">“reveal-child”</code> property</h3>
-<pre class="programlisting">  “reveal-child”             <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “reveal-child”             <span class="type">gboolean</span></pre>
 <p>Whether the container should reveal the child.</p>
+<p>Owner: GtkRevealer</p>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: FALSE</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkRevealer--transition-duration"></a><h3>The <code class="literal">“transition-duration”</code> property</h3>
-<pre class="programlisting">  “transition-duration”      <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a></pre>
+<pre class="programlisting">  “transition-duration”      <span class="type">guint</span></pre>
 <p>The animation duration, in milliseconds.</p>
+<p>Owner: GtkRevealer</p>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: 250</p>
 </div>
@@ -546,6 +549,7 @@ when the child of a <a class="link" href="GtkRevealer.html" title="GtkRevealer">
 <a name="GtkRevealer--transition-type"></a><h3>The <code class="literal">“transition-type”</code> property</h3>
 <pre class="programlisting">  “transition-type”          <a class="link" href="GtkRevealer.html#GtkRevealerTransitionType" title="enum GtkRevealerTransitionType"><span class="type">GtkRevealerTransitionType</span></a></pre>
 <p>The type of animation used to transition.</p>
+<p>Owner: GtkRevealer</p>
 <p>Flags: Read / Write / Construct</p>
 <p>Default value: GTK_REVEALER_TRANSITION_TYPE_SLIDE_DOWN</p>
 </div>
@@ -556,6 +560,6 @@ when the child of a <a class="link" href="GtkRevealer.html" title="GtkRevealer">
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

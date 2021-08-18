@@ -420,7 +420,6 @@
       <sub name="Using GTK+ on Mac OS X" link="gtk-osx.html"/>
       <sub name="Using GTK+ with Broadway" link="gtk-broadway.html"/>
       <sub name="Using GTK+ with Wayland" link="gtk-wayland.html"/>
-      <sub name="Using GTK+ with Mir" link="gtk-mir.html"/>
     </sub>
     <sub name="Glossary" link="glossary.html"/>
     <sub name="Index of all symbols" link="api-index-full.html"/>
@@ -470,6 +469,7 @@
     <keyword type="property" name="The “menubar” property" link="GtkApplication.html#GtkApplication--menubar"/>
     <keyword type="property" name="The “register-session” property" link="GtkApplication.html#GtkApplication--register-session"/>
     <keyword type="property" name="The “screensaver-active” property" link="GtkApplication.html#GtkApplication--screensaver-active"/>
+    <keyword type="signal" name="The “query-end” signal" link="GtkApplication.html#GtkApplication-query-end"/>
     <keyword type="signal" name="The “window-added” signal" link="GtkApplication.html#GtkApplication-window-added"/>
     <keyword type="signal" name="The “window-removed” signal" link="GtkApplication.html#GtkApplication-window-removed"/>
     <keyword type="function" name="gtk_application_window_new ()" link="GtkApplicationWindow.html#gtk-application-window-new" since="3.4"/>
@@ -3809,6 +3809,10 @@
     <keyword type="function" name="gtk_file_chooser_get_preview_uri ()" link="GtkFileChooser.html#gtk-file-chooser-get-preview-uri" since="2.4"/>
     <keyword type="function" name="gtk_file_chooser_set_extra_widget ()" link="GtkFileChooser.html#gtk-file-chooser-set-extra-widget" since="2.4"/>
     <keyword type="function" name="gtk_file_chooser_get_extra_widget ()" link="GtkFileChooser.html#gtk-file-chooser-get-extra-widget" since="2.4"/>
+    <keyword type="function" name="gtk_file_chooser_add_choice ()" link="GtkFileChooser.html#gtk-file-chooser-add-choice" since="3.22"/>
+    <keyword type="function" name="gtk_file_chooser_remove_choice ()" link="GtkFileChooser.html#gtk-file-chooser-remove-choice" since="3.22"/>
+    <keyword type="function" name="gtk_file_chooser_set_choice ()" link="GtkFileChooser.html#gtk-file-chooser-set-choice" since="3.22"/>
+    <keyword type="function" name="gtk_file_chooser_get_choice ()" link="GtkFileChooser.html#gtk-file-chooser-get-choice" since="3.22"/>
     <keyword type="function" name="gtk_file_chooser_add_filter ()" link="GtkFileChooser.html#gtk-file-chooser-add-filter" since="2.4"/>
     <keyword type="function" name="gtk_file_chooser_remove_filter ()" link="GtkFileChooser.html#gtk-file-chooser-remove-filter" since="2.4"/>
     <keyword type="function" name="gtk_file_chooser_list_filters ()" link="GtkFileChooser.html#gtk-file-chooser-list-filters" since="2.4"/>
@@ -6476,6 +6480,7 @@
     <keyword type="property" name="The “gtk-can-change-accels” property" link="GtkSettings.html#GtkSettings--gtk-can-change-accels"/>
     <keyword type="property" name="The “gtk-color-palette” property" link="GtkSettings.html#GtkSettings--gtk-color-palette"/>
     <keyword type="property" name="The “gtk-color-scheme” property" link="GtkSettings.html#GtkSettings--gtk-color-scheme"/>
+    <keyword type="property" name="The “gtk-cursor-aspect-ratio” property" link="GtkSettings.html#GtkSettings--gtk-cursor-aspect-ratio"/>
     <keyword type="property" name="The “gtk-cursor-blink” property" link="GtkSettings.html#GtkSettings--gtk-cursor-blink"/>
     <keyword type="property" name="The “gtk-cursor-blink-time” property" link="GtkSettings.html#GtkSettings--gtk-cursor-blink-time"/>
     <keyword type="property" name="The “gtk-cursor-blink-timeout” property" link="GtkSettings.html#GtkSettings--gtk-cursor-blink-timeout"/>
@@ -6517,6 +6522,7 @@
     <keyword type="property" name="The “gtk-menu-popdown-delay” property" link="GtkSettings.html#GtkSettings--gtk-menu-popdown-delay"/>
     <keyword type="property" name="The “gtk-menu-popup-delay” property" link="GtkSettings.html#GtkSettings--gtk-menu-popup-delay"/>
     <keyword type="property" name="The “gtk-modules” property" link="GtkSettings.html#GtkSettings--gtk-modules"/>
+    <keyword type="property" name="The “gtk-overlay-scrolling” property" link="GtkSettings.html#GtkSettings--gtk-overlay-scrolling"/>
     <keyword type="property" name="The “gtk-primary-button-warps-slider” property" link="GtkSettings.html#GtkSettings--gtk-primary-button-warps-slider"/>
     <keyword type="property" name="The “gtk-print-backends” property" link="GtkSettings.html#GtkSettings--gtk-print-backends"/>
     <keyword type="property" name="The “gtk-print-preview-command” property" link="GtkSettings.html#GtkSettings--gtk-print-preview-command"/>
@@ -6658,7 +6664,7 @@
     <keyword type="function" name="gtk_mount_operation_get_parent ()" link="gtk3-Filesystem-utilities.html#gtk-mount-operation-get-parent" since="2.14"/>
     <keyword type="function" name="gtk_mount_operation_set_screen ()" link="gtk3-Filesystem-utilities.html#gtk-mount-operation-set-screen" since="2.14"/>
     <keyword type="function" name="gtk_mount_operation_get_screen ()" link="gtk3-Filesystem-utilities.html#gtk-mount-operation-get-screen" since="2.14"/>
-    <keyword type="function" name="gtk_show_uri ()" link="gtk3-Filesystem-utilities.html#gtk-show-uri" deprecated="" since="2.14"/>
+    <keyword type="function" name="gtk_show_uri ()" link="gtk3-Filesystem-utilities.html#gtk-show-uri" deprecated="3.22: Use gtk_show_uri_on_window() instead." since="2.14"/>
     <keyword type="function" name="gtk_show_uri_on_window ()" link="gtk3-Filesystem-utilities.html#gtk-show-uri-on-window" since="3.22"/>
     <keyword type="struct" name="struct GtkMountOperation" link="gtk3-Filesystem-utilities.html#GtkMountOperation-struct"/>
     <keyword type="struct" name="struct GtkMountOperationClass" link="gtk3-Filesystem-utilities.html#GtkMountOperationClass"/>
@@ -7062,6 +7068,9 @@
     <keyword type="constant" name="GTK_LICENSE_LGPL_3_0_ONLY" link="GtkAboutDialog.html#GTK-LICENSE-LGPL-3-0-ONLY:CAPS"/>
     <keyword type="constant" name="GTK_LICENSE_AGPL_3_0" link="GtkAboutDialog.html#GTK-LICENSE-AGPL-3-0:CAPS"/>
     <keyword type="constant" name="GTK_LICENSE_AGPL_3_0_ONLY" link="GtkAboutDialog.html#GTK-LICENSE-AGPL-3-0-ONLY:CAPS"/>
+    <keyword type="constant" name="GTK_LICENSE_BSD_3" link="GtkAboutDialog.html#GTK-LICENSE-BSD-3:CAPS"/>
+    <keyword type="constant" name="GTK_LICENSE_APACHE_2_0" link="GtkAboutDialog.html#GTK-LICENSE-APACHE-2-0:CAPS"/>
+    <keyword type="constant" name="GTK_LICENSE_MPL_2_0" link="GtkAboutDialog.html#GTK-LICENSE-MPL-2-0:CAPS"/>
     <keyword type="constant" name="GTK_ASSISTANT_PAGE_CONTENT" link="GtkAssistant.html#GTK-ASSISTANT-PAGE-CONTENT:CAPS"/>
     <keyword type="constant" name="GTK_ASSISTANT_PAGE_INTRO" link="GtkAssistant.html#GTK-ASSISTANT-PAGE-INTRO:CAPS"/>
     <keyword type="constant" name="GTK_ASSISTANT_PAGE_CONFIRM" link="GtkAssistant.html#GTK-ASSISTANT-PAGE-CONFIRM:CAPS"/>
@@ -7130,6 +7139,7 @@
     <keyword type="constant" name="GTK_INPUT_PURPOSE_NAME" link="GtkEntry.html#GTK-INPUT-PURPOSE-NAME:CAPS"/>
     <keyword type="constant" name="GTK_INPUT_PURPOSE_PASSWORD" link="GtkEntry.html#GTK-INPUT-PURPOSE-PASSWORD:CAPS"/>
     <keyword type="constant" name="GTK_INPUT_PURPOSE_PIN" link="GtkEntry.html#GTK-INPUT-PURPOSE-PIN:CAPS"/>
+    <keyword type="constant" name="GTK_INPUT_PURPOSE_TERMINAL" link="GtkEntry.html#GTK-INPUT-PURPOSE-TERMINAL:CAPS"/>
     <keyword type="constant" name="GTK_INPUT_HINT_NONE" link="GtkEntry.html#GTK-INPUT-HINT-NONE:CAPS"/>
     <keyword type="constant" name="GTK_INPUT_HINT_SPELLCHECK" link="GtkEntry.html#GTK-INPUT-HINT-SPELLCHECK:CAPS"/>
     <keyword type="constant" name="GTK_INPUT_HINT_NO_SPELLCHECK" link="GtkEntry.html#GTK-INPUT-HINT-NO-SPELLCHECK:CAPS"/>

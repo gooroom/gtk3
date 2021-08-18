@@ -30,7 +30,6 @@ AM_CPPFLAGS =						\
 	-I$(top_srcdir)/gdk				\
 	$(GMODULE_CFLAGS)				\
 	$(GTK_DEBUG_FLAGS)				\
-	$(GDK_HIDDEN_VISIBILITY_CFLAGS)			\
 	$(GTK_DEP_CFLAGS)				\
 	$(INCLUDED_IMMODULE_DEFINE)
 
@@ -584,6 +583,7 @@ gtk_private_h_sources =		\
 	gtktextmarkprivate.h	\
 	gtktextsegment.h	\
 	gtktexttagprivate.h	\
+	gtktexttagtableprivate.h	\
 	gtktexttypes.h		\
 	gtktextutil.h		\
 	gtktrashmonitor.h	\
@@ -1030,6 +1030,13 @@ gtk_private_h_sources += \
 	gtkprinteroptionwidget.h	\
 	gtksearchenginetracker.h
 
+if HAVE_TRACKER3
+gtk_private_h_sources += \
+	gtksearchenginetracker3.h
+gtk_os_unix_c_sources += \
+	gtksearchenginetracker3.c
+endif
+
 gtk_c_sources += $(gtk_os_unix_c_sources)
 endif
 
@@ -1106,7 +1113,6 @@ gtk_use_quartz_private_h_sources = 	\
 	gtkquartz.h
 if USE_QUARTZ
 gtk_c_sources += $(gtk_use_quartz_c_sources)
-libgtk_3_la_CFLAGS = "-xobjective-c"
 gtk_private_h_sources += $(gtk_use_quartz_private_h_sources)
 endif
 
@@ -1179,7 +1185,7 @@ MAINTAINERCLEANFILES = \
 	$(print_portal_built_sources)		\
 	$(stamp_files)
 
-DISTCLEANFILES =
+DISTCLEANFILES = gtktypefuncs.inc
 
 if OS_WIN32
 DISTCLEANFILES += gtk-win32.rc
@@ -1372,9 +1378,7 @@ adwaita_theme_scss = \
 	$()
 
 highcontrast_theme_scss = \
-	theme/HighContrast/_colors.scss 	\
-	theme/HighContrast/_common.scss 	\
-	theme/HighContrast/_drawing.scss 	\
+	theme/HighContrast/_colors-hc.scss 	\
 	theme/HighContrast/gtk-contained-inverse.scss \
 	theme/HighContrast/gtk-contained.scss 	\
 	$()
@@ -1424,10 +1428,10 @@ resource_files = $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir) --gener
 
 gtkresources.h: gtk.gresource.xml
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< \
-		--target=$@ --sourcedir=$(srcdir) --c-name _gtk --generate-header --manual-register
+		--target=$@ --sourcedir=$(srcdir) --c-name _gtk --generate-header --manual-register --internal
 gtkresources.c: gtk.gresource.xml $(resource_files)
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< \
-		--target=$@ --sourcedir=$(srcdir) --c-name _gtk --generate-source --manual-register
+		--target=$@ --sourcedir=$(srcdir) --c-name _gtk --generate-source --manual-register --internal
 
 gtkprivatetypebuiltins.h: stamp-gtkprivatetypebuiltins.h
 	@true
@@ -1444,15 +1448,16 @@ gtkprivatetypebuiltins.c: $(gtk_private_type_h_sources)  gtkprivatetypebuiltins.
 	&& rm -f xgen-gptbc
 
 
-gtktypefuncs.c: stamp-gtktypebuiltins.h stamp-gtkprivatetypebuiltins.h $(top_srcdir)/gtk/*.h $(top_srcdir)/gtk/a11y/*.h $(top_srcdir)/gtk/deprecated/*.h $(top_srcdir)/gdk/*.h Makefile
-	$(AM_V_GEN) (echo '#undef GTK_COMPILATION' && echo '#include <gtk/gtkx.h>') > xgen-gtfsrc.c && \
+gtktypefuncs.inc: stamp-gtktypebuiltins.h stamp-gtkprivatetypebuiltins.h $(top_srcdir)/gtk/*.h $(top_srcdir)/gtk/a11y/*.h $(top_srcdir)/gtk/deprecated/*.h $(top_srcdir)/gdk/*.h Makefile
+	$(AM_V_GEN) export LC_ALL=C ; \
+	  (echo '#undef GTK_COMPILATION' && echo '#include <gtk/gtkx.h>') > xgen-gtfsrc.c && \
 	  echo 'G_GNUC_BEGIN_IGNORE_DEPRECATIONS' > xgen-gtf && \
 	  ${CPP} $(DEFS) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) xgen-gtfsrc.c | \
 	  $(GREP) -o '\bg[td]k_[a-zA-Z0-9_]*_get_type\b' | \
 	  sort | uniq | \
 	  $(SED) '{ s/^/*tp++ = /; s/$$/();/; s/^.*\(gdk_x11\|gtk_plug_\|gtk_socket_\).*$$/#ifdef GDK_WINDOWING_X11\n&\n#endif/; }' >> xgen-gtf \
 	&& cp xgen-gtf $@ && rm -f xgen-gtf
-$(srcdir)/gtktestutils.c: gtktypefuncs.c
+$(srcdir)/gtktestutils.c: gtktypefuncs.inc
 
 # target platform:
 lib_LTLIBRARIES = libgtk-3.la
@@ -1471,9 +1476,14 @@ gtkunixprintinclude_HEADERS = $(gtk_unix_print_public_h_sources)
 
 nodist_libgtk_3_la_SOURCES = $(nodist_gtk_c_sources)
 libgtk_3_la_SOURCES = $(gtk_c_sources)
+libgtk_3_la_CFLAGS = $(AM_CFLAGS) $(GDK_HIDDEN_VISIBILITY_CFLAGS)
 libgtk_3_la_LDFLAGS = $(libtool_opts)
 libgtk_3_la_LIBADD = $(libadd)
 libgtk_3_la_DEPENDENCIES = $(deps)
+
+if USE_QUARTZ
+libgtk_3_la_CFLAGS += "-xobjective-c"
+endif
 
 if USE_WIN32
 libgtk_3_la_LIBADD += -lole32 -lgdi32 -lcomdlg32 -lwinspool -lcomctl32
@@ -1517,7 +1527,7 @@ gtk_3_HEADERS_INST = \
 
 gtk_3_HEADERS_EXCLUDES = dummy
 
-include $(top_srcdir)/build/Makefile.msvcproj
+include $(top_srcdir)/win32/Makefile.msvcproj
 
 if HAVE_INTROSPECTION
 # Introspection Items for MSVC
@@ -1543,11 +1553,11 @@ GTK_MSVC_GIR_CFLAGS =						\
 	-DINCLUDE_IM_ti_et			\
 	-DINCLUDE_IM_viqr			\
 	-DGTK_TEXT_USE_INTERNAL_UNSUPPORTED_API	\
-	-I../.. -I../../gtk -I../../gdk
+	-I.. -I../gtk -I../gdk
 
 INTROSPECTION_INTERMEDIATE_ITEMS = \
-	$(top_builddir)/build/win32/Gtk-3.0.gir.msvc.introspect		\
-	$(top_builddir)/build/win32/Gtk_3_0_gir_list
+	$(top_builddir)/win32/Gtk-3.0.gir.msvc.introspect		\
+	$(top_builddir)/win32/Gtk_3_0_gir_list
 
 Gtk_3_0_gir_MSVC_FILES =		\
 	$(introspected_pub_headers)	\
@@ -1562,7 +1572,7 @@ Gtk_3_0_gir_MSVC_LIBS = gtk-3.0 gdk-3.0
 Gtk_3_0_gir_MSVC_CFLAGS = $(GTK_MSVC_GIR_CFLAGS)
 Gtk_3_0_gir_MSVC_SCANNERFLAGS = --warn-all --include-uninstalled='./vs$$$$(VSVER)/$$$$(CFG)/$$$$(PLAT)/bin/Gdk-3.0.gir'
 
-include $(top_srcdir)/build/Makefile.msvc-introspection
+include $(top_srcdir)/win32/Makefile.msvc-introspection
 
 else
 INTROSPECTION_INTERMEDIATE_ITEMS =
@@ -1570,8 +1580,8 @@ INTROSPECTION_INTERMEDIATE_ITEMS =
 endif
 
 dist-hook: \
-	$(top_builddir)/build/win32/vs9/gtk-3.vcproj	\
-	$(top_builddir)/build/win32/vs9/gtk-3.headers	\
+	$(top_builddir)/win32/vs9/gtk-3.vcproj	\
+	$(top_builddir)/win32/vs9/gtk-3.headers	\
 	$(INTROSPECTION_INTERMEDIATE_ITEMS)
 
 # Install a RC file for the default GTK+ theme, and key themes
@@ -1720,7 +1730,7 @@ $(GTK_UPDATE_ICON_CACHE_MANIFEST):
 	 echo '</assembly>' ) >$@
 
 $(GTK_UPDATE_ICON_CACHE_RC):
-	(echo 'CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST '$(GTK_UPDATE_ICON_CACHE_MANIFEST)) >$@
+	(echo -e '#include <winuser.h>\nCREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST '$(GTK_UPDATE_ICON_CACHE_MANIFEST)) >$@
 
 $(GTK_UPDATE_ICON_CACHE_MANIFEST_OBJECT): $(GTK_UPDATE_ICON_CACHE_RC) $(GTK_UPDATE_ICON_CACHE_MANIFEST)
 	$(WINDRES) --input $< --output $@ --output-format=coff
@@ -1749,10 +1759,15 @@ EXTRA_DIST +=                   \
 	$(gesture_sources)	\
 	$(theme_sources)	\
 	$(gsettings_SCHEMAS)	\
+	compose-parse.py	\
 	emoji/convert-emoji.c	\
 	emoji/emoji.json	\
+	emoji/emoji1.json	\
 	a11y/Makefile.inc	\
 	deprecated/Makefile.inc	\
+	glade/README.glade	\
+	glade/gtk-private-widgets.xml \
+	gtk-compose-lookaside.txt \
 	inspector/Makefile.inc	\
 	libgtk3.manifest.in	\
 	gtk-win32.rc.body.in	\
@@ -1762,6 +1777,8 @@ EXTRA_DIST +=                   \
 	gtkwin32embedwidget.c	\
 	gtkprint-win32.h	\
 	gtkprint-win32.c	\
+	gtksearchenginetracker3.c \
+	gtksearchenginetracker3.h \
 	gtksearchenginequartz.h \
 	gtkdbusinterfaces.xml	\
 	gtk-keys.css.default	\
@@ -1772,6 +1789,22 @@ EXTRA_DIST +=                   \
 	gtktypebuiltins.c.template \
 	gtktypebuiltins.h.template \
 	gtkprivatetypebuiltins.c.template \
-	gtkprivatetypebuiltins.h.template
+	gtkprivatetypebuiltins.h.template \
+	meson.build \
+	gen-gtk-gresources-xml.py \
+	gen-rc.py \
+	gentypefuncs.py \
+	a11y/meson.build \
+	deprecated/meson.build \
+	inspector/meson.build \
+	theme/Adwaita/meson.build \
+	theme/Adwaita/parse-sass.sh \
+	theme/Adwaita/render-assets.sh \
+	theme/HighContrast/assets.svg \
+	theme/HighContrast/assets.txt \
+	theme/HighContrast/meson.build \
+	theme/HighContrast/parse-sass.sh \
+	theme/HighContrast/render-assets.sh
+
 
 -include $(top_srcdir)/git.mk

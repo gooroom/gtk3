@@ -593,7 +593,7 @@ gtk_font_button_class_init (GtkFontButtonClass *klass)
                                                 G_SIGNAL_RUN_FIRST,
                                                 G_STRUCT_OFFSET (GtkFontButtonClass, font_set),
                                                 NULL, NULL,
-                                                g_cclosure_marshal_VOID__VOID,
+                                                NULL,
                                                 G_TYPE_NONE, 0);
 
   /* Bind class to template
@@ -1152,7 +1152,9 @@ gtk_font_button_clicked (GtkButton *button)
       gtk_font_chooser_set_font_desc (font_dialog, font_button->priv->font_desc);
     } 
 
+  G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   gtk_window_present (GTK_WINDOW (font_button->priv->font_dialog));
+  G_GNUC_END_IGNORE_DEPRECATIONS
 }
 
 

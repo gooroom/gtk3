@@ -1263,7 +1263,21 @@ server_mount_ready_cb (GObject      *source_file,
       gtk_entry_set_text (GTK_ENTRY (priv->address_entry), "");
 
       if (priv->should_open_location)
-        emit_open_location (view, location, priv->open_flags);
+        {
+          GMount *mount;
+          GFile *root;
+
+          mount = g_file_find_enclosing_mount (location, priv->cancellable, NULL);
+          if (mount)
+            {
+              root = g_mount_get_default_location (mount);
+
+              emit_open_location (view, root, priv->open_flags);
+
+              g_object_unref (root);
+              g_object_unref (mount);
+            }
+        }
     }
 
   update_places (view);
@@ -2284,10 +2298,14 @@ gtk_places_view_class_init (GtkPlacesViewClass *klass)
                         G_OBJECT_CLASS_TYPE (object_class),
                         G_SIGNAL_RUN_FIRST,
                         G_STRUCT_OFFSET (GtkPlacesViewClass, open_location),
-                        NULL, NULL, NULL,
+                        NULL, NULL,
+                        _gtk_marshal_VOID__OBJECT_FLAGS,
                         G_TYPE_NONE, 2,
                         G_TYPE_OBJECT,
                         GTK_TYPE_PLACES_OPEN_FLAGS);
+  g_signal_set_va_marshaller (places_view_signals [OPEN_LOCATION],
+                              G_TYPE_FROM_CLASS (object_class),
+                              _gtk_marshal_VOID__OBJECT_FLAGSv);
 
   /**
    * GtkPlacesView::show-error-message:

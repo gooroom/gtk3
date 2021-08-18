@@ -397,6 +397,10 @@ node_should_be_filtered_out (GtkFileSystemModel *model, guint id)
   if (required & GTK_FILE_FILTER_MIME_TYPE)
     {
       const char *s = g_file_info_get_content_type (node->info);
+
+      if (!s)
+        s = g_file_info_get_attribute_string (node->info, G_FILE_ATTRIBUTE_STANDARD_FAST_CONTENT_TYPE);
+
       if (s)
 	{
 	  mime_type = g_content_type_get_mime_type (s);
@@ -1208,12 +1212,15 @@ gtk_file_system_model_got_files (GObject *object, GAsyncResult *res, gpointer da
   gdk_threads_leave ();
 }
 
+/* Helper for gtk_file_system_model_query_done and
+ * gtk_file_system_model_one_query_done */
 static void
-gtk_file_system_model_query_done (GObject *     object,
-                                  GAsyncResult *res,
-                                  gpointer      data)
+query_done_helper (GObject *     object,
+                   GAsyncResult *res,
+                   gpointer      data,
+                   gboolean      do_thaw_updates)
 {
-  GtkFileSystemModel *model = data; /* only a valid pointer if not cancelled */
+  GtkFileSystemModel *model;
   GFile *file = G_FILE (object);
   GFileInfo *info;
   guint id;
@@ -1222,14 +1229,27 @@ gtk_file_system_model_query_done (GObject *     object,
   if (info == NULL)
     return;
 
-  gdk_threads_enter ();
+  model = GTK_FILE_SYSTEM_MODEL (data);
 
   _gtk_file_system_model_update_file (model, file, info);
 
   id = node_get_for_file (model, file);
   gtk_file_system_model_sort_node (model, id);
 
+  if (do_thaw_updates)
+    thaw_updates (model);
+
   g_object_unref (info);
+}
+
+static void
+gtk_file_system_model_query_done (GObject *     object,
+                                  GAsyncResult *res,
+                                  gpointer      data)
+{
+  gdk_threads_enter ();
+
+  query_done_helper (object, res, data, FALSE);
 
   gdk_threads_leave ();
 }
@@ -2152,10 +2172,7 @@ gtk_file_system_model_one_query_done (GObject *     object,
                                       GAsyncResult *res,
                                       gpointer      data)
 {
-  GtkFileSystemModel *model = data; /* only a valid pointer if not cancelled */
-
-  gtk_file_system_model_query_done (object, res, data);
-  thaw_updates (model);
+  query_done_helper (object, res, data, TRUE);
 }
 
 void

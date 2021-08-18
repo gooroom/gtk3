@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Properties-and-Atoms.html" title="Properties and Atoms">
 <link rel="next" href="gdk3-Pango-Interaction.html" title="Pango Interaction">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -35,8 +35,8 @@
 <a name="gdk3-Threads.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -81,7 +81,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<span class="returnvalue">guint</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Threads.html#gdk-threads-add-idle" title="gdk_threads_add_idle ()">gdk_threads_add_idle</a> <span class="c_punctuation">()</span>
@@ -89,7 +89,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<span class="returnvalue">guint</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Threads.html#gdk-threads-add-idle-full" title="gdk_threads_add_idle_full ()">gdk_threads_add_idle_full</a> <span class="c_punctuation">()</span>
@@ -97,7 +97,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<span class="returnvalue">guint</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Threads.html#gdk-threads-add-timeout" title="gdk_threads_add_timeout ()">gdk_threads_add_timeout</a> <span class="c_punctuation">()</span>
@@ -105,7 +105,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<span class="returnvalue">guint</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Threads.html#gdk-threads-add-timeout-full" title="gdk_threads_add_timeout_full ()">gdk_threads_add_timeout_full</a> <span class="c_punctuation">()</span>
@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<span class="returnvalue">guint</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Threads.html#gdk-threads-add-timeout-seconds" title="gdk_threads_add_timeout_seconds ()">gdk_threads_add_timeout_seconds</a> <span class="c_punctuation">()</span>
@@ -121,7 +121,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<span class="returnvalue">guint</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Threads.html#gdk-threads-add-timeout-seconds-full" title="gdk_threads_add_timeout_seconds_full ()">gdk_threads_add_timeout_seconds_full</a> <span class="c_punctuation">()</span>
@@ -142,9 +142,9 @@ and on the thread-safe GLib main loop.</p>
 <p>GLib is completely thread safe (all global data is automatically
 locked), but individual data structure instances are not automatically
 locked for performance reasons. So e.g. you must coordinate
-accesses to the same <a href="https://developer.gnome.org/glib/unstable/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a> from multiple threads.</p>
+accesses to the same <span class="type">GHashTable</span> from multiple threads.</p>
 <p>GTK+, however, is not thread safe. You should only use GTK+ and GDK
-from the thread <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a> and <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-main"><code class="function">gtk_main()</code></a> were called on.
+from the thread <a href="https://developer.gnome.org/gtk4/gtk4-General.html#gtk-init"><code class="function">gtk_init()</code></a> and <code class="function">gtk_main()</code> were called on.
 This is usually referred to as the “main thread”.</p>
 <p>Signals on GTK+ and GDK types, as well as non-signal callbacks, are
 emitted in the main thread.</p>
@@ -173,25 +173,25 @@ by using <a class="link" href="gdk3-Threads.html#gdk-threads-add-idle" title="gd
 17
 18
 19</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">worker_thread</span><span class="normal"> </span><span class="symbol">(</span><span class="type">void</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">ExpensiveData</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">expensive_data </span><span class="symbol">=</span><span class="normal"> </span><span class="function">do_expensive_computation</span><span class="normal"> </span><span class="symbol">();</span>
+        <td class="listing_code"><pre class="programlisting"><span class="k">static</span> <span class="kt">void</span>
+<span class="nf">worker_thread</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">ExpensiveData</span> <span class="o">*</span><span class="n">expensive_data</span> <span class="o">=</span> <span class="n">do_expensive_computation</span> <span class="p">();</span>
 
-<span class="normal">  </span><span class="function"><a href="gdk3-Threads.html#gdk-threads-add-idle">gdk_threads_add_idle</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">got_value</span><span class="symbol">,</span><span class="normal"> expensive_data</span><span class="symbol">);</span>
-<span class="cbracket">}</span>
+  <span class="n">gdk_threads_add_idle</span> <span class="p">(</span><span class="n">got_value</span><span class="p">,</span> <span class="n">expensive_data</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="keyword">static</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean">gboolean</a></span>
-<span class="function">got_value</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">gpointer</span><span class="normal"> user_data</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">ExpensiveData</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">expensive_data </span><span class="symbol">=</span><span class="normal"> user_data</span><span class="symbol">;</span>
+<span class="k">static</span> <span class="n">gboolean</span>
+<span class="nf">got_value</span> <span class="p">(</span><span class="n">gpointer</span> <span class="n">user_data</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">ExpensiveData</span> <span class="o">*</span><span class="n">expensive_data</span> <span class="o">=</span> <span class="n">user_data</span><span class="p">;</span>
 
-<span class="normal">  my_app</span><span class="symbol">-&gt;</span><span class="normal">expensive_data </span><span class="symbol">=</span><span class="normal"> expensive_data</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="function">gtk_button_set_sensitive</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">my_app</span><span class="symbol">-&gt;</span><span class="normal">button</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gtk3/GtkButton.html#gtk-button-set-label">gtk_button_set_label</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">my_app</span><span class="symbol">-&gt;</span><span class="normal">button</span><span class="symbol">,</span><span class="normal"> expensive_data</span><span class="symbol">-&gt;</span><span class="normal">result_label</span><span class="symbol">);</span>
+  <span class="n">my_app</span><span class="o">-&gt;</span><span class="n">expensive_data</span> <span class="o">=</span> <span class="n">expensive_data</span><span class="p">;</span>
+  <span class="n">gtk_button_set_sensitive</span> <span class="p">(</span><span class="n">my_app</span><span class="o">-&gt;</span><span class="n">button</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">);</span>
+  <span class="n">gtk_button_set_label</span> <span class="p">(</span><span class="n">my_app</span><span class="o">-&gt;</span><span class="n">button</span><span class="p">,</span> <span class="n">expensive_data</span><span class="o">-&gt;</span><span class="n">result_label</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="keyword">return</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#G-SOURCE-REMOVE:CAPS">G_SOURCE_REMOVE</a></span><span class="symbol">;</span>
-<span class="cbracket">}</span></pre></td>
+  <span class="k">return</span> <span class="n">G_SOURCE_REMOVE</span><span class="p">;</span>
+<span class="p">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -199,11 +199,11 @@ by using <a class="link" href="gdk3-Threads.html#gdk-threads-add-idle" title="gd
 
 <p></p>
 <p>You should use <a class="link" href="gdk3-Threads.html#gdk-threads-add-idle" title="gdk_threads_add_idle ()"><code class="function">gdk_threads_add_idle()</code></a> and <a class="link" href="gdk3-Threads.html#gdk-threads-add-timeout" title="gdk_threads_add_timeout ()"><code class="function">gdk_threads_add_timeout()</code></a>
-instead of <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-idle-add"><code class="function">g_idle_add()</code></a> and <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-timeout-add"><code class="function">g_timeout_add()</code></a> since libraries not under
+instead of <code class="function">g_idle_add()</code> and <code class="function">g_timeout_add()</code> since libraries not under
 your control might be using the deprecated GDK locking mechanism.
 If you are sure that none of the code in your application and libraries
 use the deprecated <a class="link" href="gdk3-Threads.html#gdk-threads-enter" title="gdk_threads_enter ()"><code class="function">gdk_threads_enter()</code></a> or <a class="link" href="gdk3-Threads.html#gdk-threads-leave" title="gdk_threads_leave ()"><code class="function">gdk_threads_leave()</code></a> methods,
-then you can safely use <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-idle-add"><code class="function">g_idle_add()</code></a> and <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-timeout-add"><code class="function">g_timeout_add()</code></a>.</p>
+then you can safely use <code class="function">g_idle_add()</code> and <code class="function">g_timeout_add()</code>.</p>
 <p>For more information on this "worker thread" pattern, you should
 also look at <span class="type">GTask</span>, which gives you high-level tools to perform
 expensive tasks from worker threads, and will handle thread
@@ -217,7 +217,7 @@ management for you.</p>
 </pre>
 <div class="warning">
 <p><code class="literal">GDK_THREADS_ENTER</code> has been deprecated since version 3.6 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-main-context-invoke"><code class="function">g_main_context_invoke()</code></a>, <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-idle-add"><code class="function">g_idle_add()</code></a> and related
+<p>Use <code class="function">g_main_context_invoke()</code>, <code class="function">g_idle_add()</code> and related
     functions if you need to schedule GTK+ calls from other threads.</p>
 </div>
 <p>This macro marks the beginning of a critical section in which GDK and
@@ -252,7 +252,7 @@ gdk_threads_init (<em class="parameter"><code><span class="type">void</span></co
 <p>Initializes GDK so that it can be used from multiple threads
 in conjunction with <a class="link" href="gdk3-Threads.html#gdk-threads-enter" title="gdk_threads_enter ()"><code class="function">gdk_threads_enter()</code></a> and <a class="link" href="gdk3-Threads.html#gdk-threads-leave" title="gdk_threads_leave ()"><code class="function">gdk_threads_leave()</code></a>.</p>
 <p>This call must be made before any use of the main loop from
-GTK+; to be safe, call it before <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a>.</p>
+GTK+; to be safe, call it before <a href="https://developer.gnome.org/gtk4/gtk4-General.html#gtk-init"><code class="function">gtk_init()</code></a>.</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -285,8 +285,8 @@ gdk_threads_leave (<em class="parameter"><code><span class="type">void</span></c
 <div class="refsect2">
 <a name="gdk-threads-set-lock-functions"></a><h3>gdk_threads_set_lock_functions ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-gdk_threads_set_lock_functions (<em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#GCallback"><span class="type">GCallback</span></a> enter_fn</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#GCallback"><span class="type">GCallback</span></a> leave_fn</code></em>);</pre>
+gdk_threads_set_lock_functions (<em class="parameter"><code><span class="type">GCallback</span> enter_fn</code></em>,
+                                <em class="parameter"><code><span class="type">GCallback</span> leave_fn</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gdk_threads_set_lock_functions</code> has been deprecated since version 3.6 and should not be used in newly-written code.</p>
 <p>All GDK and GTK+ calls should be made from the main
@@ -294,7 +294,7 @@ gdk_threads_set_lock_functions (<em class="parameter"><code><a href="https://dev
 </div>
 <p>Allows the application to replace the standard method that
 GDK uses to protect its data structures. Normally, GDK
-creates a single <a href="https://developer.gnome.org/glib/unstable/glib-Threads.html#GMutex"><span class="type">GMutex</span></a> that is locked by <a class="link" href="gdk3-Threads.html#gdk-threads-enter" title="gdk_threads_enter ()"><code class="function">gdk_threads_enter()</code></a>,
+creates a single <span class="type">GMutex</span> that is locked by <a class="link" href="gdk3-Threads.html#gdk-threads-enter" title="gdk_threads_enter ()"><code class="function">gdk_threads_enter()</code></a>,
 and released by <a class="link" href="gdk3-Threads.html#gdk-threads-leave" title="gdk_threads_leave ()"><code class="function">gdk_threads_leave()</code></a>; using this function an
 application provides, instead, a function <em class="parameter"><code>enter_fn</code></em>
  that is
@@ -339,11 +339,11 @@ be called multiple times.</p>
 <hr>
 <div class="refsect2">
 <a name="gdk-threads-add-idle"></a><h3>gdk_threads_add_idle ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
-gdk_threads_add_idle (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#GSourceFunc"><span class="type">GSourceFunc</span></a> function</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">guint</span>
+gdk_threads_add_idle (<em class="parameter"><code><span class="type">GSourceFunc</span> function</code></em>,
+                      <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
 <p>A wrapper for the common usage of <a class="link" href="gdk3-Threads.html#gdk-threads-add-idle-full" title="gdk_threads_add_idle_full ()"><code class="function">gdk_threads_add_idle_full()</code></a> 
-assigning the default priority, <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#G-PRIORITY-DEFAULT-IDLE:CAPS"><span class="type">G_PRIORITY_DEFAULT_IDLE</span></a>.</p>
+assigning the default priority, <span class="type">G_PRIORITY_DEFAULT_IDLE</span>.</p>
 <p>See <a class="link" href="gdk3-Threads.html#gdk-threads-add-idle-full" title="gdk_threads_add_idle_full ()"><code class="function">gdk_threads_add_idle_full()</code></a>.</p>
 <p><span class="annotation">[<acronym title="Exposed in C code, not necessarily available in other languages."><span class="acronym">skip</span></acronym>]</span></p>
 <div class="refsect3">
@@ -378,15 +378,15 @@ assigning the default priority, <a href="https://developer.gnome.org/glib/unstab
 <hr>
 <div class="refsect2">
 <a name="gdk-threads-add-idle-full"></a><h3>gdk_threads_add_idle_full ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
-gdk_threads_add_idle_full (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> priority</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#GSourceFunc"><span class="type">GSourceFunc</span></a> function</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">guint</span>
+gdk_threads_add_idle_full (<em class="parameter"><code><span class="type">gint</span> priority</code></em>,
+                           <em class="parameter"><code><span class="type">GSourceFunc</span> function</code></em>,
+                           <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                           <em class="parameter"><code><span class="type">GDestroyNotify</span> notify</code></em>);</pre>
 <p>Adds a function to be called whenever there are no higher priority
-events pending.  If the function returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> it is automatically
+events pending.  If the function returns <code class="literal">FALSE</code> it is automatically
 removed from the list of event sources and will not be called again.</p>
-<p>This variant of <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-idle-add-full"><code class="function">g_idle_add_full()</code></a> calls <em class="parameter"><code>function</code></em>
+<p>This variant of <code class="function">g_idle_add_full()</code> calls <em class="parameter"><code>function</code></em>
  with the GDK lock
 held. It can be thought of a MT-safe version for GTK+ widgets for the
 following use case, where you have to worry about <code class="function">idle_callback()</code>
@@ -426,35 +426,35 @@ in thread B:</p>
 27
 28
 29</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean">gboolean</a></span>
-<span class="function">idle_callback</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">gpointer</span><span class="normal"> data</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">   </span><span class="comment">// gdk_threads_enter(); would be needed for g_idle_add()</span>
+        <td class="listing_code"><pre class="programlisting"><span class="k">static</span> <span class="n">gboolean</span>
+<span class="nf">idle_callback</span> <span class="p">(</span><span class="n">gpointer</span> <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="c1">// gdk_threads_enter(); would be needed for g_idle_add()</span>
 
-<span class="normal">   </span><span class="usertype">SomeWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self </span><span class="symbol">=</span><span class="normal"> data</span><span class="symbol">;</span>
-<span class="normal">   </span><span class="comment">// do stuff with self</span>
+   <span class="n">SomeWidget</span> <span class="o">*</span><span class="n">self</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+   <span class="c1">// do stuff with self</span>
 
-<span class="normal">   self</span><span class="symbol">-&gt;</span><span class="normal">idle_id </span><span class="symbol">=</span><span class="normal"> </span><span class="number">0</span><span class="symbol">;</span>
+   <span class="n">self</span><span class="o">-&gt;</span><span class="n">idle_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-<span class="normal">   </span><span class="comment">// gdk_threads_leave(); would be needed for g_idle_add()</span>
-<span class="normal">   </span><span class="keyword">return</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">;</span>
-<span class="cbracket">}</span>
+   <span class="c1">// gdk_threads_leave(); would be needed for g_idle_add()</span>
+   <span class="k">return</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">some_widget_do_stuff_later</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">SomeWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">   self</span><span class="symbol">-&gt;</span><span class="normal">idle_id </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="gdk3-Threads.html#gdk-threads-add-idle">gdk_threads_add_idle</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">idle_callback</span><span class="symbol">,</span><span class="normal"> self</span><span class="symbol">)</span>
-<span class="normal">   </span><span class="comment">// using g_idle_add() here would require thread protection in the callback</span>
-<span class="cbracket">}</span>
+<span class="k">static</span> <span class="kt">void</span>
+<span class="nf">some_widget_do_stuff_later</span> <span class="p">(</span><span class="n">SomeWidget</span> <span class="o">*</span><span class="n">self</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">self</span><span class="o">-&gt;</span><span class="n">idle_id</span> <span class="o">=</span> <span class="n">gdk_threads_add_idle</span> <span class="p">(</span><span class="n">idle_callback</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span>
+   <span class="c1">// using g_idle_add() here would require thread protection in the callback</span>
+<span class="p">}</span>
 
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">some_widget_finalize</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GObject</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">object</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">   </span><span class="usertype">SomeWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self </span><span class="symbol">=</span><span class="normal"> </span><span class="function">SOME_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
-<span class="normal">   </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">idle_id</span><span class="symbol">)</span>
-<span class="normal">     </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-source-remove">g_source_remove</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">idle_id</span><span class="symbol">);</span>
-<span class="normal">   </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT-CLASS:CAPS">G_OBJECT_CLASS</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">parent_class</span><span class="symbol">)-&gt;</span><span class="function">finalize</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
-<span class="cbracket">}</span></pre></td>
+<span class="k">static</span> <span class="kt">void</span>
+<span class="nf">some_widget_finalize</span> <span class="p">(</span><span class="n">GObject</span> <span class="o">*</span><span class="n">object</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">SomeWidget</span> <span class="o">*</span><span class="n">self</span> <span class="o">=</span> <span class="n">SOME_WIDGET</span> <span class="p">(</span><span class="n">object</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">idle_id</span><span class="p">)</span>
+     <span class="n">g_source_remove</span> <span class="p">(</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">idle_id</span><span class="p">);</span>
+   <span class="n">G_OBJECT_CLASS</span> <span class="p">(</span><span class="n">parent_class</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">finalize</span> <span class="p">(</span><span class="n">object</span><span class="p">);</span>
+<span class="p">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -474,7 +474,7 @@ in thread B:</p>
 <tr>
 <td class="parameter_name"><p>priority</p></td>
 <td class="parameter_description"><p>the priority of the idle source. Typically this will be in the
-range between <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#G-PRIORITY-DEFAULT-IDLE:CAPS"><span class="type">G_PRIORITY_DEFAULT_IDLE</span></a> and <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#G-PRIORITY-HIGH-IDLE:CAPS"><span class="type">G_PRIORITY_HIGH_IDLE</span></a></p></td>
+range between <span class="type">G_PRIORITY_DEFAULT_IDLE</span> and <span class="type">G_PRIORITY_HIGH_IDLE</span></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -490,7 +490,7 @@ range between <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-E
 </tr>
 <tr>
 <td class="parameter_name"><p>notify</p></td>
-<td class="parameter_description"><p>function to call when the idle is removed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>function to call when the idle is removed, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -505,12 +505,12 @@ range between <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-E
 <hr>
 <div class="refsect2">
 <a name="gdk-threads-add-timeout"></a><h3>gdk_threads_add_timeout ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
-gdk_threads_add_timeout (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> interval</code></em>,
-                         <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#GSourceFunc"><span class="type">GSourceFunc</span></a> function</code></em>,
-                         <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">guint</span>
+gdk_threads_add_timeout (<em class="parameter"><code><span class="type">guint</span> interval</code></em>,
+                         <em class="parameter"><code><span class="type">GSourceFunc</span> function</code></em>,
+                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
 <p>A wrapper for the common usage of <a class="link" href="gdk3-Threads.html#gdk-threads-add-timeout-full" title="gdk_threads_add_timeout_full ()"><code class="function">gdk_threads_add_timeout_full()</code></a> 
-assigning the default priority, <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#G-PRIORITY-DEFAULT:CAPS"><span class="type">G_PRIORITY_DEFAULT</span></a>.</p>
+assigning the default priority, <span class="type">G_PRIORITY_DEFAULT</span>.</p>
 <p>See <a class="link" href="gdk3-Threads.html#gdk-threads-add-timeout-full" title="gdk_threads_add_timeout_full ()"><code class="function">gdk_threads_add_timeout_full()</code></a>.</p>
 <p><span class="annotation">[<acronym title="Exposed in C code, not necessarily available in other languages."><span class="acronym">skip</span></acronym>]</span></p>
 <div class="refsect3">
@@ -551,15 +551,15 @@ assigning the default priority, <a href="https://developer.gnome.org/glib/unstab
 <hr>
 <div class="refsect2">
 <a name="gdk-threads-add-timeout-full"></a><h3>gdk_threads_add_timeout_full ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
-gdk_threads_add_timeout_full (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> priority</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> interval</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#GSourceFunc"><span class="type">GSourceFunc</span></a> function</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">guint</span>
+gdk_threads_add_timeout_full (<em class="parameter"><code><span class="type">gint</span> priority</code></em>,
+                              <em class="parameter"><code><span class="type">guint</span> interval</code></em>,
+                              <em class="parameter"><code><span class="type">GSourceFunc</span> function</code></em>,
+                              <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                              <em class="parameter"><code><span class="type">GDestroyNotify</span> notify</code></em>);</pre>
 <p>Sets a function to be called at regular intervals holding the GDK lock,
 with the given priority.  The function is called repeatedly until it 
-returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>, at which point the timeout is automatically destroyed 
+returns <code class="literal">FALSE</code>, at which point the timeout is automatically destroyed 
 and the function will not be called again.  The <em class="parameter"><code>notify</code></em>
  function is
 called when the timeout is destroyed.  The first call to the
@@ -570,7 +570,7 @@ event sources. Thus they should not be relied on for precise timing.
 After each call to the timeout function, the time of the next
 timeout is recalculated based on the current time and the given interval
 (it does not try to “catch up” time lost in delays).</p>
-<p>This variant of <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-timeout-add-full"><code class="function">g_timeout_add_full()</code></a> can be thought of a MT-safe version 
+<p>This variant of <code class="function">g_timeout_add_full()</code> can be thought of a MT-safe version 
 for GTK+ widgets for the following use case:</p>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
@@ -601,31 +601,31 @@ for GTK+ widgets for the following use case:</p>
 23
 24
 25</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="usertype">gboolean</span><span class="normal"> </span><span class="function">timeout_callback</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">gpointer</span><span class="normal"> data</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">   </span><span class="usertype">SomeWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self </span><span class="symbol">=</span><span class="normal"> data</span><span class="symbol">;</span>
-<span class="normal">   </span>
-<span class="normal">   </span><span class="comment">// do stuff with self</span>
-<span class="normal">   </span>
-<span class="normal">   self</span><span class="symbol">-&gt;</span><span class="normal">timeout_id </span><span class="symbol">=</span><span class="normal"> </span><span class="number">0</span><span class="symbol">;</span>
-<span class="normal">   </span>
-<span class="normal">   </span><span class="keyword">return</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#G-SOURCE-REMOVE:CAPS">G_SOURCE_REMOVE</a></span><span class="symbol">;</span>
-<span class="cbracket">}</span>
-<span class="normal"> </span>
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">some_widget_do_stuff_later</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">SomeWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">   self</span><span class="symbol">-&gt;</span><span class="normal">timeout_id </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-timeout-add">g_timeout_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">timeout_callback</span><span class="symbol">,</span><span class="normal"> self</span><span class="symbol">)</span>
-<span class="cbracket">}</span>
-<span class="normal"> </span>
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">some_widget_finalize</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GObject</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">object</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">   </span><span class="usertype">SomeWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self </span><span class="symbol">=</span><span class="normal"> </span><span class="function">SOME_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
-<span class="normal">   </span>
-<span class="normal">   </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">timeout_id</span><span class="symbol">)</span>
-<span class="normal">     </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-source-remove">g_source_remove</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">self</span><span class="symbol">-&gt;</span><span class="normal">timeout_id</span><span class="symbol">);</span>
-<span class="normal">   </span>
-<span class="normal">   </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT-CLASS:CAPS">G_OBJECT_CLASS</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">parent_class</span><span class="symbol">)-&gt;</span><span class="function">finalize</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
-<span class="cbracket">}</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="k">static</span> <span class="n">gboolean</span> <span class="nf">timeout_callback</span> <span class="p">(</span><span class="n">gpointer</span> <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">SomeWidget</span> <span class="o">*</span><span class="n">self</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+   
+   <span class="c1">// do stuff with self</span>
+   
+   <span class="n">self</span><span class="o">-&gt;</span><span class="n">timeout_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+   
+   <span class="k">return</span> <span class="n">G_SOURCE_REMOVE</span><span class="p">;</span>
+<span class="p">}</span>
+ 
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">some_widget_do_stuff_later</span> <span class="p">(</span><span class="n">SomeWidget</span> <span class="o">*</span><span class="n">self</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">self</span><span class="o">-&gt;</span><span class="n">timeout_id</span> <span class="o">=</span> <span class="n">g_timeout_add</span> <span class="p">(</span><span class="n">timeout_callback</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span>
+<span class="p">}</span>
+ 
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">some_widget_finalize</span> <span class="p">(</span><span class="n">GObject</span> <span class="o">*</span><span class="n">object</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">SomeWidget</span> <span class="o">*</span><span class="n">self</span> <span class="o">=</span> <span class="n">SOME_WIDGET</span> <span class="p">(</span><span class="n">object</span><span class="p">);</span>
+   
+   <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">timeout_id</span><span class="p">)</span>
+     <span class="n">g_source_remove</span> <span class="p">(</span><span class="n">self</span><span class="o">-&gt;</span><span class="n">timeout_id</span><span class="p">);</span>
+   
+   <span class="n">G_OBJECT_CLASS</span> <span class="p">(</span><span class="n">parent_class</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">finalize</span> <span class="p">(</span><span class="n">object</span><span class="p">);</span>
+<span class="p">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -645,7 +645,7 @@ for GTK+ widgets for the following use case:</p>
 <tr>
 <td class="parameter_name"><p>priority</p></td>
 <td class="parameter_description"><p>the priority of the timeout source. Typically this will be in the
-range between <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#G-PRIORITY-DEFAULT-IDLE:CAPS"><span class="type">G_PRIORITY_DEFAULT_IDLE</span></a> and <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#G-PRIORITY-HIGH-IDLE:CAPS"><span class="type">G_PRIORITY_HIGH_IDLE</span></a>.</p></td>
+range between <span class="type">G_PRIORITY_DEFAULT_IDLE</span> and <span class="type">G_PRIORITY_HIGH_IDLE</span>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -667,7 +667,7 @@ range between <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-E
 </tr>
 <tr>
 <td class="parameter_name"><p>notify</p></td>
-<td class="parameter_description"><p>function to call when the timeout is removed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>function to call when the timeout is removed, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -682,12 +682,12 @@ range between <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-E
 <hr>
 <div class="refsect2">
 <a name="gdk-threads-add-timeout-seconds"></a><h3>gdk_threads_add_timeout_seconds ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
-gdk_threads_add_timeout_seconds (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> interval</code></em>,
-                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#GSourceFunc"><span class="type">GSourceFunc</span></a> function</code></em>,
-                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">guint</span>
+gdk_threads_add_timeout_seconds (<em class="parameter"><code><span class="type">guint</span> interval</code></em>,
+                                 <em class="parameter"><code><span class="type">GSourceFunc</span> function</code></em>,
+                                 <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
 <p>A wrapper for the common usage of <a class="link" href="gdk3-Threads.html#gdk-threads-add-timeout-seconds-full" title="gdk_threads_add_timeout_seconds_full ()"><code class="function">gdk_threads_add_timeout_seconds_full()</code></a> 
-assigning the default priority, <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#G-PRIORITY-DEFAULT:CAPS"><span class="type">G_PRIORITY_DEFAULT</span></a>.</p>
+assigning the default priority, <span class="type">G_PRIORITY_DEFAULT</span>.</p>
 <p>For details, see <a class="link" href="gdk3-Threads.html#gdk-threads-add-timeout-full" title="gdk_threads_add_timeout_full ()"><code class="function">gdk_threads_add_timeout_full()</code></a>.</p>
 <p><span class="annotation">[<acronym title="Exposed in C code, not necessarily available in other languages."><span class="acronym">skip</span></acronym>]</span></p>
 <div class="refsect3">
@@ -727,14 +727,14 @@ assigning the default priority, <a href="https://developer.gnome.org/glib/unstab
 <hr>
 <div class="refsect2">
 <a name="gdk-threads-add-timeout-seconds-full"></a><h3>gdk_threads_add_timeout_seconds_full ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
-gdk_threads_add_timeout_seconds_full (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> priority</code></em>,
-                                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> interval</code></em>,
-                                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#GSourceFunc"><span class="type">GSourceFunc</span></a> function</code></em>,
-                                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
-                                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">guint</span>
+gdk_threads_add_timeout_seconds_full (<em class="parameter"><code><span class="type">gint</span> priority</code></em>,
+                                      <em class="parameter"><code><span class="type">guint</span> interval</code></em>,
+                                      <em class="parameter"><code><span class="type">GSourceFunc</span> function</code></em>,
+                                      <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                                      <em class="parameter"><code><span class="type">GDestroyNotify</span> notify</code></em>);</pre>
 <p>A variant of <a class="link" href="gdk3-Threads.html#gdk-threads-add-timeout-full" title="gdk_threads_add_timeout_full ()"><code class="function">gdk_threads_add_timeout_full()</code></a> with second-granularity.
-See <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#g-timeout-add-seconds-full"><code class="function">g_timeout_add_seconds_full()</code></a> for a discussion of why it is
+See <code class="function">g_timeout_add_seconds_full()</code> for a discussion of why it is
 a good idea to use this function if you don’t need finer granularity.</p>
 <p><span class="annotation">[<acronym title="Rename the original symbol's name to SYMBOL."><span class="acronym">rename-to</span></acronym> gdk_threads_add_timeout_seconds]</span></p>
 <div class="refsect3">
@@ -749,7 +749,7 @@ a good idea to use this function if you don’t need finer granularity.</p>
 <tr>
 <td class="parameter_name"><p>priority</p></td>
 <td class="parameter_description"><p>the priority of the timeout source. Typically this will be in the
-range between <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#G-PRIORITY-DEFAULT-IDLE:CAPS"><span class="type">G_PRIORITY_DEFAULT_IDLE</span></a> and <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-Event-Loop.html#G-PRIORITY-HIGH-IDLE:CAPS"><span class="type">G_PRIORITY_HIGH_IDLE</span></a>.</p></td>
+range between <span class="type">G_PRIORITY_DEFAULT_IDLE</span> and <span class="type">G_PRIORITY_HIGH_IDLE</span>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -770,7 +770,7 @@ range between <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-E
 </tr>
 <tr>
 <td class="parameter_name"><p>notify</p></td>
-<td class="parameter_description"><p>function to call when the timeout is removed, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>function to call when the timeout is removed, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -783,11 +783,8 @@ range between <a href="https://developer.gnome.org/glib/unstable/glib-The-Main-E
 <p class="since">Since: 2.14</p>
 </div>
 </div>
-<div class="refsect1">
-<a name="gdk3-Threads.other_details"></a><h2>Types and Values</h2>
-</div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
 <link rel="prev" href="GtkCellArea.html" title="GtkCellArea">
 <link rel="next" href="GtkCellAreaContext.html" title="GtkCellAreaContext">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -32,7 +32,7 @@
 <td valign="top">
 <h2><span class="refentrytitle"><a name="GtkCellAreaBox.top_of_page"></a>GtkCellAreaBox</span></h2>
 <p>GtkCellAreaBox — A cell area that renders GtkCellRenderers
-    into a row or a column</p>
+into a row or a column</p>
 </td>
 <td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
@@ -40,8 +40,8 @@
 <a name="GtkCellAreaBox.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -70,7 +70,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<span class="returnvalue">gint</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkCellAreaBox.html#gtk-cell-area-box-get-spacing" title="gtk_cell_area_box_get_spacing ()">gtk_cell_area_box_get_spacing</a> <span class="c_punctuation">()</span>
@@ -96,7 +96,7 @@
 <col width="200px" class="properties_flags">
 </colgroup>
 <tbody><tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td class="property_type"><span class="type">int</span></td>
 <td class="property_name"><a class="link" href="GtkCellAreaBox.html#GtkCellAreaBox--spacing" title="The “spacing” property">spacing</a></td>
 <td class="property_flags">Read / Write</td>
 </tr></tbody>
@@ -112,17 +112,17 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkCellAreaBox.html#GtkCellAreaBox--c-align" title="The “align” child property">align</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkCellAreaBox.html#GtkCellAreaBox--c-expand" title="The “expand” child property">expand</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkCellAreaBox.html#GtkCellAreaBox--c-fixed-size" title="The “fixed-size” child property">fixed-size</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -138,8 +138,8 @@
 <a name="GtkCellAreaBox.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -155,8 +155,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkCellAreaBox.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkCellArea.html" title="GtkCellArea">GtkCellArea</a>
             <span class="lineart">╰──</span> GtkCellAreaBox
 </pre>
@@ -209,9 +209,9 @@ gtk_cell_area_box_new (<em class="parameter"><code><span class="type">void</span
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_cell_area_box_pack_start (<em class="parameter"><code><a class="link" href="GtkCellAreaBox.html" title="GtkCellAreaBox"><span class="type">GtkCellAreaBox</span></a> *box</code></em>,
                               <em class="parameter"><code><a class="link" href="GtkCellRenderer.html" title="GtkCellRenderer"><span class="type">GtkCellRenderer</span></a> *renderer</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> align</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fixed</code></em>);</pre>
+                              <em class="parameter"><code><span class="type">gboolean</span> expand</code></em>,
+                              <em class="parameter"><code><span class="type">gboolean</span> align</code></em>,
+                              <em class="parameter"><code><span class="type">gboolean</span> fixed</code></em>);</pre>
 <p>Adds <em class="parameter"><code>renderer</code></em>
  to <em class="parameter"><code>box</code></em>
 , packed with reference to the start of <em class="parameter"><code>box</code></em>
@@ -269,9 +269,9 @@ should have the same size in all rows</p></td>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_cell_area_box_pack_end (<em class="parameter"><code><a class="link" href="GtkCellAreaBox.html" title="GtkCellAreaBox"><span class="type">GtkCellAreaBox</span></a> *box</code></em>,
                             <em class="parameter"><code><a class="link" href="GtkCellRenderer.html" title="GtkCellRenderer"><span class="type">GtkCellRenderer</span></a> *renderer</code></em>,
-                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
-                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> align</code></em>,
-                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fixed</code></em>);</pre>
+                            <em class="parameter"><code><span class="type">gboolean</span> expand</code></em>,
+                            <em class="parameter"><code><span class="type">gboolean</span> align</code></em>,
+                            <em class="parameter"><code><span class="type">gboolean</span> fixed</code></em>);</pre>
 <p>Adds <em class="parameter"><code>renderer</code></em>
  to <em class="parameter"><code>box</code></em>
 , packed with reference to the end of <em class="parameter"><code>box</code></em>
@@ -326,7 +326,7 @@ should have the same size in all rows</p></td>
 <hr>
 <div class="refsect2">
 <a name="gtk-cell-area-box-get-spacing"></a><h3>gtk_cell_area_box_get_spacing ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<pre class="programlisting"><span class="returnvalue">gint</span>
 gtk_cell_area_box_get_spacing (<em class="parameter"><code><a class="link" href="GtkCellAreaBox.html" title="GtkCellAreaBox"><span class="type">GtkCellAreaBox</span></a> *box</code></em>);</pre>
 <p>Gets the spacing added between cell renderers.</p>
 <div class="refsect3">
@@ -356,7 +356,7 @@ gtk_cell_area_box_get_spacing (<em class="parameter"><code><a class="link" href=
 <a name="gtk-cell-area-box-set-spacing"></a><h3>gtk_cell_area_box_set_spacing ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_cell_area_box_set_spacing (<em class="parameter"><code><a class="link" href="GtkCellAreaBox.html" title="GtkCellAreaBox"><span class="type">GtkCellAreaBox</span></a> *box</code></em>,
-                               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> spacing</code></em>);</pre>
+                               <em class="parameter"><code><span class="type">gint</span> spacing</code></em>);</pre>
 <p>Sets the spacing to add between cell renderers in <em class="parameter"><code>box</code></em>
 .</p>
 <div class="refsect3">
@@ -402,8 +402,9 @@ gtk_cell_area_box_set_spacing (<em class="parameter"><code><a class="link" href=
 <a name="GtkCellAreaBox.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkCellAreaBox--spacing"></a><h3>The <code class="literal">“spacing”</code> property</h3>
-<pre class="programlisting">  “spacing”                  <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></pre>
+<pre class="programlisting">  “spacing”                  <span class="type">int</span></pre>
 <p>The amount of space to reserve between cells.</p>
+<p>Owner: GtkCellAreaBox</p>
 <p>Flags: Read / Write</p>
 <p>Allowed values: &gt;= 0</p>
 <p>Default value: 0</p>
@@ -414,8 +415,9 @@ gtk_cell_area_box_set_spacing (<em class="parameter"><code><a class="link" href=
 <a name="GtkCellAreaBox.child-property-details"></a><h2>Child Property Details</h2>
 <div class="refsect2">
 <a name="GtkCellAreaBox--c-align"></a><h3>The <code class="literal">“align”</code> child property</h3>
-<pre class="programlisting">  “align”                    <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “align”                    <span class="type">gboolean</span></pre>
 <p>Whether the cell renderer should be aligned in adjacent rows.</p>
+<p>Owner: GtkCellAreaBox</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -423,9 +425,10 @@ gtk_cell_area_box_set_spacing (<em class="parameter"><code><a class="link" href=
 <hr>
 <div class="refsect2">
 <a name="GtkCellAreaBox--c-expand"></a><h3>The <code class="literal">“expand”</code> child property</h3>
-<pre class="programlisting">  “expand”                   <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “expand”                   <span class="type">gboolean</span></pre>
 <p>Whether the cell renderer should receive extra space
 when the area receives more than its natural size.</p>
+<p>Owner: GtkCellAreaBox</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -433,9 +436,10 @@ when the area receives more than its natural size.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkCellAreaBox--c-fixed-size"></a><h3>The <code class="literal">“fixed-size”</code> child property</h3>
-<pre class="programlisting">  “fixed-size”               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “fixed-size”               <span class="type">gboolean</span></pre>
 <p>Whether the cell renderer should require the same size
 for all rows for which it was requested.</p>
+<p>Owner: GtkCellAreaBox</p>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -446,6 +450,7 @@ for all rows for which it was requested.</p>
 <pre class="programlisting">  “pack-type”                <a class="link" href="gtk3-Standard-Enumerations.html#GtkPackType" title="enum GtkPackType"><span class="type">GtkPackType</span></a></pre>
 <p>A GtkPackType indicating whether the cell renderer is packed
 with reference to the start or end of the area.</p>
+<p>Owner: GtkCellAreaBox</p>
 <p>Flags: Read / Write</p>
 <p>Default value: GTK_PACK_START</p>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -453,6 +458,6 @@ with reference to the start or end of the area.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

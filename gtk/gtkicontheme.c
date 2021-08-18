@@ -517,7 +517,7 @@ gtk_icon_theme_class_init (GtkIconThemeClass *klass)
                                  G_SIGNAL_RUN_LAST,
                                  G_STRUCT_OFFSET (GtkIconThemeClass, changed),
                                  NULL, NULL,
-                                 g_cclosure_marshal_VOID__VOID,
+                                 NULL,
                                  G_TYPE_NONE, 0);
 }
 
@@ -608,9 +608,10 @@ unset_screen (GtkIconTheme *icon_theme)
       g_signal_handlers_disconnect_by_func (display,
                                             (gpointer) display_closed,
                                             icon_theme);
-      g_signal_handlers_disconnect_by_func (settings,
-                                            (gpointer) theme_changed,
-                                            icon_theme);
+      if (settings)
+        g_signal_handlers_disconnect_by_func (settings,
+                                              (gpointer) theme_changed,
+                                              icon_theme);
 
       priv->screen = NULL;
     }
@@ -1806,6 +1807,20 @@ real_choose_icon (GtkIconTheme       *icon_theme,
         icon_info->filename = g_strdup (unthemed_icon->svg_filename);
       else if (unthemed_icon->no_svg_filename)
         icon_info->filename = g_strdup (unthemed_icon->no_svg_filename);
+      else
+        {
+          static gboolean warned_once = FALSE;
+
+          if (!warned_once)
+            {
+              g_warning ("Found an icon but could not load it. "
+                         "Most likely gdk-pixbuf does not provide SVG support.");
+              warned_once = TRUE;
+            }
+
+          g_clear_object (&icon_info);
+          goto out;
+        }
 
       if (unthemed_icon->is_resource)
         {
@@ -3190,8 +3205,12 @@ theme_list_contexts (IconTheme  *theme,
     {
       dir = l->data;
 
-      context = g_quark_to_string (dir->context);
-      g_hash_table_replace (contexts, (gpointer) context, NULL);
+      /* The "Context" key can be unset */
+      if (dir->context != 0)
+        {
+          context = g_quark_to_string (dir->context);
+          g_hash_table_replace (contexts, (gpointer) context, NULL);
+        }
 
       l = l->next;
     }
@@ -4008,8 +4027,8 @@ icon_info_ensure_scale_and_pixbuf (GtkIconInfo *icon_info)
   else
     {
       icon_info->pixbuf = gdk_pixbuf_scale_simple (source_pixbuf,
-                                                   0.5 + image_width * icon_info->scale,
-                                                   0.5 + image_height * icon_info->scale,
+                                                   MAX (1, 0.5 + image_width * icon_info->scale),
+                                                   MAX (1, 0.5 + image_height * icon_info->scale),
                                                    GDK_INTERP_BILINEAR);
       g_object_unref (source_pixbuf);
     }

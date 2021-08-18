@@ -8,7 +8,7 @@
 <link rel="up" href="gtk-migrating-GtkStyleContext.html" title="Theming changes">
 <link rel="prev" href="gtk-migrating-GtkStyleContext-parser-extensions.html" title="Extending the CSS parser">
 <link rel="next" href="gtk-migrating-GtkStyleContext-checklist.html" title="A checklist for widgets">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -114,82 +114,82 @@
 74
 75
 76</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="normal">style </span><span class="string">"default"</span><span class="normal"> </span><span class="cbracket">{</span>
-<span class="normal">        xthickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">1</span>
-<span class="normal">        ythickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">1</span>
+        <td class="listing_code"><pre class="programlisting"><span class="n">style</span> <span class="s">&quot;default&quot;</span> <span class="p">{</span>
+        <span class="n">xthickness</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">ythickness</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="normal">        <a href="GtkButton.html#GtkButton-struct">GtkButton</a></span><span class="symbol">::</span><span class="normal">child</span><span class="symbol">-</span><span class="normal">displacement</span><span class="symbol">-</span><span class="normal">x </span><span class="symbol">=</span><span class="normal"> </span><span class="number">1</span>
-<span class="normal">        <a href="GtkButton.html#GtkButton-struct">GtkButton</a></span><span class="symbol">::</span><span class="normal">child</span><span class="symbol">-</span><span class="normal">displacement</span><span class="symbol">-</span><span class="normal">y </span><span class="symbol">=</span><span class="normal"> </span><span class="number">1</span>
-<span class="normal">        <a href="GtkCheckButton.html#GtkCheckButton-struct">GtkCheckButton</a></span><span class="symbol">::</span><span class="normal">indicator</span><span class="symbol">-</span><span class="normal">size </span><span class="symbol">=</span><span class="normal"> </span><span class="number">14</span>
+        <span class="n">GtkButton</span><span class="o">::</span><span class="n">child</span><span class="o">-</span><span class="n">displacement</span><span class="o">-</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">GtkButton</span><span class="o">::</span><span class="n">child</span><span class="o">-</span><span class="n">displacement</span><span class="o">-</span><span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">GtkCheckButton</span><span class="o">::</span><span class="n">indicator</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="mi">14</span>
 
-<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> @bg_color</span>
-<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">PRELIGHT</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">1.02</span><span class="symbol">,</span><span class="normal"> @bg_color</span><span class="symbol">)</span>
-<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">SELECTED</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> @selected_bg_color</span>
-<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">INSENSITIVE</span><span class="symbol">]</span><span class="normal">   </span><span class="symbol">=</span><span class="normal"> @bg_color</span>
-<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">ACTIVE</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.9</span><span class="symbol">,</span><span class="normal"> @bg_color</span><span class="symbol">)</span>
+        <span class="n">bg</span><span class="p">[</span><span class="n">NORMAL</span><span class="p">]</span>        <span class="o">=</span> <span class="err">@</span><span class="n">bg_color</span>
+        <span class="n">bg</span><span class="p">[</span><span class="n">PRELIGHT</span><span class="p">]</span>      <span class="o">=</span> <span class="n">shade</span> <span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="err">@</span><span class="n">bg_color</span><span class="p">)</span>
+        <span class="n">bg</span><span class="p">[</span><span class="n">SELECTED</span><span class="p">]</span>      <span class="o">=</span> <span class="err">@</span><span class="n">selected_bg_color</span>
+        <span class="n">bg</span><span class="p">[</span><span class="n">INSENSITIVE</span><span class="p">]</span>   <span class="o">=</span> <span class="err">@</span><span class="n">bg_color</span>
+        <span class="n">bg</span><span class="p">[</span><span class="n">ACTIVE</span><span class="p">]</span>        <span class="o">=</span> <span class="n">shade</span> <span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="err">@</span><span class="n">bg_color</span><span class="p">)</span>
 
-<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> @fg_color</span>
-<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">PRELIGHT</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> @fg_color</span>
-<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">SELECTED</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> @selected_fg_color</span>
-<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">INSENSITIVE</span><span class="symbol">]</span><span class="normal">   </span><span class="symbol">=</span><span class="normal"> </span><span class="function">darker</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">)</span>
-<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">ACTIVE</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> @fg_color</span>
+        <span class="n">fg</span><span class="p">[</span><span class="n">NORMAL</span><span class="p">]</span>        <span class="o">=</span> <span class="err">@</span><span class="n">fg_color</span>
+        <span class="n">fg</span><span class="p">[</span><span class="n">PRELIGHT</span><span class="p">]</span>      <span class="o">=</span> <span class="err">@</span><span class="n">fg_color</span>
+        <span class="n">fg</span><span class="p">[</span><span class="n">SELECTED</span><span class="p">]</span>      <span class="o">=</span> <span class="err">@</span><span class="n">selected_fg_color</span>
+        <span class="n">fg</span><span class="p">[</span><span class="n">INSENSITIVE</span><span class="p">]</span>   <span class="o">=</span> <span class="n">darker</span> <span class="p">(</span><span class="err">@</span><span class="n">bg_color</span><span class="p">)</span>
+        <span class="n">fg</span><span class="p">[</span><span class="n">ACTIVE</span><span class="p">]</span>        <span class="o">=</span> <span class="err">@</span><span class="n">fg_color</span>
 
-<span class="normal">        text</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> @text_color</span>
-<span class="normal">        text</span><span class="symbol">[</span><span class="normal">PRELIGHT</span><span class="symbol">]</span><span class="normal">    </span><span class="symbol">=</span><span class="normal"> @text_color</span>
-<span class="normal">        text</span><span class="symbol">[</span><span class="normal">SELECTED</span><span class="symbol">]</span><span class="normal">    </span><span class="symbol">=</span><span class="normal"> @selected_fg_color</span>
-<span class="normal">        text</span><span class="symbol">[</span><span class="normal">INSENSITIVE</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="function">darker</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">)</span>
-<span class="normal">        text</span><span class="symbol">[</span><span class="normal">ACTIVE</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> @selected_fg_color</span>
+        <span class="n">text</span><span class="p">[</span><span class="n">NORMAL</span><span class="p">]</span>      <span class="o">=</span> <span class="err">@</span><span class="n">text_color</span>
+        <span class="n">text</span><span class="p">[</span><span class="n">PRELIGHT</span><span class="p">]</span>    <span class="o">=</span> <span class="err">@</span><span class="n">text_color</span>
+        <span class="n">text</span><span class="p">[</span><span class="n">SELECTED</span><span class="p">]</span>    <span class="o">=</span> <span class="err">@</span><span class="n">selected_fg_color</span>
+        <span class="n">text</span><span class="p">[</span><span class="n">INSENSITIVE</span><span class="p">]</span> <span class="o">=</span> <span class="n">darker</span> <span class="p">(</span><span class="err">@</span><span class="n">bg_color</span><span class="p">)</span>
+        <span class="n">text</span><span class="p">[</span><span class="n">ACTIVE</span><span class="p">]</span>      <span class="o">=</span> <span class="err">@</span><span class="n">selected_fg_color</span>
 
-<span class="normal">        base</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> @base_color</span>
-<span class="normal">        base</span><span class="symbol">[</span><span class="normal">PRELIGHT</span><span class="symbol">]</span><span class="normal">    </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.95</span><span class="symbol">,</span><span class="normal"> @bg_color</span><span class="symbol">)</span>
-<span class="normal">        base</span><span class="symbol">[</span><span class="normal">SELECTED</span><span class="symbol">]</span><span class="normal">    </span><span class="symbol">=</span><span class="normal"> @selected_bg_color</span>
-<span class="normal">        base</span><span class="symbol">[</span><span class="normal">INSENSITIVE</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> @bg_color</span>
-<span class="normal">        base</span><span class="symbol">[</span><span class="normal">ACTIVE</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.9</span><span class="symbol">,</span><span class="normal"> @selected_bg_color</span><span class="symbol">)</span>
+        <span class="n">base</span><span class="p">[</span><span class="n">NORMAL</span><span class="p">]</span>      <span class="o">=</span> <span class="err">@</span><span class="n">base_color</span>
+        <span class="n">base</span><span class="p">[</span><span class="n">PRELIGHT</span><span class="p">]</span>    <span class="o">=</span> <span class="n">shade</span> <span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="err">@</span><span class="n">bg_color</span><span class="p">)</span>
+        <span class="n">base</span><span class="p">[</span><span class="n">SELECTED</span><span class="p">]</span>    <span class="o">=</span> <span class="err">@</span><span class="n">selected_bg_color</span>
+        <span class="n">base</span><span class="p">[</span><span class="n">INSENSITIVE</span><span class="p">]</span> <span class="o">=</span> <span class="err">@</span><span class="n">bg_color</span>
+        <span class="n">base</span><span class="p">[</span><span class="n">ACTIVE</span><span class="p">]</span>      <span class="o">=</span> <span class="n">shade</span> <span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="err">@</span><span class="n">selected_bg_color</span><span class="p">)</span>
 
-<span class="normal">        engine </span><span class="string">"clearlooks"</span><span class="normal"> </span><span class="cbracket">{</span>
-<span class="normal">                colorize_scrollbar </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span>
-<span class="normal">                style </span><span class="symbol">=</span><span class="normal"> CLASSIC</span>
-<span class="normal">        </span><span class="cbracket">}</span>
-<span class="cbracket">}</span>
+        <span class="n">engine</span> <span class="s">&quot;clearlooks&quot;</span> <span class="p">{</span>
+                <span class="n">colorize_scrollbar</span> <span class="o">=</span> <span class="n">TRUE</span>
+                <span class="n">style</span> <span class="o">=</span> <span class="n">CLASSIC</span>
+        <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="normal">style </span><span class="string">"tooltips"</span><span class="normal"> </span><span class="cbracket">{</span>
-<span class="normal">        xthickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">4</span>
-<span class="normal">        ythickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">4</span>
+<span class="n">style</span> <span class="s">&quot;tooltips&quot;</span> <span class="p">{</span>
+        <span class="n">xthickness</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">ythickness</span> <span class="o">=</span> <span class="mi">4</span>
 
-<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> @tooltip_bg_color</span>
-<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> @tooltip_fg_color</span>
-<span class="cbracket">}</span>
+        <span class="n">bg</span><span class="p">[</span><span class="n">NORMAL</span><span class="p">]</span>        <span class="o">=</span> <span class="err">@</span><span class="n">tooltip_bg_color</span>
+        <span class="n">fg</span><span class="p">[</span><span class="n">NORMAL</span><span class="p">]</span>        <span class="o">=</span> <span class="err">@</span><span class="n">tooltip_fg_color</span>
+<span class="p">}</span>
 
-<span class="normal">style </span><span class="string">"button"</span><span class="normal"> </span><span class="cbracket">{</span>
-<span class="normal">        xthickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">3</span>
-<span class="normal">        ythickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">3</span>
+<span class="n">style</span> <span class="s">&quot;button&quot;</span> <span class="p">{</span>
+        <span class="n">xthickness</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">ythickness</span> <span class="o">=</span> <span class="mi">3</span>
 
-<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">1.04</span><span class="symbol">,</span><span class="normal"> @bg_color</span><span class="symbol">)</span>
-<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">PRELIGHT</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">1.06</span><span class="symbol">,</span><span class="normal"> @bg_color</span><span class="symbol">)</span>
-<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">ACTIVE</span><span class="symbol">]</span><span class="normal">        </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.85</span><span class="symbol">,</span><span class="normal"> @bg_color</span><span class="symbol">)</span>
-<span class="cbracket">}</span>
+        <span class="n">bg</span><span class="p">[</span><span class="n">NORMAL</span><span class="p">]</span>        <span class="o">=</span> <span class="n">shade</span> <span class="p">(</span><span class="mf">1.04</span><span class="p">,</span> <span class="err">@</span><span class="n">bg_color</span><span class="p">)</span>
+        <span class="n">bg</span><span class="p">[</span><span class="n">PRELIGHT</span><span class="p">]</span>      <span class="o">=</span> <span class="n">shade</span> <span class="p">(</span><span class="mf">1.06</span><span class="p">,</span> <span class="err">@</span><span class="n">bg_color</span><span class="p">)</span>
+        <span class="n">bg</span><span class="p">[</span><span class="n">ACTIVE</span><span class="p">]</span>        <span class="o">=</span> <span class="n">shade</span> <span class="p">(</span><span class="mf">0.85</span><span class="p">,</span> <span class="err">@</span><span class="n">bg_color</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span class="normal">style </span><span class="string">"entry"</span><span class="normal"> </span><span class="cbracket">{</span>
-<span class="normal">        xthickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">3</span>
-<span class="normal">        ythickness </span><span class="symbol">=</span><span class="normal"> </span><span class="number">3</span>
+<span class="n">style</span> <span class="s">&quot;entry&quot;</span> <span class="p">{</span>
+        <span class="n">xthickness</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">ythickness</span> <span class="o">=</span> <span class="mi">3</span>
 
-<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">SELECTED</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="function">mix</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.4</span><span class="symbol">,</span><span class="normal"> @selected_bg_color</span><span class="symbol">,</span><span class="normal"> @base_color</span><span class="symbol">)</span>
-<span class="normal">        fg</span><span class="symbol">[</span><span class="normal">SELECTED</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> @text_color</span>
+        <span class="n">bg</span><span class="p">[</span><span class="n">SELECTED</span><span class="p">]</span> <span class="o">=</span> <span class="n">mix</span> <span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="err">@</span><span class="n">selected_bg_color</span><span class="p">,</span> <span class="err">@</span><span class="n">base_color</span><span class="p">)</span>
+        <span class="n">fg</span><span class="p">[</span><span class="n">SELECTED</span><span class="p">]</span> <span class="o">=</span> <span class="err">@</span><span class="n">text_color</span>
 
-<span class="normal">        engine </span><span class="string">"clearlooks"</span><span class="normal"> </span><span class="cbracket">{</span>
-<span class="normal">                focus_color </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.65</span><span class="symbol">,</span><span class="normal"> @selected_bg_color</span><span class="symbol">)</span>
-<span class="normal">        </span><span class="cbracket">}</span>
-<span class="cbracket">}</span>
+        <span class="n">engine</span> <span class="s">&quot;clearlooks&quot;</span> <span class="p">{</span>
+                <span class="n">focus_color</span> <span class="o">=</span> <span class="n">shade</span> <span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="err">@</span><span class="n">selected_bg_color</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="normal">style </span><span class="string">"other"</span><span class="normal"> </span><span class="cbracket">{</span>
-<span class="normal">        bg</span><span class="symbol">[</span><span class="normal">NORMAL</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> #fff</span><span class="symbol">;</span>
-<span class="cbracket">}</span>
+<span class="n">style</span> <span class="s">&quot;other&quot;</span> <span class="p">{</span>
+        <span class="n">bg</span><span class="p">[</span><span class="n">NORMAL</span><span class="p">]</span> <span class="o">=</span> <span class="err">#</span><span class="n">fff</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="normal">class </span><span class="string">"GtkWidget"</span><span class="normal"> style </span><span class="string">"default"</span>
-<span class="normal">class </span><span class="string">"GtkEntry"</span><span class="normal"> style </span><span class="string">"entry"</span>
-<span class="normal">widget_class </span><span class="string">"*&lt;GtkButton&gt;"</span><span class="normal"> style </span><span class="string">"button"</span>
-<span class="normal">widget </span><span class="string">"gtk-tooltip*"</span><span class="normal"> style </span><span class="string">"tooltips"</span>
-<span class="normal">widget_class </span><span class="string">"window-name.*.GtkButton"</span><span class="normal"> style </span><span class="string">"other"</span></pre></td>
+<span class="n">class</span> <span class="s">&quot;GtkWidget&quot;</span> <span class="n">style</span> <span class="s">&quot;default&quot;</span>
+<span class="n">class</span> <span class="s">&quot;GtkEntry&quot;</span> <span class="n">style</span> <span class="s">&quot;entry&quot;</span>
+<span class="n">widget_class</span> <span class="s">&quot;*&lt;GtkButton&gt;&quot;</span> <span class="n">style</span> <span class="s">&quot;button&quot;</span>
+<span class="n">widget</span> <span class="s">&quot;gtk-tooltip*&quot;</span> <span class="n">style</span> <span class="s">&quot;tooltips&quot;</span>
+<span class="n">widget_class</span> <span class="s">&quot;window-name.*.GtkButton&quot;</span> <span class="n">style</span> <span class="s">&quot;other&quot;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -273,74 +273,74 @@
 66
 67
 68</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="symbol">*</span><span class="normal"> </span><span class="cbracket">{</span>
-<span class="normal">  padding</span><span class="symbol">:</span><span class="normal"> </span><span class="number">1</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="symbol">-</span><span class="normal"><a href="GtkButton.html#GtkButton-struct">GtkButton</a></span><span class="symbol">-</span><span class="normal">child</span><span class="symbol">-</span><span class="normal">displacement</span><span class="symbol">-</span><span class="normal">x</span><span class="symbol">:</span><span class="normal"> </span><span class="number">1</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="symbol">-</span><span class="normal"><a href="GtkButton.html#GtkButton-struct">GtkButton</a></span><span class="symbol">-</span><span class="normal">child</span><span class="symbol">-</span><span class="normal">displacement</span><span class="symbol">-</span><span class="normal">y</span><span class="symbol">:</span><span class="normal"> </span><span class="number">1</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="symbol">-</span><span class="normal"><a href="GtkCheckButton.html#GtkCheckButton-struct">GtkCheckButton</a></span><span class="symbol">-</span><span class="normal">indicator</span><span class="symbol">-</span><span class="normal">size</span><span class="symbol">:</span><span class="normal"> </span><span class="number">14</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="o">*</span> <span class="p">{</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">GtkButton</span><span class="o">-</span><span class="n">child</span><span class="o">-</span><span class="n">displacement</span><span class="o">-</span><span class="nl">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">GtkButton</span><span class="o">-</span><span class="n">child</span><span class="o">-</span><span class="n">displacement</span><span class="o">-</span><span class="nl">y</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">GtkCheckButton</span><span class="o">-</span><span class="n">indicator</span><span class="o">-</span><span class="nl">size</span><span class="p">:</span> <span class="mi">14</span><span class="p">;</span>
 
-<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> @bg_color</span><span class="symbol">;</span>
-<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> @fg_color</span><span class="symbol">;</span>
+  <span class="n">background</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span> <span class="err">@</span><span class="n">bg_color</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="err">@</span><span class="n">fg_color</span><span class="p">;</span>
 
-<span class="normal">  </span><span class="symbol">-</span><span class="normal">Clearlooks</span><span class="symbol">-</span><span class="normal">colorize</span><span class="symbol">-</span><span class="normal">scrollbar</span><span class="symbol">:</span><span class="normal"> true</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="symbol">-</span><span class="normal">Clearlooks</span><span class="symbol">-</span><span class="normal">style</span><span class="symbol">:</span><span class="normal"> classic</span><span class="symbol">;</span>
-<span class="cbracket">}</span>
+  <span class="o">-</span><span class="n">Clearlooks</span><span class="o">-</span><span class="n">colorize</span><span class="o">-</span><span class="nl">scrollbar</span><span class="p">:</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">Clearlooks</span><span class="o">-</span><span class="nl">style</span><span class="p">:</span> <span class="n">classic</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="symbol">*:</span><span class="normal">hover </span><span class="cbracket">{</span>
-<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1.02</span><span class="symbol">);</span>
-<span class="cbracket">}</span>
+<span class="o">*:</span><span class="n">hover</span> <span class="p">{</span>
+  <span class="n">background</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span> <span class="n">shade</span> <span class="p">(</span><span class="err">@</span><span class="n">bg_color</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="symbol">*:</span><span class="normal">selected </span><span class="cbracket">{</span>
-<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> @selected_bg_color</span><span class="symbol">;</span>
-<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> @selected_fg_color</span><span class="symbol">;</span>
-<span class="cbracket">}</span>
+<span class="o">*:</span><span class="n">selected</span> <span class="p">{</span>
+  <span class="n">background</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span> <span class="err">@</span><span class="n">selected_bg_color</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="err">@</span><span class="n">selected_fg_color</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="symbol">*:</span><span class="normal">insensitive </span><span class="cbracket">{</span>
-<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.7</span><span class="symbol">);</span>
-<span class="cbracket">}</span>
+<span class="o">*:</span><span class="n">insensitive</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="n">shade</span> <span class="p">(</span><span class="err">@</span><span class="n">bg_color</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="symbol">*:</span><span class="normal">active </span><span class="cbracket">{</span>
-<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.9</span><span class="symbol">);</span>
-<span class="cbracket">}</span>
+<span class="o">*:</span><span class="n">active</span> <span class="p">{</span>
+  <span class="n">background</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span> <span class="n">shade</span> <span class="p">(</span><span class="err">@</span><span class="n">bg_color</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="symbol">.</span><span class="normal">tooltip </span><span class="cbracket">{</span>
-<span class="normal">  padding</span><span class="symbol">:</span><span class="normal"> </span><span class="number">4</span><span class="symbol">;</span>
+<span class="p">.</span><span class="n">tooltip</span> <span class="p">{</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="mi">4</span><span class="p">;</span>
 
-<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> @tooltip_bg_color</span><span class="symbol">;</span>
-<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> @tooltip_fg_color</span><span class="symbol">;</span>
-<span class="cbracket">}</span>
+  <span class="n">background</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span> <span class="err">@</span><span class="n">tooltip_bg_color</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="err">@</span><span class="n">tooltip_fg_color</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="symbol">.</span><span class="normal">button </span><span class="cbracket">{</span>
-<span class="normal">  padding</span><span class="symbol">:</span><span class="normal"> </span><span class="number">3</span><span class="symbol">;</span>
-<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1.04</span><span class="symbol">);</span>
-<span class="cbracket">}</span>
+<span class="p">.</span><span class="n">button</span> <span class="p">{</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="n">background</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span> <span class="n">shade</span> <span class="p">(</span><span class="err">@</span><span class="n">bg_color</span><span class="p">,</span> <span class="mf">1.04</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="symbol">.</span><span class="normal">button</span><span class="symbol">:</span><span class="normal">hover </span><span class="cbracket">{</span>
-<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1.06</span><span class="symbol">);</span>
-<span class="cbracket">}</span>
+<span class="p">.</span><span class="nl">button</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
+  <span class="n">background</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span> <span class="n">shade</span> <span class="p">(</span><span class="err">@</span><span class="n">bg_color</span><span class="p">,</span> <span class="mf">1.06</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="symbol">.</span><span class="normal">button</span><span class="symbol">:</span><span class="normal">active </span><span class="cbracket">{</span>
-<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@bg_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.85</span><span class="symbol">);</span>
-<span class="cbracket">}</span>
+<span class="p">.</span><span class="nl">button</span><span class="p">:</span><span class="n">active</span> <span class="p">{</span>
+  <span class="n">background</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span> <span class="n">shade</span> <span class="p">(</span><span class="err">@</span><span class="n">bg_color</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="symbol">.</span><span class="normal">entry </span><span class="cbracket">{</span>
-<span class="normal">  padding</span><span class="symbol">:</span><span class="normal"> </span><span class="number">3</span><span class="symbol">;</span>
+<span class="p">.</span><span class="n">entry</span> <span class="p">{</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="mi">3</span><span class="p">;</span>
 
-<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> @base_color</span><span class="symbol">;</span>
-<span class="normal">  color</span><span class="symbol">:</span><span class="normal"> @text_color</span><span class="symbol">;</span>
-<span class="cbracket">}</span>
+  <span class="n">background</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span> <span class="err">@</span><span class="n">base_color</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="err">@</span><span class="n">text_color</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="symbol">.</span><span class="normal">entry</span><span class="symbol">:</span><span class="normal">selected </span><span class="cbracket">{</span>
-<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">mix</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">@selected_bg_color</span><span class="symbol">,</span><span class="normal"> @base_color</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0.4</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="symbol">-</span><span class="normal">Clearlooks</span><span class="symbol">-</span><span class="normal">focus</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.65</span><span class="symbol">,</span><span class="normal"> @selected_bg_color</span><span class="symbol">)</span>
-<span class="cbracket">}</span>
+<span class="p">.</span><span class="nl">entry</span><span class="p">:</span><span class="n">selected</span> <span class="p">{</span>
+  <span class="n">background</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span> <span class="n">mix</span> <span class="p">(</span><span class="err">@</span><span class="n">selected_bg_color</span><span class="p">,</span> <span class="err">@</span><span class="n">base_color</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">);</span>
+  <span class="o">-</span><span class="n">Clearlooks</span><span class="o">-</span><span class="n">focus</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span> <span class="n">shade</span> <span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="err">@</span><span class="n">selected_bg_color</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span class="comment">/* The latter selector is an specification of the first,</span>
-<span class="comment">   since any widget may use the same classes or names */</span>
-<span class="preproc">#window</span><span class="symbol">-</span><span class="normal">name </span><span class="symbol">.</span><span class="normal">button</span><span class="symbol">,</span>
-<span class="normal">GtkWindow#window</span><span class="symbol">-</span><span class="usertype">name</span><span class="normal"> <a href="GtkButton.html#GtkButton-struct">GtkButton</a></span><span class="symbol">.</span><span class="normal">button </span><span class="cbracket">{</span>
-<span class="normal">  background</span><span class="symbol">-</span><span class="normal">color</span><span class="symbol">:</span><span class="normal"> #fff</span><span class="symbol">;</span>
-<span class="cbracket">}</span></pre></td>
+<span class="cm">/* The latter selector is an specification of the first,</span>
+<span class="cm">   since any widget may use the same classes or names */</span>
+<span class="cp">#window-name .button,</span>
+<span class="n">GtkWindow</span><span class="err">#</span><span class="n">window</span><span class="o">-</span><span class="n">name</span> <span class="n">GtkButton</span><span class="p">.</span><span class="n">button</span> <span class="p">{</span>
+  <span class="n">background</span><span class="o">-</span><span class="nl">color</span><span class="p">:</span> <span class="err">#</span><span class="n">fff</span><span class="p">;</span>
+<span class="p">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -374,18 +374,18 @@
 3
 4
 5</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkColor</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">color1</span><span class="symbol">;</span>
-<span class="usertype">GdkColor</span><span class="normal"> color2</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="n">GdkColor</span> <span class="o">*</span><span class="n">color1</span><span class="p">;</span>
+<span class="n">GdkColor</span> <span class="n">color2</span><span class="p">;</span>
 
-<span class="normal">color1 </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">style</span><span class="symbol">-&gt;</span><span class="normal">bg</span><span class="symbol">[</span><span class="normal"><a href="GtkWidget.html#GTK-STATE-PRELIGHT:CAPS">GTK_STATE_PRELIGHT</a></span><span class="symbol">];</span>
-<span class="function"><a href="GtkStyle.html#gtk-style-lookup-color">gtk_style_lookup_color</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">style</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"focus_color"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">color2</span><span class="symbol">);</span></pre></td>
+<span class="n">color1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">style</span><span class="o">-&gt;</span><span class="n">bg</span><span class="p">[</span><span class="n">GTK_STATE_PRELIGHT</span><span class="p">];</span>
+<span class="n">gtk_style_lookup_color</span> <span class="p">(</span><span class="n">style</span><span class="p">,</span> <span class="s">&quot;focus_color&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">color2</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
 </div>
 
 <p>
-      With <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a>, you generally use <a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> instead of <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a>
+      With <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a>, you generally use <a href="../html/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> instead of <a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a>
       and the code looks like this:
       </p>
 <div class="informalexample">
@@ -403,17 +403,17 @@
 9
 10
 11</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkRGBA</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">color1</span><span class="symbol">;</span>
-<span class="usertype">GdkRGBA</span><span class="normal">  color2</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="n">GdkRGBA</span> <span class="o">*</span><span class="n">color1</span><span class="p">;</span>
+<span class="n">GdkRGBA</span>  <span class="n">color2</span><span class="p">;</span>
 
-<span class="function"><a href="GtkStyleContext.html#gtk-style-context-get">gtk_style_context_get</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> <a href="gtk3-Standard-Enumerations.html#GTK-STATE-FLAG-PRELIGHT:CAPS">GTK_STATE_FLAG_PRELIGHT</a></span><span class="symbol">,</span>
-<span class="normal">                       </span><span class="string">"background-color"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">color1</span><span class="symbol">,</span>
-<span class="normal">                       <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
-<span class="function"><a href="GtkStyleContext.html#gtk-style-context-lookup-color">gtk_style_context_lookup_color</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"focus_color"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">color2</span><span class="symbol">);</span>
+<span class="n">gtk_style_context_get</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">GTK_STATE_FLAG_PRELIGHT</span><span class="p">,</span>
+                       <span class="s">&quot;background-color&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">color1</span><span class="p">,</span>
+                       <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">gtk_style_context_lookup_color</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="s">&quot;focus_color&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">color2</span><span class="p">);</span>
 
-<span class="symbol">...</span>
+<span class="p">...</span>
 
-<span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-RGBA-Colors.html#gdk-rgba-free">gdk_rgba_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">color1</span><span class="symbol">);</span></pre></td>
+<span class="n">gdk_rgba_free</span> <span class="p">(</span><span class="n">color1</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -431,6 +431,6 @@
     </p>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

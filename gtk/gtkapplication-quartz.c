@@ -56,14 +56,18 @@ typedef struct
 } GtkApplicationImplQuartz;
 
 G_DEFINE_TYPE (GtkApplicationImplQuartz, gtk_application_impl_quartz, GTK_TYPE_APPLICATION_IMPL)
-
+#if MAC_OS_X_VERSION_MIN_REQUIRED >= 1060
+@interface GtkApplicationQuartzDelegate : NSObject <NSApplicationDelegate>
+#else
 @interface GtkApplicationQuartzDelegate : NSObject
+#endif
 {
   GtkApplicationImplQuartz *quartz;
 }
 
 - (id)initWithImpl:(GtkApplicationImplQuartz*)impl;
 - (NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication *)sender;
+- (void)application:(NSApplication *)theApplication openFiles:(NSArray *)filenames;
 @end
 
 @implementation GtkApplicationQuartzDelegate
@@ -83,6 +87,35 @@ G_DEFINE_TYPE (GtkApplicationImplQuartz, gtk_application_impl_quartz, GTK_TYPE_A
    * Just let the OS show the generic message...
    */
   return quartz->quit_inhibit == 0 ? NSTerminateNow : NSTerminateCancel;
+}
+
+-(void)application:(NSApplication *)theApplication openFiles:(NSArray *)filenames
+{
+  GFile **files;
+  gint i;
+  GApplicationFlags flags;
+
+  flags = g_application_get_flags (G_APPLICATION (quartz->impl.application));
+
+  if (~flags & G_APPLICATION_HANDLES_OPEN)
+    {
+      [theApplication replyToOpenOrPrint:NSApplicationDelegateReplyFailure];
+      return;
+    }
+
+  files = g_new (GFile *, [filenames count]);
+
+  for (i = 0; i < [filenames count]; i++)
+    files[i] = g_file_new_for_path ([(NSString *)[filenames objectAtIndex:i] UTF8String]);
+
+  g_application_open (G_APPLICATION (quartz->impl.application), files, [filenames count], "");
+
+  for (i = 0; i < [filenames count]; i++)
+    g_object_unref (files[i]);
+
+  g_free (files);
+
+  [theApplication replyToOpenOrPrint:NSApplicationDelegateReplySuccess];
 }
 @end
 
@@ -132,7 +165,7 @@ gtk_application_impl_quartz_startup (GtkApplicationImpl *impl,
   if (register_session)
     {
       quartz->delegate = [[GtkApplicationQuartzDelegate alloc] initWithImpl:quartz];
-      [NSApp setDelegate: quartz->delegate];
+      [NSApp setDelegate: (id)(quartz->delegate)];
     }
 
   quartz->muxer = gtk_action_muxer_new ();
@@ -307,6 +340,13 @@ gtk_application_impl_quartz_is_inhibited (GtkApplicationImpl         *impl,
 static void
 gtk_application_impl_quartz_init (GtkApplicationImplQuartz *quartz)
 {
+  /* This is required so that Cocoa is not going to parse the
+     command line arguments by itself and generate OpenFile events.
+     We already parse the command line ourselves, so this is needed
+     to prevent opening files twice, etc. */
+  [[NSUserDefaults standardUserDefaults] setObject:@"NO"
+                                            forKey:@"NSTreatUnknownArgumentsAsOpen"];
+
   quartz->combined = g_menu_new ();
 }
 

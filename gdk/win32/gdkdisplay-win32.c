@@ -35,6 +35,12 @@
 # include <epoxy/egl.h>
 #endif
 
+#include "gdkwin32langnotification.h"
+
+#ifndef IMAGE_FILE_MACHINE_ARM64
+# define IMAGE_FILE_MACHINE_ARM64 0xAA64
+#endif
+
 static int debug_indent = 0;
 
 static GdkMonitor *
@@ -414,6 +420,7 @@ _gdk_win32_display_open (const gchar *display_name)
                                                "display", _gdk_display,
                                                NULL);
 
+  _gdk_win32_lang_notification_init ();
   _gdk_dnd_init ();
 
   /* Precalculate display name */
@@ -520,8 +527,6 @@ gdk_win32_display_supports_selection_notification (GdkDisplay *display)
   return TRUE;
 }
 
-static HWND _hwnd_next_viewer = NULL;
-
 /*
  * maybe this should be integrated with the default message loop - or maybe not ;-)
  */
@@ -535,24 +540,11 @@ inner_clipboard_window_procedure (HWND   hwnd,
     {
     case WM_DESTROY: /* remove us from chain */
       {
-        ChangeClipboardChain (hwnd, _hwnd_next_viewer);
+        RemoveClipboardFormatListener (hwnd);
         PostQuitMessage (0);
         return 0;
       }
-    case WM_CHANGECBCHAIN:
-      {
-        HWND hwndRemove = (HWND) wparam; /* handle of window being removed */
-        HWND hwndNext   = (HWND) lparam; /* handle of next window in chain */
-
-        if (hwndRemove == _hwnd_next_viewer)
-          _hwnd_next_viewer = hwndNext == hwnd ? NULL : hwndNext;
-        else if (_hwnd_next_viewer != NULL)
-          return SendMessage (_hwnd_next_viewer, message, wparam, lparam);
-
-        return 0;
-      }
     case WM_CLIPBOARDUPDATE:
-    case WM_DRAWCLIPBOARD:
       {
         HWND hwnd_owner;
         HWND stored_hwnd_owner;
@@ -629,9 +621,6 @@ inner_clipboard_window_procedure (HWND   hwnd,
         event->owner_change.selection_time = GDK_CURRENT_TIME;
         _gdk_win32_append_event (event);
 
-        if (_hwnd_next_viewer != NULL)
-          return SendMessage (_hwnd_next_viewer, message, wparam, lparam);
-
         /* clear error to avoid confusing SetClipboardViewer() return */
         SetLastError (0);
         return 0;
@@ -691,15 +680,9 @@ register_clipboard_notification (GdkDisplay *display)
     goto failed;
 
   SetLastError (0);
-  _hwnd_next_viewer = SetClipboardViewer (display_win32->clipboard_hwnd);
 
-  if (_hwnd_next_viewer == NULL && GetLastError() != 0)
+  if (AddClipboardFormatListener (display_win32->clipboard_hwnd) == FALSE)
     goto failed;
-
-  /* FIXME: http://msdn.microsoft.com/en-us/library/ms649033(v=VS.85).aspx */
-  /* This is only supported by Vista, and not yet by mingw64 */
-  /* if (AddClipboardFormatListener (hwnd) == FALSE) */
-  /*   goto failed; */
 
   return TRUE;
 
@@ -847,7 +830,6 @@ gdk_win32_display_dispose (GObject *object)
     {
       DestroyWindow (display_win32->clipboard_hwnd);
       display_win32->clipboard_hwnd = NULL;
-      _hwnd_next_viewer = NULL;
     }
 
   if (display_win32->have_at_least_win81)
@@ -869,6 +851,7 @@ gdk_win32_display_finalize (GObject *object)
 
   _gdk_win32_display_finalize_cursors (display_win32);
   _gdk_win32_dnd_exit ();
+  _gdk_win32_lang_notification_exit ();
 
   g_ptr_array_free (display_win32->monitors, TRUE);
 
@@ -1056,6 +1039,40 @@ _gdk_win32_enable_hidpi (GdkWin32Display *display)
 }
 
 static void
+_gdk_win32_check_on_arm64 (GdkWin32Display *display)
+{
+  static gsize checked = 0;
+
+  if (g_once_init_enter (&checked))
+    {
+      HMODULE kernel32 = LoadLibraryW (L"kernel32.dll");
+
+      if (kernel32 != NULL)
+        {
+          display->cpu_funcs.isWow64Process2 =
+            (funcIsWow64Process2) GetProcAddress (kernel32, "IsWow64Process2");
+
+          if (display->cpu_funcs.isWow64Process2 != NULL)
+            {
+              USHORT proc_cpu = 0;
+              USHORT native_cpu = 0;
+
+              display->cpu_funcs.isWow64Process2 (GetCurrentProcess (),
+                                                  &proc_cpu,
+                                                  &native_cpu);
+
+              if (native_cpu == IMAGE_FILE_MACHINE_ARM64)
+                display->running_on_arm64 = TRUE;
+            }
+
+          FreeLibrary (kernel32);
+        }
+
+      g_once_init_leave (&checked, 1);
+    }
+}
+
+static void
 gdk_win32_display_init (GdkWin32Display *display)
 {
   const gchar *scale_str = g_getenv ("GDK_SCALE");
@@ -1063,6 +1080,7 @@ gdk_win32_display_init (GdkWin32Display *display)
   display->monitors = g_ptr_array_new_with_free_func (g_object_unref);
 
   _gdk_win32_enable_hidpi (display);
+  _gdk_win32_check_on_arm64 (display);
 
   /* if we have DPI awareness, set up fixed scale if set */
   if (display->dpi_aware_type != PROCESS_DPI_UNAWARE &&

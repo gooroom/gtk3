@@ -396,7 +396,7 @@ parse_border (GtkCssShorthandProperty  *shorthand,
         values[6] = _gtk_css_value_ref (values[4]);
         values[7] = _gtk_css_value_ref (values[4]);
       }
-    else if (!G_IS_VALUE (&values[8]))
+    else if (values[8] == NULL)
       {
         values[8] = _gtk_css_color_value_parse (parser);
         if (values[8] == NULL)
@@ -1118,7 +1118,12 @@ unpack_font_description (GtkCssShorthandProperty *shorthand,
       g_value_init (&v, G_TYPE_DOUBLE);
       size = pango_font_description_get_size (description) / PANGO_SCALE;
       if (!pango_font_description_get_size_is_absolute (description))
-        size = size * gdk_screen_get_resolution (gdk_screen_get_default ()) / 72.0;
+        {
+          double dpi = gdk_screen_get_resolution (gdk_screen_get_default ());
+          if (dpi <= 0.0)
+            dpi = 96.0;
+          size = size * dpi / 72.0;
+        }
       g_value_set_double (&v, size);
       prop = _gtk_style_property_lookup ("font-size");
       _gtk_style_property_assign (prop, props, state, &v);
@@ -1141,8 +1146,18 @@ pack_font_description (GtkCssShorthandProperty *shorthand,
   v = (* query_func) (_gtk_css_style_property_get_id (GTK_CSS_STYLE_PROPERTY (_gtk_style_property_lookup ("font-family"))), query_data);
   if (v)
     {
-      /* xxx: Can we set all the families here somehow? */
-      pango_font_description_set_family (description, _gtk_css_string_value_get (_gtk_css_array_value_get_nth (v, 0)));
+      int i;
+      GString *s = g_string_new ("");
+
+      for (i = 0; i < _gtk_css_array_value_get_n_values (v); i++)
+        {
+          if (i > 0)
+            g_string_append (s, ",");
+          g_string_append (s, _gtk_css_string_value_get (_gtk_css_array_value_get_nth (v, i)));
+        }
+
+      pango_font_description_set_family (description, s->str);
+      g_string_free (s, TRUE);
     }
 
   v = (* query_func) (_gtk_css_style_property_get_id (GTK_CSS_STYLE_PROPERTY (_gtk_style_property_lookup ("-gtk-dpi"))), query_data);

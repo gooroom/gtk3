@@ -304,10 +304,13 @@ immodules.cache: Makefile.am $(module_LTLIBRARIES)
 
 if USE_WAYLAND
 BUILT_SOURCES = $(protocol_built_sources) $(protocol_built_sources_gtk)
-EXTRA_DIST += $(protocol_built_sources) $(protocol_built_sources_gtk)
 endif
 
-EXTRA_DIST += README.multipress
+EXTRA_DIST += \
+	README.multipress \
+	meson.build \
+	text-input-unstable-v3.xml \
+	gtk-text-input.xml
 
 CLEANFILES = immodules.cache
 
@@ -327,14 +330,12 @@ $(shell echo $1 | sed 's/\([a-z\-]\+\)-[a-z]\+-v[0-9]\+/\1/')
 endef
 
 %-protocol.c : $(WAYLAND_PROTOCOLS_DATADIR)/$$(call protostability,$$*)/$$(call protoname,$$*)/$$*.xml
-	$(AM_V_GEN)$(WAYLAND_SCANNER) code < $< > $@
-	$(AM_V_GEN)$(SED) -i -e 's/WL_EXPORT //' $@
+	$(AM_V_GEN)$(WAYLAND_SCANNER) private-code < $< > $@
 %-client-protocol.h : $(WAYLAND_PROTOCOLS_DATADIR)/$$(call protostability,$$*)/$$(call protoname,$$*)/$$*.xml
 	$(AM_V_GEN)$(WAYLAND_SCANNER) client-header < $< > $@
 
 %-protocol.c : $(srcdir)/%.xml
-	$(AM_V_GEN)$(WAYLAND_SCANNER) code < $< > $@
-	$(AM_V_GEN)$(SED) -i -e 's/WL_EXPORT //' $@
+	$(AM_V_GEN)$(WAYLAND_SCANNER) private-code < $< > $@
 %-client-protocol.h : $(srcdir)/%.xml
 	$(AM_V_GEN)$(WAYLAND_SCANNER) client-header < $< > $@
 

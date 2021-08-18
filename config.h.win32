@@ -26,12 +26,6 @@
 /* define if we have colord */
 /* #undef HAVE_COLORD */
 
-/* Define to 1 if you have the <crt_externs.h> header file. */
-/* #undef HAVE_CRT_EXTERNS_H */
-
-/* Define to 1 if CUPS 1.2 API is available */
-/* #undef HAVE_CUPS_API_1_2 */
-
 /* Define to 1 if you have the `dcgettext' function. */
 #define HAVE_DCGETTEXT 1
 
@@ -76,15 +70,6 @@
 
 /* Define if gio-unix is available */
 /* #undef HAVE_GIO_UNIX */
-
-/* Have GNU ftw */
-/* #undef HAVE_GNU_FTW */
-
-/* Define to 1 if you have the `httpGetAuthString' function. */
-/* #undef HAVE_HTTPGETAUTHSTRING */
-
-/* Define if cups http_t authstring field is accessible */
-/* #undef HAVE_HTTP_AUTHSTRING */
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #if !defined (_MSC_VER) || (_MSC_VER >= 1800)
@@ -156,9 +141,6 @@
 
 /* Define to 1 if sincos() is available */
 /* #undef HAVE_SINCOS */
-
-/* Have the sockaddr_un.sun_len member */
-/* #undef HAVE_SOCKADDR_UN_SUN_LEN */
 
 /* Define to 1 if solaris xinerama is available */
 /* #undef HAVE_SOLARIS_XINERAMA */
@@ -263,15 +245,9 @@
 /* Define if _NL_TIME_FIRST_WEEKDAY is available */
 /* #undef HAVE__NL_TIME_FIRST_WEEKDAY */
 
-/* Define to 1 if you have the `_NSGetEnviron' function. */
-/* #undef HAVE__NSGETENVIRON */
-
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
    */
 #define LT_OBJDIR ".libs/"
-
-/* Define if <X11/extensions/XIproto.h> needed for xReply */
-/* #undef NEED_XIPROTO_H_FOR_XREPLY */
 
 /* Define to 1 if your C compiler doesn't accept -c and -o together. */
 #ifndef _MSC_VER
@@ -287,7 +263,7 @@
 #define PACKAGE_NAME "gtk+"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "gtk+ 3.24.5"
+#define PACKAGE_STRING "gtk+ 3.24.24"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "gtk+"
@@ -296,7 +272,7 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "3.24.5"
+#define PACKAGE_VERSION "3.24.24"
 
 /* Use NSBundle functions to determine load paths for libraries, translations,
    etc. */

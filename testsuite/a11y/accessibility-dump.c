@@ -25,6 +25,10 @@
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
 
+#ifdef G_OS_WIN32
+# include <io.h>
+#endif
+
 #define DEPTH_INCREMENT 2
 
 static char *
@@ -924,7 +928,8 @@ parse_command_line (int *argc, char ***argv)
   gtk_test_init (argc, argv);
 
   schema_dir = g_test_build_filename (G_TEST_BUILT, "", NULL);
-  g_setenv ("GSETTINGS_SCHEMA_DIR", schema_dir, TRUE);
+  if (g_getenv ("GTK_TEST_MESON") == NULL)
+    g_setenv ("GSETTINGS_SCHEMA_DIR", schema_dir, TRUE);
   g_free (schema_dir);
 
   /* gtk_test_init does not call setlocale(), so do it ourselves,

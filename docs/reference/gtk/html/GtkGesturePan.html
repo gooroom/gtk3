@@ -8,7 +8,7 @@
 <link rel="up" href="Gestures.html" title="Gestures and event handling">
 <link rel="prev" href="GtkGestureMultiPress.html" title="GtkGestureMultiPress">
 <link rel="next" href="GtkGestureSwipe.html" title="GtkGestureSwipe">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GtkGesturePan.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -88,14 +88,14 @@
 <a name="GtkGesturePan.signals"></a><h2>Signals</h2>
 <div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
-<col width="150px" class="signals_return">
-<col width="300px" class="signals_name">
-<col width="200px" class="signals_flags">
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
 </colgroup>
 <tbody><tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkGesturePan.html#GtkGesturePan-pan" title="The “pan” signal">pan</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+<td class="signal_flags">Run Last</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -103,8 +103,8 @@
 <a name="GtkGesturePan.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -120,7 +120,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkGesturePan.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> <a class="link" href="GtkEventController.html" title="GtkEventController">GtkEventController</a>
         <span class="lineart">╰──</span> <a class="link" href="GtkGesture.html" title="GtkGesture">GtkGesture</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkGestureSingle.html" title="GtkGestureSingle">GtkGestureSingle</a>
@@ -130,7 +130,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkGesturePan.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -303,6 +303,7 @@ gtk_gesture_pan_set_orientation (<em class="parameter"><code><a class="link" hre
 <a name="GtkGesturePan--orientation"></a><h3>The <code class="literal">“orientation”</code> property</h3>
 <pre class="programlisting">  “orientation”              <a class="link" href="gtk3-Standard-Enumerations.html#GtkOrientation" title="enum GtkOrientation"><span class="type">GtkOrientation</span></a></pre>
 <p>The expected orientation of pan gestures.</p>
+<p>Owner: GtkGesturePan</p>
 <p>Flags: Read / Write</p>
 <p>Default value: GTK_ORIENTATION_HORIZONTAL</p>
 <p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
@@ -315,8 +316,8 @@ gtk_gesture_pan_set_orientation (<em class="parameter"><code><a class="link" hre
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkGesturePan.html" title="GtkGesturePan"><span class="type">GtkGesturePan</span></a>  *gesture,
                <a class="link" href="GtkGesturePan.html#GtkPanDirection" title="enum GtkPanDirection"><span class="type">GtkPanDirection</span></a> direction,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>         offset,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)</pre>
+               <span class="type">double</span>          offset,
+               <span class="type">gpointer</span>        user_data)</pre>
 <p>This signal is emitted once a panning gesture along the
 expected axis is detected.</p>
 <div class="refsect3">
@@ -351,12 +352,12 @@ expected axis is detected.</p>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p>Flags: Run Last</p>
 <p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

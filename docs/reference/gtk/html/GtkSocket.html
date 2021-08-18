@@ -8,7 +8,7 @@
 <link rel="up" href="PlugSocket.html" title="Cross-process Embedding">
 <link rel="prev" href="GtkPlug.html" title="GtkPlug">
 <link rel="next" href="RecentDocuments.html" title="Recently Used Documents">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GtkSocket.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -68,7 +68,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
+<a href="../html/gdk3-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkSocket.html#gtk-socket-get-plug-window" title="gtk_socket_get_plug_window ()">gtk_socket_get_plug_window</a> <span class="c_punctuation">()</span>
@@ -81,20 +81,20 @@
 <a name="GtkSocket.signals"></a><h2>Signals</h2>
 <div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
-<col width="150px" class="signals_return">
-<col width="300px" class="signals_name">
-<col width="200px" class="signals_flags">
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
 </colgroup>
 <tbody>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkSocket.html#GtkSocket-plug-added" title="The “plug-added” signal">plug-added</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+<td class="signal_flags">Run Last</td>
 </tr>
 <tr>
-<td class="signal_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a></td>
+<td class="signal_type"><span class="returnvalue">gboolean</span></td>
 <td class="signal_name"><a class="link" href="GtkSocket.html#GtkSocket-plug-removed" title="The “plug-removed” signal">plug-removed</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+<td class="signal_flags">Run Last</td>
 </tr>
 </tbody>
 </table></div>
@@ -103,8 +103,8 @@
 <a name="GtkSocket.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="datatype_keyword">struct</td>
@@ -114,8 +114,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkSocket.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                 <span class="lineart">╰──</span> GtkSocket
@@ -158,15 +158,15 @@ and for hence, have been added to its parent.</p>
 7
 8
 9</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">socket </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkSocket.html#gtk-socket-new">gtk_socket_new</a></span><span class="normal"> </span><span class="symbol">();</span>
-<span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">socket</span><span class="symbol">);</span>
-<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">parent</span><span class="symbol">),</span><span class="normal"> socket</span><span class="symbol">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="n">GtkWidget</span> <span class="o">*</span><span class="n">socket</span> <span class="o">=</span> <span class="n">gtk_socket_new</span> <span class="p">();</span>
+<span class="n">gtk_widget_show</span> <span class="p">(</span><span class="n">socket</span><span class="p">);</span>
+<span class="n">gtk_container_add</span> <span class="p">(</span><span class="n">GTK_CONTAINER</span> <span class="p">(</span><span class="n">parent</span><span class="p">),</span> <span class="n">socket</span><span class="p">);</span>
 
-<span class="comment">// The following call is only necessary if one of</span>
-<span class="comment">// the ancestors of the socket is not yet visible.</span>
-<span class="function"><a href="GtkWidget.html#gtk-widget-realize">gtk_widget_realize</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">socket</span><span class="symbol">);</span>
-<span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Warnings-and-Assertions.html#g-print">g_print</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"The ID of the sockets window is %#x</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span>
-<span class="normal">         </span><span class="function"><a href="GtkSocket.html#gtk-socket-get-id">gtk_socket_get_id</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">socket</span><span class="symbol">));</span></pre></td>
+<span class="c1">// The following call is only necessary if one of</span>
+<span class="c1">// the ancestors of the socket is not yet visible.</span>
+<span class="n">gtk_widget_realize</span> <span class="p">(</span><span class="n">socket</span><span class="p">);</span>
+<span class="n">g_print</span> <span class="p">(</span><span class="s">&quot;The ID of the sockets window is %#x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+         <span class="n">gtk_socket_get_id</span> <span class="p">(</span><span class="n">socket</span><span class="p">));</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -180,7 +180,7 @@ is created. Violating this rule will cause unpredictable
 consequences, the most likely consequence being that the plug
 will appear as a separate toplevel window. You can check if
 the plug has been created by using <a class="link" href="GtkSocket.html#gtk-socket-get-plug-window" title="gtk_socket_get_plug_window ()"><code class="function">gtk_socket_get_plug_window()</code></a>.
-If it returns a non-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> value, then the plug has been
+If it returns a non-<code class="literal">NULL</code> value, then the plug has been
 successfully created inside of the socket.</p>
 <p>When GTK+ is notified that the embedded window has been destroyed,
 then it will destroy the socket as well. You should always,
@@ -193,7 +193,7 @@ This protocol has also been implemented in other toolkits, e.g. Qt,
 allowing the same level of integration when embedding a Qt widget
 in GTK or vice versa.</p>
 <p>The <a class="link" href="GtkPlug.html" title="GtkPlug"><span class="type">GtkPlug</span></a> and <a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a> widgets are only available when GTK+
-is compiled for the X11 platform and <a href="https://developer.gnome.org/gdk3/gdk3-General.html#GDK-WINDOWING-X11:CAPS"><code class="literal">GDK_WINDOWING_X11</code></a> is defined.
+is compiled for the X11 platform and <a href="../html/gdk3-General.html#GDK-WINDOWING-X11:CAPS"><code class="literal">GDK_WINDOWING_X11</code></a> is defined.
 They can only be used on a <span class="type">GdkX11Display</span>. To use <a class="link" href="GtkPlug.html" title="GtkPlug"><span class="type">GtkPlug</span></a> and
 <a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a>, you need to include the <code class="literal">gtk/gtkx.h</code> header.</p>
 </div>
@@ -282,7 +282,7 @@ before you can make this call.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-socket-get-plug-window"></a><h3>gtk_socket_get_plug_window ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
+<pre class="programlisting"><a href="../html/gdk3-Windows.html#GdkWindow-struct"><span class="returnvalue">GdkWindow</span></a> *
 gtk_socket_get_plug_window (<em class="parameter"><code><a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a> *socket_</code></em>);</pre>
 <p>Retrieves the window of the plug. Use this to check if the plug has
 been created inside of the socket.</p>
@@ -304,7 +304,7 @@ been created inside of the socket.</p>
 <div class="refsect3">
 <a name="gtk-socket-get-plug-window.returns"></a><h4>Returns</h4>
 <p>the window of the plug if
-available, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+available, or <code class="literal">NULL</code>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -323,7 +323,7 @@ available, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-M
 <a name="GtkSocket-plug-added"></a><h3>The <code class="literal">“plug-added”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a> *socket_,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>   user_data)</pre>
+               <span class="type">gpointer</span>   user_data)</pre>
 <p>This signal is emitted when a client is successfully
 added to the socket.</p>
 <div class="refsect3">
@@ -348,19 +348,19 @@ added to the socket.</p>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p>Flags: Run Last</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkSocket-plug-removed"></a><h3>The <code class="literal">“plug-removed”</code> signal</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 user_function (<a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a> *socket_,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>   user_data)</pre>
+               <span class="type">gpointer</span>   user_data)</pre>
 <p>This signal is emitted when a client is removed from the socket.
 
 The default action is to destroy the <a class="link" href="GtkSocket.html" title="GtkSocket"><span class="type">GtkSocket</span></a> widget, so if you
 
-want to reuse it you must add a signal handler that returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.</p>
+want to reuse it you must add a signal handler that returns <code class="literal">TRUE</code>.</p>
 <div class="refsect3">
 <a name="GtkSocket-plug-removed.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -385,9 +385,9 @@ want to reuse it you must add a signal handler that returns <a href="https://dev
 </div>
 <div class="refsect3">
 <a name="GtkSocket-plug-removed.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to stop other handlers from being invoked.</p>
+<p> <code class="literal">TRUE</code> to stop other handlers from being invoked.</p>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p>Flags: Run Last</p>
 </div>
 </div>
 <div class="refsect1">
@@ -396,6 +396,6 @@ want to reuse it you must add a signal handler that returns <a href="https://dev
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

@@ -85,10 +85,6 @@
 #include "broadway/gdkbroadway.h"
 #endif
 
-#ifdef GDK_WINDOWING_MIR
-#include "mir/gdkmir.h"
-#endif
-
 /**
  * SECTION:gtkwindow
  * @title: GtkWindow
@@ -101,7 +97,7 @@
  *
  * # GtkWindow as GtkBuildable
  *
- * The GtkWindow implementation of the GtkBuildable interface supports a
+ * The GtkWindow implementation of the #GtkBuildable interface supports a
  * custom <accel-groups> element, which supports any number of <group>
  * elements representing the #GtkAccelGroup objects you want to add to
  * your window (synonymous with gtk_window_add_accel_group().
@@ -123,7 +119,7 @@
  * <object class="GtkAccelGroup" id="accelgroup1"/>
  * ]|
  * 
- * The GtkWindow implementation of the GtkBuildable interface supports
+ * The GtkWindow implementation of the #GtkBuildable interface supports
  * setting a child as the titlebar by specifying “titlebar” as the “type”
  * attribute of a <child> element.
  *
@@ -265,6 +261,7 @@ struct _GtkWindowPrivate
   guint    unlimited_guessed_size_x  : 1;
   guint    unlimited_guessed_size_y  : 1;
   guint    force_resize              : 1;
+  guint    fixate_size               : 1;
 
   guint    use_subsurface            : 1;
 
@@ -473,7 +470,6 @@ static GdkScreen *gtk_window_check_screen (GtkWindow *window);
 static GtkWindowGeometryInfo* gtk_window_get_geometry_info         (GtkWindow    *window,
                                                                     gboolean      create);
 
-static void     gtk_window_move_resize               (GtkWindow    *window);
 static gboolean gtk_window_compare_hints             (GdkGeometry  *geometry_a,
                                                       guint         flags_a,
                                                       GdkGeometry  *geometry_b,
@@ -550,6 +546,10 @@ static void gtk_window_get_preferred_height_for_width (GtkWidget *widget,
 static void gtk_window_style_updated (GtkWidget     *widget);
 static void gtk_window_state_flags_changed (GtkWidget     *widget,
                                             GtkStateFlags  previous_state);
+
+static void gtk_window_get_remembered_size (GtkWindow *window,
+                                            int       *width,
+                                            int       *height);
 
 static GSList      *toplevel_list = NULL;
 static guint        window_signals[LAST_SIGNAL] = { 0 };
@@ -1134,7 +1134,7 @@ gtk_window_class_init (GtkWindowClass *klass)
                                                              20, GTK_PARAM_READWRITE));
 
   /**
-   * GtkWindow:set-focus:
+   * GtkWindow::set-focus:
    * @window: the window which received the signal
    * @widget: (nullable): the newly focused widget (or %NULL for no focus)
    *
@@ -1315,17 +1315,23 @@ send_delete_event (gpointer data)
 {
   GtkWidget *window = data;
   GtkWindowPrivate *priv = GTK_WINDOW (window)->priv;
+  GdkWindow *gdk_window;
 
-  GdkEvent *event;
-
-  event = gdk_event_new (GDK_DELETE);
-
-  event->any.window = g_object_ref (_gtk_widget_get_window (window));
-  event->any.send_event = TRUE;
   priv->delete_event_handler = 0;
 
-  gtk_main_do_event (event);
-  gdk_event_free (event);
+  gdk_window = _gtk_widget_get_window (window);
+  if (gdk_window)
+    {
+      GdkEvent *event;
+
+      event = gdk_event_new (GDK_DELETE);
+      event->any.window = g_object_ref (gdk_window);
+      event->any.send_event = TRUE;
+
+      gtk_main_do_event (event);
+
+      gdk_event_free (event);
+    }
 
   return G_SOURCE_REMOVE;
 }
@@ -6119,11 +6125,6 @@ gtk_window_should_use_csd (GtkWindow *window)
     }
 #endif
 
-#ifdef GDK_WINDOWING_MIR
-  if (GDK_IS_MIR_DISPLAY (gtk_widget_get_display (GTK_WIDGET (window))))
-    return TRUE;
-#endif
-
 #ifdef GDK_WINDOWING_WIN32
   if (g_strcmp0 (csd_env, "0") != 0 &&
       GDK_IS_WIN32_DISPLAY (gtk_widget_get_display (GTK_WIDGET (window))))
@@ -6436,6 +6437,8 @@ gtk_window_unmap (GtkWidget *widget)
    */
   priv->need_default_position = TRUE;
 
+  priv->fixate_size = FALSE;
+
   info = gtk_window_get_geometry_info (window, FALSE);
   if (info)
     {
@@ -6477,6 +6480,14 @@ gtk_window_force_resize (GtkWindow *window)
   priv->force_resize = TRUE;
 }
 
+void
+gtk_window_fixate_size (GtkWindow *window)
+{
+  GtkWindowPrivate *priv = window->priv;
+
+  priv->fixate_size = TRUE;
+}
+
 /* (Note: Replace "size" with "width" or "height". Also, the request
  * mode is honoured.)
  * For selecting the default window size, the following conditions
@@ -6507,6 +6518,13 @@ gtk_window_guess_default_size (GtkWindow *window,
   widget = GTK_WIDGET (window);
   display = gtk_widget_get_display (widget);
   gdkwindow = _gtk_widget_get_window (widget);
+
+  if (window->priv->fixate_size)
+    {
+      g_assert (gdkwindow);
+      gtk_window_get_remembered_size (window, width, height);
+      return;
+    }
 
   if (gdkwindow)
     monitor = gdk_display_get_monitor_at_window (display, gdkwindow);
@@ -7224,12 +7242,19 @@ corner_rect (cairo_rectangle_int_t *rect,
 }
 
 static void
-subtract_corners_from_region (cairo_region_t        *region,
-                              cairo_rectangle_int_t *extents,
-                              GtkStyleContext       *context,
-                              GtkWindow             *window)
+subtract_decoration_corners_from_region (cairo_region_t        *region,
+                                         cairo_rectangle_int_t *extents,
+                                         GtkStyleContext       *context,
+                                         GtkWindow             *window)
 {
+  GtkWindowPrivate *priv = window->priv;
   cairo_rectangle_int_t rect;
+
+  if (!priv->client_decorated ||
+      !priv->decorated ||
+      priv->fullscreen ||
+      priv->maximized)
+    return;
 
   gtk_style_context_save_to_node (context, window->priv->decoration_node);
 
@@ -7292,7 +7317,7 @@ update_opaque_region (GtkWindow           *window,
 
       opaque_region = cairo_region_create_rectangle (&rect);
 
-      subtract_corners_from_region (opaque_region, &rect, context, window);
+      subtract_decoration_corners_from_region (opaque_region, &rect, context, window);
     }
   else
     {
@@ -8604,7 +8629,7 @@ gtk_window_focus (GtkWidget        *widget,
   if (old_focus_child)
     {
       if (gtk_widget_child_focus (old_focus_child, direction))
-	return TRUE;
+        return TRUE;
     }
 
   if (priv->focus_widget)
@@ -8647,7 +8672,9 @@ gtk_window_focus (GtkWidget        *widget,
                priv->title_box != child &&
                gtk_widget_child_focus (priv->title_box, direction))
         return TRUE;
-
+      else if (priv->title_box == child &&
+               gtk_widget_child_focus (gtk_bin_get_child (bin), direction))
+        return TRUE;
     }
 
   return FALSE;
@@ -9068,6 +9095,11 @@ gtk_window_style_updated (GtkWidget *widget)
  * 
  * Checks whether the focus and default widgets of @window are
  * @widget or a descendent of @widget, and if so, unset them.
+ *
+ * If @widget is a #GtkPopover then nothing will be done with
+ * respect to the default widget of @window, the reason being that
+ * popovers already have specific logic for clearing/restablishing
+ * the default widget of its enclosing window.
  **/
 void
 _gtk_window_unset_focus_and_default (GtkWindow *window,
@@ -9092,15 +9124,18 @@ _gtk_window_unset_focus_and_default (GtkWindow *window,
       if (child == widget)
 	gtk_window_set_focus (GTK_WINDOW (window), NULL);
     }
-      
-  child = priv->default_widget;
-      
-  while (child && child != widget)
-    child = _gtk_widget_get_parent (child);
-
-  if (child == widget)
-    gtk_window_set_default (window, NULL);
   
+  if (!GTK_IS_POPOVER (widget))
+    {
+      child = priv->default_widget;
+
+      while (child && child != widget)
+        child = _gtk_widget_get_parent (child);
+
+      if (child == widget)
+        gtk_window_set_default (window, NULL);
+    }
+
   g_object_unref (widget);
   g_object_unref (window);
 }
@@ -9393,8 +9428,9 @@ gtk_window_compute_configure_request_size (GtkWindow   *window,
   
   info = gtk_window_get_geometry_info (window, FALSE);
 
-  if (priv->need_default_size ||
-      priv->force_resize)
+  if ((priv->need_default_size || priv->force_resize) &&
+      !priv->maximized &&
+      !priv->fullscreen)
     {
       gtk_window_guess_default_size (window, width, height);
       gtk_window_get_remembered_size (window, &w, &h);
@@ -9430,13 +9466,7 @@ gtk_window_compute_configure_request_size (GtkWindow   *window,
       gtk_window_get_remembered_size (window, width, height);
     }
 
-  /* Override any size with gtk_window_resize() values */
-  if (priv->maximized || priv->fullscreen)
-    {
-      /* Unless we are maximized or fullscreen */
-      gtk_window_get_remembered_size (window, width, height);
-    }
-  else if (info)
+  if (info)
     {
       gint resize_width_csd = info->resize_width;
       gint resize_height_csd = info->resize_height;
@@ -9729,7 +9759,7 @@ gtk_window_constrain_position (GtkWindow    *window,
     }
 }
 
-static void
+void
 gtk_window_move_resize (GtkWindow *window)
 {
   /* Overview:
@@ -10462,23 +10492,9 @@ gtk_window_draw (GtkWidget *widget,
  * gtk_window_present:
  * @window: a #GtkWindow
  *
- * Presents a window to the user. This may mean raising the window
- * in the stacking order, deiconifying it, moving it to the current
- * desktop, and/or giving it the keyboard focus, possibly dependent
- * on the user’s platform, window manager, and preferences.
- *
- * If @window is hidden, this function calls gtk_widget_show()
- * as well.
- * 
- * This function should be used when the user tries to open a window
- * that’s already open. Say for example the preferences dialog is
- * currently open, and the user chooses Preferences from the menu
- * a second time; use gtk_window_present() to move the already-open dialog
- * where the user can see it.
- *
- * If you are calling this function in response to a user interaction,
- * it is preferable to use gtk_window_present_with_time().
- * 
+ * Presents a window to the user. This function should not be used
+ * as when it is called, it is too late to gather a valid timestamp
+ * to allow focus stealing prevention to work correctly.
  **/
 void
 gtk_window_present (GtkWindow *window)
@@ -10492,10 +10508,25 @@ gtk_window_present (GtkWindow *window)
  * @timestamp: the timestamp of the user interaction (typically a 
  *   button or key press event) which triggered this call
  *
- * Presents a window to the user in response to a user interaction.
- * If you need to present a window without a timestamp, use 
- * gtk_window_present(). See gtk_window_present() for details. 
- * 
+ * Presents a window to the user. This may mean raising the window
+ * in the stacking order, deiconifying it, moving it to the current
+ * desktop, and/or giving it the keyboard focus, possibly dependent
+ * on the user’s platform, window manager, and preferences.
+ *
+ * If @window is hidden, this function calls gtk_widget_show()
+ * as well.
+ *
+ * This function should be used when the user tries to open a window
+ * that’s already open. Say for example the preferences dialog is
+ * currently open, and the user chooses Preferences from the menu
+ * a second time; use gtk_window_present() to move the already-open dialog
+ * where the user can see it.
+ *
+ * Presents a window to the user in response to a user interaction. The
+ * timestamp should be gathered when the window was requested to be shown
+ * (when clicking a link for example), rather than once the window is
+ * ready to be shown.
+ *
  * Since: 2.8
  **/
 void
@@ -12766,7 +12797,9 @@ gtk_window_set_debugging (gboolean enable,
 
   if (enable)
     {
+      G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       gtk_window_present (GTK_WINDOW (inspector_window));
+      G_GNUC_END_IGNORE_DEPRECATIONS
       if (dialog)
         gtk_widget_show (dialog);
 

@@ -8,7 +8,7 @@
 <link rel="up" href="Gestures.html" title="Gestures and event handling">
 <link rel="prev" href="Gestures.html" title="Gestures and event handling">
 <link rel="next" href="GtkEventControllerKey.html" title="GtkEventControllerKey">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -37,8 +37,8 @@
 <a name="GtkEventController.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -59,7 +59,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkEventController.html#gtk-event-controller-handle-event" title="gtk_event_controller_handle_event ()">gtk_event_controller_handle_event</a> <span class="c_punctuation">()</span>
@@ -102,7 +102,7 @@
 <td class="property_type">
 <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkEventController.html#GtkEventController--widget" title="The “widget” property">widget</a></td>
-<td class="property_flags">Read / Write / Construct Only</td>
+<td class="property_flags">Read / Write / Construct Only</td>
 </tr>
 </tbody>
 </table></div>
@@ -111,8 +111,8 @@
 <a name="GtkEventController.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -128,7 +128,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkEventController.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> GtkEventController
         <span class="lineart">├──</span> <a class="link" href="GtkEventControllerKey.html" title="GtkEventControllerKey">GtkEventControllerKey</a>
         <span class="lineart">├──</span> <a class="link" href="GtkEventControllerMotion.html" title="GtkEventControllerMotion">GtkEventControllerMotion</a>
@@ -139,13 +139,13 @@
 </div>
 <div class="refsect1">
 <a name="GtkEventController.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkEventController.description"></a><h2>Description</h2>
 <p><a class="link" href="GtkEventController.html" title="GtkEventController"><span class="type">GtkEventController</span></a> is a base, low-level implementation for event
-controllers. Those react to a series of <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvents</span></a>, and possibly trigger
+controllers. Those react to a series of <a href="../html/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvents</span></a>, and possibly trigger
 actions as a consequence of those.</p>
 </div>
 <div class="refsect1">
@@ -217,9 +217,9 @@ the events can be managed by calling <a class="link" href="GtkEventController.ht
 <hr>
 <div class="refsect2">
 <a name="gtk-event-controller-handle-event"></a><h3>gtk_event_controller_handle_event ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_event_controller_handle_event (<em class="parameter"><code><a class="link" href="GtkEventController.html" title="GtkEventController"><span class="type">GtkEventController</span></a> *controller</code></em>,
-                                   <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
+                                   <em class="parameter"><code>const <a href="../html/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
 <p>Feeds an events into <em class="parameter"><code>controller</code></em>
 , so it can be interpreted
 and the controller actions triggered.</p>
@@ -239,7 +239,7 @@ and the controller actions triggered.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a></p></td>
+<td class="parameter_description"><p>a <a href="../html/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -247,7 +247,7 @@ and the controller actions triggered.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-event-controller-handle-event.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was potentially useful to trigger the
+<p> <code class="literal">TRUE</code> if the event was potentially useful to trigger the
 controller action</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
@@ -330,9 +330,9 @@ will be dropped at this point.</p>
 <td class="enum_member_name"><p><a name="GTK-PHASE-NONE:CAPS"></a>GTK_PHASE_NONE</p></td>
 <td class="enum_member_description">
 <p>Events are not delivered automatically. Those can be
-  manually fed through <a class="link" href="GtkEventController.html#gtk-event-controller-handle-event" title="gtk_event_controller_handle_event ()"><code class="function">gtk_event_controller_handle_event()</code></a>. This should
-  only be used when full control about when, or whether the controller
-  handles the event is needed.</p>
+manually fed through <a class="link" href="GtkEventController.html#gtk-event-controller-handle-event" title="gtk_event_controller_handle_event ()"><code class="function">gtk_event_controller_handle_event()</code></a>. This should
+only be used when full control about when, or whether the controller
+handles the event is needed.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -340,9 +340,9 @@ will be dropped at this point.</p>
 <td class="enum_member_name"><p><a name="GTK-PHASE-CAPTURE:CAPS"></a>GTK_PHASE_CAPTURE</p></td>
 <td class="enum_member_description">
 <p>Events are delivered in the capture phase. The
-  capture phase happens before the bubble phase, runs from the toplevel down
-  to the event widget. This option should only be used on containers that
-  might possibly handle events before their children do.</p>
+capture phase happens before the bubble phase, runs from the toplevel down
+to the event widget. This option should only be used on containers that
+might possibly handle events before their children do.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -350,8 +350,8 @@ will be dropped at this point.</p>
 <td class="enum_member_name"><p><a name="GTK-PHASE-BUBBLE:CAPS"></a>GTK_PHASE_BUBBLE</p></td>
 <td class="enum_member_description">
 <p>Events are delivered in the bubble phase. The bubble
-  phase happens after the capture phase, and before the default handlers
-  are run. This phase runs from the event widget, up to the toplevel.</p>
+phase happens after the capture phase, and before the default handlers
+are run. This phase runs from the event widget, up to the toplevel.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -359,8 +359,8 @@ will be dropped at this point.</p>
 <td class="enum_member_name"><p><a name="GTK-PHASE-TARGET:CAPS"></a>GTK_PHASE_TARGET</p></td>
 <td class="enum_member_description">
 <p>Events are delivered in the default widget event handlers,
-  note that widget implementations must chain up on button, motion, touch and
-  grab broken handlers for controllers in this phase to be run.</p>
+note that widget implementations must chain up on button, motion, touch and
+grab broken handlers for controllers in this phase to be run.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -376,6 +376,7 @@ will be dropped at this point.</p>
 <a name="GtkEventController--propagation-phase"></a><h3>The <code class="literal">“propagation-phase”</code> property</h3>
 <pre class="programlisting">  “propagation-phase”        <a class="link" href="GtkEventController.html#GtkPropagationPhase" title="enum GtkPropagationPhase"><span class="type">GtkPropagationPhase</span></a></pre>
 <p>The propagation phase at which this controller will handle events.</p>
+<p>Owner: GtkEventController</p>
 <p>Flags: Read / Write</p>
 <p>Default value: GTK_PHASE_BUBBLE</p>
 <p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
@@ -384,8 +385,9 @@ will be dropped at this point.</p>
 <div class="refsect2">
 <a name="GtkEventController--widget"></a><h3>The <code class="literal">“widget”</code> property</h3>
 <pre class="programlisting">  “widget”                   <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *</pre>
-<p>The widget receiving the <a href="https://developer.gnome.org/gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvents</span></a> that the controller will handle.</p>
-<p>Flags: Read / Write / Construct Only</p>
+<p>The widget receiving the <a href="../html/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvents</span></a> that the controller will handle.</p>
+<p>Owner: GtkEventController</p>
+<p>Flags: Read / Write / Construct Only</p>
 <p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 </div>
@@ -395,6 +397,6 @@ will be dropped at this point.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

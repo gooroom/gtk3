@@ -8,7 +8,7 @@
 <link rel="up" href="Builder.html" title="Interface builder">
 <link rel="prev" href="GtkBuilder.html" title="GtkBuilder">
 <link rel="next" href="WindowWidgets.html" title="Windows">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GtkBuildable.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -51,7 +51,7 @@
 </td>
 </tr>
 <tr>
-<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<td class="function_type">const <span class="returnvalue">gchar</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkBuildable.html#gtk-buildable-get-name" title="gtk_buildable_get_name ()">gtk_buildable_get_name</a> <span class="c_punctuation">()</span>
@@ -75,7 +75,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="returnvalue">GObject</span></a> *
+<span class="returnvalue">GObject</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkBuildable.html#gtk-buildable-construct-child" title="gtk_buildable_construct_child ()">gtk_buildable_construct_child</a> <span class="c_punctuation">()</span>
@@ -83,7 +83,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkBuildable.html#gtk-buildable-custom-tag-start" title="gtk_buildable_custom_tag_start ()">gtk_buildable_custom_tag_start</a> <span class="c_punctuation">()</span>
@@ -115,7 +115,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="returnvalue">GObject</span></a> *
+<span class="returnvalue">GObject</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkBuildable.html#gtk-buildable-get-internal-child" title="gtk_buildable_get_internal_child ()">gtk_buildable_get_internal_child</a> <span class="c_punctuation">()</span>
@@ -128,8 +128,8 @@
 <a name="GtkBuildable.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -153,7 +153,7 @@
 <a name="GtkBuildable.prerequisites"></a><h2>Prerequisites</h2>
 <p>
 GtkBuildable requires
- <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>.</p>
+ GObject.</p>
 </div>
 <div class="refsect1">
 <a name="GtkBuildable.implementations"></a><h2>Known Implementations</h2>
@@ -185,7 +185,7 @@ very little need for applications to call any of these functions directly.</p>
 <a name="gtk-buildable-set-name"></a><h3>gtk_buildable_set_name ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_buildable_set_name (<em class="parameter"><code><a class="link" href="GtkBuildable.html" title="GtkBuildable"><span class="type">GtkBuildable</span></a> *buildable</code></em>,
-                        <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);</pre>
+                        <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
 <p>Sets the name of the <em class="parameter"><code>buildable</code></em>
  object.</p>
 <div class="refsect3">
@@ -215,7 +215,7 @@ gtk_buildable_set_name (<em class="parameter"><code><a class="link" href="GtkBui
 <hr>
 <div class="refsect2">
 <a name="gtk-buildable-get-name"></a><h3>gtk_buildable_get_name ()</h3>
-<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
 gtk_buildable_get_name (<em class="parameter"><code><a class="link" href="GtkBuildable.html" title="GtkBuildable"><span class="type">GtkBuildable</span></a> *buildable</code></em>);</pre>
 <p>Gets the name of the <em class="parameter"><code>buildable</code></em>
  object. </p>
@@ -250,8 +250,8 @@ used to construct the <em class="parameter"><code>buildable</code></em>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_buildable_add_child (<em class="parameter"><code><a class="link" href="GtkBuildable.html" title="GtkBuildable"><span class="type">GtkBuildable</span></a> *buildable</code></em>,
                          <em class="parameter"><code><a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a> *builder</code></em>,
-                         <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a> *child</code></em>,
-                         <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *type</code></em>);</pre>
+                         <em class="parameter"><code><span class="type">GObject</span> *child</code></em>,
+                         <em class="parameter"><code>const <span class="type">gchar</span> *type</code></em>);</pre>
 <p>Adds a child to <em class="parameter"><code>buildable</code></em>
 . <em class="parameter"><code>type</code></em>
  is an optional string
@@ -282,7 +282,7 @@ describing how the child should be added.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>type</p></td>
-<td class="parameter_description"><p>kind of child or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>kind of child or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -296,8 +296,8 @@ describing how the child should be added.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_buildable_set_buildable_property (<em class="parameter"><code><a class="link" href="GtkBuildable.html" title="GtkBuildable"><span class="type">GtkBuildable</span></a> *buildable</code></em>,
                                       <em class="parameter"><code><a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a> *builder</code></em>,
-                                      <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
-                                      <em class="parameter"><code>const <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *value</code></em>);</pre>
+                                      <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                      <em class="parameter"><code>const <span class="type">GValue</span> *value</code></em>);</pre>
 <p>Sets the property name <em class="parameter"><code>name</code></em>
  to <em class="parameter"><code>value</code></em>
  on the <em class="parameter"><code>buildable</code></em>
@@ -339,10 +339,10 @@ gtk_buildable_set_buildable_property (<em class="parameter"><code><a class="link
 <hr>
 <div class="refsect2">
 <a name="gtk-buildable-construct-child"></a><h3>gtk_buildable_construct_child ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="returnvalue">GObject</span></a> *
+<pre class="programlisting"><span class="returnvalue">GObject</span> *
 gtk_buildable_construct_child (<em class="parameter"><code><a class="link" href="GtkBuildable.html" title="GtkBuildable"><span class="type">GtkBuildable</span></a> *buildable</code></em>,
                                <em class="parameter"><code><a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a> *builder</code></em>,
-                               <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);</pre>
+                               <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
 <p>Constructs a child of <em class="parameter"><code>buildable</code></em>
  with the name <em class="parameter"><code>name</code></em>
 .</p>
@@ -385,13 +385,13 @@ specified in the UI definition.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-buildable-custom-tag-start"></a><h3>gtk_buildable_custom_tag_start ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_buildable_custom_tag_start (<em class="parameter"><code><a class="link" href="GtkBuildable.html" title="GtkBuildable"><span class="type">GtkBuildable</span></a> *buildable</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a> *builder</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a> *child</code></em>,
-                                <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *tagname</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Simple-XML-Subset-Parser.html#GMarkupParser"><span class="type">GMarkupParser</span></a> *parser</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> *data</code></em>);</pre>
+                                <em class="parameter"><code><span class="type">GObject</span> *child</code></em>,
+                                <em class="parameter"><code>const <span class="type">gchar</span> *tagname</code></em>,
+                                <em class="parameter"><code><span class="type">GMarkupParser</span> *parser</code></em>,
+                                <em class="parameter"><code><span class="type">gpointer</span> *data</code></em>);</pre>
 <p>This is called for each unknown element under &lt;child&gt;.</p>
 <div class="refsect3">
 <a name="gtk-buildable-custom-tag-start.parameters"></a><h4>Parameters</h4>
@@ -414,7 +414,7 @@ gtk_buildable_custom_tag_start (<em class="parameter"><code><a class="link" href
 </tr>
 <tr>
 <td class="parameter_name"><p>child</p></td>
-<td class="parameter_description"><p>child object or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for non-child tags. </p></td>
+<td class="parameter_description"><p>child object or <code class="literal">NULL</code> for non-child tags. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -424,7 +424,7 @@ gtk_buildable_custom_tag_start (<em class="parameter"><code><a class="link" href
 </tr>
 <tr>
 <td class="parameter_name"><p>parser</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Simple-XML-Subset-Parser.html#GMarkupParser"><span class="type">GMarkupParser</span></a> to fill in. </p></td>
+<td class="parameter_description"><p>a <span class="type">GMarkupParser</span> to fill in. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -438,7 +438,7 @@ to parser functions. </p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-buildable-custom-tag-start.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if a object has a custom implementation, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>
+<p> <code class="literal">TRUE</code> if a object has a custom implementation, <code class="literal">FALSE</code>
 if it doesn't.</p>
 </div>
 <p class="since">Since: 2.12</p>
@@ -449,9 +449,9 @@ if it doesn't.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_buildable_custom_tag_end (<em class="parameter"><code><a class="link" href="GtkBuildable.html" title="GtkBuildable"><span class="type">GtkBuildable</span></a> *buildable</code></em>,
                               <em class="parameter"><code><a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a> *builder</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a> *child</code></em>,
-                              <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *tagname</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> *data</code></em>);</pre>
+                              <em class="parameter"><code><span class="type">GObject</span> *child</code></em>,
+                              <em class="parameter"><code>const <span class="type">gchar</span> *tagname</code></em>,
+                              <em class="parameter"><code><span class="type">gpointer</span> *data</code></em>);</pre>
 <p>This is called at the end of each custom element handled by 
 the buildable.</p>
 <div class="refsect3">
@@ -475,7 +475,7 @@ the buildable.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>child</p></td>
-<td class="parameter_description"><p>child object or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for non-child tags. </p></td>
+<td class="parameter_description"><p>child object or <code class="literal">NULL</code> for non-child tags. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -499,9 +499,9 @@ the buildable.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_buildable_custom_finished (<em class="parameter"><code><a class="link" href="GtkBuildable.html" title="GtkBuildable"><span class="type">GtkBuildable</span></a> *buildable</code></em>,
                                <em class="parameter"><code><a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a> *builder</code></em>,
-                               <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a> *child</code></em>,
-                               <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *tagname</code></em>,
-                               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+                               <em class="parameter"><code><span class="type">GObject</span> *child</code></em>,
+                               <em class="parameter"><code>const <span class="type">gchar</span> *tagname</code></em>,
+                               <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
 <p>This is similar to <a class="link" href="GtkBuildable.html#gtk-buildable-parser-finished" title="gtk_buildable_parser_finished ()"><code class="function">gtk_buildable_parser_finished()</code></a> but is
 called once for each custom tag handled by the <em class="parameter"><code>buildable</code></em>
 .</p>
@@ -526,7 +526,7 @@ called once for each custom tag handled by the <em class="parameter"><code>build
 </tr>
 <tr>
 <td class="parameter_name"><p>child</p></td>
-<td class="parameter_description"><p>child object or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for non-child tags. </p></td>
+<td class="parameter_description"><p>child object or <code class="literal">NULL</code> for non-child tags. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -582,10 +582,10 @@ is called on a builder.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-buildable-get-internal-child"></a><h3>gtk_buildable_get_internal_child ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="returnvalue">GObject</span></a> *
+<pre class="programlisting"><span class="returnvalue">GObject</span> *
 gtk_buildable_get_internal_child (<em class="parameter"><code><a class="link" href="GtkBuildable.html" title="GtkBuildable"><span class="type">GtkBuildable</span></a> *buildable</code></em>,
                                   <em class="parameter"><code><a class="link" href="GtkBuilder.html" title="GtkBuilder"><span class="type">GtkBuilder</span></a> *builder</code></em>,
-                                  <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *childname</code></em>);</pre>
+                                  <em class="parameter"><code>const <span class="type">gchar</span> *childname</code></em>);</pre>
 <p>Get the internal child called <em class="parameter"><code>childname</code></em>
  of the <em class="parameter"><code>buildable</code></em>
  object.</p>
@@ -717,7 +717,7 @@ and normal children.</p></td>
 <tr>
 <td class="struct_member_name"><p><em class="structfield"><code><a name="GtkBuildableIface.set-buildable-property"></a>set_buildable_property</code></em> ()</p></td>
 <td class="struct_member_description"><p>Sets a property of a buildable object.
-It is normally not necessary to implement this, <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-set-property"><code class="function">g_object_set_property()</code></a>
+It is normally not necessary to implement this, <code class="function">g_object_set_property()</code>
 is used by default. <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> implements this to delay showing itself
 (i.e. setting the <a class="link" href="GtkWidget.html#GtkWidget--visible" title="The “visible” property"><span class="type">“visible”</span></a> property) until the whole interface
 is created.</p></td>
@@ -738,7 +738,7 @@ constructed object is returned and becomes owned by the caller.</p></td>
 content below &lt;child&gt;. To handle an element, the implementation
 must fill in the <em class="parameter"><code>parser</code></em>
 and <em class="parameter"><code>user_data</code></em>
-and return <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.
+and return <code class="literal">TRUE</code>.
 <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> implements this to parse keyboard accelerators specified
 in &lt;accelerator&gt; elements. <a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> implements it to map
 properties defined via &lt;packing&gt; elements to child properties.
@@ -787,6 +787,6 @@ need to be accessed from a UI definition.</p></td>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

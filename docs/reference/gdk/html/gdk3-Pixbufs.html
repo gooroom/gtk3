@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Points-Rectangles-and-Regions.html" title="Points and Rectangles">
 <link rel="next" href="gdk3-RGBA-Colors.html" title="RGBA Colors">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -35,8 +35,8 @@
 <a name="gdk3-Pixbufs.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -76,10 +76,10 @@ and manipulate pixbufs, see the <a href="http://library.gnome.org/devel/gdk-pixb
 <a name="gdk-pixbuf-get-from-window"></a><h3>gdk_pixbuf_get_from_window ()</h3>
 <pre class="programlisting"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="returnvalue">GdkPixbuf</span></a> *
 gdk_pixbuf_get_from_window (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
-                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> src_x</code></em>,
-                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> src_y</code></em>,
-                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+                            <em class="parameter"><code><span class="type">gint</span> src_x</code></em>,
+                            <em class="parameter"><code><span class="type">gint</span> src_y</code></em>,
+                            <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                            <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <p>Transfers image data from a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> and converts it to an RGB(A)
 representation inside a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a>. In other words, copies
 image data from a server-side drawable to a client-side RGB(A) buffer.
@@ -99,11 +99,11 @@ portions of the pixbuf corresponding to the offscreen region are undefined.</p>
 other windows, then the contents of the pixbuf areas corresponding
 to the obscured regions are undefined.</p>
 <p>If the window is not mapped (typically because it’s iconified/minimized
-or not on the current workspace), then <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> will be returned.</p>
-<p>If memory can’t be allocated for the return value, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> will be returned
+or not on the current workspace), then <code class="literal">NULL</code> will be returned.</p>
+<p>If memory can’t be allocated for the return value, <code class="literal">NULL</code> will be returned
 instead.</p>
 <p>(In short, there are several ways this function can fail, and if it fails
- it returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>; so check the return value.)</p>
+ it returns <code class="literal">NULL</code>; so check the return value.)</p>
 <div class="refsect3">
 <a name="gdk-pixbuf-get-from-window.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -146,7 +146,7 @@ instead.</p>
 <div class="refsect3">
 <a name="gdk-pixbuf-get-from-window.returns"></a><h4>Returns</h4>
 <p>A newly-created pixbuf with a
-reference count of 1, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error. </p>
+reference count of 1, or <code class="literal">NULL</code> on error. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -155,10 +155,10 @@ reference count of 1, or <a href="https://developer.gnome.org/glib/unstable/glib
 <a name="gdk-pixbuf-get-from-surface"></a><h3>gdk_pixbuf_get_from_surface ()</h3>
 <pre class="programlisting"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="returnvalue">GdkPixbuf</span></a> *
 gdk_pixbuf_get_from_surface (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a> *surface</code></em>,
-                             <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> src_x</code></em>,
-                             <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> src_y</code></em>,
-                             <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                             <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+                             <em class="parameter"><code><span class="type">gint</span> src_x</code></em>,
+                             <em class="parameter"><code><span class="type">gint</span> src_y</code></em>,
+                             <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                             <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <p>Transfers image data from a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a> and converts it to an RGB(A)
 representation inside a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a>. This allows you to efficiently read
 individual pixels from cairo surfaces. For <a href="gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindows</span></a>, use
@@ -208,16 +208,13 @@ The pixbuf will contain an alpha channel if the <em class="parameter"><code>surf
 <div class="refsect3">
 <a name="gdk-pixbuf-get-from-surface.returns"></a><h4>Returns</h4>
 <p>A newly-created pixbuf with a
-reference count of 1, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error. </p>
+reference count of 1, or <code class="literal">NULL</code> on error. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
 </div>
-<div class="refsect1">
-<a name="gdk3-Pixbufs.other_details"></a><h2>Types and Values</h2>
-</div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

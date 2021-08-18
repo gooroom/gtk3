@@ -278,7 +278,7 @@ _gtk_print_backend_create (const gchar *backend_name)
 	  pb_module = g_object_new (GTK_TYPE_PRINT_BACKEND_MODULE, NULL);
 
 	  g_type_module_set_name (G_TYPE_MODULE (pb_module), backend_name);
-	  pb_module->path = g_strdup (module_path);
+	  pb_module->path = module_path;
 
 	  loaded_backends = g_slist_prepend (loaded_backends,
 		   		             pb_module);
@@ -291,8 +291,6 @@ _gtk_print_backend_create (const gchar *backend_name)
 	   */
 	  g_type_module_use (G_TYPE_MODULE (pb_module));
 	}
-      
-      g_free (module_path);
     }
 
   return pb;
@@ -404,7 +402,7 @@ gtk_print_backend_class_init (GtkPrintBackendClass *class)
 		  G_SIGNAL_RUN_LAST,
 		  G_STRUCT_OFFSET (GtkPrintBackendClass, printer_list_changed),
 		  NULL, NULL,
-		  g_cclosure_marshal_VOID__VOID,
+		  NULL,
 		  G_TYPE_NONE, 0);
   signals[PRINTER_LIST_DONE] =
     g_signal_new (I_("printer-list-done"),
@@ -412,7 +410,7 @@ gtk_print_backend_class_init (GtkPrintBackendClass *class)
 		    G_SIGNAL_RUN_LAST,
 		    G_STRUCT_OFFSET (GtkPrintBackendClass, printer_list_done),
 		    NULL, NULL,
-		    g_cclosure_marshal_VOID__VOID,
+		    NULL,
 		    G_TYPE_NONE, 0);
   signals[PRINTER_ADDED] =
     g_signal_new (I_("printer-added"),
@@ -420,7 +418,7 @@ gtk_print_backend_class_init (GtkPrintBackendClass *class)
 		  G_SIGNAL_RUN_LAST,
 		  G_STRUCT_OFFSET (GtkPrintBackendClass, printer_added),
 		  NULL, NULL,
-		  g_cclosure_marshal_VOID__OBJECT,
+		  NULL,
 		  G_TYPE_NONE, 1, GTK_TYPE_PRINTER);
   signals[PRINTER_REMOVED] =
     g_signal_new (I_("printer-removed"),
@@ -428,7 +426,7 @@ gtk_print_backend_class_init (GtkPrintBackendClass *class)
 		  G_SIGNAL_RUN_LAST,
 		  G_STRUCT_OFFSET (GtkPrintBackendClass, printer_removed),
 		  NULL, NULL,
-		  g_cclosure_marshal_VOID__OBJECT,
+		  NULL,
 		  G_TYPE_NONE, 1, GTK_TYPE_PRINTER);
   signals[PRINTER_STATUS_CHANGED] =
     g_signal_new (I_("printer-status-changed"),
@@ -436,7 +434,7 @@ gtk_print_backend_class_init (GtkPrintBackendClass *class)
 		  G_SIGNAL_RUN_LAST,
 		  G_STRUCT_OFFSET (GtkPrintBackendClass, printer_status_changed),
 		  NULL, NULL,
-		  g_cclosure_marshal_VOID__OBJECT,
+		  NULL,
 		  G_TYPE_NONE, 1, GTK_TYPE_PRINTER);
   signals[REQUEST_PASSWORD] =
     g_signal_new (I_("request-password"),

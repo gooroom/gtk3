@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="GdkScreen.html" title="GdkScreen">
 <link rel="next" href="GdkMonitor.html" title="GdkMonitor">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GdkSeat.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -100,7 +100,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *
+<span class="returnvalue">GList</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GdkSeat.html#gdk-seat-get-slaves" title="gdk_seat_get_slaves ()">gdk_seat_get_slaves</a> <span class="c_punctuation">()</span>
@@ -121,7 +121,7 @@
 <td class="property_type">
 <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *</td>
 <td class="property_name"><a class="link" href="GdkSeat.html#GdkSeat--display" title="The “display” property">display</a></td>
-<td class="property_flags">Read / Write / Construct Only</td>
+<td class="property_flags">Read / Write / Construct Only</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -129,30 +129,30 @@
 <a name="GdkSeat.signals"></a><h2>Signals</h2>
 <div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
-<col width="150px" class="signals_return">
-<col width="300px" class="signals_name">
-<col width="200px" class="signals_flags">
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
 </colgroup>
 <tbody>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GdkSeat.html#GdkSeat-device-added" title="The “device-added” signal">device-added</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+<td class="signal_flags">Run Last</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GdkSeat.html#GdkSeat-device-removed" title="The “device-removed” signal">device-removed</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+<td class="signal_flags">Run Last</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GdkSeat.html#GdkSeat-tool-added" title="The “tool-added” signal">tool-added</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+<td class="signal_flags">Run Last</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GdkSeat.html#GdkSeat-tool-removed" title="The “tool-removed” signal">tool-removed</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+<td class="signal_flags">Run Last</td>
 </tr>
 </tbody>
 </table></div>
@@ -161,8 +161,8 @@
 <a name="GdkSeat.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -178,7 +178,7 @@
 </div>
 <div class="refsect1">
 <a name="GdkSeat.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> GdkSeat
 </pre>
 </div>
@@ -199,7 +199,7 @@ that belong to a user.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 <span class="c_punctuation">(</span>*GdkSeatGrabPrepareFunc<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="GdkSeat.html" title="GdkSeat"><span class="type">GdkSeat</span></a> *seat</code></em>,
                            <em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                           <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>Type of the callback used to set up <em class="parameter"><code>window</code></em>
  so it can be
 grabbed. A typical action would be ensuring the window is
@@ -269,11 +269,11 @@ and must not be freed. </p>
 gdk_seat_grab (<em class="parameter"><code><a class="link" href="GdkSeat.html" title="GdkSeat"><span class="type">GdkSeat</span></a> *seat</code></em>,
                <em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
                <em class="parameter"><code><a class="link" href="GdkSeat.html#GdkSeatCapabilities" title="enum GdkSeatCapabilities"><span class="type">GdkSeatCapabilities</span></a> capabilities</code></em>,
-               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> owner_events</code></em>,
+               <em class="parameter"><code><span class="type">gboolean</span> owner_events</code></em>,
                <em class="parameter"><code><a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a> *cursor</code></em>,
                <em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
                <em class="parameter"><code><a class="link" href="GdkSeat.html#GdkSeatGrabPrepareFunc" title="GdkSeatGrabPrepareFunc ()"><span class="type">GdkSeatGrabPrepareFunc</span></a> prepare_func</code></em>,
-               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> prepare_func_data</code></em>);</pre>
+               <em class="parameter"><code><span class="type">gpointer</span> prepare_func_data</code></em>);</pre>
 <p>Grabs the seat so that all events corresponding to the given <em class="parameter"><code>capabilities</code></em>
 
 are passed to this application until the seat is ungrabbed with <a class="link" href="GdkSeat.html#gdk-seat-ungrab" title="gdk_seat_ungrab ()"><code class="function">gdk_seat_ungrab()</code></a>,
@@ -291,7 +291,7 @@ is used for Drag and Drop operations, popup menus and such.</p>
 and button release events, or touch begin and touch end, then a press event
 will cause an automatic grab until the button is released, equivalent to a
 grab on the window with <em class="parameter"><code>owner_events</code></em>
- set to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>. This is done because most
+ set to <code class="literal">TRUE</code>. This is done because most
 applications expect to receive paired press and release events.</p>
 <p>If you set up anything at the time you take the grab that needs to be
 cleaned up when the grab ends, you should handle the <a class="link" href="gdk3-Event-Structures.html#GdkEventGrabBroken" title="struct GdkEventGrabBroken"><span class="type">GdkEventGrabBroken</span></a>
@@ -322,11 +322,11 @@ events that are emitted when the grab ends unvoluntarily.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>owner_events</p></td>
-<td class="parameter_description"><p>if <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> then all device events are reported with respect to
+<td class="parameter_description"><p>if <code class="literal">FALSE</code> then all device events are reported with respect to
 <em class="parameter"><code>window</code></em>
 and are only reported if selected by <em class="parameter"><code>event_mask</code></em>
 . If
-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> then pointer events for this application are reported
+<code class="literal">TRUE</code> then pointer events for this application are reported
 as normal, but pointer events outside this application are
 reported with respect to <em class="parameter"><code>window</code></em>
 and only if selected by
@@ -337,7 +337,7 @@ and only if selected by
 <tr>
 <td class="parameter_name"><p>cursor</p></td>
 <td class="parameter_description"><p>the cursor to display while the grab is active. If
-this is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> then the normal cursors are used for
+this is <code class="literal">NULL</code> then the normal cursors are used for
 <em class="parameter"><code>window</code></em>
 and its descendants, and the cursor for <em class="parameter"><code>window</code></em>
 is used
@@ -346,14 +346,14 @@ elsewhere. </p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>event</p></td>
-<td class="parameter_description"><p>the event that is triggering the grab, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none
+<td class="parameter_description"><p>the event that is triggering the grab, or <code class="literal">NULL</code> if none
 is available. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>prepare_func</p></td>
 <td class="parameter_description"><p>function to
-prepare the window to be grabbed, it can be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>window</code></em>
+prepare the window to be grabbed, it can be <code class="literal">NULL</code> if <em class="parameter"><code>window</code></em>
 is
 visible before this call. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>][<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym> prepare_func_data]</span></td>
@@ -484,7 +484,7 @@ capabilities. This object is owned by GTK+ and must not be freed. </p>
 <hr>
 <div class="refsect2">
 <a name="gdk-seat-get-slaves"></a><h3>gdk_seat_get_slaves ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *
+<pre class="programlisting"><span class="returnvalue">GList</span> *
 gdk_seat_get_slaves (<em class="parameter"><code><a class="link" href="GdkSeat.html" title="GdkSeat"><span class="type">GdkSeat</span></a> *seat</code></em>,
                      <em class="parameter"><code><a class="link" href="GdkSeat.html#GdkSeatCapabilities" title="enum GdkSeatCapabilities"><span class="type">GdkSeatCapabilities</span></a> capabilities</code></em>);</pre>
 <p>Returns the slave devices that match the given capabilities.</p>
@@ -512,8 +512,8 @@ gdk_seat_get_slaves (<em class="parameter"><code><a class="link" href="GdkSeat.h
 </div>
 <div class="refsect3">
 <a name="gdk-seat-get-slaves.returns"></a><h4>Returns</h4>
-<p>A list of <a href="GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevices</span></a>.
-The list must be freed with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>, the elements are owned
+<p>A list of <span class="type">GdkDevices</span>.
+The list must be freed with <code class="function">g_list_free()</code>, the elements are owned
 by GDK and must not be freed. </p>
 <p><span class="annotation">[<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GdkDevice]</span></p>
 </div>
@@ -600,7 +600,8 @@ by GDK and must not be freed. </p>
 <a name="GdkSeat--display"></a><h3>The <code class="literal">“display”</code> property</h3>
 <pre class="programlisting">  “display”                  <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *</pre>
 <p><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> of this seat.</p>
-<p>Flags: Read / Write / Construct Only</p>
+<p>Owner: GdkSeat</p>
+<p>Flags: Read / Write / Construct Only</p>
 <p class="since">Since: <a class="link" href="api-index-3-20.html#api-index-3.20">3.20</a></p>
 </div>
 </div>
@@ -611,7 +612,7 @@ by GDK and must not be freed. </p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GdkSeat.html" title="GdkSeat"><span class="type">GdkSeat</span></a>   *seat,
                <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> *device,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>   user_data)</pre>
+               <span class="type">gpointer</span>   user_data)</pre>
 <p>The ::device-added signal is emitted when a new input
 device is related to this seat.</p>
 <div class="refsect3">
@@ -641,7 +642,7 @@ device is related to this seat.</p>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p>Flags: Run Last</p>
 <p class="since">Since: <a class="link" href="api-index-3-20.html#api-index-3.20">3.20</a></p>
 </div>
 <hr>
@@ -650,7 +651,7 @@ device is related to this seat.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GdkSeat.html" title="GdkSeat"><span class="type">GdkSeat</span></a>   *seat,
                <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> *device,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>   user_data)</pre>
+               <span class="type">gpointer</span>   user_data)</pre>
 <p>The ::device-removed signal is emitted when an
 input device is removed (e.g. unplugged).</p>
 <div class="refsect3">
@@ -680,7 +681,7 @@ input device is removed (e.g. unplugged).</p>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p>Flags: Run Last</p>
 <p class="since">Since: <a class="link" href="api-index-3-20.html#api-index-3.20">3.20</a></p>
 </div>
 <hr>
@@ -688,8 +689,8 @@ input device is removed (e.g. unplugged).</p>
 <a name="GdkSeat-tool-added"></a><h3>The <code class="literal">“tool-added”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GdkSeat.html" title="GdkSeat"><span class="type">GdkSeat</span></a>       *seat,
-               <span class="type">GdkDeviceTool</span> *tool,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>       user_data)</pre>
+               <a href="https://developer.gnome.org/gdk4/GdkDevice.html#GdkDeviceTool-struct"><span class="type">GdkDeviceTool</span></a> *tool,
+               <span class="type">gpointer</span>       user_data)</pre>
 <p>The ::tool-added signal is emitted whenever a new tool
 is made known to the seat. The tool may later be assigned
 to a device (i.e. on proximity with a tablet). The device
@@ -711,7 +712,7 @@ will emit the <a class="link" href="GdkDevice.html#GdkDevice-tool-changed" title
 </tr>
 <tr>
 <td class="parameter_name"><p>tool</p></td>
-<td class="parameter_description"><p>the new <span class="type">GdkDeviceTool</span> known to the seat</p></td>
+<td class="parameter_description"><p>the new <a href="https://developer.gnome.org/gdk4/GdkDevice.html#GdkDeviceTool-struct"><span class="type">GdkDeviceTool</span></a> known to the seat</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -722,7 +723,7 @@ will emit the <a class="link" href="GdkDevice.html#GdkDevice-tool-changed" title
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p>Flags: Run Last</p>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
 </div>
 <hr>
@@ -730,8 +731,8 @@ will emit the <a class="link" href="GdkDevice.html#GdkDevice-tool-changed" title
 <a name="GdkSeat-tool-removed"></a><h3>The <code class="literal">“tool-removed”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GdkSeat.html" title="GdkSeat"><span class="type">GdkSeat</span></a>       *seat,
-               <span class="type">GdkDeviceTool</span> *tool,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>       user_data)</pre>
+               <a href="https://developer.gnome.org/gdk4/GdkDevice.html#GdkDeviceTool-struct"><span class="type">GdkDeviceTool</span></a> *tool,
+               <span class="type">gpointer</span>       user_data)</pre>
 <p>This signal is emitted whenever a tool is no longer known
 to this <em class="parameter"><code>seat</code></em>
 .</p>
@@ -751,7 +752,7 @@ to this <em class="parameter"><code>seat</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>tool</p></td>
-<td class="parameter_description"><p>the just removed <span class="type">GdkDeviceTool</span></p></td>
+<td class="parameter_description"><p>the just removed <a href="https://developer.gnome.org/gdk4/GdkDevice.html#GdkDeviceTool-struct"><span class="type">GdkDeviceTool</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -762,7 +763,7 @@ to this <em class="parameter"><code>seat</code></em>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p>Flags: Run Last</p>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
 </div>
 </div>
@@ -772,6 +773,6 @@ to this <em class="parameter"><code>seat</code></em>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

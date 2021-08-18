@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-RGBA-Colors.html" title="RGBA Colors">
 <link rel="next" href="gdk3-Cursors.html" title="Cursors">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -36,8 +36,8 @@
 <a name="gdk3-Visuals.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -58,7 +58,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *
+<span class="returnvalue">GList</span> *
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Visuals.html#gdk-list-visuals" title="gdk_list_visuals ()">gdk_list_visuals</a> <span class="c_punctuation">()</span>
@@ -66,7 +66,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<span class="returnvalue">gint</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Visuals.html#gdk-visual-get-bits-per-rgb" title="gdk_visual_get_bits_per_rgb ()">gdk_visual_get_bits_per_rgb</a> <span class="c_punctuation">()</span>
@@ -90,7 +90,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<span class="returnvalue">gint</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Visuals.html#gdk-visual-get-colormap-size" title="gdk_visual_get_colormap_size ()">gdk_visual_get_colormap_size</a> <span class="c_punctuation">()</span>
@@ -98,7 +98,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<span class="returnvalue">gint</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Visuals.html#gdk-visual-get-depth" title="gdk_visual_get_depth ()">gdk_visual_get_depth</a> <span class="c_punctuation">()</span>
@@ -130,7 +130,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<span class="returnvalue">gint</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Visuals.html#gdk-visual-get-best-depth" title="gdk_visual_get_best_depth ()">gdk_visual_get_best_depth</a> <span class="c_punctuation">()</span>
@@ -199,8 +199,8 @@
 <a name="gdk3-Visuals.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -220,7 +220,7 @@
 </div>
 <div class="refsect1">
 <a name="gdk3-Visuals.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> GdkVisual
 </pre>
 </div>
@@ -257,8 +257,8 @@ types are ranked in the order of(highest to lowest)
 <div class="refsect2">
 <a name="gdk-query-depths"></a><h3>gdk_query_depths ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
-gdk_query_depths (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> **depths</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *count</code></em>);</pre>
+gdk_query_depths (<em class="parameter"><code><span class="type">gint</span> **depths</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> *count</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gdk_query_depths</code> has been deprecated since version 3.22 and should not be used in newly-written code.</p>
 <p>Visual selection should be done using
@@ -298,7 +298,7 @@ location for available depths. </p></td>
 <a name="gdk-query-visual-types"></a><h3>gdk_query_visual_types ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gdk_query_visual_types (<em class="parameter"><code><a class="link" href="gdk3-Visuals.html#GdkVisualType" title="enum GdkVisualType"><span class="type">GdkVisualType</span></a> **visual_types</code></em>,
-                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *count</code></em>);</pre>
+                        <em class="parameter"><code><span class="type">gint</span> *count</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gdk_query_visual_types</code> has been deprecated since version 3.22 and should not be used in newly-written code.</p>
 <p>Visual selection should be done using
@@ -336,7 +336,7 @@ location for the available visual types. </p></td>
 <hr>
 <div class="refsect2">
 <a name="gdk-list-visuals"></a><h3>gdk_list_visuals ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *
+<pre class="programlisting"><span class="returnvalue">GList</span> *
 gdk_list_visuals (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gdk_list_visuals</code> has been deprecated since version 3.22 and should not be used in newly-written code.</p>
@@ -347,7 +347,7 @@ gdk_list_visuals (<em class="parameter"><code><span class="type">void</span></co
 A visual describes a hardware image data format.
 For example, a visual might support 24-bit color, or 8-bit color,
 and might expect pixels to be in a certain format.</p>
-<p>Call <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a> on the return value when you’re finished with it.</p>
+<p>Call <code class="function">g_list_free()</code> on the return value when you’re finished with it.</p>
 <div class="refsect3">
 <a name="gdk-list-visuals.returns"></a><h4>Returns</h4>
 <p>a list of visuals; the list must be freed, but not its contents. </p>
@@ -357,7 +357,7 @@ and might expect pixels to be in a certain format.</p>
 <hr>
 <div class="refsect2">
 <a name="gdk-visual-get-bits-per-rgb"></a><h3>gdk_visual_get_bits_per_rgb ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<pre class="programlisting"><span class="returnvalue">gint</span>
 gdk_visual_get_bits_per_rgb (<em class="parameter"><code><a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="type">GdkVisual</span></a> *visual</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gdk_visual_get_bits_per_rgb</code> has been deprecated since version 3.22. and should not be used in newly-written code.</p>
@@ -393,9 +393,9 @@ gdk_visual_get_bits_per_rgb (<em class="parameter"><code><a class="link" href="g
 <a name="gdk-visual-get-blue-pixel-details"></a><h3>gdk_visual_get_blue_pixel_details ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gdk_visual_get_blue_pixel_details (<em class="parameter"><code><a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="type">GdkVisual</span></a> *visual</code></em>,
-                                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> *mask</code></em>,
-                                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *shift</code></em>,
-                                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *precision</code></em>);</pre>
+                                   <em class="parameter"><code><span class="type">guint32</span> *mask</code></em>,
+                                   <em class="parameter"><code><span class="type">gint</span> *shift</code></em>,
+                                   <em class="parameter"><code><span class="type">gint</span> *precision</code></em>);</pre>
 <p>Obtains values that are needed to calculate blue pixel values in TrueColor
 and DirectColor. The “mask” is the significant bits within the pixel.
 The “shift” is the number of bits left we must shift a primary for it
@@ -417,17 +417,17 @@ to how much precision the pixel value contains for a particular primary.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>mask</p></td>
-<td class="parameter_description"><p>A pointer to a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> to be filled in, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>A pointer to a <span class="type">guint32</span> to be filled in, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>shift</p></td>
-<td class="parameter_description"><p>A pointer to a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> to be filled in, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>A pointer to a <span class="type">gint</span> to be filled in, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>precision</p></td>
-<td class="parameter_description"><p>A pointer to a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> to be filled in, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>A pointer to a <span class="type">gint</span> to be filled in, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -473,7 +473,7 @@ meaningful information for this.</p>
 <hr>
 <div class="refsect2">
 <a name="gdk-visual-get-colormap-size"></a><h3>gdk_visual_get_colormap_size ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<pre class="programlisting"><span class="returnvalue">gint</span>
 gdk_visual_get_colormap_size (<em class="parameter"><code><a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="type">GdkVisual</span></a> *visual</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gdk_visual_get_colormap_size</code> has been deprecated since version 3.22 and should not be used in newly-written code.</p>
@@ -507,7 +507,7 @@ gdk_visual_get_colormap_size (<em class="parameter"><code><a class="link" href="
 <hr>
 <div class="refsect2">
 <a name="gdk-visual-get-depth"></a><h3>gdk_visual_get_depth ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<pre class="programlisting"><span class="returnvalue">gint</span>
 gdk_visual_get_depth (<em class="parameter"><code><a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="type">GdkVisual</span></a> *visual</code></em>);</pre>
 <p>Returns the bit depth of this visual.</p>
 <div class="refsect3">
@@ -536,9 +536,9 @@ gdk_visual_get_depth (<em class="parameter"><code><a class="link" href="gdk3-Vis
 <a name="gdk-visual-get-green-pixel-details"></a><h3>gdk_visual_get_green_pixel_details ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gdk_visual_get_green_pixel_details (<em class="parameter"><code><a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="type">GdkVisual</span></a> *visual</code></em>,
-                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> *mask</code></em>,
-                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *shift</code></em>,
-                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *precision</code></em>);</pre>
+                                    <em class="parameter"><code><span class="type">guint32</span> *mask</code></em>,
+                                    <em class="parameter"><code><span class="type">gint</span> *shift</code></em>,
+                                    <em class="parameter"><code><span class="type">gint</span> *precision</code></em>);</pre>
 <p>Obtains values that are needed to calculate green pixel values in TrueColor
 and DirectColor. The “mask” is the significant bits within the pixel.
 The “shift” is the number of bits left we must shift a primary for it
@@ -560,17 +560,17 @@ to how much precision the pixel value contains for a particular primary.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>mask</p></td>
-<td class="parameter_description"><p>A pointer to a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> to be filled in, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>A pointer to a <span class="type">guint32</span> to be filled in, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>shift</p></td>
-<td class="parameter_description"><p>A pointer to a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> to be filled in, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>A pointer to a <span class="type">gint</span> to be filled in, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>precision</p></td>
-<td class="parameter_description"><p>A pointer to a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> to be filled in, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>A pointer to a <span class="type">gint</span> to be filled in, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -583,9 +583,9 @@ to how much precision the pixel value contains for a particular primary.</p>
 <a name="gdk-visual-get-red-pixel-details"></a><h3>gdk_visual_get_red_pixel_details ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gdk_visual_get_red_pixel_details (<em class="parameter"><code><a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="type">GdkVisual</span></a> *visual</code></em>,
-                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> *mask</code></em>,
-                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *shift</code></em>,
-                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *precision</code></em>);</pre>
+                                  <em class="parameter"><code><span class="type">guint32</span> *mask</code></em>,
+                                  <em class="parameter"><code><span class="type">gint</span> *shift</code></em>,
+                                  <em class="parameter"><code><span class="type">gint</span> *precision</code></em>);</pre>
 <p>Obtains values that are needed to calculate red pixel values in TrueColor
 and DirectColor. The “mask” is the significant bits within the pixel.
 The “shift” is the number of bits left we must shift a primary for it
@@ -607,17 +607,17 @@ to how much precision the pixel value contains for a particular primary.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>mask</p></td>
-<td class="parameter_description"><p>A pointer to a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> to be filled in, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>A pointer to a <span class="type">guint32</span> to be filled in, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>shift</p></td>
-<td class="parameter_description"><p>A pointer to a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> to be filled in, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>A pointer to a <span class="type">gint</span> to be filled in, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>precision</p></td>
-<td class="parameter_description"><p>A pointer to a <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> to be filled in, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>A pointer to a <span class="type">gint</span> to be filled in, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -656,7 +656,7 @@ gdk_visual_get_visual_type (<em class="parameter"><code><a class="link" href="gd
 <hr>
 <div class="refsect2">
 <a name="gdk-visual-get-best-depth"></a><h3>gdk_visual_get_best_depth ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<pre class="programlisting"><span class="returnvalue">gint</span>
 gdk_visual_get_best_depth (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gdk_visual_get_best_depth</code> has been deprecated since version 3.22 and should not be used in newly-written code.</p>
@@ -727,7 +727,7 @@ GDK screen. The return value should not be freed.</p>
 <div class="refsect2">
 <a name="gdk-visual-get-best-with-depth"></a><h3>gdk_visual_get_best_with_depth ()</h3>
 <pre class="programlisting"><a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="returnvalue">GdkVisual</span></a> *
-gdk_visual_get_best_with_depth (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> depth</code></em>);</pre>
+gdk_visual_get_best_with_depth (<em class="parameter"><code><span class="type">gint</span> depth</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gdk_visual_get_best_with_depth</code> has been deprecated since version 3.22 and should not be used in newly-written code.</p>
 <p>Visual selection should be done using
@@ -737,7 +737,7 @@ gdk_visual_get_best_with_depth (<em class="parameter"><code><a href="https://dev
  for the default GDK screen.
 Color visuals and visuals with mutable colormaps are preferred
 over grayscale or fixed-colormap visuals. The return value should
-not be freed. <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> may be returned if no visual supports <em class="parameter"><code>depth</code></em>
+not be freed. <code class="literal">NULL</code> may be returned if no visual supports <em class="parameter"><code>depth</code></em>
 .</p>
 <div class="refsect3">
 <a name="gdk-visual-get-best-with-depth.parameters"></a><h4>Parameters</h4>
@@ -773,7 +773,7 @@ gdk_visual_get_best_with_type (<em class="parameter"><code><a class="link" href=
 <p>Get the best visual of the given <em class="parameter"><code>visual_type</code></em>
  for the default GDK screen.
 Visuals with higher color depths are considered better. The return value
-should not be freed. <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> may be returned if no visual has type
+should not be freed. <code class="literal">NULL</code> may be returned if no visual has type
 <em class="parameter"><code>visual_type</code></em>
 .</p>
 <div class="refsect3">
@@ -801,7 +801,7 @@ should not be freed. <a href="https://developer.gnome.org/glib/unstable/glib-Sta
 <div class="refsect2">
 <a name="gdk-visual-get-best-with-both"></a><h3>gdk_visual_get_best_with_both ()</h3>
 <pre class="programlisting"><a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="returnvalue">GdkVisual</span></a> *
-gdk_visual_get_best_with_both (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> depth</code></em>,
+gdk_visual_get_best_with_both (<em class="parameter"><code><span class="type">gint</span> depth</code></em>,
                                <em class="parameter"><code><a class="link" href="gdk3-Visuals.html#GdkVisualType" title="enum GdkVisualType"><span class="type">GdkVisualType</span></a> visual_type</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gdk_visual_get_best_with_both</code> has been deprecated since version 3.22 and should not be used in newly-written code.</p>
@@ -836,7 +836,7 @@ gdk_visual_get_best_with_both (<em class="parameter"><code><a href="https://deve
 <a name="gdk-visual-get-best-with-both.returns"></a><h4>Returns</h4>
 <p>best visual with both <em class="parameter"><code>depth</code></em>
 and <em class="parameter"><code>visual_type</code></em>
-, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none. </p>
+, or <code class="literal">NULL</code> if none. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
@@ -895,7 +895,7 @@ for a visual are converted into RGB values for display.</p>
 <td class="enum_member_name"><p><a name="GDK-VISUAL-STATIC-GRAY:CAPS"></a>GDK_VISUAL_STATIC_GRAY</p></td>
 <td class="enum_member_description">
 <p>Each pixel value indexes a grayscale value
-    directly.</p>
+directly.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -903,8 +903,8 @@ for a visual are converted into RGB values for display.</p>
 <td class="enum_member_name"><p><a name="GDK-VISUAL-GRAYSCALE:CAPS"></a>GDK_VISUAL_GRAYSCALE</p></td>
 <td class="enum_member_description">
 <p>Each pixel is an index into a color map that
-    maps pixel values into grayscale values. The color map can be
-    changed by an application.</p>
+maps pixel values into grayscale values. The color map can be
+changed by an application.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -912,7 +912,7 @@ for a visual are converted into RGB values for display.</p>
 <td class="enum_member_name"><p><a name="GDK-VISUAL-STATIC-COLOR:CAPS"></a>GDK_VISUAL_STATIC_COLOR</p></td>
 <td class="enum_member_description">
 <p>Each pixel value is an index into a predefined,
-    unmodifiable color map that maps pixel values into RGB values.</p>
+unmodifiable color map that maps pixel values into RGB values.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -920,8 +920,8 @@ for a visual are converted into RGB values for display.</p>
 <td class="enum_member_name"><p><a name="GDK-VISUAL-PSEUDO-COLOR:CAPS"></a>GDK_VISUAL_PSEUDO_COLOR</p></td>
 <td class="enum_member_description">
 <p>Each pixel is an index into a color map that
-    maps pixel values into rgb values. The color map can be changed by
-    an application.</p>
+maps pixel values into rgb values. The color map can be changed by
+an application.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -929,9 +929,9 @@ for a visual are converted into RGB values for display.</p>
 <td class="enum_member_name"><p><a name="GDK-VISUAL-TRUE-COLOR:CAPS"></a>GDK_VISUAL_TRUE_COLOR</p></td>
 <td class="enum_member_description">
 <p>Each pixel value directly contains red, green,
-    and blue components. Use <a class="link" href="gdk3-Visuals.html#gdk-visual-get-red-pixel-details" title="gdk_visual_get_red_pixel_details ()"><code class="function">gdk_visual_get_red_pixel_details()</code></a>, etc,
-    to obtain information about how the components are assembled into
-    a pixel value.</p>
+and blue components. Use <a class="link" href="gdk3-Visuals.html#gdk-visual-get-red-pixel-details" title="gdk_visual_get_red_pixel_details ()"><code class="function">gdk_visual_get_red_pixel_details()</code></a>, etc,
+to obtain information about how the components are assembled into
+a pixel value.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -939,9 +939,9 @@ for a visual are converted into RGB values for display.</p>
 <td class="enum_member_name"><p><a name="GDK-VISUAL-DIRECT-COLOR:CAPS"></a>GDK_VISUAL_DIRECT_COLOR</p></td>
 <td class="enum_member_description">
 <p>Each pixel value contains red, green, and blue
-    components as for <a class="link" href="gdk3-Visuals.html#GDK-VISUAL-TRUE-COLOR:CAPS"><code class="literal">GDK_VISUAL_TRUE_COLOR</code></a>, but the components are
-    mapped via a color table into the final output table instead of
-    being converted directly.</p>
+components as for <a class="link" href="gdk3-Visuals.html#GDK-VISUAL-TRUE-COLOR:CAPS"><code class="literal">GDK_VISUAL_TRUE_COLOR</code></a>, but the components are
+mapped via a color table into the final output table instead of
+being converted directly.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -967,8 +967,8 @@ for storing pixel values in memory.</p>
 <td class="enum_member_name"><p><a name="GDK-LSB-FIRST:CAPS"></a>GDK_LSB_FIRST</p></td>
 <td class="enum_member_description">
 <p>The values are stored with the least-significant byte
-  first. For instance, the 32-bit value 0xffeecc would be stored
-  in memory as 0xcc, 0xee, 0xff, 0x00.</p>
+first. For instance, the 32-bit value 0xffeecc would be stored
+in memory as 0xcc, 0xee, 0xff, 0x00.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -976,8 +976,8 @@ for storing pixel values in memory.</p>
 <td class="enum_member_name"><p><a name="GDK-MSB-FIRST:CAPS"></a>GDK_MSB_FIRST</p></td>
 <td class="enum_member_description">
 <p>The values are stored with the most-significant byte
-  first. For instance, the 32-bit value 0xffeecc would be stored
-  in memory as 0x00, 0xff, 0xee, 0xcc.</p>
+first. For instance, the 32-bit value 0xffeecc would be stored
+in memory as 0x00, 0xff, 0xee, 0xcc.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -988,6 +988,6 @@ for storing pixel values in memory.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

@@ -40,8 +40,8 @@
 #   YourProject_HEADERS_EXCLUDES = ... # <list of headers to exclude from installation, separated by '|', wildcards allowed; use random unsed value if none>
 #
 #   dist-hook: \ # (or add to it if it is already there, note the vs9 items will also call the vs10 items in the process)
-#   	$(top_builddir)/build/win32/vs9/YourProject.vcproj	\
-#   	$(top_builddir)/build/win32/vs9/YourProject.headers
+#   	$(top_builddir)/win32/vs9/YourProject.vcproj	\
+#   	$(top_builddir)/win32/vs9/YourProject.headers
 
 # Private functions
 
@@ -174,38 +174,45 @@ host_triplet = @host@
 @OS_UNIX_TRUE@	gtkprinteroptionwidget.h	\
 @OS_UNIX_TRUE@	gtksearchenginetracker.h
 
-@OS_UNIX_TRUE@am__append_6 = $(gtk_os_unix_c_sources)
-@OS_WIN32_TRUE@am__append_7 = gtkprint-win32.h
-@OS_WIN32_TRUE@am__append_8 = $(gtk_os_win32_c_sources)
-@USE_X11_TRUE@am__append_9 = $(gtk_use_x11_c_sources)
-@USE_X11_TRUE@am__append_10 = $(gtk_use_x11_private_h_sources)
+@HAVE_TRACKER3_TRUE@@OS_UNIX_TRUE@am__append_6 = \
+@HAVE_TRACKER3_TRUE@@OS_UNIX_TRUE@	gtksearchenginetracker3.h
+
+@HAVE_TRACKER3_TRUE@@OS_UNIX_TRUE@am__append_7 = \
+@HAVE_TRACKER3_TRUE@@OS_UNIX_TRUE@	gtksearchenginetracker3.c
+
+@OS_UNIX_TRUE@am__append_8 = $(gtk_os_unix_c_sources)
+@OS_WIN32_TRUE@am__append_9 = gtkprint-win32.h
+@OS_WIN32_TRUE@am__append_10 = $(gtk_os_win32_c_sources)
+@USE_X11_TRUE@am__append_11 = $(gtk_use_x11_c_sources)
+@USE_X11_TRUE@am__append_12 = $(gtk_use_x11_private_h_sources)
 
 # pretty tricky way to write USE_WAYLAND || USE_X11...
-@USE_WAYLAND_TRUE@am__append_11 = $(gtk_use_wayland_c_sources) \
+@USE_WAYLAND_TRUE@am__append_13 = $(gtk_use_wayland_c_sources) \
 @USE_WAYLAND_TRUE@	$(gtk_use_wayland_or_x11_c_sources)
-@USE_WAYLAND_FALSE@@USE_X11_TRUE@am__append_12 = $(gtk_use_wayland_or_x11_c_sources)
-@USE_WIN32_TRUE@am__append_13 = $(gtk_use_win32_c_sources)
-@USE_WIN32_TRUE@am__append_14 = $(gtk_use_win32_private_h_sources)
-@USE_QUARTZ_TRUE@am__append_15 = $(gtk_use_quartz_c_sources)
-@USE_QUARTZ_TRUE@am__append_16 = $(gtk_use_quartz_private_h_sources)
-@USE_QUARTZ_FALSE@@USE_WIN32_FALSE@@USE_X11_FALSE@am__append_17 = $(gtk_use_stub_c_sources)
-@OS_WIN32_TRUE@am__append_18 = gtk-win32.rc
-@USE_WIN32_TRUE@am__append_19 = -lole32 -lgdi32 -lcomdlg32 -lwinspool -lcomctl32
-@USE_WIN32_TRUE@am__append_20 = -Wl,-luuid $(gtk_win32_res_ldflag)
-@USE_WIN32_TRUE@am__append_21 = $(gtk_win32_res)
-@HAVE_INTROSPECTION_TRUE@@USE_X11_TRUE@am__append_22 = \
+@USE_WAYLAND_FALSE@@USE_X11_TRUE@am__append_14 = $(gtk_use_wayland_or_x11_c_sources)
+@USE_WIN32_TRUE@am__append_15 = $(gtk_use_win32_c_sources)
+@USE_WIN32_TRUE@am__append_16 = $(gtk_use_win32_private_h_sources)
+@USE_QUARTZ_TRUE@am__append_17 = $(gtk_use_quartz_c_sources)
+@USE_QUARTZ_TRUE@am__append_18 = $(gtk_use_quartz_private_h_sources)
+@USE_QUARTZ_FALSE@@USE_WIN32_FALSE@@USE_X11_FALSE@am__append_19 = $(gtk_use_stub_c_sources)
+@OS_WIN32_TRUE@am__append_20 = gtk-win32.rc
+@USE_QUARTZ_TRUE@am__append_21 = "-xobjective-c"
+@USE_WIN32_TRUE@am__append_22 = -lole32 -lgdi32 -lcomdlg32 -lwinspool -lcomctl32
+@USE_WIN32_TRUE@am__append_23 = -Wl,-luuid $(gtk_win32_res_ldflag)
+@USE_WIN32_TRUE@am__append_24 = $(gtk_win32_res)
+@HAVE_INTROSPECTION_TRUE@@USE_X11_TRUE@am__append_25 = \
 @HAVE_INTROSPECTION_TRUE@@USE_X11_TRUE@    gtksocket.c \
 @HAVE_INTROSPECTION_TRUE@@USE_X11_TRUE@    gtkplug.c
 
-@HAVE_INTROSPECTION_TRUE@@USE_X11_TRUE@am__append_23 = --add-include-path=$(top_builddir)/gdk/x11
-@HAVE_INTROSPECTION_TRUE@@USE_X11_TRUE@am__append_24 = xlib-2.0
-@HAVE_INTROSPECTION_TRUE@@USE_X11_TRUE@am__append_25 = gtk/gtkx.h
-@HAVE_INTROSPECTION_TRUE@am__append_26 = $(gir_DATA) $(typelibs_DATA)
+@HAVE_INTROSPECTION_TRUE@@USE_X11_TRUE@am__append_26 = --add-include-path=$(top_builddir)/gdk/x11
+@HAVE_INTROSPECTION_TRUE@@USE_X11_TRUE@am__append_27 = xlib-2.0
+@HAVE_INTROSPECTION_TRUE@@USE_X11_TRUE@am__append_28 = gtk/gtkx.h
+@HAVE_INTROSPECTION_TRUE@am__append_29 = $(gir_DATA) $(typelibs_DATA)
 bin_PROGRAMS = gtk-query-immodules-3.0$(EXEEXT) \
 	gtk-update-icon-cache$(EXEEXT) \
 	gtk-encode-symbolic-svg$(EXEEXT) gtk-builder-tool$(EXEEXT) \
 	gtk-query-settings$(EXEEXT) gtk-launch$(EXEEXT)
-@OS_WIN32_TRUE@am__append_27 = $(GTK_UPDATE_ICON_CACHE_MANIFEST_OBJECT)
+@OS_WIN32_TRUE@am__append_30 = $(GTK_UPDATE_ICON_CACHE_MANIFEST_OBJECT)
 subdir = gtk
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_prog_cc_for_build.m4 \
@@ -282,20 +289,21 @@ am__libgtk_3_la_SOURCES_DIST = a11y/gtkaccessibility.c \
 	a11y/gtkcontainercellaccessible.c a11y/gtkentryaccessible.c \
 	a11y/gtkexpanderaccessible.c a11y/gtkflowboxaccessible.c \
 	a11y/gtkflowboxchildaccessible.c a11y/gtkframeaccessible.c \
-	a11y/gtkiconviewaccessible.c a11y/gtkimageaccessible.c \
-	a11y/gtkimagecellaccessible.c a11y/gtklabelaccessible.c \
-	a11y/gtklevelbaraccessible.c a11y/gtklinkbuttonaccessible.c \
-	a11y/gtklistboxaccessible.c a11y/gtklistboxrowaccessible.c \
-	a11y/gtklockbuttonaccessible.c a11y/gtkmenuaccessible.c \
-	a11y/gtkmenubuttonaccessible.c a11y/gtkmenushellaccessible.c \
-	a11y/gtkmenuitemaccessible.c a11y/gtknotebookaccessible.c \
-	a11y/gtknotebookpageaccessible.c a11y/gtkpanedaccessible.c \
+	a11y/gtkheaderbaraccessible.c a11y/gtkiconviewaccessible.c \
+	a11y/gtkimageaccessible.c a11y/gtkimagecellaccessible.c \
+	a11y/gtklabelaccessible.c a11y/gtklevelbaraccessible.c \
+	a11y/gtklinkbuttonaccessible.c a11y/gtklistboxaccessible.c \
+	a11y/gtklistboxrowaccessible.c a11y/gtklockbuttonaccessible.c \
+	a11y/gtkmenuaccessible.c a11y/gtkmenubuttonaccessible.c \
+	a11y/gtkmenushellaccessible.c a11y/gtkmenuitemaccessible.c \
+	a11y/gtknotebookaccessible.c a11y/gtknotebookpageaccessible.c \
+	a11y/gtkpanedaccessible.c a11y/gtkplugaccessible.c \
 	a11y/gtkpopoveraccessible.c a11y/gtkprogressbaraccessible.c \
 	a11y/gtkradiobuttonaccessible.c \
 	a11y/gtkradiomenuitemaccessible.c a11y/gtkrangeaccessible.c \
 	a11y/gtkrenderercellaccessible.c a11y/gtkscaleaccessible.c \
 	a11y/gtkscalebuttonaccessible.c \
-	a11y/gtkscrolledwindowaccessible.c \
+	a11y/gtkscrolledwindowaccessible.c a11y/gtksocketaccessible.c \
 	a11y/gtkspinbuttonaccessible.c a11y/gtkspinneraccessible.c \
 	a11y/gtkstatusbaraccessible.c a11y/gtkstackaccessible.c \
 	a11y/gtkswitchaccessible.c a11y/gtktextcellaccessible.c \
@@ -463,7 +471,8 @@ am__libgtk_3_la_SOURCES_DIST = a11y/gtkaccessibility.c \
 	gtkprinteroptionset.c gtkprinteroptionwidget.c gtkprintjob.c \
 	gtkprintoperation-unix.c gtkprintoperation-portal.h \
 	gtkprintoperation-portal.c gtkprintunixdialog.c \
-	gtkprintbackend.c gtksearchenginetracker.c gtkprint-win32.c \
+	gtkprintbackend.c gtksearchenginetracker.c \
+	gtksearchenginetracker3.c gtkprint-win32.c \
 	gtkprintoperation-win32.c gtkfilechoosernativewin32.c \
 	gtkwin32.c gtkplug.c gtksocket.c gtkxembed.c \
 	deprecated/gtktrayicon-x11.c gtkapplication-x11.c \
@@ -491,6 +500,7 @@ am__objects_1 = a11y/libgtk_3_la-gtkaccessibility.lo \
 	a11y/libgtk_3_la-gtkflowboxaccessible.lo \
 	a11y/libgtk_3_la-gtkflowboxchildaccessible.lo \
 	a11y/libgtk_3_la-gtkframeaccessible.lo \
+	a11y/libgtk_3_la-gtkheaderbaraccessible.lo \
 	a11y/libgtk_3_la-gtkiconviewaccessible.lo \
 	a11y/libgtk_3_la-gtkimageaccessible.lo \
 	a11y/libgtk_3_la-gtkimagecellaccessible.lo \
@@ -507,6 +517,7 @@ am__objects_1 = a11y/libgtk_3_la-gtkaccessibility.lo \
 	a11y/libgtk_3_la-gtknotebookaccessible.lo \
 	a11y/libgtk_3_la-gtknotebookpageaccessible.lo \
 	a11y/libgtk_3_la-gtkpanedaccessible.lo \
+	a11y/libgtk_3_la-gtkplugaccessible.lo \
 	a11y/libgtk_3_la-gtkpopoveraccessible.lo \
 	a11y/libgtk_3_la-gtkprogressbaraccessible.lo \
 	a11y/libgtk_3_la-gtkradiobuttonaccessible.lo \
@@ -516,6 +527,7 @@ am__objects_1 = a11y/libgtk_3_la-gtkaccessibility.lo \
 	a11y/libgtk_3_la-gtkscaleaccessible.lo \
 	a11y/libgtk_3_la-gtkscalebuttonaccessible.lo \
 	a11y/libgtk_3_la-gtkscrolledwindowaccessible.lo \
+	a11y/libgtk_3_la-gtksocketaccessible.lo \
 	a11y/libgtk_3_la-gtkspinbuttonaccessible.lo \
 	a11y/libgtk_3_la-gtkspinneraccessible.lo \
 	a11y/libgtk_3_la-gtkstatusbaraccessible.lo \
@@ -849,7 +861,8 @@ am__objects_6 = $(am__objects_1) $(am__objects_2) $(am__objects_3) \
 	libgtk_3_la-gtkwin32draw.lo libgtk_3_la-gtkwin32theme.lo \
 	libgtk_3_la-gdkpixbufutils.lo libgtk_3_la-language-names.lo \
 	libgtk_3_la-script-names.lo $(am__objects_4) $(am__objects_5)
-am__objects_7 = libgtk_3_la-gtkcustompaperunixdialog.lo \
+@HAVE_TRACKER3_TRUE@@OS_UNIX_TRUE@am__objects_7 = libgtk_3_la-gtksearchenginetracker3.lo
+am__objects_8 = libgtk_3_la-gtkcustompaperunixdialog.lo \
 	libgtk_3_la-gtkpagesetupunixdialog.lo \
 	libgtk_3_la-gtkprinter.lo libgtk_3_la-gtkprinteroption.lo \
 	libgtk_3_la-gtkprinteroptionset.lo \
@@ -859,48 +872,48 @@ am__objects_7 = libgtk_3_la-gtkcustompaperunixdialog.lo \
 	libgtk_3_la-gtkprintoperation-portal.lo \
 	libgtk_3_la-gtkprintunixdialog.lo \
 	libgtk_3_la-gtkprintbackend.lo \
-	libgtk_3_la-gtksearchenginetracker.lo
-@OS_UNIX_TRUE@am__objects_8 = $(am__objects_7)
-am__objects_9 = libgtk_3_la-gtkprint-win32.lo \
+	libgtk_3_la-gtksearchenginetracker.lo $(am__objects_7)
+@OS_UNIX_TRUE@am__objects_9 = $(am__objects_8)
+am__objects_10 = libgtk_3_la-gtkprint-win32.lo \
 	libgtk_3_la-gtkprintoperation-win32.lo \
 	libgtk_3_la-gtkfilechoosernativewin32.lo \
 	libgtk_3_la-gtkwin32.lo
-@OS_WIN32_TRUE@am__objects_10 = $(am__objects_9)
-am__objects_11 = libgtk_3_la-gtkplug.lo libgtk_3_la-gtksocket.lo \
+@OS_WIN32_TRUE@am__objects_11 = $(am__objects_10)
+am__objects_12 = libgtk_3_la-gtkplug.lo libgtk_3_la-gtksocket.lo \
 	libgtk_3_la-gtkxembed.lo \
 	deprecated/libgtk_3_la-gtktrayicon-x11.lo \
 	libgtk_3_la-gtkapplication-x11.lo \
 	libgtk_3_la-gtkmountoperation-x11.lo
-@USE_X11_TRUE@am__objects_12 = $(am__objects_11)
-am__objects_13 = libgtk_3_la-gtkapplication-wayland.lo
-am__objects_14 = libgtk_3_la-gtkapplication-dbus.lo
-@USE_WAYLAND_TRUE@am__objects_15 = $(am__objects_13) $(am__objects_14)
-@USE_WAYLAND_FALSE@@USE_X11_TRUE@am__objects_16 = $(am__objects_14)
-am__objects_17 = libgtk_3_la-gtkwin32embed.lo \
+@USE_X11_TRUE@am__objects_13 = $(am__objects_12)
+am__objects_14 = libgtk_3_la-gtkapplication-wayland.lo
+am__objects_15 = libgtk_3_la-gtkapplication-dbus.lo
+@USE_WAYLAND_TRUE@am__objects_16 = $(am__objects_14) $(am__objects_15)
+@USE_WAYLAND_FALSE@@USE_X11_TRUE@am__objects_17 = $(am__objects_15)
+am__objects_18 = libgtk_3_la-gtkwin32embed.lo \
 	libgtk_3_la-gtkwin32embedwidget.lo \
 	libgtk_3_la-gtkmountoperation-stub.lo
-@USE_WIN32_TRUE@am__objects_18 = $(am__objects_17)
-am__objects_19 = libgtk_3_la-gtksearchenginequartz.lo \
+@USE_WIN32_TRUE@am__objects_19 = $(am__objects_18)
+am__objects_20 = libgtk_3_la-gtksearchenginequartz.lo \
 	libgtk_3_la-gtkmountoperation-stub.lo \
 	libgtk_3_la-gtkapplication-quartz.lo \
 	libgtk_3_la-gtkapplication-quartz-menu.lo \
 	libgtk_3_la-gtkfilechoosernativequartz.lo \
 	libgtk_3_la-gtkquartz.lo
-@USE_QUARTZ_TRUE@am__objects_20 = $(am__objects_19)
-am__objects_21 = libgtk_3_la-gtkmountoperation-stub.lo
-@USE_QUARTZ_FALSE@@USE_WIN32_FALSE@@USE_X11_FALSE@am__objects_22 = $(am__objects_21)
-am__objects_23 = $(am__objects_6) $(am__objects_8) $(am__objects_10) \
-	$(am__objects_12) $(am__objects_15) $(am__objects_16) \
-	$(am__objects_18) $(am__objects_20) $(am__objects_22)
-am_libgtk_3_la_OBJECTS = $(am__objects_23)
-am__objects_24 = libgtk_3_la-gtkdbusgenerated.lo
-am__objects_25 =
-am__objects_26 = $(am__objects_25) $(am__objects_25) \
+@USE_QUARTZ_TRUE@am__objects_21 = $(am__objects_20)
+am__objects_22 = libgtk_3_la-gtkmountoperation-stub.lo
+@USE_QUARTZ_FALSE@@USE_WIN32_FALSE@@USE_X11_FALSE@am__objects_23 = $(am__objects_22)
+am__objects_24 = $(am__objects_6) $(am__objects_9) $(am__objects_11) \
+	$(am__objects_13) $(am__objects_16) $(am__objects_17) \
+	$(am__objects_19) $(am__objects_21) $(am__objects_23)
+am_libgtk_3_la_OBJECTS = $(am__objects_24)
+am__objects_25 = libgtk_3_la-gtkdbusgenerated.lo
+am__objects_26 =
+am__objects_27 = $(am__objects_26) $(am__objects_26) \
 	libgtk_3_la-gtkresources.lo libgtk_3_la-gtktypebuiltins.lo \
 	libgtk_3_la-gtkmarshalers.lo \
 	libgtk_3_la-gtkprivatetypebuiltins.lo
-am__objects_27 = $(am__objects_24) $(am__objects_26)
-nodist_libgtk_3_la_OBJECTS = $(am__objects_27)
+am__objects_28 = $(am__objects_25) $(am__objects_27)
+nodist_libgtk_3_la_OBJECTS = $(am__objects_28)
 libgtk_3_la_OBJECTS = $(am_libgtk_3_la_OBJECTS) \
 	$(nodist_libgtk_3_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
@@ -937,7 +950,7 @@ gtk_query_settings_DEPENDENCIES = libgtk-3.la \
 am_gtk_update_icon_cache_OBJECTS = updateiconcache.$(OBJEXT)
 gtk_update_icon_cache_OBJECTS = $(am_gtk_update_icon_cache_OBJECTS)
 gtk_update_icon_cache_DEPENDENCIES = $(am__DEPENDENCIES_1) \
-	$(am__append_27)
+	$(am__append_30)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -1279,6 +1292,7 @@ am__depfiles_remade = ./$(DEPDIR)/encodesymbolic.Po \
 	./$(DEPDIR)/libgtk_3_la-gtksearchenginequartz.Plo \
 	./$(DEPDIR)/libgtk_3_la-gtksearchenginesimple.Plo \
 	./$(DEPDIR)/libgtk_3_la-gtksearchenginetracker.Plo \
+	./$(DEPDIR)/libgtk_3_la-gtksearchenginetracker3.Plo \
 	./$(DEPDIR)/libgtk_3_la-gtksearchentry.Plo \
 	./$(DEPDIR)/libgtk_3_la-gtkselection.Plo \
 	./$(DEPDIR)/libgtk_3_la-gtkseparator.Plo \
@@ -1384,6 +1398,7 @@ am__depfiles_remade = ./$(DEPDIR)/encodesymbolic.Po \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkflowboxaccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkflowboxchildaccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkframeaccessible.Plo \
+	a11y/$(DEPDIR)/libgtk_3_la-gtkheaderbaraccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkiconviewaccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkimageaccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkimagecellaccessible.Plo \
@@ -1400,6 +1415,7 @@ am__depfiles_remade = ./$(DEPDIR)/encodesymbolic.Po \
 	a11y/$(DEPDIR)/libgtk_3_la-gtknotebookaccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtknotebookpageaccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkpanedaccessible.Plo \
+	a11y/$(DEPDIR)/libgtk_3_la-gtkplugaccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkpopoveraccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkprogressbaraccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkradiobuttonaccessible.Plo \
@@ -1409,6 +1425,7 @@ am__depfiles_remade = ./$(DEPDIR)/encodesymbolic.Po \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkscaleaccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkscalebuttonaccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkscrolledwindowaccessible.Plo \
+	a11y/$(DEPDIR)/libgtk_3_la-gtksocketaccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkspinbuttonaccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkspinneraccessible.Plo \
 	a11y/$(DEPDIR)/libgtk_3_la-gtkstackaccessible.Plo \
@@ -1555,8 +1572,8 @@ am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/a11y/Makefile.inc \
 	$(srcdir)/inspector/Makefile.inc $(srcdir)/libgtk3.manifest.in \
 	$(srcdir)/makefile.msc.in $(top_srcdir)/Makefile.decl \
 	$(top_srcdir)/build-aux/depcomp \
-	$(top_srcdir)/build/Makefile.msvc-introspection \
-	$(top_srcdir)/build/Makefile.msvcproj
+	$(top_srcdir)/win32/Makefile.msvc-introspection \
+	$(top_srcdir)/win32/Makefile.msvcproj
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 pkgdatadir = $(datadir)/gtk-$(GTK_API_VERSION)
 ACLOCAL = @ACLOCAL@
@@ -1621,7 +1638,6 @@ ENABLE_ON_X11 = @ENABLE_ON_X11@
 EXEEXT = @EXEEXT@
 EXE_MANIFEST_ARCHITECTURE = @EXE_MANIFEST_ARCHITECTURE@
 FGREP = @FGREP@
-GAIL_INET_LIBS = @GAIL_INET_LIBS@
 GAIL_LT_CURRENT_MINUS_AGE = @GAIL_LT_CURRENT_MINUS_AGE@
 GAIL_LT_VERSION_INFO = @GAIL_LT_VERSION_INFO@
 GDK_BACKENDS = @GDK_BACKENDS@
@@ -1679,7 +1695,6 @@ GTK_PRINT_BACKENDS = @GTK_PRINT_BACKENDS@
 GTK_PRIVATE_PACKAGES = @GTK_PRIVATE_PACKAGES@
 GTK_VERSION = @GTK_VERSION@
 GTK_XIM_FLAGS = @GTK_XIM_FLAGS@
-HAVE_HTTP_AUTHSTRING = @HAVE_HTTP_AUTHSTRING@
 HTML_DIR = @HTML_DIR@
 INCLUDED_IMMODULE_DEFINE = @INCLUDED_IMMODULE_DEFINE@
 INCLUDED_IMMODULE_OBJ = @INCLUDED_IMMODULE_OBJ@
@@ -1758,6 +1773,8 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 SHM_LIBS = @SHM_LIBS@
 STRIP = @STRIP@
+TRACKER3_CFLAGS = @TRACKER3_CFLAGS@
+TRACKER3_LIBS = @TRACKER3_LIBS@
 USE_NLS = @USE_NLS@
 VERSION = @VERSION@
 WAYLAND_PROTOCOLS_DATADIR = @WAYLAND_PROTOCOLS_DATADIR@
@@ -1775,6 +1792,8 @@ X_CFLAGS = @X_CFLAGS@
 X_EXTRA_LIBS = @X_EXTRA_LIBS@
 X_LIBS = @X_LIBS@
 X_PRE_LIBS = @X_PRE_LIBS@
+_GI_EXP_DATADIR = @_GI_EXP_DATADIR@
+_GI_EXP_LIBDIR = @_GI_EXP_LIBDIR@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -1839,16 +1858,27 @@ GTESTER_REPORT = gtester-report		# in $PATH for non-GLIB packages
 EXTRA_DIST = $(gtk_all_private_h_sources) $(gtk_extra_sources) \
 	$(gtk_built_sources) gtkbuilder.rnc gtkbuilder.rng $(its_DATA) \
 	$(resource_files) $(gesture_sources) $(theme_sources) \
-	$(gsettings_SCHEMAS) emoji/convert-emoji.c emoji/emoji.json \
-	a11y/Makefile.inc deprecated/Makefile.inc \
+	$(gsettings_SCHEMAS) compose-parse.py emoji/convert-emoji.c \
+	emoji/emoji.json emoji/emoji1.json a11y/Makefile.inc \
+	deprecated/Makefile.inc glade/README.glade \
+	glade/gtk-private-widgets.xml gtk-compose-lookaside.txt \
 	inspector/Makefile.inc libgtk3.manifest.in \
 	gtk-win32.rc.body.in gtk-win32.rc.body gtkwin32embed.h \
 	gtkwin32embedwidget.h gtkwin32embedwidget.c gtkprint-win32.h \
-	gtkprint-win32.c gtksearchenginequartz.h gtkdbusinterfaces.xml \
-	gtk-keys.css.default gtk-keys.css.emacs gtk-keys.css.mac \
-	makefile.msc makefile.msc.in gtktypebuiltins.c.template \
-	gtktypebuiltins.h.template gtkprivatetypebuiltins.c.template \
-	gtkprivatetypebuiltins.h.template
+	gtkprint-win32.c gtksearchenginetracker3.c \
+	gtksearchenginetracker3.h gtksearchenginequartz.h \
+	gtkdbusinterfaces.xml gtk-keys.css.default gtk-keys.css.emacs \
+	gtk-keys.css.mac makefile.msc makefile.msc.in \
+	gtktypebuiltins.c.template gtktypebuiltins.h.template \
+	gtkprivatetypebuiltins.c.template \
+	gtkprivatetypebuiltins.h.template meson.build \
+	gen-gtk-gresources-xml.py gen-rc.py gentypefuncs.py \
+	a11y/meson.build deprecated/meson.build inspector/meson.build \
+	theme/Adwaita/meson.build theme/Adwaita/parse-sass.sh \
+	theme/Adwaita/render-assets.sh theme/HighContrast/assets.svg \
+	theme/HighContrast/assets.txt theme/HighContrast/meson.build \
+	theme/HighContrast/parse-sass.sh \
+	theme/HighContrast/render-assets.sh
 TEST_PROGS = 
 
 ### testing rules
@@ -1905,7 +1935,6 @@ AM_CPPFLAGS = \
 	-I$(top_srcdir)/gdk				\
 	$(GMODULE_CFLAGS)				\
 	$(GTK_DEBUG_FLAGS)				\
-	$(GDK_HIDDEN_VISIBILITY_CFLAGS)			\
 	$(GTK_DEP_CFLAGS)				\
 	$(INCLUDED_IMMODULE_DEFINE)
 
@@ -1943,6 +1972,7 @@ a11y_h_sources = \
 	a11y/gtkflowboxaccessible.h		\
 	a11y/gtkflowboxchildaccessible.h	\
 	a11y/gtkframeaccessible.h		\
+	a11y/gtkheaderbaraccessible.h	        \
 	a11y/gtkiconviewaccessible.h		\
 	a11y/gtkimageaccessible.h		\
 	a11y/gtkimagecellaccessible.h		\
@@ -1959,6 +1989,7 @@ a11y_h_sources = \
 	a11y/gtknotebookaccessible.h		\
 	a11y/gtknotebookpageaccessible.h	\
 	a11y/gtkpanedaccessible.h		\
+	a11y/gtkplugaccessible.h		\
 	a11y/gtkpopoveraccessible.h		\
 	a11y/gtkprogressbaraccessible.h		\
 	a11y/gtkradiobuttonaccessible.h		\
@@ -1968,6 +1999,7 @@ a11y_h_sources = \
 	a11y/gtkscaleaccessible.h		\
 	a11y/gtkscalebuttonaccessible.h		\
 	a11y/gtkscrolledwindowaccessible.h	\
+	a11y/gtksocketaccessible.h		\
 	a11y/gtkspinbuttonaccessible.h		\
 	a11y/gtkspinneraccessible.h		\
 	a11y/gtkstatusbaraccessible.h		\
@@ -2017,6 +2049,7 @@ a11y_c_sources = \
 	a11y/gtkflowboxaccessible.c		\
 	a11y/gtkflowboxchildaccessible.c	\
 	a11y/gtkframeaccessible.c		\
+	a11y/gtkheaderbaraccessible.c	        \
 	a11y/gtkiconviewaccessible.c		\
 	a11y/gtkimageaccessible.c		\
 	a11y/gtkimagecellaccessible.c		\
@@ -2033,6 +2066,7 @@ a11y_c_sources = \
 	a11y/gtknotebookaccessible.c		\
 	a11y/gtknotebookpageaccessible.c	\
 	a11y/gtkpanedaccessible.c		\
+	a11y/gtkplugaccessible.c		\
 	a11y/gtkpopoveraccessible.c		\
 	a11y/gtkprogressbaraccessible.c		\
 	a11y/gtkradiobuttonaccessible.c		\
@@ -2042,6 +2076,7 @@ a11y_c_sources = \
 	a11y/gtkscaleaccessible.c		\
 	a11y/gtkscalebuttonaccessible.c		\
 	a11y/gtkscrolledwindowaccessible.c	\
+	a11y/gtksocketaccessible.c		\
 	a11y/gtkspinbuttonaccessible.c		\
 	a11y/gtkspinneraccessible.c		\
 	a11y/gtkstatusbaraccessible.c		\
@@ -2579,16 +2614,17 @@ gtk_private_h_sources = $(inspector_h_sources) \
 	gtktextbufferprivate.h gtktextbufferserialize.h \
 	gtktextchildprivate.h gtktexthandleprivate.h \
 	gtktextiterprivate.h gtktextmarkprivate.h gtktextsegment.h \
-	gtktexttagprivate.h gtktexttypes.h gtktextutil.h \
-	gtktrashmonitor.h gtktogglebuttonprivate.h gtktoolbarprivate.h \
-	gtktoolpaletteprivate.h gtktooltipprivate.h \
-	gtktooltipwindowprivate.h gtktreedatalist.h gtktreeprivate.h \
-	gtkutilsprivate.h gtkwidgetprivate.h gtkwidgetpathprivate.h \
+	gtktexttagprivate.h gtktexttagtableprivate.h gtktexttypes.h \
+	gtktextutil.h gtktrashmonitor.h gtktogglebuttonprivate.h \
+	gtktoolbarprivate.h gtktoolpaletteprivate.h \
+	gtktooltipprivate.h gtktooltipwindowprivate.h \
+	gtktreedatalist.h gtktreeprivate.h gtkutilsprivate.h \
+	gtkwidgetprivate.h gtkwidgetpathprivate.h \
 	gtkwin32drawprivate.h gtkwin32themeprivate.h \
 	gtkwindowprivate.h gtktreemenu.h gdkpixbufutilsprivate.h \
 	open-type-layout.h language-names.h script-names.h \
-	$(am__append_5) $(am__append_7) $(am__append_10) \
-	$(am__append_14) $(am__append_16)
+	$(am__append_5) $(am__append_6) $(am__append_9) \
+	$(am__append_12) $(am__append_16) $(am__append_18)
 
 # GTK+ C sources to build the library from
 gtk_base_c_sources = $(a11y_c_sources) $(deprecated_c_sources) \
@@ -2716,25 +2752,16 @@ gtk_base_c_sources = $(a11y_c_sources) $(deprecated_c_sources) \
 	gdkpixbufutils.c language-names.c script-names.c \
 	$(am__append_3) $(am__append_4)
 nodist_gtk_c_sources = $(gtk_dbus_built_sources) $(gtk_built_sources)
-gtk_c_sources = $(gtk_base_c_sources) $(am__append_6) $(am__append_8) \
-	$(am__append_9) $(am__append_11) $(am__append_12) \
-	$(am__append_13) $(am__append_15) $(am__append_17)
+gtk_c_sources = $(gtk_base_c_sources) $(am__append_8) $(am__append_10) \
+	$(am__append_11) $(am__append_13) $(am__append_14) \
+	$(am__append_15) $(am__append_17) $(am__append_19)
 gtk_dbus_built_sources = gtkdbusgenerated.c gtkdbusgenerated.h
-gtk_os_unix_c_sources = \
-	gtkcustompaperunixdialog.c	\
-	gtkpagesetupunixdialog.c	\
-	gtkprinter.c			\
-	gtkprinteroption.c		\
-	gtkprinteroptionset.c		\
-	gtkprinteroptionwidget.c	\
-	gtkprintjob.c			\
-	gtkprintoperation-unix.c	\
-	gtkprintoperation-portal.h	\
-	gtkprintoperation-portal.c	\
-	gtkprintunixdialog.c		\
-        gtkprintbackend.c		\
-	gtksearchenginetracker.c
-
+gtk_os_unix_c_sources = gtkcustompaperunixdialog.c \
+	gtkpagesetupunixdialog.c gtkprinter.c gtkprinteroption.c \
+	gtkprinteroptionset.c gtkprinteroptionwidget.c gtkprintjob.c \
+	gtkprintoperation-unix.c gtkprintoperation-portal.h \
+	gtkprintoperation-portal.c gtkprintunixdialog.c \
+	gtkprintbackend.c gtksearchenginetracker.c $(am__append_7)
 gtk_os_win32_c_sources = \
 	gtkprint-win32.c		\
 	gtkprintoperation-win32.c	\
@@ -2784,7 +2811,6 @@ gtk_use_quartz_private_h_sources = \
 	gtksearchenginequartz.h	\
 	gtkquartz.h
 
-@USE_QUARTZ_TRUE@libgtk_3_la_CFLAGS = "-xobjective-c"
 gtk_all_private_h_sources = \
 	$(a11y_private_h_sources) \
 	$(deprecated_private_h_sources) \
@@ -2848,7 +2874,7 @@ MAINTAINERCLEANFILES = \
 	$(print_portal_built_sources)		\
 	$(stamp_files)
 
-DISTCLEANFILES = $(am__append_18)
+DISTCLEANFILES = gtktypefuncs.inc $(am__append_20)
 pkgdata_DATA = gtkbuilder.rng
 itsdir = $(datadir)/gettext/its
 its_DATA = gtkbuilder.loc gtkbuilder.its
@@ -2893,7 +2919,7 @@ templates = \
 #
 # setup autogeneration dependencies
 gen_sources = xgen-gdef xgen-gtbh xgen-gtic xgen-gmh xgen-gmc xgen-gmlh xgen-gmlc xgen-gtfsrc.c xgen-gtf
-CLEANFILES = $(gen_sources) $(am__append_26)
+CLEANFILES = $(gen_sources) $(am__append_29)
 BUILT_SOURCES = \
 	$(gtk_built_sources) \
 	$(gtk_dbus_built_sources) \
@@ -2917,9 +2943,7 @@ adwaita_theme_scss = \
 	$()
 
 highcontrast_theme_scss = \
-	theme/HighContrast/_colors.scss 	\
-	theme/HighContrast/_common.scss 	\
-	theme/HighContrast/_drawing.scss 	\
+	theme/HighContrast/_colors-hc.scss 	\
 	theme/HighContrast/gtk-contained-inverse.scss \
 	theme/HighContrast/gtk-contained.scss 	\
 	$()
@@ -2962,9 +2986,11 @@ gtkunixprintincludedir = $(includedir)/gtk-3.0/unix-print/gtk
 gtkunixprintinclude_HEADERS = $(gtk_unix_print_public_h_sources)
 nodist_libgtk_3_la_SOURCES = $(nodist_gtk_c_sources)
 libgtk_3_la_SOURCES = $(gtk_c_sources)
-libgtk_3_la_LDFLAGS = $(libtool_opts) $(am__append_20)
-libgtk_3_la_LIBADD = $(libadd) $(am__append_19)
-libgtk_3_la_DEPENDENCIES = $(deps) $(am__append_21)
+libgtk_3_la_CFLAGS = $(AM_CFLAGS) $(GDK_HIDDEN_VISIBILITY_CFLAGS) \
+	$(am__append_21)
+libgtk_3_la_LDFLAGS = $(libtool_opts) $(am__append_23)
+libgtk_3_la_LIBADD = $(libadd) $(am__append_22)
+libgtk_3_la_DEPENDENCIES = $(deps) $(am__append_24)
 
 # ------------------- MSVC Build Items ----------------
 MSVCPROJS = gtk-3
@@ -3019,12 +3045,12 @@ _headers_destdir = $(subst /,\\,$(_headers_dest_posix))
 @HAVE_INTROSPECTION_TRUE@	-DINCLUDE_IM_ti_et			\
 @HAVE_INTROSPECTION_TRUE@	-DINCLUDE_IM_viqr			\
 @HAVE_INTROSPECTION_TRUE@	-DGTK_TEXT_USE_INTERNAL_UNSUPPORTED_API	\
-@HAVE_INTROSPECTION_TRUE@	-I../.. -I../../gtk -I../../gdk
+@HAVE_INTROSPECTION_TRUE@	-I.. -I../gtk -I../gdk
 
 @HAVE_INTROSPECTION_FALSE@INTROSPECTION_INTERMEDIATE_ITEMS = 
 @HAVE_INTROSPECTION_TRUE@INTROSPECTION_INTERMEDIATE_ITEMS = \
-@HAVE_INTROSPECTION_TRUE@	$(top_builddir)/build/win32/Gtk-3.0.gir.msvc.introspect		\
-@HAVE_INTROSPECTION_TRUE@	$(top_builddir)/build/win32/Gtk_3_0_gir_list
+@HAVE_INTROSPECTION_TRUE@	$(top_builddir)/win32/Gtk-3.0.gir.msvc.introspect		\
+@HAVE_INTROSPECTION_TRUE@	$(top_builddir)/win32/Gtk_3_0_gir_list
 
 @HAVE_INTROSPECTION_TRUE@Gtk_3_0_gir_MSVC_FILES = \
 @HAVE_INTROSPECTION_TRUE@	$(introspected_pub_headers)	\
@@ -3073,7 +3099,7 @@ _headers_destdir = $(subst /,\\,$(_headers_dest_posix))
 @HAVE_INTROSPECTION_TRUE@	$(gtk_base_c_sources)) \
 @HAVE_INTROSPECTION_TRUE@	gtkprintoperation-unix.c \
 @HAVE_INTROSPECTION_TRUE@	gtktypebuiltins.h gtktypebuiltins.c \
-@HAVE_INTROSPECTION_TRUE@	$(am__append_22)
+@HAVE_INTROSPECTION_TRUE@	$(am__append_25)
 @HAVE_INTROSPECTION_TRUE@INTROSPECTION_SCANNER_ENV = CC="$(CC)"
 @HAVE_INTROSPECTION_TRUE@INTROSPECTION_COMPILER_ARGS = \
 @HAVE_INTROSPECTION_TRUE@	--includedir=$(srcdir) \
@@ -3083,11 +3109,11 @@ _headers_destdir = $(subst /,\\,$(_headers_dest_posix))
 @HAVE_INTROSPECTION_TRUE@Gtk_3_0_gir_SCANNERFLAGS = --warn-all \
 @HAVE_INTROSPECTION_TRUE@	--add-include-path=$(top_builddir)/gdk \
 @HAVE_INTROSPECTION_TRUE@	--include-uninstalled=$(top_builddir)/gdk/Gdk-3.0.gir \
-@HAVE_INTROSPECTION_TRUE@	$(am__append_23)
+@HAVE_INTROSPECTION_TRUE@	$(am__append_26)
 @HAVE_INTROSPECTION_TRUE@Gtk_3_0_gir_INCLUDES = Atk-1.0 \
-@HAVE_INTROSPECTION_TRUE@	$(am__append_24)
+@HAVE_INTROSPECTION_TRUE@	$(am__append_27)
 @HAVE_INTROSPECTION_TRUE@Gtk_3_0_gir_C_INCLUDES = gtk/gtk.h \
-@HAVE_INTROSPECTION_TRUE@	gtk/gtk-a11y.h $(am__append_25)
+@HAVE_INTROSPECTION_TRUE@	gtk/gtk-a11y.h $(am__append_28)
 @HAVE_INTROSPECTION_TRUE@Gtk_3_0_gir_CFLAGS = \
 @HAVE_INTROSPECTION_TRUE@		$(AM_CPPFLAGS) \
 @HAVE_INTROSPECTION_TRUE@		-DGTK_TEXT_USE_INTERNAL_UNSUPPORTED_API
@@ -3108,7 +3134,7 @@ gtk_query_immodules_3_0_LDADD = \
 	$(GTK_DEP_LIBS)
 
 gtk_update_icon_cache_SOURCES = updateiconcache.c
-gtk_update_icon_cache_LDADD = $(GDK_PIXBUF_LIBS) $(am__append_27)
+gtk_update_icon_cache_LDADD = $(GDK_PIXBUF_LIBS) $(am__append_30)
 gtk_encode_symbolic_svg_SOURCES = encodesymbolic.c
 gtk_encode_symbolic_svg_LDADD = \
 	$(GDK_PIXBUF_LIBS)			\
@@ -3152,7 +3178,7 @@ all: $(BUILT_SOURCES)
 
 .SUFFIXES:
 .SUFFIXES: .c .lo .o .obj
-$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am $(top_srcdir)/Makefile.decl $(srcdir)/a11y/Makefile.inc $(srcdir)/deprecated/Makefile.inc $(srcdir)/inspector/Makefile.inc $(top_srcdir)/build/Makefile.msvcproj $(top_srcdir)/build/Makefile.msvc-introspection $(am__configure_deps)
+$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am $(top_srcdir)/Makefile.decl $(srcdir)/a11y/Makefile.inc $(srcdir)/deprecated/Makefile.inc $(srcdir)/inspector/Makefile.inc $(top_srcdir)/win32/Makefile.msvcproj $(top_srcdir)/win32/Makefile.msvc-introspection $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -3172,7 +3198,7 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	    echo ' cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__maybe_remake_depfiles)'; \
 	    cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__maybe_remake_depfiles);; \
 	esac;
-$(top_srcdir)/Makefile.decl $(srcdir)/a11y/Makefile.inc $(srcdir)/deprecated/Makefile.inc $(srcdir)/inspector/Makefile.inc $(top_srcdir)/build/Makefile.msvcproj $(top_srcdir)/build/Makefile.msvc-introspection $(am__empty):
+$(top_srcdir)/Makefile.decl $(srcdir)/a11y/Makefile.inc $(srcdir)/deprecated/Makefile.inc $(srcdir)/inspector/Makefile.inc $(top_srcdir)/win32/Makefile.msvcproj $(top_srcdir)/win32/Makefile.msvc-introspection $(am__empty):
 
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
@@ -3316,6 +3342,8 @@ a11y/libgtk_3_la-gtkflowboxchildaccessible.lo: a11y/$(am__dirstamp) \
 	a11y/$(DEPDIR)/$(am__dirstamp)
 a11y/libgtk_3_la-gtkframeaccessible.lo: a11y/$(am__dirstamp) \
 	a11y/$(DEPDIR)/$(am__dirstamp)
+a11y/libgtk_3_la-gtkheaderbaraccessible.lo: a11y/$(am__dirstamp) \
+	a11y/$(DEPDIR)/$(am__dirstamp)
 a11y/libgtk_3_la-gtkiconviewaccessible.lo: a11y/$(am__dirstamp) \
 	a11y/$(DEPDIR)/$(am__dirstamp)
 a11y/libgtk_3_la-gtkimageaccessible.lo: a11y/$(am__dirstamp) \
@@ -3348,6 +3376,8 @@ a11y/libgtk_3_la-gtknotebookpageaccessible.lo: a11y/$(am__dirstamp) \
 	a11y/$(DEPDIR)/$(am__dirstamp)
 a11y/libgtk_3_la-gtkpanedaccessible.lo: a11y/$(am__dirstamp) \
 	a11y/$(DEPDIR)/$(am__dirstamp)
+a11y/libgtk_3_la-gtkplugaccessible.lo: a11y/$(am__dirstamp) \
+	a11y/$(DEPDIR)/$(am__dirstamp)
 a11y/libgtk_3_la-gtkpopoveraccessible.lo: a11y/$(am__dirstamp) \
 	a11y/$(DEPDIR)/$(am__dirstamp)
 a11y/libgtk_3_la-gtkprogressbaraccessible.lo: a11y/$(am__dirstamp) \
@@ -3365,6 +3395,8 @@ a11y/libgtk_3_la-gtkscaleaccessible.lo: a11y/$(am__dirstamp) \
 a11y/libgtk_3_la-gtkscalebuttonaccessible.lo: a11y/$(am__dirstamp) \
 	a11y/$(DEPDIR)/$(am__dirstamp)
 a11y/libgtk_3_la-gtkscrolledwindowaccessible.lo: a11y/$(am__dirstamp) \
+	a11y/$(DEPDIR)/$(am__dirstamp)
+a11y/libgtk_3_la-gtksocketaccessible.lo: a11y/$(am__dirstamp) \
 	a11y/$(DEPDIR)/$(am__dirstamp)
 a11y/libgtk_3_la-gtkspinbuttonaccessible.lo: a11y/$(am__dirstamp) \
 	a11y/$(DEPDIR)/$(am__dirstamp)
@@ -3917,6 +3949,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgtk_3_la-gtksearchenginequartz.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgtk_3_la-gtksearchenginesimple.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgtk_3_la-gtksearchenginetracker.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgtk_3_la-gtksearchenginetracker3.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgtk_3_la-gtksearchentry.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgtk_3_la-gtkselection.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgtk_3_la-gtkseparator.Plo@am__quote@ # am--include-marker
@@ -4023,6 +4056,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkflowboxaccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkflowboxchildaccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkframeaccessible.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkheaderbaraccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkiconviewaccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkimageaccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkimagecellaccessible.Plo@am__quote@ # am--include-marker
@@ -4039,6 +4073,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtknotebookaccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtknotebookpageaccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkpanedaccessible.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkplugaccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkpopoveraccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkprogressbaraccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkradiobuttonaccessible.Plo@am__quote@ # am--include-marker
@@ -4048,6 +4083,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkscaleaccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkscalebuttonaccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkscrolledwindowaccessible.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtksocketaccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkspinbuttonaccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkspinneraccessible.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@a11y/$(DEPDIR)/libgtk_3_la-gtkstackaccessible.Plo@am__quote@ # am--include-marker
@@ -4287,6 +4323,13 @@ a11y/libgtk_3_la-gtkframeaccessible.lo: a11y/gtkframeaccessible.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -c -o a11y/libgtk_3_la-gtkframeaccessible.lo `test -f 'a11y/gtkframeaccessible.c' || echo '$(srcdir)/'`a11y/gtkframeaccessible.c
 
+a11y/libgtk_3_la-gtkheaderbaraccessible.lo: a11y/gtkheaderbaraccessible.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -MT a11y/libgtk_3_la-gtkheaderbaraccessible.lo -MD -MP -MF a11y/$(DEPDIR)/libgtk_3_la-gtkheaderbaraccessible.Tpo -c -o a11y/libgtk_3_la-gtkheaderbaraccessible.lo `test -f 'a11y/gtkheaderbaraccessible.c' || echo '$(srcdir)/'`a11y/gtkheaderbaraccessible.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) a11y/$(DEPDIR)/libgtk_3_la-gtkheaderbaraccessible.Tpo a11y/$(DEPDIR)/libgtk_3_la-gtkheaderbaraccessible.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='a11y/gtkheaderbaraccessible.c' object='a11y/libgtk_3_la-gtkheaderbaraccessible.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -c -o a11y/libgtk_3_la-gtkheaderbaraccessible.lo `test -f 'a11y/gtkheaderbaraccessible.c' || echo '$(srcdir)/'`a11y/gtkheaderbaraccessible.c
+
 a11y/libgtk_3_la-gtkiconviewaccessible.lo: a11y/gtkiconviewaccessible.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -MT a11y/libgtk_3_la-gtkiconviewaccessible.lo -MD -MP -MF a11y/$(DEPDIR)/libgtk_3_la-gtkiconviewaccessible.Tpo -c -o a11y/libgtk_3_la-gtkiconviewaccessible.lo `test -f 'a11y/gtkiconviewaccessible.c' || echo '$(srcdir)/'`a11y/gtkiconviewaccessible.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) a11y/$(DEPDIR)/libgtk_3_la-gtkiconviewaccessible.Tpo a11y/$(DEPDIR)/libgtk_3_la-gtkiconviewaccessible.Plo
@@ -4399,6 +4442,13 @@ a11y/libgtk_3_la-gtkpanedaccessible.lo: a11y/gtkpanedaccessible.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -c -o a11y/libgtk_3_la-gtkpanedaccessible.lo `test -f 'a11y/gtkpanedaccessible.c' || echo '$(srcdir)/'`a11y/gtkpanedaccessible.c
 
+a11y/libgtk_3_la-gtkplugaccessible.lo: a11y/gtkplugaccessible.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -MT a11y/libgtk_3_la-gtkplugaccessible.lo -MD -MP -MF a11y/$(DEPDIR)/libgtk_3_la-gtkplugaccessible.Tpo -c -o a11y/libgtk_3_la-gtkplugaccessible.lo `test -f 'a11y/gtkplugaccessible.c' || echo '$(srcdir)/'`a11y/gtkplugaccessible.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) a11y/$(DEPDIR)/libgtk_3_la-gtkplugaccessible.Tpo a11y/$(DEPDIR)/libgtk_3_la-gtkplugaccessible.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='a11y/gtkplugaccessible.c' object='a11y/libgtk_3_la-gtkplugaccessible.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -c -o a11y/libgtk_3_la-gtkplugaccessible.lo `test -f 'a11y/gtkplugaccessible.c' || echo '$(srcdir)/'`a11y/gtkplugaccessible.c
+
 a11y/libgtk_3_la-gtkpopoveraccessible.lo: a11y/gtkpopoveraccessible.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -MT a11y/libgtk_3_la-gtkpopoveraccessible.lo -MD -MP -MF a11y/$(DEPDIR)/libgtk_3_la-gtkpopoveraccessible.Tpo -c -o a11y/libgtk_3_la-gtkpopoveraccessible.lo `test -f 'a11y/gtkpopoveraccessible.c' || echo '$(srcdir)/'`a11y/gtkpopoveraccessible.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) a11y/$(DEPDIR)/libgtk_3_la-gtkpopoveraccessible.Tpo a11y/$(DEPDIR)/libgtk_3_la-gtkpopoveraccessible.Plo
@@ -4461,6 +4511,13 @@ a11y/libgtk_3_la-gtkscrolledwindowaccessible.lo: a11y/gtkscrolledwindowaccessibl
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='a11y/gtkscrolledwindowaccessible.c' object='a11y/libgtk_3_la-gtkscrolledwindowaccessible.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -c -o a11y/libgtk_3_la-gtkscrolledwindowaccessible.lo `test -f 'a11y/gtkscrolledwindowaccessible.c' || echo '$(srcdir)/'`a11y/gtkscrolledwindowaccessible.c
+
+a11y/libgtk_3_la-gtksocketaccessible.lo: a11y/gtksocketaccessible.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -MT a11y/libgtk_3_la-gtksocketaccessible.lo -MD -MP -MF a11y/$(DEPDIR)/libgtk_3_la-gtksocketaccessible.Tpo -c -o a11y/libgtk_3_la-gtksocketaccessible.lo `test -f 'a11y/gtksocketaccessible.c' || echo '$(srcdir)/'`a11y/gtksocketaccessible.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) a11y/$(DEPDIR)/libgtk_3_la-gtksocketaccessible.Tpo a11y/$(DEPDIR)/libgtk_3_la-gtksocketaccessible.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='a11y/gtksocketaccessible.c' object='a11y/libgtk_3_la-gtksocketaccessible.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -c -o a11y/libgtk_3_la-gtksocketaccessible.lo `test -f 'a11y/gtksocketaccessible.c' || echo '$(srcdir)/'`a11y/gtksocketaccessible.c
 
 a11y/libgtk_3_la-gtkspinbuttonaccessible.lo: a11y/gtkspinbuttonaccessible.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -MT a11y/libgtk_3_la-gtkspinbuttonaccessible.lo -MD -MP -MF a11y/$(DEPDIR)/libgtk_3_la-gtkspinbuttonaccessible.Tpo -c -o a11y/libgtk_3_la-gtkspinbuttonaccessible.lo `test -f 'a11y/gtkspinbuttonaccessible.c' || echo '$(srcdir)/'`a11y/gtkspinbuttonaccessible.c
@@ -7724,6 +7781,13 @@ libgtk_3_la-gtksearchenginetracker.lo: gtksearchenginetracker.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -c -o libgtk_3_la-gtksearchenginetracker.lo `test -f 'gtksearchenginetracker.c' || echo '$(srcdir)/'`gtksearchenginetracker.c
 
+libgtk_3_la-gtksearchenginetracker3.lo: gtksearchenginetracker3.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -MT libgtk_3_la-gtksearchenginetracker3.lo -MD -MP -MF $(DEPDIR)/libgtk_3_la-gtksearchenginetracker3.Tpo -c -o libgtk_3_la-gtksearchenginetracker3.lo `test -f 'gtksearchenginetracker3.c' || echo '$(srcdir)/'`gtksearchenginetracker3.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libgtk_3_la-gtksearchenginetracker3.Tpo $(DEPDIR)/libgtk_3_la-gtksearchenginetracker3.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='gtksearchenginetracker3.c' object='libgtk_3_la-gtksearchenginetracker3.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -c -o libgtk_3_la-gtksearchenginetracker3.lo `test -f 'gtksearchenginetracker3.c' || echo '$(srcdir)/'`gtksearchenginetracker3.c
+
 libgtk_3_la-gtkprint-win32.lo: gtkprint-win32.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgtk_3_la_CFLAGS) $(CFLAGS) -MT libgtk_3_la-gtkprint-win32.lo -MD -MP -MF $(DEPDIR)/libgtk_3_la-gtkprint-win32.Tpo -c -o libgtk_3_la-gtkprint-win32.lo `test -f 'gtkprint-win32.c' || echo '$(srcdir)/'`gtkprint-win32.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libgtk_3_la-gtkprint-win32.Tpo $(DEPDIR)/libgtk_3_la-gtkprint-win32.Plo
@@ -8550,6 +8614,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/libgtk_3_la-gtksearchenginequartz.Plo
 	-rm -f ./$(DEPDIR)/libgtk_3_la-gtksearchenginesimple.Plo
 	-rm -f ./$(DEPDIR)/libgtk_3_la-gtksearchenginetracker.Plo
+	-rm -f ./$(DEPDIR)/libgtk_3_la-gtksearchenginetracker3.Plo
 	-rm -f ./$(DEPDIR)/libgtk_3_la-gtksearchentry.Plo
 	-rm -f ./$(DEPDIR)/libgtk_3_la-gtkselection.Plo
 	-rm -f ./$(DEPDIR)/libgtk_3_la-gtkseparator.Plo
@@ -8656,6 +8721,7 @@ distclean: distclean-am
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkflowboxaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkflowboxchildaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkframeaccessible.Plo
+	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkheaderbaraccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkiconviewaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkimageaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkimagecellaccessible.Plo
@@ -8672,6 +8738,7 @@ distclean: distclean-am
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtknotebookaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtknotebookpageaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkpanedaccessible.Plo
+	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkplugaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkpopoveraccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkprogressbaraccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkradiobuttonaccessible.Plo
@@ -8681,6 +8748,7 @@ distclean: distclean-am
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkscaleaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkscalebuttonaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkscrolledwindowaccessible.Plo
+	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtksocketaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkspinbuttonaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkspinneraccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkstackaccessible.Plo
@@ -9140,6 +9208,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/libgtk_3_la-gtksearchenginequartz.Plo
 	-rm -f ./$(DEPDIR)/libgtk_3_la-gtksearchenginesimple.Plo
 	-rm -f ./$(DEPDIR)/libgtk_3_la-gtksearchenginetracker.Plo
+	-rm -f ./$(DEPDIR)/libgtk_3_la-gtksearchenginetracker3.Plo
 	-rm -f ./$(DEPDIR)/libgtk_3_la-gtksearchentry.Plo
 	-rm -f ./$(DEPDIR)/libgtk_3_la-gtkselection.Plo
 	-rm -f ./$(DEPDIR)/libgtk_3_la-gtkseparator.Plo
@@ -9246,6 +9315,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkflowboxaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkflowboxchildaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkframeaccessible.Plo
+	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkheaderbaraccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkiconviewaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkimageaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkimagecellaccessible.Plo
@@ -9262,6 +9332,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtknotebookaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtknotebookpageaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkpanedaccessible.Plo
+	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkplugaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkpopoveraccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkprogressbaraccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkradiobuttonaccessible.Plo
@@ -9271,6 +9342,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkscaleaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkscalebuttonaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkscrolledwindowaccessible.Plo
+	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtksocketaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkspinbuttonaccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkspinneraccessible.Plo
 	-rm -f a11y/$(DEPDIR)/libgtk_3_la-gtkstackaccessible.Plo
@@ -9633,10 +9705,10 @@ gtk.gresource.xml: Makefile.am inspector/Makefile.inc
 
 gtkresources.h: gtk.gresource.xml
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< \
-		--target=$@ --sourcedir=$(srcdir) --c-name _gtk --generate-header --manual-register
+		--target=$@ --sourcedir=$(srcdir) --c-name _gtk --generate-header --manual-register --internal
 gtkresources.c: gtk.gresource.xml $(resource_files)
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< \
-		--target=$@ --sourcedir=$(srcdir) --c-name _gtk --generate-source --manual-register
+		--target=$@ --sourcedir=$(srcdir) --c-name _gtk --generate-source --manual-register --internal
 
 gtkprivatetypebuiltins.h: stamp-gtkprivatetypebuiltins.h
 	@true
@@ -9652,15 +9724,16 @@ gtkprivatetypebuiltins.c: $(gtk_private_type_h_sources)  gtkprivatetypebuiltins.
 	&& cp xgen-gptbc gtkprivatetypebuiltins.c  \
 	&& rm -f xgen-gptbc
 
-gtktypefuncs.c: stamp-gtktypebuiltins.h stamp-gtkprivatetypebuiltins.h $(top_srcdir)/gtk/*.h $(top_srcdir)/gtk/a11y/*.h $(top_srcdir)/gtk/deprecated/*.h $(top_srcdir)/gdk/*.h Makefile
-	$(AM_V_GEN) (echo '#undef GTK_COMPILATION' && echo '#include <gtk/gtkx.h>') > xgen-gtfsrc.c && \
+gtktypefuncs.inc: stamp-gtktypebuiltins.h stamp-gtkprivatetypebuiltins.h $(top_srcdir)/gtk/*.h $(top_srcdir)/gtk/a11y/*.h $(top_srcdir)/gtk/deprecated/*.h $(top_srcdir)/gdk/*.h Makefile
+	$(AM_V_GEN) export LC_ALL=C ; \
+	  (echo '#undef GTK_COMPILATION' && echo '#include <gtk/gtkx.h>') > xgen-gtfsrc.c && \
 	  echo 'G_GNUC_BEGIN_IGNORE_DEPRECATIONS' > xgen-gtf && \
 	  ${CPP} $(DEFS) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) xgen-gtfsrc.c | \
 	  $(GREP) -o '\bg[td]k_[a-zA-Z0-9_]*_get_type\b' | \
 	  sort | uniq | \
 	  $(SED) '{ s/^/*tp++ = /; s/$$/();/; s/^.*\(gdk_x11\|gtk_plug_\|gtk_socket_\).*$$/#ifdef GDK_WINDOWING_X11\n&\n#endif/; }' >> xgen-gtf \
 	&& cp xgen-gtf $@ && rm -f xgen-gtf
-$(srcdir)/gtktestutils.c: gtktypefuncs.c
+$(srcdir)/gtktestutils.c: gtktypefuncs.inc
 
 install-exec-hook:
 @DISABLE_EXPLICIT_DEPS_TRUE@	$(SHELL) $(top_srcdir)/sanitize-la.sh $(DESTDIR)$(libdir)/libgtk-3.la
@@ -9680,57 +9753,59 @@ install-exec-hook:
 
 define msvcproj-builder
 
-$(top_builddir)/build/win32/vs10/$(1).vcxproj: $(top_builddir)/build/win32/vs9/$(1).vcproj
-$(top_builddir)/build/win32/vs10/$(1).vcxproj.filters: $(top_builddir)/build/win32/vs9/$(1).vcproj
-$(1).sourcefiles: $(top_builddir)/build/win32/vs9/$(1).vcproj
-$(1).vs10.sourcefiles: $(top_builddir)/build/win32/vs9/$(1).vcproj
-$(1).vs10.sourcefiles.filters: $(top_builddir)/build/win32/vs9/$(1).vcproj
+$(top_builddir)/win32/vs10/$(1).vcxproj: $(top_builddir)/win32/vs9/$(1).vcproj
+$(top_builddir)/win32/vs10/$(1).vcxproj.filters: $(top_builddir)/win32/vs9/$(1).vcproj
+$(1).sourcefiles: $(top_builddir)/win32/vs9/$(1).vcproj
+$(1).vs10.sourcefiles: $(top_builddir)/win32/vs9/$(1).vcproj
+$(1).vs10.sourcefiles.filters: $(top_builddir)/win32/vs9/$(1).vcproj
 
-$(top_builddir)/build/win32/vs9/$(1).vcproj: Makefile
-	-$(RM) $(top_builddir)/build/win32/vs9/$(1).vcproj
-	-$(RM) $(top_builddir)/build/win32/vs10/$(1).vcxproj
-	-$(RM) $(top_builddir)/build/win32/vs10/$(1).vcxproj.filters
-	-$(RM) $(top_builddir)/build/win32/vs11/$(1).vcxproj
-	-$(RM) $(top_builddir)/build/win32/vs11/$(1).vcxproj.filters
-	-$(RM) $(top_builddir)/build/win32/vs12/$(1).vcxproj
-	-$(RM) $(top_builddir)/build/win32/vs12/$(1).vcxproj.filters
-	-$(RM) $(top_builddir)/build/win32/vs14/$(1).vcxproj
-	-$(RM) $(top_builddir)/build/win32/vs14/$(1).vcxproj.filters
-	-$(RM) $(top_builddir)/build/win32/vs15/$(1).vcxproj
-	-$(RM) $(top_builddir)/build/win32/vs15/$(1).vcxproj.filters
+$(top_builddir)/win32/vs9/$(1).vcproj: Makefile
+	-$(RM) $(top_builddir)/win32/vs9/$(1).vcproj
+	-$(RM) $(top_builddir)/win32/vs10/$(1).vcxproj
+	-$(RM) $(top_builddir)/win32/vs10/$(1).vcxproj.filters
+	-$(RM) $(top_builddir)/win32/vs11/$(1).vcxproj
+	-$(RM) $(top_builddir)/win32/vs11/$(1).vcxproj.filters
+	-$(RM) $(top_builddir)/win32/vs12/$(1).vcxproj
+	-$(RM) $(top_builddir)/win32/vs12/$(1).vcxproj.filters
+	-$(RM) $(top_builddir)/win32/vs14/$(1).vcxproj
+	-$(RM) $(top_builddir)/win32/vs14/$(1).vcxproj.filters
+	-$(RM) $(top_builddir)/win32/vs15/$(1).vcxproj
+	-$(RM) $(top_builddir)/win32/vs15/$(1).vcxproj.filters
+	-$(RM) $(top_builddir)/win32/vs16/$(1).vcxproj
+	-$(RM) $(top_builddir)/win32/vs16/$(1).vcxproj.filters
 
 	for F in $(_proj_files); do \
 		case $$$$F in \
 		$(_proj_filters)) \
 			;; \
 		*.c|*.cpp|*.cc|*.cxx) \
-			echo '   <File RelativePath="..\..\..'$(_proj_subdir)$$$$F'" />' >>$(1).sourcefiles && \
-			echo '   <ClCompile Include="..\..\..'$(_proj_subdir)$$$$F'" />' >>$(1).vs10.sourcefiles && \
-			echo '   <ClCompile Include="..\..\..'$(_proj_subdir)$$$$F'"><Filter>Source Files</Filter></ClCompile>' >>$(1).vs10.sourcefiles.filters \
+			echo '   <File RelativePath="..\..'$(_proj_subdir)$$$$F'" />' >>$(1).sourcefiles && \
+			echo '   <ClCompile Include="..\..'$(_proj_subdir)$$$$F'" />' >>$(1).vs10.sourcefiles && \
+			echo '   <ClCompile Include="..\..'$(_proj_subdir)$$$$F'"><Filter>Source Files</Filter></ClCompile>' >>$(1).vs10.sourcefiles.filters \
 			;; \
 		esac;	\
 	done
 
-	$(CPP) -P - <$(top_srcdir)/build/win32/vs9/$(1).vcprojin >$(top_builddir)/build/win32/vs9/$(1).vcproj
-	$(CPP) -P - <$(top_srcdir)/build/win32/vs10/$(1).vcxprojin >$(top_builddir)/build/win32/vs10/$(1).vcxproj
-	$(CPP) -P - <$(top_srcdir)/build/win32/vs10/$(1).vcxproj.filtersin >$(top_builddir)/build/win32/vs10/$(1).vcxproj.filters
+	$(CPP) -P - <$(top_srcdir)/win32/vs9/$(1).vcprojin >$(top_builddir)/win32/vs9/$(1).vcproj
+	$(CPP) -P - <$(top_srcdir)/win32/vs10/$(1).vcxprojin >$(top_builddir)/win32/vs10/$(1).vcxproj
+	$(CPP) -P - <$(top_srcdir)/win32/vs10/$(1).vcxproj.filtersin >$(top_builddir)/win32/vs10/$(1).vcxproj.filters
 	$(RM) $(1).sourcefiles
 	$(RM) $(1).vs10.sourcefiles
 	$(RM) $(1).vs10.sourcefiles.filters
 
-$(top_builddir)/build/win32/vs10/$(1).vs10.headers: $(top_builddir)/build/win32/vs9/$(1).headers
+$(top_builddir)/win32/vs10/$(1).vs10.headers: $(top_builddir)/win32/vs9/$(1).headers
 
-$(top_builddir)/build/win32/vs9/$(1).headers: Makefile
-	-$(RM) $(top_builddir)/build/win32/vs9/$(1).headers
-	-$(RM) $(top_builddir)/build/win32/vs10/$(1).vs10.headers
+$(top_builddir)/win32/vs9/$(1).headers: Makefile
+	-$(RM) $(top_builddir)/win32/vs9/$(1).headers
+	-$(RM) $(top_builddir)/win32/vs10/$(1).vs10.headers
 
 	for F in $(_proj_headers); do \
 		case $$$$F in \
 		$(_proj_headers_excludes)) \
 			;; \
 		*.h|*.hpp|*.hh|*.hxx) \
-			echo 'copy ..\..\..'$(_proj_subdir)$$$$F' $$$$(CopyDir)\include'$(_headers_destdir)'\'$$$$F'&#x0D;&#x0A;' >>$(top_builddir)/build/win32/vs9/$(1).headers && \
-			echo 'copy ..\..\..'$(_proj_subdir)$$$$F' $$$$(CopyDir)\include'$(_headers_destdir)'\'$$$$F >>$(top_builddir)/build/win32/vs10/$(1).vs10.headers \
+			echo 'copy ..\..'$(_proj_subdir)$$$$F' $$$$(CopyDir)\include'$(_headers_destdir)'\'$$$$F'&#x0D;&#x0A;' >>$(top_builddir)/win32/vs9/$(1).headers && \
+			echo 'copy ..\..'$(_proj_subdir)$$$$F' $$$$(CopyDir)\include'$(_headers_destdir)'\'$$$$F >>$(top_builddir)/win32/vs10/$(1).vs10.headers \
 			;; \
 		esac;	\
 	done
@@ -9754,56 +9829,57 @@ $(foreach proj,$(MSVCPROJS),$(eval $(call msvcproj-builder,$(proj))))
 @HAVE_INTROSPECTION_TRUE@          $($(_gir_name)_MSVC_PROGRAM)),,
 @HAVE_INTROSPECTION_TRUE@    $(error Need to define $(_gir_name)_MSVC_LIBS or $(_gir_name)_MSVC_PROGRAM))
 
-@HAVE_INTROSPECTION_TRUE@$(top_builddir)/build/win32/$(_gir_name)_list: Makefile
+@HAVE_INTROSPECTION_TRUE@$(top_builddir)/win32/$(_gir_name)_list: Makefile
+@HAVE_INTROSPECTION_TRUE@	rm -f $(top_builddir)/win32/$(_gir_name)_list
 @HAVE_INTROSPECTION_TRUE@	for F in $(_gir_files_msvc); do \
 @HAVE_INTROSPECTION_TRUE@		case $$$$F in \
 @HAVE_INTROSPECTION_TRUE@		*.c|*.cpp|*.cc|*.cxx|*.h|*.hpp|*.hh|*.hxx) \
-@HAVE_INTROSPECTION_TRUE@			echo '..\..'$(_gir_source_subdir_msvc)$$$$F >>$(top_builddir)/build/win32/$(_gir_name)_list \
+@HAVE_INTROSPECTION_TRUE@			echo '..'$(_gir_source_subdir_msvc)$$$$F >>$(top_builddir)/win32/$(_gir_name)_list \
 @HAVE_INTROSPECTION_TRUE@			;; \
 @HAVE_INTROSPECTION_TRUE@		esac; \
 @HAVE_INTROSPECTION_TRUE@	done
 
-@HAVE_INTROSPECTION_TRUE@$(top_builddir)/build/win32/$(1).msvc.introspect: Makefile
-@HAVE_INTROSPECTION_TRUE@	-$(RM) $(top_builddir)/build/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@$(top_builddir)/win32/$(1).msvc.introspect: Makefile
+@HAVE_INTROSPECTION_TRUE@	-$(RM) $(top_builddir)/win32/$(1).msvc.introspect
 
 # Assemble the Command to Run g-ir-scanner
-@HAVE_INTROSPECTION_TRUE@	echo 'vs$$$$(VSVER)\$$$$(CFG)\$$$$(PLAT)\bin\'$(1)': '$(_gir_name)'_list '$($(_gir_name)_MSVC_GIR_DEPS)>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	@-echo Generating $$$$@...'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	$$$$(PYTHON) $$$$(G_IR_SCANNER)	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	--verbose -no-libtool	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	--namespace='$(_gir_namespace_msvc)'	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	--nsversion='$(_gir_version_msvc)'	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	'$(_gir_packages_msvc)'	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	'$(_gir_libraries_msvc)'	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	'$(_gir_program_msvc)'	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	--add-include-path=./vs$$$$(VSVER)/$$$$(CFG)/$$$$(PLAT)/bin	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	--add-include-path=$$$$(G_IR_INCLUDEDIR)	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	'$(_gir_includes_msvc)'	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	'$(_gir_export_packages_msvc)'	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	--cflags-begin	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	'$($(_gir_name)_MSVC_CFLAGS)'	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	--cflags-end	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	'$($(_gir_name)_MSVC_SCANNERFLAGS)'	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	--filelist='$(_gir_name)'_list	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	-L.\vs$$$$(VSVER)\$$$$(CFG)\$$$$(PLAT)\bin	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	-o $$$$@'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '' >>$(top_builddir)/build/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo 'vs$$$$(VSVER)\$$$$(CFG)\$$$$(PLAT)\bin\'$(1)': '$(_gir_name)'_list '$($(_gir_name)_MSVC_GIR_DEPS)>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	@-echo Generating $$$$@...'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	$$$$(PYTHON) $$$$(G_IR_SCANNER)	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	--verbose -no-libtool	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	--namespace='$(_gir_namespace_msvc)'	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	--nsversion='$(_gir_version_msvc)'	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	'$(_gir_packages_msvc)'	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	'$(_gir_libraries_msvc)'	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	'$(_gir_program_msvc)'	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	--add-include-path=./vs$$$$(VSVER)/$$$$(CFG)/$$$$(PLAT)/bin	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	--add-include-path=$$$$(G_IR_INCLUDEDIR)	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	'$(_gir_includes_msvc)'	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	'$(_gir_export_packages_msvc)'	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	--cflags-begin	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	'$($(_gir_name)_MSVC_CFLAGS)'	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	--cflags-end	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	'$($(_gir_name)_MSVC_SCANNERFLAGS)'	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	--filelist='$(_gir_name)'_list	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	-L.\vs$$$$(VSVER)\$$$$(CFG)\$$$$(PLAT)\bin	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	-o $$$$@'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '' >>$(top_builddir)/win32/$(1).msvc.introspect
 
 # Finally Assemble the Command to Compile the generated .gir
-@HAVE_INTROSPECTION_TRUE@	echo 'vs$$$$(VSVER)\$$$$(CFG)\$$$$(PLAT)\bin\$(_typelib_basename_msvc).typelib: vs$$$$(VSVER)\$$$$(CFG)\$$$$(PLAT)\bin\'$(_typelib_basename_msvc)'.gir'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	@-echo Compiling $$$$@...'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	$$$$(G_IR_COMPILER)	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	--includedir=$$$$(@D:\=/) --debug --verbose	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	$$$$(@R:\=/).gir	\'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '	-o $$$$@'>>$(top_builddir)/build/win32/$(1).msvc.introspect
-@HAVE_INTROSPECTION_TRUE@	echo '' >>$(top_builddir)/build/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo 'vs$$$$(VSVER)\$$$$(CFG)\$$$$(PLAT)\bin\$(_typelib_basename_msvc).typelib: vs$$$$(VSVER)\$$$$(CFG)\$$$$(PLAT)\bin\'$(_typelib_basename_msvc)'.gir'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	@-echo Compiling $$$$@...'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	$$$$(G_IR_COMPILER)	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	--includedir=$$$$(@D:\=/) --debug --verbose	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	$$$$(@R:\=/).gir	\'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '	-o $$$$@'>>$(top_builddir)/win32/$(1).msvc.introspect
+@HAVE_INTROSPECTION_TRUE@	echo '' >>$(top_builddir)/win32/$(1).msvc.introspect
 @HAVE_INTROSPECTION_TRUE@endef
 
 @HAVE_INTROSPECTION_TRUE@$(foreach gir,$(MSVC_INTROSPECT_GIRS),$(eval $(call gir-nmake-builder,$(gir))))
 
 dist-hook: \
-	$(top_builddir)/build/win32/vs9/gtk-3.vcproj	\
-	$(top_builddir)/build/win32/vs9/gtk-3.headers	\
+	$(top_builddir)/win32/vs9/gtk-3.vcproj	\
+	$(top_builddir)/win32/vs9/gtk-3.headers	\
 	$(INTROSPECTION_INTERMEDIATE_ITEMS)
 
 # Install a RC file for the default GTK+ theme, and key themes
@@ -9848,7 +9924,7 @@ distclean-local:
 @OS_WIN32_TRUE@	 echo '</assembly>' ) >$@
 
 @OS_WIN32_TRUE@$(GTK_UPDATE_ICON_CACHE_RC):
-@OS_WIN32_TRUE@	(echo 'CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST '$(GTK_UPDATE_ICON_CACHE_MANIFEST)) >$@
+@OS_WIN32_TRUE@	(echo -e '#include <winuser.h>\nCREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST '$(GTK_UPDATE_ICON_CACHE_MANIFEST)) >$@
 
 @OS_WIN32_TRUE@$(GTK_UPDATE_ICON_CACHE_MANIFEST_OBJECT): $(GTK_UPDATE_ICON_CACHE_RC) $(GTK_UPDATE_ICON_CACHE_MANIFEST)
 @OS_WIN32_TRUE@	$(WINDRES) --input $< --output $@ --output-format=coff

@@ -40,6 +40,7 @@ typedef struct
 
   GQueue *directories;
 
+  guint got_results : 1;
   gint n_processed_files;
   GList *hits;
 
@@ -109,7 +110,8 @@ search_thread_data_new (GtkSearchEngineSimple *engine,
   data->engine = g_object_ref (engine);
   data->directories = g_queue_new ();
   data->query = g_object_ref (query);
-  data->recursive = _gtk_search_engine_get_recursive (GTK_SEARCH_ENGINE (engine));
+  /* Simple search engine is too slow to be recursive */
+  data->recursive = FALSE;
   queue_if_local (data, gtk_query_get_location (query));
 
   data->cancellable = g_cancellable_new ();
@@ -137,7 +139,10 @@ search_thread_done_idle (gpointer user_data)
   data = user_data;
 
   if (!g_cancellable_is_cancelled (data->cancellable))
-    _gtk_search_engine_finished (GTK_SEARCH_ENGINE (data->engine));
+    {
+      _gtk_search_engine_finished (GTK_SEARCH_ENGINE (data->engine),
+                                   data->got_results);
+    }
 
   data->engine->active_search = NULL;
   search_thread_data_free (data);
@@ -182,6 +187,7 @@ send_batch (SearchThreadData *data)
 
       id = gdk_threads_add_idle (search_thread_add_hits_idle, batch);
       g_source_set_name_by_id (id, "[gtk+] search_thread_add_hits_idle");
+      data->got_results = TRUE;
     }
 
   data->hits = NULL;

@@ -8,7 +8,7 @@
 <link rel="up" href="Gestures.html" title="Gestures and event handling">
 <link rel="prev" href="GtkGestureDrag.html" title="GtkGestureDrag">
 <link rel="next" href="GtkGestureMultiPress.html" title="GtkGestureMultiPress">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GtkGestureLongPress.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="function_type">
@@ -60,7 +60,7 @@
 <col width="200px" class="properties_flags">
 </colgroup>
 <tbody><tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a></td>
+<td class="property_type"><span class="type">double</span></td>
 <td class="property_name"><a class="link" href="GtkGestureLongPress.html#GtkGestureLongPress--delay-factor" title="The “delay-factor” property">delay-factor</a></td>
 <td class="property_flags">Read / Write</td>
 </tr></tbody>
@@ -70,20 +70,20 @@
 <a name="GtkGestureLongPress.signals"></a><h2>Signals</h2>
 <div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
-<col width="150px" class="signals_return">
-<col width="300px" class="signals_name">
-<col width="200px" class="signals_flags">
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
 </colgroup>
 <tbody>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkGestureLongPress.html#GtkGestureLongPress-cancelled" title="The “cancelled” signal">cancelled</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+<td class="signal_flags">Run Last</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkGestureLongPress.html#GtkGestureLongPress-pressed" title="The “pressed” signal">pressed</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+<td class="signal_flags">Run Last</td>
 </tr>
 </tbody>
 </table></div>
@@ -92,8 +92,8 @@
 <a name="GtkGestureLongPress.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="datatype_keyword"> </td>
@@ -103,7 +103,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkGestureLongPress.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> <a class="link" href="GtkEventController.html" title="GtkEventController">GtkEventController</a>
         <span class="lineart">╰──</span> <a class="link" href="GtkGesture.html" title="GtkGesture">GtkGesture</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkGestureSingle.html" title="GtkGestureSingle">GtkGestureSingle</a>
@@ -112,7 +112,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkGestureLongPress.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -164,8 +164,9 @@ gtk_gesture_long_press_new (<em class="parameter"><code><a class="link" href="Gt
 <a name="GtkGestureLongPress.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkGestureLongPress--delay-factor"></a><h3>The <code class="literal">“delay-factor”</code> property</h3>
-<pre class="programlisting">  “delay-factor”             <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a></pre>
+<pre class="programlisting">  “delay-factor”             <span class="type">double</span></pre>
 <p>Factor by which to modify the default timeout.</p>
+<p>Owner: GtkGestureLongPress</p>
 <p>Flags: Read / Write</p>
 <p>Allowed values: [0.5,2]</p>
 <p>Default value: 1</p>
@@ -177,7 +178,7 @@ gtk_gesture_long_press_new (<em class="parameter"><code><a class="link" href="Gt
 <a name="GtkGestureLongPress-cancelled"></a><h3>The <code class="literal">“cancelled”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkGestureLongPress.html" title="GtkGestureLongPress"><span class="type">GtkGestureLongPress</span></a> *gesture,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>             user_data)</pre>
+               <span class="type">gpointer</span>             user_data)</pre>
 <p>This signal is emitted whenever a press moved too far, or was released
 before <a class="link" href="GtkGestureLongPress.html#GtkGestureLongPress-pressed" title="The “pressed” signal"><span class="type">“pressed”</span></a> happened.</p>
 <div class="refsect3">
@@ -202,7 +203,7 @@ before <a class="link" href="GtkGestureLongPress.html#GtkGestureLongPress-presse
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p>Flags: Run Last</p>
 <p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 <hr>
@@ -210,9 +211,9 @@ before <a class="link" href="GtkGestureLongPress.html#GtkGestureLongPress-presse
 <a name="GtkGestureLongPress-pressed"></a><h3>The <code class="literal">“pressed”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkGestureLongPress.html" title="GtkGestureLongPress"><span class="type">GtkGestureLongPress</span></a> *gesture,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>              x,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>              y,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>             user_data)</pre>
+               <span class="type">double</span>               x,
+               <span class="type">double</span>               y,
+               <span class="type">gpointer</span>             user_data)</pre>
 <p>This signal is emitted whenever a press goes unmoved/unreleased longer than
 what the GTK+ defaults tell.</p>
 <div class="refsect3">
@@ -247,12 +248,12 @@ what the GTK+ defaults tell.</p>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p>Flags: Run Last</p>
 <p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

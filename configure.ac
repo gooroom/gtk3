@@ -10,8 +10,8 @@
 
 m4_define([gtk_major_version], [3])
 m4_define([gtk_minor_version], [24])
-m4_define([gtk_micro_version], [5])
-m4_define([gtk_interface_age], [1])
+m4_define([gtk_micro_version], [24])
+m4_define([gtk_interface_age], [20])
 m4_define([gtk_binary_age],
           [m4_eval(100 * gtk_minor_version + gtk_micro_version)])
 m4_define([gtk_version],
@@ -42,8 +42,8 @@ m4_define([gtk_binary_version], [3.0.0])
 
 # required versions of other packages
 m4_define([glib_required_major], [2])
-m4_define([glib_required_minor], [53])
-m4_define([glib_required_micro], [4])
+m4_define([glib_required_minor], [57])
+m4_define([glib_required_micro], [2])
 m4_define([glib_required_version],
           [glib_required_major.glib_required_minor.glib_required_micro])
 m4_define([glib_min_required_minor],
@@ -56,16 +56,15 @@ GLIB_VERSION_CFLAGS="-DGLIB_MIN_REQUIRED_VERSION=glib_min_required_version -DGLI
 
 m4_define([pango_required_version], [1.41.0])
 m4_define([fribidi_required_version], [0.19.7])
-m4_define([atk_required_version], [2.15.1])
+m4_define([atk_required_version], [2.32.0])
 m4_define([cairo_required_version], [1.14.0])
 m4_define([gdk_pixbuf_required_version], [2.30.0])
 m4_define([introspection_required_version], [1.39.0])
-m4_define([wayland_required_version], [1.9.91])
-m4_define([wayland_protocols_required_version], [1.12])
-m4_define([mirclient_required_version], [0.22.0])
-m4_define([mircookie_required_version], [0.17.0])
+m4_define([wayland_required_version], [1.14.91])
+m4_define([wayland_protocols_required_version], [1.17])
 m4_define([epoxy_required_version], [1.4])
 m4_define([cloudproviders_required_version], [0.2.5])
+m4_define([sysprof_required_version], [3.33.2])
 GLIB_REQUIRED_VERSION=glib_required_version
 PANGO_REQUIRED_VERSION=pango_required_version
 ATK_REQUIRED_VERSION=atk_required_version
@@ -343,15 +342,16 @@ AC_ARG_ENABLE(wayland-backend,
               [AS_HELP_STRING([--enable-wayland-backend],
                               [enable the wayland gdk backend])],
 			      [backend_set=yes])
-AC_ARG_ENABLE(mir-backend,
-              [AS_HELP_STRING([--enable-mir-backend],
-                              [enable the Mir gdk backend])],
-			      [backend_set=yes])
-
 AC_ARG_ENABLE(cloudproviders,
               [AS_HELP_STRING([--enable-cloudproviders],
                               [enable libcloudproviders integration])],
                               [cloudproviders_set=yes])
+
+AC_ARG_ENABLE(profiler,
+              [AS_HELP_STRING([--enable-profiler],
+                              [enable profiler integration])],
+              [enable_profiler=$enableval],
+              [enable_profiler=no])
 
 if test -z "$backend_set"; then
   if test "$platform_win32" = yes; then
@@ -359,7 +359,6 @@ if test -z "$backend_set"; then
   else
     enable_x11_backend=yes
     enable_wayland_backend=maybe
-    enable_mir_backend=no
   fi
 fi
 
@@ -470,30 +469,6 @@ if test "$enable_wayland_backend" = "yes"; then
   AM_CONDITIONAL(USE_WAYLAND, true)
 else
   AM_CONDITIONAL(USE_WAYLAND, false)
-fi
-
-MIR_DEPENDENCIES="mirclient >= mirclient_required_version mircookie >= mircookie_required_version libcontent-hub-glib"
-if test "$enable_mir_backend" = "maybe" ; then
-  PKG_CHECK_EXISTS($MIR_DEPENDENCIES, [have_mir_deps=yes], [have_mir_deps=no])
-  AC_MSG_CHECKING([for MIR_DEPENDENCIES])
-  if test "$have_mir_deps" = "no" ; then
-    enable_mir_backend=no
-  else
-    enable_mir_backend=yes
-  fi
-  AC_MSG_RESULT($enable_mir_backend)
-fi
-
-if test "$enable_mir_backend" = "yes"; then
-  cairo_backends="$cairo_backends cairo"
-  GDK_BACKENDS="$GDK_BACKENDS mir"
-  GDK_WINDOWING="$GDK_WINDOWING
-#define GDK_WINDOWING_MIR"
-  MIR_PACKAGES="$MIR_DEPENDENCIES"
-
-  AM_CONDITIONAL(USE_MIR, true)
-else
-  AM_CONDITIONAL(USE_MIR, false)
 fi
 
 # strip leading space
@@ -841,19 +816,6 @@ AC_CHECK_HEADERS(ftw.h,
                  AC_DEFINE(HAVE_FTW_H, 1,
                            [Define to 1 if ftw.h is available]))
 
-AC_MSG_CHECKING([for GNU ftw extensions])
-AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#define _XOPEN_SOURCE 500
-                                     #define _GNU_SOURCE
-                                     #include <ftw.h>]],
-                                   [[int flags = FTW_ACTIONRETVAL;]])],
-                  [gtk_ok=yes],[gtk_ok=no])
-if test $gtk_ok = yes; then
-    AC_MSG_RESULT([yes])
-    AC_DEFINE(HAVE_GNU_FTW, 1, [Have GNU ftw])
-else
-    AC_MSG_RESULT([no])
-fi
-
 #
 # Disable deprecation checks for all libraries we depend on on stable branches.
 # This is so newer versions of those libraries don't cause more warnings with
@@ -883,10 +845,6 @@ AC_TYPE_UID_T
 AC_CHECK_LIB(m,round,,)
 AC_CHECK_FUNCS(round rint nearbyint sincos exp2 log2 trunc)
 AC_CHECK_DECLS([isnan, isinf], [], [], [[#include <math.h>]])
-
-# Checks for gdkspawn
-AC_CHECK_HEADERS(crt_externs.h)
-AC_CHECK_FUNCS(_NSGetEnviron)
 
 AC_MSG_CHECKING(whether to build dynamic modules)
 
@@ -1086,17 +1044,6 @@ if test "x$enable_x11_backend" = xyes; then
                 AC_MSG_ERROR([*** libX11 and libXext not found. Check 'config.log' for more details.]))
   AC_CHECK_FUNC(XextFindDisplay, :,
                 AC_MSG_ERROR([*** libX11 and libXext not found. Check 'config.log' for more details.]))
-
-  # Check if <X11/extensions/XIproto.h> is needed for xReply.
-
-  AC_CHECK_TYPE([xReply], ,
-                [AC_CHECK_TYPE([xReply],
-                               [AC_DEFINE([NEED_XIPROTO_H_FOR_XREPLY], 1,
-                                          [Define if <X11/extensions/XIproto.h> needed for xReply])],
-                               [AC_MSG_ERROR([xReply type unavailable. X11 is too old])],
-                               [[#include <X11/extensions/XIproto.h>
-                                 #include <X11/Xlibint.h>]])],
-                [[#include <X11/Xlibint.h>]])
 
   # Check for XKB support.
 
@@ -1373,11 +1320,26 @@ if test "x$cloudproviders_set" = "xyes"; then
   fi
 fi
 
+# Check for profiler support
+
+PROFILER_PACKAGES=""
+if test "x$enable_profiler" = "xyes"; then
+  PROFILER_PACKAGES="sysprof-capture-3 >= sysprof_required_version"
+  if $PKG_CONFIG --exists $PROFILER_PACKAGES; then
+    AC_DEFINE(HAVE_SYSPROF_CAPTURE, [1],
+              [Define if sysprof-capture-3 is available]
+              )
+  else
+    AC_MSG_ERROR([
+*** sysprof-capture-3 not found.])
+  fi
+fi
+
 CFLAGS="$saved_cflags"
 LDFLAGS="$saved_ldflags"
 
 GDK_PACKAGES="$PANGO_PACKAGES gdk-pixbuf-2.0 >= gdk_pixbuf_required_version cairo >= cairo_required_version cairo-gobject >= cairo_required_version"
-GDK_PRIVATE_PACKAGES="$GDK_GIO_PACKAGE $X_PACKAGES $WAYLAND_PACKAGES $MIR_PACKAGES $cairo_backends epoxy >= epoxy_required_version $CLOUDPROVIDER_PACKAGES"
+GDK_PRIVATE_PACKAGES="$GDK_GIO_PACKAGE $X_PACKAGES $WAYLAND_PACKAGES $cairo_backends epoxy >= epoxy_required_version $CLOUDPROVIDER_PACKAGES $PROFILER_PACKAGES fribidi >= fribidi_required_version"
 
 PKG_CHECK_MODULES(GDK_DEP, $GDK_PACKAGES $GDK_PRIVATE_PACKAGES)
 GDK_DEP_LIBS="$GDK_EXTRA_LIBS $GDK_DEP_LIBS $MATH_LIB"
@@ -1411,7 +1373,7 @@ fi
 PKG_CHECK_MODULES(ATK, $ATK_PACKAGES)
 
 GTK_PACKAGES="atk >= atk_required_version cairo >= cairo_required_version cairo-gobject >= cairo_required_version gdk-pixbuf-2.0 >= gdk_pixbuf_required_version gio-2.0 >= glib_required_version"
-GTK_PRIVATE_PACKAGES="$ATK_PACKAGES $WAYLAND_PACKAGES $MIR_PACKAGES epoxy >= epoxy_required_version"
+GTK_PRIVATE_PACKAGES="$ATK_PACKAGES $WAYLAND_PACKAGES epoxy >= epoxy_required_version fribidi >= fribidi_required_version"
 if test "x$enable_x11_backend" = xyes -o "x$enable_wayland_backend" = xyes; then
   GTK_PRIVATE_PACKAGES="$GTK_PRIVATE_PACKAGES pangoft2"
 fi
@@ -1516,37 +1478,6 @@ AC_SUBST(GTK_XIM_FLAGS)
 GDK_PIXBUF_LIBS=`$PKG_CONFIG --libs gdk-pixbuf-2.0`
 AC_SUBST(GDK_PIXBUF_LIBS)
 
-########################
-# Checks needed for gail
-########################
-
-old_LIBS="$LIBS"
-dnl Checks for inet libraries:
-AC_SEARCH_LIBS(gethostent, nsl)
-AC_SEARCH_LIBS(setsockopt, socket)
-AC_SEARCH_LIBS(connect, inet)
-
-dnl check for the sockaddr_un.sun_len member
-AC_CHECK_MEMBER([struct sockaddr_un.sun_len],
-		[struct_sockaddr_un_sun_len=true],
-		[struct_sockaddr_un_suin_len=false],
-		[#include <sys/types.h>
-		 #include <sys/un.h>]
-		)
-case $struct_sockaddr_un_sun_len in
-	true)
-		AC_DEFINE_UNQUOTED(HAVE_SOCKADDR_UN_SUN_LEN, 1,
-		                   [Have the sockaddr_un.sun_len member])
-		;;
-	*)
-		;;
-esac
-
-GAIL_INET_LIBS="$LIBS"
-AC_SUBST([GAIL_INET_LIBS])
-
-LIBS="$old_LIBS"
-
 ################################################################
 # Printing system checks
 ################################################################
@@ -1574,19 +1505,13 @@ else
     CUPS_CFLAGS=`$CUPS_CONFIG --cflags | sed 's/-O[0-9]*//' | sed 's/-m[^\t]*//g'`
     CUPS_LIBS=`$CUPS_CONFIG --libs`
 
-    CUPS_API_VERSION=`$CUPS_CONFIG --api-version`
+    CUPS_API_VERSION=`$CUPS_CONFIG --version`
     CUPS_API_MAJOR=`echo $ECHO_N $CUPS_API_VERSION | awk -F. '{print $1}'`
     CUPS_API_MINOR=`echo $ECHO_N $CUPS_API_VERSION | awk -F. '{print $2}'`
 
     if test $CUPS_API_MAJOR -lt 1 -o \
-            $CUPS_API_MAJOR -eq 1 -a $CUPS_API_MINOR -lt 2; then
-      AC_MSG_ERROR([CUPS >= 1.2 not found])
-    fi
-    if test $CUPS_API_MAJOR -gt 1 -o \
-	    $CUPS_API_MAJOR -eq 1 -a $CUPS_API_MINOR -ge 6; then
-      AC_DEFINE(HAVE_CUPS_API_1_6, 1,
-                [Define to 1 if CUPS 1.6 API is available])
-      have_cups_api_1_6=yes
+            $CUPS_API_MAJOR -eq 1 -a $CUPS_API_MINOR -lt 7; then
+      AC_MSG_ERROR([CUPS >= 1.7 not found])
     fi
 
     AC_SUBST(CUPS_API_MAJOR)
@@ -1599,22 +1524,6 @@ else
     PRINT_BACKENDS="$PRINT_BACKENDS cups"
     AM_CONDITIONAL(HAVE_CUPS, true)
     have_cups=yes
-
-    gtk_save_cflags="$CFLAGS"
-    CFLAGS="$CUPS_CFLAGS"
-    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <cups/http.h>]],
-                                       [[http_t http; char *s = http.authstring;]])],
-                      [AC_DEFINE([HAVE_HTTP_AUTHSTRING], [],
-                                 [Define if cups http_t authstring field is accessible])],
-                      [])
-    CFLAGS="$gtk_save_cflags"
-
-    AC_SUBST(HAVE_HTTP_AUTHSTRING)
-
-    gtk_save_libs="$LIBS"
-    LIBS="$CUPS_LIBS"
-    AC_CHECK_FUNCS(httpGetAuthString)
-    LIBS="$gtk_save_libs"
   fi
 fi
 
@@ -1642,6 +1551,30 @@ else
 ])
   fi
 fi
+
+# Checks to see if we should compile with tracker3 search engine
+#
+
+AC_ARG_ENABLE(tracker3,
+              [AS_HELP_STRING([--enable-tracker3],
+                              [enable tracker3 search engine])],
+              [enable_tracker3=yes],
+              [enable_tracker3=no])
+
+if test "x$enable_tracker3" = "xyes"; then
+  PKG_CHECK_MODULES(TRACKER3, [tracker-sparql-3.0], have_tracker3=yes, have_tracker3=no)
+  GTK_DEP_CFLAGS="$GTK_DEP_CFLAGS $TRACKER3_CFLAGS"
+  GTK_DEP_LIBS="$GTK_DEP_LIBS $TRACKER3_LIBS"
+  if test "x$have_tracker3" = "xyes"; then
+    AC_DEFINE([HAVE_TRACKER3], [], [Define if tracker3 is available])
+  else
+    AC_MSG_ERROR([
+*** tracker3 not found.
+])
+  fi
+fi
+
+AM_CONDITIONAL(HAVE_TRACKER3, test "x$have_tracker3" = "xyes")
 
 # Checks to see if we should compile with cloudprint backend for GTK+
 #
@@ -2027,19 +1960,21 @@ docs/reference/gdk/version.xml
 docs/reference/gtk/Makefile
 docs/reference/gtk/gtk3.types
 docs/reference/gtk/version.xml
+docs/reference/gtk/getting_started.xml
 docs/reference/libgail-util/Makefile
 docs/reference/libgail-util/version.xml
 docs/tools/Makefile
-build/Makefile
-build/win32/Makefile
-build/win32/vs9/Makefile
-build/win32/vs9/gtk3-version-paths.vsprops
-build/win32/vs10/Makefile
-build/win32/vs10/gtk3-version-paths.props
-build/win32/vs11/Makefile
-build/win32/vs12/Makefile
-build/win32/vs14/Makefile
-build/win32/vs15/Makefile
+win32/Makefile
+win32/config-msvc.mak
+win32/vs9/Makefile
+win32/vs9/gtk3-version-paths.vsprops
+win32/vs10/Makefile
+win32/vs10/gtk3-version-paths.props
+win32/vs11/Makefile
+win32/vs12/Makefile
+win32/vs14/Makefile
+win32/vs15/Makefile
+win32/vs16/Makefile
 gdk/Makefile
 gdk/broadway/Makefile
 gdk/x11/Makefile
@@ -2048,7 +1983,6 @@ gdk/win32/rc/Makefile
 gdk/win32/rc/gdk.rc
 gdk/quartz/Makefile
 gdk/wayland/Makefile
-gdk/mir/Makefile
 gdk/gdkversionmacros.h
 gtk/Makefile
 gtk/makefile.msc
@@ -2088,3 +2022,4 @@ echo "        colord support:       $have_colord"
 echo "        Introspection:        $found_introspection"
 echo "        Debugging:            $enable_debug"
 echo "        Documentation:        $enable_gtk_doc"
+echo "        Profiler:             $enable_profiler"

@@ -50,6 +50,7 @@
 #include "gtktypebuiltins.h"
 #include "gtkwidgetprivate.h"
 #include "deprecated/gtkstock.h"
+#include "gtkgesturemultipress.h"
 
 /**
  * SECTION:gtkinfobar
@@ -147,6 +148,10 @@ struct _GtkInfoBarPrivate
 
   gboolean show_close_button;
   GtkMessageType message_type;
+  int default_response;
+  gboolean default_response_sensitive;
+
+  GtkGesture *gesture;
 };
 
 typedef struct _ResponseData ResponseData;
@@ -300,6 +305,96 @@ find_button (GtkInfoBar *info_bar,
 }
 
 static void
+update_state (GtkWidget *widget,
+              gboolean   in)
+{
+  GtkStateFlags state;
+
+  state = gtk_widget_get_state_flags (widget);
+  if (in)
+    state |= GTK_STATE_FLAG_PRELIGHT;
+  else
+    state &= ~GTK_STATE_FLAG_PRELIGHT;
+
+  gtk_widget_set_state_flags (widget, state, TRUE);
+}
+
+static gboolean
+gtk_info_bar_enter_notify (GtkWidget        *widget,
+                           GdkEventCrossing *event)
+{
+  if (event->detail != GDK_NOTIFY_INFERIOR)
+    update_state (widget, TRUE);
+
+  return FALSE;
+}
+
+static gboolean
+gtk_info_bar_leave_notify (GtkWidget        *widget,
+                           GdkEventCrossing *event)
+{
+  if (event->detail != GDK_NOTIFY_INFERIOR)
+    update_state (widget, FALSE);
+
+  return FALSE;
+}
+
+static void
+gtk_info_bar_realize (GtkWidget *widget)
+{
+  GtkAllocation allocation;
+  GdkWindow *window;
+  GdkWindowAttr attributes;
+  gint attributes_mask;
+
+  gtk_widget_get_allocation (widget, &allocation);
+
+  gtk_widget_set_realized (widget, TRUE);
+
+  attributes.window_type = GDK_WINDOW_CHILD;
+  attributes.x = allocation.x;
+  attributes.y = allocation.y;
+  attributes.width = allocation.width;
+  attributes.height = allocation.height;
+  attributes.wclass = GDK_INPUT_ONLY;
+  attributes.event_mask = gtk_widget_get_events (widget);
+  attributes.event_mask |= (GDK_BUTTON_PRESS_MASK |
+                            GDK_BUTTON_RELEASE_MASK |
+                            GDK_TOUCH_MASK |
+                            GDK_ENTER_NOTIFY_MASK |
+                            GDK_LEAVE_NOTIFY_MASK);
+
+  attributes_mask = GDK_WA_X | GDK_WA_Y;
+
+  window = gdk_window_new (gtk_widget_get_parent_window (widget), &attributes, attributes_mask);
+  gtk_widget_register_window (widget, window);
+  gtk_widget_set_window (widget, window);
+}
+
+static void
+gtk_info_bar_size_allocate (GtkWidget     *widget,
+                            GtkAllocation *allocation)
+{
+  GtkAllocation tmp_allocation;
+  GdkWindow *window;
+
+  tmp_allocation = *allocation;
+  tmp_allocation.x = 0;
+  tmp_allocation.y = 0;
+
+  GTK_WIDGET_CLASS (gtk_info_bar_parent_class)->size_allocate (widget,
+                                                               &tmp_allocation);
+
+  gtk_widget_set_allocation (widget, allocation);
+
+  window = gtk_widget_get_window (widget);
+  if (window != NULL)
+    gdk_window_move_resize (window,
+                            allocation->x, allocation->y,
+                            allocation->width, allocation->height);
+}
+
+static void
 gtk_info_bar_close (GtkInfoBar *info_bar)
 {
   if (!gtk_widget_get_visible (info_bar->priv->close_button)
@@ -308,6 +403,16 @@ gtk_info_bar_close (GtkInfoBar *info_bar)
 
   gtk_info_bar_response (GTK_INFO_BAR (info_bar),
                          GTK_RESPONSE_CANCEL);
+}
+
+static void
+gtk_info_bar_finalize (GObject *object)
+{
+  GtkInfoBar *info_bar = GTK_INFO_BAR (object);
+
+  g_object_unref (info_bar->priv->gesture);
+
+  G_OBJECT_CLASS (gtk_info_bar_parent_class)->finalize (object);
 }
 
 static void
@@ -320,8 +425,14 @@ gtk_info_bar_class_init (GtkInfoBarClass *klass)
   widget_class = GTK_WIDGET_CLASS (klass);
   object_class = G_OBJECT_CLASS (klass);
 
+  object_class->finalize = gtk_info_bar_finalize;
   object_class->get_property = gtk_info_bar_get_property;
   object_class->set_property = gtk_info_bar_set_property;
+
+  widget_class->realize = gtk_info_bar_realize;
+  widget_class->enter_notify_event = gtk_info_bar_enter_notify;
+  widget_class->leave_notify_event = gtk_info_bar_leave_notify;
+  widget_class->size_allocate = gtk_info_bar_size_allocate;
 
   klass->close = gtk_info_bar_close;
 
@@ -381,7 +492,7 @@ gtk_info_bar_class_init (GtkInfoBarClass *klass)
                                     G_SIGNAL_RUN_LAST,
                                     G_STRUCT_OFFSET (GtkInfoBarClass, response),
                                     NULL, NULL,
-                                    g_cclosure_marshal_VOID__INT,
+                                    NULL,
                                     G_TYPE_NONE, 1,
                                     G_TYPE_INT);
 
@@ -402,7 +513,7 @@ gtk_info_bar_class_init (GtkInfoBarClass *klass)
                                   G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
                                   G_STRUCT_OFFSET (GtkInfoBarClass, close),
                                   NULL, NULL,
-                                  g_cclosure_marshal_VOID__VOID,
+                                  NULL,
                                   G_TYPE_NONE, 0);
 
   /**
@@ -499,6 +610,19 @@ close_button_clicked_cb (GtkWidget  *button,
 }
 
 static void
+click_pressed_cb (GtkGestureMultiPress *gesture,
+                   guint            n_press,
+                   gdouble          x,
+                   gdouble          y,
+                   GtkInfoBar      *info_bar)
+{
+  GtkInfoBarPrivate *priv = gtk_info_bar_get_instance_private (info_bar);
+
+  if (priv->default_response && priv->default_response_sensitive)
+    gtk_info_bar_response (info_bar, priv->default_response);
+}
+
+static void
 gtk_info_bar_init (GtkInfoBar *info_bar)
 {
   GtkInfoBarPrivate *priv;
@@ -506,18 +630,21 @@ gtk_info_bar_init (GtkInfoBar *info_bar)
 
   priv = info_bar->priv = gtk_info_bar_get_instance_private (info_bar);
 
-  gtk_widget_set_redraw_on_allocate (widget, TRUE);
-
   /* message-type is a CONSTRUCT property, so we init to a value
    * different from its default to trigger its property setter
    * during construction */
   priv->message_type = GTK_MESSAGE_OTHER;
 
+  gtk_widget_set_has_window (widget, TRUE);
   gtk_widget_init_template (widget);
 
   gtk_widget_set_no_show_all (priv->close_button, TRUE);
   g_signal_connect (priv->close_button, "clicked",
                     G_CALLBACK (close_button_clicked_cb), info_bar);
+
+  priv->gesture = gtk_gesture_multi_press_new (widget);
+  gtk_gesture_single_set_button (GTK_GESTURE_SINGLE (priv->gesture), GDK_BUTTON_PRIMARY);
+  g_signal_connect (priv->gesture, "pressed", G_CALLBACK (click_pressed_cb), widget);
 }
 
 static GtkBuildableIface *parent_buildable_iface;
@@ -610,7 +737,7 @@ gtk_info_bar_add_action_widget (GtkInfoBar *info_bar,
  *
  * Returns the action area of @info_bar.
  *
- * Returns: (transfer none): the action area
+ * Returns: (type Gtk.Box) (transfer none): the action area
  *
  * Since: 2.18
  */
@@ -628,7 +755,7 @@ gtk_info_bar_get_action_area (GtkInfoBar *info_bar)
  *
  * Returns the content area of @info_bar.
  *
- * Returns: (transfer none): the content area
+ * Returns: (type Gtk.Box) (transfer none): the content area
  *
  * Since: 2.18
  */
@@ -791,6 +918,22 @@ gtk_info_bar_new_with_buttons (const gchar *first_button_text,
   return GTK_WIDGET (info_bar);
 }
 
+static void
+update_default_response (GtkInfoBar *info_bar,
+                         int         response_id,
+                         gboolean    sensitive)
+{
+  GtkInfoBarPrivate *priv = gtk_info_bar_get_instance_private (info_bar);
+
+  priv->default_response = response_id;
+  priv->default_response_sensitive = sensitive;
+
+  if (response_id && sensitive)
+    gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (info_bar)), "action");
+  else
+    gtk_style_context_remove_class (gtk_widget_get_style_context (GTK_WIDGET (info_bar)), "action");
+}
+
 /**
  * gtk_info_bar_set_response_sensitive:
  * @info_bar: a #GtkInfoBar
@@ -812,6 +955,9 @@ gtk_info_bar_set_response_sensitive (GtkInfoBar *info_bar,
 
   g_return_if_fail (GTK_IS_INFO_BAR (info_bar));
 
+  if (info_bar->priv->default_response == response_id)
+    info_bar->priv->default_response_sensitive = setting;
+
   children = gtk_container_get_children (GTK_CONTAINER (info_bar->priv->action_area));
 
   for (list = children; list; list = list->next)
@@ -824,6 +970,9 @@ gtk_info_bar_set_response_sensitive (GtkInfoBar *info_bar,
     }
 
   g_list_free (children);
+
+  if (response_id == info_bar->priv->default_response)
+    update_default_response (info_bar, response_id, setting);
 }
 
 /**
@@ -845,6 +994,7 @@ gtk_info_bar_set_default_response (GtkInfoBar *info_bar,
                                    gint        response_id)
 {
   GList *children, *list;
+  gboolean sensitive = TRUE;
 
   g_return_if_fail (GTK_IS_INFO_BAR (info_bar));
 
@@ -856,10 +1006,15 @@ gtk_info_bar_set_default_response (GtkInfoBar *info_bar,
       ResponseData *rd = get_response_data (widget, FALSE);
 
       if (rd && rd->response_id == response_id)
-        gtk_widget_grab_default (widget);
+        {
+          gtk_widget_grab_default (widget);
+          sensitive = gtk_widget_get_sensitive (widget);
+        }
     }
 
   g_list_free (children);
+
+  update_default_response (info_bar, response_id, sensitive);
 }
 
 /**

@@ -8,7 +8,7 @@
 <link rel="up" href="Ornaments.html" title="Ornaments">
 <link rel="prev" href="Ornaments.html" title="Ornaments">
 <link rel="next" href="GtkSeparator.html" title="GtkSeparator">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GtkFrame.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -83,7 +83,7 @@
 </td>
 </tr>
 <tr>
-<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<td class="function_type">const <span class="returnvalue">gchar</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkFrame.html#gtk-frame-get-label" title="gtk_frame_get_label ()">gtk_frame_get_label</a> <span class="c_punctuation">()</span>
@@ -127,7 +127,7 @@
 <tbody>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
+<span class="type">char</span> *</td>
 <td class="property_name"><a class="link" href="GtkFrame.html#GtkFrame--label" title="The “label” property">label</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -138,12 +138,12 @@
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a></td>
+<td class="property_type"><span class="type">float</span></td>
 <td class="property_name"><a class="link" href="GtkFrame.html#GtkFrame--label-xalign" title="The “label-xalign” property">label-xalign</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a></td>
+<td class="property_type"><span class="type">float</span></td>
 <td class="property_name"><a class="link" href="GtkFrame.html#GtkFrame--label-yalign" title="The “label-yalign” property">label-yalign</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -159,8 +159,8 @@
 <a name="GtkFrame.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -176,8 +176,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkFrame.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                 <span class="lineart">╰──</span> <a class="link" href="GtkBin.html" title="GtkBin">GtkBin</a>
@@ -221,14 +221,14 @@ be specified without specifying a &lt;child&gt; type attribute.</p>
 6
 7
 8</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkFrame"</span><span class="symbol">&gt;</span>
-<span class="normal">  </span><span class="symbol">&lt;</span><span class="usertype">child</span><span class="normal"> type</span><span class="symbol">=</span><span class="string">"label"</span><span class="symbol">&gt;</span>
-<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkLabel"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"frame-label"</span><span class="symbol">/&gt;</span>
-<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
-<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span>
-<span class="normal">    </span><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkEntry"</span><span class="normal"> id</span><span class="symbol">=</span><span class="string">"frame-content"</span><span class="symbol">/&gt;</span>
-<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">child</span><span class="symbol">&gt;</span>
-<span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="o">&lt;</span><span class="n">object</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;GtkFrame&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">child</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;label&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">object</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;GtkLabel&quot;</span> <span class="n">id</span><span class="o">=</span><span class="s">&quot;frame-label&quot;</span><span class="o">/&gt;</span>
+  <span class="o">&lt;/</span><span class="n">child</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">object</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;GtkEntry&quot;</span> <span class="n">id</span><span class="o">=</span><span class="s">&quot;frame-content&quot;</span><span class="o">/&gt;</span>
+  <span class="o">&lt;/</span><span class="n">child</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">object</span><span class="o">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -247,10 +247,10 @@ be specified without specifying a &lt;child&gt; type attribute.</p>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="normal">frame </span>
-<span class="normal">├── border</span><span class="symbol">[.</span><span class="normal">flat</span><span class="symbol">]</span>
-<span class="normal">├── </span><span class="symbol">&lt;</span><span class="usertype">label</span><span class="normal"> widget</span><span class="symbol">&gt;</span>
-<span class="normal">╰── </span><span class="symbol">&lt;</span><span class="normal">child</span><span class="symbol">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">frame</span> 
+<span class="err">├──</span> <span class="n">border</span><span class="p">[.</span><span class="n">flat</span><span class="p">]</span>
+<span class="err">├──</span> <span class="o">&lt;</span><span class="n">label</span> <span class="n">widget</span><span class="o">&gt;</span>
+<span class="err">╰──</span> <span class="o">&lt;</span><span class="n">child</span><span class="o">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -271,11 +271,11 @@ any other shadow type to remove it.</p>
 <div class="refsect2">
 <a name="gtk-frame-new"></a><h3>gtk_frame_new ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
-gtk_frame_new (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>);</pre>
+gtk_frame_new (<em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>);</pre>
 <p>Creates a new <a class="link" href="GtkFrame.html" title="GtkFrame"><span class="type">GtkFrame</span></a>, with optional label <em class="parameter"><code>label</code></em>
 .
 If <em class="parameter"><code>label</code></em>
- is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the label is omitted.</p>
+ is <code class="literal">NULL</code>, the label is omitted.</p>
 <div class="refsect3">
 <a name="gtk-frame-new.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -301,9 +301,9 @@ If <em class="parameter"><code>label</code></em>
 <a name="gtk-frame-set-label"></a><h3>gtk_frame_set_label ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_frame_set_label (<em class="parameter"><code><a class="link" href="GtkFrame.html" title="GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>,
-                     <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>);</pre>
+                     <em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>);</pre>
 <p>Removes the current <a class="link" href="GtkFrame.html#GtkFrame--label-widget" title="The “label-widget” property"><span class="type">“label-widget”</span></a>. If <em class="parameter"><code>label</code></em>
- is not <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, creates a
+ is not <code class="literal">NULL</code>, creates a
 new <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a> with that text and adds it as the <a class="link" href="GtkFrame.html#GtkFrame--label-widget" title="The “label-widget” property"><span class="type">“label-widget”</span></a>.</p>
 <div class="refsect3">
 <a name="gtk-frame-set-label.parameters"></a><h4>Parameters</h4>
@@ -364,8 +364,8 @@ will appear embedded in the top edge of the frame as a title.</p>
 <a name="gtk-frame-set-label-align"></a><h3>gtk_frame_set_label_align ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_frame_set_label_align (<em class="parameter"><code><a class="link" href="GtkFrame.html" title="GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>);</pre>
+                           <em class="parameter"><code><span class="type">gfloat</span> xalign</code></em>,
+                           <em class="parameter"><code><span class="type">gfloat</span> yalign</code></em>);</pre>
 <p>Sets the alignment of the frame widget’s label. The
 default values for a newly created frame are 0.0 and 0.5.</p>
 <div class="refsect3">
@@ -438,11 +438,11 @@ applied by removing or adding the .flat class to the CSS node named border.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-frame-get-label"></a><h3>gtk_frame_get_label ()</h3>
-<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
 gtk_frame_get_label (<em class="parameter"><code><a class="link" href="GtkFrame.html" title="GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>);</pre>
 <p>If the frame’s label widget is a <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a>, returns the
 text in the label widget. (The frame will have a <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a>
-for the label widget if a non-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> argument was passed
+for the label widget if a non-<code class="literal">NULL</code> argument was passed
 to <a class="link" href="GtkFrame.html#gtk-frame-new" title="gtk_frame_new ()"><code class="function">gtk_frame_new()</code></a>.)</p>
 <div class="refsect3">
 <a name="gtk-frame-get-label.parameters"></a><h4>Parameters</h4>
@@ -461,7 +461,7 @@ to <a class="link" href="GtkFrame.html#gtk-frame-new" title="gtk_frame_new ()">
 </div>
 <div class="refsect3">
 <a name="gtk-frame-get-label.returns"></a><h4>Returns</h4>
-<p>the text in the label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there
+<p>the text in the label, or <code class="literal">NULL</code> if there
 was no label widget or the lable widget was not
 a <a class="link" href="GtkLabel.html" title="GtkLabel"><span class="type">GtkLabel</span></a>. This string is owned by GTK+ and
 must not be modified or freed. </p>
@@ -473,8 +473,8 @@ must not be modified or freed. </p>
 <a name="gtk-frame-get-label-align"></a><h3>gtk_frame_get_label_align ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_frame_get_label_align (<em class="parameter"><code><a class="link" href="GtkFrame.html" title="GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> *xalign</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> *yalign</code></em>);</pre>
+                           <em class="parameter"><code><span class="type">gfloat</span> *xalign</code></em>,
+                           <em class="parameter"><code><span class="type">gfloat</span> *yalign</code></em>);</pre>
 <p>Retrieves the X and Y alignment of the frame’s label. See
 <a class="link" href="GtkFrame.html#gtk-frame-set-label-align" title="gtk_frame_set_label_align ()"><code class="function">gtk_frame_set_label_align()</code></a>.</p>
 <div class="refsect3">
@@ -494,13 +494,13 @@ gtk_frame_get_label_align (<em class="parameter"><code><a class="link" href="Gtk
 <tr>
 <td class="parameter_name"><p>xalign</p></td>
 <td class="parameter_description"><p>location to store X alignment of
-frame’s label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+frame’s label, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>yalign</p></td>
 <td class="parameter_description"><p>location to store X alignment of
-frame’s label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+frame’s label, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -531,7 +531,7 @@ gtk_frame_get_label_widget (<em class="parameter"><code><a class="link" href="Gt
 </div>
 <div class="refsect3">
 <a name="gtk-frame-get-label-widget.returns"></a><h4>Returns</h4>
-<p>the label widget, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
+<p>the label widget, or <code class="literal">NULL</code> if
 there is none. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -576,7 +576,6 @@ gtk_frame_get_shadow_type (<em class="parameter"><code><a class="link" href="Gtk
 <pre class="programlisting">struct GtkFrameClass {
   GtkBinClass parent_class;
 
-
   void (*compute_child_allocation) (GtkFrame *frame,
                                     GtkAllocation *allocation);
 };
@@ -602,8 +601,9 @@ gtk_frame_get_shadow_type (<em class="parameter"><code><a class="link" href="Gtk
 <a name="GtkFrame.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkFrame--label"></a><h3>The <code class="literal">“label”</code> property</h3>
-<pre class="programlisting">  “label”                    <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
+<pre class="programlisting">  “label”                    <span class="type">char</span> *</pre>
 <p>Text of the frame's label.</p>
+<p>Owner: GtkFrame</p>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
 </div>
@@ -612,13 +612,15 @@ gtk_frame_get_shadow_type (<em class="parameter"><code><a class="link" href="Gtk
 <a name="GtkFrame--label-widget"></a><h3>The <code class="literal">“label-widget”</code> property</h3>
 <pre class="programlisting">  “label-widget”             <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *</pre>
 <p>A widget to display in place of the usual frame label.</p>
+<p>Owner: GtkFrame</p>
 <p>Flags: Read / Write</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkFrame--label-xalign"></a><h3>The <code class="literal">“label-xalign”</code> property</h3>
-<pre class="programlisting">  “label-xalign”             <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a></pre>
+<pre class="programlisting">  “label-xalign”             <span class="type">float</span></pre>
 <p>The horizontal alignment of the label.</p>
+<p>Owner: GtkFrame</p>
 <p>Flags: Read / Write</p>
 <p>Allowed values: [0,1]</p>
 <p>Default value: 0</p>
@@ -626,8 +628,9 @@ gtk_frame_get_shadow_type (<em class="parameter"><code><a class="link" href="Gtk
 <hr>
 <div class="refsect2">
 <a name="GtkFrame--label-yalign"></a><h3>The <code class="literal">“label-yalign”</code> property</h3>
-<pre class="programlisting">  “label-yalign”             <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a></pre>
+<pre class="programlisting">  “label-yalign”             <span class="type">float</span></pre>
 <p>The vertical alignment of the label.</p>
+<p>Owner: GtkFrame</p>
 <p>Flags: Read / Write</p>
 <p>Allowed values: [0,1]</p>
 <p>Default value: 0.5</p>
@@ -637,12 +640,13 @@ gtk_frame_get_shadow_type (<em class="parameter"><code><a class="link" href="Gtk
 <a name="GtkFrame--shadow-type"></a><h3>The <code class="literal">“shadow-type”</code> property</h3>
 <pre class="programlisting">  “shadow-type”              <a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a></pre>
 <p>Appearance of the frame border.</p>
+<p>Owner: GtkFrame</p>
 <p>Flags: Read / Write</p>
 <p>Default value: GTK_SHADOW_ETCHED_IN</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

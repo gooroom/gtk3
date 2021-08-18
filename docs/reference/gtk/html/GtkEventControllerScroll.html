@@ -8,7 +8,7 @@
 <link rel="up" href="Gestures.html" title="Gestures and event handling">
 <link rel="prev" href="GtkEventControllerKey.html" title="GtkEventControllerKey">
 <link rel="next" href="GtkEventControllerMotion.html" title="GtkEventControllerMotion">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GtkEventControllerScroll.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -88,30 +88,30 @@
 <a name="GtkEventControllerScroll.signals"></a><h2>Signals</h2>
 <div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
-<col width="150px" class="signals_return">
-<col width="300px" class="signals_name">
-<col width="200px" class="signals_flags">
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
 </colgroup>
 <tbody>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkEventControllerScroll.html#GtkEventControllerScroll-decelerate" title="The “decelerate” signal">decelerate</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+<td class="signal_flags">Run First</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkEventControllerScroll.html#GtkEventControllerScroll-scroll" title="The “scroll” signal">scroll</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+<td class="signal_flags">Run First</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkEventControllerScroll.html#GtkEventControllerScroll-scroll-begin" title="The “scroll-begin” signal">scroll-begin</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+<td class="signal_flags">Run First</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkEventControllerScroll.html#GtkEventControllerScroll-scroll-end" title="The “scroll-end” signal">scroll-end</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+<td class="signal_flags">Run First</td>
 </tr>
 </tbody>
 </table></div>
@@ -120,8 +120,8 @@
 <a name="GtkEventControllerScroll.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -137,14 +137,14 @@
 </div>
 <div class="refsect1">
 <a name="GtkEventControllerScroll.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> <a class="link" href="GtkEventController.html" title="GtkEventController">GtkEventController</a>
         <span class="lineart">╰──</span> GtkEventControllerScroll
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkEventControllerScroll.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -326,7 +326,7 @@ gtk_event_controller_scroll_get_flags (<em class="parameter"><code><a class="lin
 <td class="enum_member_name"><p><a name="GTK-EVENT-CONTROLLER-SCROLL-KINETIC:CAPS"></a>GTK_EVENT_CONTROLLER_SCROLL_KINETIC</p></td>
 <td class="enum_member_description">
 <p>Emit <a class="link" href="GtkEventControllerScroll.html#GtkEventControllerScroll-decelerate" title="The “decelerate” signal"><span class="type">“decelerate”</span></a>
-  after continuous scroll finishes.</p>
+after continuous scroll finishes.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -349,6 +349,7 @@ gtk_event_controller_scroll_get_flags (<em class="parameter"><code><a class="lin
 <a name="GtkEventControllerScroll--flags"></a><h3>The <code class="literal">“flags”</code> property</h3>
 <pre class="programlisting">  “flags”                    <a class="link" href="GtkEventControllerScroll.html#GtkEventControllerScrollFlags" title="enum GtkEventControllerScrollFlags"><span class="type">GtkEventControllerScrollFlags</span></a></pre>
 <p>The flags affecting event controller behavior</p>
+<p>Owner: GtkEventControllerScroll</p>
 <p>Flags: Read / Write</p>
 <p class="since">Since: <a class="link" href="api-index-3-24.html#api-index-3.24">3.24</a></p>
 </div>
@@ -359,9 +360,9 @@ gtk_event_controller_scroll_get_flags (<em class="parameter"><code><a class="lin
 <a name="GtkEventControllerScroll-decelerate"></a><h3>The <code class="literal">“decelerate”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkEventControllerScroll.html" title="GtkEventControllerScroll"><span class="type">GtkEventControllerScroll</span></a> *controller,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>                   vel_x,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>                   vel_y,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                  user_data)</pre>
+               <span class="type">double</span>                    vel_x,
+               <span class="type">double</span>                    vel_y,
+               <span class="type">gpointer</span>                  user_data)</pre>
 <p>Emitted after scroll is finished if the <a class="link" href="GtkEventControllerScroll.html#GTK-EVENT-CONTROLLER-SCROLL-KINETIC:CAPS"><span class="type">GTK_EVENT_CONTROLLER_SCROLL_KINETIC</span></a>
 flag is set. <em class="parameter"><code>vel_x</code></em>
  and <em class="parameter"><code>vel_y</code></em>
@@ -402,16 +403,16 @@ pixels/ms.</p>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+<p>Flags: Run First</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkEventControllerScroll-scroll"></a><h3>The <code class="literal">“scroll”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkEventControllerScroll.html" title="GtkEventControllerScroll"><span class="type">GtkEventControllerScroll</span></a> *controller,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>                   dx,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>                   dy,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                  user_data)</pre>
+               <span class="type">double</span>                    dx,
+               <span class="type">double</span>                    dy,
+               <span class="type">gpointer</span>                  user_data)</pre>
 <p>Signals that the widget should scroll by the
 amount specified by <em class="parameter"><code>dx</code></em>
  and <em class="parameter"><code>dy</code></em>
@@ -448,14 +449,14 @@ amount specified by <em class="parameter"><code>dx</code></em>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+<p>Flags: Run First</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkEventControllerScroll-scroll-begin"></a><h3>The <code class="literal">“scroll-begin”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkEventControllerScroll.html" title="GtkEventControllerScroll"><span class="type">GtkEventControllerScroll</span></a> *controller,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                  user_data)</pre>
+               <span class="type">gpointer</span>                  user_data)</pre>
 <p>Signals that a new scrolling operation has begun. It will
 only be emitted on devices capable of it.</p>
 <div class="refsect3">
@@ -480,14 +481,14 @@ only be emitted on devices capable of it.</p>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+<p>Flags: Run First</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkEventControllerScroll-scroll-end"></a><h3>The <code class="literal">“scroll-end”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkEventControllerScroll.html" title="GtkEventControllerScroll"><span class="type">GtkEventControllerScroll</span></a> *controller,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                  user_data)</pre>
+               <span class="type">gpointer</span>                  user_data)</pre>
 <p>Signals that a new scrolling operation has finished. It will
 only be emitted on devices capable of it.</p>
 <div class="refsect3">
@@ -512,7 +513,7 @@ only be emitted on devices capable of it.</p>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+<p>Flags: Run First</p>
 </div>
 </div>
 <div class="refsect1">
@@ -521,6 +522,6 @@ only be emitted on devices capable of it.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

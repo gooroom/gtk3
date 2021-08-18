@@ -8,7 +8,7 @@
 <link rel="up" href="RecentDocuments.html" title="Recently Used Documents">
 <link rel="prev" href="GtkRecentChooserWidget.html" title="GtkRecentChooserWidget">
 <link rel="next" href="ApplicationChoosing.html" title="Choosing from installed applications">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -37,13 +37,13 @@
 <a name="GtkRecentFilter.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <span class="c_punctuation">(</span><a class="link" href="GtkRecentFilter.html#GtkRecentFilterFunc" title="GtkRecentFilterFunc ()">*GtkRecentFilterFunc</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
@@ -58,7 +58,7 @@
 </td>
 </tr>
 <tr>
-<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<td class="function_type">const <span class="returnvalue">gchar</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkRecentFilter.html#gtk-recent-filter-get-name" title="gtk_recent_filter_get_name ()">gtk_recent_filter_get_name</a> <span class="c_punctuation">()</span>
@@ -138,7 +138,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkRecentFilter.html#gtk-recent-filter-filter" title="gtk_recent_filter_filter ()">gtk_recent_filter_filter</a> <span class="c_punctuation">()</span>
@@ -151,8 +151,8 @@
 <a name="GtkRecentFilter.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -172,8 +172,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkRecentFilter.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> GtkRecentFilter
 </pre>
 </div>
@@ -233,21 +233,21 @@ calling <a class="link" href="GtkRecentFilter.html#gtk-recent-filter-add-mime-ty
 13
 14
 15</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="symbol">&lt;</span><span class="usertype">object</span><span class="normal"> class</span><span class="symbol">=</span><span class="string">"GtkRecentFilter"</span><span class="symbol">&gt;</span>
-<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">types</span><span class="symbol">&gt;</span>
-<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">type</span><span class="symbol">&gt;</span><span class="normal">text</span><span class="symbol">/</span><span class="normal">plain</span><span class="symbol">&lt;/</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">type</span><span class="symbol">&gt;</span>
-<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">type</span><span class="symbol">&gt;</span><span class="normal">image</span><span class="symbol">/</span><span class="normal">png</span><span class="symbol">&lt;/</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">type</span><span class="symbol">&gt;</span>
-<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">mime</span><span class="symbol">-</span><span class="normal">types</span><span class="symbol">&gt;</span>
-<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">patterns</span><span class="symbol">&gt;</span>
-<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">pattern</span><span class="symbol">&gt;*.</span><span class="normal">txt</span><span class="symbol">&lt;/</span><span class="normal">pattern</span><span class="symbol">&gt;</span>
-<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">pattern</span><span class="symbol">&gt;*.</span><span class="normal">png</span><span class="symbol">&lt;/</span><span class="normal">pattern</span><span class="symbol">&gt;</span>
-<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">patterns</span><span class="symbol">&gt;</span>
-<span class="normal">  </span><span class="symbol">&lt;</span><span class="normal">applications</span><span class="symbol">&gt;</span>
-<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">application</span><span class="symbol">&gt;</span><span class="normal">gimp</span><span class="symbol">&lt;/</span><span class="normal">application</span><span class="symbol">&gt;</span>
-<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">application</span><span class="symbol">&gt;</span><span class="normal">gedit</span><span class="symbol">&lt;/</span><span class="normal">application</span><span class="symbol">&gt;</span>
-<span class="normal">    </span><span class="symbol">&lt;</span><span class="normal">application</span><span class="symbol">&gt;</span><span class="normal">glade</span><span class="symbol">&lt;/</span><span class="normal">application</span><span class="symbol">&gt;</span>
-<span class="normal">  </span><span class="symbol">&lt;/</span><span class="normal">applications</span><span class="symbol">&gt;</span>
-<span class="symbol">&lt;/</span><span class="normal">object</span><span class="symbol">&gt;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="o">&lt;</span><span class="n">object</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;GtkRecentFilter&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">mime</span><span class="o">-</span><span class="n">types</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">mime</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="o">&lt;/</span><span class="n">mime</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">mime</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">image</span><span class="o">/</span><span class="n">png</span><span class="o">&lt;/</span><span class="n">mime</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">mime</span><span class="o">-</span><span class="n">types</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">patterns</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">pattern</span><span class="o">&gt;*</span><span class="p">.</span><span class="n">txt</span><span class="o">&lt;/</span><span class="n">pattern</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">pattern</span><span class="o">&gt;*</span><span class="p">.</span><span class="n">png</span><span class="o">&lt;/</span><span class="n">pattern</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">patterns</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">applications</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">application</span><span class="o">&gt;</span><span class="n">gimp</span><span class="o">&lt;/</span><span class="n">application</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">application</span><span class="o">&gt;</span><span class="n">gedit</span><span class="o">&lt;/</span><span class="n">application</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">application</span><span class="o">&gt;</span><span class="n">glade</span><span class="o">&lt;/</span><span class="n">application</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">applications</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">object</span><span class="o">&gt;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -260,9 +260,9 @@ calling <a class="link" href="GtkRecentFilter.html#gtk-recent-filter-add-mime-ty
 <a name="GtkRecentFilter.functions_details"></a><h2>Functions</h2>
 <div class="refsect2">
 <a name="GtkRecentFilterFunc"></a><h3>GtkRecentFilterFunc ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 <span class="c_punctuation">(</span>*GtkRecentFilterFunc<span class="c_punctuation">)</span> (<em class="parameter"><code>const <a class="link" href="GtkRecentFilter.html#GtkRecentFilterInfo" title="struct GtkRecentFilterInfo"><span class="type">GtkRecentFilterInfo</span></a> *filter_info</code></em>,
-                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                        <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>The type of function that is used with custom filters,
 see <a class="link" href="GtkRecentFilter.html#gtk-recent-filter-add-custom" title="gtk_recent_filter_add_custom ()"><code class="function">gtk_recent_filter_add_custom()</code></a>.</p>
 <div class="refsect3">
@@ -291,7 +291,7 @@ flags passed to <a class="link" href="GtkRecentFilter.html#gtk-recent-filter-add
 </div>
 <div class="refsect3">
 <a name="GtkRecentFilterFunc.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the file should be displayed</p>
+<p> <code class="literal">TRUE</code> if the file should be displayed</p>
 </div>
 </div>
 <hr>
@@ -311,8 +311,8 @@ To create a filter that accepts any recently used resource, use:</p>
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkRecentFilter</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">filter </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkRecentFilter.html#gtk-recent-filter-new">gtk_recent_filter_new</a></span><span class="normal"> </span><span class="symbol">();</span>
-<span class="function"><a href="GtkRecentFilter.html#gtk-recent-filter-add-pattern">gtk_recent_filter_add_pattern</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filter</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"*"</span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">GtkRecentFilter</span> <span class="o">*</span><span class="n">filter</span> <span class="o">=</span> <span class="n">gtk_recent_filter_new</span> <span class="p">();</span>
+<span class="n">gtk_recent_filter_add_pattern</span> <span class="p">(</span><span class="n">filter</span><span class="p">,</span> <span class="s">&quot;*&quot;</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -328,7 +328,7 @@ To create a filter that accepts any recently used resource, use:</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-recent-filter-get-name"></a><h3>gtk_recent_filter_get_name ()</h3>
-<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
 gtk_recent_filter_get_name (<em class="parameter"><code><a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>);</pre>
 <p>Gets the human-readable name for the filter.
 See <a class="link" href="GtkRecentFilter.html#gtk-recent-filter-set-name" title="gtk_recent_filter_set_name ()"><code class="function">gtk_recent_filter_set_name()</code></a>.</p>
@@ -349,7 +349,7 @@ See <a class="link" href="GtkRecentFilter.html#gtk-recent-filter-set-name" title
 </div>
 <div class="refsect3">
 <a name="gtk-recent-filter-get-name.returns"></a><h4>Returns</h4>
-<p>the name of the filter, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.  The returned string
+<p>the name of the filter, or <code class="literal">NULL</code>.  The returned string
 is owned by the filter object and should not be freed. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -360,7 +360,7 @@ is owned by the filter object and should not be freed. </p>
 <a name="gtk-recent-filter-set-name"></a><h3>gtk_recent_filter_set_name ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_recent_filter_set_name (<em class="parameter"><code><a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>,
-                            <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);</pre>
+                            <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
 <p>Sets the human-readable name of the filter; this is the string
 that will be displayed in the recently used resources selector
 user interface if there is a selectable list of filters.</p>
@@ -394,7 +394,7 @@ user interface if there is a selectable list of filters.</p>
 <a name="gtk-recent-filter-add-mime-type"></a><h3>gtk_recent_filter_add_mime_type ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_recent_filter_add_mime_type (<em class="parameter"><code><a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>,
-                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mime_type</code></em>);</pre>
+                                 <em class="parameter"><code>const <span class="type">gchar</span> *mime_type</code></em>);</pre>
 <p>Adds a rule that allows resources based on their registered MIME type.</p>
 <div class="refsect3">
 <a name="gtk-recent-filter-add-mime-type.parameters"></a><h4>Parameters</h4>
@@ -425,7 +425,7 @@ gtk_recent_filter_add_mime_type (<em class="parameter"><code><a class="link" hre
 <a name="gtk-recent-filter-add-pattern"></a><h3>gtk_recent_filter_add_pattern ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_recent_filter_add_pattern (<em class="parameter"><code><a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>,
-                               <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *pattern</code></em>);</pre>
+                               <em class="parameter"><code>const <span class="type">gchar</span> *pattern</code></em>);</pre>
 <p>Adds a rule that allows resources based on a pattern matching their
 display name.</p>
 <div class="refsect3">
@@ -481,7 +481,7 @@ by GdkPixbuf.</p>
 <a name="gtk-recent-filter-add-application"></a><h3>gtk_recent_filter_add_application ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_recent_filter_add_application (<em class="parameter"><code><a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>,
-                                   <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *application</code></em>);</pre>
+                                   <em class="parameter"><code>const <span class="type">gchar</span> *application</code></em>);</pre>
 <p>Adds a rule that allows resources based on the name of the application
 that has registered them.</p>
 <div class="refsect3">
@@ -513,7 +513,7 @@ that has registered them.</p>
 <a name="gtk-recent-filter-add-group"></a><h3>gtk_recent_filter_add_group ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_recent_filter_add_group (<em class="parameter"><code><a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>,
-                             <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *group</code></em>);</pre>
+                             <em class="parameter"><code>const <span class="type">gchar</span> *group</code></em>);</pre>
 <p>Adds a rule that allows resources based on the name of the group
 to which they belong</p>
 <div class="refsect3">
@@ -545,7 +545,7 @@ to which they belong</p>
 <a name="gtk-recent-filter-add-age"></a><h3>gtk_recent_filter_add_age ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_recent_filter_add_age (<em class="parameter"><code><a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> days</code></em>);</pre>
+                           <em class="parameter"><code><span class="type">gint</span> days</code></em>);</pre>
 <p>Adds a rule that allows resources based on their age - that is, the number
 of days elapsed since they were last modified.</p>
 <div class="refsect3">
@@ -579,8 +579,8 @@ of days elapsed since they were last modified.</p>
 gtk_recent_filter_add_custom (<em class="parameter"><code><a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>,
                               <em class="parameter"><code><a class="link" href="GtkRecentFilter.html#GtkRecentFilterFlags" title="enum GtkRecentFilterFlags"><span class="type">GtkRecentFilterFlags</span></a> needed</code></em>,
                               <em class="parameter"><code><a class="link" href="GtkRecentFilter.html#GtkRecentFilterFunc" title="GtkRecentFilterFunc ()"><span class="type">GtkRecentFilterFunc</span></a> func</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> data_destroy</code></em>);</pre>
+                              <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                              <em class="parameter"><code><span class="type">GDestroyNotify</span> data_destroy</code></em>);</pre>
 <p>Adds a rule to a filter that allows resources based on a custom callback
 function. The bitfield <em class="parameter"><code>needed</code></em>
  which is passed in provides information
@@ -609,7 +609,7 @@ filter function needs.</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>func</p></td>
-<td class="parameter_description"><p>callback function; if the function returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, then
+<td class="parameter_description"><p>callback function; if the function returns <code class="literal">TRUE</code>, then
 the file will be displayed.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
@@ -665,7 +665,7 @@ calling <a class="link" href="GtkRecentFilter.html#gtk-recent-filter-filter" tit
 <hr>
 <div class="refsect2">
 <a name="gtk-recent-filter-filter"></a><h3>gtk_recent_filter_filter ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_recent_filter_filter (<em class="parameter"><code><a class="link" href="GtkRecentFilter.html" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>,
                           <em class="parameter"><code>const <a class="link" href="GtkRecentFilter.html#GtkRecentFilterInfo" title="struct GtkRecentFilterInfo"><span class="type">GtkRecentFilterInfo</span></a> *filter_info</code></em>);</pre>
 <p>Tests whether a file should be displayed according to <em class="parameter"><code>filter</code></em>
@@ -704,7 +704,7 @@ about a recently used resource</p></td>
 </div>
 <div class="refsect3">
 <a name="gtk-recent-filter-filter.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the file should be displayed</p>
+<p> <code class="literal">TRUE</code> if the file should be displayed</p>
 </div>
 <p class="since">Since: 2.10</p>
 </div>
@@ -747,35 +747,35 @@ to pass information about the tested file to <a class="link" href="GtkRecentFilt
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GtkRecentFilterInfo.uri"></a>uri</code></em>;</p></td>
+<td class="struct_member_name"><p>const <span class="type">gchar</span> *<em class="structfield"><code><a name="GtkRecentFilterInfo.uri"></a>uri</code></em>;</p></td>
 <td class="struct_member_description"><p>The URI of the file being tested. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
-<td class="struct_member_name"><p>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GtkRecentFilterInfo.display-name"></a>display_name</code></em>;</p></td>
+<td class="struct_member_name"><p>const <span class="type">gchar</span> *<em class="structfield"><code><a name="GtkRecentFilterInfo.display-name"></a>display_name</code></em>;</p></td>
 <td class="struct_member_description"><p>The string that will be used to display
 the file in the recent chooser. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
-<td class="struct_member_name"><p>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GtkRecentFilterInfo.mime-type"></a>mime_type</code></em>;</p></td>
+<td class="struct_member_name"><p>const <span class="type">gchar</span> *<em class="structfield"><code><a name="GtkRecentFilterInfo.mime-type"></a>mime_type</code></em>;</p></td>
 <td class="struct_member_description"><p>MIME type of the file. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
 </tr>
 <tr>
-<td class="struct_member_name"><p>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **<em class="structfield"><code><a name="GtkRecentFilterInfo.applications"></a>applications</code></em>;</p></td>
+<td class="struct_member_name"><p>const <span class="type">gchar</span> **<em class="structfield"><code><a name="GtkRecentFilterInfo.applications"></a>applications</code></em>;</p></td>
 <td class="struct_member_description"><p>The list of
 applications that have registered the file. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
 <tr>
-<td class="struct_member_name"><p>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **<em class="structfield"><code><a name="GtkRecentFilterInfo.groups"></a>groups</code></em>;</p></td>
+<td class="struct_member_name"><p>const <span class="type">gchar</span> **<em class="structfield"><code><a name="GtkRecentFilterInfo.groups"></a>groups</code></em>;</p></td>
 <td class="struct_member_description"><p>The groups to which
 the file belongs to. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GtkRecentFilterInfo.age"></a>age</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint</span> <em class="structfield"><code><a name="GtkRecentFilterInfo.age"></a>age</code></em>;</p></td>
 <td class="struct_member_description"><p>The number of days elapsed since the file has been
 registered.</p></td>
 <td class="struct_member_annotations"> </td>
@@ -809,7 +809,7 @@ are filled or need to be filled.</p>
 <td class="enum_member_name"><p><a name="GTK-RECENT-FILTER-DISPLAY-NAME:CAPS"></a>GTK_RECENT_FILTER_DISPLAY_NAME</p></td>
 <td class="enum_member_description">
 <p>the string that will be used to
- display the file in the recent chooser</p>
+display the file in the recent chooser</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -824,7 +824,7 @@ are filled or need to be filled.</p>
 <td class="enum_member_name"><p><a name="GTK-RECENT-FILTER-APPLICATION:CAPS"></a>GTK_RECENT_FILTER_APPLICATION</p></td>
 <td class="enum_member_description">
 <p>the list of applications that have
- registered the file</p>
+registered the file</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -839,7 +839,7 @@ are filled or need to be filled.</p>
 <td class="enum_member_name"><p><a name="GTK-RECENT-FILTER-AGE:CAPS"></a>GTK_RECENT_FILTER_AGE</p></td>
 <td class="enum_member_description">
 <p>the number of days elapsed since the file
- has been registered</p>
+has been registered</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -850,6 +850,6 @@ are filled or need to be filled.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

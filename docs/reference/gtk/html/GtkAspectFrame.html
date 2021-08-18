@@ -8,7 +8,7 @@
 <link rel="up" href="LayoutContainers.html" title="Layout Containers">
 <link rel="prev" href="gtk3-Orientable.html" title="GtkOrientable">
 <link rel="next" href="GtkFixed.html" title="GtkFixed">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GtkAspectFrame.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -71,22 +71,22 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkAspectFrame.html#GtkAspectFrame--obey-child" title="The “obey-child” property">obey-child</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a></td>
+<td class="property_type"><span class="type">float</span></td>
 <td class="property_name"><a class="link" href="GtkAspectFrame.html#GtkAspectFrame--ratio" title="The “ratio” property">ratio</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a></td>
+<td class="property_type"><span class="type">float</span></td>
 <td class="property_name"><a class="link" href="GtkAspectFrame.html#GtkAspectFrame--xalign" title="The “xalign” property">xalign</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a></td>
+<td class="property_type"><span class="type">float</span></td>
 <td class="property_name"><a class="link" href="GtkAspectFrame.html#GtkAspectFrame--yalign" title="The “yalign” property">yalign</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -97,8 +97,8 @@
 <a name="GtkAspectFrame.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -114,8 +114,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkAspectFrame.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                 <span class="lineart">╰──</span> <a class="link" href="GtkBin.html" title="GtkBin">GtkBin</a>
@@ -153,11 +153,11 @@ a frame around the child. The frame will be
 <div class="refsect2">
 <a name="gtk-aspect-frame-new"></a><h3>gtk_aspect_frame_new ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
-gtk_aspect_frame_new (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> ratio</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> obey_child</code></em>);</pre>
+gtk_aspect_frame_new (<em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>,
+                      <em class="parameter"><code><span class="type">gfloat</span> xalign</code></em>,
+                      <em class="parameter"><code><span class="type">gfloat</span> yalign</code></em>,
+                      <em class="parameter"><code><span class="type">gfloat</span> ratio</code></em>,
+                      <em class="parameter"><code><span class="type">gboolean</span> obey_child</code></em>);</pre>
 <p>Create a new <a class="link" href="GtkAspectFrame.html" title="GtkAspectFrame"><span class="type">GtkAspectFrame</span></a>.</p>
 <div class="refsect3">
 <a name="gtk-aspect-frame-new.parameters"></a><h4>Parameters</h4>
@@ -194,7 +194,7 @@ to 1.0 (bottom aligned)</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>obey_child</p></td>
-<td class="parameter_description"><p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, <em class="parameter"><code>ratio</code></em>
+<td class="parameter_description"><p>If <code class="literal">TRUE</code>, <em class="parameter"><code>ratio</code></em>
 is ignored, and the aspect
 ratio is taken from the requistion of the child.</p></td>
 <td class="parameter_annotations"> </td>
@@ -212,10 +212,10 @@ ratio is taken from the requistion of the child.</p></td>
 <a name="gtk-aspect-frame-set"></a><h3>gtk_aspect_frame_set ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_aspect_frame_set (<em class="parameter"><code><a class="link" href="GtkAspectFrame.html" title="GtkAspectFrame"><span class="type">GtkAspectFrame</span></a> *aspect_frame</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> ratio</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> obey_child</code></em>);</pre>
+                      <em class="parameter"><code><span class="type">gfloat</span> xalign</code></em>,
+                      <em class="parameter"><code><span class="type">gfloat</span> yalign</code></em>,
+                      <em class="parameter"><code><span class="type">gfloat</span> ratio</code></em>,
+                      <em class="parameter"><code><span class="type">gboolean</span> obey_child</code></em>);</pre>
 <p>Set parameters for an existing <a class="link" href="GtkAspectFrame.html" title="GtkAspectFrame"><span class="type">GtkAspectFrame</span></a>.</p>
 <div class="refsect3">
 <a name="gtk-aspect-frame-set.parameters"></a><h4>Parameters</h4>
@@ -252,7 +252,7 @@ to 1.0 (bottom aligned)</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>obey_child</p></td>
-<td class="parameter_description"><p>If <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, <em class="parameter"><code>ratio</code></em>
+<td class="parameter_description"><p>If <code class="literal">TRUE</code>, <em class="parameter"><code>ratio</code></em>
 is ignored, and the aspect
 ratio is taken from the requistion of the child.</p></td>
 <td class="parameter_annotations"> </td>
@@ -292,16 +292,18 @@ ratio is taken from the requistion of the child.</p></td>
 <a name="GtkAspectFrame.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkAspectFrame--obey-child"></a><h3>The <code class="literal">“obey-child”</code> property</h3>
-<pre class="programlisting">  “obey-child”               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “obey-child”               <span class="type">gboolean</span></pre>
 <p>Force aspect ratio to match that of the frame's child.</p>
+<p>Owner: GtkAspectFrame</p>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkAspectFrame--ratio"></a><h3>The <code class="literal">“ratio”</code> property</h3>
-<pre class="programlisting">  “ratio”                    <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a></pre>
+<pre class="programlisting">  “ratio”                    <span class="type">float</span></pre>
 <p>Aspect ratio if obey_child is FALSE.</p>
+<p>Owner: GtkAspectFrame</p>
 <p>Flags: Read / Write</p>
 <p>Allowed values: [0.0001,10000]</p>
 <p>Default value: 1</p>
@@ -309,8 +311,9 @@ ratio is taken from the requistion of the child.</p></td>
 <hr>
 <div class="refsect2">
 <a name="GtkAspectFrame--xalign"></a><h3>The <code class="literal">“xalign”</code> property</h3>
-<pre class="programlisting">  “xalign”                   <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a></pre>
+<pre class="programlisting">  “xalign”                   <span class="type">float</span></pre>
 <p>X alignment of the child.</p>
+<p>Owner: GtkAspectFrame</p>
 <p>Flags: Read / Write</p>
 <p>Allowed values: [0,1]</p>
 <p>Default value: 0.5</p>
@@ -318,8 +321,9 @@ ratio is taken from the requistion of the child.</p></td>
 <hr>
 <div class="refsect2">
 <a name="GtkAspectFrame--yalign"></a><h3>The <code class="literal">“yalign”</code> property</h3>
-<pre class="programlisting">  “yalign”                   <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a></pre>
+<pre class="programlisting">  “yalign”                   <span class="type">float</span></pre>
 <p>Y alignment of the child.</p>
+<p>Owner: GtkAspectFrame</p>
 <p>Flags: Read / Write</p>
 <p>Allowed values: [0,1]</p>
 <p>Default value: 0.5</p>
@@ -327,6 +331,6 @@ ratio is taken from the requistion of the child.</p></td>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Pixbufs.html" title="Pixbufs">
 <link rel="next" href="gdk3-Visuals.html" title="Visuals">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -35,8 +35,8 @@
 <a name="gdk3-RGBA-Colors.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -57,7 +57,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-RGBA-Colors.html#gdk-rgba-parse" title="gdk_rgba_parse ()">gdk_rgba_parse</a> <span class="c_punctuation">()</span>
@@ -65,7 +65,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-RGBA-Colors.html#gdk-rgba-equal" title="gdk_rgba_equal ()">gdk_rgba_equal</a> <span class="c_punctuation">()</span>
@@ -73,7 +73,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<span class="returnvalue">guint</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-RGBA-Colors.html#gdk-rgba-hash" title="gdk_rgba_hash ()">gdk_rgba_hash</a> <span class="c_punctuation">()</span>
@@ -81,7 +81,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<span class="returnvalue">gchar</span> *
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-RGBA-Colors.html#gdk-rgba-to-string" title="gdk_rgba_to_string ()">gdk_rgba_to_string</a> <span class="c_punctuation">()</span>
@@ -94,8 +94,8 @@
 <a name="gdk3-RGBA-Colors.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="datatype_keyword"> </td>
@@ -173,9 +173,9 @@ gdk_rgba_free (<em class="parameter"><code><a class="link" href="gdk3-RGBA-Color
 <hr>
 <div class="refsect2">
 <a name="gdk-rgba-parse"></a><h3>gdk_rgba_parse ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gdk_rgba_parse (<em class="parameter"><code><a class="link" href="gdk3-RGBA-Colors.html#GdkRGBA" title="GdkRGBA"><span class="type">GdkRGBA</span></a> *rgba</code></em>,
-                <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *spec</code></em>);</pre>
+                <em class="parameter"><code>const <span class="type">gchar</span> *spec</code></em>);</pre>
 <p>Parses a textual representation of a color, filling in
 the <em class="parameter"><code>red</code></em>
 , <em class="parameter"><code>green</code></em>
@@ -220,16 +220,16 @@ a is a floating point value in the range 0 to 1.</p>
 </div>
 <div class="refsect3">
 <a name="gdk-rgba-parse.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the parsing succeeded</p>
+<p> <code class="literal">TRUE</code> if the parsing succeeded</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gdk-rgba-equal"></a><h3>gdk_rgba_equal ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-gdk_rgba_equal (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> p1</code></em>,
-                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> p2</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+gdk_rgba_equal (<em class="parameter"><code><span class="type">gconstpointer</span> p1</code></em>,
+                <em class="parameter"><code><span class="type">gconstpointer</span> p2</code></em>);</pre>
 <p>Compares two RGBA colors.</p>
 <div class="refsect3">
 <a name="gdk-rgba-equal.parameters"></a><h4>Parameters</h4>
@@ -255,15 +255,15 @@ gdk_rgba_equal (<em class="parameter"><code><a href="https://developer.gnome.org
 </div>
 <div class="refsect3">
 <a name="gdk-rgba-equal.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the two colors compare equal</p>
+<p> <code class="literal">TRUE</code> if the two colors compare equal</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gdk-rgba-hash"></a><h3>gdk_rgba_hash ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
-gdk_rgba_hash (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> p</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">guint</span>
+gdk_rgba_hash (<em class="parameter"><code><span class="type">gconstpointer</span> p</code></em>);</pre>
 <p>A hash function suitable for using for a hash
 table that stores <a href="gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBAs</span></a>.</p>
 <div class="refsect3">
@@ -291,7 +291,7 @@ table that stores <a href="gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">Gdk
 <hr>
 <div class="refsect2">
 <a name="gdk-rgba-to-string"></a><h3>gdk_rgba_to_string ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<pre class="programlisting"><span class="returnvalue">gchar</span> *
 gdk_rgba_to_string (<em class="parameter"><code>const <a class="link" href="gdk3-RGBA-Colors.html#GdkRGBA" title="GdkRGBA"><span class="type">GdkRGBA</span></a> *rgba</code></em>);</pre>
 <p>Returns a textual specification of <em class="parameter"><code>rgba</code></em>
  in the form
@@ -352,22 +352,22 @@ color, in a way that is compatible with cairo’s notion of color.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkRGBA.red"></a>red</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkRGBA.red"></a>red</code></em>;</p></td>
 <td class="struct_member_description"><p>The intensity of the red channel from 0.0 to 1.0 inclusive</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkRGBA.green"></a>green</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkRGBA.green"></a>green</code></em>;</p></td>
 <td class="struct_member_description"><p>The intensity of the green channel from 0.0 to 1.0 inclusive</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkRGBA.blue"></a>blue</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkRGBA.blue"></a>blue</code></em>;</p></td>
 <td class="struct_member_description"><p>The intensity of the blue channel from 0.0 to 1.0 inclusive</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkRGBA.alpha"></a>alpha</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkRGBA.alpha"></a>alpha</code></em>;</p></td>
 <td class="struct_member_description"><p>The opacity of the color from 0.0 for completely translucent to
 1.0 for opaque</p></td>
 <td class="struct_member_annotations"> </td>
@@ -379,6 +379,6 @@ color, in a way that is compatible with cairo’s notion of color.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

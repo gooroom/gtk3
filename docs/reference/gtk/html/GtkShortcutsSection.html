@@ -8,7 +8,7 @@
 <link rel="up" href="ShortcutsOverview.html" title="Shortcuts Overview">
 <link rel="prev" href="GtkShortcutsWindow.html" title="GtkShortcutsWindow">
 <link rel="next" href="GtkShortcutsGroup.html" title="GtkShortcutsGroup">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -45,25 +45,25 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a></td>
+<td class="property_type"><span class="type">guint</span></td>
 <td class="property_name"><a class="link" href="GtkShortcutsSection.html#GtkShortcutsSection--max-height" title="The “max-height” property">max-height</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
+<span class="type">char</span> *</td>
 <td class="property_name"><a class="link" href="GtkShortcutsSection.html#GtkShortcutsSection--section-name" title="The “section-name” property">section-name</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
+<span class="type">char</span> *</td>
 <td class="property_name"><a class="link" href="GtkShortcutsSection.html#GtkShortcutsSection--title" title="The “title” property">title</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
+<span class="type">char</span> *</td>
 <td class="property_name"><a class="link" href="GtkShortcutsSection.html#GtkShortcutsSection--view-name" title="The “view-name” property">view-name</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -74,14 +74,14 @@
 <a name="GtkShortcutsSection.signals"></a><h2>Signals</h2>
 <div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
-<col width="150px" class="signals_return">
-<col width="300px" class="signals_name">
-<col width="200px" class="signals_flags">
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
 </colgroup>
 <tbody><tr>
-<td class="signal_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a></td>
+<td class="signal_type"><span class="returnvalue">gboolean</span></td>
 <td class="signal_name"><a class="link" href="GtkShortcutsSection.html#GtkShortcutsSection-change-current-page" title="The “change-current-page” signal">change-current-page</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></td>
+<td class="signal_flags">Action</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -89,8 +89,8 @@
 <a name="GtkShortcutsSection.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="datatype_keyword"> </td>
@@ -100,8 +100,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkShortcutsSection.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                 <span class="lineart">╰──</span> <a class="link" href="GtkBox.html" title="GtkBox">GtkBox</a>
@@ -116,7 +116,7 @@ GtkShortcutsSection implements
 </div>
 <div class="refsect1">
 <a name="GtkShortcutsSection.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -145,43 +145,47 @@ the groups in the section are distributed over pages and columns.</p>
 <a name="GtkShortcutsSection.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkShortcutsSection--max-height"></a><h3>The <code class="literal">“max-height”</code> property</h3>
-<pre class="programlisting">  “max-height”               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a></pre>
+<pre class="programlisting">  “max-height”               <span class="type">guint</span></pre>
 <p>The maximum number of lines to allow per column. This property can
 be used to influence how the groups in this section are distributed
 across pages and columns. The default value of 15 should work in
-for most cases.</p>
+most cases.</p>
+<p>Owner: GtkShortcutsSection</p>
 <p>Flags: Read / Write</p>
 <p>Default value: 15</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkShortcutsSection--section-name"></a><h3>The <code class="literal">“section-name”</code> property</h3>
-<pre class="programlisting">  “section-name”             <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
+<pre class="programlisting">  “section-name”             <span class="type">char</span> *</pre>
 <p>A unique name to identify this section among the sections
 added to the GtkShortcutsWindow. Setting the <a class="link" href="GtkShortcutsWindow.html#GtkShortcutsWindow--section-name" title="The “section-name” property"><span class="type">“section-name”</span></a>
 property to this string will make this section shown in the
 GtkShortcutsWindow.</p>
+<p>Owner: GtkShortcutsSection</p>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkShortcutsSection--title"></a><h3>The <code class="literal">“title”</code> property</h3>
-<pre class="programlisting">  “title”                    <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
+<pre class="programlisting">  “title”                    <span class="type">char</span> *</pre>
 <p>The string to show in the section selector of the GtkShortcutsWindow
 for this section. If there is only one section, you don't need to
 set a title, since the section selector will not be shown in this case.</p>
+<p>Owner: GtkShortcutsSection</p>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkShortcutsSection--view-name"></a><h3>The <code class="literal">“view-name”</code> property</h3>
-<pre class="programlisting">  “view-name”                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
+<pre class="programlisting">  “view-name”                <span class="type">char</span> *</pre>
 <p>A view name to filter the groups in this section by.
 See <a class="link" href="GtkShortcutsGroup.html#GtkShortcutsGroup--view" title="The “view” property"><span class="type">“view”</span></a>.</p>
 <p>Applications are expected to use the <a class="link" href="GtkShortcutsWindow.html#GtkShortcutsWindow--view-name" title="The “view-name” property"><span class="type">“view-name”</span></a>
 property for this purpose.</p>
+<p>Owner: GtkShortcutsSection</p>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
 </div>
@@ -190,15 +194,15 @@ property for this purpose.</p>
 <a name="GtkShortcutsSection.signal-details"></a><h2>Signal Details</h2>
 <div class="refsect2">
 <a name="GtkShortcutsSection-change-current-page"></a><h3>The <code class="literal">“change-current-page”</code> signal</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 user_function (<a class="link" href="GtkShortcutsSection.html" title="GtkShortcutsSection"><span class="type">GtkShortcutsSection</span></a> *shortcutssection,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                 arg1,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>             user_data)</pre>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></p>
+               <span class="type">int</span>                  arg1,
+               <span class="type">gpointer</span>             user_data)</pre>
+<p>Flags: Action</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

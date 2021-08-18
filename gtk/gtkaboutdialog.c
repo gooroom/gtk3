@@ -125,8 +125,14 @@ static const LicenseInfo gtk_license_info [] = {
   { N_("GNU Lesser General Public License, version 2.1 only"), "https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html" },
   { N_("GNU Lesser General Public License, version 3 only"), "https://www.gnu.org/licenses/lgpl-3.0.html" },
   { N_("GNU Affero General Public License, version 3 or later"), "https://www.gnu.org/licenses/agpl-3.0.html" },
-  { N_("GNU Affero General Public License, version 3 only"), "https://www.gnu.org/licenses/agpl-3.0.html" }
+  { N_("GNU Affero General Public License, version 3 only"), "https://www.gnu.org/licenses/agpl-3.0.html" },
+  { N_("BSD 3-Clause License"), "https://opensource.org/licenses/BSD-3-Clause" },
+  { N_("Apache License, Version 2.0"), "https://opensource.org/licenses/Apache-2.0" },
+  { N_("Mozilla Public License 2.0"), "https://opensource.org/licenses/MPL-2.0" }
 };
+/* Keep this static assertion updated with the last element of the
+ * enumeration, and make sure it matches the last element of the array */
+G_STATIC_ASSERT (G_N_ELEMENTS (gtk_license_info) - 1 == GTK_LICENSE_MPL_2_0);
 
 typedef struct
 {
@@ -1003,7 +1009,9 @@ gtk_about_dialog_activate_link (GtkAboutDialog *about,
       g_signal_connect (dialog, "response",
                         G_CALLBACK (gtk_widget_destroy), NULL);
 
+      G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       gtk_window_present (GTK_WINDOW (dialog));
+      G_GNUC_END_IGNORE_DEPRECATIONS
     }
 
   return TRUE;
@@ -2436,7 +2444,9 @@ gtk_show_about_dialog (GtkWindow   *parent,
 
     }
 
+  G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   gtk_window_present (GTK_WINDOW (dialog));
+  G_GNUC_END_IGNORE_DEPRECATIONS
 }
 
 /**
@@ -2460,7 +2470,7 @@ gtk_about_dialog_set_license_type (GtkAboutDialog *about,
 
   g_return_if_fail (GTK_IS_ABOUT_DIALOG (about));
   g_return_if_fail (license_type >= GTK_LICENSE_UNKNOWN &&
-                    license_type <= GTK_LICENSE_AGPL_3_0_ONLY);
+                    license_type < G_N_ELEMENTS (gtk_license_info));
 
   priv = about->priv;
 

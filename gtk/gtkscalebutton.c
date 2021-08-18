@@ -70,6 +70,8 @@
  *
  * GtkScaleButton has a single CSS node with name button. To differentiate
  * it from a plain #GtkButton, it gets the .scale style class.
+ *
+ * The popup widget that contains the scale has a .scale-popup style class.
  */
 
 
@@ -283,7 +285,7 @@ gtk_scale_button_class_init (GtkScaleButtonClass *klass)
                                 G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
                                 G_CALLBACK (gtk_scale_button_popup),
                                 NULL, NULL,
-                                g_cclosure_marshal_VOID__VOID,
+                                NULL,
                                 G_TYPE_NONE, 0);
 
   /**
@@ -304,7 +306,7 @@ gtk_scale_button_class_init (GtkScaleButtonClass *klass)
                                 G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
                                 G_CALLBACK (gtk_scale_button_popdown),
                                 NULL, NULL,
-                                g_cclosure_marshal_VOID__VOID,
+                                NULL,
                                 G_TYPE_NONE, 0);
 
   /* Key bindings */

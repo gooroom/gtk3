@@ -68,6 +68,7 @@ clean-local:
 
 EXTRA_DIST += \
 	align-expand.sh \
+	meson.build \
 	$(NULL)
 
 testdata = \
@@ -321,6 +322,9 @@ testdata = \
 	label-ellipsize-small.ui \
 	label-ellipsize-with-big.ref.ui \
 	label-ellipsize-with-big.ui \
+	label-fonts.css \
+	label-fonts.ref.ui \
+	label-fonts.ui \
 	label-shadows.css \
 	label-shadows.ref.ui \
 	label-shadows.ui \

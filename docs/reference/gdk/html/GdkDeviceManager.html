@@ -8,7 +8,7 @@
 <link rel="up" href="rn02.html" title="Deprecated">
 <link rel="prev" href="gdk3-Colors.html" title="Colors">
 <link rel="next" href="api-index-full.html" title="Index of all symbols">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GdkDeviceManager.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -60,7 +60,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *
+<span class="returnvalue">GList</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GdkDeviceManager.html#gdk-device-manager-list-devices" title="gdk_device_manager_list_devices ()">gdk_device_manager_list_devices</a> <span class="c_punctuation">()</span>
@@ -89,7 +89,7 @@
 <td class="property_type">
 <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *</td>
 <td class="property_name"><a class="link" href="GdkDeviceManager.html#GdkDeviceManager--display" title="The “display” property">display</a></td>
-<td class="property_flags">Read / Write / Construct Only</td>
+<td class="property_flags">Read / Write / Construct Only</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -97,25 +97,25 @@
 <a name="GdkDeviceManager.signals"></a><h2>Signals</h2>
 <div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
-<col width="150px" class="signals_return">
-<col width="300px" class="signals_name">
-<col width="200px" class="signals_flags">
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
 </colgroup>
 <tbody>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GdkDeviceManager.html#GdkDeviceManager-device-added" title="The “device-added” signal">device-added</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+<td class="signal_flags">Run Last</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GdkDeviceManager.html#GdkDeviceManager-device-changed" title="The “device-changed” signal">device-changed</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+<td class="signal_flags">Run Last</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GdkDeviceManager.html#GdkDeviceManager-device-removed" title="The “device-removed” signal">device-removed</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+<td class="signal_flags">Run Last</td>
 </tr>
 </tbody>
 </table></div>
@@ -124,8 +124,8 @@
 <a name="GdkDeviceManager.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="datatype_keyword"> </td>
@@ -135,7 +135,7 @@
 </div>
 <div class="refsect1">
 <a name="GdkDeviceManager.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> GdkDeviceManager
 </pre>
 </div>
@@ -164,7 +164,7 @@ to a compatibility mode in which it will emit just one enter/leave
 event pair for all devices on a window. To enable per-device
 enter/leave events and other multi-pointer interaction features,
 <a class="link" href="gdk3-Windows.html#gdk-window-set-support-multidevice" title="gdk_window_set_support_multidevice ()"><code class="function">gdk_window_set_support_multidevice()</code></a> must be called on
-<a href="gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindows</span></a> (or <a href="https://developer.gnome.org/gtk3/GtkWidget.html#gtk-widget-set-support-multidevice"><code class="function">gtk_widget_set_support_multidevice()</code></a> on widgets).
+<a href="gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindows</span></a> (or <code class="function">gtk_widget_set_support_multidevice()</code> on widgets).
 window. See the <a class="link" href="gdk3-Windows.html#gdk-window-set-support-multidevice" title="gdk_window_set_support_multidevice ()"><code class="function">gdk_window_set_support_multidevice()</code></a> documentation
 for more information.</p>
 <p>On X11, multi-device support is implemented through XInput 2.
@@ -209,22 +209,22 @@ be “floating”, which means they are not attached to any virtual device.</p>
 14
 15
 16</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="normal">carlos@sacarino</span><span class="symbol">:~</span><span class="normal">$ xinput list</span>
-<span class="normal">⎡ Virtual core </span><span class="usertype">pointer</span><span class="normal">                          id</span><span class="symbol">=</span><span class="number">2</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">master</span><span class="normal"> </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
-<span class="normal">⎜   ↳ Virtual core XTEST </span><span class="usertype">pointer</span><span class="normal">                id</span><span class="symbol">=</span><span class="number">4</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
-<span class="normal">⎜   ↳ Wacom ISDv4 E6 Pen </span><span class="usertype">stylus</span><span class="normal">                 id</span><span class="symbol">=</span><span class="number">10</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
-<span class="normal">⎜   ↳ Wacom ISDv4 E6 Finger </span><span class="usertype">touch</span><span class="normal">               id</span><span class="symbol">=</span><span class="number">11</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
-<span class="normal">⎜   ↳ SynPS</span><span class="symbol">/</span><span class="number">2</span><span class="normal"> Synaptics </span><span class="usertype">TouchPad</span><span class="normal">                id</span><span class="symbol">=</span><span class="number">13</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
-<span class="normal">⎜   ↳ TPPS</span><span class="symbol">/</span><span class="number">2</span><span class="normal"> IBM </span><span class="usertype">TrackPoint</span><span class="normal">                     id</span><span class="symbol">=</span><span class="number">14</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
-<span class="normal">⎜   ↳ Wacom ISDv4 E6 Pen </span><span class="usertype">eraser</span><span class="normal">                 id</span><span class="symbol">=</span><span class="number">16</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">pointer</span><span class="normal">  </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
-<span class="normal">⎣ Virtual core </span><span class="usertype">keyboard</span><span class="normal">                         id</span><span class="symbol">=</span><span class="number">3</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">master</span><span class="normal"> </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)]</span>
-<span class="normal">    ↳ Virtual core XTEST </span><span class="usertype">keyboard</span><span class="normal">               id</span><span class="symbol">=</span><span class="number">5</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
-<span class="normal">    ↳ Power </span><span class="usertype">Button</span><span class="normal">                              id</span><span class="symbol">=</span><span class="number">6</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
-<span class="normal">    ↳ Video </span><span class="usertype">Bus</span><span class="normal">                                 id</span><span class="symbol">=</span><span class="number">7</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
-<span class="normal">    ↳ Sleep </span><span class="usertype">Button</span><span class="normal">                              id</span><span class="symbol">=</span><span class="number">8</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
-<span class="normal">    ↳ Integrated </span><span class="usertype">Camera</span><span class="normal">                         id</span><span class="symbol">=</span><span class="number">9</span><span class="normal">    </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
-<span class="normal">    ↳ AT Translated Set </span><span class="number">2</span><span class="normal"> </span><span class="usertype">keyboard</span><span class="normal">              id</span><span class="symbol">=</span><span class="number">12</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span>
-<span class="normal">    ↳ ThinkPad Extra </span><span class="usertype">Buttons</span><span class="normal">                    id</span><span class="symbol">=</span><span class="number">15</span><span class="normal">   </span><span class="symbol">[</span><span class="usertype">slave</span><span class="normal">  </span><span class="function">keyboard</span><span class="normal"> </span><span class="symbol">(</span><span class="number">3</span><span class="symbol">)]</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">carlos</span><span class="err">@</span><span class="nl">sacarino</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="n">xinput</span> <span class="n">list</span>
+<span class="err">⎡</span> <span class="n">Virtual</span> <span class="n">core</span> <span class="n">pointer</span>                          <span class="n">id</span><span class="o">=</span><span class="mi">2</span>    <span class="p">[</span><span class="n">master</span> <span class="n">pointer</span>  <span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="err">⎜</span>   <span class="err">↳</span> <span class="n">Virtual</span> <span class="n">core</span> <span class="n">XTEST</span> <span class="n">pointer</span>                <span class="n">id</span><span class="o">=</span><span class="mi">4</span>    <span class="p">[</span><span class="n">slave</span>  <span class="n">pointer</span>  <span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="err">⎜</span>   <span class="err">↳</span> <span class="n">Wacom</span> <span class="n">ISDv4</span> <span class="n">E6</span> <span class="n">Pen</span> <span class="n">stylus</span>                 <span class="n">id</span><span class="o">=</span><span class="mi">10</span>   <span class="p">[</span><span class="n">slave</span>  <span class="n">pointer</span>  <span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="err">⎜</span>   <span class="err">↳</span> <span class="n">Wacom</span> <span class="n">ISDv4</span> <span class="n">E6</span> <span class="n">Finger</span> <span class="n">touch</span>               <span class="n">id</span><span class="o">=</span><span class="mi">11</span>   <span class="p">[</span><span class="n">slave</span>  <span class="n">pointer</span>  <span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="err">⎜</span>   <span class="err">↳</span> <span class="n">SynPS</span><span class="o">/</span><span class="mi">2</span> <span class="n">Synaptics</span> <span class="n">TouchPad</span>                <span class="n">id</span><span class="o">=</span><span class="mi">13</span>   <span class="p">[</span><span class="n">slave</span>  <span class="n">pointer</span>  <span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="err">⎜</span>   <span class="err">↳</span> <span class="n">TPPS</span><span class="o">/</span><span class="mi">2</span> <span class="n">IBM</span> <span class="n">TrackPoint</span>                     <span class="n">id</span><span class="o">=</span><span class="mi">14</span>   <span class="p">[</span><span class="n">slave</span>  <span class="n">pointer</span>  <span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="err">⎜</span>   <span class="err">↳</span> <span class="n">Wacom</span> <span class="n">ISDv4</span> <span class="n">E6</span> <span class="n">Pen</span> <span class="n">eraser</span>                 <span class="n">id</span><span class="o">=</span><span class="mi">16</span>   <span class="p">[</span><span class="n">slave</span>  <span class="n">pointer</span>  <span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="err">⎣</span> <span class="n">Virtual</span> <span class="n">core</span> <span class="n">keyboard</span>                         <span class="n">id</span><span class="o">=</span><span class="mi">3</span>    <span class="p">[</span><span class="n">master</span> <span class="n">keyboard</span> <span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+    <span class="err">↳</span> <span class="n">Virtual</span> <span class="n">core</span> <span class="n">XTEST</span> <span class="n">keyboard</span>               <span class="n">id</span><span class="o">=</span><span class="mi">5</span>    <span class="p">[</span><span class="n">slave</span>  <span class="n">keyboard</span> <span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="err">↳</span> <span class="n">Power</span> <span class="n">Button</span>                              <span class="n">id</span><span class="o">=</span><span class="mi">6</span>    <span class="p">[</span><span class="n">slave</span>  <span class="n">keyboard</span> <span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="err">↳</span> <span class="n">Video</span> <span class="n">Bus</span>                                 <span class="n">id</span><span class="o">=</span><span class="mi">7</span>    <span class="p">[</span><span class="n">slave</span>  <span class="n">keyboard</span> <span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="err">↳</span> <span class="n">Sleep</span> <span class="n">Button</span>                              <span class="n">id</span><span class="o">=</span><span class="mi">8</span>    <span class="p">[</span><span class="n">slave</span>  <span class="n">keyboard</span> <span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="err">↳</span> <span class="n">Integrated</span> <span class="n">Camera</span>                         <span class="n">id</span><span class="o">=</span><span class="mi">9</span>    <span class="p">[</span><span class="n">slave</span>  <span class="n">keyboard</span> <span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="err">↳</span> <span class="n">AT</span> <span class="n">Translated</span> <span class="n">Set</span> <span class="mi">2</span> <span class="n">keyboard</span>              <span class="n">id</span><span class="o">=</span><span class="mi">12</span>   <span class="p">[</span><span class="n">slave</span>  <span class="n">keyboard</span> <span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="err">↳</span> <span class="n">ThinkPad</span> <span class="n">Extra</span> <span class="n">Buttons</span>                    <span class="n">id</span><span class="o">=</span><span class="mi">15</span>   <span class="p">[</span><span class="n">slave</span>  <span class="n">keyboard</span> <span class="p">(</span><span class="mi">3</span><span class="p">)]</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -278,8 +278,8 @@ written code.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gdk_disable_multidevice (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Disables multidevice support in GDK. This call must happen prior
-to <a class="link" href="GdkDisplay.html#gdk-display-open" title="gdk_display_open ()"><code class="function">gdk_display_open()</code></a>, <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init"><code class="function">gtk_init()</code></a>, <a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init-with-args"><code class="function">gtk_init_with_args()</code></a> or
-<a href="https://developer.gnome.org/gtk3/gtk3-General.html#gtk-init-check"><code class="function">gtk_init_check()</code></a> in order to take effect.</p>
+to <a class="link" href="GdkDisplay.html#gdk-display-open" title="gdk_display_open ()"><code class="function">gdk_display_open()</code></a>, <a href="https://developer.gnome.org/gtk4/gtk4-General.html#gtk-init"><code class="function">gtk_init()</code></a>, <code class="function">gtk_init_with_args()</code> or
+<a href="https://developer.gnome.org/gtk4/gtk4-General.html#gtk-init-check"><code class="function">gtk_init_check()</code></a> in order to take effect.</p>
 <p>Most common GTK+ applications won’t ever need to call this. Only
 applications that do mixed GDK/Xlib calls could want to disable
 multidevice support if such Xlib code deals with input devices in
@@ -312,7 +312,7 @@ gdk_device_manager_get_display (<em class="parameter"><code><a class="link" href
 <a name="gdk-device-manager-get-display.returns"></a><h4>Returns</h4>
 <p>the <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> to which
 <em class="parameter"><code>device_manager</code></em>
-is associated to, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. This memory is
+is associated to, or <code class="literal">NULL</code>. This memory is
 owned by GDK and must not be freed or unreferenced. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -321,7 +321,7 @@ owned by GDK and must not be freed or unreferenced. </p>
 <hr>
 <div class="refsect2">
 <a name="gdk-device-manager-list-devices"></a><h3>gdk_device_manager_list_devices ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *
+<pre class="programlisting"><span class="returnvalue">GList</span> *
 gdk_device_manager_list_devices (<em class="parameter"><code><a class="link" href="GdkDeviceManager.html" title="GdkDeviceManager"><span class="type">GdkDeviceManager</span></a> *device_manager</code></em>,
                                  <em class="parameter"><code><a class="link" href="GdkDevice.html#GdkDeviceType" title="enum GdkDeviceType"><span class="type">GdkDeviceType</span></a> type</code></em>);</pre>
 <div class="warning">
@@ -358,8 +358,8 @@ gdk_device_manager_list_devices (<em class="parameter"><code><a class="link" hre
 <div class="refsect3">
 <a name="gdk-device-manager-list-devices.returns"></a><h4>Returns</h4>
 <p>a list of
-<a href="GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevices</span></a>. The returned list must be
-freed with <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>. The list elements are owned by
+<span class="type">GdkDevices</span>. The returned list must be
+freed with <code class="function">g_list_free()</code>. The list elements are owned by
 GTK+ and must not be freed or unreffed. </p>
 <p><span class="annotation">[<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> Gdk.Device]</span></p>
 </div>
@@ -416,7 +416,8 @@ owned by GDK and must not be freed or unreferenced. </p>
 <a name="GdkDeviceManager--display"></a><h3>The <code class="literal">“display”</code> property</h3>
 <pre class="programlisting">  “display”                  <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *</pre>
 <p>Display for the device manager.</p>
-<p>Flags: Read / Write / Construct Only</p>
+<p>Owner: GdkDeviceManager</p>
+<p>Flags: Read / Write / Construct Only</p>
 </div>
 </div>
 <div class="refsect1">
@@ -426,7 +427,7 @@ owned by GDK and must not be freed or unreferenced. </p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GdkDeviceManager.html" title="GdkDeviceManager"><span class="type">GdkDeviceManager</span></a> *device_manager,
                <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>        *device,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>          user_data)</pre>
+               <span class="type">gpointer</span>          user_data)</pre>
 <p>The ::device-added signal is emitted either when a new master
 pointer is created, or when a slave (Hardware) input device
 is plugged in.</p>
@@ -457,7 +458,7 @@ is plugged in.</p>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p>Flags: Run Last</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -465,14 +466,14 @@ is plugged in.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GdkDeviceManager.html" title="GdkDeviceManager"><span class="type">GdkDeviceManager</span></a> *device_manager,
                <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>        *device,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>          user_data)</pre>
+               <span class="type">gpointer</span>          user_data)</pre>
 <p>The ::device-changed signal is emitted whenever a device
 has changed in the hierarchy, either slave devices being
 disconnected from their master device or connected to
 another one, or master devices being added or removed
 a slave device.</p>
 <p>If a slave device is detached from all master devices
-(<a class="link" href="GdkDevice.html#gdk-device-get-associated-device" title="gdk_device_get_associated_device ()"><code class="function">gdk_device_get_associated_device()</code></a> returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>), its
+(<a class="link" href="GdkDevice.html#gdk-device-get-associated-device" title="gdk_device_get_associated_device ()"><code class="function">gdk_device_get_associated_device()</code></a> returns <code class="literal">NULL</code>), its
 <a class="link" href="GdkDevice.html#GdkDeviceType" title="enum GdkDeviceType"><span class="type">GdkDeviceType</span></a> will change to <a class="link" href="GdkDevice.html#GDK-DEVICE-TYPE-FLOATING:CAPS"><code class="literal">GDK_DEVICE_TYPE_FLOATING</code></a>,
 if it's attached, it will change to <a class="link" href="GdkDevice.html#GDK-DEVICE-TYPE-SLAVE:CAPS"><code class="literal">GDK_DEVICE_TYPE_SLAVE</code></a>.</p>
 <div class="refsect3">
@@ -502,7 +503,7 @@ if it's attached, it will change to <a class="link" href="GdkDevice.html#GDK-DEV
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p>Flags: Run Last</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -510,7 +511,7 @@ if it's attached, it will change to <a class="link" href="GdkDevice.html#GDK-DEV
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GdkDeviceManager.html" title="GdkDeviceManager"><span class="type">GdkDeviceManager</span></a> *device_manager,
                <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>        *device,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>          user_data)</pre>
+               <span class="type">gpointer</span>          user_data)</pre>
 <p>The ::device-removed signal is emitted either when a master
 pointer is removed, or when a slave (Hardware) input device
 is unplugged.</p>
@@ -541,7 +542,7 @@ is unplugged.</p>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p>Flags: Run Last</p>
 </div>
 </div>
 <div class="refsect1">
@@ -550,6 +551,6 @@ is unplugged.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

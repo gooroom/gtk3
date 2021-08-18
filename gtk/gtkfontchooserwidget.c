@@ -112,6 +112,7 @@ struct _GtkFontChooserWidgetPrivate
   gchar           *preview_text;
   gboolean         show_preview_entry;
 
+  GtkWidget *size_label;
   GtkWidget *size_spin;
   GtkWidget *size_slider;
   GtkWidget *size_slider2;
@@ -715,6 +716,7 @@ gtk_font_chooser_widget_class_init (GtkFontChooserWidgetClass *klass)
   gtk_widget_class_bind_template_child_private (widget_class, GtkFontChooserWidget, filter_model);
   gtk_widget_class_bind_template_child_private (widget_class, GtkFontChooserWidget, preview);
   gtk_widget_class_bind_template_child_private (widget_class, GtkFontChooserWidget, preview2);
+  gtk_widget_class_bind_template_child_private (widget_class, GtkFontChooserWidget, size_label);
   gtk_widget_class_bind_template_child_private (widget_class, GtkFontChooserWidget, size_spin);
   gtk_widget_class_bind_template_child_private (widget_class, GtkFontChooserWidget, size_slider);
   gtk_widget_class_bind_template_child_private (widget_class, GtkFontChooserWidget, size_slider2);
@@ -940,42 +942,73 @@ gtk_font_chooser_widget_load_fonts (GtkFontChooserWidget *fontchooser,
   for (i = 0; i < n_families; i++)
     {
       GtkTreeIter     iter;
-      PangoFontFace **faces;
-      int             j, n_faces;
       const gchar    *fam_name = pango_font_family_get_name (families[i]);
 
-      pango_font_family_list_faces (families[i], &faces, &n_faces);
-
-      for (j = 0; j < n_faces; j++)
+      if ((priv->level & GTK_FONT_CHOOSER_LEVEL_STYLE) == 0)
         {
           GtkDelayedFontDescription *desc;
-          const gchar *face_name;
-          char *title;
+          PangoFontFace *face;
 
-          face_name = pango_font_face_get_face_name (faces[j]);
-
-          if ((priv->level & GTK_FONT_CHOOSER_LEVEL_STYLE) != 0)
-            title = g_strconcat (fam_name, " ", face_name, NULL);
-          else
-            title = g_strdup (fam_name);
-
-          desc = gtk_delayed_font_description_new (faces[j]);
+#if PANGO_VERSION_CHECK(1,46,0)
+          face = pango_font_family_get_face (families[i], NULL);
+#else
+          {
+            PangoFontFace **faces;
+            int j, n_faces;
+            pango_font_family_list_faces (families[i], &faces, &n_faces);
+            face = faces[0];
+            for (j = 0; j < n_faces; j++)
+              {
+                if (strcmp (pango_font_face_get_face_name (faces[j]), "Regular") == 0)
+                  {
+                    face = faces[j];
+                    break;
+                  }
+              }
+            g_free (faces);
+          }
+#endif
+          desc = gtk_delayed_font_description_new (face);
 
           gtk_list_store_insert_with_values (list_store, &iter, -1,
                                              FAMILY_COLUMN, families[i],
-                                             FACE_COLUMN, faces[j],
+                                             FACE_COLUMN, face,
                                              FONT_DESC_COLUMN, desc,
-                                             PREVIEW_TITLE_COLUMN, title,
+                                             PREVIEW_TITLE_COLUMN, fam_name,
                                              -1);
 
-          g_free (title);
           gtk_delayed_font_description_unref (desc);
-
-          if ((priv->level & GTK_FONT_CHOOSER_LEVEL_STYLE) == 0)
-            break;
         }
+      else
+        {
+          PangoFontFace **faces;
+          int j, n_faces;
 
-      g_free (faces);
+          pango_font_family_list_faces (families[i], &faces, &n_faces);
+
+          for (j = 0; j < n_faces; j++)
+            {
+              GtkDelayedFontDescription *desc;
+              const gchar *face_name;
+              char *title;
+
+              face_name = pango_font_face_get_face_name (faces[j]);
+              title = g_strconcat (fam_name, " ", face_name, NULL);
+              desc = gtk_delayed_font_description_new (faces[j]);
+
+              gtk_list_store_insert_with_values (list_store, &iter, -1,
+                                                 FAMILY_COLUMN, families[i],
+                                                 FACE_COLUMN, faces[j],
+                                                 FONT_DESC_COLUMN, desc,
+                                                 PREVIEW_TITLE_COLUMN, title,
+                                                 -1);
+
+              g_free (title);
+              gtk_delayed_font_description_unref (desc);
+            }
+
+          g_free (faces);
+        }
     }
 
   g_free (families);
@@ -2466,11 +2499,13 @@ gtk_font_chooser_widget_set_level (GtkFontChooserWidget *fontchooser,
     {
       gtk_widget_show (priv->size_slider);
       gtk_widget_show (priv->size_spin);
+      gtk_widget_show (priv->size_label);
     }
   else
    {
       gtk_widget_hide (priv->size_slider);
       gtk_widget_hide (priv->size_spin);
+      gtk_widget_hide (priv->size_label);
    }
 
   gtk_font_chooser_widget_load_fonts (fontchooser, TRUE);

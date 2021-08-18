@@ -124,6 +124,7 @@
 #include "gtkprivate.h"
 #include "gtkmain.h"
 #include "gtkintl.h"
+#include "gtkmarshalers.h"
 
 typedef struct _GtkGesturePrivate GtkGesturePrivate;
 typedef struct _PointData PointData;
@@ -890,7 +891,7 @@ gtk_gesture_class_init (GtkGestureClass *klass)
   /**
    * GtkGesture::begin:
    * @gesture: the object which received the signal
-   * @sequence: the #GdkEventSequence that made the gesture to be recognized
+   * @sequence: (nullable): the #GdkEventSequence that made the gesture to be recognized
    *
    * This signal is emitted when the gesture is recognized. This means the
    * number of touch sequences matches #GtkGesture:n-points, and the #GtkGesture::check
@@ -912,7 +913,7 @@ gtk_gesture_class_init (GtkGestureClass *klass)
   /**
    * GtkGesture::end:
    * @gesture: the object which received the signal
-   * @sequence: the #GdkEventSequence that made gesture recognition to finish
+   * @sequence: (nullable): the #GdkEventSequence that made gesture recognition to finish
    *
    * This signal is emitted when @gesture either stopped recognizing the event
    * sequences as something to be handled (the #GtkGesture::check handler returned
@@ -936,7 +937,7 @@ gtk_gesture_class_init (GtkGestureClass *klass)
   /**
    * GtkGesture::update:
    * @gesture: the object which received the signal
-   * @sequence: the #GdkEventSequence that was updated
+   * @sequence: (nullable): the #GdkEventSequence that was updated
    *
    * This signal is emitted whenever an event is handled while the gesture is
    * recognized. @sequence is guaranteed to pertain to the set of active touches.
@@ -953,7 +954,7 @@ gtk_gesture_class_init (GtkGestureClass *klass)
   /**
    * GtkGesture::cancel:
    * @gesture: the object which received the signal
-   * @sequence: the #GdkEventSequence that was cancelled
+   * @sequence: (nullable): the #GdkEventSequence that was cancelled
    *
    * This signal is emitted whenever a sequence is cancelled. This usually
    * happens on active touches when gtk_event_controller_reset() is called
@@ -974,7 +975,7 @@ gtk_gesture_class_init (GtkGestureClass *klass)
   /**
    * GtkGesture::sequence-state-changed:
    * @gesture: the object which received the signal
-   * @sequence: the #GdkEventSequence that was cancelled
+   * @sequence: (nullable): the #GdkEventSequence that was cancelled
    * @state: the new sequence state
    *
    * This signal is emitted whenever a sequence state changes. See
@@ -988,9 +989,13 @@ gtk_gesture_class_init (GtkGestureClass *klass)
                   G_TYPE_FROM_CLASS (klass),
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (GtkGestureClass, sequence_state_changed),
-                  NULL, NULL, NULL,
+                  NULL, NULL,
+                  _gtk_marshal_VOID__BOXED_ENUM,
                   G_TYPE_NONE, 2, GDK_TYPE_EVENT_SEQUENCE,
                   GTK_TYPE_EVENT_SEQUENCE_STATE);
+  g_signal_set_va_marshaller (signals[SEQUENCE_STATE_CHANGED],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_VOID__BOXED_ENUMv);
 }
 
 static void
@@ -1450,12 +1455,19 @@ gtk_gesture_get_bounding_box_center (GtkGesture *gesture,
                                      gdouble    *x,
                                      gdouble    *y)
 {
+  const GdkEvent *last_event;
   GdkRectangle rect;
+  GdkEventSequence *sequence;
 
   g_return_val_if_fail (GTK_IS_GESTURE (gesture), FALSE);
   g_return_val_if_fail (x != NULL && y != NULL, FALSE);
 
-  if (!gtk_gesture_get_bounding_box (gesture, &rect))
+  sequence = gtk_gesture_get_last_updated_sequence (gesture);
+  last_event = gtk_gesture_get_last_event (gesture, sequence);
+
+  if (EVENT_IS_TOUCHPAD_GESTURE (last_event))
+    return gtk_gesture_get_point (gesture, sequence, x, y);
+  else if (!gtk_gesture_get_bounding_box (gesture, &rect))
     return FALSE;
 
   *x = rect.x + rect.width / 2;

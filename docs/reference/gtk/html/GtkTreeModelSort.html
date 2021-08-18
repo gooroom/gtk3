@@ -8,7 +8,7 @@
 <link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
 <link rel="prev" href="GtkTreeSortable.html" title="GtkTreeSortable">
 <link rel="next" href="GtkTreeModelFilter.html" title="GtkTreeModelFilter">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GtkTreeModelSort.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -68,7 +68,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkTreeModelSort.html#gtk-tree-model-sort-convert-child-iter-to-iter" title="gtk_tree_model_sort_convert_child_iter_to_iter ()">gtk_tree_model_sort_convert_child_iter_to_iter</a> <span class="c_punctuation">()</span>
@@ -108,7 +108,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkTreeModelSort.html#gtk-tree-model-sort-iter-is-valid" title="gtk_tree_model_sort_iter_is_valid ()">gtk_tree_model_sort_iter_is_valid</a> <span class="c_punctuation">()</span>
@@ -129,7 +129,7 @@
 <td class="property_type">
 <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkTreeModelSort.html#GtkTreeModelSort--model" title="The “model” property">model</a></td>
-<td class="property_flags">Read / Write / Construct Only</td>
+<td class="property_flags">Read / Write / Construct Only</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -137,8 +137,8 @@
 <a name="GtkTreeModelSort.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="datatype_keyword">struct</td>
@@ -148,7 +148,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkTreeModelSort.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> GtkTreeModelSort
 </pre>
 </div>
@@ -210,30 +210,30 @@ sort the second.</p>
 22
 23
 24</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">GtkTreeView</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">tree_view1</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="usertype">GtkTreeView</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">tree_view2</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="usertype">GtkTreeModel</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">sort_model1</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="usertype">GtkTreeModel</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">sort_model2</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="usertype">GtkTreeModel</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">child_model</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="p">{</span>
+  <span class="n">GtkTreeView</span> <span class="o">*</span><span class="n">tree_view1</span><span class="p">;</span>
+  <span class="n">GtkTreeView</span> <span class="o">*</span><span class="n">tree_view2</span><span class="p">;</span>
+  <span class="n">GtkTreeModel</span> <span class="o">*</span><span class="n">sort_model1</span><span class="p">;</span>
+  <span class="n">GtkTreeModel</span> <span class="o">*</span><span class="n">sort_model2</span><span class="p">;</span>
+  <span class="n">GtkTreeModel</span> <span class="o">*</span><span class="n">child_model</span><span class="p">;</span>
 
-<span class="normal">  </span><span class="comment">// get the child model</span>
-<span class="normal">  child_model </span><span class="symbol">=</span><span class="normal"> </span><span class="function">get_my_model</span><span class="normal"> </span><span class="symbol">();</span>
+  <span class="c1">// get the child model</span>
+  <span class="n">child_model</span> <span class="o">=</span> <span class="n">get_my_model</span> <span class="p">();</span>
 
-<span class="normal">  </span><span class="comment">// Create the first tree</span>
-<span class="normal">  sort_model1 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeModelSort.html#gtk-tree-model-sort-new-with-model">gtk_tree_model_sort_new_with_model</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">child_model</span><span class="symbol">);</span>
-<span class="normal">  tree_view1 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeView.html#gtk-tree-view-new-with-model">gtk_tree_view_new_with_model</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model1</span><span class="symbol">);</span>
+  <span class="c1">// Create the first tree</span>
+  <span class="n">sort_model1</span> <span class="o">=</span> <span class="n">gtk_tree_model_sort_new_with_model</span> <span class="p">(</span><span class="n">child_model</span><span class="p">);</span>
+  <span class="n">tree_view1</span> <span class="o">=</span> <span class="n">gtk_tree_view_new_with_model</span> <span class="p">(</span><span class="n">sort_model1</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="comment">// Create the second tree</span>
-<span class="normal">  sort_model2 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeModelSort.html#gtk-tree-model-sort-new-with-model">gtk_tree_model_sort_new_with_model</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">child_model</span><span class="symbol">);</span>
-<span class="normal">  tree_view2 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeView.html#gtk-tree-view-new-with-model">gtk_tree_view_new_with_model</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model2</span><span class="symbol">);</span>
+  <span class="c1">// Create the second tree</span>
+  <span class="n">sort_model2</span> <span class="o">=</span> <span class="n">gtk_tree_model_sort_new_with_model</span> <span class="p">(</span><span class="n">child_model</span><span class="p">);</span>
+  <span class="n">tree_view2</span> <span class="o">=</span> <span class="n">gtk_tree_view_new_with_model</span> <span class="p">(</span><span class="n">sort_model2</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="comment">// Now we can sort the two models independently</span>
-<span class="normal">  </span><span class="function"><a href="GtkTreeSortable.html#gtk-tree-sortable-set-sort-column-id">gtk_tree_sortable_set_sort_column_id</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_SORTABLE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model1</span><span class="symbol">),</span>
-<span class="normal">                                        COLUMN_1</span><span class="symbol">,</span><span class="normal"> <a href="gtk3-Standard-Enumerations.html#GTK-SORT-ASCENDING:CAPS">GTK_SORT_ASCENDING</a></span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function"><a href="GtkTreeSortable.html#gtk-tree-sortable-set-sort-column-id">gtk_tree_sortable_set_sort_column_id</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_SORTABLE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model2</span><span class="symbol">),</span>
-<span class="normal">                                        COLUMN_1</span><span class="symbol">,</span><span class="normal"> <a href="gtk3-Standard-Enumerations.html#GTK-SORT-DESCENDING:CAPS">GTK_SORT_DESCENDING</a></span><span class="symbol">);</span>
-<span class="cbracket">}</span></pre></td>
+  <span class="c1">// Now we can sort the two models independently</span>
+  <span class="n">gtk_tree_sortable_set_sort_column_id</span> <span class="p">(</span><span class="n">GTK_TREE_SORTABLE</span> <span class="p">(</span><span class="n">sort_model1</span><span class="p">),</span>
+                                        <span class="n">COLUMN_1</span><span class="p">,</span> <span class="n">GTK_SORT_ASCENDING</span><span class="p">);</span>
+  <span class="n">gtk_tree_sortable_set_sort_column_id</span> <span class="p">(</span><span class="n">GTK_TREE_SORTABLE</span> <span class="p">(</span><span class="n">sort_model2</span><span class="p">),</span>
+                                        <span class="n">COLUMN_1</span><span class="p">,</span> <span class="n">GTK_SORT_DESCENDING</span><span class="p">);</span>
+<span class="p">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -291,45 +291,45 @@ selected row on the child model, and change the row there.</p>
 37
 38
 39</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="type">void</span>
-<span class="function">selection_changed</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkTreeSelection</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">selection</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">gpointer</span><span class="normal"> data</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">GtkTreeModel</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">sort_model </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
-<span class="normal">  </span><span class="usertype">GtkTreeModel</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">child_model</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="usertype">GtkTreeIter</span><span class="normal"> sort_iter</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="usertype">GtkTreeIter</span><span class="normal"> child_iter</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">some_data </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
-<span class="normal">  </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">modified_data</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="kt">void</span>
+<span class="nf">selection_changed</span> <span class="p">(</span><span class="n">GtkTreeSelection</span> <span class="o">*</span><span class="n">selection</span><span class="p">,</span> <span class="n">gpointer</span> <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GtkTreeModel</span> <span class="o">*</span><span class="n">sort_model</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+  <span class="n">GtkTreeModel</span> <span class="o">*</span><span class="n">child_model</span><span class="p">;</span>
+  <span class="n">GtkTreeIter</span> <span class="n">sort_iter</span><span class="p">;</span>
+  <span class="n">GtkTreeIter</span> <span class="n">child_iter</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="o">*</span><span class="n">some_data</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="o">*</span><span class="n">modified_data</span><span class="p">;</span>
 
-<span class="normal">  </span><span class="comment">// Get the current selected row and the model.</span>
-<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(!</span><span class="normal"> </span><span class="function"><a href="GtkTreeSelection.html#gtk-tree-selection-get-selected">gtk_tree_selection_get_selected</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">selection</span><span class="symbol">,</span>
-<span class="normal">                                         </span><span class="symbol">&amp;</span><span class="normal">sort_model</span><span class="symbol">,</span>
-<span class="normal">                                         </span><span class="symbol">&amp;</span><span class="normal">sort_iter</span><span class="symbol">))</span>
-<span class="normal">    </span><span class="keyword">return</span><span class="symbol">;</span>
+  <span class="c1">// Get the current selected row and the model.</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">gtk_tree_selection_get_selected</span> <span class="p">(</span><span class="n">selection</span><span class="p">,</span>
+                                         <span class="o">&amp;</span><span class="n">sort_model</span><span class="p">,</span>
+                                         <span class="o">&amp;</span><span class="n">sort_iter</span><span class="p">))</span>
+    <span class="k">return</span><span class="p">;</span>
 
-<span class="normal">  </span><span class="comment">// Look up the current value on the selected row and get</span>
-<span class="normal">  </span><span class="comment">// a new value to change it to.</span>
-<span class="normal">  </span><span class="function"><a href="GtkTreeModel.html#gtk-tree-model-get">gtk_tree_model_get</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_MODEL</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model</span><span class="symbol">),</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">sort_iter</span><span class="symbol">,</span>
-<span class="normal">                      COLUMN_1</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">some_data</span><span class="symbol">,</span>
-<span class="normal">                      </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">);</span>
+  <span class="c1">// Look up the current value on the selected row and get</span>
+  <span class="c1">// a new value to change it to.</span>
+  <span class="n">gtk_tree_model_get</span> <span class="p">(</span><span class="n">GTK_TREE_MODEL</span> <span class="p">(</span><span class="n">sort_model</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">sort_iter</span><span class="p">,</span>
+                      <span class="n">COLUMN_1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">some_data</span><span class="p">,</span>
+                      <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 
-<span class="normal">  modified_data </span><span class="symbol">=</span><span class="normal"> </span><span class="function">change_the_data</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">some_data</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">some_data</span><span class="symbol">);</span>
+  <span class="n">modified_data</span> <span class="o">=</span> <span class="n">change_the_data</span> <span class="p">(</span><span class="n">some_data</span><span class="p">);</span>
+  <span class="n">g_free</span> <span class="p">(</span><span class="n">some_data</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="comment">// Get an iterator on the child model, instead of the sort model.</span>
-<span class="normal">  </span><span class="function"><a href="GtkTreeModelSort.html#gtk-tree-model-sort-convert-iter-to-child-iter">gtk_tree_model_sort_convert_iter_to_child_iter</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_MODEL_SORT</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model</span><span class="symbol">),</span>
-<span class="normal">                                                  </span><span class="symbol">&amp;</span><span class="normal">child_iter</span><span class="symbol">,</span>
-<span class="normal">                                                  </span><span class="symbol">&amp;</span><span class="normal">sort_iter</span><span class="symbol">);</span>
+  <span class="c1">// Get an iterator on the child model, instead of the sort model.</span>
+  <span class="n">gtk_tree_model_sort_convert_iter_to_child_iter</span> <span class="p">(</span><span class="n">GTK_TREE_MODEL_SORT</span> <span class="p">(</span><span class="n">sort_model</span><span class="p">),</span>
+                                                  <span class="o">&amp;</span><span class="n">child_iter</span><span class="p">,</span>
+                                                  <span class="o">&amp;</span><span class="n">sort_iter</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="comment">// Get the child model and change the value of the row. In this</span>
-<span class="normal">  </span><span class="comment">// example, the child model is a GtkListStore. It could be any other</span>
-<span class="normal">  </span><span class="comment">// type of model, though.</span>
-<span class="normal">  child_model </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeModelSort.html#gtk-tree-model-sort-get-model">gtk_tree_model_sort_get_model</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_MODEL_SORT</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">sort_model</span><span class="symbol">));</span>
-<span class="normal">  </span><span class="function"><a href="GtkListStore.html#gtk-list-store-set">gtk_list_store_set</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_LIST_STORE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">child_model</span><span class="symbol">),</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">child_iter</span><span class="symbol">,</span>
-<span class="normal">                      COLUMN_1</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">modified_data</span><span class="symbol">,</span>
-<span class="normal">                      </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">modified_data</span><span class="symbol">);</span>
-<span class="cbracket">}</span></pre></td>
+  <span class="c1">// Get the child model and change the value of the row. In this</span>
+  <span class="c1">// example, the child model is a GtkListStore. It could be any other</span>
+  <span class="c1">// type of model, though.</span>
+  <span class="n">child_model</span> <span class="o">=</span> <span class="n">gtk_tree_model_sort_get_model</span> <span class="p">(</span><span class="n">GTK_TREE_MODEL_SORT</span> <span class="p">(</span><span class="n">sort_model</span><span class="p">));</span>
+  <span class="n">gtk_list_store_set</span> <span class="p">(</span><span class="n">GTK_LIST_STORE</span> <span class="p">(</span><span class="n">child_model</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">child_iter</span><span class="p">,</span>
+                      <span class="n">COLUMN_1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">modified_data</span><span class="p">,</span>
+                      <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n">g_free</span> <span class="p">(</span><span class="n">modified_data</span><span class="p">);</span>
+<span class="p">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -344,8 +344,9 @@ selected row on the child model, and change the row there.</p>
 <a name="gtk-tree-model-sort-new-with-model"></a><h3>gtk_tree_model_sort_new_with_model ()</h3>
 <pre class="programlisting"><a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="returnvalue">GtkTreeModel</span></a> *
 gtk_tree_model_sort_new_with_model (<em class="parameter"><code><a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a> *child_model</code></em>);</pre>
-<p>Creates a new <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a>, with <em class="parameter"><code>child_model</code></em>
+<p>Creates a new <a class="link" href="GtkTreeModelSort.html" title="GtkTreeModelSort"><span class="type">GtkTreeModelSort</span></a>, with <em class="parameter"><code>child_model</code></em>
  as the child model.</p>
+<p><span class="annotation">[<acronym title="This symbol is a constructor, not a static method."><span class="acronym">constructor</span></acronym>]</span></p>
 <div class="refsect3">
 <a name="gtk-tree-model-sort-new-with-model.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -363,8 +364,8 @@ gtk_tree_model_sort_new_with_model (<em class="parameter"><code><a class="link" 
 </div>
 <div class="refsect3">
 <a name="gtk-tree-model-sort-new-with-model.returns"></a><h4>Returns</h4>
-<p>A new <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a>. </p>
-<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+<p>A new <a class="link" href="GtkTreeModelSort.html" title="GtkTreeModelSort"><span class="type">GtkTreeModelSort</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> Gtk.TreeModelSort]</span></p>
 </div>
 </div>
 <hr>
@@ -408,7 +409,7 @@ gtk_tree_model_sort_convert_child_path_to_path
  points to a path in the child model.  The returned path will
 point to the same row in the sorted model.  If <em class="parameter"><code>child_path</code></em>
  isn’t a valid 
-path on the child model, then <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned.</p>
+path on the child model, then <code class="literal">NULL</code> is returned.</p>
 <div class="refsect3">
 <a name="gtk-tree-model-sort-convert-child-path-to-path.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -433,14 +434,14 @@ path on the child model, then <a href="https://developer.gnome.org/glib/unstable
 </div>
 <div class="refsect3">
 <a name="gtk-tree-model-sort-convert-child-path-to-path.returns"></a><h4>Returns</h4>
-<p>A newly allocated <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>A newly allocated <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a>, or <code class="literal">NULL</code>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-tree-model-sort-convert-child-iter-to-iter"></a><h3>gtk_tree_model_sort_convert_child_iter_to_iter ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_tree_model_sort_convert_child_iter_to_iter
                                (<em class="parameter"><code><a class="link" href="GtkTreeModelSort.html" title="GtkTreeModelSort"><span class="type">GtkTreeModelSort</span></a> *tree_model_sort</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *sort_iter</code></em>,
@@ -450,7 +451,7 @@ gtk_tree_model_sort_convert_child_iter_to_iter
  that corresponds to
 the row pointed at by <em class="parameter"><code>child_iter</code></em>
 .  If <em class="parameter"><code>sort_iter</code></em>
- was not set, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>
+ was not set, <code class="literal">FALSE</code>
 is returned.  Note: a boolean is only returned since 2.14.</p>
 <div class="refsect3">
 <a name="gtk-tree-model-sort-convert-child-iter-to-iter.parameters"></a><h4>Parameters</h4>
@@ -481,7 +482,7 @@ is returned.  Note: a boolean is only returned since 2.14.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-tree-model-sort-convert-child-iter-to-iter.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, if <em class="parameter"><code>sort_iter</code></em>
+<p> <code class="literal">TRUE</code>, if <em class="parameter"><code>sort_iter</code></em>
 was set, i.e. if <em class="parameter"><code>sort_iter</code></em>
 is a
 valid iterator pointer to a visible row in the child model.</p>
@@ -503,7 +504,7 @@ That is, <em class="parameter"><code>sorted_path</code></em>
 returned path will point to the same location in the model not being 
 sorted.  If <em class="parameter"><code>sorted_path</code></em>
  does not point to a location in the child model, 
-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned.</p>
+<code class="literal">NULL</code> is returned.</p>
 <div class="refsect3">
 <a name="gtk-tree-model-sort-convert-path-to-child-path.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -528,7 +529,7 @@ sorted.  If <em class="parameter"><code>sorted_path</code></em>
 </div>
 <div class="refsect3">
 <a name="gtk-tree-model-sort-convert-path-to-child-path.returns"></a><h4>Returns</h4>
-<p>A newly allocated <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>A newly allocated <a class="link" href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a>, or <code class="literal">NULL</code>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 </div>
@@ -629,7 +630,7 @@ iters will be invalid.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-tree-model-sort-iter-is-valid"></a><h3>gtk_tree_model_sort_iter_is_valid ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_tree_model_sort_iter_is_valid (<em class="parameter"><code><a class="link" href="GtkTreeModelSort.html" title="GtkTreeModelSort"><span class="type">GtkTreeModelSort</span></a> *tree_model_sort</code></em>,
                                    <em class="parameter"><code><a class="link" href="GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *iter</code></em>);</pre>
 <div class="blockquote"><blockquote class="blockquote"><p>This function is slow. Only use it for debugging and/or testing
@@ -659,7 +660,7 @@ purposes.</p></blockquote></div>
 </div>
 <div class="refsect3">
 <a name="gtk-tree-model-sort-iter-is-valid.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the iter is valid, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> if the iter is invalid.</p>
+<p> <code class="literal">TRUE</code> if the iter is valid, <code class="literal">FALSE</code> if the iter is invalid.</p>
 </div>
 <p class="since">Since: 2.2</p>
 </div>
@@ -677,7 +678,8 @@ purposes.</p></blockquote></div>
 <a name="GtkTreeModelSort--model"></a><h3>The <code class="literal">“model”</code> property</h3>
 <pre class="programlisting">  “model”                    <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a> *</pre>
 <p>The model for the TreeModelSort to sort.</p>
-<p>Flags: Read / Write / Construct Only</p>
+<p>Owner: GtkTreeModelSort</p>
+<p>Flags: Read / Write / Construct Only</p>
 </div>
 </div>
 <div class="refsect1">
@@ -686,6 +688,6 @@ purposes.</p></blockquote></div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

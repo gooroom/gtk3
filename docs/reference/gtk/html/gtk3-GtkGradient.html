@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="gtk3-GtkSymbolicColor.html" title="GtkSymbolicColor">
 <link rel="next" href="gtk3-Resource-Files.html" title="Resource Files">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -35,8 +35,8 @@
 <a name="gtk3-GtkGradient.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -81,7 +81,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-GtkGradient.html#gtk-gradient-resolve" title="gtk_gradient_resolve ()">gtk_gradient_resolve</a> <span class="c_punctuation">()</span>
@@ -110,8 +110,8 @@
 <a name="gtk3-GtkGradient.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="datatype_keyword"> </td>
@@ -146,10 +146,10 @@ your own code, please use Cairo directly.</p>
 <div class="refsect2">
 <a name="gtk-gradient-new-linear"></a><h3>gtk_gradient_new_linear ()</h3>
 <pre class="programlisting"><a class="link" href="gtk3-GtkGradient.html#GtkGradient" title="GtkGradient"><span class="returnvalue">GtkGradient</span></a> *
-gtk_gradient_new_linear (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x0</code></em>,
-                         <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y0</code></em>,
-                         <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x1</code></em>,
-                         <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y1</code></em>);</pre>
+gtk_gradient_new_linear (<em class="parameter"><code><span class="type">gdouble</span> x0</code></em>,
+                         <em class="parameter"><code><span class="type">gdouble</span> y0</code></em>,
+                         <em class="parameter"><code><span class="type">gdouble</span> x1</code></em>,
+                         <em class="parameter"><code><span class="type">gdouble</span> y1</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_gradient_new_linear</code> has been deprecated since version 3.8 and should not be used in newly-written code.</p>
 <p><a class="link" href="gtk3-GtkGradient.html#GtkGradient" title="GtkGradient"><span class="type">GtkGradient</span></a> is deprecated.</p>
@@ -198,12 +198,12 @@ a number of stop colors must be added through <a class="link" href="gtk3-GtkGrad
 <div class="refsect2">
 <a name="gtk-gradient-new-radial"></a><h3>gtk_gradient_new_radial ()</h3>
 <pre class="programlisting"><a class="link" href="gtk3-GtkGradient.html#GtkGradient" title="GtkGradient"><span class="returnvalue">GtkGradient</span></a> *
-gtk_gradient_new_radial (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x0</code></em>,
-                         <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y0</code></em>,
-                         <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> radius0</code></em>,
-                         <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x1</code></em>,
-                         <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y1</code></em>,
-                         <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> radius1</code></em>);</pre>
+gtk_gradient_new_radial (<em class="parameter"><code><span class="type">gdouble</span> x0</code></em>,
+                         <em class="parameter"><code><span class="type">gdouble</span> y0</code></em>,
+                         <em class="parameter"><code><span class="type">gdouble</span> radius0</code></em>,
+                         <em class="parameter"><code><span class="type">gdouble</span> x1</code></em>,
+                         <em class="parameter"><code><span class="type">gdouble</span> y1</code></em>,
+                         <em class="parameter"><code><span class="type">gdouble</span> radius1</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_gradient_new_radial</code> has been deprecated since version 3.8 and should not be used in newly-written code.</p>
 <p><a class="link" href="gtk3-GtkGradient.html#GtkGradient" title="GtkGradient"><span class="type">GtkGradient</span></a> is deprecated.</p>
@@ -264,7 +264,7 @@ through <a class="link" href="gtk3-GtkGradient.html#gtk-gradient-add-color-stop"
 <a name="gtk-gradient-add-color-stop"></a><h3>gtk_gradient_add_color_stop ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_gradient_add_color_stop (<em class="parameter"><code><a class="link" href="gtk3-GtkGradient.html#GtkGradient" title="GtkGradient"><span class="type">GtkGradient</span></a> *gradient</code></em>,
-                             <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> offset</code></em>,
+                             <em class="parameter"><code><span class="type">gdouble</span> offset</code></em>,
                              <em class="parameter"><code><a class="link" href="gtk3-GtkSymbolicColor.html#GtkSymbolicColor" title="GtkSymbolicColor"><span class="type">GtkSymbolicColor</span></a> *color</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_gradient_add_color_stop</code> has been deprecated since version 3.8 and should not be used in newly-written code.</p>
@@ -366,7 +366,7 @@ if the reference count reaches 0.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-gradient-resolve"></a><h3>gtk_gradient_resolve ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_gradient_resolve (<em class="parameter"><code><a class="link" href="gtk3-GtkGradient.html#GtkGradient" title="GtkGradient"><span class="type">GtkGradient</span></a> *gradient</code></em>,
                       <em class="parameter"><code><a class="link" href="gtk3-GtkStyleProperties.html#GtkStyleProperties" title="struct GtkStyleProperties"><span class="type">GtkStyleProperties</span></a> *props</code></em>,
                       <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-t"><span class="type">cairo_pattern_t</span></a> **resolved_gradient</code></em>);</pre>
@@ -377,7 +377,7 @@ gtk_gradient_resolve (<em class="parameter"><code><a class="link" href="gtk3-Gtk
 <p>If <em class="parameter"><code>gradient</code></em>
  is resolvable, <em class="parameter"><code>resolved_gradient</code></em>
  will be filled in
-with the resolved gradient as a cairo_pattern_t, and <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> will
+with the resolved gradient as a cairo_pattern_t, and <code class="literal">TRUE</code> will
 be returned. Generally, if <em class="parameter"><code>gradient</code></em>
  can’t be resolved, it is
 due to it being defined on top of a named color that doesn't
@@ -412,7 +412,7 @@ exist in <em class="parameter"><code>props</code></em>
 </div>
 <div class="refsect3">
 <a name="gtk-gradient-resolve.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the gradient has been resolved</p>
+<p> <code class="literal">TRUE</code> if the gradient has been resolved</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
 </div>
@@ -467,6 +467,6 @@ for using in GTK CSS files.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

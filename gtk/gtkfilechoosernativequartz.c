@@ -40,9 +40,9 @@
 #include "gtklabel.h"
 #include "gtkfilechooserentry.h"
 #include "gtkfilefilterprivate.h"
+#include <quartz/gdkquartz-gtk-only.h>
 
-#include "quartz/gdkquartz.h"
-
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1060
 typedef struct {
   GtkFileChooserNative *self;
 
@@ -451,6 +451,10 @@ gtk_file_chooser_native_quartz_show (GtkFileChooserNative *self)
   GtkWidget *extra_widget = NULL;
   char *message = NULL;
 
+  /* Not supported before MacOS X 10.6 */
+  if (gdk_quartz_osx_version () < GDK_OSX_SNOW_LEOPARD)
+    return FALSE;
+
   extra_widget = gtk_file_chooser_get_extra_widget (GTK_FILE_CHOOSER (self));
   // if the extra_widget is a GtkLabel, then use its text to set the dialog message
   if (extra_widget != NULL)
@@ -562,6 +566,10 @@ gtk_file_chooser_native_quartz_hide (GtkFileChooserNative *self)
 {
   FileChooserQuartzData *data = self->mode_data;
 
+  /* Not supported before MacOS X 10.6 */
+  if (gdk_quartz_osx_version () < GDK_OSX_SNOW_LEOPARD)
+    return;
+
   /* This is always set while dialog visible */
   g_assert (data != NULL);
 
@@ -583,3 +591,4 @@ gtk_file_chooser_native_quartz_hide (GtkFileChooserNative *self)
   data->panel = NULL;
 }
 
+#endif /* MAC_OS_X_VERSION_MAX_ALLOWED >= 1060 */

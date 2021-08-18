@@ -116,8 +116,11 @@ EXTRA_DIST += 				\
 	data/symbolic-source.svg	\
 	demo.gresource.xml		\
 	$(resource_files)		\
+	makefile.msc.in			\
 	org.gtk.Demo.gschema.xml	\
-	demos.h.win32
+	demos.h.win32	\
+	meson.build	\
+	geninclude.py
 
 gsettings_SCHEMAS = \
 	org.gtk.Demo.gschema.xml
@@ -193,11 +196,11 @@ gtk3_demo_EXCLUDES = font_features.c|pagesetup.c
 gtk3_demo_application_FILES = $(gtk3_demo_application_SOURCES)
 gtk3_demo_application_EXCLUDES = dummy
 
-include $(top_srcdir)/build/Makefile.msvcproj
+include $(top_srcdir)/win32/Makefile.msvcproj
 
 dist-hook: \
-	$(top_builddir)/build/win32/vs9/gtk3-demo.vcproj	\
-	$(top_builddir)/build/win32/vs9/gtk3-demo-application.vcproj
+	$(top_builddir)/win32/vs9/gtk3-demo.vcproj	\
+	$(top_builddir)/win32/vs9/gtk3-demo-application.vcproj
 
 DISTCLEANFILES = demos.h demos.h.win32
 

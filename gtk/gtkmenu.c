@@ -133,6 +133,7 @@
 #include "gtkcssnodeprivate.h"
 #include "gtkstylecontextprivate.h"
 #include "gtkcssstylepropertyprivate.h"
+#include "gtktooltipprivate.h"
 
 #include "deprecated/gtktearoffmenuitem.h"
 
@@ -1340,13 +1341,10 @@ gtk_menu_init (GtkMenu *menu)
 
   menu->priv = priv;
 
-  priv->toplevel = g_object_connect (g_object_new (GTK_TYPE_WINDOW,
-                                                   "type", GTK_WINDOW_POPUP,
-                                                   "child", menu,
-                                                   NULL),
-                                     "signal::event", gtk_menu_window_event, menu,
-                                     "signal::destroy", gtk_widget_destroyed, &priv->toplevel,
-                                     NULL);
+  priv->toplevel = gtk_window_new (GTK_WINDOW_POPUP);
+  gtk_container_add (GTK_CONTAINER (priv->toplevel), GTK_WIDGET (menu));
+  g_signal_connect (priv->toplevel, "event", G_CALLBACK (gtk_menu_window_event), menu);
+  g_signal_connect (priv->toplevel, "destroy", G_CALLBACK (gtk_widget_destroyed), &priv->toplevel);
   gtk_window_set_resizable (GTK_WINDOW (priv->toplevel), FALSE);
   gtk_window_set_mnemonic_modifier (GTK_WINDOW (priv->toplevel), 0);
 
@@ -1398,13 +1396,18 @@ moved_to_rect_cb (GdkWindow          *window,
                   gboolean            flipped_y,
                   GtkMenu            *menu)
 {
-  g_signal_emit (menu,
-                 menu_signals[POPPED_UP],
-                 0,
-                 flipped_rect,
-                 final_rect,
-                 flipped_x,
-                 flipped_y);
+  GtkMenuPrivate *priv = menu->priv;
+
+  gtk_window_fixate_size (GTK_WINDOW (priv->toplevel));
+
+  if (!priv->emulated_move_to_rect)
+    g_signal_emit (menu,
+                   menu_signals[POPPED_UP],
+                   0,
+                   flipped_rect,
+                   final_rect,
+                   flipped_x,
+                   flipped_y);
 }
 
 static void
@@ -1774,8 +1777,13 @@ popup_grab_on_window (GdkWindow *window,
   GdkSeat *seat;
 
   seat = gdk_device_get_seat (pointer);
+
+/* Let GtkMenu use pointer emulation instead of touch events under X11. */
+#define GDK_SEAT_CAPABILITY_NO_TOUCH (GDK_SEAT_CAPABILITY_POINTER | \
+                                      GDK_SEAT_CAPABILITY_TABLET_STYLUS | \
+                                      GDK_SEAT_CAPABILITY_KEYBOARD)
   status = gdk_seat_grab (seat, window,
-                          GDK_SEAT_CAPABILITY_ALL, TRUE,
+                          GDK_SEAT_CAPABILITY_NO_TOUCH, TRUE,
                           NULL, NULL, NULL, NULL);
 
   return status == GDK_GRAB_SUCCESS;
@@ -1822,6 +1830,7 @@ gtk_menu_popup_internal (GtkMenu             *menu,
   g_return_if_fail (GTK_IS_MENU (menu));
   g_return_if_fail (device == NULL || GDK_IS_DEVICE (device));
 
+  _gtk_tooltip_hide_in_display (gtk_widget_get_display (GTK_WIDGET (menu)));
   display = gtk_widget_get_display (GTK_WIDGET (menu));
 
   if (device == NULL)
@@ -2676,7 +2685,7 @@ gtk_menu_set_accel_group (GtkMenu       *menu,
   GtkMenuPrivate *priv;
 
   g_return_if_fail (GTK_IS_MENU (menu));
-  g_return_if_fail (GTK_IS_ACCEL_GROUP (accel_group));
+  g_return_if_fail (!accel_group || GTK_IS_ACCEL_GROUP (accel_group));
 
   priv = menu->priv;
 
@@ -2817,7 +2826,7 @@ _gtk_menu_refresh_accel_paths (GtkMenu  *menu,
 {
   GtkMenuPrivate *priv = menu->priv;
 
-  if (priv->accel_path && priv->accel_group)
+  if (priv->accel_path)
     {
       AccelPropagation prop;
 
@@ -3339,17 +3348,20 @@ menu_grab_transfer_window_get (GtkMenu *menu)
 static void
 menu_grab_transfer_window_destroy (GtkMenu *menu)
 {
+  GtkMenuPrivate *priv = menu->priv;
   GdkWindow *window = g_object_get_data (G_OBJECT (menu), "gtk-menu-transfer-window");
   if (window)
     {
-      GdkWindow *widget_window;
+      GdkWindow *toplevel_window;
 
       gtk_widget_unregister_window (GTK_WIDGET (menu), window);
       gdk_window_destroy (window);
       g_object_set_data (G_OBJECT (menu), I_("gtk-menu-transfer-window"), NULL);
 
-      widget_window = gtk_widget_get_window (GTK_WIDGET (menu));
-      g_object_set_data (G_OBJECT (widget_window), I_("gdk-attached-grab-window"), window);
+      toplevel_window = gtk_widget_get_window (priv->toplevel);
+
+      if (toplevel_window != NULL)
+        g_object_set_data (G_OBJECT (toplevel_window), I_("gdk-attached-grab-window"), NULL);
     }
 }
 
@@ -5263,13 +5275,14 @@ gtk_menu_position (GtkMenu  *menu,
                                          !!(anchor_hints & GDK_ANCHOR_RESIZE_X),
                                          !!(anchor_hints & GDK_ANCHOR_RESIZE_Y));
 
+  if (!gtk_widget_get_visible (priv->toplevel))
+    gtk_window_set_type_hint (GTK_WINDOW (priv->toplevel), priv->menu_type_hint);
+
   /* Realize so we have the proper width and height to figure out
    * the right place to popup the menu.
    */
   gtk_widget_realize (priv->toplevel);
-
-  if (!gtk_widget_get_visible (priv->toplevel))
-    gtk_window_set_type_hint (GTK_WINDOW (priv->toplevel), priv->menu_type_hint);
+  gtk_window_move_resize (GTK_WINDOW (priv->toplevel));
 
   if (text_direction == GTK_TEXT_DIR_NONE)
     text_direction = gtk_widget_get_direction (GTK_WIDGET (menu));
@@ -5286,9 +5299,9 @@ gtk_menu_position (GtkMenu  *menu,
 
   g_signal_handlers_disconnect_by_func (toplevel, moved_to_rect_cb, menu);
 
-  if (!emulated_move_to_rect)
-    g_signal_connect (toplevel, "moved-to-rect", G_CALLBACK (moved_to_rect_cb),
-                      menu);
+  g_signal_connect (toplevel, "moved-to-rect", G_CALLBACK (moved_to_rect_cb),
+                    menu);
+  priv->emulated_move_to_rect = emulated_move_to_rect;
 
   gdk_window_move_to_rect (toplevel,
                            &rect,
@@ -5392,7 +5405,7 @@ gtk_menu_scroll_to (GtkMenu           *menu,
           if (!priv->upper_arrow_visible || !priv->lower_arrow_visible)
             gtk_widget_queue_draw (GTK_WIDGET (menu));
 
-          if (!priv->upper_arrow_visible &
+          if (!priv->upper_arrow_visible &&
               flags & GTK_MENU_SCROLL_FLAG_ADAPT)
             should_offset_by_arrow = TRUE;
           else

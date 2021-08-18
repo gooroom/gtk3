@@ -8,7 +8,7 @@
 <link rel="up" href="MiscObjects.html" title="Miscellaneous">
 <link rel="prev" href="GtkEventBox.html" title="GtkEventBox">
 <link rel="next" href="GtkIMContextSimple.html" title="GtkIMContextSimple">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -39,8 +39,8 @@
 <a name="GtkHandleBox.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -101,7 +101,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkHandleBox.html#gtk-handle-box-get-child-detached" title="gtk_handle_box_get_child_detached ()">gtk_handle_box_get_child_detached</a> <span class="c_punctuation">()</span>
@@ -120,7 +120,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkHandleBox.html#GtkHandleBox--child-detached" title="The “child-detached” property">child-detached</a></td>
 <td class="property_flags">Read</td>
 </tr>
@@ -140,7 +140,7 @@
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkHandleBox.html#GtkHandleBox--snap-edge-set" title="The “snap-edge-set” property">snap-edge-set</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -151,20 +151,20 @@
 <a name="GtkHandleBox.signals"></a><h2>Signals</h2>
 <div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
-<col width="150px" class="signals_return">
-<col width="300px" class="signals_name">
-<col width="200px" class="signals_flags">
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
 </colgroup>
 <tbody>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkHandleBox.html#GtkHandleBox-child-attached" title="The “child-attached” signal">child-attached</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+<td class="signal_flags">Run First</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkHandleBox.html#GtkHandleBox-child-detached" title="The “child-detached” signal">child-detached</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+<td class="signal_flags">Run First</td>
 </tr>
 </tbody>
 </table></div>
@@ -173,8 +173,8 @@
 <a name="GtkHandleBox.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -190,8 +190,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkHandleBox.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                 <span class="lineart">╰──</span> <a class="link" href="GtkBin.html" title="GtkBin">GtkBin</a>
@@ -464,7 +464,7 @@ from the handle position.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-handle-box-get-child-detached"></a><h3>gtk_handle_box_get_child_detached ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_handle_box_get_child_detached (<em class="parameter"><code><a class="link" href="GtkHandleBox.html" title="GtkHandleBox"><span class="type">GtkHandleBox</span></a> *handle_box</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_handle_box_get_child_detached</code> has been deprecated since version 3.4 and should not be used in newly-written code.</p>
@@ -488,7 +488,7 @@ gtk_handle_box_get_child_detached (<em class="parameter"><code><a class="link" h
 </div>
 <div class="refsect3">
 <a name="gtk-handle-box-get-child-detached.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the child is currently detached, otherwise <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a></p>
+<p> <code class="literal">TRUE</code> if the child is currently detached, otherwise <code class="literal">FALSE</code></p>
 </div>
 <p class="since">Since: 2.14</p>
 </div>
@@ -541,8 +541,9 @@ are detached from the main window. Deprecated: 3.4.</p></td>
 <a name="GtkHandleBox.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkHandleBox--child-detached"></a><h3>The <code class="literal">“child-detached”</code> property</h3>
-<pre class="programlisting">  “child-detached”           <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “child-detached”           <span class="type">gboolean</span></pre>
 <p>A boolean value indicating whether the handlebox's child is attached or detached.</p>
+<p>Owner: GtkHandleBox</p>
 <p>Flags: Read</p>
 <p>Default value: FALSE</p>
 </div>
@@ -551,6 +552,7 @@ are detached from the main window. Deprecated: 3.4.</p></td>
 <a name="GtkHandleBox--handle-position"></a><h3>The <code class="literal">“handle-position”</code> property</h3>
 <pre class="programlisting">  “handle-position”          <a class="link" href="gtk3-Standard-Enumerations.html#GtkPositionType" title="enum GtkPositionType"><span class="type">GtkPositionType</span></a></pre>
 <p>Position of the handle relative to the child widget.</p>
+<p>Owner: GtkHandleBox</p>
 <p>Flags: Read / Write</p>
 <p>Default value: GTK_POS_LEFT</p>
 </div>
@@ -559,6 +561,7 @@ are detached from the main window. Deprecated: 3.4.</p></td>
 <a name="GtkHandleBox--shadow-type"></a><h3>The <code class="literal">“shadow-type”</code> property</h3>
 <pre class="programlisting">  “shadow-type”              <a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a></pre>
 <p>Appearance of the shadow that surrounds the container.</p>
+<p>Owner: GtkHandleBox</p>
 <p>Flags: Read / Write</p>
 <p>Default value: GTK_SHADOW_OUT</p>
 </div>
@@ -567,14 +570,16 @@ are detached from the main window. Deprecated: 3.4.</p></td>
 <a name="GtkHandleBox--snap-edge"></a><h3>The <code class="literal">“snap-edge”</code> property</h3>
 <pre class="programlisting">  “snap-edge”                <a class="link" href="gtk3-Standard-Enumerations.html#GtkPositionType" title="enum GtkPositionType"><span class="type">GtkPositionType</span></a></pre>
 <p>Side of the handlebox that's lined up with the docking point to dock the handlebox.</p>
+<p>Owner: GtkHandleBox</p>
 <p>Flags: Read / Write</p>
 <p>Default value: GTK_POS_TOP</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkHandleBox--snap-edge-set"></a><h3>The <code class="literal">“snap-edge-set”</code> property</h3>
-<pre class="programlisting">  “snap-edge-set”            <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “snap-edge-set”            <span class="type">gboolean</span></pre>
 <p>Whether to use the value from the snap_edge property or a value derived from handle_position.</p>
+<p>Owner: GtkHandleBox</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
 </div>
@@ -586,7 +591,7 @@ are detached from the main window. Deprecated: 3.4.</p></td>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkHandleBox.html" title="GtkHandleBox"><span class="type">GtkHandleBox</span></a> *handlebox,
                <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>    *widget,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)</pre>
+               <span class="type">gpointer</span>      user_data)</pre>
 <p>This signal is emitted when the contents of the
 handlebox are reattached to the main window.</p>
 <div class="warning">
@@ -622,7 +627,7 @@ and is here only for backwards-compatibility)</p></td>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+<p>Flags: Run First</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -630,7 +635,7 @@ and is here only for backwards-compatibility)</p></td>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkHandleBox.html" title="GtkHandleBox"><span class="type">GtkHandleBox</span></a> *handlebox,
                <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>    *widget,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)</pre>
+               <span class="type">gpointer</span>      user_data)</pre>
 <p>This signal is emitted when the contents of the
 handlebox are detached from the main window.</p>
 <div class="warning">
@@ -666,11 +671,11 @@ and is here only for backwards-compatibility)</p></td>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+<p>Flags: Run First</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

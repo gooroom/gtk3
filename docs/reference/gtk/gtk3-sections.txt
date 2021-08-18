@@ -1,6 +1,3 @@
-
-<INCLUDE>gtk/gtk.h</INCLUDE>
-
 <SECTION>
 <FILE>gtkaboutdialog</FILE>
 <TITLE>GtkAboutDialog</TITLE>
@@ -1405,6 +1402,10 @@ gtk_file_chooser_get_preview_filename
 gtk_file_chooser_get_preview_uri
 gtk_file_chooser_set_extra_widget
 gtk_file_chooser_get_extra_widget
+gtk_file_chooser_add_choice
+gtk_file_chooser_remove_choice
+gtk_file_chooser_set_choice
+gtk_file_chooser_get_choice
 gtk_file_chooser_add_filter
 gtk_file_chooser_remove_filter
 gtk_file_chooser_list_filters
@@ -7089,7 +7090,6 @@ GtkPrintOperationPrivate
 
 
 <SECTION>
-<INCLUDE>gtk/gtkunixprint.h</INCLUDE>
 <FILE>gtkprintunixdialog</FILE>
 <TITLE>GtkPrintUnixDialog</TITLE>
 GtkPrintUnixDialog
@@ -7436,7 +7436,6 @@ gtk_print_context_get_type
 
 
 <SECTION>
-<INCLUDE>gtk/gtkunixprint.h</INCLUDE>
 <FILE>gtkprintjob</FILE>
 <TITLE>GtkPrintJob</TITLE>
 GtkPrintJob
@@ -7488,7 +7487,6 @@ gtk_print_job_get_type
 
 
 <SECTION>
-<INCLUDE>gtk/gtkunixprint.h</INCLUDE>
 <FILE>gtkpagesetupunixdialog</FILE>
 <TITLE>GtkPageSetupUnixDialog</TITLE>
 GtkPageSetupUnixDialog

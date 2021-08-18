@@ -53,12 +53,14 @@ struct _SelectionBuffer
 
 struct _StoredSelection
 {
+  GdkWaylandSelection *selection;
   GdkWindow *source;
   GCancellable *cancellable;
   guchar *data;
   gsize data_len;
   GdkAtom type;
-  gint fd;
+  GdkAtom selection_atom;
+  GPtrArray *pending_writes; /* Array of AsyncWriteData */
 };
 
 struct _DataOfferData
@@ -71,7 +73,7 @@ struct _DataOfferData
 struct _AsyncWriteData
 {
   GOutputStream *stream;
-  GdkWaylandSelection *selection;
+  StoredSelection *stored_selection;
   gsize index;
 };
 
@@ -97,11 +99,12 @@ struct _GdkWaylandSelection
   GHashTable *offers; /* Currently alive offers, Hashtable of wl_data_offer->DataOfferData */
 
   /* Source-side data */
-  StoredSelection stored_selection;
+  GPtrArray *stored_selections; /* Array of StoredSelection */
+  GdkAtom current_request_selection;
   GArray *source_targets;
   GdkAtom requested_target;
 
-  struct gtk_primary_selection_source *primary_source;
+  gpointer primary_source;
   GdkWindow *primary_owner;
 
   struct wl_data_source *clipboard_source;
@@ -113,7 +116,12 @@ struct _GdkWaylandSelection
 
 static void selection_buffer_read (SelectionBuffer *buffer);
 static void async_write_data_write (AsyncWriteData *write_data);
+static void async_write_data_free (AsyncWriteData *write_data);
 static void emit_selection_clear (GdkDisplay *display, GdkAtom selection);
+static void emit_empty_selection_notify (GdkWindow *requestor,
+                                         GdkAtom    selection,
+                                         GdkAtom    target);
+static void gdk_wayland_selection_handle_next_request (GdkWaylandSelection *wayland_selection);
 
 static void
 selection_buffer_notify (SelectionBuffer *buffer)
@@ -168,10 +176,21 @@ selection_buffer_ref (SelectionBuffer *buffer)
 static void
 selection_buffer_unref (SelectionBuffer *buffer_data)
 {
+  GList *l;
+
   buffer_data->ref_count--;
 
   if (buffer_data->ref_count != 0)
     return;
+
+  for (l = buffer_data->requestors; l; l = l->next)
+    {
+      emit_empty_selection_notify (l->data, buffer_data->selection,
+                                   buffer_data->target);
+    }
+
+  g_list_free (buffer_data->requestors);
+  buffer_data->requestors = NULL;
 
   if (buffer_data->cancellable)
     g_object_unref (buffer_data->cancellable);
@@ -303,6 +322,89 @@ data_offer_data_free (DataOfferData *info)
   g_slice_free (DataOfferData, info);
 }
 
+static StoredSelection *
+stored_selection_new (GdkWaylandSelection *wayland_selection,
+                      GdkWindow           *source,
+                      GdkAtom              selection,
+                      GdkAtom              type)
+{
+  StoredSelection *stored_selection;
+
+  stored_selection = g_new0 (StoredSelection, 1);
+  stored_selection->source = source;
+  stored_selection->type = type;
+  stored_selection->selection_atom = selection;
+  stored_selection->selection = wayland_selection;
+  stored_selection->cancellable = g_cancellable_new ();
+  stored_selection->pending_writes =
+    g_ptr_array_new_with_free_func ((GDestroyNotify) async_write_data_free);
+
+  return stored_selection;
+}
+
+static void
+stored_selection_add_data (StoredSelection *stored_selection,
+                           GdkPropMode      mode,
+                           guchar          *data,
+                           gsize            data_len)
+{
+  if (mode == GDK_PROP_MODE_REPLACE)
+    {
+      g_free (stored_selection->data);
+      stored_selection->data = g_memdup (data, data_len);
+      stored_selection->data_len = data_len;
+    }
+  else
+    {
+      GArray *array;
+
+      array = g_array_new (TRUE, TRUE, sizeof (guchar));
+      g_array_append_vals (array, stored_selection->data, stored_selection->data_len);
+
+      if (mode == GDK_PROP_MODE_APPEND)
+        g_array_append_vals (array, data, data_len);
+      else if (mode == GDK_PROP_MODE_PREPEND)
+        g_array_prepend_vals (array, data, data_len);
+
+      g_free (stored_selection->data);
+      stored_selection->data_len = array->len;
+      stored_selection->data = (guchar *) g_array_free (array, FALSE);
+    }
+}
+
+static void
+stored_selection_free (StoredSelection *stored_selection)
+{
+  g_cancellable_cancel (stored_selection->cancellable);
+  g_object_unref (stored_selection->cancellable);
+  g_ptr_array_unref (stored_selection->pending_writes);
+  g_free (stored_selection->data);
+  g_free (stored_selection);
+}
+
+static void
+stored_selection_notify_write (StoredSelection *stored_selection)
+{
+  gint i;
+
+  for (i = 0; i < stored_selection->pending_writes->len; i++)
+    {
+      AsyncWriteData *write_data;
+
+      write_data = g_ptr_array_index (stored_selection->pending_writes, i);
+      async_write_data_write (write_data);
+    }
+}
+
+static void
+stored_selection_cancel_write (StoredSelection *stored_selection)
+{
+  g_cancellable_cancel (stored_selection->cancellable);
+  g_object_unref (stored_selection->cancellable);
+  stored_selection->cancellable = g_cancellable_new ();
+  g_ptr_array_set_size (stored_selection->pending_writes, 0);
+}
+
 GdkWaylandSelection *
 gdk_wayland_selection_new (void)
 {
@@ -325,9 +427,23 @@ gdk_wayland_selection_new (void)
   selection->offers =
     g_hash_table_new_full (NULL, NULL, NULL,
                            (GDestroyNotify) data_offer_data_free);
-  selection->stored_selection.fd = -1;
+  selection->stored_selections =
+    g_ptr_array_new_with_free_func ((GDestroyNotify) stored_selection_free);
+
   selection->source_targets = g_array_new (FALSE, FALSE, sizeof (GdkAtom));
   return selection;
+}
+
+static void
+primary_selection_source_destroy (gpointer primary_source)
+{
+  GdkDisplay *display = gdk_display_get_default ();
+  GdkWaylandDisplay *display_wayland = GDK_WAYLAND_DISPLAY (display);
+
+  if (display_wayland->zwp_primary_selection_manager_v1)
+    zwp_primary_selection_source_v1_destroy (primary_source);
+  else if (display_wayland->gtk_primary_selection_manager)
+    gtk_primary_selection_source_destroy (primary_source);
 }
 
 void
@@ -341,19 +457,10 @@ gdk_wayland_selection_free (GdkWaylandSelection *selection)
   g_array_unref (selection->source_targets);
 
   g_hash_table_destroy (selection->offers);
-  g_free (selection->stored_selection.data);
-
-  if (selection->stored_selection.cancellable)
-    {
-      g_cancellable_cancel (selection->stored_selection.cancellable);
-      g_object_unref (selection->stored_selection.cancellable);
-    }
-
-  if (selection->stored_selection.fd > 0)
-    close (selection->stored_selection.fd);
+  g_ptr_array_unref (selection->stored_selections);
 
   if (selection->primary_source)
-    gtk_primary_selection_source_destroy (selection->primary_source);
+    primary_selection_source_destroy (selection->primary_source);
   if (selection->clipboard_source)
     wl_data_source_destroy (selection->clipboard_source);
   if (selection->dnd_source)
@@ -451,27 +558,47 @@ static const struct wl_data_offer_listener data_offer_listener = {
 };
 
 static void
-primary_offer_offer (void                               *data,
-                     struct gtk_primary_selection_offer *gtk_offer,
-                     const char                         *type)
+primary_offer_offer (void       *data,
+                     gpointer    offer,
+                     const char *type)
 {
   GdkWaylandSelection *selection = data;
   DataOfferData *info;
   GdkAtom atom = gdk_atom_intern (type, FALSE);
 
-  info = g_hash_table_lookup (selection->offers, gtk_offer);
+  info = g_hash_table_lookup (selection->offers, offer);
 
   if (!info || g_list_find (info->targets, atom))
     return;
 
   GDK_NOTE (EVENTS,
-            g_message ("primary offer offer, offer %p, type = %s", gtk_offer, type));
+            g_message ("primary offer offer, offer %p, type = %s", offer, type));
 
   info->targets = g_list_prepend (info->targets, atom);
 }
 
-static const struct gtk_primary_selection_offer_listener primary_offer_listener = {
-  primary_offer_offer,
+static void
+gtk_primary_offer_offer (void                               *data,
+                         struct gtk_primary_selection_offer *offer,
+                         const char                         *type)
+{
+  primary_offer_offer (data, (gpointer) offer, type);
+}
+
+static void
+zwp_primary_offer_v1_offer (void                                  *data,
+                            struct zwp_primary_selection_offer_v1 *offer,
+                            const char                            *type)
+{
+  primary_offer_offer (data, (gpointer) offer, type);
+}
+
+static const struct gtk_primary_selection_offer_listener gtk_primary_offer_listener = {
+  gtk_primary_offer_offer,
+};
+
+static const struct zwp_primary_selection_offer_v1_listener zwp_primary_offer_listener_v1 = {
+  zwp_primary_offer_v1_offer,
 };
 
 SelectionData *
@@ -509,9 +636,10 @@ gdk_wayland_selection_ensure_offer (GdkDisplay           *display,
 }
 
 void
-gdk_wayland_selection_ensure_primary_offer (GdkDisplay                         *display,
-                                            struct gtk_primary_selection_offer *gtk_offer)
+gdk_wayland_selection_ensure_primary_offer (GdkDisplay *display,
+                                            gpointer    gtk_offer)
 {
+  GdkWaylandDisplay *display_wayland = GDK_WAYLAND_DISPLAY (display);
   GdkWaylandSelection *selection = gdk_wayland_display_get_selection (display);
   DataOfferData *info;
 
@@ -519,12 +647,24 @@ gdk_wayland_selection_ensure_primary_offer (GdkDisplay                         *
 
   if (!info)
     {
-      info = data_offer_data_new (gtk_offer,
-                                  (GDestroyNotify) gtk_primary_selection_offer_destroy);
-      g_hash_table_insert (selection->offers, gtk_offer, info);
-      gtk_primary_selection_offer_add_listener (gtk_offer,
-                                                &primary_offer_listener,
-                                                selection);
+      if (display_wayland->zwp_primary_selection_manager_v1)
+        {
+          info = data_offer_data_new (gtk_offer,
+                                      (GDestroyNotify) zwp_primary_selection_offer_v1_destroy);
+          g_hash_table_insert (selection->offers, gtk_offer, info);
+          zwp_primary_selection_offer_v1_add_listener (gtk_offer,
+                                                       &zwp_primary_offer_listener_v1,
+                                                       selection);
+        }
+      else if (display_wayland->gtk_primary_selection_manager)
+        {
+          info = data_offer_data_new (gtk_offer,
+                                      (GDestroyNotify) gtk_primary_selection_offer_destroy);
+          g_hash_table_insert (selection->offers, gtk_offer, info);
+          gtk_primary_selection_offer_add_listener (gtk_offer,
+                                                    &gtk_primary_offer_listener,
+                                                    selection);
+        }
     }
 }
 
@@ -606,16 +746,15 @@ gdk_wayland_selection_emit_request (GdkWindow *window,
 }
 
 static AsyncWriteData *
-async_write_data_new (GdkWaylandSelection *selection)
+async_write_data_new (StoredSelection *stored_selection,
+                      gint             fd)
 {
   AsyncWriteData *write_data;
 
   write_data = g_slice_new0 (AsyncWriteData);
-  write_data->selection = selection;
-  write_data->stream =
-    g_unix_output_stream_new (selection->stored_selection.fd, TRUE);
-
-  selection->stored_selection.fd = -1;
+  write_data->stored_selection = stored_selection;
+  write_data->stream = g_unix_output_stream_new (fd, TRUE);
+  g_ptr_array_add (stored_selection->pending_writes, write_data);
 
   return write_data;
 }
@@ -640,68 +779,89 @@ async_write_data_cb (GObject      *object,
                                                 res, &error);
   if (error)
     {
-      if (error->domain != G_IO_ERROR ||
-          error->code != G_IO_ERROR_CANCELLED)
-        g_warning ("Error writing selection data: %s", error->message);
+      if (!g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+        {
+          g_warning ("Error writing selection data: %s", error->message);
+          g_ptr_array_remove_fast (write_data->stored_selection->pending_writes,
+                                   write_data);
+        }
 
       g_error_free (error);
-      async_write_data_free (write_data);
       return;
     }
 
   write_data->index += bytes_written;
 
-  if (write_data->index <
-      write_data->selection->stored_selection.data_len)
+  if (write_data->index < write_data->stored_selection->data_len)
     {
       /* Write the next chunk */
       async_write_data_write (write_data);
     }
   else
-    async_write_data_free (write_data);
+    {
+      g_ptr_array_remove_fast (write_data->stored_selection->pending_writes,
+                               write_data);
+    }
 }
 
 static void
 async_write_data_write (AsyncWriteData *write_data)
 {
-  GdkWaylandSelection *selection = write_data->selection;
   gsize buf_len;
   guchar *buf;
 
-  buf = selection->stored_selection.data;
-  buf_len = selection->stored_selection.data_len;
+  buf = write_data->stored_selection->data;
+  buf_len = write_data->stored_selection->data_len;
 
   g_output_stream_write_async (write_data->stream,
                                &buf[write_data->index],
                                buf_len - write_data->index,
                                G_PRIORITY_DEFAULT,
-                               selection->stored_selection.cancellable,
+                               write_data->stored_selection->cancellable,
                                async_write_data_cb,
                                write_data);
 }
 
-static gboolean
-gdk_wayland_selection_check_write (GdkWaylandSelection *selection)
+static StoredSelection *
+gdk_wayland_selection_find_stored_selection (GdkWaylandSelection *wayland_selection,
+                                             GdkWindow           *window,
+                                             GdkAtom              selection,
+                                             GdkAtom              type)
 {
-  AsyncWriteData *write_data;
+  gint i;
 
-  if (selection->stored_selection.fd < 0)
-    return FALSE;
-
-  /* Cancel any previous ongoing async write */
-  if (selection->stored_selection.cancellable)
+  for (i = 0; i < wayland_selection->stored_selections->len; i++)
     {
-      g_cancellable_cancel (selection->stored_selection.cancellable);
-      g_object_unref (selection->stored_selection.cancellable);
+      StoredSelection *stored_selection;
+
+      stored_selection = g_ptr_array_index (wayland_selection->stored_selections, i);
+
+      if (stored_selection->source == window &&
+          stored_selection->selection_atom == selection &&
+          stored_selection->type == type)
+        return stored_selection;
     }
 
-  selection->stored_selection.cancellable = g_cancellable_new ();
+  return NULL;
+}
 
-  write_data = async_write_data_new (selection);
-  async_write_data_write (write_data);
-  selection->stored_selection.fd = -1;
+static void
+gdk_wayland_selection_reset_selection (GdkWaylandSelection *wayland_selection,
+                                       GdkAtom              selection)
+{
+  gint i = 0;
 
-  return TRUE;
+  while (i < wayland_selection->stored_selections->len)
+    {
+      StoredSelection *stored_selection;
+
+      stored_selection = g_ptr_array_index (wayland_selection->stored_selections, i);
+
+      if (stored_selection->selection_atom == selection)
+        g_ptr_array_remove_index_fast (wayland_selection->stored_selections, i);
+      else
+        i++;
+    }
 }
 
 void
@@ -713,51 +873,50 @@ gdk_wayland_selection_store (GdkWindow    *window,
 {
   GdkDisplay *display = gdk_window_get_display (window);
   GdkWaylandSelection *selection = gdk_wayland_display_get_selection (display);
-  GArray *array;
+  StoredSelection *stored_selection;
 
   if (type == gdk_atom_intern_static_string ("NULL"))
     return;
+  if (selection->current_request_selection == GDK_NONE)
+    return;
 
-  array = g_array_new (TRUE, FALSE, sizeof (guchar));
-  g_array_append_vals (array, data, len);
+  stored_selection =
+    gdk_wayland_selection_find_stored_selection (selection, window,
+                                                 selection->current_request_selection,
+                                                 type);
 
-  if (selection->stored_selection.data)
+  if (!stored_selection)
     {
-      if (mode != GDK_PROP_MODE_REPLACE &&
-          type != selection->stored_selection.type)
-        {
-          gchar *type_str, *stored_str;
-
-          type_str = gdk_atom_name (type);
-          stored_str = gdk_atom_name (selection->stored_selection.type);
-
-          g_warning (G_STRLOC ": Attempted to append/prepend selection data with "
-                     "type %s into the current selection with type %s",
-                     type_str, stored_str);
-          g_free (type_str);
-          g_free (stored_str);
-          return;
-        }
-
-      /* In these cases we also replace the stored data, so we
-       * apply the inverse operation into the just given data.
-       */
-      if (mode == GDK_PROP_MODE_APPEND)
-        g_array_prepend_vals (array, selection->stored_selection.data,
-                              selection->stored_selection.data_len - 1);
-      else if (mode == GDK_PROP_MODE_PREPEND)
-        g_array_append_vals (array, selection->stored_selection.data,
-                             selection->stored_selection.data_len - 1);
-
-      g_free (selection->stored_selection.data);
+      stored_selection = stored_selection_new (selection, window,
+                                               selection->current_request_selection,
+                                               type);
+      g_ptr_array_add (selection->stored_selections, stored_selection);
     }
 
-  selection->stored_selection.source = window;
-  selection->stored_selection.data_len = array->len;
-  selection->stored_selection.data = (guchar *) g_array_free (array, FALSE);
-  selection->stored_selection.type = type;
+  if ((mode == GDK_PROP_MODE_PREPEND ||
+       mode == GDK_PROP_MODE_REPLACE) &&
+      stored_selection->data &&
+      stored_selection->pending_writes->len > 0)
+    {
+      /* If a prepend/replace action happens, all current readers are
+       * pretty much stale.
+       */
+      stored_selection_cancel_write (stored_selection);
+    }
 
-  gdk_wayland_selection_check_write (selection);
+  stored_selection_add_data (stored_selection, mode, data, len);
+
+  if (stored_selection->data)
+    stored_selection_notify_write (stored_selection);
+  else
+    {
+      g_ptr_array_remove_fast (selection->stored_selections,
+                               stored_selection);
+    }
+
+  /* Handle the next GDK_SELECTION_REQUEST / store, if any */
+  selection->current_request_selection = GDK_NONE;
+  gdk_wayland_selection_handle_next_request (selection);
 }
 
 static SelectionBuffer *
@@ -804,6 +963,28 @@ gdk_wayland_selection_source_handles_target (GdkWaylandSelection *wayland_select
   return FALSE;
 }
 
+static void
+gdk_wayland_selection_handle_next_request (GdkWaylandSelection *wayland_selection)
+{
+  gint i;
+
+  for (i = 0; i < wayland_selection->stored_selections->len; i++)
+    {
+      StoredSelection *stored_selection;
+
+      stored_selection = g_ptr_array_index (wayland_selection->stored_selections, i);
+
+      if (!stored_selection->data)
+        {
+          gdk_wayland_selection_emit_request (stored_selection->source,
+                                              stored_selection->selection_atom,
+                                              stored_selection->type);
+          wayland_selection->current_request_selection = stored_selection->selection_atom;
+          break;
+        }
+    }
+}
+
 static gboolean
 gdk_wayland_selection_request_target (GdkWaylandSelection *wayland_selection,
                                       GdkWindow           *window,
@@ -811,33 +992,41 @@ gdk_wayland_selection_request_target (GdkWaylandSelection *wayland_selection,
                                       GdkAtom              target,
                                       gint                 fd)
 {
-  if (wayland_selection->stored_selection.fd == fd &&
-      wayland_selection->requested_target == target)
-    return FALSE;
+  StoredSelection *stored_selection;
+  AsyncWriteData *write_data;
 
-  /* If we didn't issue gdk_wayland_selection_check_write() yet
-   * on a previous fd, it will still linger here. Just close it,
-   * as we can't have more than one fd on the fly.
-   */
-  if (wayland_selection->stored_selection.fd >= 0)
-    close (wayland_selection->stored_selection.fd);
-
-  wayland_selection->stored_selection.fd = fd;
-  wayland_selection->requested_target = target;
-
-  if (window &&
-      gdk_wayland_selection_source_handles_target (wayland_selection, target))
-    {
-      gdk_wayland_selection_emit_request (window, selection, target);
-      return TRUE;
-    }
-  else
+  if (!window ||
+      !gdk_wayland_selection_source_handles_target (wayland_selection, target))
     {
       close (fd);
-      wayland_selection->stored_selection.fd = -1;
+      return FALSE;
     }
 
-  return FALSE;
+  stored_selection =
+    gdk_wayland_selection_find_stored_selection (wayland_selection, window,
+                                                 selection, target);
+
+  if (stored_selection && stored_selection->data)
+    {
+      /* Fast path, we already have the type cached */
+      write_data = async_write_data_new (stored_selection, fd);
+      async_write_data_write (write_data);
+      return TRUE;
+    }
+
+  if (!stored_selection)
+    {
+      stored_selection = stored_selection_new (wayland_selection, window,
+                                               selection, target);
+      g_ptr_array_add (wayland_selection->stored_selections, stored_selection);
+    }
+
+  write_data = async_write_data_new (stored_selection, fd);
+
+  if (wayland_selection->current_request_selection == GDK_NONE)
+    gdk_wayland_selection_handle_next_request (wayland_selection);
+
+  return TRUE;
 }
 
 static void
@@ -889,11 +1078,10 @@ data_source_send (void                  *data,
   if (!window)
     return;
 
-  if (!gdk_wayland_selection_request_target (wayland_selection, window,
-                                             selection,
-                                             gdk_atom_intern (mime_type, FALSE),
-                                             fd))
-    gdk_wayland_selection_check_write (wayland_selection);
+  gdk_wayland_selection_request_target (wayland_selection, window,
+                                        selection,
+                                        gdk_atom_intern (mime_type, FALSE),
+                                        fd);
 }
 
 static void
@@ -923,7 +1111,7 @@ data_source_cancelled (void                  *data,
     gdk_drag_context_cancel (context, GDK_DRAG_CANCEL_ERROR);
 
   emit_selection_clear (display, atom);
-  gdk_selection_owner_set (NULL, atom, GDK_CURRENT_TIME, TRUE);
+  gdk_selection_owner_set (NULL, atom, GDK_CURRENT_TIME, FALSE);
   gdk_wayland_selection_unset_data_source (display, atom);
 }
 
@@ -995,10 +1183,10 @@ static const struct wl_data_source_listener data_source_listener = {
 };
 
 static void
-primary_source_send (void                                *data,
-                     struct gtk_primary_selection_source *source,
-                     const char                          *mime_type,
-                     int32_t                              fd)
+primary_source_send (void       *data,
+                     gpointer    source,
+                     const char *mime_type,
+                     int32_t     fd)
 {
   GdkWaylandSelection *wayland_selection = data;
 
@@ -1012,17 +1200,34 @@ primary_source_send (void                                *data,
       return;
     }
 
-  if (!gdk_wayland_selection_request_target (wayland_selection,
-                                             wayland_selection->primary_owner,
-                                             atoms[ATOM_PRIMARY],
-                                             gdk_atom_intern (mime_type, FALSE),
-                                             fd))
-    gdk_wayland_selection_check_write (wayland_selection);
+  gdk_wayland_selection_request_target (wayland_selection,
+                                        wayland_selection->primary_owner,
+                                        atoms[ATOM_PRIMARY],
+                                        gdk_atom_intern (mime_type, FALSE),
+                                        fd);
 }
 
 static void
-primary_source_cancelled (void                                *data,
-                          struct gtk_primary_selection_source *source)
+gtk_primary_source_send (void                                *data,
+                         struct gtk_primary_selection_source *source,
+                         const char                          *mime_type,
+                         int32_t                              fd)
+{
+  primary_source_send (data, (gpointer) source, mime_type, fd);
+}
+
+static void
+zwp_primary_source_v1_send (void                                   *data,
+                            struct zwp_primary_selection_source_v1 *source,
+                            const char                             *mime_type,
+                            int32_t                                 fd)
+{
+  primary_source_send (data, (gpointer) source, mime_type, fd);
+}
+
+static void
+primary_source_cancelled (void     *data,
+                          gpointer  source)
 {
   GdkDisplay *display;
   GdkAtom atom;
@@ -1034,13 +1239,32 @@ primary_source_cancelled (void                                *data,
 
   atom = atoms[ATOM_PRIMARY];
   emit_selection_clear (display, atom);
-  gdk_selection_owner_set (NULL, atom, GDK_CURRENT_TIME, TRUE);
+  gdk_selection_owner_set (NULL, atom, GDK_CURRENT_TIME, FALSE);
   gdk_wayland_selection_unset_data_source (display, atom);
 }
 
-static const struct gtk_primary_selection_source_listener primary_source_listener = {
-  primary_source_send,
-  primary_source_cancelled,
+static void
+gtk_primary_source_cancelled (void                                *data,
+                              struct gtk_primary_selection_source *source)
+{
+  primary_source_cancelled (data, source);
+}
+
+static void
+zwp_primary_source_v1_cancelled (void                                   *data,
+                                 struct zwp_primary_selection_source_v1 *source)
+{
+  primary_source_cancelled (data, source);
+}
+
+static const struct gtk_primary_selection_source_listener gtk_primary_source_listener = {
+  gtk_primary_source_send,
+  gtk_primary_source_cancelled,
+};
+
+static const struct zwp_primary_selection_source_v1_listener zwp_primary_source_v1_listener = {
+  zwp_primary_source_v1_send,
+  zwp_primary_source_v1_cancelled,
 };
 
 struct wl_data_source *
@@ -1062,11 +1286,11 @@ gdk_wayland_selection_get_data_source (GdkWindow *owner,
     {
       if (wayland_selection->primary_source &&
           (!owner || owner == wayland_selection->primary_owner))
-        return (gpointer) wayland_selection->primary_source;
+        return wayland_selection->primary_source;
 
       if (wayland_selection->primary_source)
         {
-          gtk_primary_selection_source_destroy (wayland_selection->primary_source);
+          primary_selection_source_destroy (wayland_selection->primary_source);
           wayland_selection->primary_source = NULL;
         }
     }
@@ -1092,11 +1316,18 @@ gdk_wayland_selection_get_data_source (GdkWindow *owner,
 
   if (selection == atoms[ATOM_PRIMARY])
     {
-      if (display_wayland->primary_selection_manager)
+      if (display_wayland->zwp_primary_selection_manager_v1)
         {
-          source = gtk_primary_selection_device_manager_create_source (display_wayland->primary_selection_manager);
+          source = zwp_primary_selection_device_manager_v1_create_source (display_wayland->zwp_primary_selection_manager_v1);
+          zwp_primary_selection_source_v1_add_listener (source,
+                                                        &zwp_primary_source_v1_listener,
+                                                        wayland_selection);
+        }
+      else if (display_wayland->gtk_primary_selection_manager)
+        {
+          source = gtk_primary_selection_device_manager_create_source (display_wayland->gtk_primary_selection_manager);
           gtk_primary_selection_source_add_listener (source,
-                                                     &primary_source_listener,
+                                                     &gtk_primary_source_listener,
                                                      wayland_selection);
         }
     }
@@ -1126,12 +1357,6 @@ gdk_wayland_selection_unset_data_source (GdkDisplay *display,
 
   if (selection == atoms[ATOM_CLIPBOARD])
     {
-      GdkDevice *device;
-
-      device = gdk_seat_get_pointer (gdk_display_get_default_seat (display));
-
-      gdk_wayland_device_set_selection (device, NULL);
-
       if (wayland_selection->clipboard_source)
         {
           wl_data_source_destroy (wayland_selection->clipboard_source);
@@ -1140,13 +1365,9 @@ gdk_wayland_selection_unset_data_source (GdkDisplay *display,
     }
   else if (selection == atoms[ATOM_PRIMARY])
     {
-      GdkSeat *seat = gdk_display_get_default_seat (display);
-
-      gdk_wayland_seat_set_primary (seat, NULL);
-
       if (wayland_selection->primary_source)
         {
-          gtk_primary_selection_source_destroy (wayland_selection->primary_source);
+          primary_selection_source_destroy (wayland_selection->primary_source);
           wayland_selection->primary_source = NULL;
         }
     }
@@ -1180,15 +1401,28 @@ _gdk_wayland_display_set_selection_owner (GdkDisplay *display,
                                           gboolean    send_event)
 {
   GdkWaylandSelection *wayland_selection = gdk_wayland_display_get_selection (display);
+  GdkSeat *seat = gdk_display_get_default_seat (display);
+
+  gdk_wayland_selection_reset_selection (wayland_selection, selection);
 
   if (selection == atoms[ATOM_CLIPBOARD])
     {
       wayland_selection->clipboard_owner = owner;
+      if (send_event && !owner)
+        {
+          gdk_wayland_seat_set_selection (seat, NULL);
+          gdk_wayland_selection_unset_data_source (display, selection);
+        }
       return TRUE;
     }
   else if (selection == atoms[ATOM_PRIMARY])
     {
       wayland_selection->primary_owner = owner;
+      if (send_event && !owner)
+        {
+          gdk_wayland_seat_set_primary (seat, NULL);
+          gdk_wayland_selection_unset_data_source (display, selection);
+        }
       return TRUE;
     }
   else if (selection == atoms[ATOM_DND])
@@ -1304,6 +1538,7 @@ _gdk_wayland_display_convert_selection (GdkDisplay *display,
                                         GdkAtom     target,
                                         guint32     time)
 {
+  GdkWaylandDisplay *display_wayland = GDK_WAYLAND_DISPLAY (display);
   GdkWaylandSelection *wayland_selection = gdk_wayland_display_get_selection (display);
   const SelectionData *selection_data;
   SelectionBuffer *buffer_data;
@@ -1313,7 +1548,10 @@ _gdk_wayland_display_convert_selection (GdkDisplay *display,
 
   selection_data = selection_lookup_offer_by_atom (wayland_selection, selection);
   if (!selection_data)
-    return;
+    {
+      emit_empty_selection_notify (requestor, selection, target);
+      return;
+    }
 
   offer = gdk_wayland_selection_get_offer (display, selection);
   target_list = gdk_wayland_selection_get_targets (display, selection);
@@ -1366,9 +1604,16 @@ _gdk_wayland_display_convert_selection (GdkDisplay *display,
           g_unix_open_pipe (pipe_fd, FD_CLOEXEC, NULL);
 
           if (selection == atoms[ATOM_PRIMARY])
-            gtk_primary_selection_offer_receive (offer, mimetype, pipe_fd[1]);
+            {
+              if (display_wayland->zwp_primary_selection_manager_v1)
+                zwp_primary_selection_offer_v1_receive (offer, mimetype, pipe_fd[1]);
+              else if (display_wayland->gtk_primary_selection_manager)
+                gtk_primary_selection_offer_receive (offer, mimetype, pipe_fd[1]);
+            }
           else
-            wl_data_offer_receive (offer, mimetype, pipe_fd[1]);
+            {
+              wl_data_offer_receive (offer, mimetype, pipe_fd[1]);
+            }
 
           stream = g_unix_input_stream_new (pipe_fd[0], TRUE);
           close (pipe_fd[1]);
@@ -1534,12 +1779,10 @@ gdk_wayland_selection_add_targets (GdkWindow *window,
 
   if (selection == atoms[ATOM_CLIPBOARD])
     {
-      GdkDisplay *display;
-      GdkDevice *device;
+      GdkSeat *seat;
 
-      display = gdk_window_get_display (window);
-      device = gdk_seat_get_pointer (gdk_display_get_default_seat (display));
-      gdk_wayland_device_set_selection (device, data_source);
+      seat = gdk_display_get_default_seat (display);
+      gdk_wayland_seat_set_selection (seat, data_source);
     }
   else if (selection == atoms[ATOM_PRIMARY])
     {

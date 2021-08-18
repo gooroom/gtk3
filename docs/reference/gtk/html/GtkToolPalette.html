@@ -8,7 +8,7 @@
 <link rel="up" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
 <link rel="prev" href="GtkToolItem.html" title="GtkToolItem">
 <link rel="next" href="GtkToolItemGroup.html" title="GtkToolItemGroup">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -39,8 +39,8 @@
 <a name="GtkToolPalette.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkToolPalette.html#gtk-tool-palette-get-exclusive" title="gtk_tool_palette_get_exclusive ()">gtk_tool_palette_get_exclusive</a> <span class="c_punctuation">()</span>
@@ -69,7 +69,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkToolPalette.html#gtk-tool-palette-get-expand" title="gtk_tool_palette_get_expand ()">gtk_tool_palette_get_expand</a> <span class="c_punctuation">()</span>
@@ -85,7 +85,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<span class="returnvalue">gint</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkToolPalette.html#gtk-tool-palette-get-group-position" title="gtk_tool_palette_get_group_position ()">gtk_tool_palette_get_group_position</a> <span class="c_punctuation">()</span>
@@ -235,7 +235,7 @@
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkToolPalette.html#GtkToolPalette--icon-size-set" title="The “icon-size-set” property">icon-size-set</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -257,12 +257,12 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkToolPalette.html#GtkToolPalette--c-exclusive" title="The “exclusive” child property">exclusive</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkToolPalette.html#GtkToolPalette--c-expand" title="The “expand” child property">expand</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -273,8 +273,8 @@
 <a name="GtkToolPalette.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -294,8 +294,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkToolPalette.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                 <span class="lineart">╰──</span> GtkToolPalette
@@ -317,7 +317,7 @@ GtkToolPalette implements
 <p>A <a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a> allows you to add <a href="GtkToolItem.html#GtkToolItem-struct"><span class="type">GtkToolItems</span></a> to a palette-like
 container with different categories and drag and drop support.</p>
 <p>A <a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a> is created with a call to <a class="link" href="GtkToolPalette.html#gtk-tool-palette-new" title="gtk_tool_palette_new ()"><code class="function">gtk_tool_palette_new()</code></a>.</p>
-<p><a href="GtkToolItem.html#GtkToolItem-struct"><span class="type">GtkToolItems</span></a> cannot be added directly to a <a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a> - 
+<p><a href="GtkToolItem.html#GtkToolItem-struct"><span class="type">GtkToolItems</span></a> cannot be added directly to a <a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a> -
 instead they are added to a <a class="link" href="GtkToolItemGroup.html" title="GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> which can than be added
 to a <a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a>. To add a <a class="link" href="GtkToolItemGroup.html" title="GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> to a <a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a>,
 use <a class="link" href="GtkContainer.html#gtk-container-add" title="gtk_container_add ()"><code class="function">gtk_container_add()</code></a>.</p>
@@ -335,16 +335,16 @@ use <a class="link" href="GtkContainer.html#gtk-container-add" title="gtk_contai
 8
 9
 10</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">palette</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">group</span><span class="symbol">;</span>
-<span class="usertype">GtkToolItem</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">item</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="n">GtkWidget</span> <span class="o">*</span><span class="n">palette</span><span class="p">,</span> <span class="o">*</span><span class="n">group</span><span class="p">;</span>
+<span class="n">GtkToolItem</span> <span class="o">*</span><span class="n">item</span><span class="p">;</span>
 
-<span class="normal">palette </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkToolPalette.html#gtk-tool-palette-new">gtk_tool_palette_new</a></span><span class="normal"> </span><span class="symbol">();</span>
-<span class="normal">group </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkToolItemGroup.html#gtk-tool-item-group-new">gtk_tool_item_group_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">_</span><span class="symbol">(</span><span class="string">"Test Category"</span><span class="symbol">));</span>
-<span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">palette</span><span class="symbol">),</span><span class="normal"> group</span><span class="symbol">);</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="n">gtk_tool_palette_new</span> <span class="p">();</span>
+<span class="n">group</span> <span class="o">=</span> <span class="n">gtk_tool_item_group_new</span> <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Test Category&quot;</span><span class="p">));</span>
+<span class="n">gtk_container_add</span> <span class="p">(</span><span class="n">GTK_CONTAINER</span> <span class="p">(</span><span class="n">palette</span><span class="p">),</span> <span class="n">group</span><span class="p">);</span>
 
-<span class="normal">item </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkToolButton.html#gtk-tool-button-new">gtk_tool_button_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="function">_</span><span class="symbol">(</span><span class="string">"_Open"</span><span class="symbol">));</span>
-<span class="function"><a href="GtkToolButton.html#gtk-tool-button-set-icon-name">gtk_tool_button_set_icon_name</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TOOL_BUTTON</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">item</span><span class="symbol">),</span><span class="normal"> </span><span class="string">"document-open"</span><span class="symbol">);</span>
-<span class="function"><a href="GtkToolItemGroup.html#gtk-tool-item-group-insert">gtk_tool_item_group_insert</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TOOL_ITEM_GROUP</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">group</span><span class="symbol">),</span><span class="normal"> item</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">);</span></pre></td>
+<span class="n">item</span> <span class="o">=</span> <span class="n">gtk_tool_button_new</span> <span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;_Open&quot;</span><span class="p">));</span>
+<span class="n">gtk_tool_button_set_icon_name</span> <span class="p">(</span><span class="n">GTK_TOOL_BUTTON</span> <span class="p">(</span><span class="n">item</span><span class="p">),</span> <span class="s">&quot;document-open&quot;</span><span class="p">);</span>
+<span class="n">gtk_tool_item_group_insert</span> <span class="p">(</span><span class="n">GTK_TOOL_ITEM_GROUP</span> <span class="p">(</span><span class="n">group</span><span class="p">),</span> <span class="n">item</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -396,40 +396,40 @@ signal handler of the drag target.</p>
 32
 33
 34</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">passive_canvas_drag_data_received</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkWidget</span><span class="normal">        </span><span class="symbol">*</span><span class="normal">widget</span><span class="symbol">,</span>
-<span class="normal">                                   </span><span class="usertype">GdkDragContext</span><span class="normal">   </span><span class="symbol">*</span><span class="normal">context</span><span class="symbol">,</span>
-<span class="normal">                                   </span><span class="usertype">gint</span><span class="normal">              x</span><span class="symbol">,</span>
-<span class="normal">                                   </span><span class="usertype">gint</span><span class="normal">              y</span><span class="symbol">,</span>
-<span class="normal">                                   </span><span class="usertype">GtkSelectionData</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">selection</span><span class="symbol">,</span>
-<span class="normal">                                   </span><span class="usertype">guint</span><span class="normal">             info</span><span class="symbol">,</span>
-<span class="normal">                                   </span><span class="usertype">guint</span><span class="normal">             time</span><span class="symbol">,</span>
-<span class="normal">                                   </span><span class="usertype">gpointer</span><span class="normal">          data</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">palette</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">item</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="k">static</span> <span class="kt">void</span>
+<span class="nf">passive_canvas_drag_data_received</span> <span class="p">(</span><span class="n">GtkWidget</span>        <span class="o">*</span><span class="n">widget</span><span class="p">,</span>
+                                   <span class="n">GdkDragContext</span>   <span class="o">*</span><span class="n">context</span><span class="p">,</span>
+                                   <span class="n">gint</span>              <span class="n">x</span><span class="p">,</span>
+                                   <span class="n">gint</span>              <span class="n">y</span><span class="p">,</span>
+                                   <span class="n">GtkSelectionData</span> <span class="o">*</span><span class="n">selection</span><span class="p">,</span>
+                                   <span class="n">guint</span>             <span class="n">info</span><span class="p">,</span>
+                                   <span class="n">guint</span>             <span class="n">time</span><span class="p">,</span>
+                                   <span class="n">gpointer</span>          <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GtkWidget</span> <span class="o">*</span><span class="n">palette</span><span class="p">;</span>
+  <span class="n">GtkWidget</span> <span class="o">*</span><span class="n">item</span><span class="p">;</span>
 
-<span class="normal">  </span><span class="comment">// Get the dragged item</span>
-<span class="normal">  palette </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-ancestor">gtk_widget_get_ancestor</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="gtk3-Drag-and-Drop.html#gtk-drag-get-source-widget">gtk_drag_get_source_widget</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">),</span>
-<span class="normal">                                     GTK_TYPE_TOOL_PALETTE</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">palette </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
-<span class="normal">    item </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkToolPalette.html#gtk-tool-palette-get-drag-item">gtk_tool_palette_get_drag_item</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TOOL_PALETTE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">palette</span><span class="symbol">),</span>
-<span class="normal">                                           selection</span><span class="symbol">);</span>
+  <span class="c1">// Get the dragged item</span>
+  <span class="n">palette</span> <span class="o">=</span> <span class="n">gtk_widget_get_ancestor</span> <span class="p">(</span><span class="n">gtk_drag_get_source_widget</span> <span class="p">(</span><span class="n">context</span><span class="p">),</span>
+                                     <span class="n">GTK_TYPE_TOOL_PALETTE</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">palette</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">gtk_tool_palette_get_drag_item</span> <span class="p">(</span><span class="n">GTK_TOOL_PALETTE</span> <span class="p">(</span><span class="n">palette</span><span class="p">),</span>
+                                           <span class="n">selection</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="comment">// Do something with item</span>
-<span class="cbracket">}</span>
+  <span class="c1">// Do something with item</span>
+<span class="p">}</span>
 
-<span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">target</span><span class="symbol">,</span><span class="normal"> palette</span><span class="symbol">;</span>
+<span class="n">GtkWidget</span> <span class="o">*</span><span class="n">target</span><span class="p">,</span> <span class="n">palette</span><span class="p">;</span>
 
-<span class="normal">palette </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkToolPalette.html#gtk-tool-palette-new">gtk_tool_palette_new</a></span><span class="normal"> </span><span class="symbol">();</span>
-<span class="normal">target </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkDrawingArea.html#gtk-drawing-area-new">gtk_drawing_area_new</a></span><span class="normal"> </span><span class="symbol">();</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="n">gtk_tool_palette_new</span> <span class="p">();</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">gtk_drawing_area_new</span> <span class="p">();</span>
 
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT:CAPS">G_OBJECT</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">target</span><span class="symbol">),</span><span class="normal"> </span><span class="string">"drag-data-received"</span><span class="symbol">,</span>
-<span class="normal">                  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">passive_canvas_drag_data_received</span><span class="symbol">),</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
-<span class="function"><a href="GtkToolPalette.html#gtk-tool-palette-add-drag-dest">gtk_tool_palette_add_drag_dest</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TOOL_PALETTE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">palette</span><span class="symbol">),</span><span class="normal"> target</span><span class="symbol">,</span>
-<span class="normal">                                <a href="gtk3-Drag-and-Drop.html#GTK-DEST-DEFAULT-ALL:CAPS">GTK_DEST_DEFAULT_ALL</a></span><span class="symbol">,</span>
-<span class="normal">                                <a href="GtkToolPalette.html#GTK-TOOL-PALETTE-DRAG-ITEMS:CAPS">GTK_TOOL_PALETTE_DRAG_ITEMS</a></span><span class="symbol">,</span>
-<span class="normal">                                <a href="https://developer.gnome.org/gdk3/gdk3-Drag-and-Drop.html#GDK-ACTION-COPY:CAPS">GDK_ACTION_COPY</a></span><span class="symbol">);</span></pre></td>
+<span class="n">g_signal_connect</span> <span class="p">(</span><span class="n">G_OBJECT</span> <span class="p">(</span><span class="n">target</span><span class="p">),</span> <span class="s">&quot;drag-data-received&quot;</span><span class="p">,</span>
+                  <span class="n">G_CALLBACK</span> <span class="p">(</span><span class="n">passive_canvas_drag_data_received</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">gtk_tool_palette_add_drag_dest</span> <span class="p">(</span><span class="n">GTK_TOOL_PALETTE</span> <span class="p">(</span><span class="n">palette</span><span class="p">),</span> <span class="n">target</span><span class="p">,</span>
+                                <span class="n">GTK_DEST_DEFAULT_ALL</span><span class="p">,</span>
+                                <span class="n">GTK_TOOL_PALETTE_DRAG_ITEMS</span><span class="p">,</span>
+                                <span class="n">GDK_ACTION_COPY</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -457,7 +457,7 @@ gtk_tool_palette_new (<em class="parameter"><code><span class="type">void</span>
 <hr>
 <div class="refsect2">
 <a name="gtk-tool-palette-get-exclusive"></a><h3>gtk_tool_palette_get_exclusive ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_tool_palette_get_exclusive (<em class="parameter"><code><a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkToolItemGroup.html" title="GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>);</pre>
 <p>Gets whether <em class="parameter"><code>group</code></em>
@@ -487,7 +487,7 @@ See <a class="link" href="GtkToolPalette.html#gtk-tool-palette-set-exclusive" ti
 </div>
 <div class="refsect3">
 <a name="gtk-tool-palette-get-exclusive.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>group</code></em>
+<p> <code class="literal">TRUE</code> if <em class="parameter"><code>group</code></em>
 is exclusive</p>
 </div>
 <p class="since">Since: 2.20</p>
@@ -498,7 +498,7 @@ is exclusive</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_tool_palette_set_exclusive (<em class="parameter"><code><a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkToolItemGroup.html" title="GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> exclusive</code></em>);</pre>
+                                <em class="parameter"><code><span class="type">gboolean</span> exclusive</code></em>);</pre>
 <p>Sets whether the group should be exclusive or not.
 If an exclusive group is expanded all other groups are collapsed.</p>
 <div class="refsect3">
@@ -533,7 +533,7 @@ If an exclusive group is expanded all other groups are collapsed.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-tool-palette-get-expand"></a><h3>gtk_tool_palette_get_expand ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_tool_palette_get_expand (<em class="parameter"><code><a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
                              <em class="parameter"><code><a class="link" href="GtkToolItemGroup.html" title="GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>);</pre>
 <p>Gets whether group should be given extra space.
@@ -562,7 +562,7 @@ See <a class="link" href="GtkToolPalette.html#gtk-tool-palette-set-expand" title
 </div>
 <div class="refsect3">
 <a name="gtk-tool-palette-get-expand.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if group should be given extra space, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise</p>
+<p> <code class="literal">TRUE</code> if group should be given extra space, <code class="literal">FALSE</code> otherwise</p>
 </div>
 <p class="since">Since: 2.20</p>
 </div>
@@ -572,7 +572,7 @@ See <a class="link" href="GtkToolPalette.html#gtk-tool-palette-set-expand" title
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_tool_palette_set_expand (<em class="parameter"><code><a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
                              <em class="parameter"><code><a class="link" href="GtkToolItemGroup.html" title="GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>,
-                             <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>);</pre>
+                             <em class="parameter"><code><span class="type">gboolean</span> expand</code></em>);</pre>
 <p>Sets whether the group should be given extra space.</p>
 <div class="refsect3">
 <a name="gtk-tool-palette-set-expand.parameters"></a><h4>Parameters</h4>
@@ -606,7 +606,7 @@ gtk_tool_palette_set_expand (<em class="parameter"><code><a class="link" href="G
 <hr>
 <div class="refsect2">
 <a name="gtk-tool-palette-get-group-position"></a><h3>gtk_tool_palette_get_group_position ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<pre class="programlisting"><span class="returnvalue">gint</span>
 gtk_tool_palette_get_group_position (<em class="parameter"><code><a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
                                      <em class="parameter"><code><a class="link" href="GtkToolItemGroup.html" title="GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>);</pre>
 <p>Gets the position of <em class="parameter"><code>group</code></em>
@@ -649,7 +649,7 @@ is not a child of <em class="parameter"><code>palette</code></em>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_tool_palette_set_group_position (<em class="parameter"><code><a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
                                      <em class="parameter"><code><a class="link" href="GtkToolItemGroup.html" title="GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>,
-                                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> position</code></em>);</pre>
+                                     <em class="parameter"><code><span class="type">gint</span> position</code></em>);</pre>
 <p>Sets the position of the group as an index of the tool palette.
 If position is 0 the group will become the first child, if position is
 -1 it will become the last child.</p>
@@ -857,7 +857,7 @@ gtk_tool_palette_add_drag_dest (<em class="parameter"><code><a class="link" href
                                 <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
                                 <em class="parameter"><code><a class="link" href="gtk3-Drag-and-Drop.html#GtkDestDefaults" title="enum GtkDestDefaults"><span class="type">GtkDestDefaults</span></a> flags</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkToolPalette.html#GtkToolPaletteDragTargets" title="enum GtkToolPaletteDragTargets"><span class="type">GtkToolPaletteDragTargets</span></a> targets</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Drag-and-Drop.html#GdkDragAction"><span class="type">GdkDragAction</span></a> actions</code></em>);</pre>
+                                <em class="parameter"><code><a href="../html/gdk3-Drag-and-Drop.html#GdkDragAction"><span class="type">GdkDragAction</span></a> actions</code></em>);</pre>
 <p>Sets <em class="parameter"><code>palette</code></em>
  as drag source (see <a class="link" href="GtkToolPalette.html#gtk-tool-palette-set-drag-source" title="gtk_tool_palette_set_drag_source ()"><code class="function">gtk_tool_palette_set_drag_source()</code></a>)
 and sets <em class="parameter"><code>widget</code></em>
@@ -898,7 +898,7 @@ should support</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>actions</p></td>
-<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gdk3/gdk3-Drag-and-Drop.html#GdkDragAction"><span class="type">GdkDragActions</span></a> which the widget should suppport</p></td>
+<td class="parameter_description"><p>the <a href="../html/gdk3-Drag-and-Drop.html#GdkDragAction"><span class="type">GdkDragActions</span></a> which the widget should suppport</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -975,8 +975,8 @@ gtk_tool_palette_get_drag_target_item (<em class="parameter"><code><span class="
 <a name="gtk-tool-palette-get-drop-group"></a><h3>gtk_tool_palette_get_drop_group ()</h3>
 <pre class="programlisting"><a class="link" href="GtkToolItemGroup.html" title="GtkToolItemGroup"><span class="returnvalue">GtkToolItemGroup</span></a> *
 gtk_tool_palette_get_drop_group (<em class="parameter"><code><a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
-                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>);</pre>
+                                 <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                                 <em class="parameter"><code><span class="type">gint</span> y</code></em>);</pre>
 <p>Gets the group at position (x, y).</p>
 <div class="refsect3">
 <a name="gtk-tool-palette-get-drop-group.parameters"></a><h4>Parameters</h4>
@@ -1008,7 +1008,7 @@ gtk_tool_palette_get_drop_group (<em class="parameter"><code><a class="link" hre
 <div class="refsect3">
 <a name="gtk-tool-palette-get-drop-group.returns"></a><h4>Returns</h4>
 <p>the <a class="link" href="GtkToolItemGroup.html" title="GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> at position
-or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is no such group. </p>
+or <code class="literal">NULL</code> if there is no such group. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.20</p>
@@ -1018,8 +1018,8 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <a name="gtk-tool-palette-get-drop-item"></a><h3>gtk_tool_palette_get_drop_item ()</h3>
 <pre class="programlisting"><a class="link" href="GtkToolItem.html" title="GtkToolItem"><span class="returnvalue">GtkToolItem</span></a> *
 gtk_tool_palette_get_drop_item (<em class="parameter"><code><a class="link" href="GtkToolPalette.html" title="GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>);</pre>
+                                <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                                <em class="parameter"><code><span class="type">gint</span> y</code></em>);</pre>
 <p>Gets the item at position (x, y).
 See <a class="link" href="GtkToolPalette.html#gtk-tool-palette-get-drop-group" title="gtk_tool_palette_get_drop_group ()"><code class="function">gtk_tool_palette_get_drop_group()</code></a>.</p>
 <div class="refsect3">
@@ -1051,7 +1051,7 @@ See <a class="link" href="GtkToolPalette.html#gtk-tool-palette-get-drop-group" t
 </div>
 <div class="refsect3">
 <a name="gtk-tool-palette-get-drop-item.returns"></a><h4>Returns</h4>
-<p>the <a class="link" href="GtkToolItem.html" title="GtkToolItem"><span class="type">GtkToolItem</span></a> at position or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is no such item. </p>
+<p>the <a class="link" href="GtkToolItem.html" title="GtkToolItem"><span class="type">GtkToolItem</span></a> at position or <code class="literal">NULL</code> if there is no such item. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.20</p>
@@ -1226,6 +1226,7 @@ it overrides the default setting.</p>
 <p>This should only be used for special-purpose tool palettes, normal
 application tool palettes should respect the user preferences for the
 size of icons.</p>
+<p>Owner: GtkToolPalette</p>
 <p>Flags: Read / Write</p>
 <p>Default value: GTK_ICON_SIZE_SMALL_TOOLBAR</p>
 <p class="since">Since: 2.20</p>
@@ -1233,8 +1234,9 @@ size of icons.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkToolPalette--icon-size-set"></a><h3>The <code class="literal">“icon-size-set”</code> property</h3>
-<pre class="programlisting">  “icon-size-set”            <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
-<p>Is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the <a class="link" href="GtkToolPalette.html#GtkToolPalette--icon-size" title="The “icon-size” property"><span class="type">“icon-size”</span></a> property has been set.</p>
+<pre class="programlisting">  “icon-size-set”            <span class="type">gboolean</span></pre>
+<p>Is <code class="literal">TRUE</code> if the <a class="link" href="GtkToolPalette.html#GtkToolPalette--icon-size" title="The “icon-size” property"><span class="type">“icon-size”</span></a> property has been set.</p>
+<p>Owner: GtkToolPalette</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
 <p class="since">Since: 2.20</p>
@@ -1244,6 +1246,7 @@ size of icons.</p>
 <a name="GtkToolPalette--toolbar-style"></a><h3>The <code class="literal">“toolbar-style”</code> property</h3>
 <pre class="programlisting">  “toolbar-style”            <a class="link" href="gtk3-Standard-Enumerations.html#GtkToolbarStyle" title="enum GtkToolbarStyle"><span class="type">GtkToolbarStyle</span></a></pre>
 <p>The style of items in the tool palette.</p>
+<p>Owner: GtkToolPalette</p>
 <p>Flags: Read / Write</p>
 <p>Default value: GTK_TOOLBAR_ICONS</p>
 <p class="since">Since: 2.20</p>
@@ -1253,9 +1256,10 @@ size of icons.</p>
 <a name="GtkToolPalette.child-property-details"></a><h2>Child Property Details</h2>
 <div class="refsect2">
 <a name="GtkToolPalette--c-exclusive"></a><h3>The <code class="literal">“exclusive”</code> child property</h3>
-<pre class="programlisting">  “exclusive”                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “exclusive”                <span class="type">gboolean</span></pre>
 <p>Whether the item group should be the only one that is expanded
 at a given time.</p>
+<p>Owner: GtkToolPalette</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
 <p class="since">Since: 2.20</p>
@@ -1263,9 +1267,10 @@ at a given time.</p>
 <hr>
 <div class="refsect2">
 <a name="GtkToolPalette--c-expand"></a><h3>The <code class="literal">“expand”</code> child property</h3>
-<pre class="programlisting">  “expand”                   <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “expand”                   <span class="type">gboolean</span></pre>
 <p>Whether the item group should receive extra space when the palette grows.
 at a given time.</p>
+<p>Owner: GtkToolPalette</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
 <p class="since">Since: 2.20</p>
@@ -1273,6 +1278,6 @@ at a given time.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

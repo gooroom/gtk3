@@ -40,8 +40,8 @@
 #   YourProject_HEADERS_EXCLUDES = ... # <list of headers to exclude from installation, separated by '|', wildcards allowed; use random unsed value if none>
 #
 #   dist-hook: \ # (or add to it if it is already there, note the vs9 items will also call the vs10 items in the process)
-#   	$(top_builddir)/build/win32/vs9/YourProject.vcproj	\
-#   	$(top_builddir)/build/win32/vs9/YourProject.headers
+#   	$(top_builddir)/win32/vs9/YourProject.vcproj	\
+#   	$(top_builddir)/win32/vs9/YourProject.headers
 
 # Private functions
 
@@ -253,7 +253,7 @@ ETAGS = etags
 CTAGS = ctags
 am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/Makefile.decl \
 	$(top_srcdir)/build-aux/depcomp \
-	$(top_srcdir)/build/Makefile.msvcproj
+	$(top_srcdir)/win32/Makefile.msvcproj
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
@@ -317,7 +317,6 @@ ENABLE_ON_X11 = @ENABLE_ON_X11@
 EXEEXT = @EXEEXT@
 EXE_MANIFEST_ARCHITECTURE = @EXE_MANIFEST_ARCHITECTURE@
 FGREP = @FGREP@
-GAIL_INET_LIBS = @GAIL_INET_LIBS@
 GAIL_LT_CURRENT_MINUS_AGE = @GAIL_LT_CURRENT_MINUS_AGE@
 GAIL_LT_VERSION_INFO = @GAIL_LT_VERSION_INFO@
 GDK_BACKENDS = @GDK_BACKENDS@
@@ -375,7 +374,6 @@ GTK_PRINT_BACKENDS = @GTK_PRINT_BACKENDS@
 GTK_PRIVATE_PACKAGES = @GTK_PRIVATE_PACKAGES@
 GTK_VERSION = @GTK_VERSION@
 GTK_XIM_FLAGS = @GTK_XIM_FLAGS@
-HAVE_HTTP_AUTHSTRING = @HAVE_HTTP_AUTHSTRING@
 HTML_DIR = @HTML_DIR@
 INCLUDED_IMMODULE_DEFINE = @INCLUDED_IMMODULE_DEFINE@
 INCLUDED_IMMODULE_OBJ = @INCLUDED_IMMODULE_OBJ@
@@ -454,6 +452,8 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 SHM_LIBS = @SHM_LIBS@
 STRIP = @STRIP@
+TRACKER3_CFLAGS = @TRACKER3_CFLAGS@
+TRACKER3_LIBS = @TRACKER3_LIBS@
 USE_NLS = @USE_NLS@
 VERSION = @VERSION@
 WAYLAND_PROTOCOLS_DATADIR = @WAYLAND_PROTOCOLS_DATADIR@
@@ -471,6 +471,8 @@ X_CFLAGS = @X_CFLAGS@
 X_EXTRA_LIBS = @X_EXTRA_LIBS@
 X_LIBS = @X_LIBS@
 X_PRE_LIBS = @X_PRE_LIBS@
+_GI_EXP_DATADIR = @_GI_EXP_DATADIR@
+_GI_EXP_LIBDIR = @_GI_EXP_LIBDIR@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -531,7 +533,7 @@ GTESTER = gtester -k		# in $PATH for non-GLIB packages
 GTESTER_REPORT = gtester-report		# in $PATH for non-GLIB packages
 
 # initialize variables for unconditional += appending
-EXTRA_DIST = gailutil.def
+EXTRA_DIST = gailutil.def meson.build
 TEST_PROGS = 
 
 ### testing rules
@@ -629,7 +631,7 @@ all: all-am
 
 .SUFFIXES:
 .SUFFIXES: .c .lo .o .obj
-$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am $(top_srcdir)/Makefile.decl $(top_srcdir)/build/Makefile.msvcproj $(am__configure_deps)
+$(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am $(top_srcdir)/Makefile.decl $(top_srcdir)/win32/Makefile.msvcproj $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -649,7 +651,7 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	    echo ' cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__maybe_remake_depfiles)'; \
 	    cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__maybe_remake_depfiles);; \
 	esac;
-$(top_srcdir)/Makefile.decl $(top_srcdir)/build/Makefile.msvcproj $(am__empty):
+$(top_srcdir)/Makefile.decl $(top_srcdir)/win32/Makefile.msvcproj $(am__empty):
 
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
@@ -1089,57 +1091,59 @@ uninstall-local: uninstall-ms-lib uninstall-def-file
 
 define msvcproj-builder
 
-$(top_builddir)/build/win32/vs10/$(1).vcxproj: $(top_builddir)/build/win32/vs9/$(1).vcproj
-$(top_builddir)/build/win32/vs10/$(1).vcxproj.filters: $(top_builddir)/build/win32/vs9/$(1).vcproj
-$(1).sourcefiles: $(top_builddir)/build/win32/vs9/$(1).vcproj
-$(1).vs10.sourcefiles: $(top_builddir)/build/win32/vs9/$(1).vcproj
-$(1).vs10.sourcefiles.filters: $(top_builddir)/build/win32/vs9/$(1).vcproj
+$(top_builddir)/win32/vs10/$(1).vcxproj: $(top_builddir)/win32/vs9/$(1).vcproj
+$(top_builddir)/win32/vs10/$(1).vcxproj.filters: $(top_builddir)/win32/vs9/$(1).vcproj
+$(1).sourcefiles: $(top_builddir)/win32/vs9/$(1).vcproj
+$(1).vs10.sourcefiles: $(top_builddir)/win32/vs9/$(1).vcproj
+$(1).vs10.sourcefiles.filters: $(top_builddir)/win32/vs9/$(1).vcproj
 
-$(top_builddir)/build/win32/vs9/$(1).vcproj: Makefile
-	-$(RM) $(top_builddir)/build/win32/vs9/$(1).vcproj
-	-$(RM) $(top_builddir)/build/win32/vs10/$(1).vcxproj
-	-$(RM) $(top_builddir)/build/win32/vs10/$(1).vcxproj.filters
-	-$(RM) $(top_builddir)/build/win32/vs11/$(1).vcxproj
-	-$(RM) $(top_builddir)/build/win32/vs11/$(1).vcxproj.filters
-	-$(RM) $(top_builddir)/build/win32/vs12/$(1).vcxproj
-	-$(RM) $(top_builddir)/build/win32/vs12/$(1).vcxproj.filters
-	-$(RM) $(top_builddir)/build/win32/vs14/$(1).vcxproj
-	-$(RM) $(top_builddir)/build/win32/vs14/$(1).vcxproj.filters
-	-$(RM) $(top_builddir)/build/win32/vs15/$(1).vcxproj
-	-$(RM) $(top_builddir)/build/win32/vs15/$(1).vcxproj.filters
+$(top_builddir)/win32/vs9/$(1).vcproj: Makefile
+	-$(RM) $(top_builddir)/win32/vs9/$(1).vcproj
+	-$(RM) $(top_builddir)/win32/vs10/$(1).vcxproj
+	-$(RM) $(top_builddir)/win32/vs10/$(1).vcxproj.filters
+	-$(RM) $(top_builddir)/win32/vs11/$(1).vcxproj
+	-$(RM) $(top_builddir)/win32/vs11/$(1).vcxproj.filters
+	-$(RM) $(top_builddir)/win32/vs12/$(1).vcxproj
+	-$(RM) $(top_builddir)/win32/vs12/$(1).vcxproj.filters
+	-$(RM) $(top_builddir)/win32/vs14/$(1).vcxproj
+	-$(RM) $(top_builddir)/win32/vs14/$(1).vcxproj.filters
+	-$(RM) $(top_builddir)/win32/vs15/$(1).vcxproj
+	-$(RM) $(top_builddir)/win32/vs15/$(1).vcxproj.filters
+	-$(RM) $(top_builddir)/win32/vs16/$(1).vcxproj
+	-$(RM) $(top_builddir)/win32/vs16/$(1).vcxproj.filters
 
 	for F in $(_proj_files); do \
 		case $$$$F in \
 		$(_proj_filters)) \
 			;; \
 		*.c|*.cpp|*.cc|*.cxx) \
-			echo '   <File RelativePath="..\..\..'$(_proj_subdir)$$$$F'" />' >>$(1).sourcefiles && \
-			echo '   <ClCompile Include="..\..\..'$(_proj_subdir)$$$$F'" />' >>$(1).vs10.sourcefiles && \
-			echo '   <ClCompile Include="..\..\..'$(_proj_subdir)$$$$F'"><Filter>Source Files</Filter></ClCompile>' >>$(1).vs10.sourcefiles.filters \
+			echo '   <File RelativePath="..\..'$(_proj_subdir)$$$$F'" />' >>$(1).sourcefiles && \
+			echo '   <ClCompile Include="..\..'$(_proj_subdir)$$$$F'" />' >>$(1).vs10.sourcefiles && \
+			echo '   <ClCompile Include="..\..'$(_proj_subdir)$$$$F'"><Filter>Source Files</Filter></ClCompile>' >>$(1).vs10.sourcefiles.filters \
 			;; \
 		esac;	\
 	done
 
-	$(CPP) -P - <$(top_srcdir)/build/win32/vs9/$(1).vcprojin >$(top_builddir)/build/win32/vs9/$(1).vcproj
-	$(CPP) -P - <$(top_srcdir)/build/win32/vs10/$(1).vcxprojin >$(top_builddir)/build/win32/vs10/$(1).vcxproj
-	$(CPP) -P - <$(top_srcdir)/build/win32/vs10/$(1).vcxproj.filtersin >$(top_builddir)/build/win32/vs10/$(1).vcxproj.filters
+	$(CPP) -P - <$(top_srcdir)/win32/vs9/$(1).vcprojin >$(top_builddir)/win32/vs9/$(1).vcproj
+	$(CPP) -P - <$(top_srcdir)/win32/vs10/$(1).vcxprojin >$(top_builddir)/win32/vs10/$(1).vcxproj
+	$(CPP) -P - <$(top_srcdir)/win32/vs10/$(1).vcxproj.filtersin >$(top_builddir)/win32/vs10/$(1).vcxproj.filters
 	$(RM) $(1).sourcefiles
 	$(RM) $(1).vs10.sourcefiles
 	$(RM) $(1).vs10.sourcefiles.filters
 
-$(top_builddir)/build/win32/vs10/$(1).vs10.headers: $(top_builddir)/build/win32/vs9/$(1).headers
+$(top_builddir)/win32/vs10/$(1).vs10.headers: $(top_builddir)/win32/vs9/$(1).headers
 
-$(top_builddir)/build/win32/vs9/$(1).headers: Makefile
-	-$(RM) $(top_builddir)/build/win32/vs9/$(1).headers
-	-$(RM) $(top_builddir)/build/win32/vs10/$(1).vs10.headers
+$(top_builddir)/win32/vs9/$(1).headers: Makefile
+	-$(RM) $(top_builddir)/win32/vs9/$(1).headers
+	-$(RM) $(top_builddir)/win32/vs10/$(1).vs10.headers
 
 	for F in $(_proj_headers); do \
 		case $$$$F in \
 		$(_proj_headers_excludes)) \
 			;; \
 		*.h|*.hpp|*.hh|*.hxx) \
-			echo 'copy ..\..\..'$(_proj_subdir)$$$$F' $$$$(CopyDir)\include'$(_headers_destdir)'\'$$$$F'&#x0D;&#x0A;' >>$(top_builddir)/build/win32/vs9/$(1).headers && \
-			echo 'copy ..\..\..'$(_proj_subdir)$$$$F' $$$$(CopyDir)\include'$(_headers_destdir)'\'$$$$F >>$(top_builddir)/build/win32/vs10/$(1).vs10.headers \
+			echo 'copy ..\..'$(_proj_subdir)$$$$F' $$$$(CopyDir)\include'$(_headers_destdir)'\'$$$$F'&#x0D;&#x0A;' >>$(top_builddir)/win32/vs9/$(1).headers && \
+			echo 'copy ..\..'$(_proj_subdir)$$$$F' $$$$(CopyDir)\include'$(_headers_destdir)'\'$$$$F >>$(top_builddir)/win32/vs10/$(1).vs10.headers \
 			;; \
 		esac;	\
 	done
@@ -1149,8 +1153,8 @@ endef
 $(foreach proj,$(MSVCPROJS),$(eval $(call msvcproj-builder,$(proj))))
 
 dist-hook: \
-	$(top_builddir)/build/win32/vs9/gailutil-3.vcproj	\
-	$(top_builddir)/build/win32/vs9/gailutil-3.headers
+	$(top_builddir)/win32/vs9/gailutil-3.vcproj	\
+	$(top_builddir)/win32/vs9/gailutil-3.headers
 
 -include $(top_srcdir)/git.mk
 

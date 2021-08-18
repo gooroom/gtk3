@@ -1863,202 +1863,6 @@ generate_button_event (GdkEventType      type,
   _gdk_win32_append_event (event);
 }
 
-/*
- * Used by the stacking functions to see if a window
- * should be always on top.
- * Restacking is only done if both windows are either ontop
- * or not ontop.
- */
-static gboolean
-should_window_be_always_on_top (GdkWindow *window)
-{
-  DWORD exstyle;
-
-  if ((GDK_WINDOW_TYPE (window) == GDK_WINDOW_TEMP) ||
-      (window->state & GDK_WINDOW_STATE_ABOVE))
-    return TRUE;
-
-  exstyle = GetWindowLong (GDK_WINDOW_HWND (window), GWL_EXSTYLE);
-
-  if (exstyle & WS_EX_TOPMOST)
-    return TRUE;
-
-  return FALSE;
-}
-
-static void
-ensure_stacking_on_unminimize (MSG *msg)
-{
-  HWND rover;
-  HWND lowest_transient = NULL;
-  GdkWindow *msg_window;
-  gboolean window_ontop = FALSE;
-
-  msg_window = gdk_win32_handle_table_lookup (msg->hwnd);
-
-  if (msg_window)
-    window_ontop = should_window_be_always_on_top (msg_window);
-
-  for (rover = GetNextWindow (msg->hwnd, GW_HWNDNEXT);
-       rover;
-       rover = GetNextWindow (rover, GW_HWNDNEXT))
-    {
-      GdkWindow *rover_gdkw = gdk_win32_handle_table_lookup (rover);
-      GdkWindowImplWin32 *rover_impl;
-      gboolean rover_ontop;
-
-      /* Checking window group not implemented yet */
-      if (rover_gdkw == NULL)
-        continue;
-
-      rover_ontop = should_window_be_always_on_top (rover_gdkw);
-      rover_impl = GDK_WINDOW_IMPL_WIN32 (rover_gdkw->impl);
-
-      if (GDK_WINDOW_IS_MAPPED (rover_gdkw) &&
-          (rover_impl->type_hint == GDK_WINDOW_TYPE_HINT_UTILITY ||
-           rover_impl->type_hint == GDK_WINDOW_TYPE_HINT_DIALOG ||
-           rover_impl->transient_owner != NULL) &&
-           ((window_ontop && rover_ontop) || (!window_ontop && !rover_ontop)))
-        {
-          lowest_transient = rover;
-        }
-    }
-
-  if (lowest_transient != NULL)
-    {
-      GDK_NOTE (EVENTS,
-		g_print (" restacking %p above %p",
-			 msg->hwnd, lowest_transient));
-      SetWindowPos (msg->hwnd, lowest_transient, 0, 0, 0, 0,
-		    SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE | SWP_NOOWNERZORDER);
-    }
-}
-
-static gboolean
-ensure_stacking_on_window_pos_changing (MSG       *msg,
-					GdkWindow *window)
-{
-  GdkWindowImplWin32 *impl = GDK_WINDOW_IMPL_WIN32 (window->impl);
-  WINDOWPOS *windowpos = (WINDOWPOS *) msg->lParam;
-  HWND rover;
-  gboolean restacking;
-  gboolean window_ontop;
-
-  if (GetActiveWindow () != msg->hwnd ||
-      impl->type_hint == GDK_WINDOW_TYPE_HINT_UTILITY ||
-      impl->type_hint == GDK_WINDOW_TYPE_HINT_DIALOG ||
-      impl->transient_owner != NULL)
-    return FALSE;
-
-  /* Make sure the window stays behind any transient-type windows
-   * of the same window group.
-   *
-   * If the window is not active and being activated, we let
-   * Windows bring it to the top and rely on the WM_ACTIVATEAPP
-   * handling to bring any utility windows on top of it.
-   */
-
-  window_ontop = should_window_be_always_on_top (window);
-
-  for (rover = windowpos->hwndInsertAfter, restacking = FALSE;
-       rover;
-       rover = GetNextWindow (rover, GW_HWNDNEXT))
-    {
-      GdkWindow *rover_gdkw = gdk_win32_handle_table_lookup (rover);
-      GdkWindowImplWin32 *rover_impl;
-      gboolean rover_ontop;
-
-      /* Checking window group not implemented yet */
-
-      if (rover_gdkw == NULL)
-	continue;
-
-      rover_ontop = should_window_be_always_on_top (rover_gdkw);
-      rover_impl = GDK_WINDOW_IMPL_WIN32 (rover_gdkw->impl);
-
-      if (GDK_WINDOW_IS_MAPPED (rover_gdkw) &&
-          (rover_impl->type_hint == GDK_WINDOW_TYPE_HINT_UTILITY ||
-           rover_impl->type_hint == GDK_WINDOW_TYPE_HINT_DIALOG ||
-           rover_impl->transient_owner != NULL) &&
-          ((window_ontop && rover_ontop) || (!window_ontop && !rover_ontop)))
-        {
-          restacking = TRUE;
-          windowpos->hwndInsertAfter = rover;
-        }
-    }
-
-  if (restacking)
-    {
-      GDK_NOTE (EVENTS,
-		g_print (" letting Windows restack %p above %p",
-			 msg->hwnd, windowpos->hwndInsertAfter));
-      return TRUE;
-    }
-
-  return FALSE;
-}
-
-static void
-ensure_stacking_on_activate_app (MSG       *msg,
-				 GdkWindow *window)
-{
-  GdkWindowImplWin32 *impl = GDK_WINDOW_IMPL_WIN32 (window->impl);
-  HWND rover;
-  gboolean window_ontop;
-
-  if (impl->type_hint == GDK_WINDOW_TYPE_HINT_UTILITY ||
-      impl->type_hint == GDK_WINDOW_TYPE_HINT_DIALOG ||
-      impl->transient_owner != NULL)
-    {
-      SetWindowPos (msg->hwnd, HWND_TOP, 0, 0, 0, 0,
-		    SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE | SWP_NOOWNERZORDER);
-      return;
-    }
-
-  if (!IsWindowVisible (msg->hwnd) ||
-      msg->hwnd != GetActiveWindow ())
-    return;
-
-
-  /* This window is not a transient-type window and it is the
-   * activated window. Make sure this window is as visible as
-   * possible, just below the lowest transient-type window of this
-   * app.
-   */
-
-  window_ontop = should_window_be_always_on_top (window);
-
-  for (rover = GetNextWindow (msg->hwnd, GW_HWNDPREV);
-       rover;
-       rover = GetNextWindow (rover, GW_HWNDPREV))
-    {
-      GdkWindow *rover_gdkw = gdk_win32_handle_table_lookup (rover);
-      GdkWindowImplWin32 *rover_impl;
-      gboolean rover_ontop;
-
-      /* Checking window group not implemented yet */
-      if (rover_gdkw == NULL)
-        continue;
-
-      rover_ontop = should_window_be_always_on_top (rover_gdkw);
-      rover_impl = GDK_WINDOW_IMPL_WIN32 (rover_gdkw->impl);
-
-      if (GDK_WINDOW_IS_MAPPED (rover_gdkw) &&
-          (rover_impl->type_hint == GDK_WINDOW_TYPE_HINT_UTILITY ||
-           rover_impl->type_hint == GDK_WINDOW_TYPE_HINT_DIALOG ||
-           rover_impl->transient_owner != NULL) &&
-          ((window_ontop && rover_ontop) || (!window_ontop && !rover_ontop)))
-        {
-	  GDK_NOTE (EVENTS,
-		    g_print (" restacking %p above %p",
-			     msg->hwnd, rover));
-	  SetWindowPos (msg->hwnd, rover, 0, 0, 0, 0,
-			SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE | SWP_NOOWNERZORDER);
-          break;
-	}
-    }
-}
-
 static gboolean
 handle_wm_sysmenu (GdkWindow *window, MSG *msg, gint *ret_valp)
 {
@@ -2464,7 +2268,6 @@ gdk_event_translate (MSG  *msg,
     case WM_INPUTLANGCHANGE:
       _gdk_input_locale = (HKL) msg->lParam;
       _gdk_win32_keymap_set_active_layout (GDK_WIN32_KEYMAP (_gdk_win32_display_get_keymap (_gdk_display)), _gdk_input_locale);
-      _gdk_input_locale_is_ime = ImmIsIME (_gdk_input_locale);
       GetLocaleInfo (MAKELCID (LOWORD (_gdk_input_locale), SORT_DEFAULT),
 		     LOCALE_IDEFAULTANSICODEPAGE,
 		     buf, sizeof (buf));
@@ -2476,6 +2279,22 @@ gdk_event_translate (MSG  *msg,
 			 (gpointer) msg->lParam, _gdk_input_locale_is_ime ? " (IME)" : "",
 			 _gdk_input_codepage));
       gdk_settings_notify (window, "gtk-im-module", GDK_SETTING_ACTION_CHANGED);
+
+      /* Generate a dummy key event to "nudge" IMContext */
+      event = gdk_event_new (GDK_KEY_PRESS);
+      event->key.window = window;
+      event->key.time = _gdk_win32_get_next_tick (msg->time);
+      event->key.keyval = GDK_KEY_VoidSymbol;
+      event->key.string = NULL;
+      event->key.length = 0;
+      event->key.hardware_keycode = 0;
+      gdk_event_set_scancode (event, 0);
+      gdk_event_set_device (event, device_manager_win32->core_keyboard);
+      gdk_event_set_source_device (event, device_manager_win32->system_keyboard);
+      gdk_event_set_seat (event, gdk_device_get_seat (device_manager_win32->core_keyboard));
+      event->key.is_modifier = FALSE;
+      event->key.state = 0;
+      _gdk_win32_append_event (event);
       break;
 
     case WM_SYSKEYUP:
@@ -2541,31 +2360,6 @@ gdk_event_translate (MSG  *msg,
 
       API_CALL (GetKeyboardState, (key_state));
 
-      ccount = 0;
-
-      if (msg->wParam == VK_PACKET)
-	{
-	  ccount = ToUnicode (VK_PACKET, HIWORD (msg->lParam), key_state, wbuf, 1, 0);
-	  if (ccount == 1)
-	    {
-	      if (wbuf[0] >= 0xD800 && wbuf[0] < 0xDC00)
-	        {
-		  if (msg->message == WM_KEYDOWN)
-		    impl->leading_surrogate_keydown = wbuf[0];
-		  else
-		    impl->leading_surrogate_keyup = wbuf[0];
-
-		  /* don't emit an event */
-		  return_val = TRUE;
-		  break;
-	        }
-	      else
-		{
-		  /* wait until an event is created */;
-		}
-	    }
-	}
-
       event = gdk_event_new ((msg->message == WM_KEYDOWN ||
 			      msg->message == WM_SYSKEYDOWN) ?
 			     GDK_KEY_PRESS : GDK_KEY_RELEASE);
@@ -2580,6 +2374,39 @@ gdk_event_translate (MSG  *msg,
       gdk_event_set_device (event, device_manager_win32->core_keyboard);
       gdk_event_set_source_device (event, device_manager_win32->system_keyboard);
       gdk_event_set_seat (event, gdk_device_get_seat (device_manager_win32->core_keyboard));
+
+      /* Get the WinAPI translation of the WM_KEY messages to characters.
+
+         The WM_CHAR messages are generated by a previous call to TranslateMessage() and always
+	 follow directly after the corresponding WM_KEY* messages.
+	 There could be 0 or more WM_CHAR messages following (for example dead keys don't generate
+	 WM_CHAR messages - they generate WM_DEAD_CHAR instead, but we are not interested in those
+	 messages). */
+
+      if (gdk_event_is_allocated (event)) /* Should always be true */
+	{
+	  GdkEventPrivate *event_priv = (GdkEventPrivate*) event;
+
+	  MSG msg2;
+	  while (PeekMessageW (&msg2, msg->hwnd, 0, 0, 0) && (msg2.message == WM_CHAR || msg2.message == WM_SYSCHAR))
+	    {
+	      /* The character is encoded in WPARAM as UTF-16. */
+	      gunichar2 c = msg2.wParam;
+
+	      /* Ignore control sequences like Backspace */
+	      if (!g_unichar_iscntrl(c))
+		{
+		  /* Append character to translation string. */
+		  event_priv->translation_len ++;
+		  event_priv->translation = g_realloc (event_priv->translation, event_priv->translation_len * sizeof (event_priv->translation[0]));
+		  event_priv->translation[event_priv->translation_len - 1] = c;
+		}
+
+	      /* Remove message from queue */
+	      GetMessageW (&msg2, msg->hwnd, 0, 0);
+	    }
+	}
+
       if (HIWORD (msg->lParam) & KF_EXTENDED)
 	{
 	  switch (msg->wParam)
@@ -2608,42 +2435,12 @@ gdk_event_translate (MSG  *msg,
 
       build_key_event_state (event, key_state);
 
-      if (msg->wParam == VK_PACKET && ccount == 1)
-	{
-	  if (wbuf[0] >= 0xD800 && wbuf[0] < 0xDC00)
-	    {
-	      g_assert_not_reached ();
-	    }
-	  else if (wbuf[0] >= 0xDC00 && wbuf[0] < 0xE000)
-	    {
-	      wchar_t leading;
-
-              if (msg->message == WM_KEYDOWN)
-		leading = impl->leading_surrogate_keydown;
-	      else
-		leading = impl->leading_surrogate_keyup;
-
-	      event->key.keyval = gdk_unicode_to_keyval ((leading - 0xD800) * 0x400 + wbuf[0] - 0xDC00 + 0x10000);
-	    }
-	  else
-	    {
-	      event->key.keyval = gdk_unicode_to_keyval (wbuf[0]);
-	    }
-	}
-      else
-	{
-	  gdk_keymap_translate_keyboard_state (_gdk_win32_display_get_keymap (display),
-					       event->key.hardware_keycode,
-					       event->key.state,
-					       event->key.group,
-					       &event->key.keyval,
-					       NULL, NULL, NULL);
-	}
-
-      if (msg->message == WM_KEYDOWN)
-	impl->leading_surrogate_keydown = 0;
-      else
-	impl->leading_surrogate_keyup = 0;
+      gdk_keymap_translate_keyboard_state (_gdk_win32_display_get_keymap (display),
+					   event->key.hardware_keycode,
+					   event->key.state,
+					   event->key.group,
+					   &event->key.keyval,
+					   NULL, NULL, NULL);
 
       fill_key_event_string (event);
 
@@ -3374,8 +3171,6 @@ gdk_event_translate (MSG  *msg,
 
       if (GDK_WINDOW_IS_MAPPED (window))
         {
-	  return_val = ensure_stacking_on_window_pos_changing (msg, window);
-
           impl = GDK_WINDOW_IMPL_WIN32 (window->impl);
 
           if (impl->maximizing)
@@ -3465,13 +3260,6 @@ gdk_event_translate (MSG  *msg,
 	  if ((old_state & GDK_WINDOW_STATE_ICONIFIED) !=
 	      (new_state & GDK_WINDOW_STATE_ICONIFIED))
 	    do_show_window (window, (new_state & GDK_WINDOW_STATE_ICONIFIED));
-
-
-	  /* When un-minimizing, make sure we're stacked under any
-	     transient-type windows. */
-	  if (!(old_state & GDK_WINDOW_STATE_ICONIFIED) &&
-	      (new_state & GDK_WINDOW_STATE_ICONIFIED))
-	    ensure_stacking_on_unminimize (msg);
 	}
 
       /* Show, New size or position => configure event */
@@ -3953,8 +3741,6 @@ gdk_event_translate (MSG  *msg,
       GDK_NOTE (EVENTS, g_print (" %s thread: %" G_GINT64_FORMAT,
 				 msg->wParam ? "YES" : "NO",
 				 (gint64) msg->lParam));
-      if (msg->wParam && GDK_WINDOW_IS_MAPPED (window))
-	ensure_stacking_on_activate_app (msg, window);
       break;
     case WM_NCHITTEST:
       /* TODO: pass all messages to DwmDefWindowProc() first! */

@@ -188,11 +188,11 @@ uint32_t _gdk_wayland_device_get_implicit_grab_serial(GdkWaylandDevice *device,
 uint32_t _gdk_wayland_seat_get_last_implicit_grab_serial (GdkSeat           *seat,
                                                           GdkEventSequence **seqence);
 struct wl_data_device * gdk_wayland_device_get_data_device (GdkDevice *gdk_device);
-void gdk_wayland_device_set_selection (GdkDevice             *gdk_device,
-                                       struct wl_data_source *source);
+void gdk_wayland_seat_set_selection (GdkSeat               *seat,
+                                     struct wl_data_source *source);
 
-void gdk_wayland_seat_set_primary (GdkSeat                             *seat,
-                                   struct gtk_primary_selection_source *source);
+void gdk_wayland_seat_set_primary (GdkSeat  *seat,
+                                   gpointer  source);
 
 GdkDragContext * gdk_wayland_device_get_drop_context (GdkDevice *gdk_device);
 
@@ -227,6 +227,8 @@ struct wl_output *_gdk_wayland_screen_get_wl_output (GdkScreen *screen,
 
 void _gdk_wayland_screen_set_has_gtk_shell (GdkScreen       *screen);
 
+void _gdk_wayland_screen_init_xdg_output (GdkScreen *screen);
+
 void _gdk_wayland_window_set_grab_seat (GdkWindow      *window,
                                         GdkSeat        *seat);
 
@@ -247,8 +249,8 @@ void gdk_wayland_selection_free (GdkWaylandSelection *selection);
 
 void gdk_wayland_selection_ensure_offer (GdkDisplay           *display,
                                          struct wl_data_offer *wl_offer);
-void gdk_wayland_selection_ensure_primary_offer (GdkDisplay                         *display,
-                                                 struct gtk_primary_selection_offer *wp_offer);
+void gdk_wayland_selection_ensure_primary_offer (GdkDisplay *display,
+                                                 gpointer    wp_offer);
 
 void gdk_wayland_selection_set_offer (GdkDisplay           *display,
                                       GdkAtom               selection,

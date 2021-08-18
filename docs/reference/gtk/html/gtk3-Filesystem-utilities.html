@@ -8,7 +8,7 @@
 <link rel="up" href="gtkbase.html" title="Part III. GTK+ Core Reference">
 <link rel="prev" href="gtk3-Testing.html" title="Testing">
 <link rel="next" href="theming.html" title="Part IV. Theming in GTK+">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -37,8 +37,8 @@
 <a name="gtk3-Filesystem-utilities.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -51,7 +51,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-Filesystem-utilities.html#gtk-mount-operation-is-showing" title="gtk_mount_operation_is_showing ()">gtk_mount_operation_is_showing</a> <span class="c_punctuation">()</span>
@@ -83,7 +83,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="returnvalue">GdkScreen</span></a> *
+<a href="../html/GdkScreen.html#GdkScreen-struct"><span class="returnvalue">GdkScreen</span></a> *
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-Filesystem-utilities.html#gtk-mount-operation-get-screen" title="gtk_mount_operation_get_screen ()">gtk_mount_operation_get_screen</a> <span class="c_punctuation">()</span>
@@ -91,7 +91,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-Filesystem-utilities.html#gtk-show-uri" title="gtk_show_uri ()">gtk_show_uri</a> <span class="c_punctuation">()</span>
@@ -99,7 +99,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-Filesystem-utilities.html#gtk-show-uri-on-window" title="gtk_show_uri_on_window ()">gtk_show_uri_on_window</a> <span class="c_punctuation">()</span>
@@ -118,7 +118,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="gtk3-Filesystem-utilities.html#GtkMountOperation--is-showing" title="The “is-showing” property">is-showing</a></td>
 <td class="property_flags">Read</td>
 </tr>
@@ -130,7 +130,7 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *</td>
+<a href="../html/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *</td>
 <td class="property_name"><a class="link" href="gtk3-Filesystem-utilities.html#GtkMountOperation--screen" title="The “screen” property">screen</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -141,8 +141,8 @@
 <a name="gtk3-Filesystem-utilities.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -158,14 +158,14 @@
 </div>
 <div class="refsect1">
 <a name="gtk3-Filesystem-utilities.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> GMountOperation
         <span class="lineart">╰──</span> GtkMountOperation
 </pre>
 </div>
 <div class="refsect1">
 <a name="gtk3-Filesystem-utilities.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -181,7 +181,7 @@ GIO functions for mounting volumes such as
 passwords, questions or show processes blocking unmount.</p>
 <p>gtk_show_uri_on_window() is a convenient way to launch applications for URIs.</p>
 <p>Another object that is worth mentioning in this context is
-<a href="https://developer.gnome.org/gdk3/gdk3-Application-launching.html#GdkAppLaunchContext-struct"><span class="type">GdkAppLaunchContext</span></a>, which provides visual feedback when lauching
+<a href="../html/gdk3-Application-launching.html#GdkAppLaunchContext-struct"><span class="type">GdkAppLaunchContext</span></a>, which provides visual feedback when lauching
 applications.</p>
 </div>
 <div class="refsect1">
@@ -201,7 +201,7 @@ gtk_mount_operation_new (<em class="parameter"><code><a class="link" href="GtkWi
 </colgroup>
 <tbody><tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p>transient parent of the window, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>transient parent of the window, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr></tbody>
 </table></div>
@@ -215,7 +215,7 @@ gtk_mount_operation_new (<em class="parameter"><code><a class="link" href="GtkWi
 <hr>
 <div class="refsect2">
 <a name="gtk-mount-operation-is-showing"></a><h3>gtk_mount_operation_is_showing ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_mount_operation_is_showing (<em class="parameter"><code><a class="link" href="gtk3-Filesystem-utilities.html#GtkMountOperation"><span class="type">GtkMountOperation</span></a> *op</code></em>);</pre>
 <p>Returns whether the <a class="link" href="gtk3-Filesystem-utilities.html#GtkMountOperation"><span class="type">GtkMountOperation</span></a> is currently displaying
 a window.</p>
@@ -236,7 +236,7 @@ a window.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-mount-operation-is-showing.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>op</code></em>
+<p> <code class="literal">TRUE</code> if <em class="parameter"><code>op</code></em>
 is currently displaying a window</p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -265,7 +265,7 @@ gtk_mount_operation_set_parent (<em class="parameter"><code><a class="link" href
 </tr>
 <tr>
 <td class="parameter_name"><p>parent</p></td>
-<td class="parameter_description"><p>transient parent of the window, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>transient parent of the window, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -307,7 +307,7 @@ gtk_mount_operation_get_parent (<em class="parameter"><code><a class="link" href
 <a name="gtk-mount-operation-set-screen"></a><h3>gtk_mount_operation_set_screen ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_mount_operation_set_screen (<em class="parameter"><code><a class="link" href="gtk3-Filesystem-utilities.html#GtkMountOperation"><span class="type">GtkMountOperation</span></a> *op</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+                                <em class="parameter"><code><a href="../html/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
 <p>Sets the screen to show windows of the <a class="link" href="gtk3-Filesystem-utilities.html#GtkMountOperation"><span class="type">GtkMountOperation</span></a> on.</p>
 <div class="refsect3">
 <a name="gtk-mount-operation-set-screen.parameters"></a><h4>Parameters</h4>
@@ -325,7 +325,7 @@ gtk_mount_operation_set_screen (<em class="parameter"><code><a class="link" href
 </tr>
 <tr>
 <td class="parameter_name"><p>screen</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
+<td class="parameter_description"><p>a <a href="../html/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -336,7 +336,7 @@ gtk_mount_operation_set_screen (<em class="parameter"><code><a class="link" href
 <hr>
 <div class="refsect2">
 <a name="gtk-mount-operation-get-screen"></a><h3>gtk_mount_operation_get_screen ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="returnvalue">GdkScreen</span></a> *
+<pre class="programlisting"><a href="../html/GdkScreen.html#GdkScreen-struct"><span class="returnvalue">GdkScreen</span></a> *
 gtk_mount_operation_get_screen (<em class="parameter"><code><a class="link" href="gtk3-Filesystem-utilities.html#GtkMountOperation"><span class="type">GtkMountOperation</span></a> *op</code></em>);</pre>
 <p>Gets the screen on which windows of the <a class="link" href="gtk3-Filesystem-utilities.html#GtkMountOperation"><span class="type">GtkMountOperation</span></a>
 will be shown.</p>
@@ -366,12 +366,15 @@ are shown. </p>
 <hr>
 <div class="refsect2">
 <a name="gtk-show-uri"></a><h3>gtk_show_uri ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-gtk_show_uri (<em class="parameter"><code><a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>,
-              <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>,
-              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> timestamp</code></em>,
-              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
-<div class="warning"><p><code class="literal">gtk_show_uri</code> is deprecated and should not be used in newly-written code.</p></div>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+gtk_show_uri (<em class="parameter"><code><a href="../html/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *screen</code></em>,
+              <em class="parameter"><code>const <span class="type">gchar</span> *uri</code></em>,
+              <em class="parameter"><code><span class="type">guint32</span> timestamp</code></em>,
+              <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<div class="warning">
+<p><code class="literal">gtk_show_uri</code> has been deprecated since version 3.22 and should not be used in newly-written code.</p>
+<p>Use <a class="link" href="gtk3-Filesystem-utilities.html#gtk-show-uri-on-window" title="gtk_show_uri_on_window ()"><code class="function">gtk_show_uri_on_window()</code></a> instead.</p>
+</div>
 <p>A convenience function for launching the default application
 to show the uri. Like <a class="link" href="gtk3-Filesystem-utilities.html#gtk-show-uri-on-window" title="gtk_show_uri_on_window ()"><code class="function">gtk_show_uri_on_window()</code></a>, but takes a screen
 as transient parent instead of a window.</p>
@@ -390,7 +393,7 @@ sandboxed applications for example.</p>
 <tr>
 <td class="parameter_name"><p>screen</p></td>
 <td class="parameter_description"><p>screen to show the uri on
-or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default screen. </p></td>
+or <code class="literal">NULL</code> for the default screen. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -405,7 +408,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> that is returned in case of errors</p></td>
+<td class="parameter_description"><p>a <span class="type">GError</span> that is returned in case of errors</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -413,18 +416,18 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </div>
 <div class="refsect3">
 <a name="gtk-show-uri.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> on success, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> on error</p>
+<p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on error</p>
 </div>
 <p class="since">Since: 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-show-uri-on-window"></a><h3>gtk_show_uri_on_window ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_show_uri_on_window (<em class="parameter"><code><a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> *parent</code></em>,
                         <em class="parameter"><code>const <span class="type">char</span> *uri</code></em>,
-                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> timestamp</code></em>,
-                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+                        <em class="parameter"><code><span class="type">guint32</span> timestamp</code></em>,
+                        <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
 <p>This is a convenience function for launching the default application
 to show the uri. The uri must be of a form understood by GIO (i.e. you
 need to install gvfs to get support for uri schemes such as http://
@@ -437,7 +440,7 @@ Typical examples are</p>
 </ul></div>
 <p>Ideally the timestamp is taken from the event triggering
 the <a class="link" href="gtk3-Filesystem-utilities.html#gtk-show-uri" title="gtk_show_uri ()"><code class="function">gtk_show_uri()</code></a> call. If timestamp is not known you can take
-<a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-CURRENT-TIME:CAPS"><code class="literal">GDK_CURRENT_TIME</code></a>.</p>
+<a href="../html/gdk3-Events.html#GDK-CURRENT-TIME:CAPS"><code class="literal">GDK_CURRENT_TIME</code></a>.</p>
 <p>This is the recommended call to be used as it passes information
 necessary for sandbox helpers to parent their dialogs properly.</p>
 <div class="refsect3">
@@ -466,7 +469,7 @@ necessary for sandbox helpers to parent their dialogs properly.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>error</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> that is returned in case of errors</p></td>
+<td class="parameter_description"><p>a <span class="type">GError</span> that is returned in case of errors</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -474,7 +477,7 @@ necessary for sandbox helpers to parent their dialogs properly.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-show-uri-on-window.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> on success, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> on error</p>
+<p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on error</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-22.html#api-index-3.22">3.22</a></p>
 </div>
@@ -510,8 +513,9 @@ necessary for sandbox helpers to parent their dialogs properly.</p>
 <a name="gtk3-Filesystem-utilities.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkMountOperation--is-showing"></a><h3>The <code class="literal">“is-showing”</code> property</h3>
-<pre class="programlisting">  “is-showing”               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “is-showing”               <span class="type">gboolean</span></pre>
 <p>Are we showing a dialog.</p>
+<p>Owner: GtkMountOperation</p>
 <p>Flags: Read</p>
 <p>Default value: FALSE</p>
 </div>
@@ -520,18 +524,20 @@ necessary for sandbox helpers to parent their dialogs properly.</p>
 <a name="GtkMountOperation--parent"></a><h3>The <code class="literal">“parent”</code> property</h3>
 <pre class="programlisting">  “parent”                   <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> *</pre>
 <p>The parent window.</p>
+<p>Owner: GtkMountOperation</p>
 <p>Flags: Read / Write</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkMountOperation--screen"></a><h3>The <code class="literal">“screen”</code> property</h3>
-<pre class="programlisting">  “screen”                   <a href="https://developer.gnome.org/gdk3/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *</pre>
+<pre class="programlisting">  “screen”                   <a href="../html/GdkScreen.html#GdkScreen-struct"><span class="type">GdkScreen</span></a> *</pre>
 <p>The screen where this window will be displayed.</p>
+<p>Owner: GtkMountOperation</p>
 <p>Flags: Read / Write</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="ShortcutsOverview.html" title="Shortcuts Overview">
 <link rel="prev" href="ShortcutsOverview.html" title="Shortcuts Overview">
 <link rel="next" href="GtkShortcutsSection.html" title="GtkShortcutsSection">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -46,13 +46,13 @@
 <tbody>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
+<span class="type">char</span> *</td>
 <td class="property_name"><a class="link" href="GtkShortcutsWindow.html#GtkShortcutsWindow--section-name" title="The “section-name” property">section-name</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
+<span class="type">char</span> *</td>
 <td class="property_name"><a class="link" href="GtkShortcutsWindow.html#GtkShortcutsWindow--view-name" title="The “view-name” property">view-name</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -63,20 +63,20 @@
 <a name="GtkShortcutsWindow.signals"></a><h2>Signals</h2>
 <div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
-<col width="150px" class="signals_return">
-<col width="300px" class="signals_name">
-<col width="200px" class="signals_flags">
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
 </colgroup>
 <tbody>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkShortcutsWindow.html#GtkShortcutsWindow-close" title="The “close” signal">close</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></td>
+<td class="signal_flags">Action</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkShortcutsWindow.html#GtkShortcutsWindow-search" title="The “search” signal">search</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></td>
+<td class="signal_flags">Action</td>
 </tr>
 </tbody>
 </table></div>
@@ -85,8 +85,8 @@
 <a name="GtkShortcutsWindow.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="datatype_keyword">struct</td>
@@ -96,8 +96,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkShortcutsWindow.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                 <span class="lineart">╰──</span> <a class="link" href="GtkBin.html" title="GtkBin">GtkBin</a>
@@ -113,7 +113,7 @@ GtkShortcutsWindow implements
 </div>
 <div class="refsect1">
 <a name="GtkShortcutsWindow.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -168,21 +168,23 @@ and "Terminal Shortcuts".</p>
 <a name="GtkShortcutsWindow.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkShortcutsWindow--section-name"></a><h3>The <code class="literal">“section-name”</code> property</h3>
-<pre class="programlisting">  “section-name”             <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
+<pre class="programlisting">  “section-name”             <span class="type">char</span> *</pre>
 <p>The name of the section to show.</p>
 <p>This should be the section-name of one of the <a class="link" href="GtkShortcutsSection.html" title="GtkShortcutsSection"><span class="type">GtkShortcutsSection</span></a>
 objects that are in this shortcuts window.</p>
+<p>Owner: GtkShortcutsWindow</p>
 <p>Flags: Read / Write</p>
 <p>Default value: "internal-search"</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkShortcutsWindow--view-name"></a><h3>The <code class="literal">“view-name”</code> property</h3>
-<pre class="programlisting">  “view-name”                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
+<pre class="programlisting">  “view-name”                <span class="type">char</span> *</pre>
 <p>The view name by which to filter the contents.</p>
 <p>This should correspond to the <a class="link" href="GtkShortcutsGroup.html#GtkShortcutsGroup--view" title="The “view” property"><span class="type">“view”</span></a> property of some of
 the <a class="link" href="GtkShortcutsGroup.html" title="GtkShortcutsGroup"><span class="type">GtkShortcutsGroup</span></a> objects that are inside this shortcuts window.</p>
-<p>Set this to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to show all groups.</p>
+<p>Set this to <code class="literal">NULL</code> to show all groups.</p>
+<p>Owner: GtkShortcutsWindow</p>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
 </div>
@@ -193,7 +195,7 @@ the <a class="link" href="GtkShortcutsGroup.html" title="GtkShortcutsGroup"><spa
 <a name="GtkShortcutsWindow-close"></a><h3>The <code class="literal">“close”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkShortcutsWindow.html" title="GtkShortcutsWindow"><span class="type">GtkShortcutsWindow</span></a> *shortcutswindow,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>            user_data)</pre>
+               <span class="type">gpointer</span>            user_data)</pre>
 <p>The ::close signal is a
 <a class="link" href="gtk3-Bindings.html#GtkBindingSignal" title="struct GtkBindingSignal">keybinding signal</a>
 which gets emitted when the user uses a keybinding to close
@@ -214,14 +216,14 @@ the window.</p>
 </tr></tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></p>
+<p>Flags: Action</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkShortcutsWindow-search"></a><h3>The <code class="literal">“search”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkShortcutsWindow.html" title="GtkShortcutsWindow"><span class="type">GtkShortcutsWindow</span></a> *shortcutswindow,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>            user_data)</pre>
+               <span class="type">gpointer</span>            user_data)</pre>
 <p>The ::search signal is a
 <a class="link" href="gtk3-Bindings.html#GtkBindingSignal" title="struct GtkBindingSignal">keybinding signal</a>
 which gets emitted when the user uses a keybinding to start a search.</p>
@@ -241,11 +243,11 @@ which gets emitted when the user uses a keybinding to start a search.</p>
 </tr></tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a></p>
+<p>Flags: Action</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

@@ -265,6 +265,8 @@ EXTRA_DIST +=				\
 	file-chooser-test-dir/text.txt	\
 	$(test_icontheme)		\
 	$(test_ui)			\
+	meson.build	\
+	gtk.test.in \
 	$(NULL)
 
 GTK_GSETTINGS_SCHEMAS = \

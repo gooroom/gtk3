@@ -8,7 +8,7 @@
 <link rel="up" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
 <link rel="prev" href="GtkMenu.html" title="GtkMenu">
 <link rel="next" href="GtkMenuItem.html" title="GtkMenuItem">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -39,8 +39,8 @@
 <a name="GtkMenuBar.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -126,7 +126,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td class="property_type"><span class="type">int</span></td>
 <td class="property_name"><a class="link" href="GtkMenuBar.html#GtkMenuBar--s-internal-padding" title="The “internal-padding” style property">internal-padding</a></td>
 <td class="property_flags">Read</td>
 </tr>
@@ -142,8 +142,8 @@
 <a name="GtkMenuBar.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -159,8 +159,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkMenuBar.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                 <span class="lineart">╰──</span> <a class="link" href="GtkMenuShell.html" title="GtkMenuShell">GtkMenuShell</a>
@@ -412,6 +412,7 @@ and menuitems contained in menubars.</p>
 <pre class="programlisting">  “child-pack-direction”     <a class="link" href="GtkMenuBar.html#GtkPackDirection" title="enum GtkPackDirection"><span class="type">GtkPackDirection</span></a></pre>
 <p>The child pack direction of the menubar. It determines how
 the widgets contained in child menuitems are arranged.</p>
+<p>Owner: GtkMenuBar</p>
 <p>Flags: Read / Write</p>
 <p>Default value: GTK_PACK_DIRECTION_LTR</p>
 <p class="since">Since: 2.8</p>
@@ -422,6 +423,7 @@ the widgets contained in child menuitems are arranged.</p>
 <pre class="programlisting">  “pack-direction”           <a class="link" href="GtkMenuBar.html#GtkPackDirection" title="enum GtkPackDirection"><span class="type">GtkPackDirection</span></a></pre>
 <p>The pack direction of the menubar. It determines how
 menuitems are arranged in the menubar.</p>
+<p>Owner: GtkMenuBar</p>
 <p>Flags: Read / Write</p>
 <p>Default value: GTK_PACK_DIRECTION_LTR</p>
 <p class="since">Since: 2.8</p>
@@ -431,7 +433,7 @@ menuitems are arranged in the menubar.</p>
 <a name="GtkMenuBar.style-property-details"></a><h2>Style Property Details</h2>
 <div class="refsect2">
 <a name="GtkMenuBar--s-internal-padding"></a><h3>The <code class="literal">“internal-padding”</code> style property</h3>
-<pre class="programlisting">  “internal-padding”         <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></pre>
+<pre class="programlisting">  “internal-padding”         <span class="type">int</span></pre>
 <p>Amount of border space between the menubar shadow and the menu items</p>
 <div class="warning">
 <p><code class="literal">GtkMenuBar:internal-padding</code> has been deprecated since version 3.8 and should not be used in newly-written code.</p>
@@ -439,6 +441,7 @@ menuitems are arranged in the menubar.</p>
   like <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> and <a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a>); the value of this style
   property is ignored.</p>
 </div>
+<p>Owner: GtkMenuBar</p>
 <p>Flags: Read</p>
 <p>Allowed values: &gt;= 0</p>
 <p>Default value: 0</p>
@@ -453,6 +456,7 @@ menuitems are arranged in the menubar.</p>
 <p>Use CSS to determine the shadow; the value of
     this style property is ignored.</p>
 </div>
+<p>Owner: GtkMenuBar</p>
 <p>Flags: Read</p>
 <p>Default value: GTK_SHADOW_OUT</p>
 </div>
@@ -463,6 +467,6 @@ menuitems are arranged in the menubar.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

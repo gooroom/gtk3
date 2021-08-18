@@ -88,6 +88,10 @@ G_DEFINE_TYPE_WITH_PRIVATE (GtkSearchEngineQuartz, _gtk_search_engine_quartz, GT
       GtkSearchHit *hit;
 
       result_path = [[result valueForAttribute:@"kMDItemPath"] UTF8String];
+
+      if (result_path == NULL)
+        continue;
+
       file = g_file_new_for_path (result_path);
 
       hit = g_new (GtkSearchHit, 1);
@@ -126,7 +130,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (GtkSearchEngineQuartz, _gtk_search_engine_quartz, GT
 
   [self submitHits:ns_query];
 
-  _gtk_search_engine_finished (engine);
+  _gtk_search_engine_finished (engine, submitted_hits > 0);
   submitted_hits = 0;
 }
 
@@ -192,6 +196,8 @@ gtk_search_engine_quartz_set_query (GtkSearchEngine *engine,
 				    GtkQuery        *query)
 {
   GtkSearchEngineQuartz *quartz;
+  const char* path = NULL;
+  GFile *location = NULL;
 
   QUARTZ_POOL_ALLOC;
 
@@ -204,11 +210,28 @@ gtk_search_engine_quartz_set_query (GtkSearchEngine *engine,
     g_object_unref (quartz->priv->query);
 
   quartz->priv->query = query;
+  location = gtk_query_get_location (query);
+
+  if (location)
+    path = g_file_peek_path (location);
 
   /* We create a query to look for ".*text.*" in the text contents of
    * all indexed files.  (Should we also search for text in file and folder
    * names?).
    */
+
+  if (path)
+    {
+      NSString *ns_path = [[NSString string] initWithUTF8String:path];
+      [quartz->priv->ns_query setSearchScopes:@[ns_path]];
+    }
+  else
+    {
+      [quartz->priv->ns_query setSearchScopes:@[NSMetadataQueryLocalComputerScope]];
+    }
+
+  [quartz->priv->ns_query setSearchItems:@[(NSString*)kMDItemTextContent,
+                                           (NSString*)kMDItemFSName]];
   [quartz->priv->ns_query setPredicate:
     [NSPredicate predicateWithFormat:
       [NSString stringWithFormat:@"(kMDItemTextContent LIKE[cd] \"*%s*\")",

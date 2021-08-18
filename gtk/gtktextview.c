@@ -1126,6 +1126,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  GTK_TYPE_MOVEMENT_STEP, 
 		  G_TYPE_INT, 
 		  G_TYPE_BOOLEAN);
+  g_signal_set_va_marshaller (signals[MOVE_CURSOR],
+                              G_OBJECT_CLASS_TYPE (gobject_class),
+                              _gtk_marshal_VOID__ENUM_INT_BOOLEANv);
 
   /**
    * GtkTextView::move-viewport:
@@ -1151,6 +1154,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
                                 G_TYPE_NONE, 2,
                                 GTK_TYPE_SCROLL_STEP,
                                 G_TYPE_INT);
+  g_signal_set_va_marshaller (signals[MOVE_VIEWPORT],
+                              G_OBJECT_CLASS_TYPE (gobject_class),
+                              _gtk_marshal_VOID__ENUM_INTv);
 
   /**
    * GtkTextView::set-anchor:
@@ -1224,6 +1230,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  G_TYPE_NONE, 2,
 		  GTK_TYPE_DELETE_TYPE,
 		  G_TYPE_INT);
+  g_signal_set_va_marshaller (signals[DELETE_FROM_CURSOR],
+                              G_OBJECT_CLASS_TYPE (gobject_class),
+                              _gtk_marshal_VOID__ENUM_INTv);
 
   /**
    * GtkTextView::backspace:
@@ -1442,12 +1451,15 @@ G_GNUC_END_IGNORE_DEPRECATIONS
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (GtkTextViewClass, extend_selection),
                   _gtk_boolean_handled_accumulator, NULL,
-                  NULL, /* generic marshaller */
+                  _gtk_marshal_BOOLEAN__ENUM_BOXED_BOXED_BOXED,
                   G_TYPE_BOOLEAN, 4,
                   GTK_TYPE_TEXT_EXTEND_SELECTION,
                   GTK_TYPE_TEXT_ITER | G_SIGNAL_TYPE_STATIC_SCOPE,
                   GTK_TYPE_TEXT_ITER | G_SIGNAL_TYPE_STATIC_SCOPE,
                   GTK_TYPE_TEXT_ITER | G_SIGNAL_TYPE_STATIC_SCOPE);
+  g_signal_set_va_marshaller (signals[EXTEND_SELECTION],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_BOOLEAN__ENUM_BOXED_BOXED_BOXEDv);
 
   /**
    * GtkTextView::insert-emoji:
@@ -1761,9 +1773,6 @@ gtk_text_view_init (GtkTextView *text_view)
 
   priv->text_window = text_window_new (GTK_TEXT_WINDOW_TEXT,
                                        widget, 200, 200);
-
-  /* We handle all our own redrawing */
-  gtk_widget_set_redraw_on_allocate (widget, FALSE);
 
   priv->multipress_gesture = gtk_gesture_multi_press_new (widget);
   gtk_gesture_single_set_button (GTK_GESTURE_SINGLE (priv->multipress_gesture), 0);
@@ -4659,6 +4668,24 @@ changed_handler (GtkTextLayout     *layout,
           priv->yoffset += new_first_para_top - old_first_para_top;
           
           gtk_adjustment_set_value (text_view->priv->vadjustment, priv->yoffset);
+
+          /* If the height changed above our current position, then we
+           * need to discard the pixelcache because things wont line nup
+           * anymore (even if we adjust the vadjustment).
+           *
+           * Generally this doesn't happen interactively because we keep
+           * the insert cursor on screen when making changes. It can
+           * happen when code changes the first line, for example, in an
+           * automated fashion.
+           *
+           * There is one case where this could be optimized out such as
+           * when delete-range is followed by insert-text and whole lines
+           * are removed. API consumers can always work around that by
+           * avoiding the removal of a \n so no effort is made here to
+           * handle that.
+           */
+          if (gtk_widget_get_realized (widget))
+            _gtk_pixel_cache_invalidate (text_view->priv->pixel_cache, NULL);
         }
 
       /* FIXME be smarter about which anchored widgets we update */
@@ -9665,7 +9692,11 @@ activate_bubble_cb (GtkWidget   *item,
 
   signal = g_object_get_qdata (G_OBJECT (item), quark_gtk_signal);
   gtk_widget_hide (text_view->priv->selection_bubble);
-  g_signal_emit_by_name (text_view, signal);
+
+  if (strcmp (signal, "select-all") == 0)
+    g_signal_emit_by_name (text_view, "select-all", TRUE);
+  else
+    g_signal_emit_by_name (text_view, signal);
 }
 
 static void
@@ -11452,6 +11483,9 @@ gtk_text_view_insert_emoji (GtkTextView *text_view)
   GtkTextIter iter;
   GdkRectangle rect;
   GtkTextBuffer *buffer;
+
+  if (gtk_text_view_get_input_hints (text_view) & GTK_INPUT_HINT_NO_EMOJI)
+    return;
 
   if (gtk_widget_get_ancestor (GTK_WIDGET (text_view), GTK_TYPE_EMOJI_CHOOSER) != NULL)
     return;

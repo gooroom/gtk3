@@ -23,6 +23,8 @@
 #include "gdkcursorprivate.h"
 #include "gdkquartzcursor.h"
 #include "gdkprivate-quartz.h"
+#include "gdkinternal-quartz.h"
+#include "gdkquartz-gtk-only.h"
 
 #include "xcursors.h"
 

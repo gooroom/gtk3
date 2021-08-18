@@ -706,14 +706,14 @@ gtk_css_node_get_timestamp (GtkCssNode *cssnode)
 static void
 gtk_css_node_parent_was_unset (GtkCssNode *node)
 {
-  if (node->invalid)
+  if (node->visible && node->invalid)
     GTK_CSS_NODE_GET_CLASS (node)->queue_validate (node);
 }
 
 static void
 gtk_css_node_parent_will_be_set (GtkCssNode *node)
 {
-  if (node->invalid)
+  if (node->visible && node->invalid)
     GTK_CSS_NODE_GET_CLASS (node)->dequeue_validate (node);
 }
 
@@ -1432,6 +1432,7 @@ GtkStyleProviderPrivate *
 gtk_css_node_get_style_provider (GtkCssNode *cssnode)
 {
   GtkStyleProviderPrivate *result;
+  GtkSettings *settings;
 
   result = gtk_css_node_get_style_provider_or_null (cssnode);
   if (result)
@@ -1440,7 +1441,11 @@ gtk_css_node_get_style_provider (GtkCssNode *cssnode)
   if (cssnode->parent)
     return gtk_css_node_get_style_provider (cssnode->parent);
 
-  return GTK_STYLE_PROVIDER_PRIVATE (_gtk_settings_get_style_cascade (gtk_settings_get_default (), 1));
+  settings = gtk_settings_get_default ();
+  if (!settings)
+    return NULL;
+
+  return GTK_STYLE_PROVIDER_PRIVATE (_gtk_settings_get_style_cascade (settings, 1));
 }
 
 void

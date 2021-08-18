@@ -1,6 +1,9 @@
 include $(top_srcdir)/Makefile.decl
 
-EXTRA_DIST += gailutil.def
+EXTRA_DIST += \
+	gailutil.def \
+	meson.build
+
 if OS_WIN32
 export_symbols = -export-symbols $(srcdir)/gailutil.def
 gailutil.def: libgailutil-3.la
@@ -93,10 +96,10 @@ gailutil_3_HEADERS_INST = $(libgailutilinclude_HEADERS)
 
 gailutil_3_HEADERS_EXCLUDES = dummy
 
-include $(top_srcdir)/build/Makefile.msvcproj
+include $(top_srcdir)/win32/Makefile.msvcproj
 
 dist-hook: \
-	$(top_builddir)/build/win32/vs9/gailutil-3.vcproj	\
-	$(top_builddir)/build/win32/vs9/gailutil-3.headers
+	$(top_builddir)/win32/vs9/gailutil-3.vcproj	\
+	$(top_builddir)/win32/vs9/gailutil-3.headers
 
 -include $(top_srcdir)/git.mk

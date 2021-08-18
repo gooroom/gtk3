@@ -206,6 +206,9 @@ test_data = \
         border-color.ref.css \
 	border-color-currentcolor.css \
 	border-color-currentcolor.ref.css \
+	border-crash-3.24.css \
+	border-crash-3.24.errors \
+	border-crash-3.24.ref.css \
         border-image-source.css \
         border-image-source.ref.css \
         border-image-repeat.css \
@@ -334,6 +337,11 @@ test_data = \
 	declarations-valid-24.ref.css \
 	declarations-valid-25.css \
 	declarations-valid-25.ref.css \
+	declarations-valid-26.css \
+	declarations-valid-26.ref.css \
+	deprecated.css \
+	deprecated.errors \
+	deprecated.ref.css \
 	does-not-exist.css \
 	does-not-exist.errors \
 	does-not-exist.ref.css \
@@ -474,6 +482,9 @@ test_data = \
 
 EXTRA_DIST += $(test_in_files) $(test_data)
 
+EXTRA_DIST += \
+	meson.build
+
 if BUILDOPT_INSTALL_TESTS
 insttestdir=$(libexecdir)/installed-tests/$(PACKAGE)/css/parser
 insttest_PROGRAMS = $(TEST_PROGS)
@@ -488,7 +499,8 @@ test_files = $(test_in_files:.test.in=.test)
 $(test_files): %.test: %.test.in
 	$(AM_V_GEN) sed $(substitutions) $< > $@.tmp && mv $@.tmp $@
 
-EXTRA_DIST += $(test_in_files)
+EXTRA_DIST += \
+	$(test_in_files)
 
 CLEANFILES += $(test_files)
 

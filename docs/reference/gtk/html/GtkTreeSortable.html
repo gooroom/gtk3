@@ -8,7 +8,7 @@
 <link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
 <link rel="prev" href="GtkIconView.html" title="GtkIconView">
 <link rel="next" href="GtkTreeModelSort.html" title="GtkTreeModelSort">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -39,13 +39,13 @@
 <a name="GtkTreeSortable.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<span class="returnvalue">gint</span>
 </td>
 <td class="function_name">
 <span class="c_punctuation">(</span><a class="link" href="GtkTreeSortable.html#GtkTreeIterCompareFunc" title="GtkTreeIterCompareFunc ()">*GtkTreeIterCompareFunc</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
@@ -61,7 +61,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkTreeSortable.html#gtk-tree-sortable-get-sort-column-id" title="gtk_tree_sortable_get_sort_column_id ()">gtk_tree_sortable_get_sort_column_id</a> <span class="c_punctuation">()</span>
@@ -93,7 +93,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkTreeSortable.html#gtk-tree-sortable-has-default-sort-func" title="gtk_tree_sortable_has_default_sort_func ()">gtk_tree_sortable_has_default_sort_func</a> <span class="c_punctuation">()</span>
@@ -106,14 +106,14 @@
 <a name="GtkTreeSortable.signals"></a><h2>Signals</h2>
 <div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
-<col width="150px" class="signals_return">
-<col width="300px" class="signals_name">
-<col width="200px" class="signals_flags">
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
 </colgroup>
 <tbody><tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkTreeSortable.html#GtkTreeSortable-sort-column-changed" title="The “sort-column-changed” signal">sort-column-changed</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+<td class="signal_flags">Run Last</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -121,8 +121,8 @@
 <a name="GtkTreeSortable.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -154,7 +154,7 @@
 <a name="GtkTreeSortable.prerequisites"></a><h2>Prerequisites</h2>
 <p>
 GtkTreeSortable requires
- <a class="link" href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> and  <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>.</p>
+ <a class="link" href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> and  GObject.</p>
 </div>
 <div class="refsect1">
 <a name="GtkTreeSortable.implementations"></a><h2>Known Implementations</h2>
@@ -177,11 +177,11 @@ to sort the model.</p>
 <a name="GtkTreeSortable.functions_details"></a><h2>Functions</h2>
 <div class="refsect2">
 <a name="GtkTreeIterCompareFunc"></a><h3>GtkTreeIterCompareFunc ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<pre class="programlisting"><span class="returnvalue">gint</span>
 <span class="c_punctuation">(</span>*GtkTreeIterCompareFunc<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a> *model</code></em>,
                            <em class="parameter"><code><a class="link" href="GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *a</code></em>,
                            <em class="parameter"><code><a class="link" href="GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *b</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                           <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>A GtkTreeIterCompareFunc should return a negative integer, zero, or a positive
 integer if <em class="parameter"><code>a</code></em>
  sorts before <em class="parameter"><code>b</code></em>
@@ -267,14 +267,14 @@ gtk_tree_sortable_sort_column_changed (<em class="parameter"><code><a class="lin
 <hr>
 <div class="refsect2">
 <a name="gtk-tree-sortable-get-sort-column-id"></a><h3>gtk_tree_sortable_get_sort_column_id ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_tree_sortable_get_sort_column_id (<em class="parameter"><code><a class="link" href="GtkTreeSortable.html" title="GtkTreeSortable"><span class="type">GtkTreeSortable</span></a> *sortable</code></em>,
-                                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *sort_column_id</code></em>,
+                                      <em class="parameter"><code><span class="type">gint</span> *sort_column_id</code></em>,
                                       <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkSortType" title="enum GtkSortType"><span class="type">GtkSortType</span></a> *order</code></em>);</pre>
 <p>Fills in <em class="parameter"><code>sort_column_id</code></em>
  and <em class="parameter"><code>order</code></em>
  with the current sort column and the
-order. It returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> unless the <em class="parameter"><code>sort_column_id</code></em>
+order. It returns <code class="literal">TRUE</code> unless the <em class="parameter"><code>sort_column_id</code></em>
  is 
 <a class="link" href="GtkTreeSortable.html#GTK-TREE-SORTABLE-DEFAULT-SORT-COLUMN-ID:CAPS" title="GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID"><code class="literal">GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID</code></a> or 
 <a class="link" href="GtkTreeSortable.html#GTK-TREE-SORTABLE-UNSORTED-SORT-COLUMN-ID:CAPS" title="GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID"><code class="literal">GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID</code></a>.</p>
@@ -307,7 +307,7 @@ order. It returns <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 </div>
 <div class="refsect3">
 <a name="gtk-tree-sortable-get-sort-column-id.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the sort column is not one of the special sort
+<p> <code class="literal">TRUE</code> if the sort column is not one of the special sort
 column ids.</p>
 </div>
 </div>
@@ -316,7 +316,7 @@ column ids.</p>
 <a name="gtk-tree-sortable-set-sort-column-id"></a><h3>gtk_tree_sortable_set_sort_column_id ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_tree_sortable_set_sort_column_id (<em class="parameter"><code><a class="link" href="GtkTreeSortable.html" title="GtkTreeSortable"><span class="type">GtkTreeSortable</span></a> *sortable</code></em>,
-                                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> sort_column_id</code></em>,
+                                      <em class="parameter"><code><span class="type">gint</span> sort_column_id</code></em>,
                                       <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkSortType" title="enum GtkSortType"><span class="type">GtkSortType</span></a> order</code></em>);</pre>
 <p>Sets the current sort column to be <em class="parameter"><code>sort_column_id</code></em>
 . The <em class="parameter"><code>sortable</code></em>
@@ -363,10 +363,10 @@ will be used, if it is set</p></li>
 <a name="gtk-tree-sortable-set-sort-func"></a><h3>gtk_tree_sortable_set_sort_func ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_tree_sortable_set_sort_func (<em class="parameter"><code><a class="link" href="GtkTreeSortable.html" title="GtkTreeSortable"><span class="type">GtkTreeSortable</span></a> *sortable</code></em>,
-                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> sort_column_id</code></em>,
+                                 <em class="parameter"><code><span class="type">gint</span> sort_column_id</code></em>,
                                  <em class="parameter"><code><a class="link" href="GtkTreeSortable.html#GtkTreeIterCompareFunc" title="GtkTreeIterCompareFunc ()"><span class="type">GtkTreeIterCompareFunc</span></a> sort_func</code></em>,
-                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
-                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>);</pre>
+                                 <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>,
+                                 <em class="parameter"><code><span class="type">GDestroyNotify</span> destroy</code></em>);</pre>
 <p>Sets the comparison function used when sorting to be <em class="parameter"><code>sort_func</code></em>
 . If the
 current sort column id of <em class="parameter"><code>sortable</code></em>
@@ -400,13 +400,13 @@ the model will sort using this function.</p>
 <tr>
 <td class="parameter_name"><p>user_data</p></td>
 <td class="parameter_description"><p>User data to pass to <em class="parameter"><code>sort_func</code></em>
-, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>destroy</p></td>
 <td class="parameter_description"><p>Destroy notifier of <em class="parameter"><code>user_data</code></em>
-, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -420,8 +420,8 @@ the model will sort using this function.</p>
 gtk_tree_sortable_set_default_sort_func
                                (<em class="parameter"><code><a class="link" href="GtkTreeSortable.html" title="GtkTreeSortable"><span class="type">GtkTreeSortable</span></a> *sortable</code></em>,
                                 <em class="parameter"><code><a class="link" href="GtkTreeSortable.html#GtkTreeIterCompareFunc" title="GtkTreeIterCompareFunc ()"><span class="type">GtkTreeIterCompareFunc</span></a> sort_func</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>);</pre>
+                                <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>,
+                                <em class="parameter"><code><span class="type">GDestroyNotify</span> destroy</code></em>);</pre>
 <p>Sets the default comparison function used when sorting to be <em class="parameter"><code>sort_func</code></em>
 .  
 If the current sort column id of <em class="parameter"><code>sortable</code></em>
@@ -429,7 +429,7 @@ If the current sort column id of <em class="parameter"><code>sortable</code></em
 <a class="link" href="GtkTreeSortable.html#GTK-TREE-SORTABLE-DEFAULT-SORT-COLUMN-ID:CAPS" title="GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID"><code class="literal">GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID</code></a>, then the model will sort using 
 this function.</p>
 <p>If <em class="parameter"><code>sort_func</code></em>
- is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then there will be no default comparison function.
+ is <code class="literal">NULL</code>, then there will be no default comparison function.
 This means that once the model  has been sorted, it can’t go back to the
 default state. In this case, when the current sort column id of <em class="parameter"><code>sortable</code></em>
  
@@ -456,13 +456,13 @@ is <a class="link" href="GtkTreeSortable.html#GTK-TREE-SORTABLE-DEFAULT-SORT-COL
 <tr>
 <td class="parameter_name"><p>user_data</p></td>
 <td class="parameter_description"><p>User data to pass to <em class="parameter"><code>sort_func</code></em>
-, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>destroy</p></td>
 <td class="parameter_description"><p>Destroy notifier of <em class="parameter"><code>user_data</code></em>
-, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -472,10 +472,10 @@ is <a class="link" href="GtkTreeSortable.html#GTK-TREE-SORTABLE-DEFAULT-SORT-COL
 <hr>
 <div class="refsect2">
 <a name="gtk-tree-sortable-has-default-sort-func"></a><h3>gtk_tree_sortable_has_default_sort_func ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_tree_sortable_has_default_sort_func
                                (<em class="parameter"><code><a class="link" href="GtkTreeSortable.html" title="GtkTreeSortable"><span class="type">GtkTreeSortable</span></a> *sortable</code></em>);</pre>
-<p>Returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the model has a default sort function. This is used
+<p>Returns <code class="literal">TRUE</code> if the model has a default sort function. This is used
 primarily by GtkTreeViewColumns in order to determine if a model can 
 go back to the default state, or not.</p>
 <div class="refsect3">
@@ -495,7 +495,7 @@ go back to the default state, or not.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-tree-sortable-has-default-sort-func.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, if the model has a default sort function</p>
+<p> <code class="literal">TRUE</code>, if the model has a default sort function</p>
 </div>
 </div>
 </div>
@@ -572,7 +572,7 @@ when sorting to be sort_func.</p></td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><em class="structfield"><code><a name="GtkTreeSortableIface.has-default-sort-func"></a>has_default_sort_func</code></em> ()</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the model has a default sort
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the model has a default sort
 function.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
@@ -605,7 +605,7 @@ function.</p></td>
 <a name="GtkTreeSortable-sort-column-changed"></a><h3>The <code class="literal">“sort-column-changed”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkTreeSortable.html" title="GtkTreeSortable"><span class="type">GtkTreeSortable</span></a> *sortable,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>         user_data)</pre>
+               <span class="type">gpointer</span>         user_data)</pre>
 <p>The ::sort-column-changed signal is emitted when the sort column
 or sort order of <em class="parameter"><code>sortable</code></em>
  is changed. The signal is emitted before
@@ -633,7 +633,7 @@ the contents of <em class="parameter"><code>sortable</code></em>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+<p>Flags: Run Last</p>
 </div>
 </div>
 <div class="refsect1">
@@ -642,6 +642,6 @@ the contents of <em class="parameter"><code>sortable</code></em>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

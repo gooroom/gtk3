@@ -192,6 +192,11 @@ struct _GdkEventPrivate
   GdkSeat   *seat;
   GdkDeviceTool *tool;
   guint16    key_scancode;
+
+#ifdef GDK_WINDOWING_WIN32
+  gunichar2 *translation;
+  guint      translation_len;
+#endif
 };
 
 typedef struct _GdkWindowPaint GdkWindowPaint;
@@ -322,6 +327,8 @@ struct _GdkWindow
   GdkWindowState old_state;
   GdkWindowState state;
 
+  guint synthesized_crossing_event_id;
+
   guint8 alpha;
   guint8 fullscreen_mode;
 
@@ -337,7 +344,6 @@ struct _GdkWindow
   guint focus_on_map : 1;
   guint shaped : 1;
   guint support_multidevice : 1;
-  guint synthesize_crossing_event_queued : 1;
   guint effective_visibility : 2;
   guint visibility : 2; /* The visibility wrt the toplevel (i.e. based on clip_region) */
   guint native_visibility : 2; /* the native visibility of a impl windows */
@@ -411,6 +417,10 @@ void     gdk_event_set_scancode        (GdkEvent *event,
 
 void     gdk_event_set_seat              (GdkEvent *event,
                                           GdkSeat  *seat);
+
+/* The IME IM module needs this symbol exported. */
+_GDK_EXTERN
+gboolean gdk_event_is_allocated      (const GdkEvent *event);
 
 void   _gdk_event_emit               (GdkEvent   *event);
 GList* _gdk_event_queue_find_first   (GdkDisplay *display);

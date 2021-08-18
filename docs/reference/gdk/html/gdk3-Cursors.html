@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Visuals.html" title="Visuals">
 <link rel="next" href="gdk3-Windows.html" title="Windows">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -37,8 +37,8 @@
 <a name="gdk3-Cursors.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -144,13 +144,13 @@
 <tr>
 <td class="property_type"><a class="link" href="gdk3-Cursors.html#GdkCursorType" title="enum GdkCursorType"><span class="type">GdkCursorType</span></a></td>
 <td class="property_name"><a class="link" href="gdk3-Cursors.html#GdkCursor--cursor-type" title="The “cursor-type” property">cursor-type</a></td>
-<td class="property_flags">Read / Write / Construct Only</td>
+<td class="property_flags">Read / Write / Construct Only</td>
 </tr>
 <tr>
 <td class="property_type">
 <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *</td>
 <td class="property_name"><a class="link" href="gdk3-Cursors.html#GdkCursor--display" title="The “display” property">display</a></td>
-<td class="property_flags">Read / Write / Construct Only</td>
+<td class="property_flags">Read / Write / Construct Only</td>
 </tr>
 </tbody>
 </table></div>
@@ -159,8 +159,8 @@
 <a name="gdk3-Cursors.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -176,7 +176,7 @@
 </div>
 <div class="refsect1">
 <a name="gdk3-Cursors.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> GdkCursor
 </pre>
 </div>
@@ -240,8 +240,8 @@ See <a class="link" href="gdk3-Cursors.html#gdk-cursor-new-for-display" title="g
 <pre class="programlisting"><a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="returnvalue">GdkCursor</span></a> *
 gdk_cursor_new_from_pixbuf (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
                             <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>,
-                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>);</pre>
+                            <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                            <em class="parameter"><code><span class="type">gint</span> y</code></em>);</pre>
 <p>Creates a new cursor from a pixbuf.</p>
 <p>Not all GDK backends support RGBA cursors. If they are not
 supported, a monochrome approximation will be displayed.
@@ -303,8 +303,8 @@ sufficently new version of the X Render extension.</p>
 <pre class="programlisting"><a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="returnvalue">GdkCursor</span></a> *
 gdk_cursor_new_from_surface (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
                              <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a> *surface</code></em>,
-                             <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> x</code></em>,
-                             <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> y</code></em>);</pre>
+                             <em class="parameter"><code><span class="type">gdouble</span> x</code></em>,
+                             <em class="parameter"><code><span class="type">gdouble</span> y</code></em>);</pre>
 <p>Creates a new cursor from a cairo image surface.</p>
 <p>Not all GDK backends support RGBA cursors. If they are not
 supported, a monochrome approximation will be displayed.
@@ -359,7 +359,7 @@ sufficently new version of the X Render extension.</p>
 <a name="gdk-cursor-new-from-name"></a><h3>gdk_cursor_new_from_name ()</h3>
 <pre class="programlisting"><a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="returnvalue">GdkCursor</span></a> *
 gdk_cursor_new_from_name (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
-                          <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);</pre>
+                          <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
 <p>Creates a new cursor by looking up <em class="parameter"><code>name</code></em>
  in the current cursor
 theme.</p>
@@ -426,7 +426,7 @@ platforms can be found in the CSS specification:</p>
 </div>
 <div class="refsect3">
 <a name="gdk-cursor-new-from-name.returns"></a><h4>Returns</h4>
-<p>a new <a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is no
+<p>a new <a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a>, or <code class="literal">NULL</code> if there is no
 cursor with the given name. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -463,7 +463,8 @@ gdk_cursor_new_for_display (<em class="parameter"><code><a class="link" href="Gd
 </div>
 <div class="refsect3">
 <a name="gdk-cursor-new-for-display.returns"></a><h4>Returns</h4>
-<p> a new <a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a></p>
+<p>a new <a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a>, or <code class="literal">NULL</code> on failure. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.2</p>
 </div>
@@ -504,7 +505,7 @@ gdk_cursor_get_image (<em class="parameter"><code><a class="link" href="gdk3-Cur
 <p>Returns a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> with the image used to display the cursor.</p>
 <p>Note that depending on the capabilities of the windowing system and 
 on the cursor, GDK may not be able to obtain the image data. In this 
-case, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned.</p>
+case, <code class="literal">NULL</code> is returned.</p>
 <div class="refsect3">
 <a name="gdk-cursor-get-image.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -524,7 +525,7 @@ case, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.ht
 <a name="gdk-cursor-get-image.returns"></a><h4>Returns</h4>
 <p>a <a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a> representing
 <em class="parameter"><code>cursor</code></em>
-, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+, or <code class="literal">NULL</code>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.8</p>
@@ -534,12 +535,12 @@ case, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.ht
 <a name="gdk-cursor-get-surface"></a><h3>gdk_cursor_get_surface ()</h3>
 <pre class="programlisting"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="returnvalue">cairo_surface_t</span></a> *
 gdk_cursor_get_surface (<em class="parameter"><code><a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a> *cursor</code></em>,
-                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x_hot</code></em>,
-                        <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y_hot</code></em>);</pre>
+                        <em class="parameter"><code><span class="type">gdouble</span> *x_hot</code></em>,
+                        <em class="parameter"><code><span class="type">gdouble</span> *y_hot</code></em>);</pre>
 <p>Returns a cairo image surface with the image used to display the cursor.</p>
 <p>Note that depending on the capabilities of the windowing system and
 on the cursor, GDK may not be able to obtain the image data. In this
-case, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned.</p>
+case, <code class="literal">NULL</code> is returned.</p>
 <div class="refsect3">
 <a name="gdk-cursor-get-surface.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -557,13 +558,13 @@ case, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.ht
 <tr>
 <td class="parameter_name"><p>x_hot</p></td>
 <td class="parameter_description"><p>Location to store the hotspot x position,
-or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>][<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>y_hot</p></td>
 <td class="parameter_description"><p>Location to store the hotspot y position,
-or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed instead of a pointer to a location."><span class="acronym">optional</span></acronym>][<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -573,7 +574,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <a name="gdk-cursor-get-surface.returns"></a><h4>Returns</h4>
 <p>a <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a>
 representing <em class="parameter"><code>cursor</code></em>
-, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+, or <code class="literal">NULL</code>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
@@ -612,7 +613,7 @@ gdk_cursor_get_cursor_type (<em class="parameter"><code><a class="link" href="gd
 gdk_cursor_ref (<em class="parameter"><code><a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a> *cursor</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gdk_cursor_ref</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a> instead</p>
+<p>Use <code class="function">g_object_ref()</code> instead</p>
 </div>
 <p>Adds a reference to <em class="parameter"><code>cursor</code></em>
 .</p>
@@ -645,7 +646,7 @@ that was passed in. </p>
 gdk_cursor_unref (<em class="parameter"><code><a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a> *cursor</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gdk_cursor_unref</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
-<p>Use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> instead</p>
+<p>Use <code class="function">g_object_unref()</code> instead</p>
 </div>
 <p>Removes a reference from <em class="parameter"><code>cursor</code></em>
 , deallocating the cursor
@@ -1247,7 +1248,7 @@ of these cursors are either not useful, or are not available on other platforms.
 <td class="enum_member_name"><p><a name="GDK-CURSOR-IS-PIXMAP:CAPS"></a>GDK_CURSOR_IS_PIXMAP</p></td>
 <td class="enum_member_description">
 <p>type of cursors constructed with
-  <a class="link" href="gdk3-Cursors.html#gdk-cursor-new-from-pixbuf" title="gdk_cursor_new_from_pixbuf ()"><code class="function">gdk_cursor_new_from_pixbuf()</code></a></p>
+<a class="link" href="gdk3-Cursors.html#gdk-cursor-new-from-pixbuf" title="gdk_cursor_new_from_pixbuf ()"><code class="function">gdk_cursor_new_from_pixbuf()</code></a></p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -1262,7 +1263,8 @@ of these cursors are either not useful, or are not available on other platforms.
 <a name="GdkCursor--cursor-type"></a><h3>The <code class="literal">“cursor-type”</code> property</h3>
 <pre class="programlisting">  “cursor-type”              <a class="link" href="gdk3-Cursors.html#GdkCursorType" title="enum GdkCursorType"><span class="type">GdkCursorType</span></a></pre>
 <p>Standard cursor type.</p>
-<p>Flags: Read / Write / Construct Only</p>
+<p>Owner: GdkCursor</p>
+<p>Flags: Read / Write / Construct Only</p>
 <p>Default value: GDK_X_CURSOR</p>
 </div>
 <hr>
@@ -1270,11 +1272,12 @@ of these cursors are either not useful, or are not available on other platforms.
 <a name="GdkCursor--display"></a><h3>The <code class="literal">“display”</code> property</h3>
 <pre class="programlisting">  “display”                  <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *</pre>
 <p>Display of this cursor.</p>
-<p>Flags: Read / Write / Construct Only</p>
+<p>Owner: GdkCursor</p>
+<p>Flags: Read / Write / Construct Only</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

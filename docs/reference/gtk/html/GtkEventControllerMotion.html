@@ -8,7 +8,7 @@
 <link rel="up" href="Gestures.html" title="Gestures and event handling">
 <link rel="prev" href="GtkEventControllerScroll.html" title="GtkEventControllerScroll">
 <link rel="next" href="GtkGesture.html" title="GtkGesture">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -37,8 +37,8 @@
 <a name="GtkEventControllerMotion.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="function_type">
@@ -54,25 +54,25 @@
 <a name="GtkEventControllerMotion.signals"></a><h2>Signals</h2>
 <div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
-<col width="150px" class="signals_return">
-<col width="300px" class="signals_name">
-<col width="200px" class="signals_flags">
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
 </colgroup>
 <tbody>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkEventControllerMotion.html#GtkEventControllerMotion-enter" title="The “enter” signal">enter</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+<td class="signal_flags">Run First</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkEventControllerMotion.html#GtkEventControllerMotion-leave" title="The “leave” signal">leave</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+<td class="signal_flags">Run First</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkEventControllerMotion.html#GtkEventControllerMotion-motion" title="The “motion” signal">motion</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+<td class="signal_flags">Run First</td>
 </tr>
 </tbody>
 </table></div>
@@ -81,8 +81,8 @@
 <a name="GtkEventControllerMotion.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="datatype_keyword"> </td>
@@ -92,14 +92,14 @@
 </div>
 <div class="refsect1">
 <a name="GtkEventControllerMotion.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> <a class="link" href="GtkEventController.html" title="GtkEventController">GtkEventController</a>
         <span class="lineart">╰──</span> GtkEventControllerMotion
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkEventControllerMotion.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -152,9 +152,9 @@ for the given <em class="parameter"><code>widget</code></em>
 <a name="GtkEventControllerMotion-enter"></a><h3>The <code class="literal">“enter”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkEventControllerMotion.html" title="GtkEventControllerMotion"><span class="type">GtkEventControllerMotion</span></a> *controller,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>                   x,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>                   y,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                  user_data)</pre>
+               <span class="type">double</span>                    x,
+               <span class="type">double</span>                    y,
+               <span class="type">gpointer</span>                  user_data)</pre>
 <p>Signals that the pointer has entered the widget.</p>
 <div class="refsect3">
 <a name="GtkEventControllerMotion-enter.parameters"></a><h4>Parameters</h4>
@@ -188,14 +188,14 @@ user_function (<a class="link" href="GtkEventControllerMotion.html" title="GtkEv
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+<p>Flags: Run First</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkEventControllerMotion-leave"></a><h3>The <code class="literal">“leave”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkEventControllerMotion.html" title="GtkEventControllerMotion"><span class="type">GtkEventControllerMotion</span></a> *controller,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                  user_data)</pre>
+               <span class="type">gpointer</span>                  user_data)</pre>
 <p>Signals that pointer has left the widget.</p>
 <div class="refsect3">
 <a name="GtkEventControllerMotion-leave.parameters"></a><h4>Parameters</h4>
@@ -219,16 +219,16 @@ user_function (<a class="link" href="GtkEventControllerMotion.html" title="GtkEv
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+<p>Flags: Run First</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkEventControllerMotion-motion"></a><h3>The <code class="literal">“motion”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkEventControllerMotion.html" title="GtkEventControllerMotion"><span class="type">GtkEventControllerMotion</span></a> *controller,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>                   x,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>                   y,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                  user_data)</pre>
+               <span class="type">double</span>                    x,
+               <span class="type">double</span>                    y,
+               <span class="type">gpointer</span>                  user_data)</pre>
 <p>Emitted when the pointer moves inside the widget.</p>
 <div class="refsect3">
 <a name="GtkEventControllerMotion-motion.parameters"></a><h4>Parameters</h4>
@@ -262,7 +262,7 @@ user_function (<a class="link" href="GtkEventControllerMotion.html" title="GtkEv
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+<p>Flags: Run First</p>
 </div>
 </div>
 <div class="refsect1">
@@ -271,6 +271,6 @@ user_function (<a class="link" href="GtkEventControllerMotion.html" title="GtkEv
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

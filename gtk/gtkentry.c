@@ -1851,7 +1851,7 @@ gtk_entry_class_init (GtkEntryClass *class)
    * GtkEntry::icon-press:
    * @entry: The entry on which the signal is emitted
    * @icon_pos: The position of the clicked icon
-   * @event: (type Gdk.EventButton): the button press event
+   * @event: the button press event
    *
    * The ::icon-press signal is emitted when an activatable icon
    * is clicked.
@@ -1873,7 +1873,7 @@ gtk_entry_class_init (GtkEntryClass *class)
    * GtkEntry::icon-release:
    * @entry: The entry on which the signal is emitted
    * @icon_pos: The position of the clicked icon
-   * @event: (type Gdk.EventButton): the button release event
+   * @event: the button release event
    *
    * The ::icon-release signal is emitted on the button release from a
    * mouse click over an activatable icon.
@@ -4667,6 +4667,7 @@ gtk_entry_show_magnifier (GtkEntry *entry,
 
   _gtk_magnifier_set_coords (GTK_MAGNIFIER (priv->magnifier), rect.x,
                              rect.y + rect.height / 2);
+  rect.x = CLAMP (rect.x, 0, allocation.width);
   gtk_popover_set_pointing_to (GTK_POPOVER (priv->magnifier_popover),
                                &rect);
   gtk_popover_popup (GTK_POPOVER (priv->magnifier_popover));
@@ -5039,7 +5040,14 @@ void
 _gtk_entry_grab_focus (GtkEntry  *entry,
                        gboolean   select_all)
 {
+  if (!gtk_widget_get_can_focus (GTK_WIDGET (entry)))
+    return;
+
+  if (!gtk_widget_is_sensitive (GTK_WIDGET (entry)))
+    return;
+
   GTK_WIDGET_CLASS (gtk_entry_parent_class)->grab_focus (GTK_WIDGET (entry));
+
   if (select_all)
     gtk_editable_select_region (GTK_EDITABLE (entry), 0, -1);
 }
@@ -9787,7 +9795,7 @@ bubble_targets_received (GtkClipboard     *clipboard,
   has_clipboard = gtk_selection_data_targets_include_text (data);
   mode = gtk_entry_get_display_mode (entry);
 
-  if (priv->editable && has_selection && mode == DISPLAY_NORMAL)
+  if (mode == DISPLAY_NORMAL)
     append_bubble_action (entry, toolbar, _("Select all"), "edit-select-all-symbolic", "select-all", !all_selected);
 
   if (priv->editable && has_selection && mode == DISPLAY_NORMAL)
@@ -9911,13 +9919,15 @@ gtk_entry_drag_begin (GtkWidget      *widget,
     {
       gint *ranges, n_ranges;
       cairo_surface_t *surface;
+      double sx, sy;
 
       surface = _gtk_text_util_create_drag_icon (widget, text, -1);
 
       gtk_entry_get_pixel_ranges (entry, &ranges, &n_ranges);
+      cairo_surface_get_device_scale (surface, &sx, &sy);
       cairo_surface_set_device_offset (surface,
-                                       -(priv->drag_start_x - ranges[0]),
-                                       -(priv->drag_start_y));
+                                       -(priv->drag_start_x - ranges[0]) * sx,
+                                       -(priv->drag_start_y) * sy);
       g_free (ranges);
 
       gtk_drag_set_icon_surface (context, surface);
@@ -10834,7 +10844,7 @@ show_capslock_feedback (GtkEntry    *entry,
 
   if (gtk_entry_get_icon_storage_type (entry, GTK_ENTRY_ICON_SECONDARY) == GTK_IMAGE_EMPTY)
     {
-      gtk_entry_set_icon_from_icon_name (entry, GTK_ENTRY_ICON_SECONDARY, "dialog-warning-symbolic");
+      gtk_entry_set_icon_from_icon_name (entry, GTK_ENTRY_ICON_SECONDARY, "caps-lock-symbolic");
       gtk_entry_set_icon_activatable (entry, GTK_ENTRY_ICON_SECONDARY, FALSE);
       priv->caps_lock_warning_shown = TRUE;
     }
@@ -11083,6 +11093,9 @@ gtk_entry_insert_emoji (GtkEntry *entry)
 {
   GtkWidget *chooser;
   GdkRectangle rect;
+
+  if (gtk_entry_get_input_hints (entry) & GTK_INPUT_HINT_NO_EMOJI)
+    return;
 
   if (gtk_widget_get_ancestor (GTK_WIDGET (entry), GTK_TYPE_EMOJI_CHOOSER) != NULL)
     return;

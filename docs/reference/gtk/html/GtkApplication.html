@@ -8,7 +8,7 @@
 <link rel="up" href="Application.html" title="Application support">
 <link rel="prev" href="Application.html" title="Application support">
 <link rel="next" href="GtkApplicationWindow.html" title="GtkApplicationWindow">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -39,8 +39,8 @@
 <a name="GtkApplication.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -69,7 +69,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *
+<span class="returnvalue">GList</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkApplication.html#gtk-application-get-windows" title="gtk_application_get_windows ()">gtk_application_get_windows</a> <span class="c_punctuation">()</span>
@@ -93,7 +93,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<span class="returnvalue">guint</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkApplication.html#gtk-application-inhibit" title="gtk_application_inhibit ()">gtk_application_inhibit</a> <span class="c_punctuation">()</span>
@@ -109,7 +109,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkApplication.html#gtk-application-is-inhibited" title="gtk_application_is_inhibited ()">gtk_application_is_inhibited</a> <span class="c_punctuation">()</span>
@@ -117,7 +117,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkApplication.html#gtk-application-prefers-app-menu" title="gtk_application_prefers_app_menu ()">gtk_application_prefers_app_menu</a> <span class="c_punctuation">()</span>
@@ -181,7 +181,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **
+<span class="returnvalue">gchar</span> **
 </td>
 <td class="function_name">
 <a class="link" href="GtkApplication.html#gtk-application-list-action-descriptions" title="gtk_application_list_action_descriptions ()">gtk_application_list_action_descriptions</a> <span class="c_punctuation">()</span>
@@ -189,7 +189,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **
+<span class="returnvalue">gchar</span> **
 </td>
 <td class="function_name">
 <a class="link" href="GtkApplication.html#gtk-application-get-accels-for-action" title="gtk_application_get_accels_for_action ()">gtk_application_get_accels_for_action</a> <span class="c_punctuation">()</span>
@@ -205,7 +205,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **
+<span class="returnvalue">gchar</span> **
 </td>
 <td class="function_name">
 <a class="link" href="GtkApplication.html#gtk-application-get-actions-for-accel" title="gtk_application_get_actions_for_accel ()">gtk_application_get_actions_for_accel</a> <span class="c_punctuation">()</span>
@@ -242,12 +242,12 @@
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkApplication.html#GtkApplication--register-session" title="The “register-session” property">register-session</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkApplication.html#GtkApplication--screensaver-active" title="The “screensaver-active” property">screensaver-active</a></td>
 <td class="property_flags">Read</td>
 </tr>
@@ -258,20 +258,25 @@
 <a name="GtkApplication.signals"></a><h2>Signals</h2>
 <div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
-<col width="150px" class="signals_return">
-<col width="300px" class="signals_name">
-<col width="200px" class="signals_flags">
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
 </colgroup>
 <tbody>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GtkApplication.html#GtkApplication-query-end" title="The “query-end” signal">query-end</a></td>
+<td class="signal_flags">Run First</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkApplication.html#GtkApplication-window-added" title="The “window-added” signal">window-added</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+<td class="signal_flags">Run First</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkApplication.html#GtkApplication-window-removed" title="The “window-removed” signal">window-removed</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+<td class="signal_flags">Run First</td>
 </tr>
 </tbody>
 </table></div>
@@ -280,8 +285,8 @@
 <a name="GtkApplication.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -301,7 +306,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkApplication.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> GApplication
         <span class="lineart">╰──</span> GtkApplication
 </pre>
@@ -314,7 +319,7 @@ GtkApplication implements
 </div>
 <div class="refsect1">
 <a name="GtkApplication.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -393,7 +398,7 @@ session while inhibitors are present.</p>
 <div class="refsect2">
 <a name="gtk-application-new"></a><h3>gtk_application_new ()</h3>
 <pre class="programlisting"><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="returnvalue">GtkApplication</span></a> *
-gtk_application_new (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *application_id</code></em>,
+gtk_application_new (<em class="parameter"><code>const <span class="type">gchar</span> *application_id</code></em>,
                      <em class="parameter"><code><span class="type">GApplicationFlags</span> flags</code></em>);</pre>
 <p>Creates a new <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> instance.</p>
 <p>When using <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a>, it is not necessary to call <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a>
@@ -409,7 +414,7 @@ such as <code class="literal">G_DEBUG</code>, so this should not be a big
 problem. If you absolutely must support GTK+ commandline arguments,
 you can explicitly call <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> before creating the application
 instance.</p>
-<p>If non-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the application ID must be valid.  See
+<p>If non-<code class="literal">NULL</code>, the application ID must be valid.  See
 <code class="function">g_application_id_is_valid()</code>.</p>
 <p>If no application ID is given then some features (most notably application 
 uniqueness) will be disabled. A null application ID is only allowed with 
@@ -501,7 +506,7 @@ gtk_application_remove_window (<em class="parameter"><code><a class="link" href=
  then this call is equivalent to
 setting the <a class="link" href="GtkWindow.html#GtkWindow--application" title="The “application” property"><span class="type">“application”</span></a> property of <em class="parameter"><code>window</code></em>
  to
-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
+<code class="literal">NULL</code>.</p>
 <p>The application may stop running as a result of a call to this
 function.</p>
 <div class="refsect3">
@@ -531,7 +536,7 @@ function.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-application-get-windows"></a><h3>gtk_application_get_windows ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *
+<pre class="programlisting"><span class="returnvalue">GList</span> *
 gtk_application_get_windows (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>);</pre>
 <p>Gets a list of the <a href="GtkWindow.html#GtkWindow-struct"><span class="type">GtkWindows</span></a> associated with <em class="parameter"><code>application</code></em>
 .</p>
@@ -558,7 +563,7 @@ deletion.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-application-get-windows.returns"></a><h4>Returns</h4>
-<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>. </p>
+<p>a <span class="type">GList</span> of <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkWindow][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -568,7 +573,7 @@ deletion.</p>
 <a name="gtk-application-get-window-by-id"></a><h3>gtk_application_get_window_by_id ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWindow.html" title="GtkWindow"><span class="returnvalue">GtkWindow</span></a> *
 gtk_application_get_window_by_id (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
-                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> id</code></em>);</pre>
+                                  <em class="parameter"><code><span class="type">guint</span> id</code></em>);</pre>
 <p>Returns the <a class="link" href="GtkApplicationWindow.html" title="GtkApplicationWindow"><span class="type">GtkApplicationWindow</span></a> with the given ID.</p>
 <p>The ID of a <a class="link" href="GtkApplicationWindow.html" title="GtkApplicationWindow"><span class="type">GtkApplicationWindow</span></a> can be retrieved with
 <a class="link" href="GtkApplicationWindow.html#gtk-application-window-get-id" title="gtk_application_window_get_id ()"><code class="function">gtk_application_window_get_id()</code></a>.</p>
@@ -598,7 +603,7 @@ gtk_application_get_window_by_id (<em class="parameter"><code><a class="link" hr
 <a name="gtk-application-get-window-by-id.returns"></a><h4>Returns</h4>
 <p>the window with ID <em class="parameter"><code>id</code></em>
 , or
-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is no window with this ID. </p>
+<code class="literal">NULL</code> if there is no window with this ID. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-6.html#api-index-3.6">3.6</a></p>
@@ -630,7 +635,7 @@ recently-focused window within this application.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-application-get-active-window.returns"></a><h4>Returns</h4>
-<p>the active window, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
+<p>the active window, or <code class="literal">NULL</code> if
 there isn't one. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
@@ -639,11 +644,11 @@ there isn't one. </p>
 <hr>
 <div class="refsect2">
 <a name="gtk-application-inhibit"></a><h3>gtk_application_inhibit ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+<pre class="programlisting"><span class="returnvalue">guint</span>
 gtk_application_inhibit (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
                          <em class="parameter"><code><a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> *window</code></em>,
                          <em class="parameter"><code><a class="link" href="GtkApplication.html#GtkApplicationInhibitFlags" title="enum GtkApplicationInhibitFlags"><span class="type">GtkApplicationInhibitFlags</span></a> flags</code></em>,
-                         <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *reason</code></em>);</pre>
+                         <em class="parameter"><code>const <span class="type">gchar</span> *reason</code></em>);</pre>
 <p>Inform the session manager that certain types of actions should be
 inhibited. This is not guaranteed to work on all platforms and for
 all types of actions.</p>
@@ -679,7 +684,7 @@ this window to find out more about why the action is inhibited.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>window</p></td>
-<td class="parameter_description"><p>a <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -710,7 +715,7 @@ inhibiting or the request failed for some reason, 0 is returned.</p>
 <a name="gtk-application-uninhibit"></a><h3>gtk_application_uninhibit ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_application_uninhibit (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> cookie</code></em>);</pre>
+                           <em class="parameter"><code><span class="type">guint</span> cookie</code></em>);</pre>
 <p>Removes an inhibitor that has been established with <a class="link" href="GtkApplication.html#gtk-application-inhibit" title="gtk_application_inhibit ()"><code class="function">gtk_application_inhibit()</code></a>.
 Inhibitors are also cleared when the application exits.</p>
 <div class="refsect3">
@@ -740,7 +745,7 @@ Inhibitors are also cleared when the application exits.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-application-is-inhibited"></a><h3>gtk_application_is_inhibited ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_application_is_inhibited (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
                               <em class="parameter"><code><a class="link" href="GtkApplication.html#GtkApplicationInhibitFlags" title="enum GtkApplicationInhibitFlags"><span class="type">GtkApplicationInhibitFlags</span></a> flags</code></em>);</pre>
 <p>Determines if any of the actions specified in <em class="parameter"><code>flags</code></em>
@@ -772,7 +777,7 @@ when the application is running in a sandbox).</p>
 </div>
 <div class="refsect3">
 <a name="gtk-application-is-inhibited.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if any of the actions specified in <em class="parameter"><code>flags</code></em>
+<p> <code class="literal">TRUE</code> if any of the actions specified in <em class="parameter"><code>flags</code></em>
 are inhibited</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-4.html#api-index-3.4">3.4</a></p>
@@ -780,14 +785,14 @@ are inhibited</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-application-prefers-app-menu"></a><h3>gtk_application_prefers_app_menu ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_application_prefers_app_menu (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>);</pre>
 <p>Determines if the desktop environment in which the application is
 running would prefer an application menu be shown.</p>
-<p>If this function returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> then the application should call
+<p>If this function returns <code class="literal">TRUE</code> then the application should call
 <a class="link" href="GtkApplication.html#gtk-application-set-app-menu" title="gtk_application_set_app_menu ()"><code class="function">gtk_application_set_app_menu()</code></a> with the contents of an application
 menu, which will be shown by the desktop environment.  If it returns
-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> then you should consider using an alternate approach, such as
+<code class="literal">FALSE</code> then you should consider using an alternate approach, such as
 a menubar.</p>
 <p>The value returned by this function is purely advisory and you are
 free to ignore it.  If you call <a class="link" href="GtkApplication.html#gtk-application-set-app-menu" title="gtk_application_set_app_menu ()"><code class="function">gtk_application_set_app_menu()</code></a> even
@@ -805,7 +810,7 @@ likely to want to use this from your own startup handler.  It may
 also make sense to consult this function while constructing UI (in
 activate, open or an action activation handler) in order to determine
 if you should show a gear menu or not.</p>
-<p>This function will return <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> on Mac OS and a default app menu
+<p>This function will return <code class="literal">FALSE</code> on Mac OS and a default app menu
 will be created automatically with the "usual" contents of that menu
 typical to most Mac OS applications.  If you call
 <a class="link" href="GtkApplication.html#gtk-application-set-app-menu" title="gtk_application_set_app_menu ()"><code class="function">gtk_application_set_app_menu()</code></a> anyway, then this menu will be
@@ -827,7 +832,7 @@ replaced with your own.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-application-prefers-app-menu.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if you should set an app menu</p>
+<p> <code class="literal">TRUE</code> if you should set an app menu</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-14.html#api-index-3.14">3.14</a></p>
 </div>
@@ -856,7 +861,7 @@ gtk_application_get_app_menu (<em class="parameter"><code><a class="link" href="
 <div class="refsect3">
 <a name="gtk-application-get-app-menu.returns"></a><h4>Returns</h4>
 <p>the application menu of <em class="parameter"><code>application</code></em>
-or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no application menu has been set. </p>
+or <code class="literal">NULL</code> if no application menu has been set. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-4.html#api-index-3.4">3.4</a></p>
@@ -897,7 +902,7 @@ selecting these menu items.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>app_menu</p></td>
-<td class="parameter_description"><p>a <span class="type">GMenuModel</span>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <span class="type">GMenuModel</span>, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -972,7 +977,7 @@ user selecting these menu items.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>menubar</p></td>
-<td class="parameter_description"><p>a <span class="type">GMenuModel</span>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <span class="type">GMenuModel</span>, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -985,7 +990,7 @@ user selecting these menu items.</p>
 <a name="gtk-application-get-menu-by-id"></a><h3>gtk_application_get_menu_by_id ()</h3>
 <pre class="programlisting"><span class="returnvalue">GMenu</span> *
 gtk_application_get_menu_by_id (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
-                                <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id</code></em>);</pre>
+                                <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>);</pre>
 <p>Gets a menu from automatically loaded resources.
 See <a class="link" href="GtkApplication.html#automatic-resources" title="Automatic resources">Automatic resources</a>
 for more information.</p>
@@ -1024,9 +1029,9 @@ given id from the automatically loaded resources. </p>
 <a name="gtk-application-add-accelerator"></a><h3>gtk_application_add_accelerator ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_application_add_accelerator (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
-                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *accelerator</code></em>,
-                                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *action_name</code></em>,
-                                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *parameter</code></em>);</pre>
+                                 <em class="parameter"><code>const <span class="type">gchar</span> *accelerator</code></em>,
+                                 <em class="parameter"><code>const <span class="type">gchar</span> *action_name</code></em>,
+                                 <em class="parameter"><code><span class="type">GVariant</span> *parameter</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_application_add_accelerator</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkApplication.html#gtk-application-set-accels-for-action" title="gtk_application_set_accels_for_action ()"><code class="function">gtk_application_set_accels_for_action()</code></a> instead</p>
@@ -1074,7 +1079,7 @@ than calling this function for each accelerator.</p>
 <tr>
 <td class="parameter_name"><p>parameter</p></td>
 <td class="parameter_description"><p>parameter to pass when activating the action,
-or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the action does not accept an activation parameter. </p></td>
+or <code class="literal">NULL</code> if the action does not accept an activation parameter. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1087,8 +1092,8 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <a name="gtk-application-remove-accelerator"></a><h3>gtk_application_remove_accelerator ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_application_remove_accelerator (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
-                                    <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *action_name</code></em>,
-                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *parameter</code></em>);</pre>
+                                    <em class="parameter"><code>const <span class="type">gchar</span> *action_name</code></em>,
+                                    <em class="parameter"><code><span class="type">GVariant</span> *parameter</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_application_remove_accelerator</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkApplication.html#gtk-application-set-accels-for-action" title="gtk_application_set_accels_for_action ()"><code class="function">gtk_application_set_accels_for_action()</code></a> instead</p>
@@ -1117,7 +1122,7 @@ with <a class="link" href="GtkApplication.html#gtk-application-add-accelerator" 
 <tr>
 <td class="parameter_name"><p>parameter</p></td>
 <td class="parameter_description"><p>parameter to pass when activating the action,
-or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the action does not accept an activation parameter. </p></td>
+or <code class="literal">NULL</code> if the action does not accept an activation parameter. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -1128,7 +1133,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <hr>
 <div class="refsect2">
 <a name="gtk-application-list-action-descriptions"></a><h3>gtk_application_list_action_descriptions ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **
+<pre class="programlisting"><span class="returnvalue">gchar</span> **
 gtk_application_list_action_descriptions
                                (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>);</pre>
 <p>Lists the detailed action names which have associated accelerators.
@@ -1150,8 +1155,8 @@ See <a class="link" href="GtkApplication.html#gtk-application-set-accels-for-act
 </div>
 <div class="refsect3">
 <a name="gtk-application-list-action-descriptions.returns"></a><h4>Returns</h4>
-<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings,
-free with <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> when done. </p>
+<p>a <code class="literal">NULL</code>-terminated array of strings,
+free with <code class="function">g_strfreev()</code> when done. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-12.html#api-index-3.12">3.12</a></p>
@@ -1159,9 +1164,9 @@ free with <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility
 <hr>
 <div class="refsect2">
 <a name="gtk-application-get-accels-for-action"></a><h3>gtk_application_get_accels_for_action ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **
+<pre class="programlisting"><span class="returnvalue">gchar</span> **
 gtk_application_get_accels_for_action (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
-                                       <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detailed_action_name</code></em>);</pre>
+                                       <em class="parameter"><code>const <span class="type">gchar</span> *detailed_action_name</code></em>);</pre>
 <p>Gets the accelerators that are currently associated with
 the given action.</p>
 <div class="refsect3">
@@ -1191,7 +1196,7 @@ and target to obtain accelerators for</p></td>
 <a name="gtk-application-get-accels-for-action.returns"></a><h4>Returns</h4>
 <p>accelerators for <em class="parameter"><code>detailed_action_name</code></em>
 , as
-a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array. Free with <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> when no longer needed. </p>
+a <code class="literal">NULL</code>-terminated array. Free with <code class="function">g_strfreev()</code> when no longer needed. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-12.html#api-index-3.12">3.12</a></p>
@@ -1201,8 +1206,8 @@ a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#N
 <a name="gtk-application-set-accels-for-action"></a><h3>gtk_application_set_accels_for_action ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_application_set_accels_for_action (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
-                                       <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detailed_action_name</code></em>,
-                                       <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> * const *accels</code></em>);</pre>
+                                       <em class="parameter"><code>const <span class="type">gchar</span> *detailed_action_name</code></em>,
+                                       <em class="parameter"><code>const <span class="type">gchar</span> * const *accels</code></em>);</pre>
 <p>Sets zero or more keyboard accelerators that will trigger the
 given action. The first item in <em class="parameter"><code>accels</code></em>
  will be the primary
@@ -1247,9 +1252,9 @@ understood by <a class="link" href="gtk3-Keyboard-Accelerators.html#gtk-accelera
 <hr>
 <div class="refsect2">
 <a name="gtk-application-get-actions-for-accel"></a><h3>gtk_application_get_actions_for_accel ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **
+<pre class="programlisting"><span class="returnvalue">gchar</span> **
 gtk_application_get_actions_for_accel (<em class="parameter"><code><a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
-                                       <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *accel</code></em>);</pre>
+                                       <em class="parameter"><code>const <span class="type">gchar</span> *accel</code></em>);</pre>
 <p>Returns the list of actions (possibly empty) that <em class="parameter"><code>accel</code></em>
  maps to.
 Each item in the list is a detailed action name in the usual form.</p>
@@ -1260,7 +1265,7 @@ having more than one action per accelerator may not be a bad thing
 and might make sense in cases where the actions never appear in the
 same context.</p>
 <p>In case there are no actions for a given accelerator, an empty array
-is returned.  <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is never returned.</p>
+is returned.  <code class="literal">NULL</code> is never returned.</p>
 <p>It is a programmer error to pass an invalid accelerator string.
 If you are unsure, check it with <a class="link" href="gtk3-Keyboard-Accelerators.html#gtk-accelerator-parse" title="gtk_accelerator_parse ()"><code class="function">gtk_accelerator_parse()</code></a> first.</p>
 <div class="refsect3">
@@ -1287,7 +1292,7 @@ If you are unsure, check it with <a class="link" href="gtk3-Keyboard-Accelerator
 </div>
 <div class="refsect3">
 <a name="gtk-application-get-actions-for-accel.returns"></a><h4>Returns</h4>
-<p>a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of actions for <em class="parameter"><code>accel</code></em>
+<p>a <code class="literal">NULL</code>-terminated array of actions for <em class="parameter"><code>accel</code></em>
 . </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -1305,7 +1310,6 @@ If you are unsure, check it with <a class="link" href="gtk3-Keyboard-Accelerator
 <a name="GtkApplicationClass"></a><h3>struct GtkApplicationClass</h3>
 <pre class="programlisting">struct GtkApplicationClass {
   GApplicationClass parent_class;
-
 
   void (*window_added)   (GtkApplication *application,
                           GtkWindow      *window);
@@ -1356,7 +1360,7 @@ explicitly through <a class="link" href="GtkApplication.html#gtk-application-rem
 <td class="enum_member_name"><p><a name="GTK-APPLICATION-INHIBIT-LOGOUT:CAPS"></a>GTK_APPLICATION_INHIBIT_LOGOUT</p></td>
 <td class="enum_member_description">
 <p>Inhibit ending the user session
-    by logging out or by shutting down the computer</p>
+by logging out or by shutting down the computer</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -1371,7 +1375,7 @@ explicitly through <a class="link" href="GtkApplication.html#gtk-application-rem
 <td class="enum_member_name"><p><a name="GTK-APPLICATION-INHIBIT-SUSPEND:CAPS"></a>GTK_APPLICATION_INHIBIT_SUSPEND</p></td>
 <td class="enum_member_description">
 <p>Inhibit suspending the
-    session or computer</p>
+session or computer</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -1379,7 +1383,7 @@ explicitly through <a class="link" href="GtkApplication.html#gtk-application-rem
 <td class="enum_member_name"><p><a name="GTK-APPLICATION-INHIBIT-IDLE:CAPS"></a>GTK_APPLICATION_INHIBIT_IDLE</p></td>
 <td class="enum_member_description">
 <p>Inhibit the session being
-    marked as idle (and possibly locked)</p>
+marked as idle (and possibly locked)</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -1395,6 +1399,7 @@ explicitly through <a class="link" href="GtkApplication.html#gtk-application-rem
 <a name="GtkApplication--active-window"></a><h3>The <code class="literal">“active-window”</code> property</h3>
 <pre class="programlisting">  “active-window”            <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> *</pre>
 <p>The window which most recently had focus.</p>
+<p>Owner: GtkApplication</p>
 <p>Flags: Read</p>
 </div>
 <hr>
@@ -1402,6 +1407,7 @@ explicitly through <a class="link" href="GtkApplication.html#gtk-application-rem
 <a name="GtkApplication--app-menu"></a><h3>The <code class="literal">“app-menu”</code> property</h3>
 <pre class="programlisting">  “app-menu”                 <span class="type">GMenuModel</span> *</pre>
 <p>The GMenuModel for the application menu.</p>
+<p>Owner: GtkApplication</p>
 <p>Flags: Read / Write</p>
 </div>
 <hr>
@@ -1409,13 +1415,15 @@ explicitly through <a class="link" href="GtkApplication.html#gtk-application-rem
 <a name="GtkApplication--menubar"></a><h3>The <code class="literal">“menubar”</code> property</h3>
 <pre class="programlisting">  “menubar”                  <span class="type">GMenuModel</span> *</pre>
 <p>The GMenuModel for the menubar.</p>
+<p>Owner: GtkApplication</p>
 <p>Flags: Read / Write</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkApplication--register-session"></a><h3>The <code class="literal">“register-session”</code> property</h3>
-<pre class="programlisting">  “register-session”         <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
-<p>Set this property to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to register with the session manager.</p>
+<pre class="programlisting">  “register-session”         <span class="type">gboolean</span></pre>
+<p>Set this property to <code class="literal">TRUE</code> to register with the session manager.</p>
+<p>Owner: GtkApplication</p>
 <p>Flags: Read / Write</p>
 <p>Default value: FALSE</p>
 <p class="since">Since: <a class="link" href="api-index-3-4.html#api-index-3.4">3.4</a></p>
@@ -1423,11 +1431,12 @@ explicitly through <a class="link" href="GtkApplication.html#gtk-application-rem
 <hr>
 <div class="refsect2">
 <a name="GtkApplication--screensaver-active"></a><h3>The <code class="literal">“screensaver-active”</code> property</h3>
-<pre class="programlisting">  “screensaver-active”       <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
-<p>This property is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if GTK+ believes that the screensaver is
+<pre class="programlisting">  “screensaver-active”       <span class="type">gboolean</span></pre>
+<p>This property is <code class="literal">TRUE</code> if GTK+ believes that the screensaver is
 currently active. GTK+ only tracks session state (including this)
-when <span class="type">“register-session”</span> is set to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.</p>
+when <span class="type">“register-session”</span> is set to <code class="literal">TRUE</code>.</p>
 <p>Tracking the screensaver state is supported on Linux.</p>
+<p>Owner: GtkApplication</p>
 <p>Flags: Read</p>
 <p>Default value: FALSE</p>
 <p class="since">Since: <a class="link" href="api-index-3-24.html#api-index-3.24">3.24</a></p>
@@ -1436,11 +1445,47 @@ when <span class="type">“register-session”</span> is set to <a href="https:/
 <div class="refsect1">
 <a name="GtkApplication.signal-details"></a><h2>Signal Details</h2>
 <div class="refsect2">
+<a name="GtkApplication-query-end"></a><h3>The <code class="literal">“query-end”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application,
+               <span class="type">gpointer</span>        user_data)</pre>
+<p>Emitted when the session manager is about to end the session, only
+if <span class="type">“register-session”</span> is <code class="literal">TRUE</code>. Applications can
+connect to this signal and call <a class="link" href="GtkApplication.html#gtk-application-inhibit" title="gtk_application_inhibit ()"><code class="function">gtk_application_inhibit()</code></a> with
+<a class="link" href="GtkApplication.html#GTK-APPLICATION-INHIBIT-LOGOUT:CAPS"><code class="literal">GTK_APPLICATION_INHIBIT_LOGOUT</code></a> to delay the end of the session
+until state has been saved.</p>
+<div class="refsect3">
+<a name="GtkApplication-query-end.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>application</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> which emitted the signal</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run First</p>
+<p class="since">Since: 3.24.8</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="GtkApplication-window-added"></a><h3>The <code class="literal">“window-added”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application,
                <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>      *window,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)</pre>
+               <span class="type">gpointer</span>        user_data)</pre>
 <p>Emitted when a <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> is added to <em class="parameter"><code>application</code></em>
  through
 <a class="link" href="GtkApplication.html#gtk-application-add-window" title="gtk_application_add_window ()"><code class="function">gtk_application_add_window()</code></a>.</p>
@@ -1471,7 +1516,7 @@ user_function (<a class="link" href="GtkApplication.html" title="GtkApplication"
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+<p>Flags: Run First</p>
 <p class="since">Since: <a class="link" href="api-index-3-2.html#api-index-3.2">3.2</a></p>
 </div>
 <hr>
@@ -1480,7 +1525,7 @@ user_function (<a class="link" href="GtkApplication.html" title="GtkApplication"
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkApplication.html" title="GtkApplication"><span class="type">GtkApplication</span></a> *application,
                <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>      *window,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)</pre>
+               <span class="type">gpointer</span>        user_data)</pre>
 <p>Emitted when a <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> is removed from <em class="parameter"><code>application</code></em>
 ,
 either as a side-effect of being destroyed or explicitly
@@ -1512,12 +1557,12 @@ through <a class="link" href="GtkApplication.html#gtk-application-remove-window"
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+<p>Flags: Run First</p>
 <p class="since">Since: <a class="link" href="api-index-3-2.html#api-index-3.2">3.2</a></p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

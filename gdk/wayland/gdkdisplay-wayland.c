@@ -42,6 +42,7 @@
 #include "gdkprivate-wayland.h"
 #include "gdkglcontext-wayland.h"
 #include "gdkwaylandmonitor.h"
+#include "gdk-private.h"
 #include "pointer-gestures-unstable-v1-client-protocol.h"
 #include "tablet-unstable-v2-client-protocol.h"
 #include "xdg-shell-unstable-v6-client-protocol.h"
@@ -475,9 +476,15 @@ gdk_registry_handle_global (void               *data,
     }
   else if (strcmp (interface, "gtk_primary_selection_device_manager") == 0)
     {
-      display_wayland->primary_selection_manager =
+      display_wayland->gtk_primary_selection_manager =
         wl_registry_bind(display_wayland->wl_registry, id,
                          &gtk_primary_selection_device_manager_interface, 1);
+    }
+  else if (strcmp (interface, "zwp_primary_selection_device_manager_v1") == 0)
+    {
+      display_wayland->zwp_primary_selection_manager_v1 =
+        wl_registry_bind(display_wayland->wl_registry, id,
+                         &zwp_primary_selection_device_manager_v1_interface, 1);
     }
   else if (strcmp (interface, "zwp_tablet_manager_v2") == 0)
     {
@@ -511,6 +518,17 @@ gdk_registry_handle_global (void               *data,
       org_kde_kwin_server_decoration_manager_add_listener (display_wayland->server_decoration_manager,
                                                            &server_decoration_listener,
                                                            display_wayland);
+    }
+  else if (strcmp(interface, "zxdg_output_manager_v1") == 0)
+    {
+      display_wayland->xdg_output_manager_version = MIN (version, 3);
+      display_wayland->xdg_output_manager =
+        wl_registry_bind (display_wayland->wl_registry, id,
+                          &zxdg_output_manager_v1_interface,
+                          display_wayland->xdg_output_manager_version);
+      display_wayland->xdg_output_version = version;
+      _gdk_wayland_screen_init_xdg_output (display_wayland->screen);
+      _gdk_wayland_display_async_roundtrip (display_wayland);
     }
 
   g_hash_table_insert (display_wayland->known_globals,
@@ -717,6 +735,8 @@ gdk_wayland_display_finalize (GObject *object)
 
   g_ptr_array_free (display_wayland->monitors, TRUE);
 
+  wl_display_disconnect(display_wayland->wl_display);
+
   G_OBJECT_CLASS (gdk_wayland_display_parent_class)->finalize (object);
 }
 
@@ -805,19 +825,9 @@ gdk_wayland_display_make_default (GdkDisplay *display)
   g_free (display_wayland->startup_notification_id);
   display_wayland->startup_notification_id = NULL;
 
-  startup_id = g_getenv ("DESKTOP_STARTUP_ID");
-  if (startup_id && *startup_id != '\0')
-    {
-      if (!g_utf8_validate (startup_id, -1, NULL))
-        g_warning ("DESKTOP_STARTUP_ID contains invalid UTF-8");
-      else
-        display_wayland->startup_notification_id = g_strdup (startup_id);
-
-      /* Clear the environment variable so it won't be inherited by
-       * child processes and confuse things.
-       */
-      g_unsetenv ("DESKTOP_STARTUP_ID");
-    }
+  startup_id = gdk_get_desktop_startup_id ();
+  if (startup_id)
+    display_wayland->startup_notification_id = g_strdup (startup_id);
 }
 
 static gboolean
@@ -932,12 +942,10 @@ gdk_wayland_display_notify_startup_complete (GdkDisplay  *display,
 					     const gchar *startup_id)
 {
   GdkWaylandDisplay *display_wayland = GDK_WAYLAND_DISPLAY (display);
-  gchar *free_this = NULL;
 
   if (startup_id == NULL)
     {
-      startup_id = free_this = display_wayland->startup_notification_id;
-      display_wayland->startup_notification_id = NULL;
+      startup_id = display_wayland->startup_notification_id;
 
       if (startup_id == NULL)
         return;
@@ -945,8 +953,6 @@ gdk_wayland_display_notify_startup_complete (GdkDisplay  *display,
 
   if (display_wayland->gtk_shell)
     gtk_shell1_set_startup_id (display_wayland->gtk_shell, startup_id);
-
-  g_free (free_this);
 }
 
 static GdkKeymap *

@@ -8,7 +8,7 @@
 <link rel="up" href="LayoutContainers.html" title="Layout Containers">
 <link rel="prev" href="GtkStack.html" title="GtkStack">
 <link rel="next" href="GtkStackSidebar.html" title="GtkStackSidebar">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GtkStackSwitcher.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -79,7 +79,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td class="property_type"><span class="type">int</span></td>
 <td class="property_name"><a class="link" href="GtkStackSwitcher.html#GtkStackSwitcher--icon-size" title="The “icon-size” property">icon-size</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -96,8 +96,8 @@
 <a name="GtkStackSwitcher.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="datatype_keyword">struct</td>
@@ -107,8 +107,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkStackSwitcher.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                 <span class="lineart">╰──</span> <a class="link" href="GtkBox.html" title="GtkBox">GtkBox</a>
@@ -123,7 +123,7 @@ GtkStackSwitcher implements
 </div>
 <div class="refsect1">
 <a name="GtkStackSwitcher.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -215,7 +215,7 @@ See <a class="link" href="GtkStackSwitcher.html#gtk-stack-switcher-set-stack" ti
 </div>
 <div class="refsect3">
 <a name="gtk-stack-switcher-get-stack.returns"></a><h4>Returns</h4>
-<p>the stack, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
+<p>the stack, or <code class="literal">NULL</code> if
 none has been set explicitly. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -233,9 +233,10 @@ none has been set explicitly. </p>
 <a name="GtkStackSwitcher.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkStackSwitcher--icon-size"></a><h3>The <code class="literal">“icon-size”</code> property</h3>
-<pre class="programlisting">  “icon-size”                <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></pre>
+<pre class="programlisting">  “icon-size”                <span class="type">int</span></pre>
 <p>Use the "icon-size" property to change the size of the image displayed
 when a <a class="link" href="GtkStackSwitcher.html" title="GtkStackSwitcher"><span class="type">GtkStackSwitcher</span></a> is displaying icons.</p>
+<p>Owner: GtkStackSwitcher</p>
 <p>Flags: Read / Write</p>
 <p>Allowed values: &gt;= 0</p>
 <p>Default value: 1</p>
@@ -246,6 +247,7 @@ when a <a class="link" href="GtkStackSwitcher.html" title="GtkStackSwitcher"><sp
 <a name="GtkStackSwitcher--stack"></a><h3>The <code class="literal">“stack”</code> property</h3>
 <pre class="programlisting">  “stack”                    <a class="link" href="GtkStack.html" title="GtkStack"><span class="type">GtkStack</span></a> *</pre>
 <p>Stack.</p>
+<p>Owner: GtkStackSwitcher</p>
 <p>Flags: Read / Write / Construct</p>
 </div>
 </div>
@@ -255,6 +257,6 @@ when a <a class="link" href="GtkStackSwitcher.html" title="GtkStackSwitcher"><sp
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

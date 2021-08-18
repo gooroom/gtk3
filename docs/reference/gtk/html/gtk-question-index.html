@@ -8,7 +8,7 @@
 <link rel="up" href="gtk.html" title="Part I. GTK+ Overview">
 <link rel="prev" href="gtk-resources.html" title="Mailing lists and bug reports">
 <link rel="next" href="chap-drawing-model.html" title="The GTK+ Drawing Model">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -58,7 +58,7 @@ How do I get started with GTK+?
 <td align="left" valign="top"></td>
 <td align="left" valign="top"><p>
 The GTK+ <a class="ulink" href="https://www.gtk.org" target="_top">website</a> offers some
-<a class="ulink" href="https://www.gtk.org/documentation.php" target="_top">tutorials</a> and other
+<a class="ulink" href="https://www.gtk.org/docs/" target="_top">tutorials</a> and other
 documentation (most of it about GTK+ 2.x, but mostly still applicable).
 More documentation ranging from whitepapers to online books can be found at
 the <a class="ulink" href="https://developer.gnome.org" target="_top">GNOME developer's site</a>.
@@ -98,7 +98,7 @@ specific widgets and functions.
 </p>
 <p>
 If you have a question not covered in the manual, feel free to
-ask on the mailing lists and please <a class="ulink" href="https://bugzilla.gnome.org" target="_top">file a bug report</a> against the
+ask on the mailing lists and please <a class="ulink" href="https://gitlab.gnome.org/GNOME/gtk/issues/new" target="_top">file a bug report</a> against the
 documentation.
 </p>
 </td>
@@ -116,16 +116,16 @@ from functions?
 <td align="left" valign="top"></td>
 <td align="left" valign="top">
 <p>
-See the documentation for <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a> and <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"><span class="type">GInitiallyUnowned</span></a>. For <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a> note
-specifically <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a> and <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>. <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"><span class="type">GInitiallyUnowned</span></a> is a
-subclass of <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a> so the same points apply, except that it has a "floating"
+See the documentation for <span class="type">GObject</span> and <span class="type">GInitiallyUnowned</span>. For <span class="type">GObject</span> note
+specifically <code class="function">g_object_ref()</code> and <code class="function">g_object_unref()</code>. <span class="type">GInitiallyUnowned</span> is a
+subclass of <span class="type">GObject</span> so the same points apply, except that it has a "floating"
 state (explained in its documentation).
 </p>
 <p>
 For strings returned from functions, they will be declared "const"
 if they should not be freed. Non-const strings should be
-freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. Arrays follow the same rule. If you find an
-undocumented exception to the rules, please report a bug to <a class="ulink" href="https://bugzilla.gnome.org" target="_top">https://bugzilla.gnome.org</a>.
+freed with <code class="function">g_free()</code>. Arrays follow the same rule. If you find an
+undocumented exception to the rules, please report a bug on <a class="ulink" href="https://gitlab.gnome.org/GNOME/gtk/issues/new" target="_top">GitLab</a>.
 </p>
 </td>
 </tr>
@@ -150,8 +150,8 @@ If <span class="structname">GtkFoo</span> isn't a toplevel window, then
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="normal">foo </span><span class="symbol">=</span><span class="normal"> </span><span class="function">gtk_foo_new</span><span class="normal"> </span><span class="symbol">();</span>
-<span class="function"><a href="GtkWidget.html#gtk-widget-destroy">gtk_widget_destroy</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">foo</span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">foo</span> <span class="o">=</span> <span class="n">gtk_foo_new</span> <span class="p">();</span>
+<span class="n">gtk_widget_destroy</span> <span class="p">(</span><span class="n">foo</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -174,8 +174,8 @@ creating it:
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="normal">foo </span><span class="symbol">=</span><span class="normal"> </span><span class="function">gtk_foo_new</span><span class="normal"> </span><span class="symbol">();</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-ref-sink">g_object_ref_sink</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">foo</span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">foo</span> <span class="o">=</span> <span class="n">gtk_foo_new</span> <span class="p">();</span>
+<span class="n">g_object_ref_sink</span> <span class="p">(</span><span class="n">foo</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -192,8 +192,8 @@ reference:
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="GtkWidget.html#gtk-widget-destroy">gtk_widget_destroy</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">foo</span><span class="symbol">);</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">foo</span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">gtk_widget_destroy</span> <span class="p">(</span><span class="n">foo</span><span class="p">);</span>
+<span class="n">g_object_unref</span> <span class="p">(</span><span class="n">foo</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -259,22 +259,22 @@ Conventionally, people define macros as follows for convenience:
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="preproc">#define</span><span class="normal">  </span><span class="function">_</span><span class="symbol">(</span><span class="normal">x</span><span class="symbol">)</span><span class="normal">     </span><span class="function">gettext</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">x</span><span class="symbol">)</span>
-<span class="preproc">#define</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-I18N.html#N-:CAPS">N_</a></span><span class="symbol">(</span><span class="normal">x</span><span class="symbol">)</span><span class="normal">     x</span>
-<span class="preproc">#define</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-I18N.html#C-:CAPS">C_</a></span><span class="symbol">(</span><span class="normal">ctx</span><span class="symbol">,</span><span class="normal">x</span><span class="symbol">)</span><span class="normal"> </span><span class="function">pgettext</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">ctx</span><span class="symbol">,</span><span class="normal"> x</span><span class="symbol">)</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="cp">#define  _(x)     gettext (x)</span>
+<span class="cp">#define N_(x)     x</span>
+<span class="cp">#define C_(ctx,x) pgettext (ctx, x)</span></pre></td>
       </tr>
     </tbody>
   </table>
 </div>
 
 <p>
-You use <a href="https://developer.gnome.org/glib/unstable/glib-I18N.html#N-:CAPS"><code class="function">N_()</code></a> (N stands for no-op) to mark a string for translation in
+You use <code class="function">N_()</code> (N stands for no-op) to mark a string for translation in
 a location where a function call to <code class="function">gettext()</code> is not allowed, such as
 in an array initializer.
 You eventually have to call <code class="function">gettext()</code> on the string to actually fetch
 the translation. <code class="function">_()</code> both marks the string for translation and actually
 translates it.
-The <a href="https://developer.gnome.org/glib/unstable/glib-I18N.html#C-:CAPS"><code class="function">C_()</code></a> macro (C stands for context) adds an additional context to
+The <code class="function">C_()</code> macro (C stands for context) adds an additional context to
 the string that is marked for translation, which can help to disambiguate
 short strings that might need different translations in different
 parts of your program.
@@ -299,19 +299,19 @@ Code using these macros ends up looking like this:
 11
 12
 13</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="preproc">#include</span><span class="normal"> </span><span class="string">&lt;gi18n.h&gt;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="cp">#include</span> <span class="cpf">&lt;gi18n.h&gt;</span><span class="cp"></span>
 
-<span class="keyword">static</span><span class="normal"> </span><span class="keyword">const</span><span class="normal"> </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">global_variable </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-I18N.html#N-:CAPS">N_</a></span><span class="symbol">(</span><span class="string">"Translate this string"</span><span class="symbol">);</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">global_variable</span> <span class="o">=</span> <span class="n">N_</span><span class="p">(</span><span class="s">&quot;Translate this string&quot;</span><span class="p">);</span>
 
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">make_widgets</span><span class="normal"> </span><span class="symbol">(</span><span class="type">void</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">   </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">label1</span><span class="symbol">;</span>
-<span class="normal">   </span><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">label2</span><span class="symbol">;</span>
+<span class="k">static</span> <span class="kt">void</span>
+<span class="nf">make_widgets</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">GtkWidget</span> <span class="o">*</span><span class="n">label1</span><span class="p">;</span>
+   <span class="n">GtkWidget</span> <span class="o">*</span><span class="n">label2</span><span class="p">;</span>
 
-<span class="normal">   label1 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkLabel.html#gtk-label-new">gtk_label_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">_</span><span class="symbol">(</span><span class="string">"Another string to translate"</span><span class="symbol">));</span>
-<span class="normal">   label2 </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkLabel.html#gtk-label-new">gtk_label_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">_</span><span class="symbol">(</span><span class="normal">global_variable</span><span class="symbol">));</span>
-<span class="symbol">...</span></pre></td>
+   <span class="n">label1</span> <span class="o">=</span> <span class="n">gtk_label_new</span> <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Another string to translate&quot;</span><span class="p">));</span>
+   <span class="n">label2</span> <span class="o">=</span> <span class="n">gtk_label_new</span> <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="n">global_variable</span><span class="p">));</span>
+<span class="p">...</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -336,7 +336,7 @@ the following convenience:
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="preproc">#define</span><span class="normal"> </span><span class="function">_</span><span class="symbol">(</span><span class="normal">x</span><span class="symbol">)</span><span class="normal"> </span><span class="function">dgettext</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">GETTEXT_PACKAGE</span><span class="symbol">,</span><span class="normal"> x</span><span class="symbol">)</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="cp">#define _(x) dgettext (GETTEXT_PACKAGE, x)</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -381,7 +381,7 @@ More information about Unicode and UTF-8 can be found in the
 <a class="ulink" href="https://www.cl.cam.ac.uk/~mgk25/unicode.html" target="_top">UTF-8 and Unicode
 FAQ for Unix/Linux</a>.
 GLib provides functions for converting strings between UTF-8 and other
-encodings, see <a href="https://developer.gnome.org/glib/unstable/glib-Character-Set-Conversion.html#g-locale-to-utf8"><code class="function">g_locale_to_utf8()</code></a> and <a href="https://developer.gnome.org/glib/unstable/glib-Character-Set-Conversion.html#g-convert"><code class="function">g_convert()</code></a>.
+encodings, see <code class="function">g_locale_to_utf8()</code> and <code class="function">g_convert()</code>.
 </p>
 <p>
 Text coming from external sources (e.g. files or user input), has to be
@@ -411,24 +411,24 @@ writes the content of a IS0-8859-1 encoded text file to
 16
 17
 18</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">gchar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">text</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">utf8_text</span><span class="symbol">;</span>
-<span class="usertype">gsize</span><span class="normal"> length</span><span class="symbol">;</span>
-<span class="usertype">GError</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">error </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="n">gchar</span> <span class="o">*</span><span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="n">utf8_text</span><span class="p">;</span>
+<span class="n">gsize</span> <span class="n">length</span><span class="p">;</span>
+<span class="n">GError</span> <span class="o">*</span><span class="n">error</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 
-<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-File-Utilities.html#g-file-get-contents">g_file_get_contents</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">filename</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">text</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">length</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">))</span>
-<span class="normal">  </span><span class="cbracket">{</span>
-<span class="normal">     utf8_text </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Character-Set-Conversion.html#g-convert">g_convert</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">text</span><span class="symbol">,</span><span class="normal"> length</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"UTF-8"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"ISO-8859-1"</span><span class="symbol">,</span>
-<span class="normal">                            <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">error</span><span class="symbol">);</span>
-<span class="normal">     </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error </span><span class="symbol">!=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
-<span class="normal">       </span><span class="cbracket">{</span>
-<span class="normal">         </span><span class="function">fprintf</span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Couldn't convert file %s to UTF-8</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> filename</span><span class="symbol">);</span>
-<span class="normal">         </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Error-Reporting.html#g-error-free">g_error_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">error</span><span class="symbol">);</span>
-<span class="normal">       </span><span class="cbracket">}</span>
-<span class="normal">     </span><span class="keyword">else</span>
-<span class="normal">       </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Warnings-and-Assertions.html#g-print">g_print</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">utf8_text</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="cbracket">}</span>
-<span class="keyword">else</span>
-<span class="normal">  </span><span class="function">fprintf</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">stderr</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Unable to read file %s</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> filename</span><span class="symbol">);</span></pre></td>
+<span class="k">if</span> <span class="p">(</span><span class="n">g_file_get_contents</span> <span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">text</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">length</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">))</span>
+  <span class="p">{</span>
+     <span class="n">utf8_text</span> <span class="o">=</span> <span class="n">g_convert</span> <span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">,</span> <span class="s">&quot;ISO-8859-1&quot;</span><span class="p">,</span>
+                            <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">error</span><span class="p">);</span>
+     <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+       <span class="p">{</span>
+         <span class="n">fprintf</span> <span class="p">(</span><span class="s">&quot;Couldn&#39;t convert file %s to UTF-8</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">);</span>
+         <span class="n">g_error_free</span> <span class="p">(</span><span class="n">error</span><span class="p">);</span>
+       <span class="p">}</span>
+     <span class="k">else</span>
+       <span class="n">g_print</span> <span class="p">(</span><span class="n">utf8_text</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="k">else</span>
+  <span class="n">fprintf</span> <span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Unable to read file %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -471,7 +471,7 @@ Be careful when mixing hexadecimal escapes with ordinary text;
 <td><p>
 If the string literals can be represented in an encoding which your
 toolchain can handle (e.g. IS0-8859-1), you can write your source files
-in that encoding and use <a href="https://developer.gnome.org/glib/unstable/glib-Character-Set-Conversion.html#g-convert"><code class="function">g_convert()</code></a> to convert the strings to UTF-8 at
+in that encoding and use <code class="function">g_convert()</code> to convert the strings to UTF-8 at
 runtime. Note that this has some runtime overhead, so you may want to move
 the conversion out of inner loops.
 </p></td>
@@ -493,11 +493,11 @@ a string literal:
 3
 4
 5</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Warnings-and-Assertions.html#g-print">g_print</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"direct UTF-8: ©"</span><span class="symbol">);</span>
-<span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Warnings-and-Assertions.html#g-print">g_print</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"escaped UTF-8: </span><span class="specialchar">\3</span><span class="string">02</span><span class="specialchar">\2</span><span class="string">51"</span><span class="symbol">);</span>
-<span class="normal">text </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Character-Set-Conversion.html#g-convert">g_convert</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"runtime conversion: ©"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"ISO-8859-1"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"UTF-8"</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
-<span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Warnings-and-Assertions.html#g-print">g_print</a></span><span class="symbol">(</span><span class="normal">text</span><span class="symbol">);</span>
-<span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">text</span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">g_print</span> <span class="p">(</span><span class="s">&quot;direct UTF-8: ©&quot;</span><span class="p">);</span>
+<span class="n">g_print</span> <span class="p">(</span><span class="s">&quot;escaped UTF-8: </span><span class="se">\302\251</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">g_convert</span> <span class="p">(</span><span class="s">&quot;runtime conversion: ©&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;ISO-8859-1&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">g_print</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+<span class="n">g_free</span> <span class="p">(</span><span class="n">text</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -547,8 +547,8 @@ code:
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-set-events">gdk_window_set_events</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gdk_window</span><span class="symbol">,</span>
-<span class="normal">                       <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-BUTTON-PRESS-MASK:CAPS">GDK_BUTTON_PRESS_MASK</a> </span><span class="symbol">|</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-BUTTON-RELEASE-MASK:CAPS">GDK_BUTTON_RELEASE_MASK</a></span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">gdk_window_set_events</span> <span class="p">(</span><span class="n">gdk_window</span><span class="p">,</span>
+                       <span class="n">GDK_BUTTON_PRESS_MASK</span> <span class="o">|</span> <span class="n">GDK_BUTTON_RELEASE_MASK</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -563,8 +563,8 @@ while in C++ you must write:
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#gdk-window-set-events">gdk_window_set_events</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gdk_window</span><span class="symbol">,</span>
-<span class="normal">                       </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GdkEventMask">GdkEventMask</a></span><span class="symbol">)</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-BUTTON-PRESS-MASK:CAPS">GDK_BUTTON_PRESS_MASK</a> </span><span class="symbol">|</span><span class="normal"> <a href="https://developer.gnome.org/gdk3/gdk3-Events.html#GDK-BUTTON-RELEASE-MASK:CAPS">GDK_BUTTON_RELEASE_MASK</a></span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">gdk_window_set_events</span> <span class="p">(</span><span class="n">gdk_window</span><span class="p">,</span>
+                       <span class="p">(</span><span class="n">GdkEventMask</span><span class="p">)</span> <span class="n">GDK_BUTTON_PRESS_MASK</span> <span class="o">|</span> <span class="n">GDK_BUTTON_RELEASE_MASK</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -586,7 +586,7 @@ How do I use GTK+ with other non-C languages?
 <tr class="answer">
 <td align="left" valign="top"></td>
 <td align="left" valign="top"><p>
-See the <a class="ulink" href="https://www.gtk.org/language-bindings.php" target="_top">list of language
+See the <a class="ulink" href="https://www.gtk.org/docs/language-bindings/" target="_top">list of language
 bindings</a> on <a class="ulink" href="https://www.gtk.org" target="_top">https://www.gtk.org</a>.
 </p></td>
 </tr>
@@ -628,7 +628,7 @@ How do I draw text ?
 <td align="left" valign="top"></td>
 <td align="left" valign="top">
 <p>
-To draw a piece of text, use a Pango layout and <a href="/usr/share/gtk-doc/html/pango/pango-Cairo-Rendering.html#pango-cairo-show-layout"><code class="function">pango_cairo_show_layout()</code></a>.
+To draw a piece of text, use a Pango layout and <a href="https://developer.gnome.org/pango/pango-Cairo-Rendering.html#pango-cairo-show-layout"><code class="function">pango_cairo_show_layout()</code></a>.
 </p>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
@@ -640,12 +640,12 @@ To draw a piece of text, use a Pango layout and <a href="/usr/share/gtk-doc/html
 4
 5
 6</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="normal">layout </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-create-pango-layout">gtk_widget_create_pango_layout</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">,</span><span class="normal"> text</span><span class="symbol">);</span>
-<span class="normal">fontdesc </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string">pango_font_description_from_string</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Luxi Mono 12"</span><span class="symbol">);</span>
-<span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-set-font-description">pango_layout_set_font_description</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">layout</span><span class="symbol">,</span><span class="normal"> fontdesc</span><span class="symbol">);</span>
-<span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Cairo-Rendering.html#pango-cairo-show-layout">pango_cairo_show_layout</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cr</span><span class="symbol">,</span><span class="normal"> layout</span><span class="symbol">);</span>
-<span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-free">pango_font_description_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">fontdesc</span><span class="symbol">);</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">layout</span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">layout</span> <span class="o">=</span> <span class="n">gtk_widget_create_pango_layout</span> <span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
+<span class="n">fontdesc</span> <span class="o">=</span> <span class="n">pango_font_description_from_string</span> <span class="p">(</span><span class="s">&quot;Luxi Mono 12&quot;</span><span class="p">);</span>
+<span class="n">pango_layout_set_font_description</span> <span class="p">(</span><span class="n">layout</span><span class="p">,</span> <span class="n">fontdesc</span><span class="p">);</span>
+<span class="n">pango_cairo_show_layout</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="n">layout</span><span class="p">);</span>
+<span class="n">pango_font_description_free</span> <span class="p">(</span><span class="n">fontdesc</span><span class="p">);</span>
+<span class="n">g_object_unref</span> <span class="p">(</span><span class="n">layout</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -673,7 +673,7 @@ How do I measure the size of a piece of text ?
 <td align="left" valign="top">
 <p>
 To obtain the size of a piece of text, use a Pango layout and
-<a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-get-pixel-size"><code class="function">pango_layout_get_pixel_size()</code></a>, using code like the following:
+<a href="https://developer.gnome.org/pango/pango-Layout-Objects.html#pango-layout-get-pixel-size"><code class="function">pango_layout_get_pixel_size()</code></a>, using code like the following:
 </p>
 <div class="informalexample">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
@@ -685,12 +685,12 @@ To obtain the size of a piece of text, use a Pango layout and
 4
 5
 6</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="normal">layout </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-create-pango-layout">gtk_widget_create_pango_layout</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">,</span><span class="normal"> text</span><span class="symbol">);</span>
-<span class="normal">fontdesc </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-from-string">pango_font_description_from_string</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Luxi Mono 12"</span><span class="symbol">);</span>
-<span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-set-font-description">pango_layout_set_font_description</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">layout</span><span class="symbol">,</span><span class="normal"> fontdesc</span><span class="symbol">);</span>
-<span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#pango-layout-get-pixel-size">pango_layout_get_pixel_size</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">layout</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">width</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">height</span><span class="symbol">);</span>
-<span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-free">pango_font_description_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">fontdesc</span><span class="symbol">);</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">layout</span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">layout</span> <span class="o">=</span> <span class="n">gtk_widget_create_pango_layout</span> <span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
+<span class="n">fontdesc</span> <span class="o">=</span> <span class="n">pango_font_description_from_string</span> <span class="p">(</span><span class="s">&quot;Luxi Mono 12&quot;</span><span class="p">);</span>
+<span class="n">pango_layout_set_font_description</span> <span class="p">(</span><span class="n">layout</span><span class="p">,</span> <span class="n">fontdesc</span><span class="p">);</span>
+<span class="n">pango_layout_get_pixel_size</span> <span class="p">(</span><span class="n">layout</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">width</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">height</span><span class="p">);</span>
+<span class="n">pango_font_description_free</span> <span class="p">(</span><span class="n">fontdesc</span><span class="p">);</span>
+<span class="n">g_object_unref</span> <span class="p">(</span><span class="n">layout</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -720,7 +720,7 @@ macro ?
 <p>
 The <code class="literal">GTK_TYPE_BLAH</code> macros are defined as calls to
 <code class="literal">gtk_blah_get_type()</code>, and the <code class="literal">_get_type()</code>
-functions are declared as <a href="https://developer.gnome.org/glib/unstable/glib-Miscellaneous-Macros.html#G-GNUC-CONST:CAPS"><code class="literal">G_GNUC_CONST</code></a> which allows the compiler to optimize
+functions are declared as <code class="literal">G_GNUC_CONST</code> which allows the compiler to optimize
 the call away if it appears that the value is not being used.
 </p>
 <p>
@@ -732,7 +732,7 @@ variable, which keeps the compiler from optimizing the call away.
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">volatile</span><span class="normal"> </span><span class="usertype">GType</span><span class="normal"> dummy </span><span class="symbol">=</span><span class="normal"> GTK_TYPE_BLAH</span><span class="symbol">;</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="k">volatile</span> <span class="n">GType</span> <span class="n">dummy</span> <span class="o">=</span> <span class="n">GTK_TYPE_BLAH</span><span class="p">;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -756,10 +756,10 @@ How do I create a transparent toplevel window ?
 <p>
 To make a window transparent, it needs to use a visual which supports that.
 This is done by getting the RGBA visual of the screen with
-<a href="https://developer.gnome.org/gdk3/GdkScreen.html#gdk-screen-get-rgba-visual"><code class="function">gdk_screen_get_rgba_visual()</code></a> and setting it on the window. Note that
-<a href="https://developer.gnome.org/gdk3/GdkScreen.html#gdk-screen-get-rgba-visual"><code class="function">gdk_screen_get_rgba_visual()</code></a> will return <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if transparent windows
+<a href="../html/GdkScreen.html#gdk-screen-get-rgba-visual"><code class="function">gdk_screen_get_rgba_visual()</code></a> and setting it on the window. Note that
+<a href="../html/GdkScreen.html#gdk-screen-get-rgba-visual"><code class="function">gdk_screen_get_rgba_visual()</code></a> will return <code class="literal">NULL</code> if transparent windows
 are not supported on the screen, you should fall back to
-<a href="https://developer.gnome.org/gdk3/GdkScreen.html#gdk-screen-get-system-visual"><code class="function">gdk_screen_get_system_visual()</code></a> in that case. Additionally, note that this
+<a href="../html/GdkScreen.html#gdk-screen-get-system-visual"><code class="function">gdk_screen_get_system_visual()</code></a> in that case. Additionally, note that this
 will change from screen to screen, so it needs to be repeated whenever the
 window is moved to a different screen.
 </p>
@@ -774,13 +774,13 @@ window is moved to a different screen.
 5
 6
 7</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkVisual</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">visual</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="n">GdkVisual</span> <span class="o">*</span><span class="n">visual</span><span class="p">;</span>
 
-<span class="normal">visual </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gdk3/GdkScreen.html#gdk-screen-get-rgba-visual">gdk_screen_get_rgba_visual</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">screen</span><span class="symbol">);</span>
-<span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">visual </span><span class="symbol">==</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">)</span>
-<span class="normal">  visual </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gdk3/GdkScreen.html#gdk-screen-get-system-visual">gdk_screen_get_system_visual</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">screen</span><span class="symbol">);</span>
+<span class="n">visual</span> <span class="o">=</span> <span class="n">gdk_screen_get_rgba_visual</span> <span class="p">(</span><span class="n">screen</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">visual</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+  <span class="n">visual</span> <span class="o">=</span> <span class="n">gdk_screen_get_system_visual</span> <span class="p">(</span><span class="n">screen</span><span class="p">);</span>
 
-<span class="function"><a href="GtkWidget.html#gtk-widget-set-visual">gtk_widget_set_visual</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">),</span><span class="normal"> visual</span><span class="symbol">);</span></pre></td>
+<span class="n">gtk_widget_set_visual</span> <span class="p">(</span><span class="n">GTK_WIDGET</span> <span class="p">(</span><span class="n">window</span><span class="p">),</span> <span class="n">visual</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -920,10 +920,10 @@ achieve. One option is <a class="link" href="GtkWidget.html#gtk-widget-override-
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">PangoFontDesc</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">font_desc </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-new">pango_font_description_new</a></span><span class="normal"> </span><span class="symbol">();</span>
-<span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-set-size">pango_font_description_set_size</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">font_desc</span><span class="symbol">,</span><span class="normal"> </span><span class="number">40</span><span class="symbol">);</span>
-<span class="function"><a href="GtkWidget.html#gtk-widget-override-font">gtk_widget_override_font</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">,</span><span class="normal"> font</span><span class="symbol">);</span>
-<span class="function"><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#pango-font-description-free">pango_font_description_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">font_desc</span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">PangoFontDesc</span> <span class="o">*</span><span class="n">font_desc</span> <span class="o">=</span> <span class="n">pango_font_description_new</span> <span class="p">();</span>
+<span class="n">pango_font_description_set_size</span> <span class="p">(</span><span class="n">font_desc</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>
+<span class="n">gtk_widget_override_font</span> <span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">font</span><span class="p">);</span>
+<span class="n">pango_font_description_free</span> <span class="p">(</span><span class="n">font_desc</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -940,7 +940,7 @@ If you want to make the text of a label larger, you can use
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="GtkLabel.html#gtk-label-set-markup">gtk_label_set_markup</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">label</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"&lt;big&gt;big text&lt;/big&gt;"</span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">gtk_label_set_markup</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s">&quot;&lt;big&gt;big text&lt;/big&gt;&quot;</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -948,7 +948,7 @@ If you want to make the text of a label larger, you can use
 
 <p>
 This is preferred for many apps because it's a relative size to the
-user's chosen font size. See <a href="https://developer.gnome.org/glib/unstable/glib-Simple-XML-Subset-Parser.html#g-markup-escape-text"><code class="function">g_markup_escape_text()</code></a> if you are
+user's chosen font size. See <code class="function">g_markup_escape_text()</code> if you are
 constructing such strings on the fly.
 </p>
 <p>
@@ -1016,15 +1016,15 @@ or <a class="link" href="GtkTextIter.html#gtk-text-iter-get-text" title="gtk_tex
 7
 8
 9</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkTextIter</span><span class="normal"> start</span><span class="symbol">,</span><span class="normal"> end</span><span class="symbol">;</span>
-<span class="usertype">GtkTextBuffer</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">buffer</span><span class="symbol">;</span>
-<span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">text</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="n">GtkTextIter</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">;</span>
+<span class="n">GtkTextBuffer</span> <span class="o">*</span><span class="n">buffer</span><span class="p">;</span>
+<span class="kt">char</span> <span class="o">*</span><span class="n">text</span><span class="p">;</span>
 
-<span class="normal">buffer </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTextView.html#gtk-text-view-get-buffer">gtk_text_view_get_buffer</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TEXT_VIEW</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">text_view</span><span class="symbol">));</span>
-<span class="function"><a href="GtkTextBuffer.html#gtk-text-buffer-get-bounds">gtk_text_buffer_get_bounds</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">buffer</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">start</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">end</span><span class="symbol">);</span>
-<span class="normal">text </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTextIter.html#gtk-text-iter-get-text">gtk_text_iter_get_text</a></span><span class="normal"> </span><span class="symbol">(&amp;</span><span class="normal">start</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">end</span><span class="symbol">);</span>
-<span class="comment">/* use text */</span>
-<span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">text</span><span class="symbol">);</span></pre></td>
+<span class="n">buffer</span> <span class="o">=</span> <span class="n">gtk_text_view_get_buffer</span> <span class="p">(</span><span class="n">GTK_TEXT_VIEW</span> <span class="p">(</span><span class="n">text_view</span><span class="p">));</span>
+<span class="n">gtk_text_buffer_get_bounds</span> <span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">start</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">end</span><span class="p">);</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">gtk_text_iter_get_text</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">start</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">end</span><span class="p">);</span>
+<span class="cm">/* use text */</span>
+<span class="n">g_free</span> <span class="p">(</span><span class="n">text</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1154,7 +1154,7 @@ How do I change the way that numbers are formatted by <a class="link" href="GtkT
 <p>
 Use <a class="link" href="GtkTreeView.html#gtk-tree-view-insert-column-with-data-func" title="gtk_tree_view_insert_column_with_data_func ()"><code class="function">gtk_tree_view_insert_column_with_data_func()</code></a>
 or <a class="link" href="GtkTreeViewColumn.html#gtk-tree-view-column-set-cell-data-func" title="gtk_tree_view_column_set_cell_data_func ()"><code class="function">gtk_tree_view_column_set_cell_data_func()</code></a> and do the conversion
-from number to string yourself (with, say, <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strdup-printf"><code class="function">g_strdup_printf()</code></a>).
+from number to string yourself (with, say, <code class="function">g_strdup_printf()</code>).
 </p>
 <p>
 The following example demonstrates this:
@@ -1227,70 +1227,70 @@ The following example demonstrates this:
 62
 63
 64</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">enum</span>
-<span class="cbracket">{</span>
-<span class="normal">  DOUBLE_COLUMN</span><span class="symbol">,</span>
-<span class="normal">  N_COLUMNS</span>
-<span class="cbracket">}</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="k">enum</span>
+<span class="p">{</span>
+  <span class="n">DOUBLE_COLUMN</span><span class="p">,</span>
+  <span class="n">N_COLUMNS</span>
+<span class="p">};</span>
 
-<span class="usertype">GtkListStore</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">mycolumns</span><span class="symbol">;</span>
-<span class="usertype">GtkTreeView</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">treeview</span><span class="symbol">;</span>
+<span class="n">GtkListStore</span> <span class="o">*</span><span class="n">mycolumns</span><span class="p">;</span>
+<span class="n">GtkTreeView</span> <span class="o">*</span><span class="n">treeview</span><span class="p">;</span>
 
-<span class="type">void</span>
-<span class="function">my_cell_double_to_text</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkTreeViewColumn</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">tree_column</span><span class="symbol">,</span>
-<span class="normal">                    </span><span class="usertype">GtkCellRenderer</span><span class="normal">   </span><span class="symbol">*</span><span class="normal">cell</span><span class="symbol">,</span>
-<span class="normal">                        </span><span class="usertype">GtkTreeModel</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">tree_model</span><span class="symbol">,</span>
-<span class="normal">                    </span><span class="usertype">GtkTreeIter</span><span class="normal">       </span><span class="symbol">*</span><span class="normal">iter</span><span class="symbol">,</span>
-<span class="normal">                        </span><span class="usertype">gpointer</span><span class="normal">           data</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">GtkCellRendererText</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">cell_text </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="GtkCellRendererText.html#GtkCellRendererText-struct">GtkCellRendererText</a> </span><span class="symbol">*)</span><span class="normal">cell</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="usertype">gdouble</span><span class="normal"> d</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="usertype">gchar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">text</span><span class="symbol">;</span>
+<span class="kt">void</span>
+<span class="nf">my_cell_double_to_text</span> <span class="p">(</span><span class="n">GtkTreeViewColumn</span> <span class="o">*</span><span class="n">tree_column</span><span class="p">,</span>
+	                <span class="n">GtkCellRenderer</span>   <span class="o">*</span><span class="n">cell</span><span class="p">,</span>
+                        <span class="n">GtkTreeModel</span>      <span class="o">*</span><span class="n">tree_model</span><span class="p">,</span>
+	                <span class="n">GtkTreeIter</span>       <span class="o">*</span><span class="n">iter</span><span class="p">,</span>
+                        <span class="n">gpointer</span>           <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GtkCellRendererText</span> <span class="o">*</span><span class="n">cell_text</span> <span class="o">=</span> <span class="p">(</span><span class="n">GtkCellRendererText</span> <span class="o">*</span><span class="p">)</span><span class="n">cell</span><span class="p">;</span>
+  <span class="n">gdouble</span> <span class="n">d</span><span class="p">;</span>
+  <span class="n">gchar</span> <span class="o">*</span><span class="n">text</span><span class="p">;</span>
 
-<span class="normal">  </span><span class="comment">/* Get the double value from the model. */</span>
-<span class="normal">  </span><span class="function"><a href="GtkTreeModel.html#gtk-tree-model-get">gtk_tree_model_get</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">tree_model</span><span class="symbol">,</span><span class="normal"> iter</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint">gint</a></span><span class="symbol">)</span><span class="normal">data</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">d</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="comment">/* Now we can format the value ourselves. */</span>
-<span class="normal">  text </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strdup-printf">g_strdup_printf</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"%.2f"</span><span class="symbol">,</span><span class="normal"> d</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-set">g_object_set</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">cell</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"text"</span><span class="symbol">,</span><span class="normal"> text</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">text</span><span class="symbol">);</span>
-<span class="cbracket">}</span>
+  <span class="cm">/* Get the double value from the model. */</span>
+  <span class="n">gtk_tree_model_get</span> <span class="p">(</span><span class="n">tree_model</span><span class="p">,</span> <span class="n">iter</span><span class="p">,</span> <span class="p">(</span><span class="n">gint</span><span class="p">)</span><span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+  <span class="cm">/* Now we can format the value ourselves. */</span>
+  <span class="n">text</span> <span class="o">=</span> <span class="n">g_strdup_printf</span> <span class="p">(</span><span class="s">&quot;%.2f&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+  <span class="n">g_object_set</span> <span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="s">&quot;text&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+  <span class="n">g_free</span> <span class="p">(</span><span class="n">text</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="type">void</span>
-<span class="function">set_up_new_columns</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkTreeView</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">myview</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">GtkCellRendererText</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">renderer</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="usertype">GtkTreeViewColumn</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">column</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="usertype">GtkListStore</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">mycolumns</span><span class="symbol">;</span>
+<span class="kt">void</span>
+<span class="nf">set_up_new_columns</span> <span class="p">(</span><span class="n">GtkTreeView</span> <span class="o">*</span><span class="n">myview</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GtkCellRendererText</span> <span class="o">*</span><span class="n">renderer</span><span class="p">;</span>
+  <span class="n">GtkTreeViewColumn</span> <span class="o">*</span><span class="n">column</span><span class="p">;</span>
+  <span class="n">GtkListStore</span> <span class="o">*</span><span class="n">mycolumns</span><span class="p">;</span>
 
-<span class="normal">  </span><span class="comment">/* Create the data model and associate it with the given TreeView */</span>
-<span class="normal">  mycolumns </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkListStore.html#gtk-list-store-new">gtk_list_store_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">N_COLUMNS</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#G-TYPE-DOUBLE:CAPS">G_TYPE_DOUBLE</a></span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function"><a href="GtkTreeView.html#gtk-tree-view-set-model">gtk_tree_view_set_model</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">myview</span><span class="symbol">,</span><span class="normal"> </span><span class="function">GTK_TREE_MODEL</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">mycolumns</span><span class="symbol">));</span>
+  <span class="cm">/* Create the data model and associate it with the given TreeView */</span>
+  <span class="n">mycolumns</span> <span class="o">=</span> <span class="n">gtk_list_store_new</span> <span class="p">(</span><span class="n">N_COLUMNS</span><span class="p">,</span> <span class="n">G_TYPE_DOUBLE</span><span class="p">);</span>
+  <span class="n">gtk_tree_view_set_model</span> <span class="p">(</span><span class="n">myview</span><span class="p">,</span> <span class="n">GTK_TREE_MODEL</span> <span class="p">(</span><span class="n">mycolumns</span><span class="p">));</span>
 
-<span class="normal">  </span><span class="comment">/* Create a GtkCellRendererText */</span>
-<span class="normal">  renderer </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkCellRendererText.html#gtk-cell-renderer-text-new">gtk_cell_renderer_text_new</a></span><span class="normal"> </span><span class="symbol">();</span>
+  <span class="cm">/* Create a GtkCellRendererText */</span>
+  <span class="n">renderer</span> <span class="o">=</span> <span class="n">gtk_cell_renderer_text_new</span> <span class="p">();</span>
 
-<span class="normal">  </span><span class="comment">/* Create a new column that has a title ("Example column"),</span>
-<span class="comment">   * uses the above created renderer that will render the double</span>
-<span class="comment">   * value into text from the associated model's rows.</span>
-<span class="comment">   */</span>
-<span class="normal">  column </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeViewColumn.html#gtk-tree-view-column-new">gtk_tree_view_column_new</a></span><span class="normal"> </span><span class="symbol">();</span>
-<span class="normal">  </span><span class="function"><a href="GtkTreeViewColumn.html#gtk-tree-view-column-set-title">gtk_tree_view_column_set_title</a></span><span class="normal">  </span><span class="symbol">(</span><span class="normal">column</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Example column"</span><span class="symbol">);</span>
-<span class="normal">  renderer </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkCellRendererText.html#gtk-cell-renderer-text-new">gtk_cell_renderer_text_new</a></span><span class="normal"> </span><span class="symbol">();</span>
-<span class="normal">  </span><span class="function"><a href="GtkTreeViewColumn.html#gtk-tree-view-column-pack-start">gtk_tree_view_column_pack_start</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">column</span><span class="symbol">,</span><span class="normal"> renderer</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">);</span>
+  <span class="cm">/* Create a new column that has a title (&quot;Example column&quot;),</span>
+<span class="cm">   * uses the above created renderer that will render the double</span>
+<span class="cm">   * value into text from the associated model&#39;s rows.</span>
+<span class="cm">   */</span>
+  <span class="n">column</span> <span class="o">=</span> <span class="n">gtk_tree_view_column_new</span> <span class="p">();</span>
+  <span class="n">gtk_tree_view_column_set_title</span>  <span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="s">&quot;Example column&quot;</span><span class="p">);</span>
+  <span class="n">renderer</span> <span class="o">=</span> <span class="n">gtk_cell_renderer_text_new</span> <span class="p">();</span>
+  <span class="n">gtk_tree_view_column_pack_start</span> <span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="comment">/* Append the new column after the GtkTreeView's previous columns. */</span>
-<span class="normal">  </span><span class="function"><a href="GtkTreeView.html#gtk-tree-view-append-column">gtk_tree_view_append_column</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_VIEW</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">myview</span><span class="symbol">),</span><span class="normal"> column</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="comment">/* Since we created the column by hand, we can set it up for our</span>
-<span class="comment">   * needs, e.g. set its minimum and maximum width, etc.</span>
-<span class="comment">   */</span>
-<span class="normal">  </span><span class="comment">/* Set up a custom function that will be called when the column content</span>
-<span class="comment">   * is rendered. We use the func_data pointer as an index into our</span>
-<span class="comment">   * model. This is convenient when using multi column lists.</span>
-<span class="comment">   */</span>
-<span class="normal">  </span><span class="function"><a href="GtkTreeViewColumn.html#gtk-tree-view-column-set-cell-data-func">gtk_tree_view_column_set_cell_data_func</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">column</span><span class="symbol">,</span><span class="normal"> renderer</span><span class="symbol">,</span>
-<span class="normal">                                       my_cell_double_to_text</span><span class="symbol">,</span>
-<span class="normal">                                           </span><span class="symbol">(</span><span class="normal"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">)</span><span class="normal">DOUBLE_COLUMN</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
-<span class="cbracket">}</span></pre></td>
+  <span class="cm">/* Append the new column after the GtkTreeView&#39;s previous columns. */</span>
+  <span class="n">gtk_tree_view_append_column</span> <span class="p">(</span><span class="n">GTK_TREE_VIEW</span> <span class="p">(</span><span class="n">myview</span><span class="p">),</span> <span class="n">column</span><span class="p">);</span>
+  <span class="cm">/* Since we created the column by hand, we can set it up for our</span>
+<span class="cm">   * needs, e.g. set its minimum and maximum width, etc.</span>
+<span class="cm">   */</span>
+  <span class="cm">/* Set up a custom function that will be called when the column content</span>
+<span class="cm">   * is rendered. We use the func_data pointer as an index into our</span>
+<span class="cm">   * model. This is convenient when using multi column lists.</span>
+<span class="cm">   */</span>
+  <span class="n">gtk_tree_view_column_set_cell_data_func</span> <span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span>
+	                                   <span class="n">my_cell_double_to_text</span><span class="p">,</span>
+                                           <span class="p">(</span><span class="n">gpointer</span><span class="p">)</span><span class="n">DOUBLE_COLUMN</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="p">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -1389,6 +1389,6 @@ a failed load yourself, use <a href="http://library.gnome.org/devel/gdk-pixbuf/u
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

@@ -1474,7 +1474,7 @@ show_window_internal (GdkWindow *window,
       API_CALL (SetWindowPos, (GDK_WINDOW_HWND (window),
 			       (window->state & GDK_WINDOW_STATE_ABOVE)?HWND_TOPMOST:HWND_NOTOPMOST,
 			       0, 0, 0, 0,
-			       SWP_NOSIZE | SWP_NOMOVE | SWP_NOACTIVATE | SWP_NOOWNERZORDER));
+			       SWP_NOSIZE | SWP_NOMOVE | SWP_NOACTIVATE));
     }
 }
 
@@ -1834,7 +1834,7 @@ gdk_win32_window_raise (GdkWindow *window)
       else
         API_CALL (SetWindowPos, (GDK_WINDOW_HWND (window), HWND_TOP,
   			         0, 0, 0, 0,
-			         SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE | SWP_NOOWNERZORDER));
+			         SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE));
     }
 }
 
@@ -1851,7 +1851,7 @@ gdk_win32_window_lower (GdkWindow *window)
 
       API_CALL (SetWindowPos, (GDK_WINDOW_HWND (window), HWND_BOTTOM,
 			       0, 0, 0, 0,
-			       SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE | SWP_NOOWNERZORDER));
+			       SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE));
     }
 }
 
@@ -2910,7 +2910,7 @@ _gdk_win32_window_update_style_bits (GdkWindow *window)
   rect.right += after.right - before.right;
   rect.bottom += after.bottom - before.bottom;
 
-  flags = SWP_FRAMECHANGED | SWP_NOACTIVATE | SWP_NOREPOSITION | SWP_NOOWNERZORDER;
+  flags = SWP_FRAMECHANGED | SWP_NOACTIVATE | SWP_NOREPOSITION;
 
   if (will_be_topmost && !was_topmost)
     {
@@ -5312,6 +5312,8 @@ gdk_win32_window_fullscreen (GdkWindow *window)
   FullscreenInfo *fi;
   HMONITOR monitor;
   MONITORINFO mi;
+  DWORD extra_styles = WS_POPUP;
+  gint workaround_padding = 0;
 
   g_return_if_fail (GDK_IS_WINDOW (window));
 
@@ -5348,12 +5350,29 @@ gdk_win32_window_fullscreen (GdkWindow *window)
       /* Send state change before configure event */
       gdk_synthesize_window_state (window, 0, GDK_WINDOW_STATE_FULLSCREEN);
 
+      /* If we are using GL windows, and we set the envvar GDK_WIN32_GL_FULLSCREEN_WORKAROUND,
+       * set the WS_BORDER style so that DWM will not get deactivated.  This is necessary
+       * when menus could not be shown correctly in fullscreen GL windows.  To avoid seeing
+       * a border, we intentionally make the window bigger by 1px on all sides and place the
+       * window just 1px outside the top left-hand coordinates outside the screen area.
+       */
+      if (window->gl_paint_context != NULL && g_getenv ("GDK_WIN32_GL_FULLSCREEN_WORKAROUND"))
+        {
+          extra_styles |= WS_BORDER;
+          workaround_padding = 1;
+          GDK_NOTE (MISC, g_print ("GL fullscreen workaround enabled for window [%p]\n",
+                                   GDK_WINDOW_HWND (window)));
+        }
+
       SetWindowLong (GDK_WINDOW_HWND (window), GWL_STYLE,
-                     (fi->style & ~WS_OVERLAPPEDWINDOW) | WS_POPUP);
+                     (fi->style & ~WS_OVERLAPPEDWINDOW) | extra_styles);
 
       API_CALL (SetWindowPos, (GDK_WINDOW_HWND (window), HWND_TOP,
-                x, y, width, height,
-                SWP_NOCOPYBITS | SWP_SHOWWINDOW | SWP_NOOWNERZORDER));
+                               x - workaround_padding,
+                               y - workaround_padding,
+                               width + (workaround_padding * 2),
+                               height + (workaround_padding * 2),
+                               SWP_NOCOPYBITS | SWP_SHOWWINDOW));
     }
 }
 
@@ -5373,10 +5392,11 @@ gdk_win32_window_unfullscreen (GdkWindow *window)
 
       impl->hint_flags = fi->hint_flags;
       SetWindowLong (GDK_WINDOW_HWND (window), GWL_STYLE, fi->style);
+      _gdk_win32_window_invalidate_egl_framebuffer (window);
       API_CALL (SetWindowPos, (GDK_WINDOW_HWND (window), HWND_NOTOPMOST,
 			       fi->r.left, fi->r.top,
 			       fi->r.right - fi->r.left, fi->r.bottom - fi->r.top,
-			       SWP_NOCOPYBITS | SWP_SHOWWINDOW | SWP_NOOWNERZORDER));
+			       SWP_NOCOPYBITS | SWP_SHOWWINDOW));
 
       g_object_set_data (G_OBJECT (window), "fullscreen-info", NULL);
       g_free (fi);
@@ -5402,7 +5422,7 @@ gdk_win32_window_set_keep_above (GdkWindow *window,
       API_CALL (SetWindowPos, (GDK_WINDOW_HWND (window),
 			       setting ? HWND_TOPMOST : HWND_NOTOPMOST,
 			       0, 0, 0, 0,
-			       SWP_NOSIZE | SWP_NOMOVE | SWP_NOACTIVATE | SWP_NOOWNERZORDER));
+			       SWP_NOSIZE | SWP_NOMOVE | SWP_NOACTIVATE));
     }
 
   gdk_synthesize_window_state (window,
@@ -5428,7 +5448,7 @@ gdk_win32_window_set_keep_below (GdkWindow *window,
       API_CALL (SetWindowPos, (GDK_WINDOW_HWND (window),
 			       setting ? HWND_BOTTOM : HWND_NOTOPMOST,
 			       0, 0, 0, 0,
-			       SWP_NOSIZE | SWP_NOMOVE | SWP_NOACTIVATE | SWP_NOOWNERZORDER));
+			       SWP_NOSIZE | SWP_NOMOVE | SWP_NOACTIVATE));
     }
 
   gdk_synthesize_window_state (window,

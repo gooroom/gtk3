@@ -21,8 +21,10 @@
 
 #include "config.h"
 
-#include "gdkinternals.h"
 #include "gdkscreenprivate.h"
+
+#include "gdkinternals.h"
+#include "gdkmonitorprivate.h"
 #include "gdkrectangle.h"
 #include "gdkwindow.h"
 #include "gdkintl.h"
@@ -119,7 +121,7 @@ gdk_screen_class_init (GdkScreenClass *klass)
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (GdkScreenClass, size_changed),
                   NULL, NULL,
-                  g_cclosure_marshal_VOID__VOID,
+                  NULL,
                   G_TYPE_NONE,
                   0);
 
@@ -138,7 +140,7 @@ gdk_screen_class_init (GdkScreenClass *klass)
 		  G_SIGNAL_RUN_LAST,
 		  G_STRUCT_OFFSET (GdkScreenClass, composited_changed),
 		  NULL, NULL,
-		  g_cclosure_marshal_VOID__VOID,
+		  NULL,
 		  G_TYPE_NONE,
 		  0);
 	
@@ -160,7 +162,7 @@ gdk_screen_class_init (GdkScreenClass *klass)
 		  G_SIGNAL_RUN_LAST,
 		  G_STRUCT_OFFSET (GdkScreenClass, monitors_changed),
 		  NULL, NULL,
-		  g_cclosure_marshal_VOID__VOID,
+		  NULL,
 		  G_TYPE_NONE,
 		  0);
 }
@@ -821,7 +823,7 @@ gdk_screen_get_monitor_plug_name (GdkScreen *screen,
 
   g_return_val_if_fail (monitor != NULL, NULL);
 
-  return g_strdup (gdk_monitor_get_model (monitor));
+  return g_strdup (gdk_monitor_get_connector (monitor));
 }
 
 /**

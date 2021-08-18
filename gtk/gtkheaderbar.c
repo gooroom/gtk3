@@ -30,7 +30,7 @@
 #include "gtkwindowprivate.h"
 #include "gtkwidgetprivate.h"
 #include "gtkcontainerprivate.h"
-#include "a11y/gtkcontaineraccessible.h"
+#include "a11y/gtkheaderbaraccessible.h"
 
 #include <string.h>
 
@@ -2118,6 +2118,7 @@ gtk_header_bar_class_init (GtkHeaderBarClass *class)
 
   g_object_class_install_properties (object_class, LAST_PROP, header_bar_props);
 
+  gtk_widget_class_set_accessible_type (widget_class, GTK_TYPE_HEADER_BAR_ACCESSIBLE);
   gtk_widget_class_set_accessible_role (widget_class, ATK_ROLE_PANEL);
   gtk_widget_class_set_css_name (widget_class, "headerbar");
 }
@@ -2131,7 +2132,6 @@ gtk_header_bar_init (GtkHeaderBar *bar)
   priv = gtk_header_bar_get_instance_private (bar);
 
   gtk_widget_set_has_window (GTK_WIDGET (bar), FALSE);
-  gtk_widget_set_redraw_on_allocate (GTK_WIDGET (bar), FALSE);
 
   priv->title = NULL;
   priv->subtitle = NULL;
@@ -2371,6 +2371,7 @@ gtk_header_bar_set_decoration_layout (GtkHeaderBar *bar,
 
   priv = gtk_header_bar_get_instance_private (bar);
 
+  g_free (priv->decoration_layout);
   priv->decoration_layout = g_strdup (layout);
   priv->decoration_layout_set = (layout != NULL);
 

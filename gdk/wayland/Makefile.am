@@ -33,12 +33,16 @@ BUILT_SOURCES = 				\
 	gtk-primary-selection-protocol.c			\
 	tablet-unstable-v2-client-protocol.h	\
 	tablet-unstable-v2-protocol.c		\
+	xdg-output-unstable-v1-protocol.c			\
+	xdg-output-unstable-v1-client-protocol.h		\
 	keyboard-shortcuts-inhibit-unstable-v1-client-protocol.h \
 	keyboard-shortcuts-inhibit-unstable-v1-protocol.c	\
 	server-decoration-client-protocol.h		\
 	server-decoration-protocol.c			\
 	gtk-shell-client-protocol.h		\
-	gtk-shell-protocol.c
+	gtk-shell-protocol.c			\
+	primary-selection-unstable-v1-client-protocol.h		\
+	primary-selection-unstable-v1-protocol.c
 
 nodist_libgdk_wayland_la_SOURCES =		\
 	$(BUILT_SOURCES)
@@ -90,14 +94,12 @@ $(shell echo $1 | sed 's/\([a-z\-]\{1,\}\)-[a-z]\{1,\}-v[0-9]\{1,\}/\1/')
 endef
 
 %-protocol.c : $(WAYLAND_PROTOCOLS_DATADIR)/$$(call protostability,$$*)/$$(call protoname,$$*)/$$*.xml
-	$(AM_V_GEN)$(WAYLAND_SCANNER) code < $< > $@
-	$(AM_V_GEN)$(SED) -i -e 's/WL_EXPORT //' $@
+	$(AM_V_GEN)$(WAYLAND_SCANNER) private-code < $< > $@
 %-client-protocol.h : $(WAYLAND_PROTOCOLS_DATADIR)/$$(call protostability,$$*)/$$(call protoname,$$*)/$$*.xml
 	$(AM_V_GEN)$(WAYLAND_SCANNER) client-header < $< > $@
 
 %-protocol.c : $(srcdir)/protocol/%.xml
-	$(AM_V_GEN)$(WAYLAND_SCANNER) code < $< > $@
-	$(AM_V_GEN)$(SED) -i -e 's/WL_EXPORT //' $@
+	$(AM_V_GEN)$(WAYLAND_SCANNER) private-code < $< > $@
 
 %-server-protocol.h : $(srcdir)/protocol/%.xml
 	$(AM_V_GEN)$(WAYLAND_SCANNER) server-header < $< > $@
@@ -107,6 +109,7 @@ endef
 EXTRA_DIST += 					\
 	protocol/gtk-primary-selection.xml	\
 	protocol/gtk-shell.xml			\
-	protocol/server-decoration.xml
+	protocol/server-decoration.xml	\
+	meson.build
 
 -include $(top_srcdir)/git.mk

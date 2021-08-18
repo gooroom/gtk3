@@ -8,7 +8,7 @@
 <link rel="up" href="gtk-migrating-GtkStyleContext.html" title="Theming changes">
 <link rel="prev" href="gtk-migrating-GtkStyleContext-css.html" title="Using the CSS file format">
 <link rel="next" href="gtk-migrating-GtkStyleContext-parsing.html" title="Parsing of custom resources">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -60,18 +60,18 @@
 10
 11
 12</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">gtk_button_init</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkButton</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">button</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">GtkStyleContext</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">context</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="k">static</span> <span class="kt">void</span>
+<span class="nf">gtk_button_init</span> <span class="p">(</span><span class="n">GtkButton</span> <span class="o">*</span><span class="n">button</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GtkStyleContext</span> <span class="o">*</span><span class="n">context</span><span class="p">;</span>
 
-<span class="normal">  </span><span class="symbol">...</span>
+  <span class="p">...</span>
 
-<span class="normal">  context </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-style-context">gtk_widget_get_style_context</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">button</span><span class="symbol">));</span>
+  <span class="n">context</span> <span class="o">=</span> <span class="n">gtk_widget_get_style_context</span> <span class="p">(</span><span class="n">GTK_WIDGET</span> <span class="p">(</span><span class="n">button</span><span class="p">));</span>
 
-<span class="normal">  </span><span class="comment">/* Set the "button" class */</span>
-<span class="normal">  </span><span class="function"><a href="GtkStyleContext.html#gtk-style-context-add-class">gtk_style_context_add_class</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> <a href="GtkStyleContext.html#GTK-STYLE-CLASS-BUTTON:CAPS">GTK_STYLE_CLASS_BUTTON</a></span><span class="symbol">);</span>
-<span class="cbracket">}</span></pre></td>
+  <span class="cm">/* Set the &quot;button&quot; class */</span>
+  <span class="n">gtk_style_context_add_class</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">GTK_STYLE_CLASS_BUTTON</span><span class="p">);</span>
+<span class="p">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -115,34 +115,34 @@
 26
 27
 28</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean">gboolean</a></span>
-<span class="function">gtk_spin_button_draw</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkSpinButton</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">spin</span><span class="symbol">,</span>
-<span class="normal">                      </span><span class="usertype">cairo_t</span><span class="normal">       </span><span class="symbol">*</span><span class="normal">cr</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">GtkStyleContext</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">context</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="k">static</span> <span class="n">gboolean</span>
+<span class="nf">gtk_spin_button_draw</span> <span class="p">(</span><span class="n">GtkSpinButton</span> <span class="o">*</span><span class="n">spin</span><span class="p">,</span>
+                      <span class="n">cairo_t</span>       <span class="o">*</span><span class="n">cr</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GtkStyleContext</span> <span class="o">*</span><span class="n">context</span><span class="p">;</span>
 
-<span class="normal">  </span><span class="symbol">...</span>
+  <span class="p">...</span>
 
-<span class="normal">  context </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-style-context">gtk_widget_get_style_context</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">spin</span><span class="symbol">));</span>
+  <span class="n">context</span> <span class="o">=</span> <span class="n">gtk_widget_get_style_context</span> <span class="p">(</span><span class="n">GTK_WIDGET</span> <span class="p">(</span><span class="n">spin</span><span class="p">));</span>
 
-<span class="normal">  </span><span class="function"><a href="GtkStyleContext.html#gtk-style-context-save">gtk_style_context_save</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function"><a href="GtkStyleContext.html#gtk-style-context-add-class">gtk_style_context_add_class</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> <a href="GtkStyleContext.html#GTK-STYLE-CLASS-ENTRY:CAPS">GTK_STYLE_CLASS_ENTRY</a></span><span class="symbol">);</span>
+  <span class="n">gtk_style_context_save</span> <span class="p">(</span><span class="n">context</span><span class="p">);</span>
+  <span class="n">gtk_style_context_add_class</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">GTK_STYLE_CLASS_ENTRY</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="comment">/* Call to entry draw impl with "entry" class */</span>
-<span class="normal">  parent_class</span><span class="symbol">-&gt;</span><span class="function">draw</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">spin</span><span class="symbol">,</span><span class="normal"> cr</span><span class="symbol">);</span>
+  <span class="cm">/* Call to entry draw impl with &quot;entry&quot; class */</span>
+  <span class="n">parent_class</span><span class="o">-&gt;</span><span class="n">draw</span> <span class="p">(</span><span class="n">spin</span><span class="p">,</span> <span class="n">cr</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="function"><a href="GtkStyleContext.html#gtk-style-context-restore">gtk_style_context_restore</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function"><a href="GtkStyleContext.html#gtk-style-context-save">gtk_style_context_save</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">);</span>
+  <span class="n">gtk_style_context_restore</span> <span class="p">(</span><span class="n">context</span><span class="p">);</span>
+  <span class="n">gtk_style_context_save</span> <span class="p">(</span><span class="n">context</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="comment">/* Render up/down buttons with the "button" class */</span>
-<span class="normal">  </span><span class="function"><a href="GtkStyleContext.html#gtk-style-context-add-class">gtk_style_context_add_class</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> <a href="GtkStyleContext.html#GTK-STYLE-CLASS-BUTTON:CAPS">GTK_STYLE_CLASS_BUTTON</a></span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function">draw_up_button</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">spin</span><span class="symbol">,</span><span class="normal"> cr</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function">draw_down_button</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">spin</span><span class="symbol">,</span><span class="normal"> cr</span><span class="symbol">);</span>
+  <span class="cm">/* Render up/down buttons with the &quot;button&quot; class */</span>
+  <span class="n">gtk_style_context_add_class</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">GTK_STYLE_CLASS_BUTTON</span><span class="p">);</span>
+  <span class="n">draw_up_button</span> <span class="p">(</span><span class="n">spin</span><span class="p">,</span> <span class="n">cr</span><span class="p">);</span>
+  <span class="n">draw_down_button</span> <span class="p">(</span><span class="n">spin</span><span class="p">,</span> <span class="n">cr</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="function"><a href="GtkStyleContext.html#gtk-style-context-restore">gtk_style_context_restore</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">);</span>
+  <span class="n">gtk_style_context_restore</span> <span class="p">(</span><span class="n">context</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="symbol">...</span>
-<span class="cbracket">}</span></pre></td>
+  <span class="p">...</span>
+<span class="p">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -178,10 +178,10 @@
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="GtkStyleContext.html#gtk-style-context-save">gtk_style_context_save</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">);</span>
-<span class="function"><a href="GtkStyleContext.html#gtk-style-context-set-state">gtk_style_context_set_state</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> <a href="gtk3-Standard-Enumerations.html#GTK-STATE-FLAG-ACTIVE:CAPS">GTK_STATE_FLAG_ACTIVE</a></span><span class="symbol">);</span>
-<span class="function"><a href="GtkStyleContext.html#gtk-render-check">gtk_render_check</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> cr</span><span class="symbol">,</span><span class="normal"> x</span><span class="symbol">,</span><span class="normal"> y</span><span class="symbol">,</span><span class="normal"> width</span><span class="symbol">,</span><span class="normal"> height</span><span class="symbol">);</span>
-<span class="function"><a href="GtkStyleContext.html#gtk-style-context-restore">gtk_style_context_restore</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">gtk_style_context_save</span> <span class="p">(</span><span class="n">context</span><span class="p">);</span>
+<span class="n">gtk_style_context_set_state</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">GTK_STATE_FLAG_ACTIVE</span><span class="p">);</span>
+<span class="n">gtk_render_check</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">cr</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+<span class="n">gtk_style_context_restore</span> <span class="p">(</span><span class="n">context</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -215,6 +215,6 @@
 </ol></div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

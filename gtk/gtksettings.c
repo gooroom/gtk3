@@ -59,7 +59,7 @@
 #include "deprecated/gtkrc.h"
 
 #ifdef GDK_WINDOWING_QUARTZ
-#define PRINT_PREVIEW_COMMAND "open -a /Applications/Preview.app %f"
+#define PRINT_PREVIEW_COMMAND "open -b com.apple.Preview %f"
 #else
 #define PRINT_PREVIEW_COMMAND "evince --unlink-tempfile --preview --print-settings %s %f"
 #endif
@@ -148,6 +148,7 @@ enum {
   PROP_CURSOR_BLINK_TIME,
   PROP_CURSOR_BLINK_TIMEOUT,
   PROP_SPLIT_CURSOR,
+  PROP_CURSOR_ASPECT_RATIO,
   PROP_THEME_NAME,
   PROP_ICON_THEME_NAME,
   PROP_FALLBACK_ICON_THEME,
@@ -224,7 +225,8 @@ enum {
   PROP_ENABLE_PRIMARY_PASTE,
   PROP_RECENT_FILES_ENABLED,
   PROP_LONG_PRESS_TIME,
-  PROP_KEYNAV_USE_CARET
+  PROP_KEYNAV_USE_CARET,
+  PROP_OVERLAY_SCROLLING
 };
 
 /* --- prototypes --- */
@@ -454,6 +456,15 @@ gtk_settings_class_init (GtkSettingsClass *class)
                                                                    GTK_PARAM_READWRITE),
                                              NULL);
   g_assert (result == PROP_SPLIT_CURSOR);
+  result = settings_install_property_parser (class,
+                                             g_param_spec_float ("gtk-cursor-aspect-ratio",
+                                                                 P_("Cursor Aspect Ratio"),
+                                                                 P_("The aspect ratio of the text caret"),
+                                                                 0.0, 1.0, 0.04,
+                                                                 GTK_PARAM_READWRITE),
+                                             NULL);
+
+  g_assert (result == PROP_CURSOR_ASPECT_RATIO);
   result = settings_install_property_parser (class,
                                              g_param_spec_string ("gtk-theme-name",
                                                                    P_("Theme Name"),
@@ -1767,6 +1778,24 @@ gtk_settings_class_init (GtkSettingsClass *class)
                                                                    GTK_PARAM_READWRITE),
                                              NULL);
   g_assert (result == PROP_KEYNAV_USE_CARET);
+
+  /**
+   * GtkSettings:gtk-overlay-scrolling:
+   *
+   * Whether scrolled windows may use overlayed scrolling indicators.
+   * If this is set to %FALSE, scrolled windows will have permanent
+   * scrollbars.
+   *
+   * Since: 3.24.9
+   */
+  result = settings_install_property_parser (class,
+                                             g_param_spec_boolean ("gtk-overlay-scrolling",
+                                                                   P_("Whether to use overlay scrollbars"),
+                                                                   P_("Whether to use overlay scrollbars"),
+                                                                   TRUE,
+                                                                   GTK_PARAM_READWRITE),
+                                             NULL);
+  g_assert (result == PROP_OVERLAY_SCROLLING);
 }
 
 static void
@@ -1814,12 +1843,13 @@ GtkStyleCascade *
 _gtk_settings_get_style_cascade (GtkSettings *settings,
                                  gint         scale)
 {
-  GtkSettingsPrivate *priv = settings->priv;
+  GtkSettingsPrivate *priv;
   GtkStyleCascade *new_cascade;
   GSList *list;
 
   g_return_val_if_fail (GTK_IS_SETTINGS (settings), NULL);
 
+  priv = settings->priv;
   for (list = priv->style_cascades; list; list = list->next)
     {
       if (_gtk_style_cascade_get_scale (list->data) == scale)
@@ -1881,6 +1911,29 @@ settings_init_style (GtkSettings *settings)
   settings_update_key_theme (settings);
 }
 
+static void
+settings_display_closed (GdkDisplay *display,
+                         gboolean    is_error,
+                         gpointer    data)
+{
+  DisplaySettings *ds;
+  int i;
+
+  if (G_UNLIKELY (display_settings == NULL))
+    return;
+
+  ds = (DisplaySettings *)display_settings->data;
+  for (i = 0; i < display_settings->len; i++)
+    {
+      if (ds[i].display == display)
+        {
+          g_clear_object (&ds[i].settings);
+          display_settings = g_array_remove_index_fast (display_settings, i);
+          break;
+        }
+    }
+}
+
 static GtkSettings *
 gtk_settings_create_for_display (GdkDisplay *display)
 {
@@ -1936,7 +1989,9 @@ gtk_settings_create_for_display (GdkDisplay *display)
 
   v.display = display;
   v.settings = settings;
-  g_array_append_val (display_settings, v);
+  display_settings = g_array_append_val (display_settings, v);
+  g_signal_connect (display, "closed",
+                    G_CALLBACK (settings_display_closed), NULL);
 
   settings_init_style (settings);
   settings_update_xsettings (settings);
@@ -1955,6 +2010,10 @@ gtk_settings_get_for_display (GdkDisplay *display)
 {
   DisplaySettings *ds;
   int i;
+
+  /* If the display is closed, we don't want to recreate the settings! */
+  if G_UNLIKELY (gdk_display_is_closed (display))
+    return NULL;
 
   if G_UNLIKELY (display_settings == NULL)
     display_settings = g_array_new (FALSE, TRUE, sizeof (DisplaySettings));

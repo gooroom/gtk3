@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="GtkRecentAction.html" title="GtkRecentAction">
 <link rel="next" href="GtkImageMenuItem.html" title="GtkImageMenuItem">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -39,8 +39,8 @@
 <a name="GtkActivatable.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -61,7 +61,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkActivatable.html#gtk-activatable-get-use-action-appearance" title="gtk_activatable_get_use_action_appearance ()">gtk_activatable_get_use_action_appearance</a> <span class="c_punctuation">()</span>
@@ -110,7 +110,7 @@
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkActivatable.html#GtkActivatable--use-action-appearance" title="The “use-action-appearance” property">use-action-appearance</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -121,8 +121,8 @@
 <a name="GtkActivatable.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -146,7 +146,7 @@
 <a name="GtkActivatable.prerequisites"></a><h2>Prerequisites</h2>
 <p>
 GtkActivatable requires
- <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>.</p>
+ GObject.</p>
 </div>
 <div class="refsect1">
 <a name="GtkActivatable.implementations"></a><h2>Known Implementations</h2>
@@ -395,217 +395,217 @@ the action pointer and boolean flag on your instance, and calling
 209
 210
 211</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">enum</span><span class="normal"> </span><span class="cbracket">{</span>
-<span class="symbol">...</span>
+        <td class="listing_code"><pre class="programlisting"><span class="k">enum</span> <span class="p">{</span>
+<span class="p">...</span>
 
-<span class="normal">PROP_ACTIVATABLE_RELATED_ACTION</span><span class="symbol">,</span>
-<span class="normal">PROP_ACTIVATABLE_USE_ACTION_APPEARANCE</span>
-<span class="cbracket">}</span>
+<span class="n">PROP_ACTIVATABLE_RELATED_ACTION</span><span class="p">,</span>
+<span class="n">PROP_ACTIVATABLE_USE_ACTION_APPEARANCE</span>
+<span class="p">}</span>
 
-<span class="keyword">struct</span><span class="normal"> </span><span class="classname">_FooBarPrivate</span>
-<span class="cbracket">{</span>
+<span class="k">struct</span> <span class="n">_FooBarPrivate</span>
+<span class="p">{</span>
 
-<span class="normal">  </span><span class="symbol">...</span>
+  <span class="p">...</span>
 
-<span class="normal">  </span><span class="usertype">GtkAction</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">action</span><span class="symbol">;</span>
-<span class="normal">  </span><span class="usertype">gboolean</span><span class="normal">        use_action_appearance</span><span class="symbol">;</span>
-<span class="cbracket">}</span><span class="symbol">;</span>
+  <span class="n">GtkAction</span>      <span class="o">*</span><span class="n">action</span><span class="p">;</span>
+  <span class="n">gboolean</span>        <span class="n">use_action_appearance</span><span class="p">;</span>
+<span class="p">};</span>
 
-<span class="symbol">...</span>
+<span class="p">...</span>
 
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">foo_bar_activatable_interface_init</span><span class="normal">         </span><span class="symbol">(</span><span class="usertype">GtkActivatableIface</span><span class="normal">  </span><span class="symbol">*</span><span class="normal">iface</span><span class="symbol">);</span>
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">foo_bar_activatable_update</span><span class="normal">                 </span><span class="symbol">(</span><span class="usertype">GtkActivatable</span><span class="normal">       </span><span class="symbol">*</span><span class="normal">activatable</span><span class="symbol">,</span>
-<span class="normal">                                   </span><span class="usertype">GtkAction</span><span class="normal">            </span><span class="symbol">*</span><span class="normal">action</span><span class="symbol">,</span>
-<span class="normal">                                   </span><span class="keyword">const</span><span class="normal"> </span><span class="usertype">gchar</span><span class="normal">          </span><span class="symbol">*</span><span class="normal">property_name</span><span class="symbol">);</span>
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">foo_bar_activatable_sync_action_properties</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkActivatable</span><span class="normal">       </span><span class="symbol">*</span><span class="normal">activatable</span><span class="symbol">,</span>
-<span class="normal">                                   </span><span class="usertype">GtkAction</span><span class="normal">            </span><span class="symbol">*</span><span class="normal">action</span><span class="symbol">);</span>
-<span class="symbol">...</span>
-
-
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">foo_bar_class_init</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">FooBarClass</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">klass</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-
-<span class="normal">  </span><span class="symbol">...</span>
-
-<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-class-override-property">g_object_class_override_property</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gobject_class</span><span class="symbol">,</span><span class="normal"> PROP_ACTIVATABLE_RELATED_ACTION</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"related-action"</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-class-override-property">g_object_class_override_property</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">gobject_class</span><span class="symbol">,</span><span class="normal"> PROP_ACTIVATABLE_USE_ACTION_APPEARANCE</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"use-action-appearance"</span><span class="symbol">);</span>
-
-<span class="normal">  </span><span class="symbol">...</span>
-<span class="cbracket">}</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="n">foo_bar_activatable_interface_init</span>         <span class="p">(</span><span class="n">GtkActivatableIface</span>  <span class="o">*</span><span class="n">iface</span><span class="p">);</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">foo_bar_activatable_update</span>                 <span class="p">(</span><span class="n">GtkActivatable</span>       <span class="o">*</span><span class="n">activatable</span><span class="p">,</span>
+						           <span class="n">GtkAction</span>            <span class="o">*</span><span class="n">action</span><span class="p">,</span>
+						           <span class="k">const</span> <span class="n">gchar</span>          <span class="o">*</span><span class="n">property_name</span><span class="p">);</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">foo_bar_activatable_sync_action_properties</span> <span class="p">(</span><span class="n">GtkActivatable</span>       <span class="o">*</span><span class="n">activatable</span><span class="p">,</span>
+						           <span class="n">GtkAction</span>            <span class="o">*</span><span class="n">action</span><span class="p">);</span>
+<span class="p">...</span>
 
 
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">foo_bar_activatable_interface_init</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkActivatableIface</span><span class="normal">  </span><span class="symbol">*</span><span class="normal">iface</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  iface</span><span class="symbol">-&gt;</span><span class="normal">update </span><span class="symbol">=</span><span class="normal"> foo_bar_activatable_update</span><span class="symbol">;</span>
-<span class="normal">  iface</span><span class="symbol">-&gt;</span><span class="normal">sync_action_properties </span><span class="symbol">=</span><span class="normal"> foo_bar_activatable_sync_action_properties</span><span class="symbol">;</span>
-<span class="cbracket">}</span>
+<span class="k">static</span> <span class="kt">void</span>
+<span class="n">foo_bar_class_init</span> <span class="p">(</span><span class="n">FooBarClass</span> <span class="o">*</span><span class="n">klass</span><span class="p">)</span>
+<span class="p">{</span>
 
-<span class="symbol">...</span><span class="normal"> Break the reference </span><span class="usertype">using</span><span class="normal"> </span><span class="function"><a href="GtkActivatable.html#gtk-activatable-do-set-related-action">gtk_activatable_do_set_related_action</a></span><span class="symbol">()...</span>
+  <span class="p">...</span>
 
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span>
-<span class="function">foo_bar_dispose</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GObject</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">object</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">FooBar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">bar </span><span class="symbol">=</span><span class="normal"> </span><span class="function">FOO_BAR</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="usertype">FooBarPrivate</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">priv </span><span class="symbol">=</span><span class="normal"> </span><span class="function">FOO_BAR_GET_PRIVATE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">bar</span><span class="symbol">);</span>
+  <span class="n">g_object_class_override_property</span> <span class="p">(</span><span class="n">gobject_class</span><span class="p">,</span> <span class="n">PROP_ACTIVATABLE_RELATED_ACTION</span><span class="p">,</span> <span class="s">&quot;related-action&quot;</span><span class="p">);</span>
+  <span class="n">g_object_class_override_property</span> <span class="p">(</span><span class="n">gobject_class</span><span class="p">,</span> <span class="n">PROP_ACTIVATABLE_USE_ACTION_APPEARANCE</span><span class="p">,</span> <span class="s">&quot;use-action-appearance&quot;</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="symbol">...</span>
-
-<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">action</span><span class="symbol">)</span>
-<span class="normal">    </span><span class="cbracket">{</span>
-<span class="normal">      </span><span class="function"><a href="GtkActivatable.html#gtk-activatable-do-set-related-action">gtk_activatable_do_set_related_action</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_ACTIVATABLE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">bar</span><span class="symbol">),</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
-<span class="normal">      priv</span><span class="symbol">-&gt;</span><span class="normal">action </span><span class="symbol">=</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">;</span>
-<span class="normal">    </span><span class="cbracket">}</span>
-<span class="normal">  </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT-CLASS:CAPS">G_OBJECT_CLASS</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">foo_bar_parent_class</span><span class="symbol">)-&gt;</span><span class="function">dispose</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
-<span class="cbracket">}</span>
-
-<span class="symbol">...</span><span class="normal"> Handle the “related</span><span class="symbol">-</span><span class="normal">action” and “use</span><span class="symbol">-</span><span class="normal">action</span><span class="symbol">-</span><span class="usertype">appearance”</span><span class="normal"> properties </span><span class="symbol">...</span>
-
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">foo_bar_set_property</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GObject</span><span class="normal">         </span><span class="symbol">*</span><span class="normal">object</span><span class="symbol">,</span>
-<span class="normal">                      </span><span class="usertype">guint</span><span class="normal">            prop_id</span><span class="symbol">,</span>
-<span class="normal">                      </span><span class="keyword">const</span><span class="normal"> </span><span class="usertype">GValue</span><span class="normal">    </span><span class="symbol">*</span><span class="normal">value</span><span class="symbol">,</span>
-<span class="normal">                      </span><span class="usertype">GParamSpec</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">pspec</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">FooBar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">bar </span><span class="symbol">=</span><span class="normal"> </span><span class="function">FOO_BAR</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="usertype">FooBarPrivate</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">priv </span><span class="symbol">=</span><span class="normal"> </span><span class="function">FOO_BAR_GET_PRIVATE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">bar</span><span class="symbol">);</span>
-
-<span class="normal">  </span><span class="keyword">switch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">prop_id</span><span class="symbol">)</span>
-<span class="normal">    </span><span class="cbracket">{</span>
-
-<span class="normal">      </span><span class="symbol">...</span>
-
-<span class="normal">    </span><span class="keyword">case</span><span class="normal"> PROP_ACTIVATABLE_RELATED_ACTION</span><span class="symbol">:</span>
-<span class="normal">      </span><span class="function">foo_bar_set_related_action</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">bar</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Standard-Parameter-and-Value-Types.html#g-value-get-object">g_value_get_object</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">value</span><span class="symbol">));</span>
-<span class="normal">      </span><span class="keyword">break</span><span class="symbol">;</span>
-<span class="normal">    </span><span class="keyword">case</span><span class="normal"> PROP_ACTIVATABLE_USE_ACTION_APPEARANCE</span><span class="symbol">:</span>
-<span class="normal">      </span><span class="function">foo_bar_set_use_action_appearance</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">bar</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Standard-Parameter-and-Value-Types.html#g-value-get-boolean">g_value_get_boolean</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">value</span><span class="symbol">));</span>
-<span class="normal">      </span><span class="keyword">break</span><span class="symbol">;</span>
-<span class="label">    default:</span>
-<span class="normal">      </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT-WARN-INVALID-PROPERTY-ID:CAPS">G_OBJECT_WARN_INVALID_PROPERTY_ID</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">,</span><span class="normal"> prop_id</span><span class="symbol">,</span><span class="normal"> pspec</span><span class="symbol">);</span>
-<span class="normal">      </span><span class="keyword">break</span><span class="symbol">;</span>
-<span class="normal">    </span><span class="cbracket">}</span>
-<span class="cbracket">}</span>
-
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">foo_bar_get_property</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GObject</span><span class="normal">         </span><span class="symbol">*</span><span class="normal">object</span><span class="symbol">,</span>
-<span class="normal">                         </span><span class="usertype">guint</span><span class="normal">            prop_id</span><span class="symbol">,</span>
-<span class="normal">                         </span><span class="usertype">GValue</span><span class="normal">          </span><span class="symbol">*</span><span class="normal">value</span><span class="symbol">,</span>
-<span class="normal">                         </span><span class="usertype">GParamSpec</span><span class="normal">      </span><span class="symbol">*</span><span class="normal">pspec</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">FooBar</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">bar </span><span class="symbol">=</span><span class="normal"> </span><span class="function">FOO_BAR</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="usertype">FooBarPrivate</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">priv </span><span class="symbol">=</span><span class="normal"> </span><span class="function">FOO_BAR_GET_PRIVATE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">bar</span><span class="symbol">);</span>
-
-<span class="normal">  </span><span class="keyword">switch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">prop_id</span><span class="symbol">)</span>
-<span class="normal">    </span><span class="cbracket">{</span><span class="normal"> </span>
-
-<span class="normal">      </span><span class="symbol">...</span>
-
-<span class="normal">    </span><span class="keyword">case</span><span class="normal"> PROP_ACTIVATABLE_RELATED_ACTION</span><span class="symbol">:</span>
-<span class="normal">      </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Standard-Parameter-and-Value-Types.html#g-value-set-object">g_value_set_object</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">value</span><span class="symbol">,</span><span class="normal"> priv</span><span class="symbol">-&gt;</span><span class="normal">action</span><span class="symbol">);</span>
-<span class="normal">      </span><span class="keyword">break</span><span class="symbol">;</span>
-<span class="normal">    </span><span class="keyword">case</span><span class="normal"> PROP_ACTIVATABLE_USE_ACTION_APPEARANCE</span><span class="symbol">:</span>
-<span class="normal">      </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-Standard-Parameter-and-Value-Types.html#g-value-set-boolean">g_value_set_boolean</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">value</span><span class="symbol">,</span><span class="normal"> priv</span><span class="symbol">-&gt;</span><span class="normal">use_action_appearance</span><span class="symbol">);</span>
-<span class="normal">      </span><span class="keyword">break</span><span class="symbol">;</span>
-<span class="label">    default:</span>
-<span class="normal">      </span><span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT-WARN-INVALID-PROPERTY-ID:CAPS">G_OBJECT_WARN_INVALID_PROPERTY_ID</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object</span><span class="symbol">,</span><span class="normal"> prop_id</span><span class="symbol">,</span><span class="normal"> pspec</span><span class="symbol">);</span>
-<span class="normal">      </span><span class="keyword">break</span><span class="symbol">;</span>
-<span class="normal">    </span><span class="cbracket">}</span>
-<span class="cbracket">}</span>
+  <span class="p">...</span>
+<span class="p">}</span>
 
 
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">foo_bar_set_use_action_appearance</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">FooBar</span><span class="normal">   </span><span class="symbol">*</span><span class="normal">bar</span><span class="symbol">,</span><span class="normal"> </span>
-<span class="normal">                   </span><span class="usertype">gboolean</span><span class="normal">  use_appearance</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">FooBarPrivate</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">priv </span><span class="symbol">=</span><span class="normal"> </span><span class="function">FOO_BAR_GET_PRIVATE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">bar</span><span class="symbol">);</span>
+<span class="k">static</span> <span class="kt">void</span>
+<span class="n">foo_bar_activatable_interface_init</span> <span class="p">(</span><span class="n">GtkActivatableIface</span>  <span class="o">*</span><span class="n">iface</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">iface</span><span class="o">-&gt;</span><span class="n">update</span> <span class="o">=</span> <span class="n">foo_bar_activatable_update</span><span class="p">;</span>
+  <span class="n">iface</span><span class="o">-&gt;</span><span class="n">sync_action_properties</span> <span class="o">=</span> <span class="n">foo_bar_activatable_sync_action_properties</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">use_action_appearance </span><span class="symbol">!=</span><span class="normal"> use_appearance</span><span class="symbol">)</span>
-<span class="normal">    </span><span class="cbracket">{</span>
-<span class="normal">      priv</span><span class="symbol">-&gt;</span><span class="normal">use_action_appearance </span><span class="symbol">=</span><span class="normal"> use_appearance</span><span class="symbol">;</span>
-<span class="normal">      </span>
-<span class="normal">      </span><span class="function"><a href="GtkActivatable.html#gtk-activatable-sync-action-properties">gtk_activatable_sync_action_properties</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_ACTIVATABLE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">bar</span><span class="symbol">),</span><span class="normal"> priv</span><span class="symbol">-&gt;</span><span class="normal">action</span><span class="symbol">);</span>
-<span class="normal">    </span><span class="cbracket">}</span>
-<span class="cbracket">}</span>
+<span class="p">...</span> <span class="n">Break</span> <span class="n">the</span> <span class="n">reference</span> <span class="n">using</span> <span class="n">gtk_activatable_do_set_related_action</span><span class="p">()...</span>
 
-<span class="symbol">...</span><span class="normal"> </span><span class="usertype">call</span><span class="normal"> </span><span class="function"><a href="GtkActivatable.html#gtk-activatable-do-set-related-action">gtk_activatable_do_set_related_action</a></span><span class="symbol">()</span><span class="normal"> and then assign the </span><span class="usertype">action</span><span class="normal"> pointer</span><span class="symbol">,</span><span class="normal"> </span>
-<span class="normal">no need to reference the action here </span><span class="usertype">since</span><span class="normal"> </span><span class="function"><a href="GtkActivatable.html#gtk-activatable-do-set-related-action">gtk_activatable_do_set_related_action</a></span><span class="symbol">()</span><span class="normal"> already </span>
-<span class="normal">holds a reference here </span><span class="usertype">for</span><span class="normal"> you</span><span class="symbol">...</span>
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">foo_bar_set_related_action</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">FooBar</span><span class="normal">    </span><span class="symbol">*</span><span class="normal">bar</span><span class="symbol">,</span><span class="normal"> </span>
-<span class="normal">                </span><span class="usertype">GtkAction</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">action</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">FooBarPrivate</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">priv </span><span class="symbol">=</span><span class="normal"> </span><span class="function">FOO_BAR_GET_PRIVATE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">bar</span><span class="symbol">);</span>
+<span class="k">static</span> <span class="kt">void</span> 
+<span class="n">foo_bar_dispose</span> <span class="p">(</span><span class="n">GObject</span> <span class="o">*</span><span class="n">object</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">FooBar</span> <span class="o">*</span><span class="n">bar</span> <span class="o">=</span> <span class="n">FOO_BAR</span> <span class="p">(</span><span class="n">object</span><span class="p">);</span>
+  <span class="n">FooBarPrivate</span> <span class="o">*</span><span class="n">priv</span> <span class="o">=</span> <span class="n">FOO_BAR_GET_PRIVATE</span> <span class="p">(</span><span class="n">bar</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">action </span><span class="symbol">==</span><span class="normal"> action</span><span class="symbol">)</span>
-<span class="normal">    </span><span class="keyword">return</span><span class="symbol">;</span>
+  <span class="p">...</span>
 
-<span class="normal">  </span><span class="function"><a href="GtkActivatable.html#gtk-activatable-do-set-related-action">gtk_activatable_do_set_related_action</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_ACTIVATABLE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">bar</span><span class="symbol">),</span><span class="normal"> action</span><span class="symbol">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">action</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">gtk_activatable_do_set_related_action</span> <span class="p">(</span><span class="n">GTK_ACTIVATABLE</span> <span class="p">(</span><span class="n">bar</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
+      <span class="n">priv</span><span class="o">-&gt;</span><span class="n">action</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="n">G_OBJECT_CLASS</span> <span class="p">(</span><span class="n">foo_bar_parent_class</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">dispose</span> <span class="p">(</span><span class="n">object</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="normal">  priv</span><span class="symbol">-&gt;</span><span class="normal">action </span><span class="symbol">=</span><span class="normal"> action</span><span class="symbol">;</span>
-<span class="cbracket">}</span>
+<span class="p">...</span> <span class="n">Handle</span> <span class="n">the</span> <span class="err">“</span><span class="n">related</span><span class="o">-</span><span class="n">action</span><span class="err">”</span> <span class="n">and</span> <span class="err">“</span><span class="n">use</span><span class="o">-</span><span class="n">action</span><span class="o">-</span><span class="n">appearance</span><span class="err">”</span> <span class="n">properties</span> <span class="p">...</span>
 
-<span class="symbol">...</span><span class="normal"> Selectively reset and update activatable depending on </span><span class="usertype">the</span><span class="normal"> use</span><span class="symbol">-</span><span class="normal">action</span><span class="symbol">-</span><span class="usertype">appearance</span><span class="normal"> property </span><span class="symbol">...</span>
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">gtk_button_activatable_sync_action_properties</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkActivatable</span><span class="normal">       </span><span class="symbol">*</span><span class="normal">activatable</span><span class="symbol">,</span>
-<span class="normal">                                          </span><span class="usertype">GtkAction</span><span class="normal">            </span><span class="symbol">*</span><span class="normal">action</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">GtkButtonPrivate</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">priv </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GTK_BUTTON_GET_PRIVATE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">activatable</span><span class="symbol">);</span>
+<span class="k">static</span> <span class="kt">void</span>
+<span class="n">foo_bar_set_property</span> <span class="p">(</span><span class="n">GObject</span>         <span class="o">*</span><span class="n">object</span><span class="p">,</span>
+                      <span class="n">guint</span>            <span class="n">prop_id</span><span class="p">,</span>
+                      <span class="k">const</span> <span class="n">GValue</span>    <span class="o">*</span><span class="n">value</span><span class="p">,</span>
+                      <span class="n">GParamSpec</span>      <span class="o">*</span><span class="n">pspec</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">FooBar</span> <span class="o">*</span><span class="n">bar</span> <span class="o">=</span> <span class="n">FOO_BAR</span> <span class="p">(</span><span class="n">object</span><span class="p">);</span>
+  <span class="n">FooBarPrivate</span> <span class="o">*</span><span class="n">priv</span> <span class="o">=</span> <span class="n">FOO_BAR_GET_PRIVATE</span> <span class="p">(</span><span class="n">bar</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(!</span><span class="normal">action</span><span class="symbol">)</span>
-<span class="normal">    </span><span class="keyword">return</span><span class="symbol">;</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="n">prop_id</span><span class="p">)</span>
+    <span class="p">{</span>
 
-<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GtkAction.html#gtk-action-is-visible">gtk_action_is_visible</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">))</span>
-<span class="normal">    </span><span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">activatable</span><span class="symbol">));</span>
-<span class="normal">  </span><span class="keyword">else</span>
-<span class="normal">    </span><span class="function"><a href="GtkWidget.html#gtk-widget-hide">gtk_widget_hide</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">activatable</span><span class="symbol">));</span>
-<span class="normal">  </span>
-<span class="normal">  </span><span class="function"><a href="GtkWidget.html#gtk-widget-set-sensitive">gtk_widget_set_sensitive</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">activatable</span><span class="symbol">),</span><span class="normal"> </span><span class="function"><a href="GtkAction.html#gtk-action-is-sensitive">gtk_action_is_sensitive</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">));</span>
+      <span class="p">...</span>
 
-<span class="normal">  </span><span class="symbol">...</span>
-<span class="normal">  </span>
-<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">use_action_appearance</span><span class="symbol">)</span>
-<span class="normal">    </span><span class="cbracket">{</span>
-<span class="normal">      </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GtkAction.html#gtk-action-get-stock-id">gtk_action_get_stock_id</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">))</span>
-<span class="normal">    </span><span class="function">foo_bar_set_stock</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">button</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="GtkAction.html#gtk-action-get-stock-id">gtk_action_get_stock_id</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">));</span>
-<span class="normal">      </span><span class="keyword">else</span><span class="normal"> </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GtkAction.html#gtk-action-get-label">gtk_action_get_label</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">))</span>
-<span class="normal">    </span><span class="function">foo_bar_set_label</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">button</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="GtkAction.html#gtk-action-get-label">gtk_action_get_label</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">));</span>
+    <span class="k">case</span> <span class="nl">PROP_ACTIVATABLE_RELATED_ACTION</span><span class="p">:</span>
+      <span class="n">foo_bar_set_related_action</span> <span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="n">g_value_get_object</span> <span class="p">(</span><span class="n">value</span><span class="p">));</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">PROP_ACTIVATABLE_USE_ACTION_APPEARANCE</span><span class="p">:</span>
+      <span class="n">foo_bar_set_use_action_appearance</span> <span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="n">g_value_get_boolean</span> <span class="p">(</span><span class="n">value</span><span class="p">));</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="n">G_OBJECT_WARN_INVALID_PROPERTY_ID</span> <span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="n">prop_id</span><span class="p">,</span> <span class="n">pspec</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="normal">      </span><span class="symbol">...</span>
+<span class="k">static</span> <span class="kt">void</span>
+<span class="n">foo_bar_get_property</span> <span class="p">(</span><span class="n">GObject</span>         <span class="o">*</span><span class="n">object</span><span class="p">,</span>
+                         <span class="n">guint</span>            <span class="n">prop_id</span><span class="p">,</span>
+                         <span class="n">GValue</span>          <span class="o">*</span><span class="n">value</span><span class="p">,</span>
+                         <span class="n">GParamSpec</span>      <span class="o">*</span><span class="n">pspec</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">FooBar</span> <span class="o">*</span><span class="n">bar</span> <span class="o">=</span> <span class="n">FOO_BAR</span> <span class="p">(</span><span class="n">object</span><span class="p">);</span>
+  <span class="n">FooBarPrivate</span> <span class="o">*</span><span class="n">priv</span> <span class="o">=</span> <span class="n">FOO_BAR_GET_PRIVATE</span> <span class="p">(</span><span class="n">bar</span><span class="p">);</span>
 
-<span class="normal">    </span><span class="cbracket">}</span>
-<span class="cbracket">}</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="n">prop_id</span><span class="p">)</span>
+    <span class="p">{</span> 
 
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span>
-<span class="function">foo_bar_activatable_update</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">GtkActivatable</span><span class="normal">       </span><span class="symbol">*</span><span class="normal">activatable</span><span class="symbol">,</span>
-<span class="normal">                   </span><span class="usertype">GtkAction</span><span class="normal">            </span><span class="symbol">*</span><span class="normal">action</span><span class="symbol">,</span>
-<span class="normal">                   </span><span class="keyword">const</span><span class="normal"> </span><span class="usertype">gchar</span><span class="normal">          </span><span class="symbol">*</span><span class="normal">property_name</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">FooBarPrivate</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">priv </span><span class="symbol">=</span><span class="normal"> </span><span class="function">FOO_BAR_GET_PRIVATE</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">activatable</span><span class="symbol">);</span>
+      <span class="p">...</span>
 
-<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function">strcmp</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">property_name</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"visible"</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">==</span><span class="normal"> </span><span class="number">0</span><span class="symbol">)</span>
-<span class="normal">    </span><span class="cbracket">{</span>
-<span class="normal">      </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="GtkAction.html#gtk-action-is-visible">gtk_action_is_visible</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">))</span>
-<span class="normal">    </span><span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">activatable</span><span class="symbol">));</span>
-<span class="normal">      </span><span class="keyword">else</span>
-<span class="normal">    </span><span class="function"><a href="GtkWidget.html#gtk-widget-hide">gtk_widget_hide</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">activatable</span><span class="symbol">));</span>
-<span class="normal">    </span><span class="cbracket">}</span>
-<span class="normal">  </span><span class="keyword">else</span><span class="normal"> </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function">strcmp</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">property_name</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"sensitive"</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">==</span><span class="normal"> </span><span class="number">0</span><span class="symbol">)</span>
-<span class="normal">    </span><span class="function"><a href="GtkWidget.html#gtk-widget-set-sensitive">gtk_widget_set_sensitive</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_WIDGET</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">activatable</span><span class="symbol">),</span><span class="normal"> </span><span class="function"><a href="GtkAction.html#gtk-action-is-sensitive">gtk_action_is_sensitive</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">));</span>
+    <span class="k">case</span> <span class="nl">PROP_ACTIVATABLE_RELATED_ACTION</span><span class="p">:</span>
+      <span class="n">g_value_set_object</span> <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">priv</span><span class="o">-&gt;</span><span class="n">action</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">PROP_ACTIVATABLE_USE_ACTION_APPEARANCE</span><span class="p">:</span>
+      <span class="n">g_value_set_boolean</span> <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">priv</span><span class="o">-&gt;</span><span class="n">use_action_appearance</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="n">G_OBJECT_WARN_INVALID_PROPERTY_ID</span> <span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="n">prop_id</span><span class="p">,</span> <span class="n">pspec</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="normal">  </span><span class="symbol">...</span>
 
-<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(!</span><span class="normal">priv</span><span class="symbol">-&gt;</span><span class="normal">use_action_appearance</span><span class="symbol">)</span>
-<span class="normal">    </span><span class="keyword">return</span><span class="symbol">;</span>
+<span class="k">static</span> <span class="kt">void</span>
+<span class="n">foo_bar_set_use_action_appearance</span> <span class="p">(</span><span class="n">FooBar</span>   <span class="o">*</span><span class="n">bar</span><span class="p">,</span> 
+				   <span class="n">gboolean</span>  <span class="n">use_appearance</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">FooBarPrivate</span> <span class="o">*</span><span class="n">priv</span> <span class="o">=</span> <span class="n">FOO_BAR_GET_PRIVATE</span> <span class="p">(</span><span class="n">bar</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function">strcmp</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">property_name</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"stock-id"</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">==</span><span class="normal"> </span><span class="number">0</span><span class="symbol">)</span>
-<span class="normal">    </span><span class="function">foo_bar_set_stock</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">button</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="GtkAction.html#gtk-action-get-stock-id">gtk_action_get_stock_id</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">));</span>
-<span class="normal">  </span><span class="keyword">else</span><span class="normal"> </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="function">strcmp</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">property_name</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"label"</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">==</span><span class="normal"> </span><span class="number">0</span><span class="symbol">)</span>
-<span class="normal">    </span><span class="function">foo_bar_set_label</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">button</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="GtkAction.html#gtk-action-get-label">gtk_action_get_label</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">action</span><span class="symbol">));</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">use_action_appearance</span> <span class="o">!=</span> <span class="n">use_appearance</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">priv</span><span class="o">-&gt;</span><span class="n">use_action_appearance</span> <span class="o">=</span> <span class="n">use_appearance</span><span class="p">;</span>
+      
+      <span class="n">gtk_activatable_sync_action_properties</span> <span class="p">(</span><span class="n">GTK_ACTIVATABLE</span> <span class="p">(</span><span class="n">bar</span><span class="p">),</span> <span class="n">priv</span><span class="o">-&gt;</span><span class="n">action</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="normal">  </span><span class="symbol">...</span>
-<span class="cbracket">}</span></pre></td>
+<span class="p">...</span> <span class="n">call</span> <span class="n">gtk_activatable_do_set_related_action</span><span class="p">()</span> <span class="n">and</span> <span class="n">then</span> <span class="n">assign</span> <span class="n">the</span> <span class="n">action</span> <span class="n">pointer</span><span class="p">,</span> 
+<span class="n">no</span> <span class="n">need</span> <span class="n">to</span> <span class="n">reference</span> <span class="n">the</span> <span class="n">action</span> <span class="n">here</span> <span class="n">since</span> <span class="n">gtk_activatable_do_set_related_action</span><span class="p">()</span> <span class="n">already</span> 
+<span class="n">holds</span> <span class="n">a</span> <span class="n">reference</span> <span class="n">here</span> <span class="k">for</span> <span class="n">you</span><span class="p">...</span>
+<span class="k">static</span> <span class="kt">void</span>
+<span class="n">foo_bar_set_related_action</span> <span class="p">(</span><span class="n">FooBar</span>    <span class="o">*</span><span class="n">bar</span><span class="p">,</span> 
+			    <span class="n">GtkAction</span> <span class="o">*</span><span class="n">action</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">FooBarPrivate</span> <span class="o">*</span><span class="n">priv</span> <span class="o">=</span> <span class="n">FOO_BAR_GET_PRIVATE</span> <span class="p">(</span><span class="n">bar</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">action</span> <span class="o">==</span> <span class="n">action</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">;</span>
+
+  <span class="n">gtk_activatable_do_set_related_action</span> <span class="p">(</span><span class="n">GTK_ACTIVATABLE</span> <span class="p">(</span><span class="n">bar</span><span class="p">),</span> <span class="n">action</span><span class="p">);</span>
+
+  <span class="n">priv</span><span class="o">-&gt;</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">...</span> <span class="n">Selectively</span> <span class="n">reset</span> <span class="n">and</span> <span class="n">update</span> <span class="n">activatable</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">the</span> <span class="n">use</span><span class="o">-</span><span class="n">action</span><span class="o">-</span><span class="n">appearance</span> <span class="n">property</span> <span class="p">...</span>
+<span class="k">static</span> <span class="kt">void</span>
+<span class="n">gtk_button_activatable_sync_action_properties</span> <span class="p">(</span><span class="n">GtkActivatable</span>       <span class="o">*</span><span class="n">activatable</span><span class="p">,</span>
+		                                  <span class="n">GtkAction</span>            <span class="o">*</span><span class="n">action</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GtkButtonPrivate</span> <span class="o">*</span><span class="n">priv</span> <span class="o">=</span> <span class="n">GTK_BUTTON_GET_PRIVATE</span> <span class="p">(</span><span class="n">activatable</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">action</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">gtk_action_is_visible</span> <span class="p">(</span><span class="n">action</span><span class="p">))</span>
+    <span class="n">gtk_widget_show</span> <span class="p">(</span><span class="n">GTK_WIDGET</span> <span class="p">(</span><span class="n">activatable</span><span class="p">));</span>
+  <span class="k">else</span>
+    <span class="nf">gtk_widget_hide</span> <span class="p">(</span><span class="n">GTK_WIDGET</span> <span class="p">(</span><span class="n">activatable</span><span class="p">));</span>
+  
+  <span class="n">gtk_widget_set_sensitive</span> <span class="p">(</span><span class="n">GTK_WIDGET</span> <span class="p">(</span><span class="n">activatable</span><span class="p">),</span> <span class="n">gtk_action_is_sensitive</span> <span class="p">(</span><span class="n">action</span><span class="p">));</span>
+
+  <span class="p">...</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">use_action_appearance</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">gtk_action_get_stock_id</span> <span class="p">(</span><span class="n">action</span><span class="p">))</span>
+	<span class="n">foo_bar_set_stock</span> <span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">gtk_action_get_stock_id</span> <span class="p">(</span><span class="n">action</span><span class="p">));</span>
+      <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">gtk_action_get_label</span> <span class="p">(</span><span class="n">action</span><span class="p">))</span>
+	<span class="n">foo_bar_set_label</span> <span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">gtk_action_get_label</span> <span class="p">(</span><span class="n">action</span><span class="p">));</span>
+
+      <span class="p">...</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> 
+<span class="n">foo_bar_activatable_update</span> <span class="p">(</span><span class="n">GtkActivatable</span>       <span class="o">*</span><span class="n">activatable</span><span class="p">,</span>
+			       <span class="n">GtkAction</span>            <span class="o">*</span><span class="n">action</span><span class="p">,</span>
+			       <span class="k">const</span> <span class="n">gchar</span>          <span class="o">*</span><span class="n">property_name</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">FooBarPrivate</span> <span class="o">*</span><span class="n">priv</span> <span class="o">=</span> <span class="n">FOO_BAR_GET_PRIVATE</span> <span class="p">(</span><span class="n">activatable</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span> <span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="s">&quot;visible&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">gtk_action_is_visible</span> <span class="p">(</span><span class="n">action</span><span class="p">))</span>
+	<span class="n">gtk_widget_show</span> <span class="p">(</span><span class="n">GTK_WIDGET</span> <span class="p">(</span><span class="n">activatable</span><span class="p">));</span>
+      <span class="k">else</span>
+	<span class="nf">gtk_widget_hide</span> <span class="p">(</span><span class="n">GTK_WIDGET</span> <span class="p">(</span><span class="n">activatable</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span> <span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="s">&quot;sensitive&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">gtk_widget_set_sensitive</span> <span class="p">(</span><span class="n">GTK_WIDGET</span> <span class="p">(</span><span class="n">activatable</span><span class="p">),</span> <span class="n">gtk_action_is_sensitive</span> <span class="p">(</span><span class="n">action</span><span class="p">));</span>
+
+  <span class="p">...</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">use_action_appearance</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span> <span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="s">&quot;stock-id&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">foo_bar_set_stock</span> <span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">gtk_action_get_stock_id</span> <span class="p">(</span><span class="n">action</span><span class="p">));</span>
+  <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">strcmp</span> <span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="s">&quot;label&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">foo_bar_set_label</span> <span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">gtk_action_get_label</span> <span class="p">(</span><span class="n">action</span><span class="p">));</span>
+
+  <span class="p">...</span>
+<span class="p">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -626,7 +626,7 @@ gtk_activatable_do_set_related_action (<em class="parameter"><code><a class="lin
 <p>This is a utility function for <a class="link" href="GtkActivatable.html" title="GtkActivatable"><span class="type">GtkActivatable</span></a> implementors.</p>
 <p>When implementing <a class="link" href="GtkActivatable.html" title="GtkActivatable"><span class="type">GtkActivatable</span></a> you must call this when
 handling changes of the <a class="link" href="GtkActivatable.html#GtkActivatable--related-action" title="The “related-action” property"><span class="type">“related-action”</span></a>, and
-you must also use this to break references in <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a>-&gt;<code class="function">dispose()</code>.</p>
+you must also use this to break references in <span class="type">GObject</span>-&gt;<code class="function">dispose()</code>.</p>
 <p>This function adds a reference to the currently set related
 action for you, it also makes sure the <a class="link" href="GtkActivatable.html" title="GtkActivatable"><span class="type">GtkActivatable</span></a>-&gt;<code class="function">update()</code>
 method is called when the related <a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> properties change
@@ -692,7 +692,7 @@ gtk_activatable_get_related_action (<em class="parameter"><code><a class="link" 
 <hr>
 <div class="refsect2">
 <a name="gtk-activatable-get-use-action-appearance"></a><h3>gtk_activatable_get_use_action_appearance ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_activatable_get_use_action_appearance
                                (<em class="parameter"><code><a class="link" href="GtkActivatable.html" title="GtkActivatable"><span class="type">GtkActivatable</span></a> *activatable</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_activatable_get_use_action_appearance</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p></div>
@@ -749,7 +749,7 @@ or unset and by the implementing class when
 </tr>
 <tr>
 <td class="parameter_name"><p>action</p></td>
-<td class="parameter_description"><p>the related <a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>the related <a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -798,7 +798,7 @@ property and call <a class="link" href="GtkActivatable.html#gtk-activatable-do-s
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_activatable_set_use_action_appearance
                                (<em class="parameter"><code><a class="link" href="GtkActivatable.html" title="GtkActivatable"><span class="type">GtkActivatable</span></a> *activatable</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_appearance</code></em>);</pre>
+                                <em class="parameter"><code><span class="type">gboolean</span> use_appearance</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_activatable_set_use_action_appearance</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p></div>
 <p>Sets whether this activatable should reset its layout and appearance
 when setting the related action or when the action changes appearance</p>
@@ -851,7 +851,7 @@ if needed.</p></blockquote></div>
 };
 </pre>
 <div class="warning"><p><code class="literal">GtkActivatableIface</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p></div>
-<div class="blockquote"><blockquote class="blockquote"><p>This method can be called with a <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> action at times.</p></blockquote></div>
+<div class="blockquote"><blockquote class="blockquote"><p>This method can be called with a <code class="literal">NULL</code> action at times.</p></blockquote></div>
 <div class="refsect3">
 <a name="GtkActivatableIface.members"></a><h4>Members</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -891,22 +891,24 @@ updates from for various states and possibly appearance.</p>
 <div class="blockquote"><blockquote class="blockquote"><p><a class="link" href="GtkActivatable.html" title="GtkActivatable"><span class="type">GtkActivatable</span></a> implementors need to handle the this property and
 call <a class="link" href="GtkActivatable.html#gtk-activatable-do-set-related-action" title="gtk_activatable_do_set_related_action ()"><code class="function">gtk_activatable_do_set_related_action()</code></a> when it changes.</p></blockquote></div>
 <div class="warning"><p><code class="literal">GtkActivatable:related-action</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p></div>
+<p>Owner: GtkActivatable</p>
 <p>Flags: Read / Write</p>
 <p class="since">Since: 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkActivatable--use-action-appearance"></a><h3>The <code class="literal">“use-action-appearance”</code> property</h3>
-<pre class="programlisting">  “use-action-appearance”    <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “use-action-appearance”    <span class="type">gboolean</span></pre>
 <p>Whether this activatable should reset its layout
 and appearance when setting the related action or when
 the action changes appearance.</p>
 <p>See the <a class="link" href="GtkAction.html" title="GtkAction"><span class="type">GtkAction</span></a> documentation directly to find which properties
-should be ignored by the <a class="link" href="GtkActivatable.html" title="GtkActivatable"><span class="type">GtkActivatable</span></a> when this property is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</p>
+should be ignored by the <a class="link" href="GtkActivatable.html" title="GtkActivatable"><span class="type">GtkActivatable</span></a> when this property is <code class="literal">FALSE</code>.</p>
 <div class="blockquote"><blockquote class="blockquote"><p><a class="link" href="GtkActivatable.html" title="GtkActivatable"><span class="type">GtkActivatable</span></a> implementors need to handle this property
 and call <a class="link" href="GtkActivatable.html#gtk-activatable-sync-action-properties" title="gtk_activatable_sync_action_properties ()"><code class="function">gtk_activatable_sync_action_properties()</code></a> on the activatable
 widget when it changes.</p></blockquote></div>
 <div class="warning"><p><code class="literal">GtkActivatable:use-action-appearance</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p></div>
+<p>Owner: GtkActivatable</p>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
 <p class="since">Since: 2.16</p>
@@ -914,6 +916,6 @@ widget when it changes.</p></blockquote></div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

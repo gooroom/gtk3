@@ -169,8 +169,9 @@ am__uninstall_files_from_dir = { \
     || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
          $(am__cd) "$$dir" && rm -f $$files; }; \
   }
-am__installdirs = "$(DESTDIR)$(pkgconfigdir)"
-DATA = $(pkgconfig_DATA)
+am__installdirs = "$(DESTDIR)$(pkgconfigdir)" \
+	"$(DESTDIR)$(valgrinddir)"
+DATA = $(pkgconfig_DATA) $(valgrind_DATA)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
   distclean-recursive maintainer-clean-recursive
 am__recursive_targets = \
@@ -321,7 +322,6 @@ ENABLE_ON_X11 = @ENABLE_ON_X11@
 EXEEXT = @EXEEXT@
 EXE_MANIFEST_ARCHITECTURE = @EXE_MANIFEST_ARCHITECTURE@
 FGREP = @FGREP@
-GAIL_INET_LIBS = @GAIL_INET_LIBS@
 GAIL_LT_CURRENT_MINUS_AGE = @GAIL_LT_CURRENT_MINUS_AGE@
 GAIL_LT_VERSION_INFO = @GAIL_LT_VERSION_INFO@
 GDK_BACKENDS = @GDK_BACKENDS@
@@ -379,7 +379,6 @@ GTK_PRINT_BACKENDS = @GTK_PRINT_BACKENDS@
 GTK_PRIVATE_PACKAGES = @GTK_PRIVATE_PACKAGES@
 GTK_VERSION = @GTK_VERSION@
 GTK_XIM_FLAGS = @GTK_XIM_FLAGS@
-HAVE_HTTP_AUTHSTRING = @HAVE_HTTP_AUTHSTRING@
 HTML_DIR = @HTML_DIR@
 INCLUDED_IMMODULE_DEFINE = @INCLUDED_IMMODULE_DEFINE@
 INCLUDED_IMMODULE_OBJ = @INCLUDED_IMMODULE_OBJ@
@@ -458,6 +457,8 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 SHM_LIBS = @SHM_LIBS@
 STRIP = @STRIP@
+TRACKER3_CFLAGS = @TRACKER3_CFLAGS@
+TRACKER3_LIBS = @TRACKER3_LIBS@
 USE_NLS = @USE_NLS@
 VERSION = @VERSION@
 WAYLAND_PROTOCOLS_DATADIR = @WAYLAND_PROTOCOLS_DATADIR@
@@ -475,6 +476,8 @@ X_CFLAGS = @X_CFLAGS@
 X_EXTRA_LIBS = @X_EXTRA_LIBS@
 X_LIBS = @X_LIBS@
 X_PRE_LIBS = @X_PRE_LIBS@
+_GI_EXP_DATADIR = @_GI_EXP_DATADIR@
+_GI_EXP_LIBDIR = @_GI_EXP_LIBDIR@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -536,9 +539,12 @@ GTESTER_REPORT = gtester-report		# in $PATH for non-GLIB packages
 
 # initialize variables for unconditional += appending
 EXTRA_DIST = autogen.sh HACKING README README.in INSTALL INSTALL.in \
-	NEWS.pre-1-0 README.commits README.win32 config.h.win32 \
-	makefile.msc gtk-zip.sh.in sanitize-la.sh \
-	po/README.translators po/po2tbl.sed.in make-pot
+	NEWS.pre-1-0 README.commits README.win32 check-version.py \
+	config.h.win32 makefile.msc gtk-zip.sh.in sanitize-la.sh \
+	po/README.translators po/po2tbl.sed.in make-pot \
+	meson_options.txt meson.build po/meson.build \
+	po-properties/meson.build build-aux/meson/post-install.py \
+	config.h.meson gtk.supp
 TEST_PROGS = 
 
 ### testing rules
@@ -568,7 +574,7 @@ XVFB_START = \
 	&& DISPLAY=:$$XID && export DISPLAY
 
 SRC_SUBDIRS = gdk gtk libgail-util modules demos tests testsuite examples
-SUBDIRS = po po-properties $(SRC_SUBDIRS) docs m4macros build
+SUBDIRS = po po-properties $(SRC_SUBDIRS) docs m4macros win32
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 MAINTAINERCLEANFILES = \
 	$(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) \
@@ -580,6 +586,8 @@ MAINTAINERCLEANFILES = \
 	$(srcdir)/gtk-doc.make \
 	$(srcdir)/ChangeLog
 
+@OS_UNIX_TRUE@valgrinddir = $(datadir)/gtk-3.0/valgrind
+@OS_UNIX_TRUE@valgrind_DATA = gtk.supp
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gdk-3.0.pc gtk+-3.0.pc gail-3.0.pc \
 	${GDK_BACKENDS:%=gtk+-%-3.0.pc} ${GDK_BACKENDS:%=gdk-%-3.0.pc} \
@@ -592,14 +600,12 @@ DISTCLEANFILES = \
 	gtk+-quartz-3.0.pc		\
 	gtk+-broadway-3.0.pc		\
 	gtk+-wayland-3.0.pc		\
-	gtk+-mir-3.0.pc			\
 	gdk-3.0.pc			\
 	gdk-x11-3.0.pc			\
 	gdk-win32-3.0.pc		\
 	gdk-quartz-3.0.pc		\
 	gdk-broadway-3.0.pc		\
 	gdk-wayland-3.0.pc		\
-	gdk-mir-3.0.pc			\
 	gail-3.0.pc			\
 	config.lt
 
@@ -712,6 +718,27 @@ uninstall-pkgconfigDATA:
 	@list='$(pkgconfig_DATA)'; test -n "$(pkgconfigdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(pkgconfigdir)'; $(am__uninstall_files_from_dir)
+install-valgrindDATA: $(valgrind_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(valgrind_DATA)'; test -n "$(valgrinddir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(valgrinddir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(valgrinddir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(valgrinddir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(valgrinddir)" || exit $$?; \
+	done
+
+uninstall-valgrindDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(valgrind_DATA)'; test -n "$(valgrinddir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(valgrinddir)'; $(am__uninstall_files_from_dir)
 
 # This directory's subdirectories are mostly independent; you can cd
 # into them and run 'make' without going through this Makefile.
@@ -879,6 +906,9 @@ distdir-am: $(DISTFILES)
 	      || exit 1; \
 	  fi; \
 	done
+	$(MAKE) $(AM_MAKEFLAGS) \
+	  top_distdir="$(top_distdir)" distdir="$(distdir)" \
+	  dist-hook
 	-test -n "$(am__skip_mode_fix)" \
 	|| find "$(distdir)" -type d ! -perm -755 \
 		-exec chmod u+rwx,go+rx {} \; -o \
@@ -1015,7 +1045,7 @@ check: check-recursive
 all-am: Makefile $(DATA) config.h
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(pkgconfigdir)"; do \
+	for dir in "$(DESTDIR)$(pkgconfigdir)" "$(DESTDIR)$(valgrinddir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-recursive
@@ -1072,7 +1102,7 @@ info: info-recursive
 
 info-am:
 
-install-data-am: install-pkgconfigDATA
+install-data-am: install-pkgconfigDATA install-valgrindDATA
 
 install-dvi: install-dvi-recursive
 
@@ -1118,27 +1148,29 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-local uninstall-pkgconfigDATA
+uninstall-am: uninstall-local uninstall-pkgconfigDATA \
+	uninstall-valgrindDATA
 
 .MAKE: $(am__recursive_targets) all check-am install-am install-strip
 
 .PHONY: $(am__recursive_targets) CTAGS GTAGS TAGS all all-am \
 	am--refresh check check-am check-local clean clean-cscope \
 	clean-generic clean-libtool cscope cscopelist-am ctags \
-	ctags-am dist dist-all dist-bzip2 dist-gzip dist-lzip \
-	dist-shar dist-tarZ dist-xz dist-zip distcheck distclean \
-	distclean-generic distclean-hdr distclean-libtool \
+	ctags-am dist dist-all dist-bzip2 dist-gzip dist-hook \
+	dist-lzip dist-shar dist-tarZ dist-xz dist-zip distcheck \
+	distclean distclean-generic distclean-hdr distclean-libtool \
 	distclean-local distclean-tags distcleancheck distdir \
 	distuninstallcheck dvi dvi-am html html-am info info-am \
 	install install-am install-data install-data-am install-dvi \
 	install-dvi-am install-exec install-exec-am install-html \
 	install-html-am install-info install-info-am install-man \
 	install-pdf install-pdf-am install-pkgconfigDATA install-ps \
-	install-ps-am install-strip installcheck installcheck-am \
-	installdirs installdirs-am maintainer-clean \
+	install-ps-am install-strip install-valgrindDATA installcheck \
+	installcheck-am installdirs installdirs-am maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-generic \
 	mostlyclean-libtool pdf pdf-am ps ps-am tags tags-am uninstall \
-	uninstall-am uninstall-local uninstall-pkgconfigDATA
+	uninstall-am uninstall-local uninstall-pkgconfigDATA \
+	uninstall-valgrindDATA
 
 .PRECIOUS: Makefile
 
@@ -1200,13 +1232,18 @@ test-report perf-report full-report:	${TEST_PROGS}
 # run make test-cwd as part of make check
 check-local: test-cwd
 
-gtk+-x11-3.0.pc gtk+-win32-3.0.pc gtk+-quartz-3.0.pc gtk+-broadway-3.0.pc gtk+-wayland-3.0.pc gtk+-mir-3.0.pc: gtk+-3.0.pc
+gtk+-x11-3.0.pc gtk+-win32-3.0.pc gtk+-quartz-3.0.pc gtk+-broadway-3.0.pc gtk+-wayland-3.0.pc: gtk+-3.0.pc
 	rm -f $@ && \
 	cp gtk+-3.0.pc $@
 
-gdk-x11-3.0.pc gdk-win32-3.0.pc gdk-quartz-3.0.pc gdk-broadway-3.0.pc gdk-wayland-3.0.pc gdk-mir-3.0.pc: gdk-3.0.pc
+gdk-x11-3.0.pc gdk-win32-3.0.pc gdk-quartz-3.0.pc gdk-broadway-3.0.pc gdk-wayland-3.0.pc: gdk-3.0.pc
 	rm -f $@ && \
 	cp gdk-3.0.pc $@
+
+dist-hook:
+	mkdir $(distdir)/subprojects
+	cp -p $(srcdir)/subprojects/*.wrap $(distdir)/subprojects
+	$(top_srcdir)/check-version.py $(top_srcdir)/configure.ac $(top_srcdir)/meson.build
 
 distclean-local:
 	if test "$(srcdir)" = "."; then :; else \

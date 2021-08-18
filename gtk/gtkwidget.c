@@ -673,6 +673,8 @@ static gboolean _gtk_widget_run_controllers      (GtkWidget           *widget,
 static void	gtk_widget_dispatch_child_properties_changed	(GtkWidget        *object,
 								 guint             n_pspecs,
 								 GParamSpec      **pspecs);
+static gboolean         gtk_widget_real_scroll_event            (GtkWidget        *widget,
+                                                                 GdkEventScroll   *event);
 static gboolean         gtk_widget_real_button_event            (GtkWidget        *widget,
                                                                  GdkEventButton   *event);
 static gboolean         gtk_widget_real_motion_event            (GtkWidget        *widget,
@@ -1061,6 +1063,7 @@ gtk_widget_class_init (GtkWidgetClass *klass)
   klass->move_focus = gtk_widget_real_move_focus;
   klass->keynav_failed = gtk_widget_real_keynav_failed;
   klass->event = NULL;
+  klass->scroll_event = gtk_widget_real_scroll_event;
   klass->button_press_event = gtk_widget_real_button_event;
   klass->button_release_event = gtk_widget_real_button_event;
   klass->motion_notify_event = gtk_widget_real_motion_event;
@@ -1910,7 +1913,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
                   G_SIGNAL_RUN_FIRST,
                   G_STRUCT_OFFSET (GtkWidgetClass, style_updated),
                   NULL, NULL,
-                  g_cclosure_marshal_VOID__VOID,
+                  NULL,
                   G_TYPE_NONE, 0);
 
   /**
@@ -1971,7 +1974,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		   G_SIGNAL_RUN_FIRST | G_SIGNAL_NO_RECURSE | G_SIGNAL_DETAILED | G_SIGNAL_NO_HOOKS,
 		   G_STRUCT_OFFSET (GtkWidgetClass, child_notify),
 		   NULL, NULL,
-		   g_cclosure_marshal_VOID__PARAM,
+		   NULL,
 		   G_TYPE_NONE, 1,
 		   G_TYPE_PARAM);
 
@@ -2035,6 +2038,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  _gtk_marshal_BOOLEAN__BOOLEAN,
 		  G_TYPE_BOOLEAN, 1,
 		  G_TYPE_BOOLEAN);
+  g_signal_set_va_marshaller (widget_signals[MNEMONIC_ACTIVATE],
+                              G_TYPE_FROM_CLASS (gobject_class),
+                              _gtk_marshal_BOOLEAN__BOOLEANv);
 
   /**
    * GtkWidget::grab-focus:
@@ -2065,6 +2071,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  _gtk_marshal_BOOLEAN__ENUM,
 		  G_TYPE_BOOLEAN, 1,
 		  GTK_TYPE_DIRECTION_TYPE);
+  g_signal_set_va_marshaller (widget_signals[FOCUS],
+                              G_TYPE_FROM_CLASS (gobject_class),
+                              _gtk_marshal_BOOLEAN__ENUMv);
 
   /**
    * GtkWidget::move-focus:
@@ -2105,6 +2114,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
                   _gtk_marshal_BOOLEAN__ENUM,
                   G_TYPE_BOOLEAN, 1,
                   GTK_TYPE_DIRECTION_TYPE);
+  g_signal_set_va_marshaller (widget_signals[KEYNAV_FAILED],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_BOOLEAN__ENUMv);
 
   /**
    * GtkWidget::event:
@@ -2718,6 +2730,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  G_TYPE_NONE, 2,
 		  GTK_TYPE_SELECTION_DATA | G_SIGNAL_TYPE_STATIC_SCOPE,
 		  G_TYPE_UINT);
+  g_signal_set_va_marshaller (widget_signals[SELECTION_RECEIVED],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_VOID__BOXED_UINTv);
 
   /**
    * GtkWidget::selection-get:
@@ -2737,6 +2752,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  GTK_TYPE_SELECTION_DATA | G_SIGNAL_TYPE_STATIC_SCOPE,
 		  G_TYPE_UINT,
 		  G_TYPE_UINT);
+  g_signal_set_va_marshaller (widget_signals[SELECTION_GET],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_VOID__BOXED_UINT_UINTv);
 
   /**
    * GtkWidget::proximity-in-event:
@@ -2816,6 +2834,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  G_TYPE_NONE, 2,
 		  GDK_TYPE_DRAG_CONTEXT,
 		  G_TYPE_UINT);
+  g_signal_set_va_marshaller (widget_signals[DRAG_LEAVE],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_VOID__OBJECT_UINTv);
 
   /**
    * GtkWidget::drag-begin:
@@ -2905,6 +2926,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  G_TYPE_BOOLEAN, 2,
 		  GDK_TYPE_DRAG_CONTEXT,
 		  GTK_TYPE_DRAG_RESULT);
+  g_signal_set_va_marshaller (widget_signals[DRAG_FAILED],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_BOOLEAN__OBJECT_ENUMv);
 
   /**
    * GtkWidget::drag-motion:
@@ -3015,6 +3039,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  G_TYPE_INT,
 		  G_TYPE_INT,
 		  G_TYPE_UINT);
+  g_signal_set_va_marshaller (widget_signals[DRAG_MOTION],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_BOOLEAN__OBJECT_INT_INT_UINTv);
 
   /**
    * GtkWidget::drag-drop:
@@ -3049,6 +3076,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  G_TYPE_INT,
 		  G_TYPE_INT,
 		  G_TYPE_UINT);
+  g_signal_set_va_marshaller (widget_signals[DRAG_DROP],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_BOOLEAN__OBJECT_INT_INT_UINTv);
 
   /**
    * GtkWidget::drag-data-get:
@@ -3077,6 +3107,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  GTK_TYPE_SELECTION_DATA | G_SIGNAL_TYPE_STATIC_SCOPE,
 		  G_TYPE_UINT,
 		  G_TYPE_UINT);
+  g_signal_set_va_marshaller (widget_signals[DRAG_DATA_GET],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_VOID__OBJECT_BOXED_UINT_UINTv);
 
   /**
    * GtkWidget::drag-data-received:
@@ -3164,6 +3197,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  GTK_TYPE_SELECTION_DATA | G_SIGNAL_TYPE_STATIC_SCOPE,
 		  G_TYPE_UINT,
 		  G_TYPE_UINT);
+   g_signal_set_va_marshaller (widget_signals[DRAG_DATA_RECEIVED],
+                               G_TYPE_FROM_CLASS (klass),
+                               _gtk_marshal_VOID__OBJECT_INT_INT_BOXED_UINT_UINTv);
 
   /**
    * GtkWidget::visibility-notify-event:
@@ -3194,6 +3230,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  _gtk_marshal_BOOLEAN__BOXED,
 		  G_TYPE_BOOLEAN, 1,
 		  GDK_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
+  g_signal_set_va_marshaller (widget_signals[VISIBILITY_NOTIFY_EVENT],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_BOOLEAN__BOXEDv);
 
   /**
    * GtkWidget::window-state-event:
@@ -3317,6 +3356,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  G_TYPE_INT,
 		  G_TYPE_BOOLEAN,
 		  GTK_TYPE_TOOLTIP);
+  g_signal_set_va_marshaller (widget_signals[QUERY_TOOLTIP],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_BOOLEAN__INT_INT_BOOLEAN_OBJECTv);
 
   /**
    * GtkWidget::popup-menu:
@@ -3340,6 +3382,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  _gtk_boolean_handled_accumulator, NULL,
 		  _gtk_marshal_BOOLEAN__VOID,
 		  G_TYPE_BOOLEAN, 0);
+  g_signal_set_va_marshaller (widget_signals[POPUP_MENU],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_BOOLEAN__VOIDv);
 
   /**
    * GtkWidget::show-help:
@@ -3358,6 +3403,9 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 		  _gtk_marshal_BOOLEAN__ENUM,
 		  G_TYPE_BOOLEAN, 1,
 		  GTK_TYPE_WIDGET_HELP_TYPE);
+  g_signal_set_va_marshaller (widget_signals[SHOW_HELP],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_BOOLEAN__ENUMv);
 
   /**
    * GtkWidget::accel-closures-changed:
@@ -7142,6 +7190,14 @@ gtk_widget_draw (GtkWidget *widget,
 }
 
 static gboolean
+gtk_widget_real_scroll_event (GtkWidget      *widget,
+                              GdkEventScroll *event)
+{
+  return _gtk_widget_run_controllers (widget, (GdkEvent *) event,
+                                      GTK_PHASE_BUBBLE);
+}
+
+static gboolean
 gtk_widget_real_button_event (GtkWidget      *widget,
                               GdkEventButton *event)
 {
@@ -7161,6 +7217,10 @@ static gboolean
 gtk_widget_real_key_press_event (GtkWidget         *widget,
 				 GdkEventKey       *event)
 {
+  if (_gtk_widget_run_controllers (widget, (GdkEvent *) event,
+                                   GTK_PHASE_BUBBLE))
+    return GDK_EVENT_STOP;
+
   return gtk_bindings_activate_event (G_OBJECT (widget), event);
 }
 
@@ -7168,6 +7228,10 @@ static gboolean
 gtk_widget_real_key_release_event (GtkWidget         *widget,
 				   GdkEventKey       *event)
 {
+  if (_gtk_widget_run_controllers (widget, (GdkEvent *) event,
+                                   GTK_PHASE_BUBBLE))
+    return GDK_EVENT_STOP;
+
   return gtk_bindings_activate_event (G_OBJECT (widget), event);
 }
 

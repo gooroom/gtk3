@@ -46,6 +46,9 @@
  * More complicated placement of overlays is possible by connecting
  * to the #GtkOverlay::get-child-position signal.
  *
+ * An overlay’s minimum and natural sizes are those of its main child. The sizes
+ * of overlay children are not considered when measuring these preferred sizes.
+ *
  * # GtkOverlay as GtkBuildable
  *
  * The GtkOverlay implementation of the GtkBuildable interface
@@ -531,13 +534,13 @@ gtk_overlay_remove (GtkContainer *container,
  * gtk_overlay_reorder_overlay:
  * @overlay: a #GtkOverlay
  * @child: the overlaid #GtkWidget to move
- * @position: the new index for @child in the list of overlay children
+ * @index_: the new index for @child in the list of overlay children
  *   of @overlay, starting from 0. If negative, indicates the end of
  *   the list
  *
  * Moves @child to a new @index in the list of @overlay children.
  * The list contains overlays in the order that these were
- * added to @overlay.
+ * added to @overlay by default. See also #GtkOverlay:index.
  *
  * A widget’s index in the @overlay children list determines which order
  * the children are drawn if they overlap. The first child is drawn at
@@ -548,7 +551,7 @@ gtk_overlay_remove (GtkContainer *container,
 void
 gtk_overlay_reorder_overlay (GtkOverlay *overlay,
                              GtkWidget  *child,
-                             gint        position)
+                             int         index_)
 {
   GtkOverlayPrivate *priv;
   GSList *old_link;
@@ -577,15 +580,15 @@ gtk_overlay_reorder_overlay (GtkOverlay *overlay,
 
   g_return_if_fail (old_link != NULL);
 
-  if (position < 0)
+  if (index_ < 0)
     {
       new_link = NULL;
       index = g_slist_length (priv->children) - 1;
     }
   else
     {
-      new_link = g_slist_nth (priv->children, position);
-      index = MIN (position, g_slist_length (priv->children) - 1);
+      new_link = g_slist_nth (priv->children, index_);
+      index = MIN (index_, g_slist_length (priv->children) - 1);
     }
 
   if (index == old_index)
@@ -771,7 +774,8 @@ gtk_overlay_class_init (GtkOverlayClass *klass)
   /**
    * GtkOverlay:pass-through:
    *
-   * Pass through input, does not affect main child.
+   * Whether to pass input through the overlay child to the main child.
+   * (Of course, this has no effect when set on the main child itself.)
    *
    * Since: 3.18
    */
@@ -783,7 +787,8 @@ gtk_overlay_class_init (GtkOverlayClass *klass)
   /**
    * GtkOverlay:index:
    *
-   * The index of the overlay in the parent, -1 for the main child.
+   * The index of the overlay child in the parent (or -1 for the main child).
+   * See gtk_overlay_reorder_overlay().
    *
    * Since: 3.18
    */
@@ -827,6 +832,9 @@ gtk_overlay_class_init (GtkOverlayClass *klass)
                   G_TYPE_BOOLEAN, 2,
                   GTK_TYPE_WIDGET,
                   GDK_TYPE_RECTANGLE | G_SIGNAL_TYPE_STATIC_SCOPE);
+  g_signal_set_va_marshaller (signals[GET_CHILD_POSITION],
+                              G_TYPE_FROM_CLASS (object_class),
+                              _gtk_marshal_BOOLEAN__OBJECT_BOXEDv);
 
   gtk_widget_class_set_css_name (widget_class, "overlay");
 }

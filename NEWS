@@ -1,3 +1,670 @@
+Overview of Changes in GTK+ 3.24.24
+===================================
+
+* GtkColorChooser:
+ - Update the default color palette
+
+* GtkFontChooser:
+ - Fix family-only mode to return regular style
+
+* GtkTreeView:
+ - Don't set focus-on-click for header buttons
+
+* Accessibility:
+ - Implement scrollSubstringTo
+ - Add a11y support to GtkPlug/GtkSocket
+
+* Printing:
+ - Allow the lpr backend to print pdf and ps files
+
+* Theme:
+ - Update gesture graphics
+ - Update HighContrast css
+
+* Wayland:
+ - Support the primary-selection-unstable-v1 protocol
+
+* X11:
+ - Fix a crash with parent-relative backgrounds
+
+* Broadway:
+ - Set modifier state of scroll events
+
+* Build:
+ - Fix pc file generation on NixOS
+
+* OS X:
+ - Restore command-key bindings
+
+* Windows:
+ - Fix meson build with epoxy subproject
+
+* Translation updates:
+ Basque
+ Brazilian Portuguese
+ British English
+ Catalan
+ Croatian
+ Czech
+ French
+ Galician
+ German
+ Greek
+ Hebrew
+ Hungarian
+ Indonesian
+ Italian
+ Kazakh
+ Latvian
+ Lithuanian
+ Persian
+ Polish
+ Portuguese
+ Slovak
+ Slovenian
+ Spanish
+ Swedish
+ Turkish
+ Ukrainian
+
+
+Overview of Changes in GTK+ 3.24.23
+===================================
+
+* Adwaita:
+ - Support error states for labels and entries
+
+* Printing:
+ - Use the correct names for remote printers
+
+* File choser:
+ - Default to tracker2 for search to prevent
+   symbol clashes in tracker-using applications
+
+* Wayland:
+ - Support newer schemas for settings
+ - Fix DND hotspot handling
+ - Disconnect on display close
+
+* X11:
+ - Fix a possible crash with disabled devices
+
+* Translation updates:
+ Basque
+ Chinese (China)
+ Croatian
+ Dutch
+ Finnish
+ Friulian
+ Galician
+ Hungarian
+ Japanese
+ Korean
+ Portuguese
+ Serbian
+
+
+Overview of Changes in GTK+ 3.24.22
+===================================
+
+* GtkTextView:
+ - Fix some corner cases of pixelcache invalidation
+ - Make select-all work on touch
+
+* Fix print portal support
+
+* Adwaita:
+ - Tweak title style class
+ - Add a public color for text view background
+
+* Windows:
+ - Limit the size of the corner mask cache
+ - Use native API for keycode conversion
+ - Use GLES on arm64
+
+* Wayland: Add a way to change the application id
+
+* Quartz: Add axes to master devices
+
+* Add --enable-tracker3 option to configure
+
+* Translation updates:
+ Catalan
+ German
+ Indonesian
+ Italian
+ Kazakh
+ Spanish
+ Turkish
+
+
+Overview of Changes in GTK+ 3.24.21
+===================================
+
+* Wayland:
+ - Prevent crashes with offscreen windows
+ - Handle disorderly tablet/pad disconnects
+
+* GtkFileChooser:
+ - Translate the type column
+ - Add a tracker3 search engine
+ - Rate-limit trash monitoring
+ - Make get_filter work for native chooser
+
+* GtkGLArea:
+ - Fix a redraw problem
+
+* GtkScrolledWindow:
+ - Fix kinetic scrolling
+
+* Add a gtk-cursor-aspect-ratio setting
+
+* GDK:
+ - Improve frame clock smoothness
+ - Fix frame clock monotonicity
+
+* OS X:
+ - Support Pen / Eraser input
+ - Support openfiles in GtkApplication
+
+* Adwaita:
+ - Improve notebook tab legibility
+
+* Translation updates:
+ Basque
+ Brazilian Portuguese
+ Catalan
+ Chinese (Taiwan)
+ German
+ Indonesian
+ Italian
+ Japanese
+ Kazakh
+ Lithuanian
+ Polish
+ Romanian
+ Slovak
+ Slovenian
+ Swedish
+ Ukrainian
+
+
+Overview of Changes in GTK+ 3.24.20
+===================================
+
+* GtkFileChooser:
+ - Prevent selection changes after overwrite confirmation
+ - Don't grab focus to the sidebar on click
+ - Avoid a use-after-free in GtkFileSystemModel
+
+* GtkEmojiChooser:
+ - Remove blacklist
+
+* GtkAboutDialog:
+ - Add more licenses
+
+* Adwaita:
+ - Lower the contrast of checkboxes
+
+* HighContrast:
+ - Export the same public colors as Adwaita
+
+* OS X:
+ - Don't filter Escape in input methods
+
+* Windows:
+ - Infer font settings from system settings
+
+* Translation updates
+ Brazilian Portuguese
+ Chinese
+ Croatian
+ French
+ Japanese
+ Lithuanian
+ Polish
+ Spanish
+ Swedish
+ Turkish
+ Ukrainian
+
+
+Overview of Changes in GTK+ 3.24.18
+===================================
+
+* Wayland:
+ - Fix more sizing regressions in Epiphany and LibreOffice
+   menus, and popups in general
+
+* Build:
+ - Make resource build reproducible
+
+* Translation updates
+ Basque
+ Latvian
+
+
+Overview of Changes in GTK+ 3.24.17
+===================================
+
+* GtkFileChooser: Fix some keynav issues
+
+* GtkMenuButton: disable focus-on-click
+
+* Derive the HighContrast and HighContrastInverse themes from Adwaita
+
+* Wayland:
+ - Fix firefox sizing problems
+ - Prevent Alt lingering after Alt-Tab
+ - Load compose sequences from ~/.Compose
+ - Fix a crash in the Wayland input method
+
+* Translation updates
+ Finnish
+ Hebrew
+
+
+Overview of Changes in GTK+ 3.24.16
+===================================
+
+* Fix the build
+
+
+Overview of Changes in GTK+ 3.24.15
+===================================
+
+* filechooser:
+ - Fix a crash
+ - Support selecting directories with a new enough
+   file chooser portal
+
+* textview:
+ - Speed up tag handling
+
+* wayland:
+ - Fix problems with clipboard handling
+ - Fix a crash in the Wayland input method
+ - Support cursor scale of 400%
+ - Fix a crash in glade
+
+* css: Support font-feature-settings
+
+* Adwaita:
+ - Use tabular figures where appropriate
+ - Color tweaks for dark mode
+ - Improve rendering of rounded corners
+
+* Translation updates
+ Dutch
+ German
+ Japanese
+ Korean
+ Lithuanian
+ Norwegian Bokmål
+ Persian
+ Ukrainian
+
+
+Overview of Changes in GTK+ 3.24.14
+===================================
+
+* Fix the opaque region for windows on X11
+
+* theme:
+ - Fix flat buttons in backdrop
+ - Make popovers look more similar to menus
+ - Tweak checkbox & radiobutton appearance
+ - Add general typography classes (heading, title-1, etc)
+
+* language bindings:
+ - Fix annotations for gtk_tree_model_sort_new_with_model
+
+* switch: Fix touch support
+
+* infobar: Make clickable for default action
+
+* emojichooser:
+ - respect a no-emoji input hint
+
+* fontchooser:
+ - Fix an oversight with hiding the size label
+
+* filechooser:
+ - Disable recursive search without a system indexer
+
+* modelbutton:
+ - Fix a11y support to reflect button state
+
+* input:
+ - Fix touchpad gesture center calculation
+
+* x11:
+ - Fix root window scaling
+ - Support _GTK_WORKAREAS_Dn property
+
+* wayland:
+ - Support a terminal purpose in input methods
+ - Fix preedit cursor positioning
+ - Fix enabling/disabling of text inputs
+ - Support simultaneous selection requests
+ - Require Wayland 1.14.91
+
+* OS X:
+ - Fix fullscreen state
+ - Fix an Inkscape crash at startup
+ - Fix OpenGL extension detection
+
+* Printing:
+ - Fix a crash with Avahi
+
+* Translation updates:
+ Basque
+ British English
+ Catalan
+ Finnish
+ French 
+ Galician
+ Japanese
+ Kurdish Sorani
+ Malay
+ Russian
+ Slovak
+ Spanish
+ Turkish
+
+
+Overview of Changes in GTK+ 3.24.13
+===================================
+
+* listbox: Fix header row reuse
+
+* wayland: Fix handling of tablets
+
+* theme:
+ - Adwaita: Fix menu rounding
+ - Adwaita: Various improvements for the Emoji chooser
+ - Adwaita: Refresh check and radio buttons
+ - HighContrast: Fix entry colors
+
+* input:
+ - Properly handle bubbling of scroll events
+ - Handle modifier key events properly
+ - Run key controllers in the bubble phase
+ - Do not use VIQR for Vietnamese by default 
+
+* statusicons: Render sharply on hi-dpi
+
+* wayland: Fix handling of selection ownership
+
+* win32:
+ - Set WS_BORDER for fullscreen GL windows if requested
+ - Fix clipboard handling
+
+* quartz:
+ - Handle titlebar events properly
+ - Handle page up/down key events properly
+
+* broadway: Fix (lack of) clipboard handling
+
+* Translation updates:
+ Catalan
+ Chinese (Taiwan)
+ Croatian
+ Danish
+ French
+ German
+ Hungarian
+ Indonesian
+ Russian
+ Swedish
+
+
+Overview of Changes in GTK+ 3.24.12
+===================================
+
+* file chooser: allow sorting by file type
+
+* dnd: fix pointer offsets under X11 and Wayland
+
+* broadway: Fix a font problem
+
+* mir Drop this backend
+
+* printing: Get PPD from original host if needed
+
+* a11y: Fix interference with clutter a11y impl
+
+* Translation updates:
+ Brazilian Portuguese
+ Czech
+ Danish
+ Dutch
+ Italian
+ Greek
+ Lithuanian
+ Norwegian Bokmål
+ Polish
+ Romanian
+ Slovenian
+ Spanish
+ Turkish
+
+
+Overview of Changes in GTK+ 3.24.11
+===================================
+
+* Adwaita:
+ - Add drop shadow to icons
+ - Small color fixes
+ - Make title buttons round
+
+* OS X: Fix the monitors-changed signal
+
+* Win32:
+ - Build fixes
+ - Support choices in the native file chooser
+ - Fix icon cache freshness checks on 64bit
+
+* Wayland:
+ - Support xdg-output v3
+ - Fix clipboard ownership handling
+
+* X11: Improve monitor metadata
+
+* Build: Require GLib 2.57.2
+
+* Translation updates:
+ Basque
+ Brazilian Portuguese
+ British English
+ Catalan
+ Croatian
+ French
+ Friulian
+ Galician
+ German
+ Greek
+ Hungarian
+ Indonesian
+ Japanese
+ Korean
+ Latvian
+ Lithuanian
+ Polish
+ Punjabi
+ Romanian
+ Serbian
+ Slovenian
+ Spanish
+ Swedish
+
+
+Overview of Changes in GTK+ 3.24.10
+===================================
+
+* Make gtk_widget_get_action_group behave as documented
+
+* Make gdk_screen_get_monitor_plug_name works as before
+
+* Adwaita:
+  - Update infobar look
+  - Fix some issues with submenus and popovers
+
+* Wayland: Use the xdg-output protocol
+
+* Fix build issues around cups
+
+* Quartz: Build fixes
+
+* treeview: Bring the pixel cache back, since its removal
+  was causing problems in some applications
+
+* Various documentation improvements
+
+* Translation updates:
+ Slovenian
+ Croatian
+ Spanish
+
+
+Overview of Changes in GTK+ 3.24.9
+==================================
+
+* GTK can now be built with the meson build system
+
+* Quartz:
+ - Build fixes
+ - Fix a crash with DND
+
+* Win32:
+ - Enable GLES via libANGLE
+ - Fix preedit window placement on hi-dpi screens
+
+* Wayland:
+ - Support the xdg-output protocol for correct
+   monitor sizes with scaled displays
+ - Fix handling of cursor hotspots that was reading
+   uninitialized memory
+ - Update tablet cursors when scale changes
+
+* CSS:
+ - Use multiple font-family values
+
+* Emoji:
+ - Populate the Emoji chooser incrementally
+
+* Printing:
+ - Require CUPS 1.7
+
+* Scrolling:
+ - Add a gtk-overlay-scrolling setting that can be
+   used to force traditional (non-overlay) scrollbars
+
+* GtkTreeView:
+ - Update rubberband rectangles more often
+ - Remove the pixel cache, to avoid the redraw
+   issues that it causes
+
+* Tooling:
+ - Support sysprof profiling
+
+* Themes:
+ - Adwaita: Small tweaks to the theme refresh
+ - Adwaita: Update treeview progress bars
+ - HighContrast: Improve notebook tabs
+
+* Translation updates:
+ Brazilian Portuguese
+ Friulian
+ Hungarian
+ Indonesian
+ Italian
+ Lithuanian
+
+
+Overview of Changes in GTK+ 3.24.8
+==================================
+
+* Color editor: don't warn if editing is cancelled
+
+* Always redraw on allocate - not doing so is
+
+  not safe when any widget can have a background
+
+* Use GLSL 3.30 for shaders
+
+* Quartz: add a preliminary GdkGLContext implementation
+
+* Win32: Fix a bug that prevented storing printer driver prefs
+
+* Wayland: properly place window menus
+
+* GtkApplication: support session state changes in
+  sandboxes, using the inhibit portal
+
+* Fix a problem with autostart notification
+
+* Places: Show loop devices as reported by gvfs
+
+* Translation updates:
+  Brazilian Portuguese
+  Catalan
+  Czech
+  German
+  Hungarian
+  Indonesian
+  Italian
+  Polish
+  Romanian
+  Spanish
+  Swedish
+  Turkish
+
+
+Overview of Changes in GTK+ 3.24.7
+==================================
+
+* Undeprecate gtk_window_present
+
+
+Overview of Changes in GTK+ 3.24.6
+==================================
+
+* Link against fribidi
+
+* Broadway: Ensure focus on click
+
+* Fix some compiler warnings
+
+* Improve menu positioning with move-to-rect
+
+* Improve activation of the onscreen keyboard
+
+* Use C locale when generating code
+
+* Treeview: Make sure separator nodes have height > 0
+
+* theme
+ - Fix some inconsistences for radii
+
+* quartz:
+ - Full-screen only normal windows
+ - Restore key-window switching when changing windows
+ - Change monitor geometry calculation
+ - search: Limit the cop of Spotlight search
+
+* Translation updates:
+ Basque
+ Dutch
+ Finnish
+ Icelandic
+ Kazakh
+ Korean
+ Romanian
+ Serbian
+ Slovenian
+
+
 Overview of Changes in GTK+ 3.24.5
 ==================================
 

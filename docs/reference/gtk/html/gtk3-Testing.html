@@ -8,7 +8,7 @@
 <link rel="up" href="gtkbase.html" title="Part III. GTK+ Core Reference">
 <link rel="prev" href="gtk3-Selections.html" title="Selections">
 <link rel="next" href="gtk3-Filesystem-utilities.html" title="Filesystem utilities">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -35,8 +35,8 @@
 <a name="gtk3-Testing.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -96,7 +96,7 @@
 </td>
 </tr>
 <tr>
-<td class="function_type">const <a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a> *
+<td class="function_type">const <span class="returnvalue">GType</span> *
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-Testing.html#gtk-test-list-all-types" title="gtk_test_list_all_types ()">gtk_test_list_all_types</a> <span class="c_punctuation">()</span>
@@ -128,7 +128,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-Testing.html#gtk-test-spin-button-click" title="gtk_test_spin_button_click ()">gtk_test_spin_button_click</a> <span class="c_punctuation">()</span>
@@ -136,7 +136,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<span class="returnvalue">gchar</span> *
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-Testing.html#gtk-test-text-get" title="gtk_test_text_get ()">gtk_test_text_get</a> <span class="c_punctuation">()</span>
@@ -152,7 +152,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-Testing.html#gtk-test-widget-click" title="gtk_test_widget_click ()">gtk_test_widget_click</a> <span class="c_punctuation">()</span>
@@ -160,7 +160,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="gtk3-Testing.html#gtk-test-widget-send-key" title="gtk_test_widget_send_key ()">gtk_test_widget_send_key</a> <span class="c_punctuation">()</span>
@@ -179,7 +179,7 @@
 </div>
 <div class="refsect1">
 <a name="gtk3-Testing.includes"></a><h2>Includes</h2>
-<pre class="synopsis">#include &lt;gtk/gtkunixprint.h&gt;
+<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
 </pre>
 </div>
 <div class="refsect1">
@@ -190,8 +190,8 @@
 <div class="refsect2">
 <a name="gtk-test-create-simple-window"></a><h3>gtk_test_create_simple_window ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
-gtk_test_create_simple_window (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *window_title</code></em>,
-                               <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dialog_text</code></em>);</pre>
+gtk_test_create_simple_window (<em class="parameter"><code>const <span class="type">gchar</span> *window_title</code></em>,
+                               <em class="parameter"><code>const <span class="type">gchar</span> *dialog_text</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_test_create_simple_window</code> has been deprecated since version 3.20 and should not be used in newly-written code.</p>
 <p>This testing infrastructure is phased out in favor of reftests.</p>
@@ -235,16 +235,16 @@ will automatically be destroyed upon test function teardown.</p>
 <div class="refsect2">
 <a name="gtk-test-create-widget"></a><h3>gtk_test_create_widget ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
-gtk_test_create_widget (<em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> widget_type</code></em>,
-                        <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
+gtk_test_create_widget (<em class="parameter"><code><span class="type">GType</span> widget_type</code></em>,
+                        <em class="parameter"><code>const <span class="type">gchar</span> *first_property_name</code></em>,
                         <em class="parameter"><code>...</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_test_create_widget</code> has been deprecated since version 3.20 and should not be used in newly-written code.</p>
 <p>This testing infrastructure is phased out in favor of reftests.</p>
 </div>
-<p>This function wraps <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-new"><code class="function">g_object_new()</code></a> for widget types.
+<p>This function wraps <code class="function">g_object_new()</code> for widget types.
 It’ll automatically show all created non window widgets, also
-<a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-ref-sink"><code class="function">g_object_ref_sink()</code></a> them (to keep them alive across a running test)
+<code class="function">g_object_ref_sink()</code> them (to keep them alive across a running test)
 and set them up for destruction during the next test teardown phase.</p>
 <div class="refsect3">
 <a name="gtk-test-create-widget.parameters"></a><h4>Parameters</h4>
@@ -262,13 +262,13 @@ and set them up for destruction during the next test teardown phase.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>first_property_name</p></td>
-<td class="parameter_description"><p>Name of first property to set or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>Name of first property to set or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>...</p></td>
 <td class="parameter_description"><p>value to set the first property to, followed by more
-name-value pairs, terminated by <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
+name-value pairs, terminated by <code class="literal">NULL</code></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -285,8 +285,8 @@ name-value pairs, terminated by <a href="https://developer.gnome.org/glib/unstab
 <div class="refsect2">
 <a name="gtk-test-display-button-window"></a><h3>gtk_test_display_button_window ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
-gtk_test_display_button_window (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *window_title</code></em>,
-                                <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dialog_text</code></em>,
+gtk_test_display_button_window (<em class="parameter"><code>const <span class="type">gchar</span> *window_title</code></em>,
+                                <em class="parameter"><code>const <span class="type">gchar</span> *dialog_text</code></em>,
                                 <em class="parameter"><code>...</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_test_display_button_window</code> has been deprecated since version 3.20 and should not be used in newly-written code.</p>
@@ -327,7 +327,7 @@ will automatically be destroyed upon test function teardown.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>...</p></td>
-<td class="parameter_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> terminated list of (const char *label, int *nump) pairs.</p></td>
+<td class="parameter_description"><p><code class="literal">NULL</code> terminated list of (const char *label, int *nump) pairs.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -345,14 +345,14 @@ will automatically be destroyed upon test function teardown.</p>
 <a name="gtk-test-find-label"></a><h3>gtk_test_find_label ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
 gtk_test_find_label (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                     <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label_pattern</code></em>);</pre>
+                     <em class="parameter"><code>const <span class="type">gchar</span> *label_pattern</code></em>);</pre>
 <p>This function will search <em class="parameter"><code>widget</code></em>
  and all its descendants for a GtkLabel
 widget with a text string matching <em class="parameter"><code>label_pattern</code></em>
 .
 The <em class="parameter"><code>label_pattern</code></em>
  may contain asterisks “*” and question marks “?” as
-placeholders, <a href="https://developer.gnome.org/glib/unstable/glib-Glob-style-pattern-matching.html#g-pattern-match"><code class="function">g_pattern_match()</code></a> is used for the matching.
+placeholders, <code class="function">g_pattern_match()</code> is used for the matching.
 Note that locales other than "C“ tend to alter (translate” label strings,
 so this function is genrally only useful in test programs with
 predetermined locales, see <a class="link" href="gtk3-Testing.html#gtk-test-init" title="gtk_test_init ()"><code class="function">gtk_test_init()</code></a> for more details.</p>
@@ -390,7 +390,7 @@ predetermined locales, see <a class="link" href="gtk3-Testing.html#gtk-test-init
 <a name="gtk-test-find-sibling"></a><h3>gtk_test_find_sibling ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
 gtk_test_find_sibling (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *base_widget</code></em>,
-                       <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> widget_type</code></em>);</pre>
+                       <em class="parameter"><code><span class="type">GType</span> widget_type</code></em>);</pre>
 <p>This function will search siblings of <em class="parameter"><code>base_widget</code></em>
  and siblings of its
 ancestors for all widgets matching <em class="parameter"><code>widget_type</code></em>
@@ -436,8 +436,8 @@ if any is found. </p>
 <a name="gtk-test-find-widget"></a><h3>gtk_test_find_widget ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *
 gtk_test_find_widget (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                      <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label_pattern</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> widget_type</code></em>);</pre>
+                      <em class="parameter"><code>const <span class="type">gchar</span> *label_pattern</code></em>,
+                      <em class="parameter"><code><span class="type">GType</span> widget_type</code></em>);</pre>
 <p>This function will search the descendants of <em class="parameter"><code>widget</code></em>
  for a widget
 of type <em class="parameter"><code>widget_type</code></em>
@@ -477,7 +477,7 @@ such widgets and synthesizing widget events.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-test-find-widget.returns"></a><h4>Returns</h4>
-<p>a valid widget if any is found or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>a valid widget if any is found or <code class="literal">NULL</code>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: 2.14</p>
@@ -490,12 +490,12 @@ gtk_test_init (<em class="parameter"><code><span class="type">int</span> *argcp<
                <em class="parameter"><code><span class="type">char</span> ***argvp</code></em>,
                <em class="parameter"><code>...</code></em>);</pre>
 <p>This function is used to initialize a GTK+ test program.</p>
-<p>It will in turn call <a href="https://developer.gnome.org/glib/unstable/glib-Testing.html#g-test-init"><code class="function">g_test_init()</code></a> and <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> to properly
+<p>It will in turn call <code class="function">g_test_init()</code> and <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> to properly
 initialize the testing framework and graphical toolkit. It’ll 
 also set the program’s locale to “C” and prevent loading of rc 
 files and Gtk+ modules. This is done to make tets program
 environments as deterministic as possible.</p>
-<p>Like <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> and <a href="https://developer.gnome.org/glib/unstable/glib-Testing.html#g-test-init"><code class="function">g_test_init()</code></a>, any known arguments will be
+<p>Like <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> and <code class="function">g_test_init()</code>, any known arguments will be
 processed and stripped from <em class="parameter"><code>argc</code></em>
  and <em class="parameter"><code>argv</code></em>
 .</p>
@@ -518,7 +518,7 @@ processed and stripped from <em class="parameter"><code>argc</code></em>
 <td class="parameter_name"><p>argvp</p></td>
 <td class="parameter_description"><p>Address of the
 <code class="literal">argv</code> parameter of <code class="function">main()</code>.
-Any parameters understood by <a href="https://developer.gnome.org/glib/unstable/glib-Testing.html#g-test-init"><code class="function">g_test_init()</code></a> or <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> are
+Any parameters understood by <code class="function">g_test_init()</code> or <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> are
 stripped before return. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for input and for returning results. Default is transfer full."><span class="acronym">inout</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=argcp]</span></td>
 </tr>
@@ -535,8 +535,8 @@ stripped before return. </p></td>
 <hr>
 <div class="refsect2">
 <a name="gtk-test-list-all-types"></a><h3>gtk_test_list_all_types ()</h3>
-<pre class="programlisting">const <a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a> *
-gtk_test_list_all_types (<em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_types</code></em>);</pre>
+<pre class="programlisting">const <span class="returnvalue">GType</span> *
+gtk_test_list_all_types (<em class="parameter"><code><span class="type">guint</span> *n_types</code></em>);</pre>
 <p>Return the type ids that have been registered after
 calling <a class="link" href="gtk3-Testing.html#gtk-test-register-all-types" title="gtk_test_register_all_types ()"><code class="function">gtk_test_register_all_types()</code></a>.</p>
 <div class="refsect3">
@@ -568,7 +568,7 @@ calling <a class="link" href="gtk3-Testing.html#gtk-test-register-all-types" tit
 gtk_test_register_all_types (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Force registration of all core Gtk+ and Gdk object types.
 This allowes to refer to any of those object types via
-<a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#g-type-from-name"><code class="function">g_type_from_name()</code></a> after calling this function.</p>
+<code class="function">g_type_from_name()</code> after calling this function.</p>
 <p class="since">Since: 2.14</p>
 </div>
 <hr>
@@ -651,10 +651,10 @@ a value between the lower and upper limits, according to the
 <hr>
 <div class="refsect2">
 <a name="gtk-test-spin-button-click"></a><h3>gtk_test_spin_button_click ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_test_spin_button_click (<em class="parameter"><code><a class="link" href="GtkSpinButton.html" title="GtkSpinButton"><span class="type">GtkSpinButton</span></a> *spinner</code></em>,
-                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> button</code></em>,
-                            <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> upwards</code></em>);</pre>
+                            <em class="parameter"><code><span class="type">guint</span> button</code></em>,
+                            <em class="parameter"><code><span class="type">gboolean</span> upwards</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_test_spin_button_click</code> has been deprecated since version 3.20 and should not be used in newly-written code.</p>
 <p>This testing infrastructure is phased out in favor of reftests.</p>
@@ -684,7 +684,7 @@ spin button’s value.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>upwards</p></td>
-<td class="parameter_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> for upwards arrow click, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> for downwards arrow click.</p></td>
+<td class="parameter_description"><p><code class="literal">TRUE</code> for upwards arrow click, <code class="literal">FALSE</code> for downwards arrow click.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -699,7 +699,7 @@ spin button’s value.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-test-text-get"></a><h3>gtk_test_text_get ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<pre class="programlisting"><span class="returnvalue">gchar</span> *
 gtk_test_text_get (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_test_text_get</code> has been deprecated since version 3.20 and should not be used in newly-written code.</p>
@@ -725,7 +725,7 @@ GtkEditable (entry and text widgets) or GtkTextView.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-test-text-get.returns"></a><h4>Returns</h4>
-<p> new 0-terminated C string, needs to be released with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.</p>
+<p> new 0-terminated C string, needs to be released with <code class="function">g_free()</code>.</p>
 </div>
 <p class="since">Since: 2.14</p>
 </div>
@@ -734,7 +734,7 @@ GtkEditable (entry and text widgets) or GtkTextView.</p>
 <a name="gtk-test-text-set"></a><h3>gtk_test_text_set ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_test_text_set (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                   <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
+                   <em class="parameter"><code>const <span class="type">gchar</span> *string</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_test_text_set</code> has been deprecated since version 3.20 and should not be used in newly-written code.</p>
 <p>This testing infrastructure is phased out in favor of reftests.</p>
@@ -770,10 +770,10 @@ GtkEditable (entry and text widgets) or GtkTextView.</p>
 <hr>
 <div class="refsect2">
 <a name="gtk-test-widget-click"></a><h3>gtk_test_widget_click ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_test_widget_click (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> button</code></em>,
-                       <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
+                       <em class="parameter"><code><span class="type">guint</span> button</code></em>,
+                       <em class="parameter"><code><a href="../html/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_test_widget_click</code> has been deprecated since version 3.20 and should not be used in newly-written code.</p>
 <p>This testing infrastructure is phased out in favor of reftests.</p>
@@ -783,12 +783,12 @@ gtk_test_widget_click (<em class="parameter"><code><a class="link" href="GtkWidg
 release event) in the middle of the first GdkWindow found that belongs
 to <em class="parameter"><code>widget</code></em>
 .
-For windowless widgets like <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> (which returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> from
+For windowless widgets like <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> (which returns <code class="literal">FALSE</code> from
 <a class="link" href="GtkWidget.html#gtk-widget-get-has-window" title="gtk_widget_get_has_window ()"><code class="function">gtk_widget_get_has_window()</code></a>), this will often be an
 input-only event window. For other widgets, this is usually widget-&gt;window.
 Certain caveats should be considered when using this function, in
 particular because the mouse pointer is warped to the button click
-location, see <a href="https://developer.gnome.org/gdk3/gdk3-Testing.html#gdk-test-simulate-button"><code class="function">gdk_test_simulate_button()</code></a> for details.</p>
+location, see <a href="../html/gdk3-Testing.html#gdk-test-simulate-button"><code class="function">gdk_test_simulate_button()</code></a> for details.</p>
 <div class="refsect3">
 <a name="gtk-test-widget-click.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -825,19 +825,19 @@ location, see <a href="https://developer.gnome.org/gdk3/gdk3-Testing.html#gdk-te
 <hr>
 <div class="refsect2">
 <a name="gtk-test-widget-send-key"></a><h3>gtk_test_widget_send_key ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_test_widget_send_key (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                          <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> keyval</code></em>,
-                          <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
+                          <em class="parameter"><code><span class="type">guint</span> keyval</code></em>,
+                          <em class="parameter"><code><a href="../html/gdk3-Windows.html#GdkModifierType"><span class="type">GdkModifierType</span></a> modifiers</code></em>);</pre>
 <p>This function will generate keyboard press and release events in
 the middle of the first GdkWindow found that belongs to <em class="parameter"><code>widget</code></em>
 .
-For windowless widgets like <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> (which returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> from
+For windowless widgets like <a class="link" href="GtkButton.html" title="GtkButton"><span class="type">GtkButton</span></a> (which returns <code class="literal">FALSE</code> from
 <a class="link" href="GtkWidget.html#gtk-widget-get-has-window" title="gtk_widget_get_has_window ()"><code class="function">gtk_widget_get_has_window()</code></a>), this will often be an
 input-only event window. For other widgets, this is usually widget-&gt;window.
 Certain caveats should be considered when using this function, in
 particular because the mouse pointer is warped to the key press
-location, see <a href="https://developer.gnome.org/gdk3/gdk3-Testing.html#gdk-test-simulate-key"><code class="function">gdk_test_simulate_key()</code></a> for details.</p>
+location, see <a href="../html/gdk3-Testing.html#gdk-test-simulate-key"><code class="function">gdk_test_simulate_key()</code></a> for details.</p>
 <div class="refsect3">
 <a name="gtk-test-widget-send-key.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -903,11 +903,8 @@ server.</p>
 <p class="since">Since: <a class="link" href="api-index-3-10.html#api-index-3.10">3.10</a></p>
 </div>
 </div>
-<div class="refsect1">
-<a name="gtk3-Testing.other_details"></a><h2>Types and Values</h2>
-</div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

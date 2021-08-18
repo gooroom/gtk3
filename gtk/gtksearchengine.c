@@ -22,16 +22,19 @@
 #include "config.h"
 #include "gtksearchengine.h"
 #include "gtksearchenginesimple.h"
-#include "gtksearchenginetracker.h"
 #include "gtksearchenginemodel.h"
 #include "gtksearchenginequartz.h"
 #include "gtkintl.h"
 
-#include <gdk/gdk.h> /* for GDK_WINDOWING_QUARTZ */
-
-#ifndef G_OS_WIN32  /* No tracker on Windows */
+#if defined(HAVE_TRACKER3)
+#include "gtksearchenginetracker3.h"
+#endif
+#if !defined G_OS_WIN32 /* No tracker on windows */
+#include "gtksearchenginetracker.h"
 #define HAVE_TRACKER 1
 #endif
+
+#include <gdk/gdk.h> /* for GDK_WINDOWING_QUARTZ */
 
 struct _GtkSearchEnginePrivate {
   GtkSearchEngine *native;
@@ -40,6 +43,7 @@ struct _GtkSearchEnginePrivate {
 
   GtkSearchEngine *simple;
   gboolean simple_running;
+  gboolean got_results;
   gchar *simple_error;
 
   GtkSearchEngine *model;
@@ -174,7 +178,7 @@ _gtk_search_engine_class_init (GtkSearchEngineClass *class)
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (GtkSearchEngineClass, hits_added),
                   NULL, NULL,
-                  g_cclosure_marshal_VOID__POINTER,
+                  NULL,
                   G_TYPE_NONE, 1,
                   G_TYPE_POINTER);
 
@@ -184,8 +188,8 @@ _gtk_search_engine_class_init (GtkSearchEngineClass *class)
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (GtkSearchEngineClass, finished),
                   NULL, NULL,
-                  g_cclosure_marshal_VOID__VOID,
-                  G_TYPE_NONE, 0);
+                  NULL,
+                  G_TYPE_NONE, 1, G_TYPE_BOOLEAN);
 
   signals[ERROR] =
     g_signal_new (I_("error"),
@@ -193,7 +197,7 @@ _gtk_search_engine_class_init (GtkSearchEngineClass *class)
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (GtkSearchEngineClass, error),
                   NULL, NULL,
-                  g_cclosure_marshal_VOID__STRING,
+                  NULL,
                   G_TYPE_NONE, 1,
                   G_TYPE_STRING);
 }
@@ -256,13 +260,16 @@ update_status (GtkSearchEngine *engine)
           else if (engine->priv->model_error)
             _gtk_search_engine_error (engine, engine->priv->model_error);
           else
-            _gtk_search_engine_finished (engine);
+            _gtk_search_engine_finished (engine, engine->priv->got_results);
+
+          engine->priv->got_results = FALSE;
         }
     }
 }
 
 static void
 finished (GtkSearchEngine *engine,
+          gboolean         got_results,
           gpointer         data)
 {
   GtkSearchEngine *composite = GTK_SEARCH_ENGINE (data);
@@ -274,6 +281,7 @@ finished (GtkSearchEngine *engine,
   else if (engine == composite->priv->model)
     composite->priv->model_running = FALSE;
 
+  composite->priv->got_results |= got_results;
   update_status (composite);
 }
 
@@ -367,16 +375,32 @@ _gtk_search_engine_new (void)
   g_debug ("Using simple search engine");
   connect_engine_signals (engine->priv->simple, engine);
 
-#ifdef HAVE_TRACKER
-  engine->priv->native = _gtk_search_engine_tracker_new ();
+#if defined(HAVE_TRACKER3)
+  engine->priv->native = gtk_search_engine_tracker3_new ();
   if (engine->priv->native)
     {
-      g_debug ("Using Tracker search engine");
+      g_debug ("Using Tracker3 search engine");
       connect_engine_signals (engine->priv->native, engine);
       _gtk_search_engine_simple_set_indexed_cb (GTK_SEARCH_ENGINE_SIMPLE (engine->priv->simple),
-                                                _gtk_search_engine_tracker_is_indexed,
+                                                gtk_search_engine_tracker3_is_indexed,
                                                 g_object_ref (engine->priv->native),
                                                 g_object_unref);
+    }
+#endif
+
+#ifdef HAVE_TRACKER
+  if (!engine->priv->native)
+    {
+      engine->priv->native = _gtk_search_engine_tracker_new ();
+      if (engine->priv->native)
+        {
+          g_debug ("Using Tracker search engine");
+          connect_engine_signals (engine->priv->native, engine);
+          _gtk_search_engine_simple_set_indexed_cb (GTK_SEARCH_ENGINE_SIMPLE (engine->priv->simple),
+                                                    _gtk_search_engine_tracker_is_indexed,
+                                                    g_object_ref (engine->priv->native),
+                                                    g_object_unref);
+        }
     }
 #endif
 
@@ -433,11 +457,12 @@ _gtk_search_engine_hits_added (GtkSearchEngine *engine,
 }
 
 void
-_gtk_search_engine_finished (GtkSearchEngine *engine)
+_gtk_search_engine_finished (GtkSearchEngine *engine,
+                             gboolean         got_results)
 {
   g_return_if_fail (GTK_IS_SEARCH_ENGINE (engine));
 
-  g_signal_emit (engine, signals[FINISHED], 0);
+  g_signal_emit (engine, signals[FINISHED], 0, got_results);
 }
 
 void

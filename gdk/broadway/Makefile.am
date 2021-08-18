@@ -108,6 +108,10 @@ EXTRA_DIST += $(broadway_built_sources)
 
 BUILT_SOURCES = $(broadway_built_sources)
 
+EXTRA_DIST += \
+	meson.build \
+	gen-c-array.py
+
 # ------------------- MSVC Build Items ----------------
 MSVCPROJS = gdk3-broadway broadwayd
 
@@ -122,11 +126,11 @@ gdk3_broadway_HEADERS_EXCLUDES = dummy
 broadwayd_FILES = $(broadwayd_SOURCES)
 broadwayd_EXCLUDES = dummy
 
-include $(top_srcdir)/build/Makefile.msvcproj
+include $(top_srcdir)/win32/Makefile.msvcproj
 
 dist-hook: \
-	$(top_builddir)/build/win32/vs9/gdk3-broadway.vcproj		\
-	$(top_builddir)/build/win32/vs9/broadwayd.vcproj		\
-	$(top_builddir)/build/win32/vs9/gdk3-broadway.headers
+	$(top_builddir)/win32/vs9/gdk3-broadway.vcproj		\
+	$(top_builddir)/win32/vs9/broadwayd.vcproj		\
+	$(top_builddir)/win32/vs9/gdk3-broadway.headers
 
 -include $(top_srcdir)/git.mk

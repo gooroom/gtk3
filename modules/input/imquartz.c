@@ -25,12 +25,23 @@
 #include "gtk/gtkintl.h"
 #include "gtk/gtkimmodule.h"
 
-#include "gdk/quartz/gdkquartz.h"
+#include <AvailabilityMacros.h>
+
+#define GTK_COMPILATION 1 // For gdkquartz-gtk-only.h
+
+#include "gdk/quartz/gdkinternal-quartz.h"
+#include "gdk/quartz/gdkquartz-gtk-only.h"
 #include "gdk/quartz/GdkQuartzView.h"
 
 #define GTK_IM_CONTEXT_TYPE_QUARTZ (type_quartz)
 #define GTK_IM_CONTEXT_QUARTZ(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_IM_CONTEXT_TYPE_QUARTZ, GtkIMContextQuartz))
 #define GTK_IM_CONTEXT_QUARTZ_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS((obj), GTK_IM_CONTEXT_TYPE_QUARTZ, GtkIMContextQuartzClass))
+
+#if MAC_OS_X_VERSION_MIN_REQUIRED < 10120
+#define NS_EVENT_KEY_DOWN NSKeyDown
+#else
+#define NS_EVENT_KEY_DOWN NSEventTypeKeyDown
+#endif
 
 typedef struct _GtkIMContextQuartz
 {
@@ -129,8 +140,11 @@ output_result (GtkIMContext *context,
 {
   GtkIMContextQuartz *qc = GTK_IM_CONTEXT_QUARTZ (context);
   gboolean retval = FALSE;
+  int fixed_str_replace_len;
   gchar *fixed_str, *marked_str;
 
+  fixed_str_replace_len = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (win),
+      TIC_INSERT_TEXT_REPLACE_LEN));
   fixed_str = g_strdup (g_object_get_data (G_OBJECT (win), TIC_INSERT_TEXT));
   marked_str = g_strdup (g_object_get_data (G_OBJECT (win), TIC_MARKED_TEXT));
   if (fixed_str)
@@ -139,6 +153,13 @@ output_result (GtkIMContext *context,
       g_free (qc->preedit_str);
       qc->preedit_str = NULL;
       g_object_set_data (G_OBJECT (win), TIC_INSERT_TEXT, NULL);
+      if (fixed_str_replace_len)
+        {
+          gboolean retval;
+          g_object_set_data (G_OBJECT (win), TIC_INSERT_TEXT_REPLACE_LEN, 0);
+          g_signal_emit_by_name (context, "delete-surrounding",
+              -fixed_str_replace_len, fixed_str_replace_len, &retval);
+        }
       g_signal_emit_by_name (context, "commit", fixed_str);
       g_signal_emit_by_name (context, "preedit_changed");
 
@@ -168,6 +189,11 @@ output_result (GtkIMContext *context,
     }
   if (!fixed_str && !marked_str)
     {
+      unsigned int filtered =
+	  GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (win),
+					       GIC_FILTER_KEY));
+      if (filtered)
+        retval = TRUE;
       if (qc->preedit_str && strlen (qc->preedit_str) > 0)
         retval = TRUE;
     }
@@ -213,8 +239,11 @@ quartz_filter_keypress (GtkIMContext *context,
   if (event->hardware_keycode == 55)	/* Command */
     return FALSE;
 
+  if (event->hardware_keycode == 53) /* Escape */
+    return FALSE;
+
   NSEventType etype = [nsevent type];
-  if (etype == NSKeyDown)
+  if (etype == NS_EVENT_KEY_DOWN)
     {
        g_object_set_data (G_OBJECT (win), TIC_IN_KEY_DOWN,
                                           GUINT_TO_POINTER (TRUE));
@@ -249,9 +278,12 @@ discard_preedit (GtkIMContext *context)
 
   /* reset any partial input for this NSView */
   [(GdkQuartzView *)nsview unmarkText];
+#if MAC_OS_X_VERSION_MIN_REQUIRED < 1060
   NSInputManager *currentInputManager = [NSInputManager currentInputManager];
   [currentInputManager markedTextAbandoned:nsview];
-
+#else
+  [[NSTextInputContext currentInputContext] discardMarkedText];
+#endif
   if (qc->preedit_str && strlen (qc->preedit_str) > 0)
     {
       g_signal_emit_by_name (context, "commit", qc->preedit_str);

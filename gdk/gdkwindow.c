@@ -382,6 +382,9 @@ gdk_window_class_init (GdkWindowClass *klass)
 		  2,
 		  G_TYPE_DOUBLE,
 		  G_TYPE_DOUBLE);
+  g_signal_set_va_marshaller (signals[PICK_EMBEDDED_CHILD],
+                              G_OBJECT_CLASS_TYPE (object_class),
+                              _gdk_marshal_OBJECT__DOUBLE_DOUBLEv);
 
   /**
    * GdkWindow::to-embedder:
@@ -413,6 +416,9 @@ gdk_window_class_init (GdkWindowClass *klass)
 		  G_TYPE_DOUBLE,
 		  G_TYPE_POINTER,
 		  G_TYPE_POINTER);
+  g_signal_set_va_marshaller (signals[TO_EMBEDDER],
+                              G_OBJECT_CLASS_TYPE (object_class),
+                              _gdk_marshal_VOID__DOUBLE_DOUBLE_POINTER_POINTERv);
 
   /**
    * GdkWindow::from-embedder:
@@ -444,6 +450,9 @@ gdk_window_class_init (GdkWindowClass *klass)
 		  G_TYPE_DOUBLE,
 		  G_TYPE_POINTER,
 		  G_TYPE_POINTER);
+  g_signal_set_va_marshaller (signals[FROM_EMBEDDER],
+                              G_OBJECT_CLASS_TYPE (object_class),
+                              _gdk_marshal_VOID__DOUBLE_DOUBLE_POINTER_POINTERv);
 
   /**
    * GdkWindow::create-surface:
@@ -477,6 +486,9 @@ gdk_window_class_init (GdkWindowClass *klass)
                   2,
                   G_TYPE_INT,
                   G_TYPE_INT);
+  g_signal_set_va_marshaller (signals[CREATE_SURFACE],
+                              G_OBJECT_CLASS_TYPE (object_class),
+                              _gdk_marshal_BOXED__INT_INTv);
 
   /**
    * GdkWindow::moved-to-rect:
@@ -517,6 +529,9 @@ gdk_window_class_init (GdkWindowClass *klass)
                   G_TYPE_POINTER,
                   G_TYPE_BOOLEAN,
                   G_TYPE_BOOLEAN);
+  g_signal_set_va_marshaller (signals[MOVED_TO_RECT],
+                              G_OBJECT_CLASS_TYPE (object_class),
+                              _gdk_marshal_VOID__POINTER_POINTER_BOOLEAN_BOOLEANv);
 }
 
 static void
@@ -553,6 +568,12 @@ gdk_window_finalize (GObject *object)
 	 * XDestroyWindow() on the window
 	 */
 	_gdk_window_destroy (window, TRUE);
+    }
+
+  if (window->synthesized_crossing_event_id)
+    {
+      g_source_remove (window->synthesized_crossing_event_id);
+      window->synthesized_crossing_event_id = 0;
     }
 
   if (window->impl)
@@ -2643,6 +2664,7 @@ gdk_window_add_filter (GdkWindow     *window,
       if ((filter->function == function) && (filter->data == data))
         {
           filter->ref_count++;
+          filter->flags = 0;
           return;
         }
       tmp_list = tmp_list->next;
@@ -8962,7 +8984,7 @@ do_synthesize_crossing_event (gpointer data)
 
   changed_toplevel = data;
 
-  changed_toplevel->synthesize_crossing_event_queued = FALSE;
+  changed_toplevel->synthesized_crossing_event_id = 0;
 
   if (GDK_WINDOW_DESTROYED (changed_toplevel))
     return FALSE;
@@ -9021,17 +9043,14 @@ _gdk_synthesize_crossing_events_for_geometry_change (GdkWindow *changed_window)
 
   toplevel = get_event_toplevel (changed_window);
 
-  if (!toplevel->synthesize_crossing_event_queued)
+  if (toplevel->synthesized_crossing_event_id == 0)
     {
-      guint id;
-
-      toplevel->synthesize_crossing_event_queued = TRUE;
-
-      id = gdk_threads_add_idle_full (GDK_PRIORITY_EVENTS - 1,
-                                      do_synthesize_crossing_event,
-                                      g_object_ref (toplevel),
-                                      g_object_unref);
-      g_source_set_name_by_id (id, "[gtk+] do_synthesize_crossing_event");
+      toplevel->synthesized_crossing_event_id =
+        gdk_threads_add_idle_full (GDK_PRIORITY_EVENTS - 1,
+                                   do_synthesize_crossing_event,
+                                   toplevel, NULL);
+      g_source_set_name_by_id (toplevel->synthesized_crossing_event_id,
+                               "[gtk+] do_synthesize_crossing_event");
     }
 }
 
@@ -9912,7 +9931,7 @@ _gdk_windowing_got_event (GdkDisplay *display,
 
           if (source_device != pointer_info->last_slave &&
               gdk_device_get_device_type (source_device) == GDK_DEVICE_TYPE_SLAVE)
-            pointer_info->last_slave = source_device;
+            g_set_object (&pointer_info->last_slave, source_device);
           else if (pointer_info->last_slave)
             source_device = pointer_info->last_slave;
         }
@@ -10275,7 +10294,7 @@ gdk_window_create_similar_image_surface (GdkWindow *     window,
  * @window: a #GdkWindow
  * @timestamp: timestamp of the event triggering the window focus
  *
- * Sets keyboard focus to @window. In most cases, gtk_window_present()
+ * Sets keyboard focus to @window. In most cases, gtk_window_present_with_time()
  * should be used on a #GtkWindow, rather than calling this function.
  *
  **/
@@ -10500,7 +10519,10 @@ void
 gdk_window_set_startup_id (GdkWindow   *window,
 			   const gchar *startup_id)
 {
-  GDK_WINDOW_IMPL_GET_CLASS (window->impl)->set_startup_id (window, startup_id);
+  GdkWindowImplClass *klass = GDK_WINDOW_IMPL_GET_CLASS (window->impl);
+
+  if (klass->set_startup_id)
+    klass->set_startup_id (window, startup_id);
 }
 
 /**
@@ -10749,7 +10771,7 @@ gdk_window_iconify (GdkWindow *window)
  * Attempt to deiconify (unminimize) @window. On X11 the window manager may
  * choose to ignore the request to deiconify. When using GTK+,
  * use gtk_window_deiconify() instead of the #GdkWindow variant. Or better yet,
- * you probably want to use gtk_window_present(), which raises the window, focuses it,
+ * you probably want to use gtk_window_present_with_time(), which raises the window, focuses it,
  * unminimizes it, and puts it on the current desktop.
  *
  **/

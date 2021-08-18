@@ -44,6 +44,7 @@
 #include "gtkwindow.h"
 #include "gtktypebuiltins.h"
 #include "gtkprivate.h"
+#include "gtktooltipprivate.h"
 #include "gtkcomboboxprivate.h"
 
 #include <gobject/gvaluecollector.h>
@@ -718,7 +719,7 @@ gtk_combo_box_class_init (GtkComboBoxClass *klass)
                   G_SIGNAL_RUN_LAST,
                   G_STRUCT_OFFSET (GtkComboBoxClass, changed),
                   NULL, NULL,
-                  g_cclosure_marshal_VOID__VOID,
+                  NULL,
                   G_TYPE_NONE, 0);
   /**
    * GtkComboBox::move-active:
@@ -737,7 +738,7 @@ gtk_combo_box_class_init (GtkComboBoxClass *klass)
                                 G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
                                 G_CALLBACK (gtk_combo_box_real_move_active),
                                 NULL, NULL,
-                                g_cclosure_marshal_VOID__ENUM,
+                                NULL,
                                 G_TYPE_NONE, 1,
                                 GTK_TYPE_SCROLL_TYPE);
 
@@ -759,7 +760,7 @@ gtk_combo_box_class_init (GtkComboBoxClass *klass)
                                 G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
                                 G_CALLBACK (gtk_combo_box_real_popup),
                                 NULL, NULL,
-                                g_cclosure_marshal_VOID__VOID,
+                                NULL,
                                 G_TYPE_NONE, 0);
   /**
    * GtkComboBox::popdown:
@@ -2315,6 +2316,7 @@ gtk_combo_box_popup_for_device (GtkComboBox *combo_box,
       return;
     }
 
+  _gtk_tooltip_hide (GTK_WIDGET (combo_box));
   toplevel = gtk_widget_get_toplevel (GTK_WIDGET (combo_box));
   if (GTK_IS_WINDOW (toplevel))
     {

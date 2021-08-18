@@ -8,7 +8,7 @@
 <link rel="up" href="gtk-migrating-GtkStyleContext.html" title="Theming changes">
 <link rel="prev" href="gtk-migrating-GtkStyleContext-checklist.html" title="A checklist for widgets">
 <link rel="next" href="gtk-migrating-GtkStyleContext-bonus-points.html" title="Bonus points">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -50,19 +50,19 @@
 11
 12
 13</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkStyleContext</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">context</span><span class="symbol">;</span>
-<span class="usertype">GtkCssProvider</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">provider</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="n">GtkStyleContext</span> <span class="o">*</span><span class="n">context</span><span class="p">;</span>
+<span class="n">GtkCssProvider</span> <span class="o">*</span><span class="n">provider</span><span class="p">;</span>
 
-<span class="normal">context </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkWidget.html#gtk-widget-get-style-context">gtk_widget_get_style_context</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">widget</span><span class="symbol">);</span>
-<span class="normal">provider </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkCssProvider.html#gtk-css-provider-new">gtk_css_provider_new</a></span><span class="normal"> </span><span class="symbol">();</span>
-<span class="function"><a href="GtkCssProvider.html#gtk-css-provider-load-from-data">gtk_css_provider_load_from_data</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CSS_PROVIDER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">provider</span><span class="symbol">),</span>
-<span class="normal">                                 </span><span class="string">".frame1 {</span><span class="specialchar">\n</span><span class="string">"</span>
-<span class="normal">                                 </span><span class="string">"   border-image: url('gradient1.png') 10 10 10 10 stretch;</span><span class="specialchar">\n</span><span class="string">"</span>
-<span class="normal">                                 </span><span class="string">"}</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">,</span><span class="normal"> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
-<span class="function"><a href="GtkStyleContext.html#gtk-style-context-add-provider">gtk_style_context_add_provider</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span>
-<span class="normal">                                </span><span class="function">GTK_STYLE_PROVIDER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">provider</span><span class="symbol">),</span>
-<span class="normal">                                <a href="GtkStyleProvider.html#GTK-STYLE-PROVIDER-PRIORITY-APPLICATION:CAPS">GTK_STYLE_PROVIDER_PRIORITY_APPLICATION</a></span><span class="symbol">);</span>
-<span class="function"><a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">provider</span><span class="symbol">);</span></pre></td>
+<span class="n">context</span> <span class="o">=</span> <span class="n">gtk_widget_get_style_context</span> <span class="p">(</span><span class="n">widget</span><span class="p">);</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="n">gtk_css_provider_new</span> <span class="p">();</span>
+<span class="n">gtk_css_provider_load_from_data</span> <span class="p">(</span><span class="n">GTK_CSS_PROVIDER</span> <span class="p">(</span><span class="n">provider</span><span class="p">),</span>
+                                 <span class="s">&quot;.frame1 {</span><span class="se">\n</span><span class="s">&quot;</span>
+                                 <span class="s">&quot;   border-image: url(&#39;gradient1.png&#39;) 10 10 10 10 stretch;</span><span class="se">\n</span><span class="s">&quot;</span>
+                                 <span class="s">&quot;}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">gtk_style_context_add_provider</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span>
+                                <span class="n">GTK_STYLE_PROVIDER</span> <span class="p">(</span><span class="n">provider</span><span class="p">),</span>
+                                <span class="n">GTK_STYLE_PROVIDER_PRIORITY_APPLICATION</span><span class="p">);</span>
+<span class="n">g_object_unref</span> <span class="p">(</span><span class="n">provider</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -76,6 +76,6 @@
     </p>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="MenusAndCombos.html" title="Menus, Combo Box, Toolbar">
 <link rel="prev" href="GtkToolItemGroup.html" title="GtkToolItemGroup">
 <link rel="next" href="GtkToolButton.html" title="GtkToolButton">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -31,7 +31,7 @@
 <td valign="top">
 <h2><span class="refentrytitle"><a name="GtkSeparatorToolItem.top_of_page"></a>GtkSeparatorToolItem</span></h2>
 <p>GtkSeparatorToolItem — A toolbar item that separates groups of other
-  toolbar items</p>
+toolbar items</p>
 </td>
 <td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
@@ -39,8 +39,8 @@
 <a name="GtkSeparatorToolItem.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -61,7 +61,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkSeparatorToolItem.html#gtk-separator-tool-item-get-draw" title="gtk_separator_tool_item_get_draw ()">gtk_separator_tool_item_get_draw</a> <span class="c_punctuation">()</span>
@@ -79,7 +79,7 @@
 <col width="200px" class="properties_flags">
 </colgroup>
 <tbody><tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_type"><span class="type">gboolean</span></td>
 <td class="property_name"><a class="link" href="GtkSeparatorToolItem.html#GtkSeparatorToolItem--draw" title="The “draw” property">draw</a></td>
 <td class="property_flags">Read / Write</td>
 </tr></tbody>
@@ -89,8 +89,8 @@
 <a name="GtkSeparatorToolItem.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -106,8 +106,8 @@
 </div>
 <div class="refsect1">
 <a name="GtkSeparatorToolItem.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
-    <span class="lineart">╰──</span> <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
         <span class="lineart">╰──</span> <a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
             <span class="lineart">╰──</span> <a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                 <span class="lineart">╰──</span> <a class="link" href="GtkBin.html" title="GtkBin">GtkBin</a>
@@ -131,8 +131,8 @@ GtkSeparatorToolItem implements
 <p>A <a class="link" href="GtkSeparatorToolItem.html" title="GtkSeparatorToolItem"><span class="type">GtkSeparatorToolItem</span></a> is a <a class="link" href="GtkToolItem.html" title="GtkToolItem"><span class="type">GtkToolItem</span></a> that separates groups of other
 <a href="GtkToolItem.html#GtkToolItem-struct"><span class="type">GtkToolItems</span></a>. Depending on the theme, a <a class="link" href="GtkSeparatorToolItem.html" title="GtkSeparatorToolItem"><span class="type">GtkSeparatorToolItem</span></a> will
 often look like a vertical line on horizontally docked toolbars.</p>
-<p>If the <a class="link" href="GtkToolbar.html" title="GtkToolbar"><span class="type">GtkToolbar</span></a> child property “expand” is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> and the property
-<a class="link" href="GtkSeparatorToolItem.html#GtkSeparatorToolItem--draw" title="The “draw” property"><span class="type">“draw”</span></a> is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>, a <a class="link" href="GtkSeparatorToolItem.html" title="GtkSeparatorToolItem"><span class="type">GtkSeparatorToolItem</span></a> will act as
+<p>If the <a class="link" href="GtkToolbar.html" title="GtkToolbar"><span class="type">GtkToolbar</span></a> child property “expand” is <code class="literal">TRUE</code> and the property
+<a class="link" href="GtkSeparatorToolItem.html#GtkSeparatorToolItem--draw" title="The “draw” property"><span class="type">“draw”</span></a> is <code class="literal">FALSE</code>, a <a class="link" href="GtkSeparatorToolItem.html" title="GtkSeparatorToolItem"><span class="type">GtkSeparatorToolItem</span></a> will act as
 a “spring” that forces other items to the ends of the toolbar.</p>
 <p>Use <a class="link" href="GtkSeparatorToolItem.html#gtk-separator-tool-item-new" title="gtk_separator_tool_item_new ()"><code class="function">gtk_separator_tool_item_new()</code></a> to create a new <a class="link" href="GtkSeparatorToolItem.html" title="GtkSeparatorToolItem"><span class="type">GtkSeparatorToolItem</span></a>.</p>
 <div class="refsect2">
@@ -158,10 +158,10 @@ gtk_separator_tool_item_new (<em class="parameter"><code><span class="type">void
 <a name="gtk-separator-tool-item-set-draw"></a><h3>gtk_separator_tool_item_set_draw ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_separator_tool_item_set_draw (<em class="parameter"><code><a class="link" href="GtkSeparatorToolItem.html" title="GtkSeparatorToolItem"><span class="type">GtkSeparatorToolItem</span></a> *item</code></em>,
-                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> draw</code></em>);</pre>
+                                  <em class="parameter"><code><span class="type">gboolean</span> draw</code></em>);</pre>
 <p>Whether <em class="parameter"><code>item</code></em>
  is drawn as a vertical line, or just blank.
-Setting this to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> along with <a class="link" href="GtkToolItem.html#gtk-tool-item-set-expand" title="gtk_tool_item_set_expand ()"><code class="function">gtk_tool_item_set_expand()</code></a> is useful
+Setting this to <code class="literal">FALSE</code> along with <a class="link" href="GtkToolItem.html#gtk-tool-item-set-expand" title="gtk_tool_item_set_expand ()"><code class="function">gtk_tool_item_set_expand()</code></a> is useful
 to create an item that forces following items to the end of the toolbar.</p>
 <div class="refsect3">
 <a name="gtk-separator-tool-item-set-draw.parameters"></a><h4>Parameters</h4>
@@ -191,7 +191,7 @@ is drawn as a vertical line</p></td>
 <hr>
 <div class="refsect2">
 <a name="gtk-separator-tool-item-get-draw"></a><h3>gtk_separator_tool_item_get_draw ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_separator_tool_item_get_draw (<em class="parameter"><code><a class="link" href="GtkSeparatorToolItem.html" title="GtkSeparatorToolItem"><span class="type">GtkSeparatorToolItem</span></a> *item</code></em>);</pre>
 <p>Returns whether <em class="parameter"><code>item</code></em>
  is drawn as a line, or just blank. 
@@ -213,7 +213,7 @@ See <a class="link" href="GtkSeparatorToolItem.html#gtk-separator-tool-item-set-
 </div>
 <div class="refsect3">
 <a name="gtk-separator-tool-item-get-draw.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>item</code></em>
+<p> <code class="literal">TRUE</code> if <em class="parameter"><code>item</code></em>
 is drawn as a line, or just blank.</p>
 </div>
 <p class="since">Since: 2.4</p>
@@ -249,8 +249,9 @@ is drawn as a line, or just blank.</p>
 <a name="GtkSeparatorToolItem.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkSeparatorToolItem--draw"></a><h3>The <code class="literal">“draw”</code> property</h3>
-<pre class="programlisting">  “draw”                     <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<pre class="programlisting">  “draw”                     <span class="type">gboolean</span></pre>
 <p>Whether the separator is drawn, or just blank.</p>
+<p>Owner: GtkSeparatorToolItem</p>
 <p>Flags: Read / Write</p>
 <p>Default value: TRUE</p>
 </div>
@@ -261,6 +262,6 @@ is drawn as a line, or just blank.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

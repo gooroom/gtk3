@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Events.html" title="Events">
 <link rel="next" href="gdk3-Keyboard-Handling.html" title="Key Values">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -35,8 +35,8 @@
 <a name="gdk3-Event-Structures.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -183,7 +183,7 @@
 <a name="gdk3-Event-Structures.description"></a><h2>Description</h2>
 <p>The event structures contain data specific to each type of event in GDK.</p>
 <div class="blockquote"><blockquote class="blockquote"><p>A common mistake is to forget to set the event mask of a widget so that
-the required events are received. See <a href="https://developer.gnome.org/gtk3/GtkWidget.html#gtk-widget-set-events"><code class="function">gtk_widget_set_events()</code></a>.</p></blockquote></div>
+the required events are received. See <code class="function">gtk_widget_set_events()</code>.</p></blockquote></div>
 </div>
 <div class="refsect1">
 <a name="gdk3-Event-Structures.functions_details"></a><h2>Functions</h2>
@@ -206,10 +206,10 @@ event it is:</p>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkEvent</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">event</span><span class="symbol">;</span>
-<span class="usertype">GdkEventType</span><span class="normal"> type</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="n">GdkEvent</span> <span class="o">*</span><span class="n">event</span><span class="p">;</span>
+<span class="n">GdkEventType</span> <span class="n">type</span><span class="p">;</span>
 
-<span class="normal">type </span><span class="symbol">=</span><span class="normal"> event</span><span class="symbol">-&gt;</span><span class="normal">type</span><span class="symbol">;</span></pre></td>
+<span class="n">type</span> <span class="o">=</span> <span class="n">event</span><span class="o">-&gt;</span><span class="n">type</span><span class="p">;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -228,10 +228,10 @@ then the x coordinate of the button press can be accessed with:</p>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkEvent</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">event</span><span class="symbol">;</span>
-<span class="usertype">gdouble</span><span class="normal"> x</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="n">GdkEvent</span> <span class="o">*</span><span class="n">event</span><span class="p">;</span>
+<span class="n">gdouble</span> <span class="n">x</span><span class="p">;</span>
 
-<span class="normal">x </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">((</span><span class="normal"><a href="gdk3-Event-Structures.html#GdkEventButton">GdkEventButton</a></span><span class="symbol">*)</span><span class="normal">event</span><span class="symbol">)-&gt;</span><span class="normal">x</span><span class="symbol">;</span></pre></td>
+<span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">GdkEventButton</span><span class="o">*</span><span class="p">)</span><span class="n">event</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -247,10 +247,10 @@ or:</p>
 2
 3
 4</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GdkEvent</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">event</span><span class="symbol">;</span>
-<span class="usertype">gdouble</span><span class="normal"> x</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="n">GdkEvent</span> <span class="o">*</span><span class="n">event</span><span class="p">;</span>
+<span class="n">gdouble</span> <span class="n">x</span><span class="p">;</span>
 
-<span class="normal">x </span><span class="symbol">=</span><span class="normal"> event</span><span class="symbol">-&gt;</span><span class="normal">button</span><span class="symbol">.</span><span class="normal">x</span><span class="symbol">;</span></pre></td>
+<span class="n">x</span> <span class="o">=</span> <span class="n">event</span><span class="o">-&gt;</span><span class="n">button</span><span class="p">.</span><span class="n">x</span><span class="p">;</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -427,8 +427,8 @@ access these fields.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventAny.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventAny.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 </tbody>
@@ -473,40 +473,40 @@ access these fields.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventKey.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventKey.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventKey.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventKey.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventKey.state"></a>state</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventKey.state"></a>state</code></em>;</p></td>
 <td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkModifierType]</span></td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventKey.keyval"></a>keyval</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventKey.keyval"></a>keyval</code></em>;</p></td>
 <td class="struct_member_description"><p>the key that was pressed or released. See the
 <code class="literal">gdk/gdkkeysyms.h</code> header file for a
 complete list of GDK key codes.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GdkEventKey.length"></a>length</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint</span> <em class="structfield"><code><a name="GdkEventKey.length"></a>length</code></em>;</p></td>
 <td class="struct_member_description"><p>the length of <em class="parameter"><code>string</code></em>
 .</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GdkEventKey.string"></a>string</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gchar</span> *<em class="structfield"><code><a name="GdkEventKey.string"></a>string</code></em>;</p></td>
 <td class="struct_member_description"><p>a string containing an approximation of the text that
 would result from this keypress. The only correct way to handle text
-input of text is using input methods (see <a href="https://developer.gnome.org/gtk3/GtkIMContext.html#GtkIMContext-struct"><span class="type">GtkIMContext</span></a>), so this
+input of text is using input methods (see <a href="https://developer.gnome.org/gtk4/GtkIMContext.html#GtkIMContext-struct"><span class="type">GtkIMContext</span></a>), so this
 field is deprecated and should never be used.
 (<a class="link" href="gdk3-Keyboard-Handling.html#gdk-unicode-to-keyval" title="gdk_unicode_to_keyval ()"><code class="function">gdk_unicode_to_keyval()</code></a> provides a non-deprecated way of getting
 an approximate translation for a key.) The string is encoded in the
@@ -519,17 +519,17 @@ it from the an empty translation.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> <em class="structfield"><code><a name="GdkEventKey.hardware-keycode"></a>hardware_keycode</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint16</span> <em class="structfield"><code><a name="GdkEventKey.hardware-keycode"></a>hardware_keycode</code></em>;</p></td>
 <td class="struct_member_description"><p>the raw code of the key that was pressed or released.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint8"><span class="type">guint8</span></a> <em class="structfield"><code><a name="GdkEventKey.group"></a>group</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint8</span> <em class="structfield"><code><a name="GdkEventKey.group"></a>group</code></em>;</p></td>
 <td class="struct_member_description"><p>the keyboard group.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventKey.is-modifier"></a>is_modifier</code></em> : 1;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventKey.is-modifier"></a>is_modifier</code></em> : 1;</p></td>
 <td class="struct_member_description"><p>a flag that indicates if <em class="parameter"><code>hardware_keycode</code></em>
 is mapped to a
 modifier. Since 2.10</p></td>
@@ -609,44 +609,44 @@ button press must also occur within 1/2 second of the first button press.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventButton.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventButton.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventButton.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventButton.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventButton.x"></a>x</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventButton.x"></a>x</code></em>;</p></td>
 <td class="struct_member_description"><p>the x coordinate of the pointer relative to the window.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventButton.y"></a>y</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventButton.y"></a>y</code></em>;</p></td>
 <td class="struct_member_description"><p>the y coordinate of the pointer relative to the window.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *<em class="structfield"><code><a name="GdkEventButton.axes"></a>axes</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> *<em class="structfield"><code><a name="GdkEventButton.axes"></a>axes</code></em>;</p></td>
 <td class="struct_member_description"><p><em class="parameter"><code>x</code></em>
 , <em class="parameter"><code>y</code></em>
 translated to the axes of <em class="parameter"><code>device</code></em>
-, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>device</code></em>
+, or <code class="literal">NULL</code> if <em class="parameter"><code>device</code></em>
 is
 the mouse.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventButton.state"></a>state</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventButton.state"></a>state</code></em>;</p></td>
 <td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkModifierType]</span></td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventButton.button"></a>button</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventButton.button"></a>button</code></em>;</p></td>
 <td class="struct_member_description"><p>the button which was pressed or released, numbered from 1 to 5.
 Normally button 1 is the left mouse button, 2 is the middle button,
 and 3 is the right button. On 2-button mice, the middle button can
@@ -660,13 +660,13 @@ often be simulated by pressing both mouse buttons together.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventButton.x-root"></a>x_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventButton.x-root"></a>x_root</code></em>;</p></td>
 <td class="struct_member_description"><p>the x coordinate of the pointer relative to the root of the
 screen.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventButton.y-root"></a>y_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventButton.y-root"></a>y_root</code></em>;</p></td>
 <td class="struct_member_description"><p>the y coordinate of the pointer relative to the root of the
 screen.</p></td>
 <td class="struct_member_annotations"> </td>
@@ -725,37 +725,37 @@ several active sequences at the same time.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventTouch.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventTouch.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventTouch.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventTouch.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouch.x"></a>x</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouch.x"></a>x</code></em>;</p></td>
 <td class="struct_member_description"><p>the x coordinate of the pointer relative to the window</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouch.y"></a>y</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouch.y"></a>y</code></em>;</p></td>
 <td class="struct_member_description"><p>the y coordinate of the pointer relative to the window</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *<em class="structfield"><code><a name="GdkEventTouch.axes"></a>axes</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> *<em class="structfield"><code><a name="GdkEventTouch.axes"></a>axes</code></em>;</p></td>
 <td class="struct_member_description"><p><em class="parameter"><code>x</code></em>
 , <em class="parameter"><code>y</code></em>
 translated to the axes of <em class="parameter"><code>device</code></em>
-, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>device</code></em>
+, or <code class="literal">NULL</code> if <em class="parameter"><code>device</code></em>
 is
 the mouse</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventTouch.state"></a>state</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventTouch.state"></a>state</code></em>;</p></td>
 <td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
@@ -767,7 +767,7 @@ buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enu
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> <em class="structfield"><code><a name="GdkEventTouch.emulating-pointer"></a>emulating_pointer</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gboolean</span> <em class="structfield"><code><a name="GdkEventTouch.emulating-pointer"></a>emulating_pointer</code></em>;</p></td>
 <td class="struct_member_description"><p>whether the event should be used for emulating
 pointer event</p></td>
 <td class="struct_member_annotations"> </td>
@@ -779,13 +779,13 @@ pointer event</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouch.x-root"></a>x_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouch.x-root"></a>x_root</code></em>;</p></td>
 <td class="struct_member_description"><p>the x coordinate of the pointer relative to the root of the
 screen</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouch.y-root"></a>y_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouch.y-root"></a>y_root</code></em>;</p></td>
 <td class="struct_member_description"><p>the y coordinate of the pointer relative to the root of the
 screen</p></td>
 <td class="struct_member_annotations"> </td>
@@ -840,27 +840,27 @@ these, the scroll deltas can be obtained with
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventScroll.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventScroll.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventScroll.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventScroll.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventScroll.x"></a>x</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventScroll.x"></a>x</code></em>;</p></td>
 <td class="struct_member_description"><p>the x coordinate of the pointer relative to the window.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventScroll.y"></a>y</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventScroll.y"></a>y</code></em>;</p></td>
 <td class="struct_member_description"><p>the y coordinate of the pointer relative to the window.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventScroll.state"></a>state</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventScroll.state"></a>state</code></em>;</p></td>
 <td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
@@ -880,29 +880,29 @@ buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enu
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventScroll.x-root"></a>x_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventScroll.x-root"></a>x_root</code></em>;</p></td>
 <td class="struct_member_description"><p>the x coordinate of the pointer relative to the root of the
 screen.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventScroll.y-root"></a>y_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventScroll.y-root"></a>y_root</code></em>;</p></td>
 <td class="struct_member_description"><p>the y coordinate of the pointer relative to the root of the
 screen.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventScroll.delta-x"></a>delta_x</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventScroll.delta-x"></a>delta_x</code></em>;</p></td>
 <td class="struct_member_description"><p>the x coordinate of the scroll delta</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventScroll.delta-y"></a>delta_y</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventScroll.delta-y"></a>delta_y</code></em>;</p></td>
 <td class="struct_member_description"><p>the y coordinate of the scroll delta</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventScroll.is-stop"></a>is_stop</code></em> : 1;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventScroll.is-stop"></a>is_stop</code></em> : 1;</p></td>
 <td> </td>
 <td> </td>
 </tr>
@@ -948,44 +948,44 @@ screen.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventMotion.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventMotion.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventMotion.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventMotion.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventMotion.x"></a>x</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventMotion.x"></a>x</code></em>;</p></td>
 <td class="struct_member_description"><p>the x coordinate of the pointer relative to the window.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventMotion.y"></a>y</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventMotion.y"></a>y</code></em>;</p></td>
 <td class="struct_member_description"><p>the y coordinate of the pointer relative to the window.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *<em class="structfield"><code><a name="GdkEventMotion.axes"></a>axes</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> *<em class="structfield"><code><a name="GdkEventMotion.axes"></a>axes</code></em>;</p></td>
 <td class="struct_member_description"><p><em class="parameter"><code>x</code></em>
 , <em class="parameter"><code>y</code></em>
 translated to the axes of <em class="parameter"><code>device</code></em>
-, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>device</code></em>
+, or <code class="literal">NULL</code> if <em class="parameter"><code>device</code></em>
 is
 the mouse.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventMotion.state"></a>state</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventMotion.state"></a>state</code></em>;</p></td>
 <td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkModifierType]</span></td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint16"><span class="type">gint16</span></a> <em class="structfield"><code><a name="GdkEventMotion.is-hint"></a>is_hint</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint16</span> <em class="structfield"><code><a name="GdkEventMotion.is-hint"></a>is_hint</code></em>;</p></td>
 <td class="struct_member_description"><p>set to 1 if this event is just a hint, see the
 <a class="link" href="gdk3-Events.html#GDK-POINTER-MOTION-HINT-MASK:CAPS"><code class="literal">GDK_POINTER_MOTION_HINT_MASK</code></a> value of <a class="link" href="gdk3-Events.html#GdkEventMask" title="enum GdkEventMask"><span class="type">GdkEventMask</span></a>.</p></td>
 <td class="struct_member_annotations"> </td>
@@ -997,13 +997,13 @@ buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enu
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventMotion.x-root"></a>x_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventMotion.x-root"></a>x_root</code></em>;</p></td>
 <td class="struct_member_description"><p>the x coordinate of the pointer relative to the root of the
 screen.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventMotion.y-root"></a>y_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventMotion.y-root"></a>y_root</code></em>;</p></td>
 <td class="struct_member_description"><p>the y coordinate of the pointer relative to the root of the
 screen.</p></td>
 <td class="struct_member_annotations"> </td>
@@ -1046,8 +1046,8 @@ redrawn.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventExpose.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventExpose.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
@@ -1062,7 +1062,7 @@ redrawn.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GdkEventExpose.count"></a>count</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint</span> <em class="structfield"><code><a name="GdkEventExpose.count"></a>count</code></em>;</p></td>
 <td class="struct_member_description"><p>the number of contiguous <a class="link" href="gdk3-Events.html#GDK-EXPOSE:CAPS"><code class="literal">GDK_EXPOSE</code></a> events following this one.
 The only use for this is “exposure compression”, i.e. handling all
 contiguous <a class="link" href="gdk3-Events.html#GDK-EXPOSE:CAPS"><code class="literal">GDK_EXPOSE</code></a> events in one go, though GDK performs some
@@ -1111,8 +1111,8 @@ exposure compression so this is not normally needed.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventVisibility.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventVisibility.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
@@ -1165,8 +1165,8 @@ exposure compression so this is not normally needed.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventCrossing.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventCrossing.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
@@ -1175,27 +1175,27 @@ exposure compression so this is not normally needed.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventCrossing.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventCrossing.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventCrossing.x"></a>x</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventCrossing.x"></a>x</code></em>;</p></td>
 <td class="struct_member_description"><p>the x coordinate of the pointer relative to the window.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventCrossing.y"></a>y</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventCrossing.y"></a>y</code></em>;</p></td>
 <td class="struct_member_description"><p>the y coordinate of the pointer relative to the window.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventCrossing.x-root"></a>x_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventCrossing.x-root"></a>x_root</code></em>;</p></td>
 <td class="struct_member_description"><p>the x coordinate of the pointer relative to the root of the screen.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventCrossing.y-root"></a>y_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventCrossing.y-root"></a>y_root</code></em>;</p></td>
 <td class="struct_member_description"><p>the y coordinate of the pointer relative to the root of the screen.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
@@ -1216,13 +1216,13 @@ never native.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> <em class="structfield"><code><a name="GdkEventCrossing.focus"></a>focus</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>window</code></em>
+<td class="struct_member_name"><p><span class="type">gboolean</span> <em class="structfield"><code><a name="GdkEventCrossing.focus"></a>focus</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if <em class="parameter"><code>window</code></em>
 is the focus window or an inferior.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventCrossing.state"></a>state</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventCrossing.state"></a>state</code></em>;</p></td>
 <td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
@@ -1263,13 +1263,13 @@ buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enu
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventFocus.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventFocus.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint16"><span class="type">gint16</span></a> <em class="structfield"><code><a name="GdkEventFocus.in"></a>in</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the window has gained the keyboard focus, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> if
+<td class="struct_member_name"><p><span class="type">gint16</span> <em class="structfield"><code><a name="GdkEventFocus.in"></a>in</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the window has gained the keyboard focus, <code class="literal">FALSE</code> if
 it has lost the focus.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
@@ -1310,27 +1310,27 @@ it has lost the focus.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventConfigure.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventConfigure.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GdkEventConfigure.x"></a>x</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint</span> <em class="structfield"><code><a name="GdkEventConfigure.x"></a>x</code></em>;</p></td>
 <td class="struct_member_description"><p>the new x coordinate of the window, relative to its parent.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GdkEventConfigure.y"></a>y</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint</span> <em class="structfield"><code><a name="GdkEventConfigure.y"></a>y</code></em>;</p></td>
 <td class="struct_member_description"><p>the new y coordinate of the window, relative to its parent.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GdkEventConfigure.width"></a>width</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint</span> <em class="structfield"><code><a name="GdkEventConfigure.width"></a>width</code></em>;</p></td>
 <td class="struct_member_description"><p>the new width of the window.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GdkEventConfigure.height"></a>height</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint</span> <em class="structfield"><code><a name="GdkEventConfigure.height"></a>height</code></em>;</p></td>
 <td class="struct_member_description"><p>the new height of the window.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
@@ -1371,8 +1371,8 @@ it has lost the focus.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventProperty.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventProperty.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
@@ -1381,12 +1381,12 @@ it has lost the focus.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventProperty.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventProperty.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventProperty.state"></a>state</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventProperty.state"></a>state</code></em>;</p></td>
 <td class="struct_member_description"><p>whether the property was changed
 (<a class="link" href="gdk3-Event-Structures.html#GDK-PROPERTY-NEW-VALUE:CAPS"><code class="literal">GDK_PROPERTY_NEW_VALUE</code></a>) or deleted (<a class="link" href="gdk3-Event-Structures.html#GDK-PROPERTY-DELETE:CAPS"><code class="literal">GDK_PROPERTY_DELETE</code></a>). </p></td>
 <td class="struct_member_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkPropertyState]</span></td>
@@ -1432,8 +1432,8 @@ is taken over by another client application.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventSelection.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventSelection.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
@@ -1452,14 +1452,14 @@ is taken over by another client application.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventSelection.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventSelection.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *<em class="structfield"><code><a name="GdkEventSelection.requestor"></a>requestor</code></em>;</p></td>
 <td class="struct_member_description"><p>the window on which to place <em class="parameter"><code>property</code></em>
-or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none.</p></td>
+or <code class="literal">NULL</code> if none.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 </tbody>
@@ -1502,8 +1502,8 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventDND.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventDND.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
@@ -1512,18 +1512,18 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventDND.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventDND.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gshort"><span class="type">gshort</span></a> <em class="structfield"><code><a name="GdkEventDND.x-root"></a>x_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gshort</span> <em class="structfield"><code><a name="GdkEventDND.x-root"></a>x_root</code></em>;</p></td>
 <td class="struct_member_description"><p>the x coordinate of the pointer relative to the root of the
 screen, only set for <a class="link" href="gdk3-Events.html#GDK-DRAG-MOTION:CAPS"><code class="literal">GDK_DRAG_MOTION</code></a> and <a class="link" href="gdk3-Events.html#GDK-DROP-START:CAPS"><code class="literal">GDK_DROP_START</code></a>.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gshort"><span class="type">gshort</span></a> <em class="structfield"><code><a name="GdkEventDND.y-root"></a>y_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gshort</span> <em class="structfield"><code><a name="GdkEventDND.y-root"></a>y_root</code></em>;</p></td>
 <td class="struct_member_description"><p>the y coordinate of the pointer relative to the root of the
 screen, only set for <a class="link" href="gdk3-Events.html#GDK-DRAG-MOTION:CAPS"><code class="literal">GDK_DRAG_MOTION</code></a> and <a class="link" href="gdk3-Events.html#GDK-DROP-START:CAPS"><code class="literal">GDK_DROP_START</code></a>.</p></td>
 <td class="struct_member_annotations"> </td>
@@ -1571,12 +1571,12 @@ XInput aware programs that are drawing their own cursor.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventProximity.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventProximity.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventProximity.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventProximity.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
@@ -1622,8 +1622,8 @@ XInput aware programs that are drawing their own cursor.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventWindowState.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventWindowState.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
@@ -1673,8 +1673,8 @@ XInput aware programs that are drawing their own cursor.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventSetting.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventSetting.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
@@ -1729,13 +1729,13 @@ extension.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventOwnerChange.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventOwnerChange.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
 <td class="struct_member_name"><p><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *<em class="structfield"><code><a name="GdkEventOwnerChange.owner"></a>owner</code></em>;</p></td>
-<td class="struct_member_description"><p>the new owner of the selection, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is none</p></td>
+<td class="struct_member_description"><p>the new owner of the selection, or <code class="literal">NULL</code> if there is none</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
@@ -1749,12 +1749,12 @@ extension.</p>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventOwnerChange.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventOwnerChange.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the timestamp of the event</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventOwnerChange.selection-time"></a>selection_time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventOwnerChange.selection-time"></a>selection_time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time at which the selection ownership was taken
 over</p></td>
 <td class="struct_member_annotations"> </td>
@@ -1802,19 +1802,19 @@ that previously owned the grab</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventGrabBroken.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventGrabBroken.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> <em class="structfield"><code><a name="GdkEventGrabBroken.keyboard"></a>keyboard</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if a keyboard grab was broken, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> if a pointer
+<td class="struct_member_name"><p><span class="type">gboolean</span> <em class="structfield"><code><a name="GdkEventGrabBroken.keyboard"></a>keyboard</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if a keyboard grab was broken, <code class="literal">FALSE</code> if a pointer
 grab was broken</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> <em class="structfield"><code><a name="GdkEventGrabBroken.implicit"></a>implicit</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the broken grab was implicit</p></td>
+<td class="struct_member_name"><p><span class="type">gboolean</span> <em class="structfield"><code><a name="GdkEventGrabBroken.implicit"></a>implicit</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the broken grab was implicit</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
@@ -1823,7 +1823,7 @@ grab was broken</p></td>
 application, <em class="parameter"><code>grab_window</code></em>
 contains the new grab window. Otherwise
 <em class="parameter"><code>grab_window</code></em>
-is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p></td>
+is <code class="literal">NULL</code>.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 </tbody>
@@ -1870,59 +1870,59 @@ is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.phase"></a>phase</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.phase"></a>phase</code></em>;</p></td>
 <td class="struct_member_description"><p>the current phase of the gesture</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.n-fingers"></a>n_fingers</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.n-fingers"></a>n_fingers</code></em>;</p></td>
 <td class="struct_member_description"><p>The number of fingers triggering the swipe</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.x"></a>x</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.x"></a>x</code></em>;</p></td>
 <td class="struct_member_description"><p>The X coordinate of the pointer</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.y"></a>y</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.y"></a>y</code></em>;</p></td>
 <td class="struct_member_description"><p>The Y coordinate of the pointer</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.dx"></a>dx</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.dx"></a>dx</code></em>;</p></td>
 <td class="struct_member_description"><p>Movement delta in the X axis of the swipe focal point</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.dy"></a>dy</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.dy"></a>dy</code></em>;</p></td>
 <td class="struct_member_description"><p>Movement delta in the Y axis of the swipe focal point</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.x-root"></a>x_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.x-root"></a>x_root</code></em>;</p></td>
 <td class="struct_member_description"><p>The X coordinate of the pointer, relative to the
 root of the screen.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.y-root"></a>y_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.y-root"></a>y_root</code></em>;</p></td>
 <td class="struct_member_description"><p>The Y coordinate of the pointer, relative to the
 root of the screen.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.state"></a>state</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventTouchpadSwipe.state"></a>state</code></em>;</p></td>
 <td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
@@ -1973,71 +1973,71 @@ buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enu
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventTouchpadPinch.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.phase"></a>phase</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventTouchpadPinch.phase"></a>phase</code></em>;</p></td>
 <td class="struct_member_description"><p>the current phase of the gesture</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.n-fingers"></a>n_fingers</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventTouchpadPinch.n-fingers"></a>n_fingers</code></em>;</p></td>
 <td class="struct_member_description"><p>The number of fingers triggering the pinch</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventTouchpadPinch.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.x"></a>x</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadPinch.x"></a>x</code></em>;</p></td>
 <td class="struct_member_description"><p>The X coordinate of the pointer</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.y"></a>y</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadPinch.y"></a>y</code></em>;</p></td>
 <td class="struct_member_description"><p>The Y coordinate of the pointer</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.dx"></a>dx</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadPinch.dx"></a>dx</code></em>;</p></td>
 <td class="struct_member_description"><p>Movement delta in the X axis of the swipe focal point</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.dy"></a>dy</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadPinch.dy"></a>dy</code></em>;</p></td>
 <td class="struct_member_description"><p>Movement delta in the Y axis of the swipe focal point</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.angle-delta"></a>angle_delta</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadPinch.angle-delta"></a>angle_delta</code></em>;</p></td>
 <td class="struct_member_description"><p>The angle change in radians, negative angles
 denote counter-clockwise movements</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.scale"></a>scale</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadPinch.scale"></a>scale</code></em>;</p></td>
 <td class="struct_member_description"><p>The current scale, relative to that at the time of
-the corresponding <code class="literal">GDK_TOUCHPAD_GESTURE_PHASE_BEGIN</code> event</p></td>
+the corresponding <a href="https://developer.gnome.org/gdk4/gdk4-Events.html#GDK-TOUCHPAD-GESTURE-PHASE-BEGIN:CAPS"><code class="literal">GDK_TOUCHPAD_GESTURE_PHASE_BEGIN</code></a> event</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.x-root"></a>x_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadPinch.x-root"></a>x_root</code></em>;</p></td>
 <td class="struct_member_description"><p>The X coordinate of the pointer, relative to the
 root of the screen.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.y-root"></a>y_root</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventTouchpadPinch.y-root"></a>y_root</code></em>;</p></td>
 <td class="struct_member_description"><p>The Y coordinate of the pointer, relative to the
 root of the screen.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventTouchpadPinch.state"></a>state</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventTouchpadPinch.state"></a>state</code></em>;</p></td>
 <td class="struct_member_description"><p>a bit-mask representing the state of
 the modifier keys (e.g. Control, Shift and Alt) and the pointer
 buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>. </p></td>
@@ -2081,28 +2081,28 @@ buttons. See <a class="link" href="gdk3-Windows.html#GdkModifierType" title="enu
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventPadButton.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventPadButton.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventPadButton.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventPadButton.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventPadButton.group"></a>group</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventPadButton.group"></a>group</code></em>;</p></td>
 <td class="struct_member_description"><p>the pad group the button belongs to. A <a class="link" href="GdkDevice.html#GDK-SOURCE-TABLET-PAD:CAPS"><code class="literal">GDK_SOURCE_TABLET_PAD</code></a> device
 may have one or more groups containing a set of buttons/rings/strips each.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventPadButton.button"></a>button</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventPadButton.button"></a>button</code></em>;</p></td>
 <td class="struct_member_description"><p>The pad button that was pressed.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventPadButton.mode"></a>mode</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventPadButton.mode"></a>mode</code></em>;</p></td>
 <td class="struct_member_description"><p>The current mode of <em class="parameter"><code>group</code></em>
 . Different groups in a <a class="link" href="GdkDevice.html#GDK-SOURCE-TABLET-PAD:CAPS"><code class="literal">GDK_SOURCE_TABLET_PAD</code></a>
 device may have different current modes.</p></td>
@@ -2148,36 +2148,36 @@ device may have different current modes.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventPadAxis.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventPadAxis.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventPadAxis.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventPadAxis.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventPadAxis.group"></a>group</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventPadAxis.group"></a>group</code></em>;</p></td>
 <td class="struct_member_description"><p>the pad group the ring/strip belongs to. A <a class="link" href="GdkDevice.html#GDK-SOURCE-TABLET-PAD:CAPS"><code class="literal">GDK_SOURCE_TABLET_PAD</code></a>
 device may have one or more groups containing a set of buttons/rings/strips
 each.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventPadAxis.index"></a>index</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventPadAxis.index"></a>index</code></em>;</p></td>
 <td class="struct_member_description"><p>number of strip/ring that was interacted. This number is 0-indexed.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventPadAxis.mode"></a>mode</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventPadAxis.mode"></a>mode</code></em>;</p></td>
 <td class="struct_member_description"><p>The current mode of <em class="parameter"><code>group</code></em>
 . Different groups in a <a class="link" href="GdkDevice.html#GDK-SOURCE-TABLET-PAD:CAPS"><code class="literal">GDK_SOURCE_TABLET_PAD</code></a>
 device may have different current modes.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> <em class="structfield"><code><a name="GdkEventPadAxis.value"></a>value</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gdouble</span> <em class="structfield"><code><a name="GdkEventPadAxis.value"></a>value</code></em>;</p></td>
 <td class="struct_member_description"><p>The current value for the given axis.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
@@ -2219,24 +2219,24 @@ device may have different current modes.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint8"><span class="type">gint8</span></a> <em class="structfield"><code><a name="GdkEventPadGroupMode.send-event"></a>send_event</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event was sent explicitly.</p></td>
+<td class="struct_member_name"><p><span class="type">gint8</span> <em class="structfield"><code><a name="GdkEventPadGroupMode.send-event"></a>send_event</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">TRUE</code> if the event was sent explicitly.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdkEventPadGroupMode.time"></a>time</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint32</span> <em class="structfield"><code><a name="GdkEventPadGroupMode.time"></a>time</code></em>;</p></td>
 <td class="struct_member_description"><p>the time of the event in milliseconds.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventPadGroupMode.group"></a>group</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventPadGroupMode.group"></a>group</code></em>;</p></td>
 <td class="struct_member_description"><p>the pad group that is switching mode. A <a class="link" href="GdkDevice.html#GDK-SOURCE-TABLET-PAD:CAPS"><code class="literal">GDK_SOURCE_TABLET_PAD</code></a>
 device may have one or more groups containing a set of buttons/rings/strips
 each.</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GdkEventPadGroupMode.mode"></a>mode</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">guint</span> <em class="structfield"><code><a name="GdkEventPadGroupMode.mode"></a>mode</code></em>;</p></td>
 <td class="struct_member_description"><p>The new mode of <em class="parameter"><code>group</code></em>
 . Different groups in a <a class="link" href="GdkDevice.html#GDK-SOURCE-TABLET-PAD:CAPS"><code class="literal">GDK_SOURCE_TABLET_PAD</code></a>
 device may have different current modes.</p></td>
@@ -2292,7 +2292,7 @@ device may have different current modes.</p></td>
 <td class="enum_member_name"><p><a name="GDK-SCROLL-SMOOTH:CAPS"></a>GDK_SCROLL_SMOOTH</p></td>
 <td class="enum_member_description">
 <p>the scrolling is determined by the delta values
-  in <a class="link" href="gdk3-Event-Structures.html#GdkEventScroll" title="struct GdkEventScroll"><span class="type">GdkEventScroll</span></a>. See <a class="link" href="gdk3-Events.html#gdk-event-get-scroll-deltas" title="gdk_event_get_scroll_deltas ()"><code class="function">gdk_event_get_scroll_deltas()</code></a>. Since: 3.4</p>
+in <a class="link" href="gdk3-Event-Structures.html#GdkEventScroll" title="struct GdkEventScroll"><span class="type">GdkEventScroll</span></a>. See <a class="link" href="gdk3-Events.html#gdk-event-get-scroll-deltas" title="gdk_event_get_scroll_deltas ()"><code class="function">gdk_event_get_scroll_deltas()</code></a>. Since: 3.4</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -2390,7 +2390,7 @@ device may have different current modes.</p></td>
 <td class="enum_member_name"><p><a name="GDK-CROSSING-STATE-CHANGED:CAPS"></a>GDK_CROSSING_STATE_CHANGED</p></td>
 <td class="enum_member_description">
 <p>crossing because a GTK+ widget changed
-  state (e.g. sensitivity).</p>
+state (e.g. sensitivity).</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -2398,7 +2398,7 @@ device may have different current modes.</p></td>
 <td class="enum_member_name"><p><a name="GDK-CROSSING-TOUCH-BEGIN:CAPS"></a>GDK_CROSSING_TOUCH_BEGIN</p></td>
 <td class="enum_member_description">
 <p>crossing because a touch sequence has begun,
-  this event is synthetic as the pointer might have not left the window.</p>
+this event is synthetic as the pointer might have not left the window.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -2406,7 +2406,7 @@ device may have different current modes.</p></td>
 <td class="enum_member_name"><p><a name="GDK-CROSSING-TOUCH-END:CAPS"></a>GDK_CROSSING_TOUCH_END</p></td>
 <td class="enum_member_description">
 <p>crossing because a touch sequence has ended,
-  this event is synthetic as the pointer might have not left the window.</p>
+this event is synthetic as the pointer might have not left the window.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -2414,8 +2414,8 @@ device may have different current modes.</p></td>
 <td class="enum_member_name"><p><a name="GDK-CROSSING-DEVICE-SWITCH:CAPS"></a>GDK_CROSSING_DEVICE_SWITCH</p></td>
 <td class="enum_member_description">
 <p>crossing because of a device switch (i.e.
-  a mouse taking control of the pointer after a touch device), this event
-  is synthetic as the pointer didn’t leave the window.</p>
+a mouse taking control of the pointer after a touch device), this event
+is synthetic as the pointer didn’t leave the window.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -2442,7 +2442,7 @@ full details of crossing event generation.</p>
 <td class="enum_member_name"><p><a name="GDK-NOTIFY-ANCESTOR:CAPS"></a>GDK_NOTIFY_ANCESTOR</p></td>
 <td class="enum_member_description">
 <p>the window is entered from an ancestor or
-  left towards an ancestor.</p>
+left towards an ancestor.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -2450,7 +2450,7 @@ full details of crossing event generation.</p>
 <td class="enum_member_name"><p><a name="GDK-NOTIFY-VIRTUAL:CAPS"></a>GDK_NOTIFY_VIRTUAL</p></td>
 <td class="enum_member_description">
 <p>the pointer moves between an ancestor and an
-  inferior of the window.</p>
+inferior of the window.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -2458,7 +2458,7 @@ full details of crossing event generation.</p>
 <td class="enum_member_name"><p><a name="GDK-NOTIFY-INFERIOR:CAPS"></a>GDK_NOTIFY_INFERIOR</p></td>
 <td class="enum_member_description">
 <p>the window is entered from an inferior or
-  left towards an inferior.</p>
+left towards an inferior.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -2466,7 +2466,7 @@ full details of crossing event generation.</p>
 <td class="enum_member_name"><p><a name="GDK-NOTIFY-NONLINEAR:CAPS"></a>GDK_NOTIFY_NONLINEAR</p></td>
 <td class="enum_member_description">
 <p>the window is entered from or left towards
-  a window which is neither an ancestor nor an inferior.</p>
+a window which is neither an ancestor nor an inferior.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -2474,9 +2474,9 @@ full details of crossing event generation.</p>
 <td class="enum_member_name"><p><a name="GDK-NOTIFY-NONLINEAR-VIRTUAL:CAPS"></a>GDK_NOTIFY_NONLINEAR_VIRTUAL</p></td>
 <td class="enum_member_description">
 <p>the pointer moves between two windows
-  which are not ancestors of each other and the window is part of
-  the ancestor chain between one of these windows and their least
-  common ancestor.</p>
+which are not ancestors of each other and the window is part of
+the ancestor chain between one of these windows and their least
+common ancestor.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -2567,7 +2567,7 @@ full details of crossing event generation.</p>
 <td class="enum_member_name"><p><a name="GDK-WINDOW-STATE-FULLSCREEN:CAPS"></a>GDK_WINDOW_STATE_FULLSCREEN</p></td>
 <td class="enum_member_description">
 <p>the window is maximized without
-  decorations.</p>
+decorations.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -2596,7 +2596,7 @@ full details of crossing event generation.</p>
 <td class="enum_member_name"><p><a name="GDK-WINDOW-STATE-TILED:CAPS"></a>GDK_WINDOW_STATE_TILED</p></td>
 <td class="enum_member_description">
 <p>the window is in a tiled state, Since 3.10. Since 3.22.23, this
-                         is deprecated in favor of per-edge information.</p>
+is deprecated in favor of per-edge information.</p>
 </td>
 <td class="enum_member_annotations"> </td>
 </tr>
@@ -2740,6 +2740,6 @@ full details of crossing event generation.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

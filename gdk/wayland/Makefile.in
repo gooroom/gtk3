@@ -126,8 +126,10 @@ am__objects_1 = pointer-gestures-unstable-v1-protocol.lo \
 	xdg-foreign-unstable-v1-protocol.lo \
 	gtk-primary-selection-protocol.lo \
 	tablet-unstable-v2-protocol.lo \
+	xdg-output-unstable-v1-protocol.lo \
 	keyboard-shortcuts-inhibit-unstable-v1-protocol.lo \
-	server-decoration-protocol.lo gtk-shell-protocol.lo
+	server-decoration-protocol.lo gtk-shell-protocol.lo \
+	primary-selection-unstable-v1-protocol.lo
 nodist_libgdk_wayland_la_OBJECTS = $(am__objects_1)
 libgdk_wayland_la_OBJECTS = $(am_libgdk_wayland_la_OBJECTS) \
 	$(nodist_libgdk_wayland_la_OBJECTS)
@@ -165,10 +167,12 @@ am__depfiles_remade = ./$(DEPDIR)/gdkapplaunchcontext-wayland.Plo \
 	./$(DEPDIR)/gtk-shell-protocol.Plo \
 	./$(DEPDIR)/keyboard-shortcuts-inhibit-unstable-v1-protocol.Plo \
 	./$(DEPDIR)/pointer-gestures-unstable-v1-protocol.Plo \
+	./$(DEPDIR)/primary-selection-unstable-v1-protocol.Plo \
 	./$(DEPDIR)/server-decoration-protocol.Plo \
 	./$(DEPDIR)/tablet-unstable-v2-protocol.Plo \
 	./$(DEPDIR)/wm-button-layout-translation.Plo \
 	./$(DEPDIR)/xdg-foreign-unstable-v1-protocol.Plo \
+	./$(DEPDIR)/xdg-output-unstable-v1-protocol.Plo \
 	./$(DEPDIR)/xdg-shell-protocol.Plo \
 	./$(DEPDIR)/xdg-shell-unstable-v6-protocol.Plo
 am__mv = mv -f
@@ -312,7 +316,6 @@ ENABLE_ON_X11 = @ENABLE_ON_X11@
 EXEEXT = @EXEEXT@
 EXE_MANIFEST_ARCHITECTURE = @EXE_MANIFEST_ARCHITECTURE@
 FGREP = @FGREP@
-GAIL_INET_LIBS = @GAIL_INET_LIBS@
 GAIL_LT_CURRENT_MINUS_AGE = @GAIL_LT_CURRENT_MINUS_AGE@
 GAIL_LT_VERSION_INFO = @GAIL_LT_VERSION_INFO@
 GDK_BACKENDS = @GDK_BACKENDS@
@@ -370,7 +373,6 @@ GTK_PRINT_BACKENDS = @GTK_PRINT_BACKENDS@
 GTK_PRIVATE_PACKAGES = @GTK_PRIVATE_PACKAGES@
 GTK_VERSION = @GTK_VERSION@
 GTK_XIM_FLAGS = @GTK_XIM_FLAGS@
-HAVE_HTTP_AUTHSTRING = @HAVE_HTTP_AUTHSTRING@
 HTML_DIR = @HTML_DIR@
 INCLUDED_IMMODULE_DEFINE = @INCLUDED_IMMODULE_DEFINE@
 INCLUDED_IMMODULE_OBJ = @INCLUDED_IMMODULE_OBJ@
@@ -449,6 +451,8 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 SHM_LIBS = @SHM_LIBS@
 STRIP = @STRIP@
+TRACKER3_CFLAGS = @TRACKER3_CFLAGS@
+TRACKER3_LIBS = @TRACKER3_LIBS@
 USE_NLS = @USE_NLS@
 VERSION = @VERSION@
 WAYLAND_PROTOCOLS_DATADIR = @WAYLAND_PROTOCOLS_DATADIR@
@@ -466,6 +470,8 @@ X_CFLAGS = @X_CFLAGS@
 X_EXTRA_LIBS = @X_EXTRA_LIBS@
 X_LIBS = @X_LIBS@
 X_PRE_LIBS = @X_PRE_LIBS@
+_GI_EXP_DATADIR = @_GI_EXP_DATADIR@
+_GI_EXP_LIBDIR = @_GI_EXP_LIBDIR@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -527,7 +533,7 @@ GTESTER_REPORT = gtester-report		# in $PATH for non-GLIB packages
 
 # initialize variables for unconditional += appending
 EXTRA_DIST = protocol/gtk-primary-selection.xml protocol/gtk-shell.xml \
-	protocol/server-decoration.xml
+	protocol/server-decoration.xml meson.build
 TEST_PROGS = 
 
 ### testing rules
@@ -586,12 +592,16 @@ BUILT_SOURCES = \
 	gtk-primary-selection-protocol.c			\
 	tablet-unstable-v2-client-protocol.h	\
 	tablet-unstable-v2-protocol.c		\
+	xdg-output-unstable-v1-protocol.c			\
+	xdg-output-unstable-v1-client-protocol.h		\
 	keyboard-shortcuts-inhibit-unstable-v1-client-protocol.h \
 	keyboard-shortcuts-inhibit-unstable-v1-protocol.c	\
 	server-decoration-client-protocol.h		\
 	server-decoration-protocol.c			\
 	gtk-shell-client-protocol.h		\
-	gtk-shell-protocol.c
+	gtk-shell-protocol.c			\
+	primary-selection-unstable-v1-client-protocol.h		\
+	primary-selection-unstable-v1-protocol.c
 
 nodist_libgdk_wayland_la_SOURCES = \
 	$(BUILT_SOURCES)
@@ -704,10 +714,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gtk-shell-protocol.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/keyboard-shortcuts-inhibit-unstable-v1-protocol.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pointer-gestures-unstable-v1-protocol.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/primary-selection-unstable-v1-protocol.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/server-decoration-protocol.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tablet-unstable-v2-protocol.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wm-button-layout-translation.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xdg-foreign-unstable-v1-protocol.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xdg-output-unstable-v1-protocol.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xdg-shell-protocol.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xdg-shell-unstable-v6-protocol.Plo@am__quote@ # am--include-marker
 
@@ -938,10 +950,12 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/gtk-shell-protocol.Plo
 	-rm -f ./$(DEPDIR)/keyboard-shortcuts-inhibit-unstable-v1-protocol.Plo
 	-rm -f ./$(DEPDIR)/pointer-gestures-unstable-v1-protocol.Plo
+	-rm -f ./$(DEPDIR)/primary-selection-unstable-v1-protocol.Plo
 	-rm -f ./$(DEPDIR)/server-decoration-protocol.Plo
 	-rm -f ./$(DEPDIR)/tablet-unstable-v2-protocol.Plo
 	-rm -f ./$(DEPDIR)/wm-button-layout-translation.Plo
 	-rm -f ./$(DEPDIR)/xdg-foreign-unstable-v1-protocol.Plo
+	-rm -f ./$(DEPDIR)/xdg-output-unstable-v1-protocol.Plo
 	-rm -f ./$(DEPDIR)/xdg-shell-protocol.Plo
 	-rm -f ./$(DEPDIR)/xdg-shell-unstable-v6-protocol.Plo
 	-rm -f Makefile
@@ -1006,10 +1020,12 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/gtk-shell-protocol.Plo
 	-rm -f ./$(DEPDIR)/keyboard-shortcuts-inhibit-unstable-v1-protocol.Plo
 	-rm -f ./$(DEPDIR)/pointer-gestures-unstable-v1-protocol.Plo
+	-rm -f ./$(DEPDIR)/primary-selection-unstable-v1-protocol.Plo
 	-rm -f ./$(DEPDIR)/server-decoration-protocol.Plo
 	-rm -f ./$(DEPDIR)/tablet-unstable-v2-protocol.Plo
 	-rm -f ./$(DEPDIR)/wm-button-layout-translation.Plo
 	-rm -f ./$(DEPDIR)/xdg-foreign-unstable-v1-protocol.Plo
+	-rm -f ./$(DEPDIR)/xdg-output-unstable-v1-protocol.Plo
 	-rm -f ./$(DEPDIR)/xdg-shell-protocol.Plo
 	-rm -f ./$(DEPDIR)/xdg-shell-unstable-v6-protocol.Plo
 	-rm -f Makefile
@@ -1122,14 +1138,12 @@ $(shell echo $1 | sed 's/\([a-z\-]\{1,\}\)-[a-z]\{1,\}-v[0-9]\{1,\}/\1/')
 endef
 
 %-protocol.c : $(WAYLAND_PROTOCOLS_DATADIR)/$$(call protostability,$$*)/$$(call protoname,$$*)/$$*.xml
-	$(AM_V_GEN)$(WAYLAND_SCANNER) code < $< > $@
-	$(AM_V_GEN)$(SED) -i -e 's/WL_EXPORT //' $@
+	$(AM_V_GEN)$(WAYLAND_SCANNER) private-code < $< > $@
 %-client-protocol.h : $(WAYLAND_PROTOCOLS_DATADIR)/$$(call protostability,$$*)/$$(call protoname,$$*)/$$*.xml
 	$(AM_V_GEN)$(WAYLAND_SCANNER) client-header < $< > $@
 
 %-protocol.c : $(srcdir)/protocol/%.xml
-	$(AM_V_GEN)$(WAYLAND_SCANNER) code < $< > $@
-	$(AM_V_GEN)$(SED) -i -e 's/WL_EXPORT //' $@
+	$(AM_V_GEN)$(WAYLAND_SCANNER) private-code < $< > $@
 
 %-server-protocol.h : $(srcdir)/protocol/%.xml
 	$(AM_V_GEN)$(WAYLAND_SCANNER) server-header < $< > $@

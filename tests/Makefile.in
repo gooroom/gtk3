@@ -1102,7 +1102,6 @@ ENABLE_ON_X11 = @ENABLE_ON_X11@
 EXEEXT = @EXEEXT@
 EXE_MANIFEST_ARCHITECTURE = @EXE_MANIFEST_ARCHITECTURE@
 FGREP = @FGREP@
-GAIL_INET_LIBS = @GAIL_INET_LIBS@
 GAIL_LT_CURRENT_MINUS_AGE = @GAIL_LT_CURRENT_MINUS_AGE@
 GAIL_LT_VERSION_INFO = @GAIL_LT_VERSION_INFO@
 GDK_BACKENDS = @GDK_BACKENDS@
@@ -1160,7 +1159,6 @@ GTK_PRINT_BACKENDS = @GTK_PRINT_BACKENDS@
 GTK_PRIVATE_PACKAGES = @GTK_PRIVATE_PACKAGES@
 GTK_VERSION = @GTK_VERSION@
 GTK_XIM_FLAGS = @GTK_XIM_FLAGS@
-HAVE_HTTP_AUTHSTRING = @HAVE_HTTP_AUTHSTRING@
 HTML_DIR = @HTML_DIR@
 INCLUDED_IMMODULE_DEFINE = @INCLUDED_IMMODULE_DEFINE@
 INCLUDED_IMMODULE_OBJ = @INCLUDED_IMMODULE_OBJ@
@@ -1239,6 +1237,8 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 SHM_LIBS = @SHM_LIBS@
 STRIP = @STRIP@
+TRACKER3_CFLAGS = @TRACKER3_CFLAGS@
+TRACKER3_LIBS = @TRACKER3_LIBS@
 USE_NLS = @USE_NLS@
 VERSION = @VERSION@
 WAYLAND_PROTOCOLS_DATADIR = @WAYLAND_PROTOCOLS_DATADIR@
@@ -1256,6 +1256,8 @@ X_CFLAGS = @X_CFLAGS@
 X_EXTRA_LIBS = @X_EXTRA_LIBS@
 X_LIBS = @X_LIBS@
 X_PRE_LIBS = @X_PRE_LIBS@
+_GI_EXP_DATADIR = @_GI_EXP_DATADIR@
+_GI_EXP_LIBDIR = @_GI_EXP_LIBDIR@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -1316,12 +1318,15 @@ GTESTER = gtester -k		# in $PATH for non-GLIB packages
 GTESTER_REPORT = gtester-report		# in $PATH for non-GLIB packages
 
 # initialize variables for unconditional += appending
-EXTRA_DIST = gradient1.png testgtk.1 testgtk.css testgtk2.css \
-	3DRings.xpm FilesQueue.xpm Modeller.xpm check-y.xpm \
-	check-n.xpm marble.xpm test.xpm check-y.xpm check-n.xpm \
-	test.xpm merge-1.ui merge-2.ui merge-3.ui gnome-textfile.png \
-	testsplitheaders.ui teststackedheaders.ui makefile.msc \
-	mydialog.ui mydialog2.ui popover.ui selectionmode.ui
+EXTRA_DIST = apple-red.png dialog.ui gradient1.png testgtk.1 \
+	testgtk.css testgtk2.css 3DRings.xpm FilesQueue.xpm \
+	Modeller.xpm check-y.xpm check-n.xpm marble.xpm test.xpm \
+	check-y.xpm check-n.xpm test.xpm merge-1.ui merge-2.ui \
+	merge-3.ui gnome-textfile.png testsplitheaders.ui \
+	teststackedheaders.ui makefile.msc mydialog.ui mydialog2.ui \
+	popover.ui popover2.ui popupat.ui selectionmode.ui meson.build \
+	testapplication.desktop testcolorchooser2.ui testplacesview.c \
+	testrc.c testthreads.c testtreeview-plan.txt
 TEST_PROGS = 
 
 ### testing rules

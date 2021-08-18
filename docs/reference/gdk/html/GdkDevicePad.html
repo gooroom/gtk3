@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="GdkDevice.html" title="GdkDevice">
 <link rel="next" href="gdk3-Points-Rectangles-and-Regions.html" title="Points and Rectangles">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -37,13 +37,13 @@
 <a name="GdkDevicePad.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<span class="returnvalue">gint</span>
 </td>
 <td class="function_name">
 <a class="link" href="GdkDevicePad.html#gdk-device-pad-get-n-groups" title="gdk_device_pad_get_n_groups ()">gdk_device_pad_get_n_groups</a> <span class="c_punctuation">()</span>
@@ -51,7 +51,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<span class="returnvalue">gint</span>
 </td>
 <td class="function_name">
 <a class="link" href="GdkDevicePad.html#gdk-device-pad-get-group-n-modes" title="gdk_device_pad_get_group_n_modes ()">gdk_device_pad_get_group_n_modes</a> <span class="c_punctuation">()</span>
@@ -59,7 +59,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<span class="returnvalue">gint</span>
 </td>
 <td class="function_name">
 <a class="link" href="GdkDevicePad.html#gdk-device-pad-get-n-features" title="gdk_device_pad_get_n_features ()">gdk_device_pad_get_n_features</a> <span class="c_punctuation">()</span>
@@ -67,7 +67,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<span class="returnvalue">gint</span>
 </td>
 <td class="function_name">
 <a class="link" href="GdkDevicePad.html#gdk-device-pad-get-feature-group" title="gdk_device_pad_get_feature_group ()">gdk_device_pad_get_feature_group</a> <span class="c_punctuation">()</span>
@@ -80,8 +80,8 @@
 <a name="GdkDevicePad.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -134,7 +134,7 @@ event.</p>
 <a name="GdkDevicePad.functions_details"></a><h2>Functions</h2>
 <div class="refsect2">
 <a name="gdk-device-pad-get-n-groups"></a><h3>gdk_device_pad_get_n_groups ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<pre class="programlisting"><span class="returnvalue">gint</span>
 gdk_device_pad_get_n_groups (<em class="parameter"><code><a class="link" href="GdkDevicePad.html" title="GtkDevicePad"><span class="type">GdkDevicePad</span></a> *pad</code></em>);</pre>
 <p>Returns the number of groups this pad device has. Pads have
 at least one group. A pad group is a subcollection of
@@ -164,9 +164,9 @@ current mode.</p>
 <hr>
 <div class="refsect2">
 <a name="gdk-device-pad-get-group-n-modes"></a><h3>gdk_device_pad_get_group_n_modes ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<pre class="programlisting"><span class="returnvalue">gint</span>
 gdk_device_pad_get_group_n_modes (<em class="parameter"><code><a class="link" href="GdkDevicePad.html" title="GtkDevicePad"><span class="type">GdkDevicePad</span></a> *pad</code></em>,
-                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> group_idx</code></em>);</pre>
+                                  <em class="parameter"><code><span class="type">gint</span> group_idx</code></em>);</pre>
 <p>Returns the number of modes that <em class="parameter"><code>group</code></em>
  may have.</p>
 <div class="refsect3">
@@ -201,7 +201,7 @@ gdk_device_pad_get_group_n_modes (<em class="parameter"><code><a class="link" hr
 <hr>
 <div class="refsect2">
 <a name="gdk-device-pad-get-n-features"></a><h3>gdk_device_pad_get_n_features ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<pre class="programlisting"><span class="returnvalue">gint</span>
 gdk_device_pad_get_n_features (<em class="parameter"><code><a class="link" href="GdkDevicePad.html" title="GtkDevicePad"><span class="type">GdkDevicePad</span></a> *pad</code></em>,
                                <em class="parameter"><code><a class="link" href="GdkDevicePad.html#GdkDevicePadFeature" title="enum GdkDevicePadFeature"><span class="type">GdkDevicePadFeature</span></a> feature</code></em>);</pre>
 <p>Returns the number of features a tablet pad has.</p>
@@ -237,10 +237,10 @@ that this pad has.</p>
 <hr>
 <div class="refsect2">
 <a name="gdk-device-pad-get-feature-group"></a><h3>gdk_device_pad_get_feature_group ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<pre class="programlisting"><span class="returnvalue">gint</span>
 gdk_device_pad_get_feature_group (<em class="parameter"><code><a class="link" href="GdkDevicePad.html" title="GtkDevicePad"><span class="type">GdkDevicePad</span></a> *pad</code></em>,
                                   <em class="parameter"><code><a class="link" href="GdkDevicePad.html#GdkDevicePadFeature" title="enum GdkDevicePadFeature"><span class="type">GdkDevicePadFeature</span></a> feature</code></em>,
-                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> feature_idx</code></em>);</pre>
+                                  <em class="parameter"><code><span class="type">gint</span> feature_idx</code></em>);</pre>
 <p>Returns the group the given <em class="parameter"><code>feature</code></em>
  and <em class="parameter"><code>idx</code></em>
  belong to,
@@ -327,6 +327,6 @@ or -1 if feature/index do not exist in <em class="parameter"><code>pad</code></e
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

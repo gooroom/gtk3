@@ -21,6 +21,8 @@
 #include "gdkquartzwindow.h"
 #include "gdkdnd-quartz.h"
 #include "gdkprivate-quartz.h"
+#include "gdkinternal-quartz.h"
+#include "gdkquartzdnd.h"
 
 @implementation GdkQuartzNSWindow
 
@@ -278,7 +280,7 @@
                              screen:screen];
 
   [self setAcceptsMouseMovedEvents:YES];
-  [self setDelegate:self];
+  [self setDelegate:(id<NSWindowDelegate>)self];
   [self setReleasedWhenClosed:YES];
 
   return self;
@@ -384,40 +386,34 @@
 {
 #if MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
   if (gdk_quartz_osx_version () >= GDK_OSX_MOJAVE)
-    {
-      return [super convertPointToScreen: point];
-    }
+    return [super convertPointToScreen: point];
 #endif
-  if (gdk_quartz_osx_version () >= GDK_OSX_LION)
-    {
-      NSRect inrect = NSMakeRect (point.x, point.y, 0.0, 0.0);
-      NSRect outrect = [self convertRectToScreen: inrect];
-      return (NSPoint)((CGRect)outrect).origin;
-    }
-
 #if MAC_OS_X_VERSION_MIN_REQUIRED < 1070
-  return [self convertBaseToScreen:point];
+  if (gdk_quartz_osx_version () < GDK_OSX_LION)
+    return [self convertBaseToScreen:point];
 #endif
+  {
+    NSRect inrect = NSMakeRect (point.x, point.y, 0.0, 0.0);
+    NSRect outrect = [self convertRectToScreen: inrect];
+    return outrect.origin;
+  }
 }
 
 - (NSPoint)convertPointFromScreen:(NSPoint)point
 {
 #if MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
   if (gdk_quartz_osx_version () >= GDK_OSX_MOJAVE)
-    {
-      return [super convertPointFromScreen: point];
-    }
+    return [super convertPointFromScreen: point];
 #endif
-  if (gdk_quartz_osx_version () >= GDK_OSX_LION)
-    {
-      NSRect inrect = NSMakeRect (point.x, point.y, 0.0, 0.0);
-      NSRect outrect = [self convertRectFromScreen: inrect];
-      return (NSPoint)((CGRect)outrect).origin;
-    }
-
 #if MAC_OS_X_VERSION_MIN_REQUIRED < 1070
-  return [self convertScreenToBase:point];
+  if (gdk_quartz_osx_version () < GDK_OSX_LION)
+    return [self convertScreenToBase:point];
 #endif
+  {
+    NSRect inrect = NSMakeRect (point.x, point.y, 0.0, 0.0);
+    NSRect outrect = [self convertRectFromScreen: inrect];
+    return outrect.origin;
+  }
 }
 
 - (BOOL)trackManualMove
@@ -794,7 +790,8 @@ update_context_from_dragging_info (id <NSDraggingInfo> sender)
           wh = gdk_window_get_height (win);
 
           if (gx > wx && gy > wy && gx <= wx + ww && gy <= wy + wh)
-            event->dnd.context->dest_window = win;
+            event->dnd.context->dest_window = g_object_ref (win);
+            break;
         }
     }
 

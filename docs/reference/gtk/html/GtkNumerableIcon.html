@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="gtk3-Themeable-Stock-Images.html" title="Themeable Stock Images">
 <link rel="next" href="GtkArrow.html" title="GtkArrow">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <a name="GtkNumerableIcon.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -75,7 +75,7 @@
 </td>
 </tr>
 <tr>
-<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<td class="function_type">const <span class="returnvalue">gchar</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkNumerableIcon.html#gtk-numerable-icon-get-background-icon-name" title="gtk_numerable_icon_get_background_icon_name ()">gtk_numerable_icon_get_background_icon_name</a> <span class="c_punctuation">()</span>
@@ -91,7 +91,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<span class="returnvalue">gint</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkNumerableIcon.html#gtk-numerable-icon-get-count" title="gtk_numerable_icon_get_count ()">gtk_numerable_icon_get_count</a> <span class="c_punctuation">()</span>
@@ -106,7 +106,7 @@
 </td>
 </tr>
 <tr>
-<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<td class="function_type">const <span class="returnvalue">gchar</span> *
 </td>
 <td class="function_name">
 <a class="link" href="GtkNumerableIcon.html#gtk-numerable-icon-get-label" title="gtk_numerable_icon_get_label ()">gtk_numerable_icon_get_label</a> <span class="c_punctuation">()</span>
@@ -156,18 +156,18 @@
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
+<span class="type">char</span> *</td>
 <td class="property_name"><a class="link" href="GtkNumerableIcon.html#GtkNumerableIcon--background-icon-name" title="The “background-icon-name” property">background-icon-name</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
-<td class="property_type"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td class="property_type"><span class="type">int</span></td>
 <td class="property_name"><a class="link" href="GtkNumerableIcon.html#GtkNumerableIcon--count" title="The “count” property">count</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
 <tr>
 <td class="property_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
+<span class="type">char</span> *</td>
 <td class="property_name"><a class="link" href="GtkNumerableIcon.html#GtkNumerableIcon--label" title="The “label” property">label</a></td>
 <td class="property_flags">Read / Write</td>
 </tr>
@@ -184,8 +184,8 @@
 <a name="GtkNumerableIcon.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody><tr>
 <td class="datatype_keyword">struct</td>
@@ -195,7 +195,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkNumerableIcon.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> GEmblemedIcon
         <span class="lineart">╰──</span> GtkNumerableIcon
 </pre>
@@ -301,7 +301,7 @@ gtk_numerable_icon_get_background_gicon
                                (<em class="parameter"><code><a class="link" href="GtkNumerableIcon.html" title="GtkNumerableIcon"><span class="type">GtkNumerableIcon</span></a> *self</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_numerable_icon_get_background_gicon</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p></div>
 <p>Returns the <span class="type">GIcon</span> that was set as the base background image, or
-<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there’s none. The caller of this function does not own
+<code class="literal">NULL</code> if there’s none. The caller of this function does not own
 a reference to the returned <span class="type">GIcon</span>.</p>
 <div class="refsect3">
 <a name="gtk-numerable-icon-get-background-gicon.parameters"></a><h4>Parameters</h4>
@@ -320,7 +320,7 @@ a reference to the returned <span class="type">GIcon</span>.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-numerable-icon-get-background-gicon.returns"></a><h4>Returns</h4>
-<p>a <span class="type">GIcon</span>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>a <span class="type">GIcon</span>, or <code class="literal">NULL</code>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -336,7 +336,7 @@ gtk_numerable_icon_set_background_gicon
 <p>Updates the icon to use <em class="parameter"><code>icon</code></em>
  as the base background image.
 If <em class="parameter"><code>icon</code></em>
- is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, <em class="parameter"><code>self</code></em>
+ is <code class="literal">NULL</code>, <em class="parameter"><code>self</code></em>
  will go back using style information
 or default theming for its background image.</p>
 <p>If this method is called and an icon name was already set as
@@ -360,7 +360,7 @@ called between <a class="link" href="GtkNumerableIcon.html#gtk-numerable-icon-se
 </tr>
 <tr>
 <td class="parameter_name"><p>icon</p></td>
-<td class="parameter_description"><p>a <span class="type">GIcon</span>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a <span class="type">GIcon</span>, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -371,12 +371,12 @@ called between <a class="link" href="GtkNumerableIcon.html#gtk-numerable-icon-se
 <hr>
 <div class="refsect2">
 <a name="gtk-numerable-icon-get-background-icon-name"></a><h3>gtk_numerable_icon_get_background_icon_name ()</h3>
-<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
 gtk_numerable_icon_get_background_icon_name
                                (<em class="parameter"><code><a class="link" href="GtkNumerableIcon.html" title="GtkNumerableIcon"><span class="type">GtkNumerableIcon</span></a> *self</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_numerable_icon_get_background_icon_name</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p></div>
 <p>Returns the icon name used as the base background image,
-or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there’s none.</p>
+or <code class="literal">NULL</code> if there’s none.</p>
 <div class="refsect3">
 <a name="gtk-numerable-icon-get-background-icon-name.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -394,7 +394,7 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </div>
 <div class="refsect3">
 <a name="gtk-numerable-icon-get-background-icon-name.returns"></a><h4>Returns</h4>
-<p>an icon name, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p>an icon name, or <code class="literal">NULL</code>. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -405,13 +405,13 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_numerable_icon_set_background_icon_name
                                (<em class="parameter"><code><a class="link" href="GtkNumerableIcon.html" title="GtkNumerableIcon"><span class="type">GtkNumerableIcon</span></a> *self</code></em>,
-                                <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *icon_name</code></em>);</pre>
+                                <em class="parameter"><code>const <span class="type">gchar</span> *icon_name</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_numerable_icon_set_background_icon_name</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p></div>
 <p>Updates the icon to use the icon named <em class="parameter"><code>icon_name</code></em>
  from the
 current icon theme as the base background image. If <em class="parameter"><code>icon_name</code></em>
 
-is <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, <em class="parameter"><code>self</code></em>
+is <code class="literal">NULL</code>, <em class="parameter"><code>self</code></em>
  will go back using style information or default
 theming for its background image.</p>
 <p>If this method is called and a <span class="type">GIcon</span> was already set as
@@ -435,7 +435,7 @@ and <a class="link" href="GtkNumerableIcon.html#gtk-numerable-icon-set-backgroun
 </tr>
 <tr>
 <td class="parameter_name"><p>icon_name</p></td>
-<td class="parameter_description"><p>an icon name, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>an icon name, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -446,7 +446,7 @@ and <a class="link" href="GtkNumerableIcon.html#gtk-numerable-icon-set-backgroun
 <hr>
 <div class="refsect2">
 <a name="gtk-numerable-icon-get-count"></a><h3>gtk_numerable_icon_get_count ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<pre class="programlisting"><span class="returnvalue">gint</span>
 gtk_numerable_icon_get_count (<em class="parameter"><code><a class="link" href="GtkNumerableIcon.html" title="GtkNumerableIcon"><span class="type">GtkNumerableIcon</span></a> *self</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_numerable_icon_get_count</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p></div>
 <p>Returns the value currently displayed by <em class="parameter"><code>self</code></em>
@@ -477,7 +477,7 @@ gtk_numerable_icon_get_count (<em class="parameter"><code><a class="link" href="
 <a name="gtk-numerable-icon-set-count"></a><h3>gtk_numerable_icon_set_count ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_numerable_icon_set_count (<em class="parameter"><code><a class="link" href="GtkNumerableIcon.html" title="GtkNumerableIcon"><span class="type">GtkNumerableIcon</span></a> *self</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> count</code></em>);</pre>
+                              <em class="parameter"><code><span class="type">gint</span> count</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_numerable_icon_set_count</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p></div>
 <p>Sets the currently displayed value of <em class="parameter"><code>self</code></em>
  to <em class="parameter"><code>count</code></em>
@@ -485,7 +485,7 @@ gtk_numerable_icon_set_count (<em class="parameter"><code><a class="link" href="
 <p>The numeric value is always clamped to make it two digits, i.e.
 between -99 and 99. Setting a count of zero removes the emblem.
 If this method is called, and a label was already set on the icon,
-it will automatically be reset to <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> before rendering the number,
+it will automatically be reset to <code class="literal">NULL</code> before rendering the number,
 i.e. the last method called between <a class="link" href="GtkNumerableIcon.html#gtk-numerable-icon-set-count" title="gtk_numerable_icon_set_count ()"><code class="function">gtk_numerable_icon_set_count()</code></a>
 and <a class="link" href="GtkNumerableIcon.html#gtk-numerable-icon-set-label" title="gtk_numerable_icon_set_label ()"><code class="function">gtk_numerable_icon_set_label()</code></a> has always priority.</p>
 <div class="refsect3">
@@ -515,10 +515,10 @@ and <a class="link" href="GtkNumerableIcon.html#gtk-numerable-icon-set-label" ti
 <hr>
 <div class="refsect2">
 <a name="gtk-numerable-icon-get-label"></a><h3>gtk_numerable_icon_get_label ()</h3>
-<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
 gtk_numerable_icon_get_label (<em class="parameter"><code><a class="link" href="GtkNumerableIcon.html" title="GtkNumerableIcon"><span class="type">GtkNumerableIcon</span></a> *self</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_numerable_icon_get_label</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p></div>
-<p>Returns the currently displayed label of the icon, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
+<p>Returns the currently displayed label of the icon, or <code class="literal">NULL</code>.</p>
 <div class="refsect3">
 <a name="gtk-numerable-icon-get-label.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -546,7 +546,7 @@ gtk_numerable_icon_get_label (<em class="parameter"><code><a class="link" href="
 <a name="gtk-numerable-icon-set-label"></a><h3>gtk_numerable_icon_set_label ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_numerable_icon_set_label (<em class="parameter"><code><a class="link" href="GtkNumerableIcon.html" title="GtkNumerableIcon"><span class="type">GtkNumerableIcon</span></a> *self</code></em>,
-                              <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>);</pre>
+                              <em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_numerable_icon_set_label</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p></div>
 <p>Sets the currently displayed value of <em class="parameter"><code>self</code></em>
  to the string
@@ -577,7 +577,7 @@ has always priority.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>label</p></td>
-<td class="parameter_description"><p>a short label, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_description"><p>a short label, or <code class="literal">NULL</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -592,7 +592,7 @@ has always priority.</p>
 gtk_numerable_icon_get_style_context (<em class="parameter"><code><a class="link" href="GtkNumerableIcon.html" title="GtkNumerableIcon"><span class="type">GtkNumerableIcon</span></a> *self</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_numerable_icon_get_style_context</code> has been deprecated since version 3.14 and should not be used in newly-written code.</p></div>
 <p>Returns the <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> used by the icon for theming,
-or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there’s none.</p>
+or <code class="literal">NULL</code> if there’s none.</p>
 <div class="refsect3">
 <a name="gtk-numerable-icon-get-style-context.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -610,9 +610,9 @@ or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#
 </div>
 <div class="refsect3">
 <a name="gtk-numerable-icon-get-style-context.returns"></a><h4>Returns</h4>
-<p>a <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+<p>a <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a>, or <code class="literal">NULL</code>.
 This object is internal to GTK+ and should not be unreffed.
-Use <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a> if you want to keep it around. </p>
+Use <code class="function">g_object_ref()</code> if you want to keep it around. </p>
 <p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -664,21 +664,24 @@ given <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span 
 <a name="GtkNumerableIcon--background-icon"></a><h3>The <code class="literal">“background-icon”</code> property</h3>
 <pre class="programlisting">  “background-icon”          <span class="type">GIcon</span> *</pre>
 <p>The icon for the number emblem background.</p>
+<p>Owner: GtkNumerableIcon</p>
 <p>Flags: Read / Write</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkNumerableIcon--background-icon-name"></a><h3>The <code class="literal">“background-icon-name”</code> property</h3>
-<pre class="programlisting">  “background-icon-name”     <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
+<pre class="programlisting">  “background-icon-name”     <span class="type">char</span> *</pre>
 <p>The icon name for the number emblem background.</p>
+<p>Owner: GtkNumerableIcon</p>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkNumerableIcon--count"></a><h3>The <code class="literal">“count”</code> property</h3>
-<pre class="programlisting">  “count”                    <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></pre>
+<pre class="programlisting">  “count”                    <span class="type">int</span></pre>
 <p>The count of the emblem currently displayed.</p>
+<p>Owner: GtkNumerableIcon</p>
 <p>Flags: Read / Write</p>
 <p>Allowed values: [-99,99]</p>
 <p>Default value: 0</p>
@@ -686,8 +689,9 @@ given <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span 
 <hr>
 <div class="refsect2">
 <a name="GtkNumerableIcon--label"></a><h3>The <code class="literal">“label”</code> property</h3>
-<pre class="programlisting">  “label”                    <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
+<pre class="programlisting">  “label”                    <span class="type">char</span> *</pre>
 <p>The label to be displayed over the icon.</p>
+<p>Owner: GtkNumerableIcon</p>
 <p>Flags: Read / Write</p>
 <p>Default value: NULL</p>
 </div>
@@ -696,11 +700,12 @@ given <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span 
 <a name="GtkNumerableIcon--style-context"></a><h3>The <code class="literal">“style-context”</code> property</h3>
 <pre class="programlisting">  “style-context”            <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *</pre>
 <p>The style context to theme the icon appearance.</p>
+<p>Owner: GtkNumerableIcon</p>
 <p>Flags: Read / Write</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

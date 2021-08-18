@@ -19,6 +19,7 @@
  * SECTION:gtkprintjob
  * @Title: GtkPrintJob
  * @Short_description: Represents a print job
+ * @Include: gtk/gtkunixprint.h
  *
  * A #GtkPrintJob object represents a job that is sent to a
  * printer. You only need to deal directly with print jobs if
@@ -188,7 +189,7 @@ gtk_print_job_class_init (GtkPrintJobClass *class)
 		  G_SIGNAL_RUN_LAST,
 		  G_STRUCT_OFFSET (GtkPrintJobClass, status_changed),
 		  NULL, NULL,
-		  g_cclosure_marshal_VOID__VOID,
+		  NULL,
 		  G_TYPE_NONE, 0);
 }
 

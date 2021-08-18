@@ -2,7 +2,7 @@
 include $(top_srcdir)/Makefile.decl
 
 SRC_SUBDIRS = gdk gtk libgail-util modules demos tests testsuite examples
-SUBDIRS = po po-properties $(SRC_SUBDIRS) docs m4macros build
+SUBDIRS = po po-properties $(SRC_SUBDIRS) docs m4macros win32
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
@@ -16,13 +16,21 @@ EXTRA_DIST +=			\
 	NEWS.pre-1-0		\
 	README.commits		\
 	README.win32		\
+	check-version.py	\
 	config.h.win32		\
 	makefile.msc		\
 	gtk-zip.sh.in		\
 	sanitize-la.sh		\
 	po/README.translators	\
 	po/po2tbl.sed.in	\
-	make-pot
+	make-pot	\
+	meson_options.txt	\
+	meson.build	\
+	po/meson.build	\
+	po-properties/meson.build	\
+	build-aux/meson/post-install.py	\
+	config.h.meson		\
+	gtk.supp
 
 MAINTAINERCLEANFILES = \
 	$(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) \
@@ -34,13 +42,17 @@ MAINTAINERCLEANFILES = \
 	$(srcdir)/gtk-doc.make \
 	$(srcdir)/ChangeLog
 
+if OS_UNIX
+valgrinddir = $(datadir)/gtk-3.0/valgrind
+valgrind_DATA = gtk.supp
+endif
 
 ## Copy .pc files to target-specific names
-gtk+-x11-3.0.pc gtk+-win32-3.0.pc gtk+-quartz-3.0.pc gtk+-broadway-3.0.pc gtk+-wayland-3.0.pc gtk+-mir-3.0.pc: gtk+-3.0.pc
+gtk+-x11-3.0.pc gtk+-win32-3.0.pc gtk+-quartz-3.0.pc gtk+-broadway-3.0.pc gtk+-wayland-3.0.pc: gtk+-3.0.pc
 	rm -f $@ && \
 	cp gtk+-3.0.pc $@
 
-gdk-x11-3.0.pc gdk-win32-3.0.pc gdk-quartz-3.0.pc gdk-broadway-3.0.pc gdk-wayland-3.0.pc gdk-mir-3.0.pc: gdk-3.0.pc
+gdk-x11-3.0.pc gdk-win32-3.0.pc gdk-quartz-3.0.pc gdk-broadway-3.0.pc gdk-wayland-3.0.pc: gdk-3.0.pc
 	rm -f $@ && \
 	cp gdk-3.0.pc $@
 
@@ -61,16 +73,19 @@ DISTCLEANFILES = \
 	gtk+-quartz-3.0.pc		\
 	gtk+-broadway-3.0.pc		\
 	gtk+-wayland-3.0.pc		\
-	gtk+-mir-3.0.pc			\
 	gdk-3.0.pc			\
 	gdk-x11-3.0.pc			\
 	gdk-win32-3.0.pc		\
 	gdk-quartz-3.0.pc		\
 	gdk-broadway-3.0.pc		\
 	gdk-wayland-3.0.pc		\
-	gdk-mir-3.0.pc			\
 	gail-3.0.pc			\
 	config.lt
+
+dist-hook:
+	mkdir $(distdir)/subprojects
+	cp -p $(srcdir)/subprojects/*.wrap $(distdir)/subprojects
+	$(top_srcdir)/check-version.py $(top_srcdir)/configure.ac $(top_srcdir)/meson.build
 
 distclean-local:
 	if test "$(srcdir)" = "."; then :; else \

@@ -8,7 +8,7 @@
 <link rel="up" href="DeprecatedObjects.html" title="Deprecated">
 <link rel="prev" href="gtk3-Resource-Files.html" title="Resource Files">
 <link rel="next" href="GtkHScale.html" title="GtkHScale">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -31,7 +31,7 @@
 <td valign="top">
 <h2><span class="refentrytitle"><a name="GtkStyle.top_of_page"></a>GtkStyle</span></h2>
 <p>GtkStyle — Deprecated object that holds style information
-    for widgets</p>
+for widgets</p>
 </td>
 <td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
@@ -39,8 +39,8 @@
 <a name="GtkStyle.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -83,7 +83,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkStyle.html#gtk-style-has-context" title="gtk_style_has_context ()">gtk_style_has_context</a> <span class="c_punctuation">()</span>
@@ -107,7 +107,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="GtkStyle.html#gtk-style-lookup-color" title="gtk_style_lookup_color ()">gtk_style_lookup_color</a> <span class="c_punctuation">()</span>
@@ -323,7 +323,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <span class="c_punctuation">(</span><a class="link" href="GtkStyle.html#GtkRcPropertyParser" title="GtkRcPropertyParser ()">*GtkRcPropertyParser</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
@@ -344,7 +344,7 @@
 <td class="property_type">
 <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *</td>
 <td class="property_name"><a class="link" href="GtkStyle.html#GtkStyle--context" title="The “context” property">context</a></td>
-<td class="property_flags">Read / Write / Construct Only</td>
+<td class="property_flags">Read / Write / Construct Only</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -352,20 +352,20 @@
 <a name="GtkStyle.signals"></a><h2>Signals</h2>
 <div class="informaltable"><table class="informaltable" border="0">
 <colgroup>
-<col width="150px" class="signals_return">
-<col width="300px" class="signals_name">
-<col width="200px" class="signals_flags">
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
 </colgroup>
 <tbody>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkStyle.html#GtkStyle-realize" title="The “realize” signal">realize</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+<td class="signal_flags">Run First</td>
 </tr>
 <tr>
 <td class="signal_type"><span class="returnvalue">void</span></td>
 <td class="signal_name"><a class="link" href="GtkStyle.html#GtkStyle-unrealize" title="The “unrealize” signal">unrealize</a></td>
-<td class="signal_flags"><a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+<td class="signal_flags">Run First</td>
 </tr>
 </tbody>
 </table></div>
@@ -374,8 +374,8 @@
 <a name="GtkStyle.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -399,7 +399,7 @@
 </div>
 <div class="refsect1">
 <a name="GtkStyle.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+<pre class="screen">    GObject
     <span class="lineart">╰──</span> GtkStyle
 </pre>
 </div>
@@ -501,7 +501,7 @@ gtk_style_copy (<em class="parameter"><code><a class="link" href="GtkStyle.html"
 <a name="gtk-style-attach"></a><h3>gtk_style_attach ()</h3>
 <pre class="programlisting"><a class="link" href="GtkStyle.html" title="GtkStyle"><span class="returnvalue">GtkStyle</span></a> *
 gtk_style_attach (<em class="parameter"><code><a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> *style</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>);</pre>
+                  <em class="parameter"><code><a href="../html/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_style_attach</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkWidget.html#gtk-widget-style-attach" title="gtk_widget_style_attach ()"><code class="function">gtk_widget_style_attach()</code></a> instead</p>
@@ -531,7 +531,7 @@ in the following way:
 </tr>
 <tr>
 <td class="parameter_name"><p>window</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>.</p></td>
+<td class="parameter_description"><p>a <a href="../html/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -576,7 +576,7 @@ to any windows anymore, it is unrealized. See <a class="link" href="GtkStyle.htm
 <hr>
 <div class="refsect2">
 <a name="gtk-style-has-context"></a><h3>gtk_style_has_context ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_style_has_context (<em class="parameter"><code><a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> *style</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_style_has_context</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Returns whether <em class="parameter"><code>style</code></em>
@@ -598,7 +598,7 @@ gtk_style_has_context (<em class="parameter"><code><a class="link" href="GtkStyl
 </div>
 <div class="refsect3">
 <a name="gtk-style-has-context.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>style</code></em>
+<p> <code class="literal">TRUE</code> if <em class="parameter"><code>style</code></em>
 has a <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a></p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-3-0.html#api-index-3.0">3.0</a></p>
@@ -608,7 +608,7 @@ has a <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span 
 <a name="gtk-style-set-background"></a><h3>gtk_style_set_background ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_set_background (<em class="parameter"><code><a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> *style</code></em>,
-                          <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>,
+                          <em class="parameter"><code><a href="../html/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>,
                           <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_style_set_background</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
@@ -634,7 +634,7 @@ specified by <em class="parameter"><code>style</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>window</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a></p></td>
+<td class="parameter_description"><p>a <a href="../html/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -652,12 +652,12 @@ specified by <em class="parameter"><code>style</code></em>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_apply_default_background (<em class="parameter"><code><a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> *style</code></em>,
                                     <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
-                                    <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>,
+                                    <em class="parameter"><code><a href="../html/gdk3-Windows.html#GdkWindow-struct"><span class="type">GdkWindow</span></a> *window</code></em>,
                                     <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
-                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+                                    <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                                    <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                                    <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                                    <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_style_apply_default_background</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> instead</p>
@@ -666,10 +666,10 @@ gtk_style_apply_default_background (<em class="parameter"><code><a class="link" 
 <hr>
 <div class="refsect2">
 <a name="gtk-style-lookup-color"></a><h3>gtk_style_lookup_color ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gtk_style_lookup_color (<em class="parameter"><code><a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> *style</code></em>,
-                        <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *color_name</code></em>,
-                        <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *color</code></em>);</pre>
+                        <em class="parameter"><code>const <span class="type">gchar</span> *color_name</code></em>,
+                        <em class="parameter"><code><a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *color</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_style_lookup_color</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-style-context-lookup-color" title="gtk_style_context_lookup_color ()"><code class="function">gtk_style_context_lookup_color()</code></a> instead</p>
@@ -677,8 +677,8 @@ gtk_style_lookup_color (<em class="parameter"><code><a class="link" href="GtkSty
 <p>Looks up <em class="parameter"><code>color_name</code></em>
  in the style’s logical color mappings,
 filling in <em class="parameter"><code>color</code></em>
- and returning <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if found, otherwise
-returning <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>. Do not cache the found mapping, because
+ and returning <code class="literal">TRUE</code> if found, otherwise
+returning <code class="literal">FALSE</code>. Do not cache the found mapping, because
 it depends on the <a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> and might change when a theme
 switch occurs.</p>
 <div class="refsect3">
@@ -702,7 +702,7 @@ switch occurs.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>color</p></td>
-<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> to fill in. </p></td>
+<td class="parameter_description"><p>the <a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> to fill in. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -710,7 +710,7 @@ switch occurs.</p>
 </div>
 <div class="refsect3">
 <a name="gtk-style-lookup-color.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the mapping was found.</p>
+<p> <code class="literal">TRUE</code> if the mapping was found.</p>
 </div>
 <p class="since">Since: 2.10</p>
 </div>
@@ -719,7 +719,7 @@ switch occurs.</p>
 <a name="gtk-style-lookup-icon-set"></a><h3>gtk_style_lookup_icon_set ()</h3>
 <pre class="programlisting"><a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSet"><span class="returnvalue">GtkIconSet</span></a> *
 gtk_style_lookup_icon_set (<em class="parameter"><code><a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> *style</code></em>,
-                           <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stock_id</code></em>);</pre>
+                           <em class="parameter"><code>const <span class="type">gchar</span> *stock_id</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_style_lookup_icon_set</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-style-context-lookup-icon-set" title="gtk_style_context_lookup_icon_set ()"><code class="function">gtk_style_context_lookup_icon_set()</code></a> instead</p>
@@ -728,7 +728,7 @@ gtk_style_lookup_icon_set (<em class="parameter"><code><a class="link" href="Gtk
  in the icon factories associated with <em class="parameter"><code>style</code></em>
 
 and the default icon factory, returning an icon set if found,
-otherwise <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
+otherwise <code class="literal">NULL</code>.</p>
 <div class="refsect3">
 <a name="gtk-style-lookup-icon-set.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -768,7 +768,7 @@ gtk_style_render_icon (<em class="parameter"><code><a class="link" href="GtkStyl
                        <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state</code></em>,
                        <em class="parameter"><code><a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a> size</code></em>,
                        <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                       <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>);</pre>
+                       <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_style_render_icon</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-icon-pixbuf" title="gtk_render_icon_pixbuf ()"><code class="function">gtk_render_icon_pixbuf()</code></a> instead</p>
@@ -839,9 +839,9 @@ containing the rendered icon. </p>
 <a name="gtk-style-get-style-property"></a><h3>gtk_style_get_style_property ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_get_style_property (<em class="parameter"><code><a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> *style</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> widget_type</code></em>,
-                              <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
-                              <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *value</code></em>);</pre>
+                              <em class="parameter"><code><span class="type">GType</span> widget_type</code></em>,
+                              <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>,
+                              <em class="parameter"><code><span class="type">GValue</span> *value</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_style_get_style_property</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Queries the value of a style property corresponding to a
 widget class is in the given style.</p>
@@ -861,7 +861,7 @@ widget class is in the given style.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>widget_type</p></td>
-<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> of a descendant of <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a></p></td>
+<td class="parameter_description"><p>the <span class="type">GType</span> of a descendant of <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -871,7 +871,7 @@ widget class is in the given style.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>value</p></td>
-<td class="parameter_description"><p>a <a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> where the value of the property being
+<td class="parameter_description"><p>a <span class="type">GValue</span> where the value of the property being
 queried will be stored. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
 </tr>
@@ -885,8 +885,8 @@ queried will be stored. </p></td>
 <a name="gtk-style-get-valist"></a><h3>gtk_style_get_valist ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_get_valist (<em class="parameter"><code><a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> *style</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> widget_type</code></em>,
-                      <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
+                      <em class="parameter"><code><span class="type">GType</span> widget_type</code></em>,
+                      <em class="parameter"><code>const <span class="type">gchar</span> *first_property_name</code></em>,
                       <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_style_get_valist</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Non-vararg variant of <a class="link" href="GtkStyle.html#gtk-style-get" title="gtk_style_get ()"><code class="function">gtk_style_get()</code></a>.
@@ -907,7 +907,7 @@ Used primarily by language bindings.</p>
 </tr>
 <tr>
 <td class="parameter_name"><p>widget_type</p></td>
-<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> of a descendant of <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a></p></td>
+<td class="parameter_description"><p>the <span class="type">GType</span> of a descendant of <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -933,8 +933,8 @@ location for <em class="parameter"><code>first_property_name</code></em>
 <a name="gtk-style-get"></a><h3>gtk_style_get ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_style_get (<em class="parameter"><code><a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> *style</code></em>,
-               <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> widget_type</code></em>,
-               <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
+               <em class="parameter"><code><span class="type">GType</span> widget_type</code></em>,
+               <em class="parameter"><code>const <span class="type">gchar</span> *first_property_name</code></em>,
                <em class="parameter"><code>...</code></em>);</pre>
 <div class="warning"><p><code class="literal">gtk_style_get</code> is deprecated and should not be used in newly-written code.</p></div>
 <p>Gets the values of a multiple style properties for <em class="parameter"><code>widget_type</code></em>
@@ -957,7 +957,7 @@ from <em class="parameter"><code>style</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>widget_type</p></td>
-<td class="parameter_description"><p>the <a href="https://developer.gnome.org/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> of a descendant of <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a></p></td>
+<td class="parameter_description"><p>the <span class="type">GType</span> of a descendant of <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a></p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -970,7 +970,7 @@ from <em class="parameter"><code>style</code></em>
 <td class="parameter_description"><p>pairs of property names and locations to
 return the property values, starting with the location for
 <em class="parameter"><code>first_property_name</code></em>
-, terminated by <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p></td>
+, terminated by <code class="literal">NULL</code>.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -987,13 +987,13 @@ gtk_paint_arrow (<em class="parameter"><code><a class="link" href="GtkStyle.html
                  <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                  <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> shadow_type</code></em>,
                  <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
+                 <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
                  <em class="parameter"><code><a class="link" href="GtkMenuButton.html#GtkArrowType" title="enum GtkArrowType"><span class="type">GtkArrowType</span></a> arrow_type</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fill</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+                 <em class="parameter"><code><span class="type">gboolean</span> fill</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_arrow</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-arrow" title="gtk_render_arrow ()"><code class="function">gtk_render_arrow()</code></a> instead</p>
@@ -1048,7 +1048,7 @@ parameters. <em class="parameter"><code>arrow_type</code></em>
 </tr>
 <tr>
 <td class="parameter_name"><p>fill</p></td>
-<td class="parameter_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the arrow tip should be filled</p></td>
+<td class="parameter_description"><p><code class="literal">TRUE</code> if the arrow tip should be filled</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 <tr>
@@ -1084,11 +1084,11 @@ gtk_paint_box (<em class="parameter"><code><a class="link" href="GtkStyle.html" 
                <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> shadow_type</code></em>,
                <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-               <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+               <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+               <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+               <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+               <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+               <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_box</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-frame" title="gtk_render_frame ()"><code class="function">gtk_render_frame()</code></a> and <a class="link" href="GtkStyleContext.html#gtk-render-background" title="gtk_render_background ()"><code class="function">gtk_render_background()</code></a> instead</p>
@@ -1167,14 +1167,14 @@ gtk_paint_box_gap (<em class="parameter"><code><a class="link" href="GtkStyle.ht
                    <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                    <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> shadow_type</code></em>,
                    <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                   <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                   <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                   <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                   <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                   <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                   <em class="parameter"><code><span class="type">gint</span> height</code></em>,
                    <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkPositionType" title="enum GtkPositionType"><span class="type">GtkPositionType</span></a> gap_side</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> gap_x</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> gap_width</code></em>);</pre>
+                   <em class="parameter"><code><span class="type">gint</span> gap_x</code></em>,
+                   <em class="parameter"><code><span class="type">gint</span> gap_width</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_box_gap</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-frame-gap" title="gtk_render_frame_gap ()"><code class="function">gtk_render_frame_gap()</code></a> instead</p>
@@ -1269,11 +1269,11 @@ gtk_paint_check (<em class="parameter"><code><a class="link" href="GtkStyle.html
                  <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                  <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> shadow_type</code></em>,
                  <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+                 <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_check</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-check" title="gtk_render_check ()"><code class="function">gtk_render_check()</code></a> instead</p>
@@ -1353,11 +1353,11 @@ gtk_paint_diamond (<em class="parameter"><code><a class="link" href="GtkStyle.ht
                    <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                    <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> shadow_type</code></em>,
                    <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                   <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+                   <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                   <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                   <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                   <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                   <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_diamond</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use cairo instead</p>
@@ -1437,11 +1437,11 @@ gtk_paint_extension (<em class="parameter"><code><a class="link" href="GtkStyle.
                      <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                      <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> shadow_type</code></em>,
                      <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                     <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                     <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                     <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                     <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                     <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                     <em class="parameter"><code><span class="type">gint</span> height</code></em>,
                      <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkPositionType" title="enum GtkPositionType"><span class="type">GtkPositionType</span></a> gap_side</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_extension</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
@@ -1525,11 +1525,11 @@ gtk_paint_flat_box (<em class="parameter"><code><a class="link" href="GtkStyle.h
                     <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                     <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> shadow_type</code></em>,
                     <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                    <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+                    <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                    <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                    <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                    <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                    <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_flat_box</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-frame" title="gtk_render_frame ()"><code class="function">gtk_render_frame()</code></a> and <a class="link" href="GtkStyleContext.html#gtk-render-background" title="gtk_render_background ()"><code class="function">gtk_render_background()</code></a> instead</p>
@@ -1607,11 +1607,11 @@ gtk_paint_focus (<em class="parameter"><code><a class="link" href="GtkStyle.html
                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                  <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                  <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+                 <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_focus</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-focus" title="gtk_render_focus ()"><code class="function">gtk_render_focus()</code></a> instead</p>
@@ -1686,11 +1686,11 @@ gtk_paint_handle (<em class="parameter"><code><a class="link" href="GtkStyle.htm
                   <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                   <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> shadow_type</code></em>,
                   <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                  <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                  <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> height</code></em>,
                   <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkOrientation" title="enum GtkOrientation"><span class="type">GtkOrientation</span></a> orientation</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_handle</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
@@ -1773,10 +1773,10 @@ gtk_paint_hline (<em class="parameter"><code><a class="link" href="GtkStyle.html
                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                  <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                  <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x1</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x2</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>);</pre>
+                 <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> x1</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> x2</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> y</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_hline</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-line" title="gtk_render_line ()"><code class="function">gtk_render_line()</code></a> instead</p>
@@ -1850,11 +1850,11 @@ gtk_paint_option (<em class="parameter"><code><a class="link" href="GtkStyle.htm
                   <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                   <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> shadow_type</code></em>,
                   <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                  <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+                  <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_option</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-option" title="gtk_render_option ()"><code class="function">gtk_render_option()</code></a> instead</p>
@@ -1934,11 +1934,11 @@ gtk_paint_shadow (<em class="parameter"><code><a class="link" href="GtkStyle.htm
                   <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                   <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> shadow_type</code></em>,
                   <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                  <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+                  <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_shadow</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-frame" title="gtk_render_frame ()"><code class="function">gtk_render_frame()</code></a> instead</p>
@@ -2018,14 +2018,14 @@ gtk_paint_shadow_gap (<em class="parameter"><code><a class="link" href="GtkStyle
                       <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                       <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> shadow_type</code></em>,
                       <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                      <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                      <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                      <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                      <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                      <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                      <em class="parameter"><code><span class="type">gint</span> height</code></em>,
                       <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkPositionType" title="enum GtkPositionType"><span class="type">GtkPositionType</span></a> gap_side</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> gap_x</code></em>,
-                      <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> gap_width</code></em>);</pre>
+                      <em class="parameter"><code><span class="type">gint</span> gap_x</code></em>,
+                      <em class="parameter"><code><span class="type">gint</span> gap_width</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_shadow_gap</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-frame-gap" title="gtk_render_frame_gap ()"><code class="function">gtk_render_frame_gap()</code></a> instead</p>
@@ -2121,11 +2121,11 @@ gtk_paint_slider (<em class="parameter"><code><a class="link" href="GtkStyle.htm
                   <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                   <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> shadow_type</code></em>,
                   <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                  <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                  <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> height</code></em>,
                   <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkOrientation" title="enum GtkOrientation"><span class="type">GtkOrientation</span></a> orientation</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_slider</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
@@ -2210,12 +2210,12 @@ gtk_paint_spinner (<em class="parameter"><code><a class="link" href="GtkStyle.ht
                    <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                    <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                    <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                   <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> step</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                   <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+                   <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                   <em class="parameter"><code><span class="type">guint</span> step</code></em>,
+                   <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                   <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                   <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                   <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_spinner</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-icon" title="gtk_render_icon ()"><code class="function">gtk_render_icon()</code></a> and the <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a>
@@ -2249,12 +2249,12 @@ gtk_paint_spinner (<em class="parameter"><code><a class="link" href="GtkStyle.ht
 </tr>
 <tr>
 <td class="parameter_name"><p>widget</p></td>
-<td class="parameter_description"><p>the widget (may be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>). </p></td>
+<td class="parameter_description"><p>the widget (may be <code class="literal">NULL</code>). </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>detail</p></td>
-<td class="parameter_description"><p>a style detail (may be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>). </p></td>
+<td class="parameter_description"><p>a style detail (may be <code class="literal">NULL</code>). </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
 </tr>
 <tr>
@@ -2295,11 +2295,11 @@ gtk_paint_tab (<em class="parameter"><code><a class="link" href="GtkStyle.html" 
                <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> shadow_type</code></em>,
                <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-               <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-               <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+               <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+               <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+               <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+               <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+               <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_tab</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use cairo instead</p>
@@ -2378,10 +2378,10 @@ gtk_paint_vline (<em class="parameter"><code><a class="link" href="GtkStyle.html
                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                  <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                  <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                 <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y1_</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y2_</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>);</pre>
+                 <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> y1_</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> y2_</code></em>,
+                 <em class="parameter"><code><span class="type">gint</span> x</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_vline</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-line" title="gtk_render_line ()"><code class="function">gtk_render_line()</code></a> instead</p>
@@ -2454,9 +2454,9 @@ gtk_paint_expander (<em class="parameter"><code><a class="link" href="GtkStyle.h
                     <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                     <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                     <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                    <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
+                    <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                    <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                    <em class="parameter"><code><span class="type">gint</span> y</code></em>,
                     <em class="parameter"><code><a class="link" href="GtkStyle.html#GtkExpanderStyle" title="enum GtkExpanderStyle"><span class="type">GtkExpanderStyle</span></a> expander_style</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_expander</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
@@ -2536,12 +2536,12 @@ intermediate state.</p></td>
 gtk_paint_layout (<em class="parameter"><code><a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> *style</code></em>,
                   <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                   <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_text</code></em>,
+                  <em class="parameter"><code><span class="type">gboolean</span> use_text</code></em>,
                   <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                  <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                  <em class="parameter"><code><a href="/usr/share/gtk-doc/html/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> *layout</code></em>);</pre>
+                  <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                  <em class="parameter"><code><a href="https://developer.gnome.org/pango/pango-Layout-Objects.html#PangoLayout-struct"><span class="type">PangoLayout</span></a> *layout</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_layout</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-layout" title="gtk_render_layout ()"><code class="function">gtk_render_layout()</code></a> instead</p>
@@ -2616,12 +2616,12 @@ gtk_paint_resize_grip (<em class="parameter"><code><a class="link" href="GtkStyl
                        <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
                        <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkStateType" title="enum GtkStateType"><span class="type">GtkStateType</span></a> state_type</code></em>,
                        <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                       <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *detail</code></em>,
-                       <em class="parameter"><code><a href="https://developer.gnome.org/gdk3/gdk3-Windows.html#GdkWindowEdge"><span class="type">GdkWindowEdge</span></a> edge</code></em>,
-                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
-                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>,
-                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
-                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>);</pre>
+                       <em class="parameter"><code>const <span class="type">gchar</span> *detail</code></em>,
+                       <em class="parameter"><code><a href="../html/gdk3-Windows.html#GdkWindowEdge"><span class="type">GdkWindowEdge</span></a> edge</code></em>,
+                       <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                       <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                       <em class="parameter"><code><span class="type">gint</span> width</code></em>,
+                       <em class="parameter"><code><span class="type">gint</span> height</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_paint_resize_grip</code> has been deprecated since version 3.0 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-handle" title="gtk_render_handle ()"><code class="function">gtk_render_handle()</code></a> instead</p>
@@ -2698,10 +2698,10 @@ parameters.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 gtk_draw_insertion_cursor (<em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
                            <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
-                           <em class="parameter"><code>const <a href="https://developer.gnome.org/gdk3/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *location</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_primary</code></em>,
+                           <em class="parameter"><code>const <a href="../html/gdk3-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> *location</code></em>,
+                           <em class="parameter"><code><span class="type">gboolean</span> is_primary</code></em>,
                            <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkTextDirection" title="enum GtkTextDirection"><span class="type">GtkTextDirection</span></a> direction</code></em>,
-                           <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> draw_arrow</code></em>);</pre>
+                           <em class="parameter"><code><span class="type">gboolean</span> draw_arrow</code></em>);</pre>
 <div class="warning">
 <p><code class="literal">gtk_draw_insertion_cursor</code> has been deprecated since version 3.4 and should not be used in newly-written code.</p>
 <p>Use <a class="link" href="GtkStyleContext.html#gtk-render-insertion-cursor" title="gtk_render_insertion_cursor ()"><code class="function">gtk_render_insertion_cursor()</code></a> instead.</p>
@@ -2748,8 +2748,8 @@ right-to-left. Should never be <a class="link" href="GtkWidget.html#GTK-TEXT-DIR
 </tr>
 <tr>
 <td class="parameter_name"><p>draw_arrow</p></td>
-<td class="parameter_description"><p><a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to draw a directional arrow on the
-cursor. Should be <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> unless the cursor is split.</p></td>
+<td class="parameter_description"><p><code class="literal">TRUE</code> to draw a directional arrow on the
+cursor. Should be <code class="literal">FALSE</code> unless the cursor is split.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
 </tbody>
@@ -2760,10 +2760,10 @@ cursor. Should be <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 <hr>
 <div class="refsect2">
 <a name="GtkRcPropertyParser"></a><h3>GtkRcPropertyParser ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
-<span class="c_punctuation">(</span>*GtkRcPropertyParser<span class="c_punctuation">)</span> (<em class="parameter"><code>const <a href="https://developer.gnome.org/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
-                        <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *rc_string</code></em>,
-                        <em class="parameter"><code><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+<span class="c_punctuation">(</span>*GtkRcPropertyParser<span class="c_punctuation">)</span> (<em class="parameter"><code>const <span class="type">GParamSpec</span> *pspec</code></em>,
+                        <em class="parameter"><code>const <span class="type">GString</span> *rc_string</code></em>,
+                        <em class="parameter"><code><span class="type">GValue</span> *property_value</code></em>);</pre>
 </div>
 </div>
 <div class="refsect1">
@@ -2800,67 +2800,67 @@ cursor. Should be <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 </colgroup>
 <tbody>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.fg"></a>fg</code></em>[5];</p></td>
-<td class="struct_member_description"><p>Set of foreground <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
+<td class="struct_member_name"><p><a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.fg"></a>fg</code></em>[5];</p></td>
+<td class="struct_member_description"><p>Set of foreground <a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.bg"></a>bg</code></em>[5];</p></td>
-<td class="struct_member_description"><p>Set of background <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
+<td class="struct_member_name"><p><a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.bg"></a>bg</code></em>[5];</p></td>
+<td class="struct_member_description"><p>Set of background <a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.light"></a>light</code></em>[5];</p></td>
-<td class="struct_member_description"><p>Set of light <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
+<td class="struct_member_name"><p><a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.light"></a>light</code></em>[5];</p></td>
+<td class="struct_member_description"><p>Set of light <a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.dark"></a>dark</code></em>[5];</p></td>
-<td class="struct_member_description"><p>Set of dark <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
+<td class="struct_member_name"><p><a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.dark"></a>dark</code></em>[5];</p></td>
+<td class="struct_member_description"><p>Set of dark <a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.mid"></a>mid</code></em>[5];</p></td>
-<td class="struct_member_description"><p>Set of mid <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
+<td class="struct_member_name"><p><a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.mid"></a>mid</code></em>[5];</p></td>
+<td class="struct_member_description"><p>Set of mid <a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.text"></a>text</code></em>[5];</p></td>
-<td class="struct_member_description"><p>Set of text <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
+<td class="struct_member_name"><p><a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.text"></a>text</code></em>[5];</p></td>
+<td class="struct_member_description"><p>Set of text <a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.base"></a>base</code></em>[5];</p></td>
-<td class="struct_member_description"><p>Set of base <a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
+<td class="struct_member_name"><p><a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.base"></a>base</code></em>[5];</p></td>
+<td class="struct_member_description"><p>Set of base <a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a></p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.text-aa"></a>text_aa</code></em>[5];</p></td>
+<td class="struct_member_name"><p><a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.text-aa"></a>text_aa</code></em>[5];</p></td>
 <td class="struct_member_description"><p>Color halfway between text/base</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.black"></a>black</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> to use for black</p></td>
+<td class="struct_member_name"><p><a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.black"></a>black</code></em>;</p></td>
+<td class="struct_member_description"><p><a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> to use for black</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.white"></a>white</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="https://developer.gnome.org/gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> to use for white</p></td>
+<td class="struct_member_name"><p><a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> <em class="structfield"><code><a name="GtkStyle-struct.white"></a>white</code></em>;</p></td>
+<td class="struct_member_description"><p><a href="../html/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> to use for white</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a> *<em class="structfield"><code><a name="GtkStyle-struct.font-desc"></a>font_desc</code></em>;</p></td>
-<td class="struct_member_description"><p><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a></p></td>
+<td class="struct_member_name"><p><a href="https://developer.gnome.org/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a> *<em class="structfield"><code><a name="GtkStyle-struct.font-desc"></a>font_desc</code></em>;</p></td>
+<td class="struct_member_description"><p><a href="https://developer.gnome.org/pango/pango-Fonts.html#PangoFontDescription-struct"><span class="type">PangoFontDescription</span></a></p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GtkStyle-struct.xthickness"></a>xthickness</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint</span> <em class="structfield"><code><a name="GtkStyle-struct.xthickness"></a>xthickness</code></em>;</p></td>
 <td class="struct_member_description"><p>Thickness in X direction</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> <em class="structfield"><code><a name="GtkStyle-struct.ythickness"></a>ythickness</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gint</span> <em class="structfield"><code><a name="GtkStyle-struct.ythickness"></a>ythickness</code></em>;</p></td>
 <td class="struct_member_description"><p>Thickness in Y direction</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
@@ -2878,7 +2878,6 @@ cursor. Should be <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 <a name="GtkStyleClass"></a><h3>struct GtkStyleClass</h3>
 <pre class="programlisting">struct GtkStyleClass {
   GObjectClass parent_class;
-
 
   /* Initialize for a particular visual. style-&gt;visual
    * will have been set at this point. Will typically chain
@@ -2912,7 +2911,6 @@ cursor. Should be <a href="https://developer.gnome.org/glib/unstable/glib-Standa
   void (*set_background)        (GtkStyle               *style,
                                  GdkWindow              *window,
                                  GtkStateType            state_type);
-
 
   GdkPixbuf * (* render_icon)   (GtkStyle               *style,
                                  const GtkIconSource    *source,
@@ -3348,23 +3346,23 @@ cursor. Should be <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 </colgroup>
 <tbody>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> <em class="structfield"><code><a name="GtkRcProperty.type-name"></a>type_name</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">GQuark</span> <em class="structfield"><code><a name="GtkRcProperty.type-name"></a>type_name</code></em>;</p></td>
 <td class="struct_member_description"><p>quark-ified type identifier</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> <em class="structfield"><code><a name="GtkRcProperty.property-name"></a>property_name</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">GQuark</span> <em class="structfield"><code><a name="GtkRcProperty.property-name"></a>property_name</code></em>;</p></td>
 <td class="struct_member_description"><p>quark-ified property identifier like
 “GtkScrollbar::spacing”</p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GtkRcProperty.origin"></a>origin</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">gchar</span> *<em class="structfield"><code><a name="GtkRcProperty.origin"></a>origin</code></em>;</p></td>
 <td class="struct_member_description"><p>field similar to one found in <a class="link" href="GtkSettings.html#GtkSettingsValue" title="struct GtkSettingsValue"><span class="type">GtkSettingsValue</span></a></p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
 <tr>
-<td class="struct_member_name"><p><a href="https://developer.gnome.org/gobject/unstable/gobject-Generic-values.html#GValue-struct"><span class="type">GValue</span></a> <em class="structfield"><code><a name="GtkRcProperty.value"></a>value</code></em>;</p></td>
+<td class="struct_member_name"><p><span class="type">GValue</span> <em class="structfield"><code><a name="GtkRcProperty.value"></a>value</code></em>;</p></td>
 <td class="struct_member_description"><p>field similar to one found in <a class="link" href="GtkSettings.html#GtkSettingsValue" title="struct GtkSettingsValue"><span class="type">GtkSettingsValue</span></a></p></td>
 <td class="struct_member_annotations"> </td>
 </tr>
@@ -3379,7 +3377,8 @@ cursor. Should be <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 <a name="GtkStyle--context"></a><h3>The <code class="literal">“context”</code> property</h3>
 <pre class="programlisting">  “context”                  <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a> *</pre>
 <p>GtkStyleContext to get style from.</p>
-<p>Flags: Read / Write / Construct Only</p>
+<p>Owner: GtkStyle</p>
+<p>Flags: Read / Write / Construct Only</p>
 </div>
 </div>
 <div class="refsect1">
@@ -3388,7 +3387,7 @@ cursor. Should be <a href="https://developer.gnome.org/glib/unstable/glib-Standa
 <a name="GtkStyle-realize"></a><h3>The <code class="literal">“realize”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> *style,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>  user_data)</pre>
+               <span class="type">gpointer</span>  user_data)</pre>
 <p>Emitted when the style has been initialized for a particular
 visual. Connecting to this signal is probably seldom
 useful since most of the time applications and widgets only
@@ -3415,7 +3414,7 @@ deal with styles that have been already realized.</p>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+<p>Flags: Run First</p>
 <p class="since">Since: 2.4</p>
 </div>
 <hr>
@@ -3423,7 +3422,7 @@ deal with styles that have been already realized.</p>
 <a name="GtkStyle-unrealize"></a><h3>The <code class="literal">“unrealize”</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a> *style,
-               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>  user_data)</pre>
+               <span class="type">gpointer</span>  user_data)</pre>
 <p>Emitted when the aspects of the style specific to a particular visual
 is being cleaned up. A connection to this signal can be useful
 if a widget wants to cache objects as object data on <a class="link" href="GtkStyle.html" title="GtkStyle"><span class="type">GtkStyle</span></a>.
@@ -3450,12 +3449,12 @@ This signal provides a convenient place to free such cached objects.</p>
 </tbody>
 </table></div>
 </div>
-<p>Flags: <a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+<p>Flags: Run First</p>
 <p class="since">Since: 2.4</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

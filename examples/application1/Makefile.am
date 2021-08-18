@@ -17,4 +17,8 @@ exampleapp_SOURCES = 				\
 	exampleapp.c exampleapp.h 		\
 	exampleappwin.c exampleappwin.h
 
+EXTRA_DIST = \
+	exampleapp.desktop \
+	meson.build
+
 -include $(top_srcdir)/git.mk

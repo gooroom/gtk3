@@ -208,6 +208,7 @@ gtk_switch_multipress_gesture_pressed (GtkGestureMultiPress *gesture,
 
   gtk_widget_get_allocation (GTK_WIDGET (sw), &allocation);
   gtk_gesture_set_state (GTK_GESTURE (gesture), GTK_EVENT_SEQUENCE_CLAIMED);
+  priv->in_switch = TRUE;
 
   /* If the press didn't happen in the draggable handle,
    * cancel the pan gesture right away
@@ -232,6 +233,8 @@ gtk_switch_multipress_gesture_released (GtkGestureMultiPress *gesture,
   if (priv->in_switch &&
       gtk_gesture_handles_sequence (GTK_GESTURE (gesture), sequence))
     gtk_switch_begin_toggle_animation (sw);
+
+  priv->in_switch = FALSE;
 }
 
 static void
@@ -997,6 +1000,9 @@ gtk_switch_class_init (GtkSwitchClass *klass)
                   _gtk_marshal_BOOLEAN__BOOLEAN,
                   G_TYPE_BOOLEAN, 1,
                   G_TYPE_BOOLEAN);
+  g_signal_set_va_marshaller (signals[STATE_SET],
+                              G_TYPE_FROM_CLASS (gobject_class),
+                              _gtk_marshal_BOOLEAN__BOOLEANv);
 
   g_object_class_override_property (gobject_class, PROP_ACTION_NAME, "action-name");
   g_object_class_override_property (gobject_class, PROP_ACTION_TARGET, "action-target");

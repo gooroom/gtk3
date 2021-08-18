@@ -38,12 +38,6 @@
 #endif
 
 #ifdef GDK_WINDOWING_QUARTZ
-/* When the gdk_quartz_display_open function is removed We can
- * immediately include gdkquartzdisplaymanager.h here instead of
- * gdkprivate-quartz.h so that we won’t have to enable -xobjective-c
- * for the “generic” GDK source code.
- * #include "quartz/gdkquartzdisplaymanager.h"
- */
 #include "quartz/gdkprivate-quartz.h"
 #endif
 
@@ -58,10 +52,6 @@
 
 #ifdef GDK_WINDOWING_WAYLAND
 #include "wayland/gdkprivate-wayland.h"
-#endif
-
-#ifdef GDK_WINDOWING_MIR
-#include "mir/gdkmir-private.h"
 #endif
 
 /**
@@ -162,6 +152,9 @@ gdk_display_manager_class_init (GdkDisplayManagerClass *klass)
                   G_TYPE_NONE,
                   1,
                   GDK_TYPE_DISPLAY);
+  g_signal_set_va_marshaller (signals[DISPLAY_OPENED],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gdk_marshal_VOID__OBJECTv);
 
   g_object_class_install_property (object_class,
                                    PROP_DEFAULT_DISPLAY,
@@ -272,9 +265,6 @@ static GdkBackend gdk_backends[] = {
 #endif
 #ifdef GDK_WINDOWING_WAYLAND
   { "wayland",  _gdk_wayland_display_open },
-#endif
-#ifdef GDK_WINDOWING_MIR
-  { "mir",      _gdk_mir_display_open },
 #endif
 #ifdef GDK_WINDOWING_X11
   { "x11",      _gdk_x11_display_open },

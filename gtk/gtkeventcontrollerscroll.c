@@ -326,12 +326,11 @@ gtk_event_controller_scroll_handle_event (GtkEventController *controller,
     }
 
   if (dx != 0 || dy != 0)
-    {
-      g_signal_emit (controller, signals[SCROLL], 0, dx, dy);
+    g_signal_emit (controller, signals[SCROLL], 0, dx, dy);
 
-      if (scroll->flags & GTK_EVENT_CONTROLLER_SCROLL_KINETIC)
-        scroll_history_push (scroll, dx, dy, gdk_event_get_time (event));
-    }
+  if (direction == GDK_SCROLL_SMOOTH &&
+      scroll->flags & GTK_EVENT_CONTROLLER_SCROLL_KINETIC)
+    scroll_history_push (scroll, dx, dy, gdk_event_get_time (event));
 
   if (scroll->active && gdk_event_is_scroll_stop_event (event))
     {
@@ -389,7 +388,7 @@ gtk_event_controller_scroll_class_init (GtkEventControllerScrollClass *klass)
                   GTK_TYPE_EVENT_CONTROLLER_SCROLL,
                   G_SIGNAL_RUN_FIRST,
                   0, NULL, NULL,
-                  g_cclosure_marshal_VOID__VOID,
+                  NULL,
                   G_TYPE_NONE, 0);
   /**
    * GtkEventControllerScroll::scroll:
@@ -405,8 +404,11 @@ gtk_event_controller_scroll_class_init (GtkEventControllerScrollClass *klass)
                   GTK_TYPE_EVENT_CONTROLLER_SCROLL,
                   G_SIGNAL_RUN_FIRST,
                   0, NULL, NULL,
-		  _gtk_marshal_VOID__DOUBLE_DOUBLE,
+                  _gtk_marshal_VOID__DOUBLE_DOUBLE,
                   G_TYPE_NONE, 2, G_TYPE_DOUBLE, G_TYPE_DOUBLE);
+  g_signal_set_va_marshaller (signals[SCROLL],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_VOID__DOUBLE_DOUBLEv);
   /**
    * GtkEventControllerScroll::scroll-end:
    * @controller: The object that received the signal
@@ -419,7 +421,7 @@ gtk_event_controller_scroll_class_init (GtkEventControllerScrollClass *klass)
                   GTK_TYPE_EVENT_CONTROLLER_SCROLL,
                   G_SIGNAL_RUN_FIRST,
                   0, NULL, NULL,
-                  g_cclosure_marshal_VOID__VOID,
+                  NULL,
                   G_TYPE_NONE, 0);
 
   /**
@@ -438,8 +440,11 @@ gtk_event_controller_scroll_class_init (GtkEventControllerScrollClass *klass)
                   GTK_TYPE_EVENT_CONTROLLER_SCROLL,
                   G_SIGNAL_RUN_FIRST,
                   0, NULL, NULL,
-		  _gtk_marshal_VOID__DOUBLE_DOUBLE,
+                  _gtk_marshal_VOID__DOUBLE_DOUBLE,
                   G_TYPE_NONE, 2, G_TYPE_DOUBLE, G_TYPE_DOUBLE);
+  g_signal_set_va_marshaller (signals[DECELERATE],
+                              G_TYPE_FROM_CLASS (klass),
+                              _gtk_marshal_VOID__DOUBLE_DOUBLEv);
 
   g_object_class_install_properties (object_class, N_PROPS, pspecs);
 }
@@ -449,6 +454,9 @@ gtk_event_controller_scroll_init (GtkEventControllerScroll *scroll)
 {
   scroll->scroll_history = g_array_new (FALSE, FALSE,
                                         sizeof (ScrollHistoryElem));
+  gtk_event_controller_set_event_mask (GTK_EVENT_CONTROLLER (scroll),
+                                       GDK_SCROLL_MASK |
+                                       GDK_SMOOTH_SCROLL_MASK);
 }
 
 /**

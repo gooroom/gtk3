@@ -42,9 +42,6 @@
 #ifdef GDK_WINDOWING_WAYLAND
 #include "wayland/gdkwayland.h"
 #endif
-#ifdef GDK_WINDOWING_MIR
-#include "mir/gdkmir.h"
-#endif
 
 
 /**
@@ -1278,6 +1275,22 @@ _gtk_tooltip_hide (GtkWidget *widget)
 
   if (widget == tooltip->tooltip_widget)
     gtk_tooltip_hide_tooltip (tooltip);
+}
+
+void
+_gtk_tooltip_hide_in_display (GdkDisplay *display)
+{
+  GtkTooltip *tooltip;
+
+  if (!display)
+    return;
+
+  tooltip = g_object_get_qdata (G_OBJECT (display), quark_current_tooltip);
+
+  if (!tooltip || !GTK_TOOLTIP_VISIBLE (tooltip))
+    return;
+
+  gtk_tooltip_hide_tooltip (tooltip);
 }
 
 static gboolean

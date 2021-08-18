@@ -8,7 +8,7 @@
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Drag-and-Drop.html" title="Drag And Drop">
 <link rel="next" href="gdk3-Threads.html" title="Threads">
-<meta name="generator" content="GTK-Doc V1.29 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.33.0 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -35,8 +35,8 @@
 <a name="gdk3-Properties-and-Atoms.functions"></a><h2>Functions</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
 </colgroup>
 <tbody>
 <tr>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<span class="returnvalue">gint</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Properties-and-Atoms.html#gdk-text-property-to-utf8-list-for-display" title="gdk_text_property_to_utf8_list_for_display ()">gdk_text_property_to_utf8_list_for_display</a> <span class="c_punctuation">()</span>
@@ -61,7 +61,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<span class="returnvalue">gchar</span> *
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Properties-and-Atoms.html#gdk-utf8-to-string-target" title="gdk_utf8_to_string_target ()">gdk_utf8_to_string_target</a> <span class="c_punctuation">()</span>
@@ -85,7 +85,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<span class="returnvalue">gchar</span> *
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Properties-and-Atoms.html#gdk-atom-name" title="gdk_atom_name ()">gdk_atom_name</a> <span class="c_punctuation">()</span>
@@ -93,7 +93,7 @@
 </tr>
 <tr>
 <td class="function_type">
-<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<span class="returnvalue">gboolean</span>
 </td>
 <td class="function_name">
 <a class="link" href="gdk3-Properties-and-Atoms.html#gdk-property-get" title="gdk_property_get ()">gdk_property_get</a> <span class="c_punctuation">()</span>
@@ -122,12 +122,12 @@
 <a name="gdk3-Properties-and-Atoms.other"></a><h2>Types and Values</h2>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
-<col width="150px" class="name">
-<col class="description">
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
 </colgroup>
 <tbody>
 <tr>
-<td class="datatype_keyword"> </td>
+<td class="typedef_keyword">typedef</td>
 <td class="function_name"><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom">GdkAtom</a></td>
 </tr>
 <tr>
@@ -223,14 +223,14 @@ stored in the pointer with <a class="link" href="gdk3-Properties-and-Atoms.html#
 <hr>
 <div class="refsect2">
 <a name="gdk-text-property-to-utf8-list-for-display"></a><h3>gdk_text_property_to_utf8_list_for_display ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+<pre class="programlisting"><span class="returnvalue">gint</span>
 gdk_text_property_to_utf8_list_for_display
                                (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
                                 <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> encoding</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> format</code></em>,
-                                <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *text</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> length</code></em>,
-                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> ***list</code></em>);</pre>
+                                <em class="parameter"><code><span class="type">gint</span> format</code></em>,
+                                <em class="parameter"><code>const <span class="type">guchar</span> *text</code></em>,
+                                <em class="parameter"><code><span class="type">gint</span> length</code></em>,
+                                <em class="parameter"><code><span class="type">gchar</span> ***list</code></em>);</pre>
 <p>Converts a text property in the given encoding to
 a list of UTF-8 strings.</p>
 <div class="refsect3">
@@ -271,8 +271,8 @@ a list of UTF-8 strings.</p>
 <tr>
 <td class="parameter_name"><p>list</p></td>
 <td class="parameter_description"><p>location to store the list
-of strings or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. The list should be freed with
-<a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>. </p></td>
+of strings or <code class="literal">NULL</code>. The list should be freed with
+<code class="function">g_strfreev()</code>. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span></td>
 </tr>
 </tbody>
@@ -287,8 +287,8 @@ of strings or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-M
 <hr>
 <div class="refsect2">
 <a name="gdk-utf8-to-string-target"></a><h3>gdk_utf8_to_string_target ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
-gdk_utf8_to_string_target (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *str</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *
+gdk_utf8_to_string_target (<em class="parameter"><code>const <span class="type">gchar</span> *str</code></em>);</pre>
 <p>Converts an UTF-8 string into the best possible representation
 as a STRING. The representation of characters not in STRING
 is not specified; it may be as pseudo-escape sequences
@@ -310,7 +310,7 @@ is not specified; it may be as pseudo-escape sequences
 </div>
 <div class="refsect3">
 <a name="gdk-utf8-to-string-target.returns"></a><h4>Returns</h4>
-<p>the newly-allocated string, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
+<p>the newly-allocated string, or <code class="literal">NULL</code> if the
 conversion failed. (It should not fail for any properly
 formed UTF-8 string unless system limits like memory or
 file descriptors are exceeded.). </p>
@@ -321,8 +321,8 @@ file descriptors are exceeded.). </p>
 <div class="refsect2">
 <a name="gdk-atom-intern"></a><h3>gdk_atom_intern ()</h3>
 <pre class="programlisting"><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="returnvalue">GdkAtom</span></a>
-gdk_atom_intern (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *atom_name</code></em>,
-                 <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> only_if_exists</code></em>);</pre>
+gdk_atom_intern (<em class="parameter"><code>const <span class="type">gchar</span> *atom_name</code></em>,
+                 <em class="parameter"><code><span class="type">gboolean</span> only_if_exists</code></em>);</pre>
 <p>Finds or creates an atom corresponding to a given string.</p>
 <div class="refsect3">
 <a name="gdk-atom-intern.parameters"></a><h4>Parameters</h4>
@@ -340,7 +340,7 @@ gdk_atom_intern (<em class="parameter"><code>const <a href="https://developer.gn
 </tr>
 <tr>
 <td class="parameter_name"><p>only_if_exists</p></td>
-<td class="parameter_description"><p>if <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, GDK is allowed to not create a new atom, but
+<td class="parameter_description"><p>if <code class="literal">TRUE</code>, GDK is allowed to not create a new atom, but
 just return <a class="link" href="gdk3-Properties-and-Atoms.html#GDK-NONE:CAPS" title="GDK_NONE"><code class="literal">GDK_NONE</code></a> if the requested atom doesn’t already
 exists. Currently, the flag is ignored, since checking the
 existance of an atom is as expensive as creating it.</p></td>
@@ -360,7 +360,7 @@ existance of an atom is as expensive as creating it.</p></td>
 <div class="refsect2">
 <a name="gdk-atom-intern-static-string"></a><h3>gdk_atom_intern_static_string ()</h3>
 <pre class="programlisting"><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="returnvalue">GdkAtom</span></a>
-gdk_atom_intern_static_string (<em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *atom_name</code></em>);</pre>
+gdk_atom_intern_static_string (<em class="parameter"><code>const <span class="type">gchar</span> *atom_name</code></em>);</pre>
 <p>Finds or creates an atom corresponding to a given string.</p>
 <p>Note that this function is identical to <a class="link" href="gdk3-Properties-and-Atoms.html#gdk-atom-intern" title="gdk_atom_intern ()"><code class="function">gdk_atom_intern()</code></a> except
 that if a new <a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> is created the string itself is used rather
@@ -396,7 +396,7 @@ GTK+ theme engines).</p>
 <hr>
 <div class="refsect2">
 <a name="gdk-atom-name"></a><h3>gdk_atom_name ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+<pre class="programlisting"><span class="returnvalue">gchar</span> *
 gdk_atom_name (<em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> atom</code></em>);</pre>
 <p>Determines the string corresponding to an atom.</p>
 <div class="refsect3">
@@ -419,25 +419,25 @@ gdk_atom_name (<em class="parameter"><code><a class="link" href="gdk3-Properties
 <p> a newly-allocated string containing the string
 corresponding to <em class="parameter"><code>atom</code></em>
 . When you are done with the
-return value, you should free it using <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.</p>
+return value, you should free it using <code class="function">g_free()</code>.</p>
 </div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gdk-property-get"></a><h3>gdk_property_get ()</h3>
-<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
 gdk_property_get (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
                   <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> property</code></em>,
                   <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> type</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> offset</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> length</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> pdelete</code></em>,
+                  <em class="parameter"><code><span class="type">gulong</span> offset</code></em>,
+                  <em class="parameter"><code><span class="type">gulong</span> length</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> pdelete</code></em>,
                   <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> *actual_property_type</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *actual_format</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *actual_length</code></em>,
-                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **data</code></em>);</pre>
+                  <em class="parameter"><code><span class="type">gint</span> *actual_format</code></em>,
+                  <em class="parameter"><code><span class="type">gint</span> *actual_length</code></em>,
+                  <em class="parameter"><code><span class="type">guchar</span> **data</code></em>);</pre>
 <p>Retrieves a portion of the contents of a property. If the
-property does not exist, then the function returns <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>,
+property does not exist, then the function returns <code class="literal">FALSE</code>,
 and <a class="link" href="gdk3-Properties-and-Atoms.html#GDK-NONE:CAPS" title="GDK_NONE"><code class="literal">GDK_NONE</code></a> will be stored in <em class="parameter"><code>actual_property_type</code></em>
 .</p>
 <p>The <code class="function">XGetWindowProperty()</code> function that <a class="link" href="gdk3-Properties-and-Atoms.html#gdk-property-get" title="gdk_property_get ()"><code class="function">gdk_property_get()</code></a>
@@ -495,7 +495,7 @@ when rounded up).</p></td>
 </tr>
 <tr>
 <td class="parameter_name"><p>pdelete</p></td>
-<td class="parameter_description"><p>if <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, delete the property after retrieving the
+<td class="parameter_description"><p>if <code class="literal">TRUE</code>, delete the property after retrieving the
 data.</p></td>
 <td class="parameter_annotations"> </td>
 </tr>
@@ -526,7 +526,7 @@ elements should be be calculated via
 <td class="parameter_name"><p>data</p></td>
 <td class="parameter_description"><p>location
 to store a pointer to the data. The retrieved data should be
-freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when you are finished using it. </p></td>
+freed with <code class="function">g_free()</code> when you are finished using it. </p></td>
 <td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=actual_length][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></td>
 </tr>
 </tbody>
@@ -534,9 +534,9 @@ freed with <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Alloca
 </div>
 <div class="refsect3">
 <a name="gdk-property-get.returns"></a><h4>Returns</h4>
-<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if data was successfully received and stored
+<p> <code class="literal">TRUE</code> if data was successfully received and stored
 in <em class="parameter"><code>data</code></em>
-, otherwise <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</p>
+, otherwise <code class="literal">FALSE</code>.</p>
 </div>
 </div>
 <hr>
@@ -546,10 +546,10 @@ in <em class="parameter"><code>data</code></em>
 gdk_property_change (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
                      <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> property</code></em>,
                      <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> type</code></em>,
-                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> format</code></em>,
+                     <em class="parameter"><code><span class="type">gint</span> format</code></em>,
                      <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkPropMode" title="enum GdkPropMode"><span class="type">GdkPropMode</span></a> mode</code></em>,
-                     <em class="parameter"><code>const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *data</code></em>,
-                     <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> nelements</code></em>);</pre>
+                     <em class="parameter"><code>const <span class="type">guchar</span> *data</code></em>,
+                     <em class="parameter"><code><span class="type">gint</span> nelements</code></em>);</pre>
 <p>Changes the contents of a property on a window.</p>
 <p><span class="annotation">[<acronym title="Exposed in C code, not necessarily available in other languages."><span class="acronym">skip</span></acronym>]</span></p>
 <div class="refsect3">
@@ -647,7 +647,8 @@ gdk_property_delete (<em class="parameter"><code><a class="link" href="gdk3-Wind
 <a name="gdk3-Properties-and-Atoms.other_details"></a><h2>Types and Values</h2>
 <div class="refsect2">
 <a name="GdkAtom"></a><h3>GdkAtom</h3>
-<pre class="programlisting">typedef struct _GdkAtom GdkAtom;</pre>
+<pre class="programlisting">typedef struct _GdkAtom *GdkAtom;
+</pre>
 <p>An opaque type representing a string as an index into a table
 of strings on the X server.</p>
 </div>
@@ -701,6 +702,6 @@ using <a class="link" href="gdk3-Properties-and-Atoms.html#gdk-property-change" 
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.29</div>
+<hr>Generated by GTK-Doc V1.33.0</div>
 </body>
 </html>

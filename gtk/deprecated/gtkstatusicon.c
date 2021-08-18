@@ -464,7 +464,7 @@ gtk_status_icon_class_init (GtkStatusIconClass *class)
 		  G_STRUCT_OFFSET (GtkStatusIconClass, activate),
 		  NULL,
 		  NULL,
-		  g_cclosure_marshal_VOID__VOID,
+		  NULL,
 		  G_TYPE_NONE,
 		  0);
 
@@ -735,25 +735,25 @@ wndproc (HWND   hwnd,
 	  GtkStatusIcon *status_icon = GTK_STATUS_ICON (rover->data);
 	  GtkStatusIconPrivate *priv = status_icon->priv;
 
-	  /* taskbar_created_msg is also fired when DPI changes. Try to delete existing icons if possible. */
-	  if (!Shell_NotifyIconW (NIM_DELETE, &priv->nid))
-	  {
-		g_warning (G_STRLOC ": Shell_NotifyIcon(NIM_DELETE) on existing icon failed");
-	  }
+          if (priv->visible)
+            {
+              /* taskbar_created_msg is also fired when DPI changes. Try to delete existing icons if possible. */
+              if (priv->nid.hWnd)
+                if (!Shell_NotifyIconW (NIM_DELETE, &priv->nid))
+                  g_warning (G_STRLOC ": Shell_NotifyIcon(NIM_DELETE) on existing icon failed");
 
-	  priv->nid.hWnd = hwnd;
-	  priv->nid.uID = status_icon_id++;
-	  priv->nid.uCallbackMessage = WM_GTK_TRAY_NOTIFICATION;
-	  priv->nid.uFlags = NIF_MESSAGE;
+              priv->nid.hWnd = hwnd;
+              priv->nid.uFlags &= ~NIF_ICON;
 
-	  if (!Shell_NotifyIconW (NIM_ADD, &priv->nid))
-	    {
-	      g_warning (G_STRLOC ": Shell_NotifyIcon(NIM_ADD) failed");
-	      priv->nid.hWnd = NULL;
-	      continue;
-	    }
+              if (!Shell_NotifyIconW (NIM_ADD, &priv->nid))
+                {
+                  g_warning (G_STRLOC ": Shell_NotifyIcon(NIM_ADD) failed");
+                  priv->nid.hWnd = NULL;
+                  continue;
+                }
 
-	  gtk_status_icon_update_image (status_icon);
+              gtk_status_icon_update_image (status_icon);
+            }
 	}
       return 0;
     }
@@ -1398,13 +1398,18 @@ gtk_status_icon_update_image (GtkStatusIcon *status_icon)
   GtkIconHelper *icon_helper;
   cairo_surface_t *surface;
   GtkWidget *widget;
+#ifndef GDK_WINDOWING_X11
   GdkPixbuf *pixbuf;
+#endif
   gint round_size;
+  gint scale;
 
 #ifdef GDK_WINDOWING_X11
   widget = priv->image;
+  scale = gtk_widget_get_scale_factor (widget);
 #else
   widget = priv->dummy_widget;
+  scale = 1;
 #endif
 
   if (widget == NULL)
@@ -1417,7 +1422,23 @@ gtk_status_icon_update_image (GtkStatusIcon *status_icon)
   _gtk_icon_helper_set_definition (icon_helper, priv->image_def);
   _gtk_icon_helper_set_icon_size (icon_helper, GTK_ICON_SIZE_SMALL_TOOLBAR);
   _gtk_icon_helper_set_pixel_size (icon_helper, round_size);
-  surface = gtk_icon_helper_load_surface (icon_helper, 1);
+  surface = gtk_icon_helper_load_surface (icon_helper, scale);
+
+  g_object_unref (icon_helper);
+
+#ifdef GDK_WINDOWING_X11
+  if (surface)
+    {
+      gtk_image_set_from_surface (GTK_IMAGE (priv->image), surface);
+      cairo_surface_destroy (surface);
+    }
+  else
+    {
+      gtk_image_set_from_pixbuf (GTK_IMAGE (priv->image), NULL);
+    }
+#endif
+
+#ifdef GDK_WINDOWING_WIN32
   if (surface)
     {
       pixbuf = gdk_pixbuf_get_from_surface (surface, 0, 0,
@@ -1425,16 +1446,9 @@ gtk_status_icon_update_image (GtkStatusIcon *status_icon)
                                             cairo_image_surface_get_height (surface));
       cairo_surface_destroy (surface);
     }
-  else
-    pixbuf = NULL;
-  g_object_unref (icon_helper);
 
   if (pixbuf != NULL)
     {
-#ifdef GDK_WINDOWING_X11
-      gtk_image_set_from_pixbuf (GTK_IMAGE (priv->image), pixbuf);
-#endif
-#ifdef GDK_WINDOWING_WIN32
       prev_hicon = priv->nid.hIcon;
       priv->nid.hIcon = gdk_win32_pixbuf_to_hicon_libgtk_only (pixbuf);
       priv->nid.uFlags |= NIF_ICON;
@@ -1443,30 +1457,40 @@ gtk_status_icon_update_image (GtkStatusIcon *status_icon)
           g_warning (G_STRLOC ": Shell_NotifyIcon(NIM_MODIFY) failed");
       if (prev_hicon)
         DestroyIcon (prev_hicon);
-#endif
-#ifdef GDK_WINDOWING_QUARTZ
-      QUARTZ_POOL_ALLOC;
-      [priv->status_item setImage:pixbuf];
-      QUARTZ_POOL_RELEASE;
-#endif
     }
   else
     {
-#ifdef GDK_WINDOWING_X11
-      gtk_image_set_from_pixbuf (GTK_IMAGE (priv->image), NULL);
-#endif
-#ifdef GDK_WINDOWING_WIN32
       priv->nid.uFlags &= ~NIF_ICON;
       if (priv->nid.hWnd != NULL && priv->visible)
         if (!Shell_NotifyIconW (NIM_MODIFY, &priv->nid))
           g_warning (G_STRLOC ": Shell_NotifyIcon(NIM_MODIFY) failed");
-#endif
-#ifdef GDK_WINDOWING_QUARTZ
-      [priv->status_item setImage:NULL];
-#endif
     }
 
   g_clear_object (&pixbuf);
+#endif
+
+#ifdef GDK_WINDOWING_QUARTZ
+  if (surface)
+    {
+      pixbuf = gdk_pixbuf_get_from_surface (surface, 0, 0,
+                                            cairo_image_surface_get_width (surface),
+                                            cairo_image_surface_get_height (surface));
+      cairo_surface_destroy (surface);
+    }
+
+  if (pixbuf != NULL)
+    {
+      QUARTZ_POOL_ALLOC;
+      [priv->status_item setImage:pixbuf];
+      QUARTZ_POOL_RELEASE;
+    }
+  else
+    {
+      [priv->status_item setImage:NULL];
+    }
+
+  g_clear_object (&pixbuf);
+#endif
 }
 
 #ifdef GDK_WINDOWING_X11
@@ -2248,18 +2272,11 @@ gtk_status_icon_is_embedded (GtkStatusIcon *status_icon)
   g_return_val_if_fail (GTK_IS_STATUS_ICON (status_icon), FALSE);
 
 #ifdef GDK_WINDOWING_X11
-  if (status_icon->priv->tray_icon &&
-      gtk_plug_get_embedded (GTK_PLUG (status_icon->priv->tray_icon)))
-    return TRUE;
-  else
+  if (status_icon->priv->tray_icon == NULL ||
+      !gtk_plug_get_embedded (GTK_PLUG (status_icon->priv->tray_icon)))
     return FALSE;
 #endif
-#ifdef GDK_WINDOWING_WIN32
   return TRUE;
-#endif
-#ifdef GDK_WINDOWING_QUARTZ
-  return TRUE;
-#endif
 }
 
 /**
