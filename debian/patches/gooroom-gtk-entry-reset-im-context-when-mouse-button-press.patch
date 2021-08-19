@@ -1,0 +1,18 @@
+diff --git a/gtk/gtkentry.c b/gtk/gtkentry.c
+index 864c217..886631a 100644
+--- a/gtk/gtkentry.c
++++ b/gtk/gtkentry.c
+@@ -4308,6 +4308,13 @@ gtk_entry_event (GtkWidget *widget,
+   gdouble x, y;
+   gint i;
+ 
++  if (event->type == GDK_BUTTON_PRESS ||
++      event->type == GDK_2BUTTON_PRESS ||
++      event->type == GDK_3BUTTON_PRESS)
++    {
++      gtk_entry_reset_im_context (GTK_ENTRY (widget));
++    }
++
+   if (event->type == GDK_MOTION_NOTIFY &&
+       priv->mouse_cursor_obscured &&
+       event->any.window == priv->text_area)
