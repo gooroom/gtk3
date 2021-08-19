@@ -1,0 +1,123 @@
+diff --git a/gtk/gtkfilechooserwidget.c b/gtk/gtkfilechooserwidget.c
+index d4f7c42..c6e6f62 100644
+--- a/gtk/gtkfilechooserwidget.c
++++ b/gtk/gtkfilechooserwidget.c
+@@ -4858,65 +4858,65 @@ static char *
+ my_g_format_date_for_display (GtkFileChooserWidget *impl,
+                               glong                 secs)
+ {
+-  GtkFileChooserWidgetPrivate *priv = impl->priv;
+-  GDateTime *now, *time;
+-  GDateTime *now_date, *date;
+-  ClockFormat clock_format;
+-  const gchar *format;
++//  GtkFileChooserWidgetPrivate *priv = impl->priv;
++  GDateTime *time;
++//  GDateTime *now_date, *date;
++//  ClockFormat clock_format;
++//  const gchar *format;
+   gchar *date_str;
+-  GSettings *settings;
+-  gint days_ago;
++//  GSettings *settings;
++//  gint days_ago;
+ 
+   time = g_date_time_new_from_unix_local (secs);
+-  date = g_date_time_new_local (g_date_time_get_year (time),
+-                                g_date_time_get_month (time),
+-                                g_date_time_get_day_of_month (time),
+-                                0, 0, 0);
+-
+-  settings = _gtk_file_chooser_get_settings_for_widget (GTK_WIDGET (impl));
+-  clock_format = g_settings_get_enum (settings, "clock-format");
+-
+-  now = g_date_time_new_now_local ();
+-  now_date = g_date_time_new_local (g_date_time_get_year (now),
+-                                    g_date_time_get_month (now),
+-                                    g_date_time_get_day_of_month (now),
+-                                    0, 0, 0);
+-  days_ago = g_date_time_difference (now_date, date) / G_TIME_SPAN_DAY;
+-
+-  /* Translators: see g_date_time_format() for details on the format */
+-  if (days_ago < 1)
+-    {
+-      if (priv->show_time)
+-        format = "";
+-      else if (clock_format == CLOCK_FORMAT_24)
+-        format = _("%H:%M");
+-      else
+-        format = _("%l:%M %p");
+-    }
+-  else if (days_ago < 2)
+-    {
+-      format = _("Yesterday");
+-    }
+-  else if (days_ago < 7)
+-    {
+-      format = "%a"; /* Days from last week */
+-    }
+-  else if (g_date_time_get_year (now) == g_date_time_get_year (time))
+-    {
+-      format = _("%-e %b");
+-    }
+-  else
+-    {
+-      format = N_("%-e %b %Y");
+-    }
+-
+-  date_str = g_date_time_format (time, format);
++//  date = g_date_time_new_local (g_date_time_get_year (time),
++//                                g_date_time_get_month (time),
++//                                g_date_time_get_day_of_month (time),
++//                                0, 0, 0);
++//
++//  settings = _gtk_file_chooser_get_settings_for_widget (GTK_WIDGET (impl));
++//  clock_format = g_settings_get_enum (settings, "clock-format");
++//
++//  now = g_date_time_new_now_local ();
++//  now_date = g_date_time_new_local (g_date_time_get_year (now),
++//                                    g_date_time_get_month (now),
++//                                    g_date_time_get_day_of_month (now),
++//                                    0, 0, 0);
++//  days_ago = g_date_time_difference (now_date, date) / G_TIME_SPAN_DAY;
++//
++//  /* Translators: see g_date_time_format() for details on the format */
++//  if (days_ago < 1)
++//    {
++//      if (priv->show_time)
++//        format = "";
++//      else if (clock_format == CLOCK_FORMAT_24)
++//        format = _("%H:%M");
++//      else
++//        format = _("%l:%M %p");
++//    }
++//  else if (days_ago < 2)
++//    {
++//      format = _("Yesterday");
++//    }
++//  else if (days_ago < 7)
++//    {
++//      format = "%a"; /* Days from last week */
++//    }
++//  else if (g_date_time_get_year (now) == g_date_time_get_year (time))
++//    {
++//      format = _("%-e %b");
++//    }
++//  else
++//    {
++//      format = N_("%-e %b %Y");
++//    }
++
++  date_str = g_date_time_format (time, "%F");
+   replace_ratio (&date_str);
+ 
+-  g_date_time_unref (now);
+-  g_date_time_unref (now_date);
++//  g_date_time_unref (now);
++//  g_date_time_unref (now_date);
+   g_date_time_unref (time);
+-  g_date_time_unref (date);
++//  g_date_time_unref (date);
+ 
+   return date_str;
+ }
