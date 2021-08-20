@@ -1,0 +1,62 @@
+From d801099fdec62867244a941b6241dc93264a0de0 Mon Sep 17 00:00:00 2001
+From: donghun <donghun@gooroom.kr>
+Date: Mon, 20 Jul 2020 18:20:55 +0900
+Subject: [PATCH] Do not display a list of running processes in the Force Quit
+ dialog when unmounting
+
+Change-Id: I5f042749752a2d0189079ed0ab2ff7ef79e8e815
+---
+ gtk/gtkmountoperation.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/gtk/gtkmountoperation.c b/gtk/gtkmountoperation.c
+index 2cf7e75..4bd5c53 100644
+--- a/gtk/gtkmountoperation.c
++++ b/gtk/gtkmountoperation.c
+@@ -133,6 +133,7 @@ struct _GtkMountOperationPrivate {
+ 
+   /* for the show-processes dialog */
+   GtkWidget *process_tree_view;
++  GtkWidget *process_scrolled_window;
+   GtkListStore *process_list_store;
+ };
+ 
+@@ -1572,6 +1573,7 @@ create_show_processes_dialog (GtkMountOperation *op,
+ 
+   priv->process_list_store = list_store;
+   priv->process_tree_view = tree_view;
++  priv->process_scrolled_window = scrolled_window;
+   /* set pointers to NULL when dialog goes away */
+   g_object_add_weak_pointer (G_OBJECT (priv->process_list_store), (gpointer *) &priv->process_list_store);
+   g_object_add_weak_pointer (G_OBJECT (priv->process_tree_view), (gpointer *) &priv->process_tree_view);
+@@ -1655,6 +1657,7 @@ gtk_mount_operation_show_processes_do_gtk (GtkMountOperation *op,
+                                            GArray            *processes,
+                                            const char        *choices[])
+ {
++  gboolean processes_visible;
+   GtkMountOperationPrivate *priv;
+   GtkWidget *dialog = NULL;
+ 
+@@ -1664,6 +1667,7 @@ gtk_mount_operation_show_processes_do_gtk (GtkMountOperation *op,
+   g_return_if_fail (choices != NULL);
+ 
+   priv = op->priv;
++  processes_visible = processes->len == 0 ? FALSE : TRUE;
+ 
+   if (priv->process_list_store == NULL)
+     {
+@@ -1680,6 +1684,11 @@ gtk_mount_operation_show_processes_do_gtk (GtkMountOperation *op,
+   if (dialog != NULL)
+     {
+       gtk_widget_show_all (dialog);
++
++      if (!processes_visible)
++      {
++        gtk_widget_hide (priv->process_scrolled_window);
++      }
+     }
+ }
+ 
+-- 
+2.20.1
+
