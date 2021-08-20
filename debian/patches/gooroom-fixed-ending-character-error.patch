@@ -1,0 +1,42 @@
+From 765e24e90ac072cdf0c5606b335e54a863fc88e2 Mon Sep 17 00:00:00 2001
+From: donghun <donghun@gooroom.kr>
+Date: Wed, 16 Dec 2020 14:12:06 +0900
+Subject: [PATCH] Correction of ending character error when deleting Hangul
+ combination characters in GtkEntry
+
+Change-Id: Ic1e8e882fed70681ad64043f8fa78a6e0248952c
+---
+ gtk/gtkfontchooserwidget.c | 1 +
+ gtk/gtksearchentry.c       | 3 +++
+ 2 files changed, 4 insertions(+)
+
+diff --git a/gtk/gtkfontchooserwidget.c b/gtk/gtkfontchooserwidget.c
+index c01c348..8e41ac1 100644
+--- a/gtk/gtkfontchooserwidget.c
++++ b/gtk/gtkfontchooserwidget.c
+@@ -625,6 +625,7 @@ gtk_font_chooser_widget_update_preview_attributes (GtkFontChooserWidget *fontcho
+   if (priv->language)
+     pango_attr_list_insert (attrs, pango_attr_language_new (priv->language));
+ 
++  gtk_entry_reset_im_context (GTK_ENTRY (priv->preview));
+   gtk_entry_set_attributes (GTK_ENTRY (priv->preview), attrs);
+   pango_attr_list_unref (attrs);
+ }
+diff --git a/gtk/gtksearchentry.c b/gtk/gtksearchentry.c
+index a1243f3..5d3e21b 100644
+--- a/gtk/gtksearchentry.c
++++ b/gtk/gtksearchentry.c
+@@ -283,7 +283,10 @@ gtk_search_entry_icon_release (GtkEntry             *entry,
+                                GtkEntryIconPosition  icon_pos)
+ {
+   if (icon_pos == GTK_ENTRY_ICON_SECONDARY)
++  {
++    gtk_entry_reset_im_context (entry);
+     gtk_entry_set_text (entry, "");
++  }
+ }
+ 
+ static gboolean
+-- 
+2.20.1
+
