@@ -1,0 +1,19 @@
+diff --git a/gtk/gtkwindow.c b/gtk/gtkwindow.c
+index d9c456e..590b788 100644
+--- a/gtk/gtkwindow.c
++++ b/gtk/gtkwindow.c
+@@ -9214,11 +9214,11 @@ minimize_window_clicked (GtkMenuItem *menuitem,
+                          gpointer     user_data)
+ {
+   GtkWindow *window = GTK_WINDOW (user_data);
+-  GtkWindowPrivate *priv = window->priv;
++//  GtkWindowPrivate *priv = window->priv;
+ 
+   /* Turns out, we can't iconify a maximized window */
+-  if (priv->maximized)
+-    gtk_window_unmaximize (window);
++//  if (priv->maximized)
++//    gtk_window_unmaximize (window);
+ 
+   gtk_window_iconify (window);
+ }
