@@ -1,0 +1,22 @@
+diff --git a/gtk/gtkfilechooserwidget.c b/gtk/gtkfilechooserwidget.c
+index c3e9828..0ce9ca0 100644
+--- a/gtk/gtkfilechooserwidget.c
++++ b/gtk/gtkfilechooserwidget.c
+@@ -5693,6 +5693,8 @@ update_current_folder_get_info_cb (GCancellable *cancellable,
+         }
+     }
+ 
++  operation_mode_set (impl, OPERATION_MODE_BROWSE);
++
+   if (data->original_file)
+     {
+       /* Error and bail out, ignoring "not found" errors since they're useless:
+@@ -5773,7 +5775,7 @@ gtk_file_chooser_widget_update_current_folder (GtkFileChooser  *chooser,
+ 
+   g_object_ref (file);
+ 
+-  operation_mode_set (impl, OPERATION_MODE_BROWSE);
++//  operation_mode_set (impl, OPERATION_MODE_BROWSE);
+ 
+   gchar *uri = g_file_get_uri (file);
+   gchar *home_uri = g_strdup_printf ("file://%s", g_get_home_dir ());
