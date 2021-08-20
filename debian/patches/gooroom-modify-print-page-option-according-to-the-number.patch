@@ -1,0 +1,54 @@
+From c8f026e37fdea85e33880898f19e3dc34ec569c0 Mon Sep 17 00:00:00 2001
+From: donghun <donghun@gooroom.kr>
+Date: Sat, 13 Mar 2021 19:06:04 +0900
+Subject: [PATCH] Modifies print page PAGE_SET option according to the number
+ of pages
+
+Change-Id: I598591d956d0c1a8a2d05c3de5eb5467fa725621
+---
+ gtk/gtkprintoperation-unix.c | 26 +++++++++++++++++---------
+ 1 file changed, 17 insertions(+), 9 deletions(-)
+
+diff --git a/gtk/gtkprintoperation-unix.c b/gtk/gtkprintoperation-unix.c
+index ab976b0..50c4dc4 100644
+--- a/gtk/gtkprintoperation-unix.c
++++ b/gtk/gtkprintoperation-unix.c
+@@ -438,18 +438,26 @@ get_print_dialog (GtkPrintOperation *op,
+   GtkPrintOperationPrivate *priv = op->priv;
+   GtkWidget *pd, *label;
+   const gchar *custom_tab_label;
++  int n_page;
++  GtkPrintCapabilities capabilities;
+ 
+   pd = gtk_print_unix_dialog_new (NULL, parent);
+ 
+-  gtk_print_unix_dialog_set_manual_capabilities (GTK_PRINT_UNIX_DIALOG (pd),
+-						 GTK_PRINT_CAPABILITY_PAGE_SET |
+-						 GTK_PRINT_CAPABILITY_COPIES |
+-						 GTK_PRINT_CAPABILITY_COLLATE |
+-						 GTK_PRINT_CAPABILITY_REVERSE |
+-						 GTK_PRINT_CAPABILITY_SCALE |
+-						 GTK_PRINT_CAPABILITY_PREVIEW |
+-						 GTK_PRINT_CAPABILITY_NUMBER_UP |
+-						 GTK_PRINT_CAPABILITY_NUMBER_UP_LAYOUT);
++  capabilities = GTK_PRINT_CAPABILITY_PAGE_SET |
++                 GTK_PRINT_CAPABILITY_COPIES |
++                 GTK_PRINT_CAPABILITY_COLLATE |
++                 GTK_PRINT_CAPABILITY_REVERSE |
++                 GTK_PRINT_CAPABILITY_SCALE |
++                 GTK_PRINT_CAPABILITY_PREVIEW |
++                 GTK_PRINT_CAPABILITY_NUMBER_UP |
++                 GTK_PRINT_CAPABILITY_NUMBER_UP_LAYOUT;
++
++  g_object_get (G_OBJECT (op), "n-pages", &n_page, NULL);
++
++  if (n_page == 1)
++    capabilities = ~GTK_PRINT_CAPABILITY_PAGE_SET;
++
++  gtk_print_unix_dialog_set_manual_capabilities (GTK_PRINT_UNIX_DIALOG (pd), capabilities);
+ 
+   if (priv->print_settings)
+     gtk_print_unix_dialog_set_settings (GTK_PRINT_UNIX_DIALOG (pd),
+-- 
+2.20.1
+
