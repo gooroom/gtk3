@@ -1,0 +1,29 @@
+From cfd3e1d5a2f6dda882af439108349f0ee95abcc5 Mon Sep 17 00:00:00 2001
+From: donghun <donghun@gooroom.kr>
+Date: Mon, 16 Nov 2020 16:45:21 +0900
+Subject: [PATCH] Prevent access root folder in GtkFileChooserButton
+
+Change-Id: I7210efaab40e347f237fa097e9f9c60245836708
+---
+ gtk/gtkfilechooserbutton.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/gtk/gtkfilechooserbutton.c b/gtk/gtkfilechooserbutton.c
+index fa9b945..fced67f 100644
+--- a/gtk/gtkfilechooserbutton.c
++++ b/gtk/gtkfilechooserbutton.c
+@@ -2265,6 +2265,11 @@ filter_model_visible_func (GtkTreeModel *model,
+     case ROW_TYPE_VOLUME:
+       {
+ 	retval = TRUE;
++        if (_gtk_file_system_volume_is_mounted (data))
++        {
++          retval = FALSE;
++          break;
++        }
+ 	if (local_only)
+ 	  {
+ 	    if (_gtk_file_system_volume_is_mounted (data))
+-- 
+2.20.1
+
