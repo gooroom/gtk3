@@ -1,0 +1,33 @@
+From 9f8f5485443f173e28bb3b55ee089f00daec0814 Mon Sep 17 00:00:00 2001
+From: donghun <donghun@gooroom.kr>
+Date: Fri, 17 Jul 2020 16:47:28 +0900
+Subject: [PATCH] Do not show the unmounted volumes in the sidebar
+
+Change-Id: Idb3bc65ffc2fb02a014c98cd4f908608659c9a96
+---
+ gtk/gtkplacessidebar.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/gtk/gtkplacessidebar.c b/gtk/gtkplacessidebar.c
+index 118739f..d573f4a 100644
+--- a/gtk/gtkplacessidebar.c
++++ b/gtk/gtkplacessidebar.c
+@@ -1233,6 +1233,7 @@ update_places (GtkPlacesSidebar *sidebar)
+                   g_free (name);
+                   g_free (mount_uri);
+                 }
++#if 0
+               else
+                 {
+                   /* Do show the unmounted volumes in the sidebar;
+@@ -1255,6 +1256,7 @@ update_places (GtkPlacesSidebar *sidebar)
+                   g_free (name);
+                   g_free (tooltip);
+                 }
++#endif
+               g_object_unref (volume);
+             }
+           g_list_free (volumes);
+-- 
+2.20.1
+
