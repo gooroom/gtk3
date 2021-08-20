@@ -1,0 +1,26 @@
+From 03f8b1da55914451efba13a432cb239e18e243b6 Mon Sep 17 00:00:00 2001
+From: HaeRyongJeong <jeong89@gooroom.kr>
+Date: Thu, 18 Jun 2020 15:37:51 +0900
+Subject: [PATCH] Fixed it tooltip on tray status icon
+
+Change-Id: I299393e9c31c1370c97272e8d4f9d10e2ecb3d49
+---
+ gtk/gtktooltip.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gtk/gtktooltip.c b/gtk/gtktooltip.c
+index 9917d93..dca2223 100644
+--- a/gtk/gtktooltip.c
++++ b/gtk/gtktooltip.c
+@@ -936,7 +936,7 @@ gtk_tooltip_position (GtkTooltip *tooltip,
+       if (anchor_rect.height > max_anchor_rect_height)
+         {
+           anchor_rect.x = pointer_x - 4;
+-          anchor_rect.y = pointer_y - 4;
++          anchor_rect.y = anchor_rect.y >= 0 ? pointer_y - 4 : anchor_rect.y;
+           anchor_rect.width = cursor_size;
+           anchor_rect.height = cursor_size;
+         }
+-- 
+2.20.1
+
