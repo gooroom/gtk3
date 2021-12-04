@@ -1,3 +1,31 @@
+gtk+3.0 (3.24.24-4+grm3u1) unstable; urgency=medium
+
+  [ heejun.jang ]
+  * [54505201] Fixed to reset im-context when mouse button is clicked in GtkEntry
+  * [74a761cd] Added the patch to prevent root folder access
+  * [1655fbd4] Modify access time format in GtkFileChooserDialog
+  * [13b4bd6c] Adding the patch to not add the current directory to the sidebar in GtkFileChooserDialog for Gooroom 2.0
+  * [e81ea4f5] Adding the patch to disable entry completion popup in GtkFileChooserDialog for Gooroom 2.0
+  * [ed644ec6] Added patch to modify Hangul input error in block state
+  * [006b4c62] Added the patch for file dialog rename button error and change print preview application
+  * [efb042e7] [Bug:1438,2020]Fixed error when dropdown box in combo box to screen over
+  * [4195a371] [Bug:2358]Fixed it tooltip on tray status icon
+  * [26dd2969] Do not displaying emoji input context menu by default
+  * [8110fe1f] [Bug:2098]Stay current location event when directory search fails in gtkfilechooserdialog
+  * [98de86c6] Enabled font fallback for Noto font preview
+  * [c3bf6985] Do not show the unmounted volumes in the sidebar
+  * [9233d7dd] [Bug:2489]Do not display a list of running processes in the Force Quit dialog when unmounting
+  * [43136e9e] [Bug:2940]Added the patch to prevent access root folder in GtkFileChooserButton
+  * [d002ac29] [Bug:2588,2984]Correction of ending character error when deleting Hangul combination characters in GtkEntry
+  * [51bcaec9] [Bug:3127]Keep window size from reverting when minimizing window
+  * [2fdbfb91] [Bug:2610]Generated unmount noti
+  * [6096ebba] [Bug:3313]GtkFileChooserWidget Selected File Refresh
+  * [f0ed5530] [Bug:2539]Modified print page option action according to the number of pages
+  * [34ad1b98] [Bug:3156]Fixed emoji search error
+  * [f8bd21ee] [Bug:2509]Made characters about gtkprinter options translatable
+
+ -- Gooroom Autobuilder <jenkins@gooroom.kr>  Sat, 04 Dec 2021 17:05:03 +0900
+
 gtk+3.0 (3.24.24-4) unstable; urgency=medium
 
   * Add various patches from upstream 3.24.25 to 3.24.29, mostly
