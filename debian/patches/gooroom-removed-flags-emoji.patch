@@ -1,0 +1,123 @@
+diff --git a/gtk/gtkemojichooser.c b/gtk/gtkemojichooser.c
+index 494da9e..a4057a7 100644
+--- a/gtk/gtkemojichooser.c
++++ b/gtk/gtkemojichooser.c
+@@ -65,7 +65,7 @@ struct _GtkEmojiChooser
+   EmojiSection activities;
+   EmojiSection objects;
+   EmojiSection symbols;
+-  EmojiSection flags;
++//  EmojiSection flags;
+ 
+   GtkGesture *recent_long_press;
+   GtkGesture *recent_multi_press;
+@@ -486,8 +486,8 @@ populate_emoji_chooser (gpointer data)
+         chooser->box = chooser->objects.box;
+       else if (strcmp (name, chooser->symbols.first) == 0)
+         chooser->box = chooser->symbols.box;
+-      else if (strcmp (name, chooser->flags.first) == 0)
+-        chooser->box = chooser->flags.box;
++//      else if (strcmp (name, chooser->flags.first) == 0)
++//        chooser->box = chooser->flags.box;
+ 
+       add_emoji (chooser->box, FALSE, item, 0, chooser);
+       g_variant_unref (item);
+@@ -524,7 +524,7 @@ adj_value_changed (GtkAdjustment *adj,
+     &chooser->activities,
+     &chooser->objects,
+     &chooser->symbols,
+-    &chooser->flags,
++//    &chooser->flags,
+   };
+   EmojiSection const *select_section = sections[0];
+   gsize i;
+@@ -627,14 +627,15 @@ update_headings (GtkEmojiChooser *chooser)
+   gtk_widget_set_visible (chooser->objects.box, !chooser->objects.empty);
+   gtk_widget_set_visible (chooser->symbols.heading, !chooser->symbols.empty);
+   gtk_widget_set_visible (chooser->symbols.box, !chooser->symbols.empty);
+-  gtk_widget_set_visible (chooser->flags.heading, !chooser->flags.empty);
+-  gtk_widget_set_visible (chooser->flags.box, !chooser->flags.empty);
++//  gtk_widget_set_visible (chooser->flags.heading, !chooser->flags.empty);
++//  gtk_widget_set_visible (chooser->flags.box, !chooser->flags.empty);
+ 
+   if (chooser->recent.empty && chooser->people.empty &&
+       chooser->body.empty && chooser->nature.empty &&
+       chooser->food.empty && chooser->travel.empty &&
+       chooser->activities.empty && chooser->objects.empty &&
+-      chooser->symbols.empty && chooser->flags.empty)
++      chooser->symbols.empty)
++//      chooser->symbols.empty && chooser->flags.empty)
+     gtk_stack_set_visible_child_name (GTK_STACK (chooser->stack), "empty");
+   else
+     gtk_stack_set_visible_child_name (GTK_STACK (chooser->stack), "list");
+@@ -655,7 +656,7 @@ search_changed (GtkEntry *entry,
+   invalidate_section (&chooser->activities);
+   invalidate_section (&chooser->objects);
+   invalidate_section (&chooser->symbols);
+-  invalidate_section (&chooser->flags);
++//  invalidate_section (&chooser->flags);
+ 
+   update_headings (chooser);
+ }
+@@ -741,7 +742,7 @@ gtk_emoji_chooser_init (GtkEmojiChooser *chooser)
+   setup_section (chooser, &chooser->activities, "jack-o-lantern", "emoji-activities-symbolic");
+   setup_section (chooser, &chooser->objects, "muted speaker", "emoji-objects-symbolic");
+   setup_section (chooser, &chooser->symbols, "ATM sign", "emoji-symbols-symbolic");
+-  setup_section (chooser, &chooser->flags, "chequered flag", "emoji-flags-symbolic");
++//  setup_section (chooser, &chooser->flags, "chequered flag", "emoji-flags-symbolic");
+ 
+   populate_recent_section (chooser);
+ 
+@@ -821,9 +822,9 @@ gtk_emoji_chooser_class_init (GtkEmojiChooserClass *klass)
+   gtk_widget_class_bind_template_child (widget_class, GtkEmojiChooser, symbols.heading);
+   gtk_widget_class_bind_template_child (widget_class, GtkEmojiChooser, symbols.button);
+ 
+-  gtk_widget_class_bind_template_child (widget_class, GtkEmojiChooser, flags.box);
+-  gtk_widget_class_bind_template_child (widget_class, GtkEmojiChooser, flags.heading);
+-  gtk_widget_class_bind_template_child (widget_class, GtkEmojiChooser, flags.button);
++//  gtk_widget_class_bind_template_child (widget_class, GtkEmojiChooser, flags.box);
++//  gtk_widget_class_bind_template_child (widget_class, GtkEmojiChooser, flags.heading);
++//  gtk_widget_class_bind_template_child (widget_class, GtkEmojiChooser, flags.button);
+ 
+   gtk_widget_class_bind_template_callback (widget_class, emoji_activated);
+   gtk_widget_class_bind_template_callback (widget_class, search_changed);
+diff --git a/gtk/ui/gtkemojichooser.ui b/gtk/ui/gtkemojichooser.ui
+index e541e63..35cbd96 100644
+--- a/gtk/ui/gtkemojichooser.ui
++++ b/gtk/ui/gtkemojichooser.ui
+@@ -167,7 +167,7 @@
+                             <signal name="child-activated" handler="emoji_activated"/>
+                           </object>
+                         </child>
+-                        <child>
++                        <!--<child>
+                           <object class="GtkLabel" id="flags.heading">
+                             <property name="visible">1</property>
+                             <property name="label" translatable="yes">Flags</property>
+@@ -181,7 +181,7 @@
+                             <property name="selection-mode">none</property>
+                             <signal name="child-activated" handler="emoji_activated"/>
+                           </object>
+-                        </child>
++                        </child> -->
+                       </object>
+                     </child>
+                   </object>
+@@ -325,7 +325,7 @@
+                         </child>
+                       </object>
+                     </child>
+-                    <child>
++                    <!--<child>
+                       <object class="GtkButton" id="flags.button">
+                         <property name="visible">1</property>
+                         <property name="relief">none</property>
+@@ -339,7 +339,7 @@
+                           </object>
+                         </child>
+                       </object>
+-                    </child>
++                    </child> -->
+                   </object>
+                 </child>
+               </object>
